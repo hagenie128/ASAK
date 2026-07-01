@@ -87,7 +87,7 @@ ADDON_PDF_CATEGORIES = {"BASE", "PROTEIN", "VEGGIES", "CRISPY", "DRESSING", "DRI
 
 NAVER_GRAPHQL_URL = "https://m.booking.naver.com/graphql"
 NAVER_MENU_PROJECTIONS = (
-    "RequiredSubOptionPrice,ReviewScoreAvg,Category,HasSubOption,BookingCount"
+    "ORDER_BOOKING_COUNT,CATEGORY,HAS_SUB_OPTION,REQUIRED_SUB_OPTION_PRICE,REVIEW_SCORE_AVG"
 )
 DEFAULT_SET_SIDES = ["카사바칩", "코크제로"]
 
@@ -121,6 +121,36 @@ STORE_CATEGORY_MAP = {
     "음료": "음료&사이드",
     "올데이 세트": "세트",
 }
+
+# 영양 PDF DRESSING 섹션에 없지만 매장·알레르기 PDF에 등장하는 드레싱
+DRESSING_CATALOG_EXTRAS = (
+    "시저",
+    "허니머스타드",
+    "(저당) 들기름소이",
+    "고추간장 소스",
+)
+
+# 샌드위치/랩 옵션에서 드레싱·소스로 쓰이는 토핑
+DRESSING_CATALOG_SAUCES = (
+    "바질페스토",
+    "화이트치즈소스",
+)
+
+CATEGORY_NAME_HINTS: list[tuple[re.Pattern[str], str, str]] = [
+    (re.compile(r"세트\s*$"), "올데이 세트", "세트"),
+    (re.compile(r"\d+\s*ml", re.I), "음료", "음료&사이드"),
+    (re.compile(r"아메리카노|라떼|콜라|제로|스파클링|밀싹|클렌즈|주스", re.I), "음료", "음료&사이드"),
+    (re.compile(r"스프|칩|사이드", re.I), "사이드", "음료&사이드"),
+    (re.compile(r"온브레드"), "샌드위치", "샌드위치"),
+    (re.compile(r"샌드위치|버거"), "샌드위치", "샌드위치"),
+    (re.compile(r"곡물랩"), "곡물랩", "랩"),
+    (re.compile(r"랩"), "랩", "랩"),
+    (re.compile(r"누들볼|누들"), "누들볼", "누들볼"),
+    (re.compile(r"그레인볼|덮밥"), "그레인볼", "그레인볼"),
+    (re.compile(r"프로틴\s*박스"), "프로틴 박스", "프로틴 박스"),
+    (re.compile(r"포케|샐러디"), "샐러디", "샐러디"),
+    (re.compile(r"마이\s*샐러디"), "마이 샐러디", "나만의 샐러디"),
+]
 
 NUTRITION_COLUMNS = [
     "menu",
@@ -188,7 +218,8 @@ NAV_INCLUDED_DRESSING = {
 }
 
 DRESSING_FROM_TEXT_RE = re.compile(
-    r"(추천\s*드레싱|포함\s*드레싱|추천드레싱|포함드레싱)\s*[:：]\s*([^/)]+)",
+    r"(추천\s*드레싱|포함\s*드레싱|추천드레싱|포함드레싱)\s*[:：]\s*"
+    r"(.+?)(?:\s*\)\s*/|\s*/|\s*더보기|$)",
     re.IGNORECASE,
 )
 
@@ -199,7 +230,7 @@ def _clean_dressing_raw(name: str) -> str:
     text = name.strip()
     text = re.sub(r"\s*\([^)]*미제공[^)]*\)", "", text)
     text = re.sub(r"\s*\([^)]*별도[^)]*\)", "", text)
-    return text.strip(" /)")
+    return text.strip(" /)").rstrip(")")
 
 
 def _normalize_dressing_key(name: str) -> str:
@@ -251,9 +282,47 @@ def canonicalize_dressing_name(
     return cleaned
 
 
+def _nutrition_dict_to_pdf_row(name: str, nutrition: dict[str, Any]) -> dict[str, Any]:
+    row = {"menu": name}
+    for key in (
+        "weight_g",
+        "calories_kcal",
+        "carbs_g",
+        "sugar_g",
+        "protein_g",
+        "fat_g",
+        "saturated_fat_g",
+        "sodium_mg",
+    ):
+        value = nutrition.get(key)
+        if value is None and key == "calories_kcal":
+            value = nutrition.get("kcal")
+        if value not in (None, ""):
+            row[key] = value
+    return row
+
+
+def _allergens_for_dressing(
+    name: str,
+    allergy_rows: list[dict[str, Any]] | None,
+) -> list[str]:
+    if not allergy_rows:
+        return []
+    key = _normalize_menu_name(name)
+    for row in allergy_rows:
+        if row.get("category") != "DRESSING":
+            continue
+        if _normalize_menu_name(row.get("menu", "")) == key:
+            return list(row.get("allergens") or [])
+    return []
+
+
 def build_dressings_catalog(
     extra_toppings: dict[str, list[dict[str, Any]]] | None = None,
     calorie_data: dict[str, Any] | None = None,
+    allergy_rows: list[dict[str, Any]] | None = None,
+    menus: list[dict[str, Any]] | None = None,
+    nutrition_supplements: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     seen: set[str] = set()
     items: list[dict[str, Any]] = []
@@ -262,6 +331,8 @@ def build_dressings_catalog(
         name: str,
         nutrition: dict[str, Any] | None = None,
         kcal: float | None = None,
+        allergens: list[str] | None = None,
+        source: str = "",
     ) -> None:
         if not name:
             return
@@ -275,11 +346,30 @@ def build_dressings_catalog(
             entry["nutrition_pdf"] = nutrition
         if kcal is not None:
             entry["kcal"] = kcal
+        if allergens:
+            entry["allergens"] = allergens
+        if source:
+            entry["source"] = source
         items.append(entry)
 
     if extra_toppings:
         for row in extra_toppings.get("Dressing", []):
-            add(row.get("menu", ""), nutrition=row)
+            add(
+                row.get("menu", ""),
+                nutrition=row,
+                allergens=_allergens_for_dressing(row.get("menu", ""), allergy_rows),
+                source="nutrition_pdf",
+            )
+        for row in extra_toppings.get("Sauce & Mousse", []):
+            menu_name = row.get("menu", "")
+            if menu_name not in DRESSING_CATALOG_SAUCES:
+                continue
+            add(
+                menu_name,
+                nutrition=row,
+                allergens=_allergens_for_dressing(menu_name, allergy_rows),
+                source="nutrition_pdf",
+            )
 
     if calorie_data:
         for row in calorie_data.get("topping_categories", {}).get("드레싱 선택", []):
@@ -287,14 +377,197 @@ def build_dressings_catalog(
                 row.get("name", ""),
                 nutrition=row.get("nutrition_pdf"),
                 kcal=row.get("kcal"),
+                allergens=_allergens_for_dressing(row.get("name", ""), allergy_rows),
+                source="calorie_calculator",
+            )
+        for row in calorie_data.get("topping_categories", {}).get("소스 선택", []):
+            menu_name = row.get("name", "")
+            if menu_name not in DRESSING_CATALOG_SAUCES:
+                continue
+            add(
+                menu_name,
+                nutrition=row.get("nutrition_pdf"),
+                kcal=row.get("kcal"),
+                source="calorie_calculator",
             )
 
+    if menus:
+        sauce_names = set(DRESSING_CATALOG_SAUCES)
+        for menu in menus:
+            if menu.get("menu_type") != "topping":
+                continue
+            name = menu.get("name_ko", "")
+            if name not in sauce_names:
+                continue
+            nutrition = menu.get("nutrition") or menu.get("nutrition_pdf") or {}
+            add(
+                name,
+                nutrition=_nutrition_dict_to_pdf_row(name, nutrition) if nutrition else None,
+                kcal=nutrition.get("calories_kcal"),
+                allergens=menu.get("allergy") or _allergens_for_dressing(name, allergy_rows),
+                source="official_topping",
+            )
+
+    for name in DRESSING_CATALOG_EXTRAS:
+        add(
+            name,
+            allergens=_allergens_for_dressing(name, allergy_rows),
+            source="allergy_pdf",
+        )
+
     items.sort(key=lambda item: item["name"])
-    return {
+    catalog = {
         "count": len(items),
         "name_map": {item["name_normalized"]: item["name"] for item in items},
         "items": items,
     }
+    return apply_dressing_nutrition_supplements(catalog, nutrition_supplements)
+
+
+def apply_dressing_nutrition_supplements(
+    catalog: dict[str, Any],
+    supplements: dict[str, Any] | None,
+) -> dict[str, Any]:
+    """영양 PDF에 없는 드레싱에 보조 영양 데이터 병합."""
+    if not supplements:
+        return catalog
+    by_key = {item["name_normalized"]: item for item in catalog.get("items", [])}
+    merged = 0
+    for sup in supplements.get("items", []):
+        name = sup.get("name", "")
+        key = _normalize_dressing_key(canonicalize_dressing_name(name))
+        entry = by_key.get(key)
+        if not entry:
+            continue
+        nutrition = sup.get("nutrition_pdf") or {}
+        if nutrition.get("note") and "calories_kcal" not in nutrition:
+            entry.setdefault("nutrition_notes", nutrition.get("note"))
+            continue
+        if "calories_kcal" not in nutrition:
+            continue
+        if not entry.get("nutrition_pdf"):
+            entry["nutrition_pdf"] = nutrition
+            merged += 1
+        if entry.get("kcal") is None and sup.get("kcal") is not None:
+            entry["kcal"] = sup["kcal"]
+        if sup.get("source"):
+            entry["nutrition_source"] = sup["source"]
+        if sup.get("source_url"):
+            entry["nutrition_source_url"] = sup["source_url"]
+    catalog["supplement_merge_count"] = merged
+    return catalog
+
+
+def load_dressing_nutrition_supplements(output_dir: Path) -> dict[str, Any] | None:
+    path = output_dir / "dressing_nutrition_supplements.json"
+    if not path.exists():
+        return None
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def build_official_category_index(
+    menus: list[dict[str, Any]],
+) -> dict[str, dict[str, str]]:
+    index: dict[str, dict[str, str]] = {}
+    for menu in menus:
+        if menu.get("menu_type") not in ("main", ""):
+            continue
+        key = _normalize_store_menu_name(menu.get("name_ko", ""))
+        if not key or key in index:
+            continue
+        index[key] = {
+            "category": menu.get("category", ""),
+            "nav_category": menu.get("nav_category", ""),
+        }
+    return index
+
+
+def build_store_category_fallback(
+    store_payload: dict[str, Any],
+) -> dict[str, tuple[str, str]]:
+    fallback: dict[str, tuple[str, str]] = {}
+    for store in store_payload.get("stores", []):
+        for item in store.get("items", []):
+            category = (item.get("category") or "").strip()
+            if not category:
+                continue
+            key = item.get("name_normalized") or _normalize_store_menu_name(
+                item.get("name", "")
+            )
+            nav = (item.get("nav_category") or "").strip() or STORE_CATEGORY_MAP.get(
+                category, category
+            )
+            fallback[key] = (category, nav)
+    return fallback
+
+
+def infer_store_item_category(
+    item: dict[str, Any],
+    official_index: dict[str, dict[str, str]] | None = None,
+    store_fallback: dict[str, tuple[str, str]] | None = None,
+) -> tuple[str, str]:
+    if item.get("category"):
+        category = item["category"]
+        nav = item.get("nav_category") or STORE_CATEGORY_MAP.get(category, category)
+        return category, nav
+
+    key = item.get("name_normalized") or _normalize_store_menu_name(item.get("name", ""))
+    base_key = _normalize_store_menu_name(item.get("base_menu_name", item.get("name", "")))
+
+    for lookup_key in (key, base_key):
+        if official_index and lookup_key in official_index:
+            meta = official_index[lookup_key]
+            if meta.get("category"):
+                category = meta["category"]
+                nav = meta.get("nav_category") or STORE_CATEGORY_MAP.get(
+                    category, category
+                )
+                return category, nav
+        if store_fallback and lookup_key in store_fallback:
+            return store_fallback[lookup_key]
+
+    name = item.get("name", "")
+    if item.get("is_set"):
+        return "올데이 세트", "세트"
+    for pattern, category, nav in CATEGORY_NAME_HINTS:
+        if pattern.search(name):
+            return category, nav
+    return "", ""
+
+
+def backfill_store_categories(
+    store_payload: dict[str, Any],
+    official_menus: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    official_index = build_official_category_index(official_menus or [])
+    store_fallback = build_store_category_fallback(store_payload)
+    filled = 0
+
+    for store in store_payload.get("stores", []):
+        category_counts: dict[str, int] = {}
+        for item in store.get("items", []):
+            category, nav = infer_store_item_category(
+                item, official_index, store_fallback
+            )
+            if category and not item.get("category"):
+                item["category"] = category
+                item["nav_category"] = nav
+                filled += 1
+            category_name = item.get("category", "")
+            if category_name:
+                category_counts[category_name] = category_counts.get(category_name, 0) + 1
+
+        if category_counts and not store.get("categories"):
+            store["categories"] = [
+                {"name": name, "item_count": count}
+                for name, count in sorted(
+                    category_counts.items(),
+                    key=lambda pair: (-pair[1], pair[0]),
+                )
+            ]
+
+    store_payload["category_backfill"] = {"filled": filled}
+    return store_payload
 
 
 def enrich_menu_dressings(
@@ -313,6 +586,14 @@ def enrich_menu_dressings(
                 continue
             desc = pricing.get("description", "")
             dressing_type, dressing_name = extract_dressing_from_text(desc)
+            if not dressing_name:
+                naver_opts = pricing.get("naver_options") or {}
+                selection = naver_opts.get("dressing_selection") or []
+                for label in selection:
+                    if "추천" in label:
+                        dressing_type = "recommended"
+                        dressing_name = _dressing_name_from_naver_option(label) or label
+                        break
             if not dressing_name:
                 continue
             store_id = store_key.split("__", 1)[0]
@@ -365,6 +646,14 @@ def enrich_menu_dressings(
                 dressing_info["official"] = official_name
             if store_sources:
                 dressing_info["store_sources"] = store_sources
+            for store_key, pricing in (menu.get("store_pricing") or {}).items():
+                if "__set__" in store_key:
+                    continue
+                naver_opts = pricing.get("naver_options")
+                if naver_opts:
+                    dressing_info.setdefault("naver_options", {})[
+                        store_key.split("__", 1)[0]
+                    ] = naver_opts
             menu["dressing"] = dressing_info
         else:
             menu.pop("dressing", None)
@@ -392,6 +681,53 @@ def _parse_price_krw(price_text: str) -> int | None:
         return None
     digits = re.sub(r"[^\d]", "", price_text)
     return int(digits) if digits else None
+
+
+def _parse_naver_sub_option_groups(groups: list[dict[str, Any]] | None) -> dict[str, Any]:
+    """네이버 subOption GraphQL 응답에서 옵션 그룹·드레싱 필드를 추출."""
+    result: dict[str, Any] = {
+        "option_groups": [],
+        "dressing_selection": [],
+        "dressing_amount": [],
+        "dressing_extra_purchase": [],
+    }
+    if not groups:
+        return result
+    for group in groups:
+        name = (group.get("name") or "").strip()
+        items: list[dict[str, Any]] = []
+        for row in group.get("items") or []:
+            item_name = (row.get("name") or "").strip()
+            if not item_name:
+                continue
+            price = row.get("price")
+            if isinstance(price, str):
+                price = _parse_price_krw(price)
+            items.append({"name": item_name, "price": price})
+        result["option_groups"].append(
+            {
+                "name": name,
+                "required": bool(group.get("isRequired")),
+                "items": items,
+            }
+        )
+        if "드레싱 선택" in name:
+            result["dressing_selection"] = [row["name"] for row in items]
+        elif "드레싱 양" in name:
+            result["dressing_amount"] = [row["name"] for row in items]
+        elif "드레싱 추가" in name:
+            result["dressing_extra_purchase"] = [row["name"] for row in items]
+    return result
+
+
+def _dressing_name_from_naver_option(label: str) -> str:
+    """'크리미칠리 변경' / '오리엔탈 추가' 등에서 드레싱명만 추출."""
+    text = (label or "").strip()
+    if not text or text in {"선택안함", "추천 드레싱", "드레싱 빼고"}:
+        return ""
+    text = re.sub(r"\s*추가\s*$", "", text)
+    text = re.sub(r"\s*변경\s*$", "", text)
+    return _clean_dressing_raw(text)
 
 
 def _parse_set_info(name: str, description: str) -> dict[str, Any]:
@@ -512,6 +848,9 @@ class SaladyScraper:
         response.raise_for_status()
         response.encoding = response.apparent_encoding or "utf-8"
         return response
+
+    def _sleep(self) -> None:
+        time.sleep(self.delay)
 
     def _download_file(self, url: str, dest: Path) -> Path:
         dest.parent.mkdir(parents=True, exist_ok=True)
@@ -1431,6 +1770,48 @@ class SaladyScraper:
             },
         }
 
+    def _naver_fetch_sub_options(
+        self,
+        config: dict[str, Any],
+        js_bundle: str,
+        option_id: str,
+        referer: str,
+        biz_item_type: str,
+    ) -> dict[str, Any]:
+        menu_details_query = self._extract_graphql_query(js_bundle, "menuDetails")
+        if not menu_details_query or not option_id:
+            return {}
+        menu_input = {
+            "lang": "ko",
+            "businessId": config["business_id"],
+            "bizItemId": config["biz_item_id"],
+            "bizItemType": biz_item_type,
+            "optionId": option_id,
+            "projections": NAVER_MENU_PROJECTIONS,
+            "fallback": {"isToday": True},
+        }
+        sub_option_input = {
+            "lang": "ko",
+            "businessId": config["business_id"],
+            "optionId": option_id,
+            "bizItemType": biz_item_type,
+        }
+        data = self._naver_graphql(
+            "menuDetails",
+            menu_details_query,
+            {
+                "menuInput": menu_input,
+                "subOptionInput": sub_option_input,
+                "withSubOptions": True,
+                "withMappingOrders": False,
+            },
+            referer,
+        )
+        sub_option = (data.get("data") or {}).get("subOption")
+        if isinstance(sub_option, dict):
+            sub_option = [sub_option]
+        return _parse_naver_sub_option_groups(sub_option if isinstance(sub_option, list) else [])
+
     def _scrape_naver_store(self, config: dict[str, Any]) -> dict[str, Any]:
         store_id = config["id"]
         referer = config["url"]
@@ -1439,9 +1820,12 @@ class SaladyScraper:
         biz_item_key = f"BizItem:{config['business_id']}_{config['biz_item_id']}"
         biz_item = apollo.get(biz_item_key, {})
         available_start = biz_item.get("availableStartDate")
+        biz_item_type = biz_item.get("bizItemType") or "PICKUP"
 
+        js_match = re.search(r"/order/static/js/main\.([a-f0-9]+)\.js", page_html)
+        js_hash = js_match.group(1) if js_match else "0081f12f"
         js_bundle = self._get(
-            "https://m.booking.naver.com/order/static/js/main.0081f12f.js"
+            f"https://m.booking.naver.com/order/static/js/main.{js_hash}.js"
         ).text
         schedule_query = self._extract_graphql_query(js_bundle, "orderBizItemSchedule")
         menu_query = self._extract_graphql_query(js_bundle, "menu")
@@ -1472,7 +1856,7 @@ class SaladyScraper:
         menu_input: dict[str, Any] = {
             "lang": "ko",
             "businessId": config["business_id"],
-            "bizItemType": biz_item.get("bizItemType") or "PICKUP",
+            "bizItemType": biz_item_type,
             "projections": NAVER_MENU_PROJECTIONS,
             "fallback": {
                 "isToday": True,
@@ -1500,7 +1884,7 @@ class SaladyScraper:
                         "bizItemId": config["biz_item_id"],
                         "lang": "ko",
                         "slotId": slot_id,
-                        "bizItemType": menu_input["bizItemType"],
+                        "bizItemType": biz_item_type,
                     }
                 },
                 referer,
@@ -1515,6 +1899,7 @@ class SaladyScraper:
         }
 
         items: list[dict[str, Any]] = []
+        sub_option_count = 0
         for raw in raw_menus:
             category_ids = raw.get("categoryIds") or []
             category_name = ""
@@ -1526,6 +1911,15 @@ class SaladyScraper:
             if isinstance(price_krw, str):
                 price_krw = _parse_price_krw(price_krw)
             set_info = _parse_set_info(name, description)
+            option_id = raw.get("optionId")
+            has_sub_option = bool(raw.get("hasSubOption"))
+            naver_options: dict[str, Any] = {}
+            if has_sub_option and option_id:
+                naver_options = self._naver_fetch_sub_options(
+                    config, js_bundle, str(option_id), referer, biz_item_type
+                )
+                sub_option_count += 1
+                self._sleep()
             items.append(
                 {
                     "store_id": store_id,
@@ -1543,7 +1937,9 @@ class SaladyScraper:
                     "stock": raw.get("remainStock"),
                     "is_store_exclusive": False,
                     "naver_menu_id": raw.get("id"),
-                    "naver_option_id": raw.get("optionId"),
+                    "naver_option_id": option_id,
+                    "has_sub_option": has_sub_option,
+                    "naver_options": naver_options,
                     **set_info,
                 }
             )
@@ -1558,11 +1954,8 @@ class SaladyScraper:
             errors = (menu_data.get("errors") or schedule_data.get("errors") or [])
             if errors:
                 error = errors[0].get("message")
-            elif not slot_id:
-                error = (
-                    "영업 슬롯(slotId)을 가져오지 못했습니다. "
-                    "매장 영업시간 외에는 네이버 주문 메뉴가 비어 있을 수 있습니다."
-                )
+            else:
+                error = "네이버 주문 메뉴 API에서 항목을 가져오지 못했습니다."
 
         singles = [item for item in items if not item["is_set"]]
         sets = [item for item in items if item["is_set"]]
@@ -1584,6 +1977,7 @@ class SaladyScraper:
                 "store_exclusive": sum(
                     1 for item in items if item["is_store_exclusive"]
                 ),
+                "with_sub_options": sub_option_count,
             },
         }
 
@@ -1623,6 +2017,7 @@ class SaladyScraper:
         menus: list[dict[str, Any]],
         store_payload: dict[str, Any],
     ) -> list[dict[str, Any]]:
+        backfill_store_categories(store_payload, menus)
         appended: list[dict[str, Any]] = []
         appended_keys: set[str] = set()
 
@@ -1654,6 +2049,8 @@ class SaladyScraper:
                     "image_url": item.get("image_url", ""),
                     "description": item.get("description", ""),
                 }
+                if item.get("naver_options"):
+                    pricing["naver_options"] = item["naver_options"]
 
                 if item.get("is_set"):
                     base_key = _normalize_store_menu_name(
@@ -1971,7 +2368,13 @@ class SaladyScraper:
             store_menus = self.scrape_store_menus()
             merged = self.merge_store_menus(merged, store_menus)
 
-        dressings_catalog = build_dressings_catalog(extra_toppings, calorie_data)
+        dressings_catalog = build_dressings_catalog(
+            extra_toppings,
+            calorie_data,
+            allergy_rows=allergy_rows,
+            menus=merged,
+            nutrition_supplements=load_dressing_nutrition_supplements(self.output_dir),
+        )
         merged = enrich_menu_dressings(merged, dressings_catalog)
         dressing_menus = sum(
             1 for m in merged if m.get("recommended_dressing") or m.get("included_dressing")

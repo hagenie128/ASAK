@@ -9,6 +9,7 @@ from pathlib import Path
 from salady_scraper import (
     build_dressings_catalog,
     enrich_menu_dressings,
+    load_dressing_nutrition_supplements,
     write_menus_csv,
 )
 
@@ -29,8 +30,19 @@ def main() -> None:
     if calorie_path.exists():
         calorie_data = json.loads(calorie_path.read_text(encoding="utf-8"))
 
+    allergy_rows: list | None = None
+    allergy_path = output_dir / "allergy_pdf.json"
+    if allergy_path.exists():
+        allergy_rows = json.loads(allergy_path.read_text(encoding="utf-8"))
+
     menus = json.loads(menus_path.read_text(encoding="utf-8"))
-    dressings_catalog = build_dressings_catalog(extra_toppings, calorie_data)
+    dressings_catalog = build_dressings_catalog(
+        extra_toppings,
+        calorie_data,
+        allergy_rows=allergy_rows,
+        menus=menus,
+        nutrition_supplements=load_dressing_nutrition_supplements(output_dir),
+    )
     enriched = enrich_menu_dressings(menus, dressings_catalog)
 
     menus_path.write_text(
