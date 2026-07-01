@@ -1,0 +1,149 @@
+{
+  "membership": {
+    "url": "https://salady.com/app/membership",
+    "title": "샐러디 멤버십",
+    "images": [
+      "https://salady.com/images/sub/salady_membership_1280_pc.jpg",
+      "https://salady.com/images/sub/salady_membership_1080_mo.jpg"
+    ],
+    "sections": [],
+    "stamp": {
+      "summary": [
+        "메인메뉴 1개당 스탬프 1개를 적립할 수 있습니다. 스탬프 12개 적립 시 3,000원 할인 쿠폰 1장이 자동 발급됩니다."
+      ],
+      "notices": {
+        "general": [],
+        "스탬프": [
+          "7,200원 이상의 메인 메뉴 1개 당 스탬프 1개가 적립됩니다.",
+          "나만의 샐러디(커스텀 메뉴) 구매 시, 스탬프가 적립되지 않습니다. 토핑을 추가하여 7,200원 이상 구매하는 경우에도 스탬프는 적립되지 않습니다.",
+          "스탬프 12개 적립 시 3,000원 할인쿠폰이 자동 발급되며, 적립 완료시점을 기준으로 익일부터 사용 가능합니다.",
+          "스탬프 3,000원 할인 쿠폰은 7,200원 이상 주문 시 사용 가능하며, 유효기간은 30일 입니다.",
+          "타사 플랫폼/서비스를 통한 주문 및 결제 시에는 적립 및 사용이 불가합니다.",
+          "스탬프의 유효기간은 1년이며, 유효기간이 지난 스탬프는 순차적으로 소멸됩니다."
+        ],
+        "등급 쿠폰": [
+          "각 멤버십 등급별 혜택은 등급 변경일을 기준으로 익월 1일부터 적용됩니다.",
+          "모든 등급 쿠폰은 7,200원 이상의 메인 메뉴 구매 시 할인 적용이 가능합니다.",
+          "모든 등급 쿠폰은 발급일 기준으로 30일간 사용 가능합니다.",
+          "생일 축하 쿠폰 : 2,000원 할인쿠폰 (연 1회 발급)",
+          "무료 드링크 쿠폰 : 2,400원 상당의 음료에서 선택 사용이 가능하며, 이상 금액은 차액 결제 후 사용이 가능합니다. (매월 1일, 월 1회 발급)",
+          "기린 등급 전용 쿠폰 : 2,000원 할인쿠폰 (매월 1일, 월 1회 발급)",
+          "구매 1건 당 1장의 쿠폰만 사용할 수 있습니다. (중복사용 불가)"
+        ],
+        "기타": [
+          "앱 서비스 이용 불가 매장 : 연세대점, 조선대점",
+          "위 매장은 시스템 사정 상 멤버십(스탬프 적립, 쿠폰 사용) 및 오더 서비스 이용이 불가합니다."
+        ]
+      }
+    },
+    "grade_table": {
+      "image_url": "https://salady.com/images/sub/salady_membership_1280_pc.jpg",
+      "status": "ok",
+      "ocr_text": "LEVEL 1\n10品号\n2000\n()\nLEVEL 2\n2,000\n()\nLEVEL 3\n40\n2,000\n()\n()\nLEVEL 4\n20001\n()\n()\n2,0001\n()",
+      "grades": [
+        {
+          "level": 1,
+          "name_ko": "달팽이",
+          "name_en": "Snail",
+          "stamps_required": 0,
+          "benefits": [
+            "신규회원 2,000원 쿠폰 (가입 시 증정)"
+          ],
+          "ocr_amounts_won": [
+            2000
+          ],
+          "ocr_text": "LEVEL 1\n10品号\n2000\n()"
+        },
+        {
+          "level": 2,
+          "name_ko": "토끼",
+          "name_en": "Rabbit",
+          "stamps_required": 5,
+          "benefits": [
+            "생일축하 2,000원 쿠폰 (연 1회)"
+          ],
+          "ocr_amounts_won": [
+            2000
+          ],
+          "ocr_text": "LEVEL 2\n2,000\n()"
+        },
+        {
+          "level": 3,
+          "name_ko": "판다",
+          "name_en": "Panda",
+          "stamps_required": 40,
+          "benefits": [
+            "생일축하 2,000원 쿠폰 1장 (연 1회)",
+            "무료 드링크 쿠폰 1장 (월 1회)"
+          ],
+          "ocr_amounts_won": [
+            2000
+          ],
+          "ocr_text": "LEVEL 3\n40\n2,000\n()\n()",
+          "stamps_required_ocr_confirmed": true
+        },
+        {
+          "level": 4,
+          "name_ko": "기린",
+          "name_en": "Giraffe",
+          "stamps_required": 80,
+          "benefits": [
+            "생일축하 2,000원 쿠폰 1장 (연 1회)",
+            "무료 드링크 쿠폰 1장 (월 1회)",
+            "2,000원 쿠폰 1장 (월 1회)"
+          ],
+          "ocr_amounts_won": [
+            2000,
+            2000
+          ],
+          "ocr_text": "LEVEL 4\n20001\n()\n()\n2,0001\n()"
+        }
+      ]
+    }
+  },
+  "order": {
+    "url": "https://salady.com/app/order",
+    "title": "샐러디 멤버십",
+    "images": [
+      "https://salady.com/images/sub/salady_order_679_pc.jpg",
+      "https://salady.com/images/sub/salady_order_400_mo.jpg",
+      "https://salady.com/images/sub/app/app_order_img1.jpg",
+      "https://salady.com/images/sub/app/app_order_btn_apple.png",
+      "https://salady.com/images/sub/app/app_order_btn_google.png"
+    ],
+    "sections": [],
+    "highlights": [
+      "앱을 통해 가장 가까운 샐러디 매장에서 편리하게 주문하고 빠르게 픽업할 수 있습니다.",
+      "Eat Better Be Better"
+    ]
+  },
+  "giftcard": {
+    "url": "https://salady.com/app/giftcard",
+    "title": "샐러디 멤버십",
+    "images": [
+      "https://salady.com/images/sub/app/app_giftcard_img1.jpg",
+      "https://salady.com/images/sub/app/app_giftcard_img2.jpg",
+      "https://salady.com/images/sub/app/app_giftcard_step1.jpg",
+      "https://salady.com/images/sub/app/app_giftcard_step2.jpg",
+      "https://salady.com/images/sub/app/app_giftcard_ico1.jpg",
+      "https://salady.com/images/sub/app/app_giftcard_ico2.jpg",
+      "https://salady.com/images/sub/app/app_giftcard_ico3.jpg"
+    ],
+    "sections": [],
+    "gift_types": [
+      "#일반충전 #자동충전 #선물하기",
+      "일반 충전 / 자동 충전",
+      "자동 충전이란?",
+      "01. 기프트카드 선물하기 선택"
+    ],
+    "steps": [
+      "01. 기프트카드 선물하기 선택 기프트카드 화면 하단의 ‘기프트카드 선물하기’를 선택해주세요.",
+      "2. 기프트카드 선택 10,000원 단위로 선물 금액을  입력 후 수신자의 연락처 정보를 입력해주세요. 샐러디 오더 회원이 아니어도 선물을 받을 수 있습니다.",
+      "03. 결제 완료 기프트카드 선물이 완료되었습니다. 선물 내역을 확인해주세요."
+    ]
+  },
+  "app_download_popup": {
+    "url": "https://salady.com/inc/ajax.saladyApp.php",
+    "has_content": true
+  }
+}

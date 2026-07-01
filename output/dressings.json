@@ -1,0 +1,151 @@
+{
+  "count": 9,
+  "name_map": {
+    "(저당)랜치": "(저당) 랜치",
+    "(저당)레몬허브": "(저당) 레몬허브",
+    "(저당)발사믹": "(저당) 발사믹",
+    "(저당)스리라차소이": "(저당) 스리라차소이",
+    "(저당)참깨소이": "(저당) 참깨소이",
+    "고추장비빔": "고추장비빔",
+    "오리엔탈": "오리엔탈",
+    "크리미칠리": "크리미칠리",
+    "크리미할라피뇨": "크리미할라피뇨"
+  },
+  "items": [
+    {
+      "name": "(저당) 랜치",
+      "name_normalized": "(저당)랜치",
+      "nutrition_pdf": {
+        "menu": "(저당) 랜치",
+        "weight_g": 50.0,
+        "calories_kcal": 137.3,
+        "carbs_g": 9.7,
+        "sugar_g": 1.4,
+        "protein_g": 1.1,
+        "fat_g": 11.9,
+        "saturated_fat_g": 2.6,
+        "sodium_mg": 463.3
+      }
+    },
+    {
+      "name": "(저당) 레몬허브",
+      "name_normalized": "(저당)레몬허브",
+      "nutrition_pdf": {
+        "menu": "(저당) 레몬허브",
+        "weight_g": 50.0,
+        "calories_kcal": 4.1,
+        "carbs_g": 8.4,
+        "sugar_g": 0.5,
+        "protein_g": 0.2,
+        "fat_g": 0.1,
+        "saturated_fat_g": 0.1,
+        "sodium_mg": 360.0
+      }
+    },
+    {
+      "name": "(저당) 발사믹",
+      "name_normalized": "(저당)발사믹",
+      "nutrition_pdf": {
+        "menu": "(저당) 발사믹",
+        "weight_g": 50.0,
+        "calories_kcal": 110.0,
+        "carbs_g": 14.0,
+        "sugar_g": 2.0,
+        "protein_g": 0.0,
+        "fat_g": 6.0,
+        "saturated_fat_g": 0.9,
+        "sodium_mg": 250.0
+      }
+    },
+    {
+      "name": "(저당) 스리라차소이",
+      "name_normalized": "(저당)스리라차소이",
+      "nutrition_pdf": {
+        "menu": "(저당) 스리라차소이",
+        "weight_g": 50.0,
+        "calories_kcal": 58.2,
+        "carbs_g": 13.6,
+        "sugar_g": 2.1,
+        "protein_g": 0.8,
+        "fat_g": 0.0,
+        "saturated_fat_g": 0.0,
+        "sodium_mg": 562.5
+      }
+    },
+    {
+      "name": "(저당) 참깨소이",
+      "name_normalized": "(저당)참깨소이",
+      "nutrition_pdf": {
+        "menu": "(저당) 참깨소이",
+        "weight_g": 50.0,
+        "calories_kcal": 110.0,
+        "carbs_g": 6.0,
+        "sugar_g": 0.1,
+        "protein_g": 1.0,
+        "fat_g": 11.0,
+        "saturated_fat_g": 1.8,
+        "sodium_mg": 410.0
+      }
+    },
+    {
+      "name": "고추장비빔",
+      "name_normalized": "고추장비빔",
+      "nutrition_pdf": {
+        "menu": "고추장비빔",
+        "weight_g": 30.0,
+        "calories_kcal": 80.0,
+        "carbs_g": 17.0,
+        "sugar_g": 14.0,
+        "protein_g": 1.0,
+        "fat_g": 1.0,
+        "saturated_fat_g": 0.5,
+        "sodium_mg": 480.0
+      }
+    },
+    {
+      "name": "오리엔탈",
+      "name_normalized": "오리엔탈",
+      "nutrition_pdf": {
+        "menu": "오리엔탈",
+        "weight_g": 50.0,
+        "calories_kcal": 160.0,
+        "carbs_g": 8.0,
+        "sugar_g": 7.0,
+        "protein_g": 1.0,
+        "fat_g": 14.0,
+        "saturated_fat_g": 2.2,
+        "sodium_mg": 280.0
+      }
+    },
+    {
+      "name": "크리미칠리",
+      "name_normalized": "크리미칠리",
+      "nutrition_pdf": {
+        "menu": "크리미칠리",
+        "weight_g": 50.0,
+        "calories_kcal": 235.0,
+        "carbs_g": 14.0,
+        "sugar_g": 11.0,
+        "protein_g": 0.0,
+        "fat_g": 20.0,
+        "saturated_fat_g": 3.2,
+        "sodium_mg": 410.0
+      }
+    },
+    {
+      "name": "크리미할라피뇨",
+      "name_normalized": "크리미할라피뇨",
+      "nutrition_pdf": {
+        "menu": "크리미할라피뇨",
+        "weight_g": 50.0,
+        "calories_kcal": 235.0,
+        "carbs_g": 7.0,
+        "sugar_g": 7.0,
+        "protein_g": 1.0,
+        "fat_g": 23.0,
+        "saturated_fat_g": 3.6,
+        "sodium_mg": 320.0
+      }
+    }
+  ]
+}
