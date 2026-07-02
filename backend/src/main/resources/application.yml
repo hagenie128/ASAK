@@ -1,0 +1,4 @@
+# ASAK backend placeholder configuration
+spring:
+  application:
+    name: asak-backend

@@ -4,9 +4,9 @@ on:
   push:
     branches: [main]
     paths:
-      - "viewer/**"
-      - "output/*.json"
-      - "build_viewer.py"
+      - "frontend/viewer/**"
+      - "frontend/data/*.json"
+      - "frontend/build_viewer.py"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -31,9 +31,9 @@ jobs:
         with:
           python-version: "3.12"
       - name: Build static viewer
-        run: python build_viewer.py
+        run: python frontend/build_viewer.py
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: frontend/docs
       - id: deployment
         uses: actions/deploy-pages@v4
