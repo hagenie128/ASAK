@@ -25,6 +25,16 @@ data-pipeline/
 
 각 저장소는 이 통합 구조를 기준으로 별도 폴더와 원격으로도 분리됩니다.
 
+## 작업 방식 (중요)
+
+세 폴더는 **서로 다른 Git 저장소**입니다. 작업 후 `ha-team`에 다시 합칠 필요는 없습니다.
+
+- 프론트 개발 → `c:\ASAK-front` → `ASAK-front` 저장소에 푸시
+- 백엔드 개발 → `c:\ASAK-back` → `ASAK-back` 저장소에 푸시
+- 문서/파이프라인 → `c:\ha-team` → `ASAK` 저장소에 푸시
+
+자세한 설명은 `TEAM_SETUP.md`의 **2. Git 저장소 관계**를 참고하세요.
+
 ## 저장소
 
 - 통합: `https://github.com/hagenie128/ASAK`

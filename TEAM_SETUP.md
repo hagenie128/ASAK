@@ -19,7 +19,46 @@ c:\ASAK-front    -> ASAK-front
 c:\ASAK-back     -> ASAK-back
 ```
 
-## 2. 최초 클론
+## 2. Git 저장소 관계 (자주 헷갈리는 부분)
+
+세 폴더는 **서로 다른 Git 저장소**입니다. 하나로 합쳐서 관리하는 구조가 아닙니다.
+
+| 로컬 폴더 | GitHub 원격 | 역할 |
+|---|---|---|
+| `c:\ha-team` | [ASAK](https://github.com/hagenie128/ASAK) | 통합 문서, 파이프라인, 팀 가이드 |
+| `c:\ASAK-front` | [ASAK-front](https://github.com/hagenie128/ASAK-front) | 프론트 실제 개발 |
+| `c:\ASAK-back` | [ASAK-back](https://github.com/hagenie128/ASAK-back) | 백엔드 실제 개발 |
+
+각 저장소는 `main`, `develop` 브랜치가 있으며, 기능 작업은 `feature/...`, 버그 수정은 `fix/...` 브랜치를 사용합니다.
+
+### 작업 후 `ha-team`에 다시 합쳐야 하나?
+
+**아니요.** 작업이 끝날 때마다 통합 저장소에 다시 모을 필요는 없습니다.
+
+- 프론트 작업 → `c:\ASAK-front`에서 커밋/푸시
+- 백엔드 작업 → `c:\ASAK-back`에서 커밋/푸시
+- 문서/파이프라인 → `c:\ha-team`에서 커밋/푸시
+
+즉, **어디서 작업했으면 그 저장소에만 올리면** 됩니다.
+
+### `ha-team` 안의 `frontend/`, `backend/`는?
+
+`c:\ha-team\frontend`와 `c:\ASAK-front`는 **다른 Git 저장소**입니다.  
+`c:\ha-team\backend`와 `c:\ASAK-back`도 마찬가지입니다.
+
+`ha-team` 안의 `frontend/`, `backend/`는 통합 구조를 보여주는 참고용 폴더에 가깝고, 실제 프론트/백 개발은 각각 `ASAK-front`, `ASAK-back`에서 진행하는 것을 기준으로 합니다.
+
+### 예외: 데이터만 복사하는 경우
+
+코드를 합치는 것이 아니라, 1차 크롤링 JSON만 프론트로 가져올 때는 아래처럼 **파일 복사**만 하면 됩니다.
+
+```powershell
+sync_phase1_data_to_front.bat
+```
+
+이 경우에도 Git 저장소를 서로 merge할 필요는 없습니다.
+
+## 3. 최초 클론
 
 PowerShell에서:
 
@@ -29,7 +68,7 @@ git clone https://github.com/hagenie128/ASAK-front.git c:\ASAK-front
 git clone https://github.com/hagenie128/ASAK-back.git c:\ASAK-back
 ```
 
-## 3. 필수 프로그램
+## 4. 필수 프로그램
 
 권장 설치 항목:
 
@@ -45,7 +84,7 @@ python --version
 py -3.11 --version
 ```
 
-## 4. 실제 백엔드 세팅
+## 5. 실제 백엔드 세팅
 
 폴더:
 
@@ -70,7 +109,7 @@ src/
 
 - `src/main/resources/application.yml`
 
-## 5. 1차 크롤링 파이프라인 세팅
+## 6. 1차 크롤링 파이프라인 세팅
 
 폴더:
 
@@ -105,7 +144,7 @@ py -3.11 -m venv .venv
 
 - `c:\ha-team\data-pipeline\phase1\output`
 
-## 6. 프론트 세팅
+## 7. 프론트 세팅
 
 폴더:
 
@@ -137,7 +176,7 @@ python build_viewer.py
 sync_phase1_data_to_front.bat
 ```
 
-## 7. 통합 저장소 사용법
+## 8. 통합 저장소 사용법
 
 통합 저장소 `c:\ha-team`은 작업 기준점입니다.
 
@@ -154,7 +193,7 @@ sync_phase1_data_to_front.bat
 - 백엔드 작업: `c:\ASAK-back`
 - 데이터 파이프라인 작업: `c:\ha-team\data-pipeline\phase1`
 
-## 8. 작업 순서 추천
+## 9. 작업 순서 추천
 
 1. `c:\ha-team\data-pipeline\phase1`에서 크롤링/가공 후 `output/` 데이터 최신화
 2. 필요하면 `sync_phase1_data_to_front.bat` 또는 직접 복사로 `c:\ha-team\data-pipeline\phase1\output\`의 JSON을 `ASAK-front\data\`에 반영
@@ -162,7 +201,7 @@ sync_phase1_data_to_front.bat
 4. `ASAK-front`에서 `python build_viewer.py` 실행
 5. 화면 확인 후 각 저장소별 커밋
 
-## 9. 팀 공통 Git 순서
+## 10. 팀 공통 Git 순서
 
 브랜치 전략:
 
@@ -206,7 +245,7 @@ git push
 3. 작업 후 `develop` 기준으로 PR을 만든다.
 4. 충분히 검증된 내용만 `main`에 반영한다.
 
-## 10. 작업 기록 규칙
+## 11. 작업 기록 규칙
 
 디버깅, 기여도 정리, 포트폴리오 정리를 위해 작업 기록을 남기는 것을 권장합니다.
 
@@ -245,7 +284,7 @@ git push
 9. 개선 예정 사항
 10. 검증 내용
 11. 포트폴리오에 쓸 수 있는 한 줄 요약
-## 11. Cursor에서 쓰는 추천 프롬프트
+## 12. Cursor에서 쓰는 추천 프롬프트
 
 ### 백엔드 작업 요청
 
@@ -279,7 +318,7 @@ ASAK 통합 구조 기준으로 frontend, backend, data-pipeline, 문서 연결 
 팀원이 헷갈릴 부분이 있으면 README까지 정리해줘.
 ```
 
-## 12. 주의사항
+## 13. 주의사항
 
 - PowerShell에서 `Activate.ps1`이 막히면 가상환경 활성화 대신 직접 Python 경로를 호출하세요.
 - 1차 크롤링 데이터 원본은 `c:\ha-team\data-pipeline\phase1\output` 기준으로 관리하는 것을 권장합니다.
@@ -287,7 +326,7 @@ ASAK 통합 구조 기준으로 frontend, backend, data-pipeline, 문서 연결 
 - 토큰이나 비밀번호는 저장소에 커밋하지 않습니다.
 - AI가 관여한 작업은 PR, 이슈, 작업 기록 중 최소 한 곳에 남겨두는 것을 권장합니다.
 
-## 13. 빠른 복구용 명령
+## 14. 빠른 복구용 명령
 
 데이터 파이프라인 재설치:
 
@@ -305,11 +344,12 @@ cd c:\ASAK-front
 python build_viewer.py
 ```
 
-## 14. 팀원 온보딩 체크리스트
+## 15. 팀원 온보딩 체크리스트
 
 ### Day 1 체크
 
 - `ASAK`, `ASAK-front`, `ASAK-back` 3개 저장소를 모두 클론했다.
+- 3개 저장소가 서로 다른 Git 저장소라는 점을 이해했다. (작업 후 `ha-team`에 다시 합칠 필요 없음)
 - `git --version`, `py -3.11 --version` 확인을 마쳤다.
 - `ASAK-back` 구조와 목적을 이해했다.
 - `c:\ha-team\data-pipeline\phase1`에서 가상환경 생성과 `requirements.txt` 설치를 마쳤다.
