@@ -5,3 +5,4 @@ __pycache__/
 *.pyd
 data-pipeline/phase1/output/
 frontend/docs/
+frontend/data/

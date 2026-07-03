@@ -14,7 +14,8 @@
 권장 로컬 폴더:
 
 ```text
-c:\ha-team       -> ASAK (통합)
+c:\greens        -> ASAK (통합, 이 워크스페이스)
+c:\ha-team       -> ASAK (통합, 동일 구조)
 c:\ASAK-front    -> ASAK-front
 c:\ASAK-back     -> ASAK-back
 ```
