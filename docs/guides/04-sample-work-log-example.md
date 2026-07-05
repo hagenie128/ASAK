@@ -1,6 +1,7 @@
 # ASAK 샘플 작업 기록 예시
 
 > **Git:** [가이드 읽기 순서 README](README.md) — **04**  
+> **권장 경로:** `worklog/entries/이하진/2026-07-02-scr-003-menu-option-ui.md` (담당자별 폴더)  
 > **상세 템플릿:** [03-work-log-template.md](03-work-log-template.md) · **일일 연결:** [worklog/guide-team-daily.md](../../worklog/guide-team-daily.md)
 
 이 문서는 [`03-work-log-template.md`](03-work-log-template.md) 12섹션을 **기능·이슈 단위**로 채운 예시입니다.  

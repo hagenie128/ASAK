@@ -40,7 +40,7 @@
 1. **상세가 어떻게 생겼는지** — [04-sample-work-log-example.md](../docs/guides/04-sample-work-log-example.md) · [03-work-log-template.md](../docs/guides/03-work-log-template.md) 「일일 워크로그와의 관계」
 2. **팀·개인 daily 가이드** — [`guide-team-daily.md`](guide-team-daily.md) · [`guide-personal-worklog.md`](guide-personal-worklog.md) · Notion [📅 일일 워크로그 — 팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95)
 3. **daily 템플릿** — [`templates/template-daily-auto.md`](templates/template-daily-auto.md)
-4. **로컬 작성** — `python worklog/scripts/init_daily.py` → `daily/{본인}/YYYY-MM-DD.md`
+4. **로컬 작성** — `init_daily.py` → `daily/{본인}/` · `init_entry.py` → `entries/{본인}/`
 5. **Notion 동기화** — `.\worklog\scripts\sync_today.ps1` (본인 파일의 표 행만 DB 업로드)
 6. **주간 회고** — 금요일 `weekly/YYYY-Www.md` · (선택) `python worklog/scripts/build_calendar.py`
 
@@ -76,8 +76,8 @@ worklog/
 
 ```powershell
 cd C:\greens
-python worklog/scripts/init_daily.py              # git user → 본인 폴더
-python worklog/scripts/init_daily.py --person 이하진
+python worklog/scripts/init_daily.py              # daily/{본인}/YYYY-MM-DD.md
+python worklog/scripts/init_entry.py --slug 주제   # entries/{본인}/YYYY-MM-DD-주제.md
 python worklog/scripts/init_daily.py --person team   # _team/ 공유 작업
 ```
 

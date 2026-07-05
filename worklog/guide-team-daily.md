@@ -52,7 +52,7 @@
 
 
 
-**매일:** 표에 팀 공유 한 줄 → 작업 카드에 미니 필드 → `entries/` 상세 링크. 12섹션을 daily에 매일 복붙하지 않습니다.
+**매일:** 표에 팀 공유 한 줄 → 작업 카드에 미니 필드 → `entries/{이름}/` 상세 링크. 12섹션을 daily에 매일 복붙하지 않습니다.
 
 
 
@@ -120,7 +120,7 @@ python worklog/scripts/init_daily.py
 
 
 
-디버깅·구현 흐름·첨부 등 **깊은 내용**은 [`entries/`](entries/) + [03-work-log-template.md](../docs/guides/03-work-log-template.md) 12섹션.
+디버깅·구현 흐름·첨부 등 **깊은 내용**은 [`entries/{이름}/`](entries/이하진/) + [03-work-log-template.md](../docs/guides/03-work-log-template.md) 12섹션.
 
 
 
@@ -148,7 +148,7 @@ python worklog/scripts/sync_daily_to_notion.py --date today
 
 
 
-> **참고:** sync 스크립트는 **오늘 요약 표**만 Notion DB에 올립니다. **오늘 작업** 미니 카드와 `entries/` 상세는 Git `daily/`·`entries/`가 정본입니다.
+> **참고:** sync 스크립트는 **오늘 요약 표**만 Notion DB에 올립니다. **오늘 작업** 미니 카드와 `entries/{이름}/` 상세는 Git `daily/{이름}/`·`entries/{이름}/`가 정본입니다.
 
 
 
@@ -198,7 +198,7 @@ python worklog/scripts/sync_daily_to_notion.py --date today
 
 - **포트폴리오 요약:** React SCR-003 옵션 UI 상태·가격 계산 직접 설계
 
-- **상세 기록 →** [`entries/2026-07-02-scr-003-menu-option-ui.md`](entries/이하진/2026-07-02-scr-003-menu-option-ui.md) · [04 예시](../docs/guides/04-sample-work-log-example.md)
+- **상세 기록 →** [`entries/이하진/2026-07-02-scr-003-menu-option-ui.md`](entries/이하진/2026-07-02-scr-003-menu-option-ui.md) · [04 예시](../docs/guides/04-sample-work-log-example.md)
 
 ```
 
@@ -258,7 +258,7 @@ $env:NOTION_TOKEN = "secret_xxxxxxxx"
 
 ```text
 
-오늘 worklog/daily/YYYY-MM-DD.md 채워주고 sync_daily_to_notion.py --date today 실행해줘 (표 + 오늘 작업 미니 카드, entries 링크, WBS/PR/Issue 포함)
+오늘 worklog/daily/{본인}/YYYY-MM-DD.md 채워주고 sync_daily_to_notion.py --date today 실행해줘 (표 + 오늘 작업 미니 카드, entries/{본인}/ 링크, WBS/PR/Issue 포함)
 
 ```
 

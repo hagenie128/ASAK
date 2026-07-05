@@ -12,9 +12,14 @@
 
 ## 작성 규칙
 
-1. [`docs/guides/03-work-log-template.md`](../../docs/guides/03-work-log-template.md)를 복사해 시작
+1. [`docs/guides/03-work-log-template.md`](../../docs/guides/03-work-log-template.md)를 복사하거나 아래 명령으로 stub 생성
 2. 경로: `entries/{이름}/YYYY-MM-DD-짧은-설명.md`
 3. 같은 날짜 [`daily/{이름}/`](../daily/) — 표 + 미니 카드 + 이 파일 링크
+
+```powershell
+python worklog/scripts/init_entry.py --slug scr-003-menu-option-ui
+python worklog/scripts/init_entry.py --person 김나연 --slug order-api-bugfix
+```
 
 ## 샘플
 

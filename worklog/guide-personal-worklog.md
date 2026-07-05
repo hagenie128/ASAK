@@ -36,6 +36,7 @@ python worklog/scripts/init_daily.py
 | 팀 공유 작업 | `python worklog/scripts/init_daily.py --person team` |
 | 파싱 확인 | `python worklog/scripts/sync_daily_to_notion.py --date today --dry-run` |
 | Notion 업로드 (본인) | `.\worklog\scripts\sync_today.ps1` |
+| 상세 entry 생성 | `python worklog/scripts/init_entry.py --slug 주제` |
 | 전원 동기화 | `python worklog/scripts/sync_daily_to_notion.py --date today --all` |
 
 ### Git 사용자 등록

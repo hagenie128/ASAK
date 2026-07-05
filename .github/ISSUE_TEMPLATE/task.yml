@@ -50,8 +50,8 @@ body:
     id: worklog_link
     attributes:
       label: 상세 워크로그 링크
-      description: "선택. 예: worklog/entries/2026-07-05-menu-option.md"
-      placeholder: worklog/entries/...
+      description: "선택. 예: worklog/entries/이하진/2026-07-05-menu-option.md"
+      placeholder: worklog/entries/{이름}/...
     validations:
       required: false
 

@@ -4,11 +4,11 @@
 
 이 템플릿은 **기능·이슈·PR 단위**로 작업 기여도, AI 활용, 디버깅 이력, 개선사항을 깊게 남기기 위한 문서입니다.
 
-권장 저장 위치: `worklog/entries/`  
+권장 저장 위치: `worklog/entries/{이름}/`  
 권장 파일명 예시:
 
-- `2026-07-02-menu-option-ui.md`
-- `2026-07-02-order-api-bugfix.md`
+- `entries/이하진/2026-07-02-menu-option-ui.md`
+- `entries/김나연/2026-07-02-order-api-bugfix.md`
 
 ---
 
@@ -23,7 +23,7 @@
 
 **권장 흐름**
 
-1. 하루 중 — `entries/`에 이 템플릿으로 상세 작성 (또는 작업 끝날 때 한꺼번에)
+1. 하루 중 — `entries/{이름}/`에 이 템플릿으로 상세 작성 (또는 `python worklog/scripts/init_entry.py --slug 주제`)
 2. 퇴근 전 — `daily/{이름}/YYYY-MM-DD.md` **오늘 요약** 표에 한 줄 + **오늘 작업** 미니 카드에 핵심만 적고 `entries/{이름}/` 링크
 3. Notion — `sync_daily_to_notion.py`가 **표 행**만 캘린더 DB에 올림 (미니 카드·상세는 Git 정본)
 
