@@ -28,6 +28,8 @@
 
 ## Wiki 업로드 (권장)
 
+업로드 후 URL: https://devcopilot.ai.kr/workspace/2/wiki/16
+
 ```powershell
 python asak-data/scripts/upload_screens_wiki.py
 python asak-data/scripts/upload_screens_wiki.py --dry-run
