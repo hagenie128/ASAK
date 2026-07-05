@@ -28,13 +28,16 @@ python worklog/scripts/init_daily.py
 
 ---
 
-## 표 작성 (본인 1줄)
+## 표 + 미니 카드 (본인)
 
-`## 오늘 요약` 표 — 담당자에 **본인 실명** (강민준 / 김나연 / 이하진 / 박유진):
+**① 오늘 요약** — 담당자에 **본인 실명** (강민준 / 김나연 / 이하진 / 박유진):
 
 | 담당자 | 저장소 | 작업 | WBS / Issue | 상태 | 블로커 |
 |---|---|---|---|---|---|
 | 이하진 | ASAK-back | 주문 API | WBS-015 / #42 | ✅ 완료 | - |
+
+**② 오늘 작업** — 본인 작업마다 미니 카드 (작업 목적 · 직접 구현 · AI 도움 · 이슈 · 검증 · 포트폴리오 요약) + [`entries/`](entries/) 링크.  
+12섹션 전체는 [03-work-log-template.md](../docs/guides/03-work-log-template.md) · 예시 [04-sample](../docs/guides/04-sample-work-log-example.md) · daily 연결 [guide-team-daily § 예시](guide-team-daily.md#daily--entries-예시)
 
 ---
 

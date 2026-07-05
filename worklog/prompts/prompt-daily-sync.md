@@ -11,13 +11,14 @@ ASAK worklog 규칙에 맞춰 오늘 worklog/daily/YYYY-MM-DD.md 를 채워줘.
 
 요구사항:
 1. 파일이 없으면 `python worklog/scripts/init_daily.py` 로 생성
-2. `## 오늘 요약` 표는 팀 표 형식 (담당자 | 저장소 | 작업 | WBS/Issue | 상태 | 블로커)
-3. 내가 오늘 한 작업·PR·이슈를 반영 (없으면 물어봐)
-4. WBS ID, GitHub Issue (#번호), PR 링크를 작업 열에 포함
-5. 블로커·내일 계획 섹션도 짧게 정리
-6. 상세 내용은 worklog/entries/ 파일 1건 제안 (파일명: YYYY-MM-DD-주제.md)
+2. `## 오늘 요약` 표 — 팀 형식 (담당자 | 저장소 | 작업 | WBS/Issue | 상태 | 블로커)
+3. `## 오늘 작업` — 기능·이슈별 미니 카드 (작업 목적 · 직접 구현 · AI 도움 · 이슈 · 검증 · 포트폴리오 요약 + entries 링크)
+4. 내가 오늘 한 작업·PR·이슈를 반영 (없으면 물어봐)
+5. WBS ID, GitHub Issue (#번호), PR 링크를 작업 열에 포함
+6. 블로커·내일 계획 섹션도 짧게 정리
+7. 상세 12섹션은 `worklog/entries/YYYY-MM-DD-주제.md` 제안 (docs/guides/03-work-log-template.md 형식)
 
-참고: worklog/guide-team-daily.md, worklog/templates/template-daily-auto.md
+참고: worklog/guide-team-daily.md, docs/guides/04-sample-work-log-example.md, worklog/templates/template-daily-auto.md
 ```
 
 ## 프롬프트 B: Notion 동기화

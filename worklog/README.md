@@ -5,17 +5,43 @@
 
 4인 팀 · **9주** ASAK 프로젝트 (7/2~9/2 발표)의 **일일 요약 + 상세 기록 + 캘린더 뷰**를 한곳에서 관리합니다.
 
-관련 문서: [`docs/guides/01-team-setup.md`](../docs/guides/01-team-setup.md) · [`docs/guides/03-work-log-template.md`](../docs/guides/03-work-log-template.md) · [`docs/guides/02-github-issues-guide.md`](../docs/guides/02-github-issues-guide.md)
+관련 문서: [`docs/guides/01-team-setup.md`](../docs/guides/01-team-setup.md) · [`docs/guides/03-work-log-template.md`](../docs/guides/03-work-log-template.md) · [`docs/guides/04-sample-work-log-example.md`](../docs/guides/04-sample-work-log-example.md) · [`docs/guides/02-github-issues-guide.md`](../docs/guides/02-github-issues-guide.md)
+
+---
+
+## daily ↔ 상세 (한 시스템)
+
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│  daily/YYYY-MM-DD.md          entries/YYYY-MM-DD-주제.md        │
+│  ─────────────────────        ─────────────────────────────     │
+│  오늘 요약 (표 1줄) ─────────► Notion 캘린더                      │
+│  오늘 작업 (미니 카드) ───────► entries 링크 (같은 섹션 이름)      │
+│       │                              │                          │
+│       │    작업 목적 · 직접 구현 ·     │    §2~§12 전체            │
+│       │    AI · 이슈 · 검증 ·         │    (03 템플릿)            │
+│       │    포트폴리오 요약            │                          │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+| 기록 | 위치 | 분량 |
+|---|---|---|
+| 팀·캘린더 한 줄 | `daily/` **오늘 요약** 표 → Notion DB | 1행 |
+| 하루 미니 요약 | `daily/` **오늘 작업** 카드 | 섹션당 1~2줄 |
+| 기능·이슈 깊은 기록 | `entries/` + [03-work-log-template](../docs/guides/03-work-log-template.md) | 12섹션 |
+| 작성 예시 (상세) | [04-sample-work-log-example](../docs/guides/04-sample-work-log-example.md) | SCR-003 · 이하진 |
+| daily 연결 예시 | [guide-team-daily § 예시](guide-team-daily.md#daily--entries-예시) | 표 + 미니 카드 |
 
 ---
 
 ## 확인 순서 (처음 읽을 때)
 
-1. **팀·개인 가이드** — [`guide-team-daily.md`](guide-team-daily.md) (Quick Start) · [`guide-personal-worklog.md`](guide-personal-worklog.md) (개인 stub) · Notion [📅 일일 워크로그 — 팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95)
-2. **daily 템플릿 선택** — 기본: [`templates/template-daily-auto.md`](templates/template-daily-auto.md) (`init_daily.py` 기본값, WBS/Issue 열 포함) · 수동 복사: [`templates/template-daily-manual.md`](templates/template-daily-manual.md)
-3. **로컬 작성** — `python worklog/scripts/init_daily.py` → `daily/YYYY-MM-DD.md` 편집
-4. **Notion 동기화** — `.\worklog\scripts\sync_today.ps1` 또는 `sync_daily_to_notion.py --date today` → [일일 워크로그 DB](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9) 캘린더 뷰 확인
-5. **주간 회고** — 금요일 `weekly/YYYY-Www.md` · (선택) `python worklog/scripts/build_calendar.py` → `calendar/` 로컬 미리보기
+1. **상세가 어떻게 생겼는지** — [04-sample-work-log-example.md](../docs/guides/04-sample-work-log-example.md) (12섹션 예시) · [03-work-log-template.md](../docs/guides/03-work-log-template.md) 「일일 워크로그와의 관계」
+2. **팀·개인 daily 가이드** — [`guide-team-daily.md`](guide-team-daily.md) (Quick Start · daily↔entries 예시) · [`guide-personal-worklog.md`](guide-personal-worklog.md) · Notion [📅 일일 워크로그 — 팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95)
+3. **daily 템플릿** — 기본 [`templates/template-daily-auto.md`](templates/template-daily-auto.md) · 수동 [`templates/template-daily-manual.md`](templates/template-daily-manual.md)
+4. **로컬 작성** — `python worklog/scripts/init_daily.py` → `daily/YYYY-MM-DD.md` (**오늘 요약** 표 + **오늘 작업** 카드 + `entries/` 링크)
+5. **Notion 동기화** — `.\worklog\scripts\sync_today.ps1` (표 행만 DB 업로드) → [일일 워크로그 DB](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9) 캘린더 확인
+6. **주간 회고** — 금요일 `weekly/YYYY-Www.md` · (선택) `python worklog/scripts/build_calendar.py` → `calendar/`
 
 **Cursor / MCP:** [`guide-mcp-sync.md`](guide-mcp-sync.md) · 프롬프트 [`prompts/prompt-daily-sync.md`](prompts/prompt-daily-sync.md)
 
@@ -26,9 +52,9 @@
 | 기록 | 위치 |
 |---|---|
 | 계획·마일스톤 | Notion WBS (기존, 수정 없음) |
-| 오늘 한 일 (짧게) | [Notion 📅 일일 워크로그](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9) → Calendar 뷰 |
-| 디버깅·AI·면접용 상세 | Git `entries/` |
-| **정본** | Git `daily/YYYY-MM-DD.md` |
+| 오늘 한 일 (짧게) | [Notion 📅 일일 워크로그](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9) ← **오늘 요약** 표 |
+| 하루 미니 + 깊은 기록 | Git `daily/` **오늘 작업** + `entries/` 12섹션 |
+| **정본** | Git `daily/YYYY-MM-DD.md` · `entries/*.md` |
 | 팀 캘린더 보기 | Notion Calendar + (선택) 로컬 `calendar/` |
 
 ---
@@ -38,16 +64,16 @@
 ```text
 worklog/
   README.md                 이 파일 — 구조 + 확인 순서
-  guide-team-daily.md       팀 Quick Start (3단계)
+  guide-team-daily.md       팀 Quick Start (표 + 미니 카드 + entries)
   guide-personal-worklog.md 개인별 stub (Notion 정본 링크)
   guide-mcp-sync.md         Cursor Notion MCP 동기화
   templates/
-    template-daily-auto.md  init_daily.py 기본 템플릿
-    template-daily-manual.md  수동 복사용 (`--template manual`)
+    template-daily-auto.md  init_daily.py 기본 (오늘 요약 + 오늘 작업)
+    template-daily-manual.md  수동 복사용
   prompts/
     prompt-daily-sync.md    Cursor 채팅 프롬프트
-  daily/                    YYYY-MM-DD.md — 하루 팀 요약
-  entries/                  기능·이슈 단위 상세 (03-work-log-template)
+  daily/                    YYYY-MM-DD.md — 하루 팀 요약 + 미니 카드
+  entries/                  기능·이슈 단위 12섹션 (03-work-log-template)
   weekly/                   주간 rollup (YYYY-Www.md)
   calendar/                 정적 캘린더 뷰어 (Vanilla JS)
   scripts/                  init_daily, sync, build_calendar
@@ -58,13 +84,18 @@ worklog/
 
 ## daily 작성법
 
-1. `python worklog/scripts/init_daily.py` (또는 `templates/template-daily-manual.md` 복사)
-2. **오늘 요약** 표에 담당자·저장소·작업·WBS/Issue·상태·블로커 작성
-3. 상세 내용은 `entries/`에 별도 파일로 작성하고 daily에 링크
+1. `python worklog/scripts/init_daily.py`
+2. **오늘 요약** — 표에 담당자·저장소·작업·WBS/Issue·상태·블로커 (Notion sync 대상)
+3. **오늘 작업** — 기능·이슈별 미니 카드 (작업 목적 · 직접 구현 · AI · 이슈 · 검증 · 포트폴리오 요약 + `entries/` 링크)
+4. 상세 12섹션은 `entries/`에 작성 — [03-work-log-template.md](../docs/guides/03-work-log-template.md)
+
+**표 예시**
 
 | 담당자 | 저장소 | 작업 | WBS / Issue | 상태 | 블로커 |
 |---|---|---|---|---|---|
-| 홍길동 | ASAK-front | 옵션 UI | WBS-001 / #12 | ✅ 완료 | - |
+| 이하진 | ASAK-front | SCR-003 메뉴 옵션 UI | WBS-012 / #12 | ✅ 완료 | - |
+
+**미니 카드 → 상세:** [`guide-team-daily.md § 예시`](guide-team-daily.md#daily--entries-예시)
 
 ---
 
@@ -91,6 +122,7 @@ python worklog/scripts/sync_daily_to_notion.py --date today
 
 - **경로 A (API)**: Notion Integration → Daily DB 연결 → `NOTION_TOKEN`
 - **경로 B (MCP)**: `--json` → Cursor Notion MCP — [`guide-mcp-sync.md`](guide-mcp-sync.md)
+- **업로드 범위:** **오늘 요약** 표만 (미니 카드·entries는 Git 링크로 확인)
 
 DB: [📅 일일 워크로그](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9) · 설정: `notion_config.json`
 
@@ -100,4 +132,4 @@ DB: [📅 일일 워크로그](https://app.notion.com/p/eeae4beb07ad4051928a87de
 
 1. **GitHub Issue** — WBS ID·완료 조건 ([`docs/guides/02-github-issues-guide.md`](../docs/guides/02-github-issues-guide.md))
 2. **WBS / DevCopilot** — Notion·학원 WBS 동기화
-3. **worklog** — `entries/` 상세 + `daily/` 팀 일일 요약
+3. **worklog** — `entries/` 12섹션 상세 + `daily/` 표·미니 카드

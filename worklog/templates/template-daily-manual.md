@@ -1,17 +1,37 @@
 # YYYY-MM-DD 일일 워크로그
 
-> ASAK 9주 프로젝트 · 4인 팀 · [guide-team-daily.md](../guide-team-daily.md) · [01-team-setup.md](../../docs/guides/01-team-setup.md) · [03-work-log-template.md](../../docs/guides/03-work-log-template.md)
+> ASAK 9주 프로젝트 (7/2~9/2 발표) · 4인 팀  
+> **가이드:** [guide-team-daily.md](../guide-team-daily.md) · **상세 템플릿:** [03-work-log-template.md](../../docs/guides/03-work-log-template.md) · **상세 예시:** [04-sample-work-log-example.md](../../docs/guides/04-sample-work-log-example.md)
+
+---
 
 ## 오늘 요약
+
+> Notion 캘린더·팀 공유용 **한 줄** 표. WBS / Issue / PR 을 함께 적으면 추적이 쉽습니다.
 
 | 담당자 | 저장소 | 작업 | WBS / Issue | 상태 | 블로커 |
 |---|---|---|---|---|---|
 | (이름) | ASAK / ASAK-front / ASAK-back | (한 줄 요약) | WBS-000 / #이슈 | 🔄 진행 / ✅ 완료 | - |
 
-## 상세 기록 (entries)
+---
 
-- `worklog/entries/`에 [`03-work-log-template.md`](../../docs/guides/03-work-log-template.md) 형식으로 기능·이슈 단위 기록
-- 파일명 예: `2026-07-05-menu-option-ui.md`
+## 오늘 작업
+
+> 기능·이슈마다 카드 하나. **12섹션 전체**는 [`entries/`](../entries/) — daily에는 아래 **미니 필드**만 (상세 템플릿 §2·§3·§5·§6·§10·§11과 같은 이름).
+
+### (작업명) — SCR-xxx · WBS-000 / #이슈 · `feature`
+
+- **작업 목적:** (해결하려던 문제 · 기대 결과 한 줄)
+- **직접 구현:** (오늘 직접 한 구현 1~2줄)
+- **AI 도움:** (도구 · 요청 · 그대로/수정 — 없으면 `-`)
+- **이슈:** (증상 → 해결 한 줄, 없으면 `-`)
+- **검증:** (명령어 · 시나리오 · 결과 한 줄)
+- **포트폴리오 요약:** (한 줄, §11 미리보기)
+- **상세 기록 →** [`entries/YYYY-MM-DD-주제.md`](../entries/YYYY-MM-DD-주제.md)
+
+<!-- 작업이 더 있으면 위 ### 카드를 복사 -->
+
+---
 
 ## 블로커 / 공유 사항
 

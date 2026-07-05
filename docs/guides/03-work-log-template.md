@@ -2,12 +2,32 @@
 
 > **Git:** [`docs/guides/README.md`](README.md) — 가이드 읽기 순서 **03**
 
-이 템플릿은 팀원이 작업 기여도, AI 활용 방식, 디버깅 이력, 개선사항을 일관되게 남기기 위한 문서입니다.
+이 템플릿은 **기능·이슈·PR 단위**로 작업 기여도, AI 활용, 디버깅 이력, 개선사항을 깊게 남기기 위한 문서입니다.
 
+권장 저장 위치: `worklog/entries/`  
 권장 파일명 예시:
 
-- `work-log-2026-07-02-menu-option-ui.md`
-- `work-log-2026-07-02-order-api-bugfix.md`
+- `2026-07-02-menu-option-ui.md`
+- `2026-07-02-order-api-bugfix.md`
+
+---
+
+## 일일 워크로그와의 관계
+
+| 구분 | 일일 (`worklog/daily/`) | 상세 (`worklog/entries/` + 이 템플릿) |
+|---|---|---|
+| **단위** | 하루 (팀·개인 요약) | 기능·이슈·PR 하나 |
+| **목적** | 오늘 뭘 했는지 팀 캘린더·Notion에 공유 | 구현·디버깅·AI·면접용 깊은 기록 |
+| **분량** | 표 1줄 + **미니 카드** (섹션당 1~2줄) | 아래 **12섹션** 전체 |
+| **공통 어휘** | 작업 목적 · 직접 구현 · AI 도움 · 이슈 · 검증 · 포트폴리오 요약 | 동일 이름의 본문 섹션 (§2·§3·§5·§6·§7·§10·§11) |
+
+**권장 흐름**
+
+1. 하루 중 — `entries/`에 이 템플릿으로 상세 작성 (또는 작업 끝날 때 한꺼번에)
+2. 퇴근 전 — `daily/YYYY-MM-DD.md` **오늘 요약** 표에 한 줄 + **오늘 작업** 미니 카드에 핵심만 적고 entries 링크
+3. Notion — `sync_daily_to_notion.py`가 **표 행**만 캘린더 DB에 올림 (미니 카드·상세는 Git 정본)
+
+예시: [`04-sample-work-log-example.md`](04-sample-work-log-example.md) (상세 12섹션) · daily 연결 예시는 [`worklog/guide-team-daily.md`](../../worklog/guide-team-daily.md) 「daily ↔ entries 예시」
 
 ---
 

@@ -114,15 +114,17 @@ Notion MCP로 📅 일일 워크로그 DB에 upsert 해줘.
 
 ## DB 스키마 (요약)
 
-| 속성 | 타입 | 비고 |
-|---|---|---|
-| 제목 | title | `{날짜} {담당} 일일` |
-| 날짜 | date | Calendar 뷰 키 |
-| 담당 | select | 이하진, 김나연, 박유진, 미지정 |
-| WBS | text | |
-| 요약 | text | 작업 한 줄 |
-| Git daily | url | GitHub daily md 링크 |
-| 블로커 | checkbox | |
+| 속성 | 타입 | Git 출처 | 비고 |
+|---|---|---|---|
+| 제목 | title | sync 자동 | `{날짜} {담당} 일일` |
+| 날짜 | date | daily 파일명 | Calendar 뷰 키 |
+| 담당 | select | **오늘 요약** 표 | 이하진, 김나연, 박유진, 미지정 |
+| WBS | text | **오늘 요약** 표 | WBS-xxx 추출 |
+| 요약 | text | **오늘 요약** 표 `작업` 열 | 팀 캘린더용 한 줄 |
+| Git daily | url | sync 자동 | `worklog/daily/YYYY-MM-DD.md` — **오늘 작업** 미니 카드·`entries/` 링크 포함 |
+| 블로커 | checkbox | 표 `블로커` 열 + `## 블로커 / 공유 사항` | |
+
+> **오늘 작업** 미니 카드(작업 목적 · 직접 구현 · AI · 이슈 · 검증 · 포트폴리오 요약)와 `entries/` 12섹션 상세는 **Notion DB에 올라가지 않습니다.** Git daily·entries가 정본입니다. 필드 설명은 Notion [팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95)와 동기화하세요.
 
 ---
 
