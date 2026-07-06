@@ -25,7 +25,7 @@
 |--------|------|------|
 | 요구사항 정의서 | Notion 02 / Wiki | 완료 |
 | 사용자 시나리오 | Notion 03 SC-001~018 | 완료 |
-| 화면 설계서 | Notion 04 SCR-001~019 | 진행중 |
+| 화면 설계서 | Notion 04 SCR-001~021 | 진행중 |
 | ERD·테이블 정의 | Notion 05 · 22테이블 | 완료 |
 | API 명세 | Notion 06 API-001~020 | 완료 |
 | React/Spring | GitHub ASAK-front/back | 예정 |

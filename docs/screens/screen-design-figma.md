@@ -11,9 +11,17 @@
 | 형태 | 태블릿 세로 **834×1194** |
 | frame 패턴 | `?node-id={nodeId}` → [`figma-links.template.json`](../design/figma-links.template.json) |
 
-## Page 구조 (파일 내)
+## Page 구조 (파일 내 · Notion 정본)
 
-Specs · Design System · Customer (SCR-001~014) · Admin (SCR-015~019)
+> **무료 플랜: 페이지 최대 3개** — 7페이지(00~06)는 02/03/04로 통합. 상세 체크리스트: [Notion Figma Setup](https://app.notion.com/p/39451ef04f0b81c1b71accd381097699)
+
+| Page | SCR | 내용 | 방법 |
+|------|-----|------|------|
+| 02. User Flow | — | Cover·흐름·Prototype·DS·Archive | 수동 (SCR 프레임 없음) |
+| 03. Kiosk Screens | SCR-001~014, 020~021 | 키오스크·Day10 관리자·예외 | 플러그인 834×1194 |
+| 04. Admin Screens | SCR-015~019 | 후반 관리자 | 플러그인 834×1194 |
+
+플러그인: [`figma-rename-scr-plugin/README.md`](../design/figma-rename-scr-plugin/README.md)
 
 ## 참고 (Community → kiosk_design 내 참고)
 

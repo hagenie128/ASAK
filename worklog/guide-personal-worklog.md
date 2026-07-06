@@ -1,8 +1,8 @@
 # 개인별 일일 워크로그 가이드 (Git stub)
 
-> **Notion (편집 정본):** [📅 일일 워크로그 — 팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95)  
-> **Notion DB:** [📅 일일 워크로그](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9)  
-> **팀 Quick Start:** [`guide-team-daily.md`](guide-team-daily.md) · **확인 순서:** [`README.md`](README.md)
+> **처음이면:** [`docs/GETTING_STARTED.md`](../docs/GETTING_STARTED.md#part-2--워크로그-쓰기-유치원-선생님-모드) Part 2부터 읽으세요.  
+> **Notion (편집 정본):**** [📅 일일 워크로그 — 팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95) · **일일 기록 DB:** [📅 일일 워크로그](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9)  
+> **토큰·API:** Notion [팀 가이드 §3~§5](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95) · Git 온보딩 [`docs/GETTING_STARTED.md`](../docs/GETTING_STARTED.md#part-2--워크로그-쓰기-유치원-선생님-모드)
 
 팀 4인(강민준 · 김나연 · 이하진 · 박유진)이 **개인별 파일**로 daily를 작성하고 Notion Calendar에 반영하는 로컬 명령어 요약입니다.
 
@@ -23,7 +23,7 @@
 ## 매일 (로컬)
 
 ```powershell
-cd C:\greens
+cd C:\ha-team
 python worklog/scripts/init_daily.py
 # → worklog/daily/{본인}/YYYY-MM-DD.md 생성 (git user → team_config.json)
 .\worklog\scripts\sync_today.ps1

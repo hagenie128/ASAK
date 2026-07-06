@@ -58,6 +58,8 @@ API_BODY_SAMPLES: dict[str, dict] = {
             }
         ],
     },
+    "API-018": {"orderId": 1, "memberId": "M001", "confirmStamp": True},
+    "API-020": {"scanType": "COUPON", "code": "QR123456"},
 }
 
 def _envelope(*, success: bool, status: int, code: str, message: str, data) -> dict:
@@ -527,6 +529,54 @@ _RESPONSE_BODIES: dict[str, tuple[dict, dict]] = {
             status=500,
             code="ACCESSIBILITY_OPTION_FAILED",
             message="접근성 설정 조회 실패",
+            data=None,
+        ),
+    ),
+    "API-018": (
+        _envelope(
+            success=True,
+            status=200,
+            code="MEMBERSHIP_STAMP_SUCCESS",
+            message="스탬프 적립 성공",
+            data={"orderId": 1, "memberId": "M001", "stamped": True, "stampCount": 3},
+        ),
+        _envelope(
+            success=False,
+            status=400,
+            code="MEMBERSHIP_STAMP_FAILED",
+            message="스탬프 적립 실패",
+            data=None,
+        ),
+    ),
+    "API-019": (
+        _envelope(
+            success=True,
+            status=200,
+            code="RECEIPT_PRINT_REQUESTED",
+            message="영수증 출력 요청 성공",
+            data={"orderId": 1, "orderNo": "ASAK-20260703-001", "printed": True},
+        ),
+        _envelope(
+            success=False,
+            status=500,
+            code="RECEIPT_PRINT_FAILED",
+            message="영수증 출력 요청 실패",
+            data=None,
+        ),
+    ),
+    "API-020": (
+        _envelope(
+            success=True,
+            status=200,
+            code="SCAN_SUCCESS",
+            message="스캔 인식 성공",
+            data={"scanType": "COUPON", "code": "QR123456", "discountAmount": 1000},
+        ),
+        _envelope(
+            success=False,
+            status=400,
+            code="SCAN_INVALID",
+            message="유효하지 않은 코드입니다.",
             data=None,
         ),
     ),

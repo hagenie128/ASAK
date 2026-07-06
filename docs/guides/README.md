@@ -3,10 +3,11 @@
 > **Notion:** [📖 문서 읽는 순서](https://app.notion.com/p/39451ef04f0b81088a91d914f985fb11) (01. 팀/역할/일정 하위)  
 > **Git (정본):** [`docs/guides/`](https://github.com/hagenie128/ASAK/tree/main/docs/guides) — ASAK repo
 
-처음 합류한 팀원은 아래 순서대로 읽으세요.
+처음 합류한 팀원은 **[`../GETTING_STARTED.md`](../GETTING_STARTED.md)** 를 먼저 읽은 뒤, 아래 순서대로 이어가세요.
 
 | 순서 | 문서 | 내용 |
 |------|------|------|
+| 00 | [`../GETTING_STARTED.md`](../GETTING_STARTED.md) | **완전 초보 온보딩** (세팅 + 워크로그) |
 | 01 | [`01-team-setup.md`](01-team-setup.md) | 저장소 클론·세팅·Git·9주 일정·온보딩 체크리스트 |
 | 02 | [`02-github-issues-guide.md`](02-github-issues-guide.md) | GitHub Issue·라벨·WBS·워크로그 연동 |
 | 03 | [`03-work-log-template.md`](03-work-log-template.md) | 기능·이슈 단위 작업 기록 (12섹션) · [`일일 워크로그와의 관계`](03-work-log-template.md#일일-워크로그와의-관계) |

@@ -260,9 +260,9 @@
 | API-015 | GET | `/api/admin/sales/daily` | from=2026-07-01&to=2026-07-31 | 일자별 주문수와 결제금액 조회 |
 | API-016 | POST | `/api/cart/validate` | {"items":[{"menuId":364,"quantity":1,"optionItems" | 장바구니 주문 가능 여부 검증 |
 | API-017 | GET | `/api/ui/accessibility-options` | — | 접근성 옵션 목록 조회 |
-| API-018 | POST | `/api/membership/stamps` | orderId, memberId, confirmStamp | 결제 후 스탬프 1회 확인·적립 (SC-006, 확장) |
-| API-019 | POST | `/api/orders/{orderId}/receipt-print` | orderId | 모의 프린터 출력 요청 (SC-015, Week 5 MVP 제외) |
-| API-020 | POST | `/api/device/scan` | scanType, code | 쿠폰/멤버십 인식 (SC-016, 확장) |
+| API-018 | POST | `/api/membership/stamps` | {"orderId":1,"memberId":"M001","confirmStamp":true | 결제 후 스탬프 1회 확인·적립 (SC-006, KSD-MEMBER-001) |
+| API-019 | POST | `/api/orders/{orderId}/receipt-print` | {"orderId":""} | 모의 프린터 출력 요청 (SC-015, Week 5 MVP 제외) |
+| API-020 | POST | `/api/device/scan` | {"scanType":"COUPON","code":"QR123456"} | 쿠폰/멤버십 인식 (SC-016, RTOS-DEVICE-004/005/006) |
 
 ## 상태값 (common_code)
 

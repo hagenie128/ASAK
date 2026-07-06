@@ -9,6 +9,14 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from api_format import _compact_json
+from req_link_maps import (
+    SCENARIO_REQ_MAP,
+    TC_REQ_OVERRIDE,
+    format_req_label,
+    scenario_display_title,
+    scenario_req_ids,
+    title_with_req,
+)
 
 REPO = Path(__file__).resolve().parents[2]
 WIKI = REPO / "docs" / "wiki"
@@ -50,7 +58,7 @@ EXTRA_APIS = [
         "endpoint": "/api/membership/stamps",
         "request_body": "orderId, memberId, confirmStamp",
         "response_success": "MEMBERSHIP_STAMP_SUCCESS",
-        "description": "결제 후 스탬프 1회 확인·적립 (SC-006, 확장)",
+        "description": "결제 후 스탬프 1회 확인·적립 (SC-006, KSD-MEMBER-001)",
     },
     {
         "api_id": "API-019",
@@ -68,108 +76,122 @@ EXTRA_APIS = [
         "endpoint": "/api/device/scan",
         "request_body": "scanType, code",
         "response_success": "SCAN_SUCCESS",
-        "description": "쿠폰/멤버십 인식 (SC-016, 확장)",
+        "description": "쿠폰/멤버십 인식 (SC-016, RTOS-DEVICE-004/005/006)",
     },
 ]
 
 TEST_CASES = [
     {
-        "id": "TC-001", "name": "신규 고객의 기본 주문 흐름 성공", "sc": "SC-001",
-        "api": "API-001~006", "screen": "SCR-001~008", "phase": "KSD", "type": "통합", "prio": "상",
-        "pre": "키오스크 정상 구동, 모든 메뉴 판매중",
-        "steps": "1) 홈 진입 2) 메뉴 선택 3) 추천조합+토핑 4) 장바구니 5) 결제",
-        "expect": "결제 완료 후 주문번호 표시",
+        "id": "TC-001", "name": "먹고가기/포장 선택 및 orderType 유지 검증", "sc": "SC-014",
+        "api": "API-005", "screen": "SCR-002", "phase": "FWD", "type": "화면", "prio": "상",
+        "pre": "키오스크 홈 화면 접근 가능",
+        "steps": "1) 홈에서 주문시작 2) 먹고가기 선택 3) 메뉴 1건 장바구니 담기 4) 주문확인에서 orderType 확인 5) API-005 body의 orderType 확인",
+        "expect": "orderType(EAT_IN/TAKE_OUT)이 장바구니·주문확인·주문 생성까지 유지",
     },
     {
-        "id": "TC-002", "name": "재방문 고객 빠른 주문(화면 5회 이내)", "sc": "SC-002",
+        "id": "TC-002", "name": "화면 전환 5회 이내 주문 완료 흐름 검증", "sc": "SC-002",
         "api": "API-002~006", "screen": "SCR-003~008", "phase": "FWD", "type": "화면", "prio": "상",
-        "pre": "재방문 고객, 추천조합 기본값 설정됨",
-        "steps": "메뉴선택→옵션(기본값 유지)→장바구니→주문확인→결제, 화면 전환 5회 이내",
-        "expect": "주문번호 표시, 화면 전환 ≤5회",
+        "pre": "키오스크 정상 구동",
+        "steps": "메뉴선택→추천조합 기본값→장바구니→주문확인→결제, 화면 전환 5회 이내",
+        "expect": "5회 이내 화면 전환으로 주문 완료",
     },
     {
-        "id": "TC-003", "name": "품절 항목 포함 시 주문 불가/대체", "sc": "SC-003",
-        "api": "API-002~004, API-009", "screen": "SCR-003~004, SCR-011", "phase": "KSD", "type": "통합", "prio": "상",
-        "pre": "관리자가 재료/옵션 품절 처리",
-        "steps": "1) API-009 품절 ON 2) 키오스크 메뉴/옵션 확인 3) SOLD OUT 표시 4) 대체 선택",
-        "expect": "품절 항목 선택 불가, 다른 항목으로 주문 가능",
+        "id": "TC-003", "name": "품절 판매 항목이 정상적으로 비활성화되는지 확인", "sc": "SC-003",
+        "api": "API-004, API-009", "screen": "SCR-003~004", "phase": "FWD", "type": "화면", "prio": "상",
+        "pre": "특정 판매 항목이 품절 상태로 사전 설정됨",
+        "steps": "1) 관리자 품절 처리 2) 키오스크 메뉴/옵션 확인 3) SOLD OUT 표시 4) 선택 시도",
+        "expect": "품절 항목 회색+SOLD OUT 표시, 선택 불가",
     },
     {
-        "id": "TC-004", "name": "결제 실패 시 원인 안내·장바구니 유지", "sc": "SC-005",
+        "id": "TC-004", "name": "결제 실패 시 원인 안내 및 장바구니 유지 확인", "sc": "SC-005",
         "api": "API-006", "screen": "SCR-007, SCR-012", "phase": "KSD", "type": "API", "prio": "상",
-        "pre": "결제 실패 테스트 모드",
+        "pre": "결제 실패를 의도적으로 유발할 수 있는 테스트 모드",
         "steps": "1) 장바구니 담기 2) 결제 3) 실패 응답 4) 안내 확인 5) 장바구니 유지",
         "expect": "실패 원인 표시, 장바구니 유지",
     },
     {
-        "id": "TC-005", "name": "결제 성공 및 주문번호 생성", "sc": "SC-004",
-        "api": "API-005~006", "screen": "SCR-006~008", "phase": "KSD", "type": "API", "prio": "상",
-        "pre": "장바구니 1건 이상",
-        "steps": "주문확인→CARD 결제→승인",
-        "expect": "payment APPROVED, orderNo 생성",
+        "id": "TC-005", "name": "스탬프 적립 확인이 결제 전후로 중복되지 않는지 검증", "sc": "SC-006",
+        "api": "API-006, API-018", "screen": "SCR-007~008", "phase": "KSD", "type": "통합", "prio": "상",
+        "pre": "테스트용 멤버십 계정 존재",
+        "steps": "1) 멤버십 고객 결제 2) 적립 확인창 1회만 3) 결제 완료 후 적립 결과",
+        "expect": "결제 과정 중 1회만 확인, 적립결과 표시",
     },
     {
-        "id": "TC-006", "name": "멤버십 스탬프 1회 확인 후 적립", "sc": "SC-006",
-        "api": "API-018", "screen": "SCR-007~008", "phase": "KSD", "type": "API", "prio": "하",
-        "pre": "멤버십 보유 고객 (확장)",
-        "steps": "결제 중 1회 확인→결제 완료→적립 표시",
-        "expect": "이중 확인 없이 적립 결과 표시",
+        "id": "TC-006", "name": "관리자 품절 처리가 관련 메뉴 전체에 즉시 반영되는지 검증", "sc": "SC-007",
+        "api": "API-009", "screen": "SCR-011, SCR-003~004", "phase": "LMIS", "type": "관리자", "prio": "상",
+        "pre": "동일 판매 항목이 2개 이상 메뉴/옵션에 공통 존재",
+        "steps": "1) 관리자 품절 토글 ON 2) 키오스크 메뉴/옵션 목록 확인",
+        "expect": "품절 변경이 관련 메뉴/옵션 전체에 즉시 반영",
     },
     {
-        "id": "TC-007", "name": "관리자 주문 상태 변경", "sc": "SC-008",
-        "api": "API-007~008", "screen": "SCR-009~010", "phase": "LMIS", "type": "관리자", "prio": "상",
-        "pre": "결제 완료 주문 존재",
-        "steps": "목록→상세→RECEIVED→PREPARING→COMPLETED",
-        "expect": "DB·화면 상태 일치",
+        "id": "TC-007", "name": "타임아웃 안내 후 자동 초기화 검증", "sc": "SC-012",
+        "api": "—", "screen": "SCR-013, SCR-005", "phase": "FWD", "type": "화면", "prio": "중",
+        "pre": "장바구니에 메뉴가 담겨 있고 일정 시간 입력 없음",
+        "steps": "1) 주문 중 대기 2) 타임아웃 안내 3) 홈 복귀 확인",
+        "expect": "타임아웃 후 홈 화면 자동 초기화, 장바구니 비움",
     },
     {
-        "id": "TC-008", "name": "접근성 옵션 적용 주문", "sc": "SC-013",
+        "id": "TC-008", "name": "접근성 설정 적용 검증", "sc": "SC-013",
         "api": "API-017", "screen": "SCR-014", "phase": "FWD", "type": "화면", "prio": "중",
-        "pre": "저시력 고객 시나리오 (후반)",
-        "steps": "글자크기 확대→메뉴 탐색→주문 완료",
-        "expect": "안내 없이 주문 완료",
+        "pre": "접근성 설정 화면 진입 가능",
+        "steps": "1) 글자크기/대비 변경 2) 메뉴/옵션/결제 화면 이동 3) 적용 확인",
+        "expect": "접근성 옵션이 전체 화면에 일관 적용",
     },
     {
-        "id": "TC-009", "name": "관리자 로그인 검증", "sc": "—",
-        "api": "API-HOLD-001", "screen": "SCR-015", "phase": "LMIS", "type": "관리자", "prio": "중",
-        "pre": "관리자 계정 (후반)",
-        "steps": "로그인→세션 발급→관리자 화면 진입",
-        "expect": "인증 성공/실패 분기 (Notion row 미등록)",
+        "id": "TC-009", "name": "관리자 로그인 검증", "sc": "SC-008",
+        "api": "—", "screen": "SCR-015", "phase": "LMIS", "type": "관리자", "prio": "중",
+        "pre": "관리자 계정과 role_id 준비",
+        "steps": "1) 로그인 화면 2) 정상 계정 로그인 3) 잘못된 계정 시도",
+        "expect": "정상 계정은 관리자 화면, 오류 계정은 메시지 표시",
     },
     {
-        "id": "TC-010", "name": "관리자 메뉴 목록 조회", "sc": "SC-017",
-        "api": "API-011", "screen": "SCR-016", "phase": "LMIS", "type": "관리자", "prio": "중",
-        "pre": "관리자 메뉴 관리 화면",
-        "steps": "목록 조회→필터/품절 표시 확인",
-        "expect": "seed 메뉴 84건 조회",
+        "id": "TC-010", "name": "관리자 메뉴 관리 목록/품절 상태 검증", "sc": "SC-017",
+        "api": "API-009~011", "screen": "SCR-016", "phase": "LMIS", "type": "관리자", "prio": "중",
+        "pre": "메뉴/재료/옵션 샘플 데이터 등록",
+        "steps": "1) 메뉴 관리 목록 2) 품절 상태 확인 3) 상태 변경",
+        "expect": "목록·품절 상태 표시 및 키오스크 반영",
     },
     {
-        "id": "TC-011", "name": "관리자 신규 메뉴 등록", "sc": "SC-017",
+        "id": "TC-011", "name": "관리자 메뉴 등록/수정 검증", "sc": "SC-017",
         "api": "API-012", "screen": "SCR-017", "phase": "LMIS", "type": "관리자", "prio": "중",
-        "pre": "관리자 로그인 (후반)",
-        "steps": "메뉴 등록→옵션그룹 연결→저장→키오스크 노출",
-        "expect": "키오스크 메뉴 목록 즉시 반영",
+        "pre": "관리자 권한 로그인",
+        "steps": "1) 메뉴 등록/수정 2) 저장 3) 키오스크 메뉴 상세 확인",
+        "expect": "등록/수정 내용이 API-003/004 응답에 반영",
     },
     {
-        "id": "TC-012", "name": "관리자 판매 항목 품절 관리", "sc": "SC-007",
-        "api": "API-009~010", "screen": "SCR-011", "phase": "LMIS", "type": "관리자", "prio": "상",
-        "pre": "관리자 품절 화면",
-        "steps": "대상 선택→품절 토글→키오스크 반영 확인",
-        "expect": "CORE/BASE/DEFAULT/OPTION 품절 규칙 준수",
+        "id": "TC-012", "name": "관리자 결제수단 설정 검증", "sc": "SC-017",
+        "api": "API-013~014", "screen": "SCR-018", "phase": "LMIS", "type": "관리자", "prio": "중",
+        "pre": "결제수단 코드 등록",
+        "steps": "1) 노출/순서 변경 2) 저장 3) 고객 결제 화면 확인",
+        "expect": "활성 결제수단만 고객 화면에 표시",
     },
     {
-        "id": "TC-013", "name": "관리자 일별 매출 조회", "sc": "SC-018",
+        "id": "TC-013", "name": "관리자 매출 요약 조회 검증", "sc": "SC-018",
         "api": "API-015", "screen": "SCR-019", "phase": "LMIS", "type": "관리자", "prio": "하",
-        "pre": "주문·결제 데이터 존재 (후반)",
-        "steps": "기간 선택→일별 매출 조회",
-        "expect": "일자별 주문수·금액 표시",
+        "pre": "결제 완료 주문 데이터 존재",
+        "steps": "1) 매출 화면 2) 날짜 선택 3) 합계·주문수 확인",
+        "expect": "선택 날짜 기준 매출 합계·주문 수 표시",
     },
     {
-        "id": "TC-014", "name": "최종 통합 리허설(E2E)", "sc": "SC-024",
-        "api": "API-001~009", "screen": "SCR-001~011", "phase": "통합테스트", "type": "통합", "prio": "상",
-        "pre": "데모 환경 준비",
-        "steps": "고객 주문→결제→관리자 확인/상태변경 일괄 시연",
-        "expect": "흐름 끊김 없이 시연 가능",
+        "id": "TC-014", "name": "관리자 주문 목록 조회 및 상태 변경 검증", "sc": "SC-008",
+        "api": "API-007~008", "screen": "SCR-009~010", "phase": "KSD", "type": "관리자", "prio": "상",
+        "pre": "최소 1건 이상 주문 존재",
+        "steps": "1) 키오스크 주문 생성 2) 목록 최상단 확인 3) 상세 4) PREPARING 변경",
+        "expect": "목록·상세에서 상태 변경 즉시 반영",
+    },
+    {
+        "id": "TC-015", "name": "영수증 출력 여부 선택 및 모의 프린터 요청", "sc": "SC-015",
+        "api": "API-019", "screen": "SCR-008, SCR-020", "phase": "장치", "type": "장치", "prio": "중",
+        "pre": "결제 승인 완료, orderId·orderNo 존재",
+        "steps": "1) 결제 완료 2) 영수증 출력 선택 3) API-019 4) 결과 확인",
+        "expect": "출력 선택 시 프린터 요청, 미선택 시 주문번호 표시",
+    },
+    {
+        "id": "TC-016", "name": "포인트·쿠폰 적립 및 QR 할인 적용", "sc": "SC-016",
+        "api": "API-018, API-020", "screen": "SCR-007, SCR-021", "phase": "KSD", "type": "장치", "prio": "중",
+        "pre": "멤버십 회원 또는 유효 쿠폰 QR 보유",
+        "steps": "1) 결제 진입 2) 적립 1회 확인 3) 쿠폰 스캔(선택) 4) 결제 5) 적립 결과",
+        "expect": "스탬프 1회 확인, 쿠폰 스캔 시 할인 반영",
     },
 ]
 
@@ -245,7 +267,7 @@ def gen_requirements() -> str:
 
 
 def gen_scenarios() -> str:
-    wanted = {f"SC-{i:03d}" for i in range(1, 19)}
+    wanted = {f"SC-{i:03d}" for i in range(1, 25)}
     scs = sorted(
         [s for s in DATA["scenarios"] if s["id"] in wanted],
         key=lambda s: sort_key_id("SC", s["id"]),
@@ -253,7 +275,7 @@ def gen_scenarios() -> str:
     lines = [
         "# ASAK 사용자 시나리오 명세",
         "",
-        "> Notion 03. 사용자 시나리오 · SC-001~018 (2026-07-05)",
+        "> Notion 03. 사용자 시나리오 · SC-001~024 (2026-07-06)",
         "",
         "## 전체 주문 흐름",
         "",
@@ -273,8 +295,16 @@ def gen_scenarios() -> str:
         "",
     ]
     for s in scs:
+        sid = s["id"]
+        req_ids = s.get("req_ids") or scenario_req_ids(sid)
+        primary = SCENARIO_REQ_MAP.get(sid, [None])[0] if req_ids else None
+        display = scenario_display_title(
+            s.get("base_title") or s.get("title") or sid,
+            req_ids,
+            primary=primary,
+        )
         lines += [
-            f"### {s['id']} {s['title']}",
+            f"### {sid} {display}",
             "",
             f"- **시작**: {_week5_mvp_terms(s.get('pre_condition', ''))}",
             f"- **종료**: {_week5_mvp_terms(s.get('post_condition', ''))}",
@@ -296,7 +326,7 @@ def gen_screen_design() -> str:
     )
     return (
         "# ASAK 화면 설계 및 Figma 연동\n\n"
-        "> Notion 04. 화면 설계 · SCR-001~019 · Figma 프로토타입 연동 예정 (2026-07-05)\n\n"
+        "> Notion 04. 화면 설계 · SCR-001~021 · Figma 프로토타입 연동 예정 (2026-07-05)\n\n"
         "## Figma 연동\n\n"
         "| 항목 | 내용 |\n|------|------|\n"
         "| 디자인 도구 | Figma (와이어프레임→프로토타입) |\n"
@@ -310,7 +340,7 @@ def gen_screen_design() -> str:
         "**고객**: 홈 → 먹고가기/포장 → 메뉴 → 옵션 → 장바구니 → 주문확인 → 결제 → 완료\n\n"
         "**관리자**: 주문관리 → 주문상세 / 품절관리 / (후반) 로그인·메뉴·결제·매출\n\n"
         "---\n\n"
-        "## SCR 상세 (SCR-001~019)\n\n"
+        "## SCR 상세 (SCR-001~021)\n\n"
         + re.sub(r"^# ASAK 키오스크 화면설계.*?\n\n", "", SCREENS_WIKI, count=1, flags=re.DOTALL)
     )
 
@@ -579,11 +609,20 @@ def gen_wbs() -> str:
     return "\n".join(lines) + "\n"
 
 
+def _qa_display_title(tc_id: str, fallback_name: str) -> str:
+    row = next((q for q in DATA.get("qa", []) if q.get("id") == tc_id), None)
+    base = (row or {}).get("base_title") or fallback_name
+    req_ids = (row or {}).get("req_ids") or []
+    primary = (TC_REQ_OVERRIDE.get(tc_id) or req_ids[:1] or [None])[0]
+    titled = title_with_req(base, req_ids, primary_only=True, primary=primary)
+    return f"{tc_id} {titled}"
+
+
 def gen_qa() -> str:
     lines = [
         "# ASAK QA 테스트 케이스",
         "",
-        "> Notion 09. 테스트/오류 관리 · TC-001~014 (2026-07-05)",
+        "> Notion 09. 테스트/오류 관리 · TC-001~016 (2026-07-06)",
         "",
         "## 테스트 범위",
         "",
@@ -596,14 +635,16 @@ def gen_qa() -> str:
         "|----|----------|----|----|------|------|------|-----------|",
     ]
     for t in TEST_CASES:
+        display = _qa_display_title(t["id"], t["name"])
         lines.append(
-            f"| {t['id']} | {t['name']} | {t['sc']} | {t['api']} | {t['screen']} | "
+            f"| {t['id']} | {display.split(' ', 1)[1] if ' ' in display else t['name']} | {t['sc']} | {t['api']} | {t['screen']} | "
             f"{t['phase']} | {t['prio']} | {t['expect'][:40]} |"
         )
     lines += ["", "## TC 상세", ""]
     for t in TEST_CASES:
+        display = _qa_display_title(t["id"], t["name"])
         lines += [
-            f"### {t['id']} {t['name']}",
+            f"### {display}",
             "",
             f"- **전제조건**: {t['pre']}",
             f"- **수행 절차**: {t['steps']}",
@@ -642,7 +683,7 @@ def gen_meeting() -> str:
 |--------|------|------|
 | 요구사항 정의서 | Notion 02 / Wiki | 완료 |
 | 사용자 시나리오 | Notion 03 SC-001~018 | 완료 |
-| 화면 설계서 | Notion 04 SCR-001~019 | 진행중 |
+| 화면 설계서 | Notion 04 SCR-001~021 | 진행중 |
 | ERD·테이블 정의 | Notion 05 · 22테이블 | 완료 |
 | API 명세 | Notion 06 API-001~020 | 완료 |
 | React/Spring | GitHub ASAK-front/back | 예정 |
