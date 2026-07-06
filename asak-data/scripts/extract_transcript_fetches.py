@@ -61,7 +61,7 @@ def main():
     paths = sys.argv[1:] or [
         str(
             Path.home()
-            / ".cursor/projects/c-greens/agent-transcripts/cb3c9d00-7066-4ba2-b69f-7a5b6604501a/cb3c9d00-7066-4ba2-b69f-7a5b6604501a.jsonl"
+            / ".cursor/projects/c-ASAK/agent-transcripts/cb3c9d00-7066-4ba2-b69f-7a5b6604501a/cb3c9d00-7066-4ba2-b69f-7a5b6604501a.jsonl"
         )
     ]
     saved: set[str] = set()

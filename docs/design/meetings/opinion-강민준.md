@@ -10,7 +10,7 @@
 1. **Step 1** 작성일 확인 (작성자: **강민준**)
 2. **Step 2** 전체 보고 들은 것 (3줄)
 3. **Step 3** 화면 DB에서 **2~3개** 코멘트
-4. **Step 4** DS 1순위 (A~E) — [DS Preview](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac)
+4. **Step 4** DS 1순위 (DS-01~07) — [DS Preview](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac)
 5. **Step 5** 걱정·질문
 6. 완료 후 [인덱스 팀 제출 현황](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac) 체크
 

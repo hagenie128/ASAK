@@ -75,7 +75,7 @@ worklog/
 ## daily 작성법
 
 ```powershell
-cd C:\ha-team
+cd C:\ASAK
 python worklog/scripts/init_daily.py              # daily/{본인}/YYYY-MM-DD.md
 python worklog/scripts/init_entry.py --slug 주제   # entries/{본인}/YYYY-MM-DD-주제.md
 python worklog/scripts/init_daily.py --person team   # _team/ 공유 작업

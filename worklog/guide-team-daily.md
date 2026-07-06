@@ -35,7 +35,7 @@
 ### 1. 오늘 파일 준비
 
 ```powershell
-cd C:\ha-team
+cd C:\ASAK
 python worklog/scripts/init_daily.py
 # → worklog/daily/{본인}/YYYY-MM-DD.md (git user → team_config.json)
 # 다른 팀원·팀 공유: --person 김나연 | --person team

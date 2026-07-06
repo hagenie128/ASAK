@@ -23,7 +23,7 @@
 ## 매일 (로컬)
 
 ```powershell
-cd C:\ha-team
+cd C:\ASAK
 python worklog/scripts/init_daily.py
 # → worklog/daily/{본인}/YYYY-MM-DD.md 생성 (git user → team_config.json)
 .\worklog\scripts\sync_today.ps1
