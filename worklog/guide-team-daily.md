@@ -1,5 +1,6 @@
 # ASAK 팀 일일 워크로그 가이드
 
+> **처음이면:** Notion [🚀 ASAK 처음 시작하기 — Part 2](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) · Git [`docs/GETTING_STARTED.md`](../docs/GETTING_STARTED.md#part-2--워크로그-쓰기-유치원-선생님-모드)  
 > **Notion (편집 정본):** [📅 일일 워크로그 — 팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95) · **일일 기록 DB:** [📅 일일 워크로그](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9)  
 > **매일 퇴근 전 5분** — Git에 정본을 남기고 Notion Calendar로 팀과 공유합니다.
 

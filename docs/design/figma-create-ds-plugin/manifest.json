@@ -9,6 +9,6 @@
     { "command": "create", "name": "DS 후보 프레임 생성" }
   ],
   "networkAccess": {
-    "allowedDomains": ["none"]
+    "allowedDomains": ["https://salady.com"]
   }
 }

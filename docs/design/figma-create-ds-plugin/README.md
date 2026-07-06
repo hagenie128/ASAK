@@ -56,19 +56,78 @@
 
 
 
-각 프레임(834×1194) 포함 요소:
+각 프레임(834×**2400**) 포함 요소:
 
-- **Colors** — 8개 스와치 + hex 라벨
+- **Header (컴팩트)** — 프레임명 + subtitle + **4색 미니 dot** + **타이포 2샘플** 인라인
+- **Components** — 키오스크·어드민 **시각적 UI 프리뷰** (2열 그리드 + 전폭 행 혼합 · Figma API 생성 · 외부 import 없음)
+  - **Home hero strip (SCR-001)** — 브랜드명 + 태그라인 + 미니 CTA 「주문 시작」 + 포케볼 사진 배경(72% tint overlay)
+  - **Category tab bar** — 메뉴 · 샐러드 · 음료 (활성 탭 1개)
+  - **Menu photo card** — Salady 메뉴 실사(포케볼·연어 랩) + 18px 제목·우측 가격 + 칼로리 캡션 + NEW/HOT pill 뱃지 + 카드 drop shadow
+  - **Menu card horizontal** — 연어 랩 썸네일 + 가격 · chevron (2열 좌)
+  - **Menu card sold-out** — 동일 썸네일 dim + 품절 chip + 코너 SOLD chip (2열 우)
+  - **Option chip row** — 소·보통·많이 3 pill (선택=채움 primary / 비선택=아웃라인)
+  - **Option radio group (SCR-004)** — Regular / Large / Extra 단일 선택 + 가격 delta (2열 좌)
+  - **Quantity stepper** — − 1 + (2열 우)
+  - **List group ×2** — 원형 아이콘 bg + 제목·부제목 + chevron › + 구분선
+  - **Payment method row (SCR-007)** — 카드 · 간편결제 아이콘 placeholder (2열 좌)
+  - **Success toast** — ✓ 아이콘 + 「주문이 접수되었습니다」 (2열 우)
+  - **Bottom sticky CTA bar** — 상단 그림자 + 합계·큰 가격 + 채움 결제 버튼
 
-- **Typography** — Display~Caption 스케일 샘플
+> 컴포넌트 섹션이 프레임 대부분을 차지 — Colors/Typography는 헤더 미니 dot·인라인 샘플로 압축, **visual component preview**로 DS를 한눈에 비교합니다.
 
-- **Buttons** — Primary / Secondary 버튼
+DS별 시각 차별화: DS-01 rounded·green chips / DS-02 8px·charcoal·lime accent / DS-03 mint glass / DS-04 terra badge·24px warm / DS-05 coral·pink·yellow pop / DS-06 blush card surface·rose·forest / DS-07 charcoal·lime outline chip·coral CTA — **메뉴 사진은 DS 공통**(Salady 레퍼런스 2종)으로 토큰·컴포넌트 차이에 집중
 
-- **SCR-001 홈 무드** — 미니 CTA 프리뷰 (DS-04·05/06에 hero·accent 뱃지)
+
+
+### 메뉴 사진 (Salady 레퍼런스)
+
+
+
+플러그인은 **오프라인 동작**을 위해 Salady 메뉴 PNG 2종을 `code.js`에 base64로 embed합니다 (`networkAccess: none` — CDN fetch 미사용).
+
+
+
+| 키 | menu id | 메뉴명 | 용도 |
+
+|----|---------|--------|------|
+
+| `poke_roast_pork` | 2534 | 로스트삼겹 포케볼 | Menu photo card · Home hero strip 배경 |
+
+| `salmon_wrap` | 4842 | 그라브락스 연어 랩 | Horizontal card · Sold-out thumb |
+
+
+
+- **원본 경로:** `asak-data/images/menu/{id}.png` (data-pipeline / `menu.json` `image_url`: `/assets/menu/{id}.png`)
+
+- **출처:** Salady 공식 메뉴 이미지 (레퍼런스 데이터 · 상업 사용 시 Salady/브랜드 가이드 확인)
+
+- **재생성:** 이미지 변경 시 아래 스크립트 실행 후 Figma에서 플러그인 재등록
+
+
+
+```powershell
+
+python docs/design/figma-create-ds-plugin/embed_menu_images.py
+
+```
+
+
+
+> `code.js`가 ~0.6MB로 커집니다. Git에는 embed 결과를 포함합니다. 원본 PNG는 `asak-data/images/menu/`에만 두고 플러그인 폴더에 복사하지 않습니다.
 
 
 
 색상 정본: [kiosk-design-system-index.md](../kiosk-design-system-index.md) · candidate A~E `.md` · `kiosk-tokens-candidate-*.css` · Trend hex [color-swatches.html](../color-swatches.html)
+
+### Figma 커뮤니티 키트 참고 (스타일 영감)
+
+플러그인 컴포넌트 쇼케이스 레이아웃·밀도는 아래 키트를 참고했습니다. **에셋 import 없이** Figma API 프레임만으로 재현합니다.
+
+| 키트 | 용도 |
+|------|------|
+| [Courses Dashboard UI KIT](https://www.figma.com/design/MZ7cCNaum5g4nAspeuENgn/Courses---Courses-Dashboard-UI-KIT?node-id=14-410) | list row · 어드민/settings 행 · 카드 그리드 밀도 |
+| [Kiosk Community](https://www.figma.com/design/9YLXX1NqX0xveVxNl9Y5aX/Kiosk213213--Community-) | 메뉴 카드 · 하단 sticky CTA · 옵션 chip |
+| [Y2K UI Kit (Retro Bubblegum)](https://www.figma.com/design/ndHUuQpfTvanwdspoIKM4Q/Y2K-UI-Kit) | youth badge · coral/pink pop · DS-05/07 무드 |
 
 
 
@@ -155,6 +214,10 @@ Figma → 플러그인 → 개발 → Create DS Candidates (kiosk_design)
 
 
 ### 코드 수정 후 재등록
+
+
+
+`embed_menu_images.py`로 메뉴 사진을 바꾼 경우에도 동일 절차입니다.
 
 
 

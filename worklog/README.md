@@ -1,7 +1,8 @@
 # ASAK 워크로그
 
-> **Notion:** 사용법 [📅 일일 워크로그 — 팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95) (정본) · 일일 기록 [📅 일일 워크로그 DB](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9) · Git 온보딩 [`docs/GETTING_STARTED.md`](../docs/GETTING_STARTED.md#part-2--워크로그-쓰기-유치원-선생님-모드)  
-> **Git (원본):** [worklog/](https://github.com/hagenie128/ASAK/tree/main/worklog) — ASAK repo
+> **처음이면:** Notion [🚀 ASAK 처음 시작하기 — Part 2](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) · Git [`docs/GETTING_STARTED.md`](../docs/GETTING_STARTED.md#part-2--워크로그-쓰기-유치원-선생님-모드)  
+> **Notion:** [📅 일일 워크로그 — 팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95) (정본) · [📅 일일 워크로그 DB](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9)  
+> **Git:** [worklog/](https://github.com/hagenie128/ASAK/tree/main/worklog)
 
 4인 팀 · **9주** ASAK 프로젝트 (7/2~9/2 발표)의 **일일 요약 + 상세 기록 + 캘린더 뷰**를 한곳에서 관리합니다.
 

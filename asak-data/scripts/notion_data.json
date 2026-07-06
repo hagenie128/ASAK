@@ -1847,7 +1847,7 @@
     },
     {
       "id": "TC-016",
-      "title": "TC-016 포인트·쿠폰 적립 및 QR 할인 적용 (KSD-MEMBER-001 (EXCLUDED))",
+      "title": "TC-016 포인트·쿠폰 적립 및 QR 할인 적용 (KSD-MEMBER-001 (EXCLUDED), RTOS-DEVICE-004 (EXCLUDED))",
       "base_title": "포인트·쿠폰 적립 및 QR 할인 적용",
       "req_ids": [
         "KSD-MEMBER-001",

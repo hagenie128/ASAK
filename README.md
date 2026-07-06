@@ -1,6 +1,6 @@
 # ASAK
 
-> **처음이신가요?** 👉 [**처음 시작하기 (GETTING_STARTED)**](docs/GETTING_STARTED.md) — 클론·세팅·워크로그까지 한 문서로!
+> **처음이신가요?** 👉 [**처음 시작하기 (GETTING_STARTED)**](docs/GETTING_STARTED.md) · Windows 설치 상세 [**INSTALL_WINDOWS.md**](docs/INSTALL_WINDOWS.md) · Notion [🚀 팀 온보딩](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) — 클론·세팅·워크로그까지 한 문서로!
 
 `ASAK`는 `A Salad A Kiosk`의 **통합 Git 저장소**입니다. 로컬 클론 경로는 **`C:\ASAK`** 를 권장합니다.
 
@@ -96,7 +96,7 @@ Git 로컬 도구: [`color-swatches.html`](docs/design/color-swatches.html) · [
 
 ## 팀 세팅 가이드
 
-**신규 합류:** [`docs/GETTING_STARTED.md`](docs/GETTING_STARTED.md) → [`docs/guides/README.md`](docs/guides/README.md) 순으로 읽으세요.
+**신규 합류:** Windows PC → [`docs/INSTALL_WINDOWS.md`](docs/INSTALL_WINDOWS.md) · Notion [🚀 처음 시작하기](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) · [`docs/GETTING_STARTED.md`](docs/GETTING_STARTED.md) → [`docs/guides/README.md`](docs/guides/README.md) 순으로 읽으세요.
 
 팀원 온보딩·Issue·작업 기록 템플릿은 [`docs/guides/`](docs/guides/README.md)에 있습니다.
 

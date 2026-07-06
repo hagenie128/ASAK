@@ -88,7 +88,14 @@ viewer 구현 기본(색상 확정 전): [`kiosk-tokens.css`](./kiosk-tokens.css
 
 ## 5. Figma · SCR
 
-- 플러그인: [figma-create-ds-plugin](./figma-create-ds-plugin/README.md) → **`DS-01`~`DS-07` 프레임 7개** (§0 매핑표)
+- 플러그인: [figma-create-ds-plugin](./figma-create-ds-plugin/README.md) → **`DS-01`~`DS-07` 프레임 7개** (§0 매핑표) · 각 프레임 **Components** 섹션에 아래 **플러그인 예시 컴포넌트** 자동 생성 (834×2400 · 2열 그리드)
+
+### 플러그인 예시 컴포넌트 (DS-01~07 공통)
+
+- Home hero strip (SCR-001) · category tab bar · menu photo card · menu card horizontal · menu card sold-out
+- option chip row · option radio group (SCR-004) · quantity stepper · list group ×2
+- payment method row (SCR-007) · success toast · bottom sticky CTA bar
+- 헤더: 4색 미니 dot + 타이포 2샘플 인라인 (Colors/Typography 대형 섹션 없음)
 - Variables `asak-trend-1`~`5`는 Figma Variables로 별도 (DS-05/06 프레임과 병합하지 않음)
 - SCR-001: **DS-05 vs DS-06** (Variables A/B + 플러그인 프레임) + **DS-01 vs DS-04** (후보 비교) + **DS-02 vs DS-07** (minimal vs youth coral)
 - **DS-07 Pink-Lime Hybrid**: B의 charcoal·cool gray·electric lime 구조에 Trend-1의 vivid coral→pink CTA를 합친 **7번째 비교 프레임** — DS-02·DS-05에 병합하지 않음 · 스와치 `asak-hybrid-b-t1`

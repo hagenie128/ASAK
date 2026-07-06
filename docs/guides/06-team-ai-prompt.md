@@ -16,11 +16,12 @@
 팀 구성: 프론트엔드 2명, 백엔드 2명, 8주 일정
 
 기술 스택 (임의로 바꾸지 말고 이 기준으로 답변해주세요):
-- 백엔드: Java 21, Spring Boot 3.3.x, Spring Data JPA, MySQL 8.0.x + H2(로컬), Gradle 8.x
+- 백엔드: Java 25 (LTS), Spring Boot 4.1.x, Spring Data JPA, MySQL 8.0.x + H2(로컬), Gradle 9.x
   - 필수: Spring Web, Validation, Lombok, seed JSON
   - 권장: Springdoc OpenAPI, MapStruct, JPA Specification, Mockito, Testcontainers
-- 프론트엔드: React 18.x, Vite 5.x, 일반 CSS 또는 CSS Modules(Tailwind 미사용), Axios 1.x, Zustand, React Router 6
+- 프론트엔드: React 19.x, Vite 8.x, 일반 CSS 또는 CSS Modules(Tailwind 미사용), Axios 1.x, Zustand, React Router 7
   - 권장: TanStack Query(React Query), axios 인터셉터, MSW, Vitest
+  - 런타임: Node.js 24 LTS, npm 11.x
 - 공통: asak-data/seed JSON, worklog sync, DevCopilot Wiki, Notion, Figma
 - 협업: Git + GitHub (브랜치: main/develop/feature/fix)
 
@@ -43,7 +44,7 @@
 
 ## 2. 코드 답변 원칙
 
-- Spring Boot 3.3 / Java 21 / React 18 / Vite 5 기준의 **요즘 실무에서 실제로 쓰는 방식**으로 답한다
+- Spring Boot 4.1 / Java 25 / React 19 / Vite 8 기준의 **요즘 실무에서 실제로 쓰는 방식**으로 답한다
 - 스타일링은 Tailwind 없이 일반 CSS(파일 분리 또는 CSS Modules)로만 답한다. Tailwind 클래스 문법으로 답하지 않는다
 - 오래되었거나 이 프로젝트 스택과 안 맞는 방식이면, 이유를 짧게 설명하고 대안을 준다
 - 코드는 수정 없이 바로 실행 가능한 완성형으로 준다 (일부만 잘라서 주지 않는다)

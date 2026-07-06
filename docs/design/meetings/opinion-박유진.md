@@ -39,8 +39,8 @@
 
 > [04. 화면 설계](https://app.notion.com/p/1c751ef04f0b825ea3aa8145f563bbc8) · [SCR 화면별 가이드](https://app.notion.com/p/39451ef04f0b81109d07c01293d73c6d)
 
-| 보고 싶은 화면 (이름만) | 이 화면에 뭐가 있어야 함 | 다음 화면으로 어떻게 넘어감 | DS 느낌 (A~E) |
-|------------------------|--------------------------|------------------------------|:--------------:|
+| 보고 싶은 화면 (이름만) | 이 화면에 뭐가 있어야 함 | 다음 화면으로 어떻게 넘어감 | DS 느낌 (DS-01~07) |
+|------------------------|--------------------------|------------------------------|:------------------:|
 | | | | |
 | | | | |
 | | | | |
@@ -51,15 +51,17 @@
 
 | 선택 | DS | 한 줄 설명 |
 |:----:|------|------------|
-| [ ] | **DS-01** Fresh Greens | 밝은 크림 + 녹색. MVP 기본 |
-| [ ] | **DS-02** Modern Minimal | 흑백 + 라임 |
-| [ ] | **DS-03** Trend Forward | 다크 + 민트 글래스 |
-| [ ] | **DS-04** A+C Trendy | sage gradient |
-| [ ] | **DS-05** Pink-Green | coral CTA + sage (Variables A) |
-| [ ] | **DS-06** Blush Forest | blush + forest (Variables B) ⭐ |
-| [ ] | **DS-07** Pink-Lime Hybrid | B minimal + coral CTA |
+| [ ] | **DS-01** Fresh Greens | 밝은 크림 + 녹색. 샐러드·신선·MVP 기본 (구 Candidate A) |
+| [ ] | **DS-02** Modern Minimal | 흑백 + 라임. 대담·고대비 (구 Candidate B) |
+| [ ] | **DS-03** Trend Forward | 딥포레스트 + 민트 글래스. 다크 모드·Week7+ (구 Candidate D) |
+| [ ] | **DS-04** A+C Trendy | A 신선함 + warm terracotta. sage gradient (구 Candidate E) |
+| [ ] | **DS-05** Pink-Green | vivid coral CTA + sage. youth pink. SCR-001 Variables A (구 Trend-1) |
+| [ ] | **DS-06** Blush Forest | blush + forest CTA. youth pink-green. SCR-001 Variables B ⭐ (구 Trend-4) |
+| [ ] | **DS-07** Pink-Lime Hybrid | B minimal + coral CTA. 7번째 비교 (구 Hybrid B×T1) |
 
 **1순위**: ___　**한 줄 이유**: ___
+
+> 매핑: A→DS-01 · B→02 · D→03 · E→04 · Trend-1→05 · Trend-4→06 · Hybrid→07 · ~~C 보관~~
 
 ---
 

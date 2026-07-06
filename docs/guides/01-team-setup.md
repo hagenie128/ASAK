@@ -73,18 +73,24 @@ git clone https://github.com/hagenie128/ASAK-back.git c:\ASAK-back
 
 ## 4. 필수 프로그램
 
+> **Windows 초보자:** 다운로드·설치 마법사·폴더·PATH·클론·`NOTION_TOKEN` 은 [`docs/INSTALL_WINDOWS.md`](../INSTALL_WINDOWS.md) (**유치원 선생님 모드**)를 **먼저** 따라 하세요.
+
 권장 설치 항목:
 
 - Git
-- Python 3.11
+- Python 3.13
+- Java 25 LTS (백엔드)
+- Node.js 24 LTS (프론트 React)
 - Cursor 또는 VS Code
 
-이미 이 PC에서는 Python 3.11, Git이 맞춰져 있습니다. 다른 팀원 PC에서는 아래 확인 명령을 먼저 실행하세요.
+다른 팀원 PC에서는 아래 확인 명령을 먼저 실행하세요.
 
 ```powershell
 git --version
 python --version
-py -3.11 --version
+py -3.13 --version
+java -version
+node --version
 ```
 
 ## 4-1. 기술 스택 · 라이브러리
@@ -94,7 +100,7 @@ py -3.11 --version
 - Git: [`docs/wiki/tech-stack-summary.md`](../wiki/tech-stack-summary.md)
 - Notion: [기술 스택 & 라이브러리](https://app.notion.com/p/39051ef04f0b801cb506f1a930b847a5)
 
-요약: 백엔드는 Spring Boot 3.3 + JPA + MySQL/H2, 프론트는 React 18 + Vite + Zustand + Axios(Tailwind 미사용). 실제 구현 repo는 `ASAK-front` / `ASAK-back`입니다.
+요약: 백엔드는 Spring Boot 4.1 + Java 25 + JPA + MySQL/H2, 프론트는 React 19 + Vite 8 + Zustand + Axios(Tailwind 미사용). 실제 구현 repo는 `ASAK-front` / `ASAK-back`입니다.
 
 ## 5. 실제 백엔드 세팅
 
@@ -132,7 +138,7 @@ cd c:\ASAK\data-pipeline\phase1
 가상환경 생성 및 의존성 설치:
 
 ```powershell
-py -3.11 -m venv .venv
+py -3.13 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install --upgrade pip
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
@@ -373,7 +379,7 @@ ASAK 통합 구조 기준으로 frontend, backend, data-pipeline, 문서 연결 
 ```powershell
 cd c:\ASAK\data-pipeline\phase1
 Remove-Item .venv -Recurse -Force
-py -3.11 -m venv .venv
+py -3.13 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
@@ -390,7 +396,7 @@ python build_viewer.py
 
 - `ASAK`, `ASAK-front`, `ASAK-back` 3개 저장소를 모두 클론했다.
 - 3개 저장소가 서로 다른 Git 저장소라는 점을 이해했다. (작업 후 통합 저장소에 다시 합칠 필요 없음)
-- `git --version`, `py -3.11 --version` 확인을 마쳤다.
+- `git --version`, `py -3.13 --version`, `java -version`, `node --version` 확인을 마쳤다.
 - `ASAK-back` 구조와 목적을 이해했다.
 - `c:\ASAK\data-pipeline\phase1`에서 가상환경 생성과 `requirements.txt` 설치를 마쳤다.
 - `c:\ASAK\data-pipeline\phase1`에서 `run_phase1.py` 실행이 된다.

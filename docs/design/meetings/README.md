@@ -18,10 +18,11 @@
 
 1. 위 표에서 **본인 이름** 페이지를 엽니다.
 2. **Step 1** 작성일만 추가합니다 (작성자는 이미 채워짐).
-3. **Step 2~5**를 채웁니다. DS 비교는 [인덱스 Notion](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac) 또는 [템플릿 md](../screen-design-meeting-opinion-template.md) § DS Preview 참고.
+3. **Step 2~5**를 채웁니다. DS 비교는 [인덱스 Notion](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac) **DS Preview (DS-01~07)** 또는 [템플릿 md](../screen-design-meeting-opinion-template.md) 참고.
 4. 완료 후 [인덱스](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac) **팀 제출 현황** 표에 체크합니다.
 
 ## 참고
 
-- 공통 가이드·DS Preview·SCR 부록: [`screen-design-meeting-opinion-template.md`](../screen-design-meeting-opinion-template.md)
+- 공통 가이드·DS Preview (DS-01~07)·SCR 부록: [`screen-design-meeting-opinion-template.md`](../screen-design-meeting-opinion-template.md)
+- 구 이름 매핑: A→DS-01, B→02, D→03, E→04, Trend-1→05, Trend-4→06, Hybrid→07 · ~~Candidate C 보관~~
 - 팀원 목록: [`worklog/team_config.json`](../../worklog/team_config.json)

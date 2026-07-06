@@ -1,5 +1,8 @@
 # ASAK 처음 시작하기 (초보자용)
 
+> **Notion (정본):** [🚀 ASAK 처음 시작하기 (팀 온보딩)](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) · **Git mirror:** 이 파일  
+> **Windows 설치 (클릭·폴더·PATH 상세):** 👉 [**INSTALL_WINDOWS.md**](INSTALL_WINDOWS.md) — Git·Python·Java·Node를 처음 깔 때 **여기부터** 따라 하세요.
+
 > **한 줄 요약:** ASAK는 샐러디 키오스크를 만드는 풀스택 학습 프로젝트입니다. 화면(프론트)과 API(백엔드)를 **둘 다** 켜야 실제 주문 흐름을 볼 수 있습니다.
 
 처음이어도 괜찮아요. 이 문서만 순서대로 따라 하면 됩니다.
@@ -59,9 +62,35 @@
 
 ---
 
+## 한 방에 셋팅 (자동)
+
+Windows에서 **한 번에** 도구 확인·폴더·가상환경·`.env`·MCP 템플릿까지 맞추려면:
+
+```powershell
+cd C:\ASAK
+.\scripts\setup-windows.ps1 -CloneRepos
+```
+
+| 옵션 | 설명 |
+|------|------|
+| (기본) | 버전 확인 + 부족하면 winget/choco 설치 시도 + 폴더 + venv + `.env` |
+| `-CloneRepos` | `C:\ASAK`, `C:\ASAK-front`, `C:\ASAK-back` **빈 폴더에만** git clone |
+| `-SkipInstall` | 패키지 설치 생략 (확인만) |
+| `-SkipVenv` | Python venv·pip 생략 |
+
+더블클릭: `scripts\setup-windows.bat`
+
+- Git 사용자 이름/이메일은 **스크립트가 설정하지 않습니다** — `setup-git.ps1` 안내를 따라 직접 입력하세요.
+- 수동 설치·마법사 스크린샷: **[INSTALL_WINDOWS.md](INSTALL_WINDOWS.md)**
+- MCP: **[MCP_SETUP.md](MCP_SETUP.md)** · `.\scripts\setup-mcp.ps1`
+
+---
+
 ## 준비물 (설치 & 확인)
 
 Windows(PowerShell) 기준입니다.
+
+> **처음 설치하시나요?** 자동은 위 **한 방에 셋팅**을, 클릭·PATH·실패 대처는 **[INSTALL_WINDOWS.md](INSTALL_WINDOWS.md)** (**유치원 선생님 모드**)를 보세요.
 
 ### 1. Git
 
@@ -74,34 +103,34 @@ git --version
 
 **성공 예:** `git version 2.x.x` 가 나오면 OK
 
-### 2. Python 3.11
+### 2. Python 3.13
 
 - 설치: https://www.python.org/downloads/ (설치 시 **"Add Python to PATH"** 체크)
 - 확인:
 
 ```powershell
 python --version
-py -3.11 --version
+py -3.13 --version
 ```
 
-**성공 예:** `Python 3.11.x`
+**성공 예:** `Python 3.13.x`
 
 > 데이터 파이프라인·뷰어·워크로그 스크립트에 사용합니다.
 
-### 3. Java 21 (백엔드 개발 시)
+### 3. Java 25 LTS (백엔드 개발 시)
 
-- 설치: https://adoptium.net/ (Temurin 21 권장)
+- 설치: https://adoptium.net/ (Temurin 25 권장)
 - 확인:
 
 ```powershell
 java -version
 ```
 
-**성공 예:** `openjdk version "21.x"`
+**성공 예:** `openjdk version "25.x"`
 
-### 4. Node.js 20 LTS (프론트 React 개발 시)
+### 4. Node.js 24 LTS (프론트 React 개발 시)
 
-- 설치: https://nodejs.org/ (LTS)
+- 설치: https://nodejs.org/ (Active LTS)
 - 확인:
 
 ```powershell
@@ -109,7 +138,7 @@ node --version
 npm --version
 ```
 
-**성공 예:** `v20.x.x`, `10.x.x`
+**성공 예:** `v24.x.x`, `11.x.x`
 
 ### 5. Docker?
 
@@ -146,7 +175,7 @@ git status
 
 ```powershell
 cd c:\ASAK\data-pipeline\phase1
-py -3.11 -m venv .venv
+py -3.13 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install --upgrade pip
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
@@ -275,6 +304,8 @@ python run_viewer.py
 
 | 문서 | 내용 |
 |------|------|
+| [INSTALL_WINDOWS.md](INSTALL_WINDOWS.md) | **Windows 설치** (자동 스크립트 + 수동 fallback) |
+| [MCP_SETUP.md](MCP_SETUP.md) | Cursor MCP·Notion·환경 변수 |
 | [guides/01-team-setup.md](guides/01-team-setup.md) | 팀 세팅·Git·9주 일정 (상세) |
 | [guides/README.md](guides/README.md) | 가이드 읽는 순서 |
 | [wiki/tech-stack-summary.md](wiki/tech-stack-summary.md) | Java, React, 라이브러리 정리 |
@@ -519,7 +550,7 @@ python worklog/scripts/sync_daily_to_notion.py --date today --json > _sync.json
 ## 다음에 할 일
 
 1. [guides/README.md](guides/README.md) 순서대로 01~02 읽기  
-2. Notion [문서 읽는 순서](https://app.notion.com/p/39451ef04f0b81088a91d914f985fb11) 확인  
+2. Notion [문서 읽는 순서](https://app.notion.com/p/39451ef04f0b81088a91d914f985fb11) · [팀 문서 안내](https://app.notion.com/p/39551ef04f0b813b8765e64384f2dfd3) 확인  
 3. `develop` 브랜치에서 `feature/...` 로 작업 시작  
 4. **매일 퇴근 전** 워크로그 한 줄 ✍️
 

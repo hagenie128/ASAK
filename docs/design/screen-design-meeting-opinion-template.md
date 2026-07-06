@@ -61,6 +61,16 @@
 - [Figma 02 User Flow](https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design) → **`DS-01`~`DS-07`** 프레임 (가로 7개)
 - 프레임 없으면: `Ctrl + /` → **Create DS Candidates** (플러그인: [figma-create-ds-plugin](./figma-create-ds-plugin/README.md))
 
+### 플러그인 예시 컴포넌트 (12개 · DS-01~07 공통)
+
+각 프레임 **Components** 섹션에 자동 생성 — 키오스크 UI를 한눈에 비교:
+
+1. Home hero strip (SCR-001) · 2. Category tab bar · 3. Menu photo card · 4. Menu card horizontal · 5. Menu card sold-out
+6. Option chip row · 7. Option radio group (SCR-004) · 8. Quantity stepper · 9. List group ×2
+10. Payment method row (SCR-007) · 11. Success toast · 12. Bottom sticky CTA bar
+
+> DS-05~07은 youth pink·coral CTA·blush 무드가 컴포넌트에 반영됩니다. 상세: [플러그인 README](./figma-create-ds-plugin/README.md)
+
 ### 구 이름 → DS-0N (매핑)
 
 | 구 이름 | DS |
@@ -131,9 +141,9 @@ Notion: [브랜드 · Trend 컬러](https://app.notion.com/p/39451ef04f0b814a944
 
 > [04. 화면 설계](https://app.notion.com/p/1c751ef04f0b825ea3aa8145f563bbc8) 또는 [SCR 화면별 가이드](https://app.notion.com/p/39451ef04f0b81109d07c01293d73c6d)를 보고 **관심 있는 화면 2~3개**만 골라 주세요. SCR 번호 없이 **이름만** 적어도 됩니다.
 
-| 보고 싶은 화면 (이름만) | 이 화면에 뭐가 있어야 함 | 다음 화면으로 어떻게 넘어감 | DS 느낌 (A,B,D,E) |
-|------------------------|--------------------------|------------------------------|:--------------:|
-| 예: 장바구니 | 수량 변경, 총액, 담은 메뉴 목록 | [주문하기] → 주문확인 | E |
+| 보고 싶은 화면 (이름만) | 이 화면에 뭐가 있어야 함 | 다음 화면으로 어떻게 넘어감 | DS 느낌 (DS-01~07) |
+|------------------------|--------------------------|------------------------------|:------------------:|
+| 예: 장바구니 | 수량 변경, 총액, 담은 메뉴 목록 | [주문하기] → 주문확인 | DS-04 |
 | | | | |
 | | | | |
 
@@ -154,6 +164,8 @@ Notion: [브랜드 · Trend 컬러](https://app.notion.com/p/39451ef04f0b814a944
 | [ ] | **DS-07** Pink-Lime Hybrid | B minimal + coral CTA. 7번째 비교 (구 Hybrid B×T1) |
 
 **1순위**: ___　**한 줄 이유**: ___
+
+> 매핑: A→DS-01 · B→02 · D→03 · E→04 · Trend-1→05 · Trend-4→06 · Hybrid→07 · ~~C 보관~~
 
 > **DS-05 vs DS-06** (Notion·Variables): 홈(SCR-001)에서 coral CTA vs blush+forest를 A/B로 비교. DS-01·04·06은 **각각 독립** — [왜 다른가](./kiosk-design-system-comparison.md#6-왜-다른가-옵션별)
 
@@ -183,9 +195,9 @@ Notion: [브랜드 · Trend 컬러](https://app.notion.com/p/39451ef04f0b814a944
 
 | 보고 싶은 화면 (이름만) | 이 화면에 뭐가 있어야 함 | 다음 화면으로 어떻게 넘어감 | DS 느낌 |
 |------------------------|--------------------------|------------------------------|:--------:|
-| 장바구니 | 담은 메뉴·옵션·수량, 합계, +/- 버튼 | [주문하기] → 주문확인 | E |
-| 메뉴 선택 | 카테고리 탭, 메뉴 카드(사진+가격), 품절 표시 | 카드 탭 → 메뉴 상세 | E |
-| 주문 확인 | 최종 내역, 먹고가기/포장, [결제하기] | [결제하기] → 결제 | E |
+| 장바구니 | 담은 메뉴·옵션·수량, 합계, +/- 버튼 | [주문하기] → 주문확인 | DS-04 |
+| 메뉴 선택 | 카테고리 탭, 메뉴 카드(사진+가격), 품절 표시 | 카드 탭 → 메뉴 상세 | DS-04 |
+| 주문 확인 | 최종 내역, 먹고가기/포장, [결제하기] | [결제하기] → 결제 | DS-04 |
 
 ### Step 4 예시
 
@@ -214,9 +226,9 @@ Notion: [브랜드 · Trend 컬러](https://app.notion.com/p/39451ef04f0b814a944
 
 | 항목 | 링크 |
 |------|------|
-| **DS 인덱스 (A,B,D,E)** | [kiosk-design-system-index.md](./kiosk-design-system-index.md) |
-| 후보 A~E 개별 문서 | [A](./kiosk-design-system-candidate-A.md) · [B](./kiosk-design-system-candidate-B.md) · ~~[C](./kiosk-design-system-candidate-C.md) 보관~~ · [D](./kiosk-design-system-candidate-D.md) · [E](./kiosk-design-system-candidate-E-ac-trendy.md) |
-| 후보 A~E 비교 + 왜 다른가 | [kiosk-design-system-comparison.md](./kiosk-design-system-comparison.md) |
+| **DS 인덱스 (DS-01~07)** | [kiosk-design-system-index.md](./kiosk-design-system-index.md) |
+| DS-01~04 개별 문서 | [01 Fresh Greens](./kiosk-design-system-candidate-A.md) · [02 Modern Minimal](./kiosk-design-system-candidate-B.md) · ~~[C 보관](./kiosk-design-system-candidate-C.md)~~ · [03 Trend Forward](./kiosk-design-system-candidate-D.md) · [04 A+C Trendy](./kiosk-design-system-candidate-E-ac-trendy.md) |
+| DS 비교 + 왜 다른가 | [kiosk-design-system-comparison.md](./kiosk-design-system-comparison.md) |
 | Figma 플러그인 | [figma-create-ds-plugin](./figma-create-ds-plugin/README.md) |
 
 </details>
@@ -273,6 +285,6 @@ flowchart LR
 | SCR 목록 | [Notion 04. 화면 설계 DB](https://app.notion.com/p/1c751ef04f0b825ea3aa8145f563bbc8) |
 | 와이어 가이드 | [SCR 화면별 가이드](https://app.notion.com/p/39451ef04f0b81109d07c01293d73c6d) |
 | Figma 체크리스트 | `docs/design/SCR_FIGMA_CHECKLIST.md` |
-| DS 후보 A~E | [kiosk-design-system-index.md](./kiosk-design-system-index.md) |
+| DS DS-01~07 | [kiosk-design-system-index.md](./kiosk-design-system-index.md) |
 
 </details>

@@ -672,8 +672,13 @@ def qa_title(item: dict) -> str:
     raw = item.get("base_title") or item.get("title") or tc_id
     base = QA_TITLE_PREFIX_RE.sub("", raw).strip()
     req_ids = item.get("req_ids") or qa_req_ids(tc_id)
-    primary = (TC_REQ_OVERRIDE.get(tc_id) or req_ids[:1] or [None])[0]
-    titled = title_with_req(base, req_ids, primary_only=True, primary=primary)
+    override = TC_REQ_OVERRIDE.get(tc_id, [])
+    if len(override) > 1:
+        labels = ", ".join(format_req_label(r) for r in override)
+        titled = f"{base} ({labels})"
+    else:
+        primary = (override or req_ids[:1] or [None])[0]
+        titled = title_with_req(base, req_ids, primary_only=True, primary=primary)
     return f"{tc_id} {titled}"
 
 

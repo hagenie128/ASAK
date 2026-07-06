@@ -44,7 +44,7 @@
 | Error Soft | `#FEE2E2` | 오류 배너 |
 | Warn Soft | `#FFF7ED` | 경고 배너 |
 
-> **DS 구조 (2026-07-06)**: 팀 선택용 **후보 A~E 5안 + Trend-1~5 Variables** — [인덱스](./kiosk-design-system-index.md) · [비교표](./kiosk-design-system-comparison.md). Trend hex: [color-swatches.html](./color-swatches.html) · Notion [브랜드 · Trend 컬러](https://app.notion.com/p/39451ef04f0b814a9447f6fbf171b3b7). Figma: `DS Candidate A`~`E` + `asak-trend-1`~`5`.
+> **DS 구조 (2026-07-06)**: 팀 선택용 **후보 A~E 5안 + Trend-1~5 Variables** — [인덱스](./kiosk-design-system-index.md) · [비교표](./kiosk-design-system-comparison.md). Trend hex: [color-swatches.html](./color-swatches.html) · Notion [브랜드 · Trend 컬러](https://app.notion.com/p/39451ef04f0b814a9447f6fbf171b3b7). Figma: **`DS-01`~`DS-07`** 프레임 + Variables `asak-trend-1`~`5`.
 
 ---
 
