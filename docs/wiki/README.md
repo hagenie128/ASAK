@@ -6,7 +6,6 @@
 
 | Wiki 제목 | 로컬 md | DevCopilot URL |
 |-----------|---------|----------------|
-| ASAK 화면설계 (SCR-001~019) | [../screens/screens-wiki.md](../screens/screens-wiki.md) | https://devcopilot.ai.kr/workspace/2/wiki/16 |
 | ASAK 요구사항 정의서 | [requirements-definition.md](./requirements-definition.md) | https://devcopilot.ai.kr/workspace/2/wiki/9 |
 | ASAK 사용자 시나리오 명세 | [user-scenarios.md](./user-scenarios.md) | https://devcopilot.ai.kr/workspace/2/wiki/10 |
 | ASAK 화면 설계 및 Figma 연동 | [screen-design-figma.md](./screen-design-figma.md) | https://devcopilot.ai.kr/workspace/2/wiki/5 |

@@ -13,8 +13,10 @@ import re
 from pathlib import Path
 
 from api_format import format_api_fields
+from extra_apis import merge_extra_apis
 from req_link_maps import (
     SCENARIO_REQ_MAP,
+    TC_SCENARIO_MAP,
     api_req_ids,
     expand_refs,
     parse_req_list,
@@ -144,7 +146,7 @@ def classify(props: dict, title: str, text: str) -> tuple[str, dict] | None:
         base_title = props.get("테스트명") or title
         req_ids = qa_req_ids(tc_id, props)
         sc_match = re.search(r"SC-\d{3}", str(props.get("비고", "")))
-        sc_id = sc_match.group(0) if sc_match else ""
+        sc_id = sc_match.group(0) if sc_match else TC_SCENARIO_MAP.get(tc_id, "")
         return "qa", {
             "id": tc_id,
             "title": title_with_req(f"{tc_id} {base_title}", req_ids, primary_only=True),
@@ -242,6 +244,9 @@ def main():
         seen[bucket].add(kid)
         scores[bucket][kid] = rank
         data[bucket].append(row)
+    added = merge_extra_apis(data)
+    if added:
+        print(f"Merged {added} extra API(s) (API-018~020)")
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     print(
         f"Wrote {OUT}: req={len(data['requirements'])}, api={len(data['apis'])}, "

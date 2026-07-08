@@ -1,6 +1,7 @@
 {
-  "total": 46,
+  "total": 55,
   "req_ids": [
+    "ARCHIVE-LMIS-ORDER-005",
     "DEV-ORDER-001",
     "DEV-PAY-001",
     "DEV-PAY-002",
@@ -8,6 +9,7 @@
     "DEV-SYS-002",
     "FWD-CART-001",
     "FWD-CART-002",
+    "FWD-CART-003",
     "FWD-MENU-001",
     "FWD-MENU-002",
     "FWD-MENU-003",
@@ -28,9 +30,12 @@
     "FWD-UI-001",
     "FWD-UI-002",
     "FWD-UI-003",
+    "FWD-UI-004",
     "FWD-UI-005",
     "KSD-ARCH-001",
+    "KSD-MEMBER-001",
     "KSD-PAY-001",
+    "LMIS-AUTH-001",
     "LMIS-MEMBER-001",
     "LMIS-MENU-001",
     "LMIS-MENU-002",
@@ -46,26 +51,39 @@
     "LMIS-PAY-001",
     "RTOS-DEVICE-001",
     "RTOS-DEVICE-002",
-    "RTOS-DEVICE-003"
+    "RTOS-DEVICE-003",
+    "RTOS-DEVICE-004",
+    "RTOS-DEVICE-005",
+    "RTOS-DEVICE-006",
+    "RTOS-SYS-001"
   ],
   "details": {
+    "ARCHIVE-LMIS-ORDER-005": {
+      "wbs": 0,
+      "api": 0,
+      "scenario": 0,
+      "table": 0,
+      "qa": 0,
+      "screen": 1,
+      "total": 1
+    },
     "DEV-ORDER-001": {
       "wbs": 1,
       "api": 1,
       "scenario": 0,
       "table": 0,
-      "qa": 1,
+      "qa": 0,
       "screen": 1,
-      "total": 4
+      "total": 3
     },
     "DEV-PAY-001": {
       "wbs": 2,
       "api": 1,
       "scenario": 0,
       "table": 0,
-      "qa": 1,
+      "qa": 0,
       "screen": 0,
-      "total": 4
+      "total": 3
     },
     "DEV-PAY-002": {
       "wbs": 1,
@@ -79,54 +97,63 @@
     "DEV-SYS-001": {
       "wbs": 6,
       "api": 0,
-      "scenario": 0,
+      "scenario": 1,
       "table": 0,
-      "qa": 1,
+      "qa": 0,
       "screen": 0,
       "total": 7
     },
     "DEV-SYS-002": {
       "wbs": 5,
       "api": 0,
-      "scenario": 0,
+      "scenario": 1,
       "table": 0,
       "qa": 0,
       "screen": 0,
-      "total": 5
+      "total": 6
     },
     "FWD-CART-001": {
       "wbs": 3,
       "api": 1,
       "scenario": 1,
       "table": 0,
-      "qa": 3,
+      "qa": 0,
       "screen": 2,
-      "total": 10
+      "total": 7
     },
     "FWD-CART-002": {
       "wbs": 1,
       "api": 0,
       "scenario": 1,
       "table": 0,
-      "qa": 1,
+      "qa": 0,
       "screen": 2,
-      "total": 5
+      "total": 4
+    },
+    "FWD-CART-003": {
+      "wbs": 0,
+      "api": 0,
+      "scenario": 0,
+      "table": 0,
+      "qa": 0,
+      "screen": 1,
+      "total": 1
     },
     "FWD-MENU-001": {
       "wbs": 4,
       "api": 2,
       "scenario": 1,
       "table": 2,
-      "qa": 4,
+      "qa": 0,
       "screen": 2,
-      "total": 15
+      "total": 11
     },
     "FWD-MENU-002": {
       "wbs": 1,
       "api": 1,
-      "scenario": 0,
+      "scenario": 1,
       "table": 0,
-      "qa": 1,
+      "qa": 0,
       "screen": 1,
       "total": 4
     },
@@ -135,9 +162,9 @@
       "api": 1,
       "scenario": 0,
       "table": 5,
-      "qa": 1,
+      "qa": 0,
       "screen": 1,
-      "total": 10
+      "total": 9
     },
     "FWD-MENU-004": {
       "wbs": 1,
@@ -160,11 +187,11 @@
     "FWD-MENU-007": {
       "wbs": 0,
       "api": 0,
-      "scenario": 1,
+      "scenario": 0,
       "table": 1,
       "qa": 0,
       "screen": 0,
-      "total": 2
+      "total": 1
     },
     "FWD-MENU-008": {
       "wbs": 0,
@@ -207,99 +234,108 @@
       "api": 0,
       "scenario": 0,
       "table": 0,
-      "qa": 1,
+      "qa": 0,
       "screen": 2,
-      "total": 4
+      "total": 3
     },
     "FWD-MENU-015": {
       "wbs": 1,
       "api": 0,
       "scenario": 0,
       "table": 0,
-      "qa": 1,
+      "qa": 0,
       "screen": 2,
-      "total": 4
+      "total": 3
     },
     "FWD-ORDER-001": {
       "wbs": 2,
       "api": 1,
-      "scenario": 1,
+      "scenario": 2,
       "table": 1,
       "qa": 1,
       "screen": 2,
-      "total": 8
+      "total": 9
     },
     "FWD-ORDER-002": {
       "wbs": 1,
       "api": 0,
       "scenario": 0,
       "table": 0,
-      "qa": 1,
+      "qa": 0,
       "screen": 1,
-      "total": 3
+      "total": 2
     },
     "FWD-PAY-001": {
       "wbs": 1,
       "api": 2,
-      "scenario": 1,
+      "scenario": 0,
       "table": 2,
-      "qa": 2,
+      "qa": 0,
       "screen": 1,
-      "total": 9
+      "total": 6
     },
     "FWD-PAY-002": {
       "wbs": 3,
       "api": 0,
       "scenario": 2,
       "table": 0,
-      "qa": 2,
+      "qa": 1,
       "screen": 3,
-      "total": 10
+      "total": 9
     },
     "FWD-SYS-001": {
       "wbs": 3,
       "api": 0,
-      "scenario": 2,
+      "scenario": 1,
       "table": 0,
       "qa": 1,
       "screen": 1,
-      "total": 7
+      "total": 6
     },
     "FWD-UI-001": {
       "wbs": 5,
-      "api": 1,
+      "api": 0,
       "scenario": 4,
       "table": 0,
-      "qa": 4,
+      "qa": 0,
       "screen": 2,
-      "total": 16
+      "total": 11
     },
     "FWD-UI-002": {
       "wbs": 1,
       "api": 0,
       "scenario": 0,
       "table": 0,
-      "qa": 2,
+      "qa": 1,
       "screen": 2,
-      "total": 5
+      "total": 4
     },
     "FWD-UI-003": {
       "wbs": 2,
       "api": 0,
       "scenario": 0,
       "table": 0,
-      "qa": 2,
+      "qa": 0,
       "screen": 1,
-      "total": 5
+      "total": 3
+    },
+    "FWD-UI-004": {
+      "wbs": 0,
+      "api": 1,
+      "scenario": 1,
+      "table": 0,
+      "qa": 1,
+      "screen": 1,
+      "total": 4
     },
     "FWD-UI-005": {
       "wbs": 2,
       "api": 0,
       "scenario": 0,
       "table": 0,
-      "qa": 1,
+      "qa": 0,
       "screen": 1,
-      "total": 4
+      "total": 3
     },
     "KSD-ARCH-001": {
       "wbs": 3,
@@ -310,6 +346,15 @@
       "screen": 0,
       "total": 5
     },
+    "KSD-MEMBER-001": {
+      "wbs": 0,
+      "api": 1,
+      "scenario": 0,
+      "table": 0,
+      "qa": 1,
+      "screen": 1,
+      "total": 3
+    },
     "KSD-PAY-001": {
       "wbs": 1,
       "api": 0,
@@ -319,7 +364,7 @@
       "screen": 2,
       "total": 4
     },
-    "LMIS-MEMBER-001": {
+    "LMIS-AUTH-001": {
       "wbs": 0,
       "api": 0,
       "scenario": 0,
@@ -328,14 +373,23 @@
       "screen": 1,
       "total": 2
     },
+    "LMIS-MEMBER-001": {
+      "wbs": 0,
+      "api": 1,
+      "scenario": 1,
+      "table": 0,
+      "qa": 1,
+      "screen": 2,
+      "total": 5
+    },
     "LMIS-MENU-001": {
       "wbs": 1,
       "api": 2,
-      "scenario": 3,
+      "scenario": 2,
       "table": 0,
-      "qa": 3,
+      "qa": 0,
       "screen": 1,
-      "total": 10
+      "total": 6
     },
     "LMIS-MENU-002": {
       "wbs": 2,
@@ -360,45 +414,45 @@
       "api": 0,
       "scenario": 0,
       "table": 0,
-      "qa": 1,
+      "qa": 0,
       "screen": 1,
-      "total": 3
+      "total": 2
     },
     "LMIS-MENU-006": {
       "wbs": 1,
       "api": 0,
       "scenario": 0,
       "table": 1,
-      "qa": 1,
+      "qa": 0,
       "screen": 1,
-      "total": 4
+      "total": 3
     },
     "LMIS-ORDER-001": {
       "wbs": 5,
       "api": 1,
-      "scenario": 1,
+      "scenario": 0,
       "table": 0,
-      "qa": 2,
+      "qa": 1,
       "screen": 2,
-      "total": 11
+      "total": 9
     },
     "LMIS-ORDER-002": {
       "wbs": 2,
       "api": 1,
       "scenario": 0,
       "table": 0,
-      "qa": 2,
+      "qa": 0,
       "screen": 2,
-      "total": 7
+      "total": 5
     },
     "LMIS-ORDER-003": {
       "wbs": 2,
       "api": 1,
-      "scenario": 1,
+      "scenario": 0,
       "table": 0,
-      "qa": 2,
+      "qa": 1,
       "screen": 1,
-      "total": 7
+      "total": 5
     },
     "LMIS-ORDER-004": {
       "wbs": 0,
@@ -414,18 +468,18 @@
       "api": 1,
       "scenario": 1,
       "table": 0,
-      "qa": 2,
-      "screen": 2,
-      "total": 6
+      "qa": 1,
+      "screen": 1,
+      "total": 4
     },
     "LMIS-ORDER-006": {
       "wbs": 1,
       "api": 0,
-      "scenario": 0,
+      "scenario": 1,
       "table": 0,
-      "qa": 2,
+      "qa": 0,
       "screen": 1,
-      "total": 4
+      "total": 3
     },
     "LMIS-PAY-001": {
       "wbs": 2,
@@ -438,34 +492,76 @@
     },
     "RTOS-DEVICE-001": {
       "wbs": 1,
-      "api": 0,
+      "api": 1,
       "scenario": 1,
+      "table": 0,
+      "qa": 1,
+      "screen": 2,
+      "total": 6
+    },
+    "RTOS-DEVICE-002": {
+      "wbs": 1,
+      "api": 1,
+      "scenario": 0,
       "table": 0,
       "qa": 0,
       "screen": 1,
       "total": 3
     },
-    "RTOS-DEVICE-002": {
+    "RTOS-DEVICE-003": {
       "wbs": 1,
       "api": 0,
+      "scenario": 0,
+      "table": 0,
+      "qa": 0,
+      "screen": 0,
+      "total": 1
+    },
+    "RTOS-DEVICE-004": {
+      "wbs": 0,
+      "api": 1,
+      "scenario": 1,
+      "table": 0,
+      "qa": 1,
+      "screen": 1,
+      "total": 4
+    },
+    "RTOS-DEVICE-005": {
+      "wbs": 0,
+      "api": 1,
       "scenario": 0,
       "table": 0,
       "qa": 0,
       "screen": 1,
       "total": 2
     },
-    "RTOS-DEVICE-003": {
+    "RTOS-DEVICE-006": {
+      "wbs": 0,
+      "api": 1,
+      "scenario": 0,
+      "table": 0,
+      "qa": 0,
+      "screen": 1,
+      "total": 2
+    },
+    "RTOS-SYS-001": {
       "wbs": 1,
       "api": 0,
-      "scenario": 1,
+      "scenario": 0,
       "table": 0,
       "qa": 0,
       "screen": 0,
-      "total": 2
+      "total": 1
     }
   },
   "orphans": [],
-  "partial": [],
+  "partial": [
+    "ARCHIVE-LMIS-ORDER-005",
+    "FWD-CART-003",
+    "FWD-MENU-007",
+    "RTOS-DEVICE-003",
+    "RTOS-SYS-001"
+  ],
   "fully_linked": [
     "DEV-ORDER-001",
     "DEV-PAY-001",
@@ -479,7 +575,6 @@
     "FWD-MENU-003",
     "FWD-MENU-004",
     "FWD-MENU-006",
-    "FWD-MENU-007",
     "FWD-MENU-008",
     "FWD-MENU-009",
     "FWD-MENU-010",
@@ -494,9 +589,12 @@
     "FWD-UI-001",
     "FWD-UI-002",
     "FWD-UI-003",
+    "FWD-UI-004",
     "FWD-UI-005",
     "KSD-ARCH-001",
+    "KSD-MEMBER-001",
     "KSD-PAY-001",
+    "LMIS-AUTH-001",
     "LMIS-MEMBER-001",
     "LMIS-MENU-001",
     "LMIS-MENU-002",
@@ -512,11 +610,13 @@
     "LMIS-PAY-001",
     "RTOS-DEVICE-001",
     "RTOS-DEVICE-002",
-    "RTOS-DEVICE-003"
+    "RTOS-DEVICE-004",
+    "RTOS-DEVICE-005",
+    "RTOS-DEVICE-006"
   ],
   "summary": {
-    "fully_linked": 46,
-    "partial": 0,
+    "fully_linked": 50,
+    "partial": 5,
     "orphan": 0
   }
 }

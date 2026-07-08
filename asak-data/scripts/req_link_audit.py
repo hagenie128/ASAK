@@ -34,8 +34,11 @@ def active_requirement_ids(requirements: list[dict]) -> list[str]:
 
 def wiki_content() -> str:
     wikis = get_json(f"/api/workspaces/{WS}/wikis")
-    screen = next((w for w in wikis if w.get("id") == 5), None)
-    return (screen or {}).get("content") or ""
+    for wid in (16, 5):
+        screen = next((w for w in wikis if w.get("id") == wid), None)
+        if screen and (screen.get("content") or "").strip():
+            return screen.get("content") or ""
+    return ""
 
 
 def count_links(req_id: str, tasks, apis, scenarios, tables, qa, wiki: str) -> dict[str, int]:

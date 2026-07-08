@@ -1,12 +1,16 @@
 # ASAK 팀 가이드 (읽기 순서)
 
-> **Notion:** [📖 문서 읽는 순서](https://app.notion.com/p/39451ef04f0b81088a91d914f985fb11) (01. 팀/역할/일정 하위)  
-> **Git (정본):** [`docs/guides/`](https://github.com/hagenie128/ASAK/tree/main/docs/guides) — ASAK repo
+> **00. 온보딩:** Notion [🚀 ASAK 처음 시작하기](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) · Git [`../GETTING_STARTED.md`](../GETTING_STARTED.md)  
+> **Notion:** [📖 문서 읽는 순서](https://app.notion.com/p/39451ef04f0b81088a91d914f985fb11) · [📚 팀 문서 안내](https://app.notion.com/p/39551ef04f0b813b8765e64384f2dfd3)  
+> **Git:** [`docs/guides/`](https://github.com/hagenie128/ASAK/tree/main/docs/guides) — ASAK repo
 
-처음 합류한 팀원은 아래 순서대로 읽으세요.
+**Step 0 (Windows)** — PC에 Git·Python·Java·Node가 **아직 없으면** [`../INSTALL_WINDOWS.md`](../INSTALL_WINDOWS.md) (클릭·폴더·PATH 상세) → [`../GETTING_STARTED.md`](../GETTING_STARTED.md) (세팅 + 워크로그) → 아래 **01~06**.
 
 | 순서 | 문서 | 내용 |
 |------|------|------|
+| 00a | [`../INSTALL_WINDOWS.md`](../INSTALL_WINDOWS.md) | **Windows 설치** (자동 `scripts/setup-windows.ps1` + 수동 fallback) |
+| 00b | [`../MCP_SETUP.md`](../MCP_SETUP.md) | **Cursor MCP** (Notion·환경 변수) |
+| 00 | [`../GETTING_STARTED.md`](../GETTING_STARTED.md) | **완전 초보 온보딩** (세팅 + 워크로그) |
 | 01 | [`01-team-setup.md`](01-team-setup.md) | 저장소 클론·세팅·Git·9주 일정·온보딩 체크리스트 |
 | 02 | [`02-github-issues-guide.md`](02-github-issues-guide.md) | GitHub Issue·라벨·WBS·워크로그 연동 |
 | 03 | [`03-work-log-template.md`](03-work-log-template.md) | 기능·이슈 단위 작업 기록 (12섹션) · [`일일 워크로그와의 관계`](03-work-log-template.md#일일-워크로그와의-관계) |

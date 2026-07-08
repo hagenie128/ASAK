@@ -1,17 +1,29 @@
 # ASAK 기술스택 요약
 
 > 팀 공통 결정 — 임의 변경 시 Notion·이슈에 사유 기록 후 합의.  
-> Notion: [기술 스택 & 라이브러리](https://app.notion.com/p/39051ef04f0b801cb506f1a930b847a5)
+> Notion: [기술 스택 & 라이브러리](https://app.notion.com/p/39051ef04f0b801cb506f1a930b847a5)  
+> **LTS 기준 갱신:** 2026-07
 
-## 백엔드 (Spring Boot 3.3 · Java 21)
+## 로컬 개발 도구 (LTS · 2026-07)
+
+| 도구 | 권장 버전 | 비고 |
+|------|-----------|------|
+| Node.js | **24.x Active LTS** (Krypton) | 프론트 `ASAK-front` · npm 11.x |
+| Java (Temurin) | **25 LTS** | 백엔드 `ASAK-back` · Spring Boot 4.1 |
+| Python | **3.13.x** | 데이터 파이프라인·워크로그 (3.12는 Windows 바이너리 중단) |
+| Git | 2.4x+ | 저장소 클론 |
+
+Windows 설치 상세: [`docs/INSTALL_WINDOWS.md`](../INSTALL_WINDOWS.md)
+
+## 백엔드 (Spring Boot 4.1 · Java 25)
 
 | 항목 | 버전·도구 |
 |------|-----------|
-| 언어 | Java 21 |
-| 프레임워크 | Spring Boot 3.3.x |
+| 언어 | Java 25 (LTS) |
+| 프레임워크 | Spring Boot 4.1.x |
 | ORM | Spring Data JPA |
 | DB | MySQL 8.0.x (운영) · H2 (로컬·테스트) |
-| 빌드 | Gradle 8.x |
+| 빌드 | Gradle 9.x |
 
 ### 필수 라이브러리
 
@@ -37,12 +49,13 @@
 | Testcontainers (MySQL) | CI·통합 테스트용 실 DB 환경 | 7~8 |
 | Flyway 또는 Liquibase | 스키마 마이그레이션 (`schema.sql` 이후) | 4~5 |
 
-## 프론트엔드 (React 18 · Vite 5 · ASAK-front)
+## 프론트엔드 (React 19 · Vite 8 · ASAK-front)
 
 | 항목 | 버전·도구 |
 |------|-----------|
-| UI | React 18.x |
-| 빌드 | Vite 5.x |
+| UI | React 19.x |
+| 빌드 | Vite 8.x |
+| 런타임 | Node.js 24 LTS · npm 11.x |
 | 스타일 | 일반 CSS 또는 CSS Modules (**Tailwind 미사용**) |
 | HTTP | Axios 1.x |
 | 상태관리 | Zustand |
@@ -53,10 +66,10 @@
 
 | 이름 | 용도 | 권장 Week |
 |------|------|-----------|
-| React 18 | 키오스크·관리자 UI 컴포넌트 | 3~5 |
-| React DOM 18 | Vite SPA 렌더링 | 3 |
-| Vite 5 | 개발 서버·프로덕션 빌드 | 1~2 |
-| React Router 6 | SCR-001~011 화면 전환·딥링크 | 3~4 |
+| React 19 | 키오스크·관리자 UI 컴포넌트 | 3~5 |
+| React DOM 19 | Vite SPA 렌더링 | 3 |
+| Vite 8 | 개발 서버·프로덕션 빌드 | 1~2 |
+| React Router 7 | SCR-001~011 화면 전환·딥링크 | 3~4 |
 | Axios 1.x | Spring Boot API 호출 · `ApiResponse` 파싱 | 3~4 |
 | Zustand | 장바구니·옵션 선택·UI 로컬 상태 | 3~5 |
 | 일반 CSS / CSS Modules | Figma 기준 태블릿 세로 레이아웃 | 2~5 |
@@ -91,7 +104,7 @@
 | `worklog/scripts/init_daily.py` | 일일 워크로그 파일 생성 | 1~ |
 | `worklog/scripts/sync_daily_to_notion.py` | Git daily → Notion 캘린더 동기화 | 1~ |
 | `asak-data/scripts/download_menu_images.py` | 메뉴 이미지 84종 수집 | 2~3 |
-| `data-pipeline/phase1/` (Python) | 매장 크롤링·PostgreSQL 1차 (앱 DB와 분리) | 1~2 |
+| `data-pipeline/phase1/` (Python 3.13) | 매장 크롤링·PostgreSQL 1차 (앱 DB와 분리) | 1~2 |
 | GitHub Issues + PR 템플릿 | WBS 티켓·코드 리뷰 | 1~6 |
 | Springdoc / Swagger URL | 프론트·백 API 계약 공유 | 4~5 |
 

@@ -15,8 +15,11 @@ import requests
 from req_link_maps import (
     SCENARIO_REQ_MAP,
     SCR_REQ_MAP,
+    TC_REQ_OVERRIDE,
     api_description_text,
     api_req_ids,
+    format_req_label,
+    qa_req_ids,
     req_prefix,
     scenario_display_title,
     scenario_req_ids,
@@ -34,7 +37,7 @@ DATA_FILE = Path(__file__).parent / "notion_data.json"
 PRIORITY_MAP = {"상": "HIGH", "중": "MEDIUM", "하": "LOW"}
 REQ_STATUS_MAP = {
     "예정": "TODO", "검토중": "TODO", "진행중": "IN_PROGRESS",
-    "구현완료": "DONE", "테스트완료": "DONE",
+    "구현완료": "DONE", "테스트완료": "DONE", "제외": "EXCLUDED",
 }
 CATEGORY_MAP = {
     "기능": "FUNCTION", "비기능": "NON_FUNCTION", "화면": "UI", "DB": "DB",
@@ -223,7 +226,7 @@ API_REQ_MAP: dict[str, str] = {
     "API-007": "LMIS-ORDER-001", "API-008": "LMIS-ORDER-003", "API-009": "LMIS-MENU-001",
     "API-010": "LMIS-MENU-001", "API-011": "LMIS-MENU-004", "API-012": "LMIS-MENU-004",
     "API-013": "FWD-PAY-001", "API-014": "LMIS-PAY-001", "API-015": "LMIS-ORDER-005",
-    "API-016": "FWD-CART-001", "API-017": "FWD-UI-001",
+    "API-016": "FWD-CART-001", "API-017": "FWD-UI-004",
 }
 
 TEST_REQ_IDS = {"TEST-REQ"}
@@ -335,13 +338,9 @@ def load_data() -> dict:
 
 
 def requirement_upload_targets(data: dict) -> list[dict]:
-    """Notion requirements to sync: non-제외, non-test."""
+    """Notion requirements to sync (includes 제외 as EXCLUDED), excluding test IDs."""
     items = data.get("requirements", [])
-    return [
-        x
-        for x in items
-        if x.get("status_notion") != "제외" and x.get("id") not in TEST_REQ_IDS
-    ]
+    return [x for x in items if x.get("id") not in TEST_REQ_IDS]
 
 
 def find_requirement_id_dupes(existing_list: list[dict]) -> dict[str, list[dict]]:
@@ -354,11 +353,6 @@ def find_requirement_id_dupes(existing_list: list[dict]) -> dict[str, list[dict]
 def cleanup_orphan_requirements(data: dict) -> list[tuple[str, str, str]]:
     """Delete TEST-* and requirements absent from Notion export. Returns deleted rows."""
     notion_ids = {x["id"] for x in data.get("requirements", [])}
-    allowed = {
-        x["id"]
-        for x in data.get("requirements", [])
-        if x.get("status_notion") != "제외" and x.get("id") not in TEST_REQ_IDS
-    }
     deleted: list[tuple[str, str, str]] = []
     existing_list = api("GET", f"/api/workspaces/{WS}/requirements").json()
     dupes = find_requirement_id_dupes(existing_list)
@@ -378,13 +372,17 @@ def cleanup_orphan_requirements(data: dict) -> list[tuple[str, str, str]]:
             if r.status_code in (200, 204):
                 deleted.append((rid, title, "Notion에 없는 phantom"))
                 print(f"  DELETE phantom requirement {rid}")
-            continue
-        if rid not in allowed:
-            r = api("DELETE", f"/api/workspaces/{WS}/requirements/{rid}")
-            if r.status_code in (200, 204):
-                deleted.append((rid, title, "Notion 상태=제외"))
-                print(f"  DELETE excluded requirement {rid}")
     return deleted
+
+
+def requirement_title(item: dict) -> str:
+    title = (item.get("title") or item["id"]).strip()
+    rid = item["id"]
+    if item.get("status_notion") == "제외":
+        tag = format_req_label(rid)
+        if tag not in title:
+            return f"{title} ({tag})"
+    return title
 
 
 def upload_requirements(data: dict) -> int:
@@ -392,16 +390,15 @@ def upload_requirements(data: dict) -> int:
     if deleted:
         print(f"  orphan/test cleanup: {len(deleted)} deleted")
     existing = {x["id"]: x for x in api("GET", f"/api/workspaces/{WS}/requirements").json()}
-    items = data.get("requirements", [])
-    skip = [x for x in items if x.get("status_notion") == "제외"]
     targets = requirement_upload_targets(data)
-    print(f"\n=== Requirements: 대상 {len(targets)}, 스킵(제외) {len(skip)} ===")
-    for s in skip:
-        SKIP_LOG.append(f"REQ 제외: {s.get('id')} {s.get('title')}")
+    excluded = [x for x in targets if x.get("status_notion") == "제외"]
+    print(f"\n=== Requirements: 대상 {len(targets)} (제외→EXCLUDED {len(excluded)}) ===")
+    for s in excluded:
+        print(f"  제외 포함: {s.get('id')} {s.get('title')}")
     ok = 0
     for i, item in enumerate(targets, 1):
         body = {
-            "id": item["id"], "title": item["title"],
+            "id": item["id"], "title": requirement_title(item),
             "description": item.get("description") or "",
             "priority": PRIORITY_MAP.get(item.get("priority"), "MEDIUM"),
             "status": REQ_STATUS_MAP.get(item.get("status_notion"), "TODO"),
@@ -494,7 +491,7 @@ def upload_apis(data: dict) -> tuple[int, dict[str, int]]:
     by_endpoint = _api_server_map(existing_list)
     items = [x for x in data.get("apis", []) if re.match(r"^API-0\d\d$", x.get("api_id", ""))]
     items.sort(key=lambda x: x["api_id"])
-    print(f"\n=== APIs: 대상 {len(items)} (API-001~017) ===")
+    print(f"\n=== APIs: 대상 {len(items)} (API-001~020) ===")
     mapping: dict[str, int] = {}
     ok = 0
     for i, item in enumerate(items, 1):
@@ -663,8 +660,26 @@ def qa_purpose(item: dict) -> str:
     if sc:
         parts.append(sc)
     if req_ids:
-        parts.append(f"({', '.join(req_ids)})")
+        parts.append(f"({', '.join(format_req_label(r) for r in req_ids)})")
     return " ".join(p for p in parts if p).strip()
+
+
+QA_TITLE_PREFIX_RE = re.compile(r"^TC-\d{3}\s*")
+
+
+def qa_title(item: dict) -> str:
+    tc_id = item.get("id", "")
+    raw = item.get("base_title") or item.get("title") or tc_id
+    base = QA_TITLE_PREFIX_RE.sub("", raw).strip()
+    req_ids = item.get("req_ids") or qa_req_ids(tc_id)
+    override = TC_REQ_OVERRIDE.get(tc_id, [])
+    if len(override) > 1:
+        labels = ", ".join(format_req_label(r) for r in override)
+        titled = f"{base} ({labels})"
+    else:
+        primary = (override or req_ids[:1] or [None])[0]
+        titled = title_with_req(base, req_ids, primary_only=True, primary=primary)
+    return f"{tc_id} {titled}"
 
 
 def upload_qa(data: dict) -> int:
@@ -677,7 +692,7 @@ def upload_qa(data: dict) -> int:
         tc_id = item["id"]
         body = {
             "id": tc_id,
-            "title": item.get("title") or tc_id,
+            "title": qa_title(item),
             "purpose": qa_purpose(item),
             "pre_condition": item.get("pre_condition") or "",
             "steps": item.get("steps") or "",
@@ -738,11 +753,14 @@ def update_wiki_screens(wiki_id: int = 5) -> bool:
         pattern = rf"(## {scr_id} [^\n]+)"
         def repl(m: re.Match, reqs: list[str] = req_list) -> str:
             line = m.group(1)
-            for rid in reqs:
-                tag = f" ({rid})"
-                if tag not in line:
-                    line = f"{line}{tag}"
-            return line
+            pick = reqs[0]
+            tag = f" ({format_req_label(pick)})"
+            plain = f" ({pick})"
+            if tag in line:
+                return line
+            if plain in line and pick in line:
+                return line.replace(plain, tag, 1)
+            return f"{line}{tag}"
         updated = re.sub(pattern, repl, updated)
     if updated == content:
         print(f"Wiki {wiki_id}: SCR REQ tags already present")

@@ -2,7 +2,7 @@
   {
     "screen_id": "SCR-001",
     "title": "홈 화면",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=61-273",
     "prototype_url": "",
     "input_vars": "없음",
     "output_vars": "주문 시작 버튼, 브랜드 안내",
@@ -28,7 +28,7 @@
   {
     "screen_id": "SCR-002",
     "title": "먹고가기 / 포장 선택",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-2",
     "prototype_url": "",
     "input_vars": "없음",
     "output_vars": "orderType(EAT_IN 또는 TAKE_OUT)",
@@ -54,7 +54,7 @@
   {
     "screen_id": "SCR-003",
     "title": "메뉴 선택",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-3",
     "prototype_url": "",
     "input_vars": "orderType, categoryId",
     "output_vars": "카테고리 목록, 메뉴 목록, 메뉴 이미지, 메뉴명, 가격, 계산된 기본 칼로리, 메뉴 품절 여부, 재료 품절 뱃지, 주문 가능 여부",
@@ -85,7 +85,7 @@
   {
     "screen_id": "SCR-004",
     "title": "메뉴 상세 / 옵션 선택",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-4",
     "prototype_url": "",
     "input_vars": "menuId, 기본 재료 목록, excludedIngredientIds, optionItems(optionItemId, ingredientId, quantity)",
     "output_vars": "선택 메뉴, 기본 재료, 제외 재료, 품절 재료 뱃지, 추가 옵션, 옵션 수량, 옵션그룹 유형, 세트 옵션, 옵션 제공량/단백질, 옵션 아이콘/색상, 품절 옵션칸, 베이스 변경 가능 여부, 예상 금액, 예상 알레르기 표시",
@@ -120,7 +120,7 @@
   {
     "screen_id": "SCR-005",
     "title": "장바구니",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-6",
     "prototype_url": "",
     "input_vars": "장바구니 항목, orderType",
     "output_vars": "선택 메뉴, 기본 재료 제외 목록, 추가 옵션, 수량, 예상 총액, 예상 알레르기 표시, orderType",
@@ -131,7 +131,8 @@
     "priority": "상",
     "related_req": [
       "FWD-CART-001",
-      "FWD-CART-002"
+      "FWD-CART-002",
+      "FWD-CART-003"
     ],
     "related_sc": [
       "장바구니 확인 및 주문 생성 시나리오"
@@ -147,7 +148,7 @@
   {
     "screen_id": "SCR-006",
     "title": "주문 확인",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-7",
     "prototype_url": "",
     "input_vars": "장바구니 항목, excludedIngredientIds, optionItems, 수량, orderType",
     "output_vars": "orderId, orderNo, totalPrice, orderStatus",
@@ -179,7 +180,7 @@
   {
     "screen_id": "SCR-007",
     "title": "결제",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-8",
     "prototype_url": "",
     "input_vars": "orderId, paymentMethod, amount",
     "output_vars": "paymentId, paymentStatus, orderStatus",
@@ -210,7 +211,7 @@
   {
     "screen_id": "SCR-008",
     "title": "주문 완료",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-9",
     "prototype_url": "",
     "input_vars": "orderNo, paymentStatus, totalPrice",
     "output_vars": "주문번호, 주문 완료 안내",
@@ -241,7 +242,7 @@
   {
     "screen_id": "SCR-009",
     "title": "관리자 주문 관리",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-17",
     "prototype_url": "",
     "input_vars": "status",
     "output_vars": "주문 목록, 주문번호, 주문유형, 결제상태, 주문상태, 주문금액, 주문일시",
@@ -272,7 +273,7 @@
   {
     "screen_id": "SCR-010",
     "title": "관리자 주문 상세",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-18",
     "prototype_url": "",
     "input_vars": "orderId, 변경할 status",
     "output_vars": "주문 상세 정보, 변경된 주문 상태",
@@ -305,7 +306,7 @@
   {
     "screen_id": "SCR-011",
     "title": "관리자 판매 항목 품절 관리",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-19",
     "prototype_url": "",
     "input_vars": "targetType(MENU/INGREDIENT), targetId, isSoldOut",
     "output_vars": "메뉴 목록, 메뉴 기본 재료, 옵션 항목, 재료 역할, 변경된 품절 상태, 영향받는 메뉴/옵션",
@@ -337,7 +338,7 @@
   {
     "screen_id": "SCR-012",
     "title": "결제 실패 / 재시도",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-10",
     "prototype_url": "",
     "input_vars": "paymentId/orderId, errorCode, message",
     "output_vars": "재결제 요청, 주문 확인 화면 이동",
@@ -366,7 +367,7 @@
   {
     "screen_id": "SCR-013",
     "title": "타임아웃 안내 / 자동 초기화",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-11",
     "prototype_url": "",
     "input_vars": "남은 시간, 현재 주문 상태",
     "output_vars": "주문 계속하기, 처음으로 이동",
@@ -392,7 +393,7 @@
   {
     "screen_id": "SCR-014",
     "title": "접근성 설정",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-12",
     "prototype_url": "",
     "input_vars": "선택 가능한 접근성 옵션",
     "output_vars": "적용된 UI 설정",
@@ -402,7 +403,8 @@
     "phase": "FWD",
     "priority": "중",
     "related_req": [
-      "FWD-UI-001"
+      "FWD-UI-001",
+      "FWD-UI-004"
     ],
     "related_sc": [
       "접근성 옵션으로 저시력 고객 주문"
@@ -420,7 +422,7 @@
   {
     "screen_id": "SCR-015",
     "title": "관리자 로그인",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-13",
     "prototype_url": "",
     "input_vars": "아이디, 비밀번호",
     "output_vars": "관리자 세션/토큰",
@@ -446,7 +448,7 @@
   {
     "screen_id": "SCR-016",
     "title": "관리자 메뉴 관리",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-14",
     "prototype_url": "",
     "input_vars": "메뉴 목록, 카테고리, 태그, 품절 상태",
     "output_vars": "메뉴 등록/수정 화면 이동, 품절 변경",
@@ -478,7 +480,7 @@
   {
     "screen_id": "SCR-017",
     "title": "관리자 메뉴 등록/수정",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-15",
     "prototype_url": "",
     "input_vars": "메뉴명, 가격, 이미지, 재료, 옵션그룹, 추천 옵션, 태그",
     "output_vars": "메뉴 저장 요청",
@@ -509,7 +511,7 @@
   {
     "screen_id": "SCR-018",
     "title": "관리자 결제수단 설정",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-16",
     "prototype_url": "",
     "input_vars": "결제수단 목록, 활성 여부, 정렬 순서",
     "output_vars": "결제수단 설정 변경 요청",
@@ -538,7 +540,7 @@
   {
     "screen_id": "SCR-019",
     "title": "관리자 매출 요약",
-    "figma_url": "",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-23",
     "prototype_url": "",
     "input_vars": "조회 기간, 일별 매출 데이터",
     "output_vars": "매출 요약 표시",
@@ -548,7 +550,8 @@
     "phase": "LMIS",
     "priority": "하",
     "related_req": [
-      "LMIS-ORDER-005"
+      "LMIS-ORDER-005",
+      "ARCHIVE-LMIS-ORDER-005"
     ],
     "related_sc": [
       "관리자의 일별 매출 조회"
@@ -562,5 +565,67 @@
     "description": "관리자가 일별 주문수와 매출 금액을 확인하는 화면",
     "notes": "Week 5 MVP 제외, 8주 후반 확장",
     "notion_url": "https://app.notion.com/p/39251ef04f0b813d8e9ff5fa34adf007"
+  },
+  {
+    "screen_id": "SCR-020",
+    "title": "영수증 출력 여부 선택",
+    "figma_url": "",
+    "prototype_url": "",
+    "input_vars": "orderId, orderNo, paymentStatus, totalPrice",
+    "output_vars": "영수증 출력 선택(예/아니오), 출력 결과 또는 화면 주문번호 표시",
+    "status": "기획중",
+    "status_devcopilot": "WIREFRAME",
+    "category": "키오스크",
+    "phase": "장치",
+    "priority": "중",
+    "related_req": [
+      "RTOS-DEVICE-001"
+    ],
+    "related_sc": [
+      "SC-015"
+    ],
+    "related_api": [
+      "API-019"
+    ],
+    "related_test": [
+      "TC-015"
+    ],
+    "description": "결제 완료 직후 고객이 영수증 출력 여부를 선택하는 화면",
+    "notes": "Week 5 MVP 제외, Week 7~8 확장. SCR-008 주문 완료 후 분기",
+    "notion_url": "https://app.notion.com/p/39551ef04f0b810a84aae4af6de3d5c7"
+  },
+  {
+    "screen_id": "SCR-021",
+    "title": "포인트·쿠폰 적립",
+    "figma_url": "",
+    "prototype_url": "",
+    "input_vars": "memberId, orderId, scanValue(쿠폰/멤버십 QR), 결제 금액",
+    "output_vars": "적립 확인 결과, 스탬프 적립 여부, 쿠폰 할인 금액, 최종 결제 금액",
+    "status": "기획중",
+    "status_devcopilot": "WIREFRAME",
+    "category": "키오스크",
+    "phase": "KSD",
+    "priority": "중",
+    "related_req": [
+      "LMIS-MEMBER-001",
+      "KSD-MEMBER-001",
+      "RTOS-DEVICE-004",
+      "RTOS-DEVICE-005",
+      "RTOS-DEVICE-006"
+    ],
+    "related_sc": [
+      "SC-006",
+      "SC-016"
+    ],
+    "related_api": [
+      "API-018",
+      "API-020"
+    ],
+    "related_test": [
+      "TC-016"
+    ],
+    "description": "결제 단계에서 멤버십 스탬프 적립 1회 확인 및 쿠폰 QR 스캔·할인 표시",
+    "notes": "Week 5 MVP 제외. SCR-007 결제 화면 내 패널/모달. 적립 확인 1회만",
+    "notion_url": "https://app.notion.com/p/39551ef04f0b810cbfacfec11674a302"
   }
 ]

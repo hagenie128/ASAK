@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Export Notion 04. 화면설계 (SCR-001~019) to JSON/Markdown for DevCopilot upload."""
+"""Export Notion 04. 화면설계 (SCR-001~021) to JSON/Markdown for DevCopilot upload."""
 from __future__ import annotations
 
 import json
 import re
 from pathlib import Path
 from typing import Any
+
+from req_link_maps import SCR_REQ_MAP, format_req_label, title_with_req
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = ROOT / "docs" / "screens"
@@ -32,6 +34,8 @@ SCREEN_PAGE_IDS: dict[str, str] = {
     "SCR-017": "39251ef0-4f0b-81e3-bf1dcbe8caf82632",
     "SCR-018": "39251ef0-4f0b-81b0-84fa-e81a1dc8e1c7",
     "SCR-019": "39251ef0-4f0b-813d-8e9f-f5fa34adf007",
+    "SCR-020": "39551ef0-4f0b-810a-84aa-e4af6de3d5c7",
+    "SCR-021": "39551ef0-4f0b-810c-bfac-fec11674a302",
 }
 
 def _week5_mvp_terms(text: str) -> str:
@@ -174,7 +178,7 @@ def to_devcopilot_localstorage(screens: list[dict[str, Any]], workspace_id: int 
 
 def render_markdown_table(screens: list[dict[str, Any]]) -> str:
     lines = [
-        "# ASAK 화면설계 (SCR-001~019)",
+        "# ASAK 화면설계 (SCR-001~021)",
         "",
         "Notion [04. 화면 설계](https://app.notion.com/p/1c751ef04f0b825ea3aa8145f563bbc8) 기준. DevCopilot Screens UI 수동 입력용.",
         "",
@@ -206,9 +210,9 @@ def render_markdown_table(screens: list[dict[str, Any]]) -> str:
 
 def render_wiki_markdown(screens: list[dict[str, Any]]) -> str:
     parts = [
-        "# ASAK 키오스크 화면설계 (SCR-001~019)",
+        "# ASAK 키오스크 화면설계 (SCR-001~021)",
         "",
-        "출처: Notion 04. 화면 설계 (2026-07-05 export)",
+        "출처: Notion 04. 화면 설계 (2026-07-06 export)",
         "",
         "## 고객 키오스크 흐름",
         "홈 → 먹고가기/포장 → 메뉴선택 → 메뉴상세/옵션 → 장바구니 → 주문확인 → 결제 → 주문완료",
@@ -218,7 +222,12 @@ def render_wiki_markdown(screens: list[dict[str, Any]]) -> str:
         "",
     ]
     for s in screens:
-        parts.append(f"## {s['screen_id']} {s['title']}")
+        req_ids = SCR_REQ_MAP.get(s["screen_id"], s.get("related_req") or [])
+        primary = req_ids[0] if req_ids else None
+        display_title = title_with_req(
+            s["title"].strip(), req_ids, primary_only=True, primary=primary
+        )
+        parts.append(f"## {s['screen_id']} {display_title}")
         parts.append("")
         parts.append(f"- **구분**: {s.get('category', '')} | **단계**: {s.get('phase', '')} | **상태**: {s.get('status_notion', '')}")
         parts.append(f"- **설명**: {_week5_mvp_terms(s.get('description', ''))}")
@@ -227,7 +236,8 @@ def render_wiki_markdown(screens: list[dict[str, Any]]) -> str:
         if s.get("figma_url"):
             parts.append(f"- **Figma**: {s['figma_url']}")
         if s.get("related_req"):
-            parts.append(f"- **요구사항**: {', '.join(s['related_req'])}")
+            labels = [format_req_label(r) for r in s["related_req"]]
+            parts.append(f"- **요구사항**: {', '.join(labels)}")
         if s.get("related_sc"):
             parts.append(f"- **시나리오**: {', '.join(s['related_sc'])}")
         if s.get("related_api"):

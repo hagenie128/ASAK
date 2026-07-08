@@ -30,7 +30,7 @@ FK는 `테이블.컬럼` dot notation으로 DevCopilot ERD에 반영됩니다.
 ## 요구사항·시나리오
 
 - **요구사항 ID**: `FWD-*` (고객 키오스크), `LMIS-*` (관리자)
-- **화면 ID**: `SCR-001` ~ `SCR-019` — Wiki 「ASAK 화면설계」 참고
+- **화면 ID**: `SCR-001` ~ `SCR-021` — Wiki 「ASAK 화면설계」 참고
 - **시나리오 ID**: `SC-001` 등 — DevCopilot Scenarios
 
 ## 시드 데이터

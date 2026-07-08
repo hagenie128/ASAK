@@ -17,8 +17,7 @@
 권장 로컬 폴더:
 
 ```text
-C:\greens        -> ASAK (통합, Cursor 워크스페이스 — 공식 저장소명은 ASAK)
-c:\ha-team       -> ASAK (통합, 동일 원격의 다른 로컬 클론)
+C:\ASAK         -> ASAK (통합 monorepo)
 c:\ASAK-front    -> ASAK-front
 c:\ASAK-back     -> ASAK-back
 ```
@@ -29,28 +28,28 @@ c:\ASAK-back     -> ASAK-back
 
 | 로컬 폴더 | GitHub 원격 | 역할 |
 |---|---|---|
-| `c:\ha-team` | [ASAK](https://github.com/hagenie128/ASAK) | 통합 문서, 파이프라인, 팀 가이드 |
+| `c:\ASAK` | [ASAK](https://github.com/hagenie128/ASAK) | 통합 문서, 파이프라인, 팀 가이드 |
 | `c:\ASAK-front` | [ASAK-front](https://github.com/hagenie128/ASAK-front) | 프론트 실제 개발 |
 | `c:\ASAK-back` | [ASAK-back](https://github.com/hagenie128/ASAK-back) | 백엔드 실제 개발 |
 
 각 저장소는 `main`, `develop` 브랜치가 있으며, 기능 작업은 `feature/...`, 버그 수정은 `fix/...` 브랜치를 사용합니다.
 
-### 작업 후 `ha-team`에 다시 합쳐야 하나?
+### 작업 후 통합 저장소(`ASAK`)에 다시 합쳐야 하나?
 
 **아니요.** 작업이 끝날 때마다 통합 저장소에 다시 모을 필요는 없습니다.
 
 - 프론트 작업 → `c:\ASAK-front`에서 커밋/푸시
 - 백엔드 작업 → `c:\ASAK-back`에서 커밋/푸시
-- 문서/파이프라인 → `c:\ha-team`에서 커밋/푸시
+- 문서/파이프라인 → `c:\ASAK`에서 커밋/푸시
 
 즉, **어디서 작업했으면 그 저장소에만 올리면** 됩니다.
 
-### `ha-team` 안의 `frontend/`, `backend/`는?
+### `ASAK` 안의 `frontend/`, `backend/`는?
 
-`c:\ha-team\frontend`와 `c:\ASAK-front`는 **다른 Git 저장소**입니다.  
-`c:\ha-team\backend`와 `c:\ASAK-back`도 마찬가지입니다.
+`c:\ASAK\frontend`와 `c:\ASAK-front`는 **다른 Git 저장소**입니다.  
+`c:\ASAK\backend`와 `c:\ASAK-back`도 마찬가지입니다.
 
-`ha-team` 안의 `frontend/`, `backend/`는 통합 구조를 보여주는 참고용 폴더에 가깝고, 실제 프론트/백 개발은 각각 `ASAK-front`, `ASAK-back`에서 진행하는 것을 기준으로 합니다.
+`ASAK` 통합 저장소 안의 `frontend/`, `backend/`는 통합 구조를 보여주는 참고용 폴더에 가깝고, 실제 프론트/백 개발은 각각 `ASAK-front`, `ASAK-back`에서 진행하는 것을 기준으로 합니다.
 
 ### 예외: 데이터만 복사하는 경우
 
@@ -67,25 +66,31 @@ sync_phase1_data_to_front.bat
 PowerShell에서:
 
 ```powershell
-git clone https://github.com/hagenie128/ASAK.git c:\ha-team
+git clone https://github.com/hagenie128/ASAK.git c:\ASAK
 git clone https://github.com/hagenie128/ASAK-front.git c:\ASAK-front
 git clone https://github.com/hagenie128/ASAK-back.git c:\ASAK-back
 ```
 
 ## 4. 필수 프로그램
 
+> **Windows 초보자:** 다운로드·설치 마법사·폴더·PATH·클론·`NOTION_TOKEN` 은 [`docs/INSTALL_WINDOWS.md`](../INSTALL_WINDOWS.md) (**유치원 선생님 모드**)를 **먼저** 따라 하세요.
+
 권장 설치 항목:
 
 - Git
-- Python 3.11
+- Python 3.13
+- Java 25 LTS (백엔드)
+- Node.js 24 LTS (프론트 React)
 - Cursor 또는 VS Code
 
-이미 이 PC에서는 Python 3.11, Git이 맞춰져 있습니다. 다른 팀원 PC에서는 아래 확인 명령을 먼저 실행하세요.
+다른 팀원 PC에서는 아래 확인 명령을 먼저 실행하세요.
 
 ```powershell
 git --version
 python --version
-py -3.11 --version
+py -3.13 --version
+java -version
+node --version
 ```
 
 ## 4-1. 기술 스택 · 라이브러리
@@ -95,7 +100,7 @@ py -3.11 --version
 - Git: [`docs/wiki/tech-stack-summary.md`](../wiki/tech-stack-summary.md)
 - Notion: [기술 스택 & 라이브러리](https://app.notion.com/p/39051ef04f0b801cb506f1a930b847a5)
 
-요약: 백엔드는 Spring Boot 3.3 + JPA + MySQL/H2, 프론트는 React 18 + Vite + Zustand + Axios(Tailwind 미사용). 실제 구현 repo는 `ASAK-front` / `ASAK-back`입니다.
+요약: 백엔드는 Spring Boot 4.1 + Java 25 + JPA + MySQL/H2, 프론트는 React 19 + Vite 8 + Zustand + Axios(Tailwind 미사용). 실제 구현 repo는 `ASAK-front` / `ASAK-back`입니다.
 
 ## 5. 실제 백엔드 세팅
 
@@ -127,13 +132,13 @@ src/
 폴더:
 
 ```powershell
-cd c:\ha-team\data-pipeline\phase1
+cd c:\ASAK\data-pipeline\phase1
 ```
 
 가상환경 생성 및 의존성 설치:
 
 ```powershell
-py -3.11 -m venv .venv
+py -3.13 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install --upgrade pip
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
@@ -155,7 +160,7 @@ py -3.11 -m venv .venv
 
 산출물 위치:
 
-- `c:\ha-team\data-pipeline\phase1\output`
+- `c:\ASAK\data-pipeline\phase1\output`
 
 ## 7. 프론트 세팅
 
@@ -191,7 +196,7 @@ sync_phase1_data_to_front.bat
 
 ## 8. 통합 저장소 사용법
 
-통합 저장소 `c:\ha-team`은 작업 기준점입니다.
+통합 저장소 `c:\ASAK`은 작업 기준점입니다.
 
 용도:
 
@@ -204,12 +209,12 @@ sync_phase1_data_to_front.bat
 
 - 프론트 작업: `c:\ASAK-front`
 - 백엔드 작업: `c:\ASAK-back`
-- 데이터 파이프라인 작업: `c:\ha-team\data-pipeline\phase1`
+- 데이터 파이프라인 작업: `c:\ASAK\data-pipeline\phase1`
 
 ## 9. 작업 순서 추천
 
-1. `c:\ha-team\data-pipeline\phase1`에서 크롤링/가공 후 `output/` 데이터 최신화
-2. 필요하면 `sync_phase1_data_to_front.bat` 또는 직접 복사로 `c:\ha-team\data-pipeline\phase1\output\`의 JSON을 `ASAK-front\data\`에 반영
+1. `c:\ASAK\data-pipeline\phase1`에서 크롤링/가공 후 `output/` 데이터 최신화
+2. 필요하면 `sync_phase1_data_to_front.bat` 또는 직접 복사로 `c:\ASAK\data-pipeline\phase1\output\`의 JSON을 `ASAK-front\data\`에 반영
 3. `ASAK-back`에서 실제 API/서비스 로직 작업
 4. `ASAK-front`에서 `python build_viewer.py` 실행
 5. 화면 확인 후 각 저장소별 커밋
@@ -362,7 +367,7 @@ ASAK 통합 구조 기준으로 frontend, backend, data-pipeline, 문서 연결 
 ## 14. 주의사항
 
 - PowerShell에서 `Activate.ps1`이 막히면 가상환경 활성화 대신 직접 Python 경로를 호출하세요.
-- 1차 크롤링 데이터 원본은 `c:\ha-team\data-pipeline\phase1\output` 기준으로 관리하는 것을 권장합니다.
+- 1차 크롤링 데이터 원본은 `c:\ASAK\data-pipeline\phase1\output` 기준으로 관리하는 것을 권장합니다.
 - 프론트는 기본적으로 크롤링 산출물을 포함하지 않으며, 필요할 때만 `ASAK-front\data`로 복사해 사용합니다.
 - 토큰이나 비밀번호는 저장소에 커밋하지 않습니다.
 - AI가 관여한 작업은 PR, 이슈, 작업 기록 중 최소 한 곳에 남겨두는 것을 권장합니다.
@@ -372,9 +377,9 @@ ASAK 통합 구조 기준으로 frontend, backend, data-pipeline, 문서 연결 
 데이터 파이프라인 재설치:
 
 ```powershell
-cd c:\ha-team\data-pipeline\phase1
+cd c:\ASAK\data-pipeline\phase1
 Remove-Item .venv -Recurse -Force
-py -3.11 -m venv .venv
+py -3.13 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
@@ -390,14 +395,14 @@ python build_viewer.py
 ### Day 1 체크
 
 - `ASAK`, `ASAK-front`, `ASAK-back` 3개 저장소를 모두 클론했다.
-- 3개 저장소가 서로 다른 Git 저장소라는 점을 이해했다. (작업 후 `ha-team`에 다시 합칠 필요 없음)
-- `git --version`, `py -3.11 --version` 확인을 마쳤다.
+- 3개 저장소가 서로 다른 Git 저장소라는 점을 이해했다. (작업 후 통합 저장소에 다시 합칠 필요 없음)
+- `git --version`, `py -3.13 --version`, `java -version`, `node --version` 확인을 마쳤다.
 - `ASAK-back` 구조와 목적을 이해했다.
-- `c:\ha-team\data-pipeline\phase1`에서 가상환경 생성과 `requirements.txt` 설치를 마쳤다.
-- `c:\ha-team\data-pipeline\phase1`에서 `run_phase1.py` 실행이 된다.
+- `c:\ASAK\data-pipeline\phase1`에서 가상환경 생성과 `requirements.txt` 설치를 마쳤다.
+- `c:\ASAK\data-pipeline\phase1`에서 `run_phase1.py` 실행이 된다.
 - `ASAK-front`에서 `python run_viewer.py` 실행이 된다.
 - `ASAK-front`에서 `python build_viewer.py` 실행이 된다.
-- `ASAK-front\data`와 `c:\ha-team\data-pipeline\phase1\output` 관계를 이해했다.
+- `ASAK-front\data`와 `c:\ASAK\data-pipeline\phase1\output` 관계를 이해했다.
 
 ### 작업 시작 전 체크
 

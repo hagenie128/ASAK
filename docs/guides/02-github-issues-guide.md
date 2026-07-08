@@ -53,7 +53,7 @@ WBS (Notion·DevCopilot)  →  GitHub Issue (#번호)  →  worklog/entries/{이
 저장소 루트에서 한 번 실행합니다.
 
 ```powershell
-cd C:\greens   # ASAK 통합 저장소 로컬 경로 (공식명: ASAK)
+cd C:\ASAK   # ASAK 통합 저장소 로컬 경로
 
 gh label create wbs --color 0E8A16 --description "WBS 연동 작업" --repo hagenie128/ASAK
 gh label create frontend --color 1D76DB --description "ASAK-front" --repo hagenie128/ASAK

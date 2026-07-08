@@ -9,6 +9,16 @@ SCR_REF_RE = re.compile(r"SCR-(\d{3})")
 SC_REF_RE = re.compile(r"SC-(\d{3})")
 SC_TITLE_PREFIX_RE = re.compile(r"^SC-\d{3}\s*")
 
+EXCLUDED_REQ_IDS: frozenset[str] = frozenset({
+    "ARCHIVE-LMIS-ORDER-005",
+    "FWD-CART-003",
+    "KSD-MEMBER-001",
+    "LMIS-AUTH-001",
+    "RTOS-DEVICE-004",
+    "RTOS-DEVICE-005",
+    "RTOS-SYS-001",
+})
+
 API_REQ_MAP: dict[str, str] = {
     "API-001": "FWD-MENU-001",
     "API-002": "FWD-MENU-001",
@@ -26,7 +36,10 @@ API_REQ_MAP: dict[str, str] = {
     "API-014": "LMIS-PAY-001",
     "API-015": "LMIS-ORDER-005",
     "API-016": "FWD-CART-001",
-    "API-017": "FWD-UI-001",
+    "API-017": "FWD-UI-004",
+    "API-018": "KSD-MEMBER-001",
+    "API-019": "RTOS-DEVICE-001",
+    "API-020": "RTOS-DEVICE-004",
 }
 
 # Secondary REQ IDs appended to API description (Notion MCP + screens snapshot)
@@ -34,6 +47,9 @@ API_EXTRA_REQS: dict[str, list[str]] = {
     "API-005": ["DEV-ORDER-001"],
     "API-006": ["DEV-PAY-001"],
     "API-007": ["LMIS-ORDER-002"],
+    "API-018": ["LMIS-MEMBER-001"],
+    "API-019": ["RTOS-DEVICE-002"],
+    "API-020": ["RTOS-DEVICE-005", "RTOS-DEVICE-006"],
 }
 
 SCR_REQ_MAP: dict[str, list[str]] = {
@@ -44,7 +60,7 @@ SCR_REQ_MAP: dict[str, list[str]] = {
         "FWD-MENU-001", "FWD-MENU-002", "FWD-MENU-003", "FWD-MENU-004",
         "FWD-MENU-010", "FWD-MENU-014", "FWD-MENU-015", "LMIS-MENU-002",
     ],
-    "SCR-005": ["FWD-CART-001", "FWD-CART-002"],
+    "SCR-005": ["FWD-CART-001", "FWD-CART-002", "FWD-CART-003"],
     "SCR-006": ["FWD-CART-001", "FWD-CART-002", "FWD-ORDER-001", "DEV-ORDER-001"],
     "SCR-007": ["FWD-PAY-001", "FWD-PAY-002", "LMIS-MEMBER-001", "KSD-PAY-001"],
     "SCR-008": ["FWD-PAY-002", "FWD-ORDER-002", "RTOS-DEVICE-001", "RTOS-DEVICE-002"],
@@ -53,12 +69,17 @@ SCR_REQ_MAP: dict[str, list[str]] = {
     "SCR-011": ["LMIS-MENU-001", "LMIS-MENU-002"],
     "SCR-012": ["FWD-PAY-002", "DEV-PAY-002", "KSD-PAY-001"],
     "SCR-013": ["FWD-SYS-001"],
-    "SCR-014": ["FWD-UI-001", "FWD-UI-003"],
-    "SCR-015": ["LMIS-ORDER-005"],
+    "SCR-014": ["FWD-UI-001", "FWD-UI-003", "FWD-UI-004"],
+    "SCR-015": ["LMIS-AUTH-001"],
     "SCR-016": ["LMIS-MENU-004"],
     "SCR-017": ["LMIS-MENU-004", "FWD-MENU-013", "FWD-MENU-014", "FWD-MENU-015", "LMIS-MENU-006"],
     "SCR-018": ["LMIS-PAY-001"],
-    "SCR-019": ["LMIS-ORDER-005", "LMIS-MENU-005"],
+    "SCR-019": ["LMIS-ORDER-005", "ARCHIVE-LMIS-ORDER-005", "LMIS-MENU-005"],
+    "SCR-020": ["RTOS-DEVICE-001"],
+    "SCR-021": [
+        "LMIS-MEMBER-001", "KSD-MEMBER-001",
+        "RTOS-DEVICE-004", "RTOS-DEVICE-005", "RTOS-DEVICE-006",
+    ],
 }
 
 # Notion MCP verified scenario -> REQ IDs (관련 요구사항 field)
@@ -74,25 +95,25 @@ SCENARIO_REQ_MAP: dict[str, list[str]] = {
         "FWD-MENU-010", "DEV-PAY-001",
     ],
     "SC-005": ["FWD-PAY-002", "KSD-PAY-001", "FWD-CART-001", "LMIS-MEMBER-001"],
-    "SC-006": ["LMIS-MENU-004", "LMIS-MENU-006"],
-    "SC-007": ["FWD-MENU-007", "FWD-MENU-003", "FWD-MENU-010", "FWD-MENU-009"],
-    "SC-008": ["LMIS-MENU-001", "LMIS-MENU-002", "FWD-MENU-001"],
-    "SC-009": ["FWD-CART-002"],
-    "SC-010": ["LMIS-MENU-001", "LMIS-MENU-002", "FWD-MENU-001"],
+    "SC-006": ["LMIS-MEMBER-001", "KSD-MEMBER-001"],
+    "SC-007": ["LMIS-MENU-001", "FWD-MENU-003", "FWD-MENU-010", "FWD-MENU-009"],
+    "SC-008": ["LMIS-MENU-001", "LMIS-MENU-002", "FWD-MENU-001", "LMIS-AUTH-001"],
+    "SC-009": ["FWD-CART-002", "FWD-CART-003"],
+    "SC-010": ["FWD-MENU-008", "LMIS-MENU-002", "FWD-MENU-001"],
     "SC-011": ["FWD-CART-001", "FWD-ORDER-001", "DEV-ORDER-001"],
-    "SC-012": ["LMIS-ORDER-003", "LMIS-ORDER-001", "LMIS-ORDER-002"],
-    "SC-013": ["FWD-SYS-001", "DEV-SYS-001"],
+    "SC-012": ["FWD-SYS-001"],
+    "SC-013": ["FWD-UI-004"],
     "SC-014": ["FWD-ORDER-001", "FWD-ORDER-002"],
     "SC-015": ["RTOS-DEVICE-001", "RTOS-DEVICE-002", "FWD-PAY-001"],
-    "SC-016": ["LMIS-ORDER-005", "LMIS-ORDER-006"],
-    "SC-017": ["FWD-PAY-001", "FWD-PAY-002", "KSD-PAY-001", "LMIS-MEMBER-001"],
-    "SC-018": ["FWD-UI-001", "FWD-UI-003"],
-    "SC-019": ["LMIS-MENU-001", "LMIS-MENU-005"],
-    "SC-020": ["LMIS-ORDER-001", "LMIS-ORDER-003", "LMIS-ORDER-002"],
-    "SC-021": ["FWD-UI-001", "FWD-UI-003"],
-    "SC-022": ["FWD-MENU-008", "FWD-MENU-009", "LMIS-ORDER-006"],
-    "SC-023": ["FWD-SYS-001"],
-    "SC-024": ["RTOS-DEVICE-003", "DEV-SYS-002", "FWD-CART-001", "FWD-PAY-001", "LMIS-ORDER-001"],
+    "SC-016": ["RTOS-DEVICE-004", "RTOS-DEVICE-005", "RTOS-DEVICE-006", "LMIS-ORDER-005"],
+    "SC-017": ["LMIS-MENU-004", "FWD-PAY-002", "KSD-PAY-001", "LMIS-MEMBER-001"],
+    "SC-018": ["LMIS-ORDER-005", "ARCHIVE-LMIS-ORDER-005"],
+    "SC-019": ["DEV-SYS-001", "LMIS-MENU-005"],
+    "SC-020": ["FWD-MENU-002", "LMIS-ORDER-003", "LMIS-ORDER-002"],
+    "SC-021": ["FWD-UI-001", "FWD-UI-003", "FWD-UI-004"],
+    "SC-022": ["LMIS-ORDER-006", "FWD-MENU-009"],
+    "SC-023": ["DEV-SYS-002"],
+    "SC-024": ["FWD-ORDER-001", "FWD-CART-001", "FWD-PAY-002", "DEV-ORDER-001", "KSD-PAY-001", "LMIS-ORDER-001", "LMIS-ORDER-002"],
 }
 
 # WBS task_id -> REQ IDs (Notion 관련 산출물 + MCP overrides)
@@ -127,7 +148,7 @@ WBS_TASK_REQ_MAP: dict[str, list[str]] = {
     "WBS-028": ["FWD-SYS-001"],
     "WBS-029": ["LMIS-MENU-004", "LMIS-MENU-005", "LMIS-MENU-006"],
     "WBS-030": ["LMIS-PAY-001"],
-    "WBS-031": ["DEV-SYS-002"],
+    "WBS-031": ["DEV-SYS-002", "RTOS-SYS-001"],
     "WBS-032": ["FWD-UI-001", "FWD-UI-003"],
     "WBS-034": ["RTOS-DEVICE-001", "RTOS-DEVICE-002", "RTOS-DEVICE-003"],
     "WBS-035": ["LMIS-ORDER-001", "LMIS-ORDER-002", "LMIS-ORDER-003"],
@@ -137,37 +158,41 @@ WBS_TASK_REQ_MAP: dict[str, list[str]] = {
 }
 
 TC_SCENARIO_MAP: dict[str, str] = {
-    "TC-001": "SC-001",
+    "TC-001": "SC-014",
     "TC-002": "SC-002",
-    "TC-003": "SC-008",
-    "TC-004": "SC-003",
-    "TC-005": "SC-009",
-    "TC-006": "SC-010",
-    "TC-007": "SC-013",
-    "TC-008": "SC-018",
-    "TC-009": "SC-020",
-    "TC-010": "SC-019",
-    "TC-011": "SC-006",
-    "TC-012": "SC-018",
-    "TC-013": "SC-016",
-    "TC-014": "SC-020",
+    "TC-003": "SC-003",
+    "TC-004": "SC-005",
+    "TC-005": "SC-006",
+    "TC-006": "SC-007",
+    "TC-007": "SC-012",
+    "TC-008": "SC-013",
+    "TC-009": "SC-008",
+    "TC-010": "SC-017",
+    "TC-011": "SC-017",
+    "TC-012": "SC-017",
+    "TC-013": "SC-018",
+    "TC-014": "SC-008",
+    "TC-015": "SC-015",
+    "TC-016": "SC-016",
 }
 
 TC_REQ_OVERRIDE: dict[str, list[str]] = {
-    "TC-001": ["FWD-MENU-001", "FWD-PAY-001", "FWD-ORDER-001", "DEV-ORDER-001"],
-    "TC-002": ["FWD-UI-001", "FWD-UI-002", "FWD-MENU-001", "FWD-ORDER-002"],
-    "TC-003": ["LMIS-MENU-001", "LMIS-MENU-002", "FWD-MENU-001"],
-    "TC-004": ["FWD-PAY-002", "KSD-PAY-001", "DEV-PAY-001"],
-    "TC-005": ["FWD-CART-002", "LMIS-MEMBER-001"],
-    "TC-006": ["LMIS-MENU-001", "LMIS-MENU-002"],
+    "TC-001": ["FWD-ORDER-001"],
+    "TC-002": ["FWD-UI-002"],
+    "TC-003": ["LMIS-MENU-002"],
+    "TC-004": ["FWD-PAY-002", "KSD-PAY-001"],
+    "TC-005": ["LMIS-MEMBER-001"],
+    "TC-006": ["LMIS-MENU-002"],
     "TC-007": ["FWD-SYS-001"],
-    "TC-008": ["FWD-UI-001", "FWD-UI-003"],
-    "TC-009": ["LMIS-ORDER-005"],
+    "TC-008": ["FWD-UI-004"],
+    "TC-009": ["LMIS-AUTH-001"],
     "TC-010": ["LMIS-MENU-004"],
-    "TC-011": ["LMIS-MENU-004", "LMIS-MENU-006", "FWD-MENU-014", "FWD-MENU-015"],
+    "TC-011": ["LMIS-MENU-004"],
     "TC-012": ["LMIS-PAY-001"],
     "TC-013": ["LMIS-ORDER-005"],
-    "TC-014": ["LMIS-ORDER-001", "LMIS-ORDER-002", "LMIS-ORDER-003", "LMIS-ORDER-006"],
+    "TC-014": ["LMIS-ORDER-001", "LMIS-ORDER-003"],
+    "TC-015": ["RTOS-DEVICE-001"],
+    "TC-016": ["KSD-MEMBER-001", "RTOS-DEVICE-004"],
 }
 
 
@@ -211,8 +236,15 @@ def scenario_display_title(
     return title_with_req(base, req_ids, primary_only=True, primary=primary)
 
 
+def format_req_label(req_id: str) -> str:
+    """REQ reference for titles: append (EXCLUDED) when requirement is out of scope."""
+    if req_id in EXCLUDED_REQ_IDS:
+        return f"{req_id} (EXCLUDED)"
+    return req_id
+
+
 def req_prefix(req_ids: list[str]) -> str:
-    return "".join(f"[{rid}]" for rid in sorted(set(req_ids)))
+    return "".join(f"[{format_req_label(rid)}]" for rid in sorted(set(req_ids)))
 
 
 def title_with_req(base_title: str, req_ids: list[str], *, primary_only: bool = False, primary: str | None = None) -> str:
@@ -221,8 +253,11 @@ def title_with_req(base_title: str, req_ids: list[str], *, primary_only: bool = 
         return base
     if primary_only:
         pick = primary or req_ids[0]
-        suffix = f" ({pick})"
-        if suffix in base:
+        suffix = f" ({format_req_label(pick)})"
+        plain_suffix = f" ({pick})"
+        if suffix in base or plain_suffix in base:
+            if plain_suffix in base and pick in EXCLUDED_REQ_IDS and "(EXCLUDED)" not in base:
+                return base.replace(plain_suffix, suffix, 1)
             return base
         return f"{base}{suffix}"
     prefix = req_prefix(req_ids)
@@ -280,9 +315,13 @@ def api_description_text(base: str, api_id: str) -> str:
     """Append (REQ-ID) suffixes for audit substring matching."""
     text = (base or "").strip()
     for rid in api_all_req_ids(api_id):
-        suffix = f" ({rid})"
-        if suffix not in text:
+        label = format_req_label(rid)
+        suffix = f" ({label})"
+        plain_suffix = f" ({rid})"
+        if suffix not in text and plain_suffix not in text:
             text = f"{text}{suffix}"
+        elif plain_suffix in text and rid in EXCLUDED_REQ_IDS and f"({rid} (EXCLUDED))" not in text:
+            text = text.replace(plain_suffix, suffix, 1)
     return text
 
 
@@ -290,6 +329,7 @@ def qa_req_ids(tc_id: str, props: dict | None = None) -> list[str]:
     reqs: set[str] = set(TC_REQ_OVERRIDE.get(tc_id, []))
     if props:
         reqs.update(parse_req_list(str(props.get("비고", ""))))
+    if tc_id not in TC_REQ_OVERRIDE:
         sc = TC_SCENARIO_MAP.get(tc_id, "")
         if sc:
             reqs.update(SCENARIO_REQ_MAP.get(sc, []))

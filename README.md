@@ -1,6 +1,8 @@
 # ASAK
 
-`ASAK`는 `A Salad A Kiosk`의 **통합 Git 저장소**입니다. (로컬 워크스페이스 경로 `C:\greens`는 Cursor 개발용이며, 공식 저장소명은 **ASAK**입니다.)
+> **처음이신가요?** 👉 [**처음 시작하기 (GETTING_STARTED)**](docs/GETTING_STARTED.md) · Windows 설치 상세 [**INSTALL_WINDOWS.md**](docs/INSTALL_WINDOWS.md) · Notion [🚀 팀 온보딩](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) — 클론·세팅·워크로그까지 한 문서로!
+
+`ASAK`는 `A Salad A Kiosk`의 **통합 Git 저장소**입니다. 로컬 클론 경로는 **`C:\ASAK`** 를 권장합니다.
 
 **9주 (7/2~9/2)** · Week 5 MVP SCR-001~008 (8/1) · 최종 발표 9/2(수). 산출물·진행 허브: [Notion 키오스크 풀스택 프로젝트](https://app.notion.com/p/39151ef04f0b808f99f8ea068efb5790) · 일일 워크로그: [팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95) · Git [`worklog/guide-personal-worklog.md`](worklog/guide-personal-worklog.md) · [확인 순서](worklog/README.md)
 
@@ -9,7 +11,7 @@
 ```powershell
 git clone https://github.com/hagenie128/ASAK.git
 # 또는 로컬 경로 지정
-git clone https://github.com/hagenie128/ASAK.git C:\greens
+git clone https://github.com/hagenie128/ASAK.git C:\ASAK
 ```
 
 이 저장소는 프론트, 실제 백엔드, 데이터 파이프라인 작업을 한곳에서 관리하기 위한 루트이며, 실제 구현은 아래처럼 분리되어 있습니다.
@@ -41,7 +43,7 @@ data-pipeline/
 
 - 프론트 개발 → `c:\ASAK-front` → `ASAK-front` 저장소에 푸시
 - 백엔드 개발 → `c:\ASAK-back` → `ASAK-back` 저장소에 푸시
-- 문서/파이프라인 → `C:\greens` (또는 `c:\ha-team`) → **ASAK** 저장소에 푸시
+- 문서/파이프라인 → `C:\ASAK` → **ASAK** 저장소에 푸시
 
 자세한 설명은 [`docs/guides/01-team-setup.md`](docs/guides/01-team-setup.md)의 **2. Git 저장소 관계**를 참고하세요.
 
@@ -94,7 +96,9 @@ Git 로컬 도구: [`color-swatches.html`](docs/design/color-swatches.html) · [
 
 ## 팀 세팅 가이드
 
-팀원 온보딩·Issue·작업 기록 템플릿은 [`docs/guides/`](docs/guides/README.md)에 있습니다. **읽기 순서**는 [`docs/guides/README.md`](docs/guides/README.md)를 따르세요.
+**신규 합류:** Windows PC → [`docs/INSTALL_WINDOWS.md`](docs/INSTALL_WINDOWS.md) · Notion [🚀 처음 시작하기](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) · [`docs/GETTING_STARTED.md`](docs/GETTING_STARTED.md) → [`docs/guides/README.md`](docs/guides/README.md) 순으로 읽으세요.
+
+팀원 온보딩·Issue·작업 기록 템플릿은 [`docs/guides/`](docs/guides/README.md)에 있습니다.
 
 | 순서 | Git | 내용 |
 |------|-----|------|
