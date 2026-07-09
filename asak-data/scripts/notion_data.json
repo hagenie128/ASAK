@@ -107,7 +107,7 @@
     {
       "id": "FWD-PAY-001",
       "title": "결제 수단 노출",
-      "description": "주문 확인 후 사용자가 결제 수단을 선택하거나 확인할 수 있는 결제 화면을 제공한다.",
+      "description": "장바구니·주문확인(SCR-005) 컨펌 팝업 확인 후 사용자가 결제 수단을 선택하거나 확인할 수 있는 결제 화면(SCR-007)을 제공한다.",
       "priority": "상",
       "status_notion": "예정",
       "category": "화면"
@@ -227,7 +227,7 @@
     {
       "id": "FWD-CART-001",
       "title": "선택 옵션 텍스트 요약 표시",
-      "description": "장바구니와 주문 확인 화면에서 사용자가 선택한 옵션과 제외 재료를 텍스트로 요약 표시한다.",
+      "description": "장바구니·주문확인 통합 화면(SCR-005)과 컨펌 팝업에서 사용자가 선택한 옵션과 제외 재료를 텍스트로 요약 표시한다. (2026-07-06: SCR-006 병합)",
       "priority": "상",
       "status_notion": "예정",
       "category": "화면"
@@ -251,7 +251,7 @@
     {
       "id": "FWD-ORDER-001",
       "title": "매장/포장 구분 표시",
-      "description": "사용자가 주문 시작 시 매장 식사와 포장 중 하나를 선택하고, 선택값이 주문 정보에 반영되어야 한다.",
+      "description": "사용자가 홈(SCR-001)에서 매장 식사와 포장 중 하나를 선택하고, 선택값(orderType)이 장바구니·주문확인(SCR-005)까지 유지되어 주문 정보에 반영되어야 한다. (2026-07-06: SCR-002 병합)",
       "priority": "상",
       "status_notion": "예정",
       "category": "기능"
@@ -355,7 +355,7 @@
     {
       "id": "FWD-UI-002",
       "title": "키오스크 시작 화면 및 빠른 주문 UX",
-      "description": "ASAK 키오스크 시작 화면에서 브랜드 안내와 주문 시작 CTA를 제공하고, 재방문 고객은 불필요한 단계 없이 메뉴 선택→장바구니→결제로 빠르게 이동할 수 있는 UI 흐름을 제공한다.",
+      "description": "ASAK 키오스크 홈(SCR-001)에서 브랜드 안내·매장/포장 선택·주문 시작을 제공하고, 재방문 고객은 6단계 UI(메뉴→옵션→장바구니·확인 팝업→결제→완료)로 빠르게 주문할 수 있어야 한다. (2026-07-06: SCR-002→001 병합)",
       "priority": "상",
       "status_notion": "예정",
       "category": "화면"
@@ -976,7 +976,7 @@
       "request_body": "{\n  \"orderType\": \"EAT_IN\",\n  \"items\": [\n    {\n      \"menuId\": 364,\n      \"quantity\": 1,\n      \"optionItems\": [\n        {\n          \"optionItemId\": 269,\n          \"quantity\": 1\n        }\n      ],\n      \"excludedIngredientIds\": []\n    }\n  ]\n}",
       "response_success": "{\n  \"success\": true,\n  \"status\": 201,\n  \"code\": \"ORDER_CREATE_SUCCESS\",\n  \"message\": \"주문 생성 성공\",\n  \"data\": {\n    \"orderId\": 1,\n    \"orderNo\": \"ASAK-20260703-001\",\n    \"orderType\": \"TAKE_OUT\",\n    \"totalPrice\": 8900,\n    \"orderStatus\": \"RECEIVED\",\n    \"paymentStatus\": \"READY\"\n  }\n}",
       "response_error": "{\n  \"success\": false,\n  \"status\": 400,\n  \"code\": \"ORDER_INVALID\",\n  \"message\": \"주문 정보가 올바르지 않습니다.\",\n  \"data\": null\n}",
-      "description": "장바구니 내용을 기준으로 주문을 생성한다."
+      "description": "장바구니 내용을 기준으로 주문을 생성한다. SCR-005 컨펌 팝업 확인 후 호출."
     },
     {
       "api_id": "API-006",
@@ -1249,7 +1249,7 @@
       "post_condition": "키오스크 화면에 판매 항목 품절 상태가 반영됨",
       "normal_flow": "관리자 품절 관리 화면 진입(Week 5 MVP에서는 인증 없이 바로 접근) → 품절 처리할 메뉴/재료 선택 → 품절 토글 ON → 관련 메뉴 목록/메뉴 상세/옵션 선택 화면에 즉시 반영",
       "alternative_flow": "같은 재료가 기본 구성과 추가 토핑에 모두 쓰이면 메뉴/상세/옵션 품절 상태에 함께 반영됨",
-      "mermaid_script": "flowchart TD\n    A[품절 관리 SCR-011 토글 ON] --> B[메뉴/옵션 표시 갱신 SCR-003, SCR-004]\n    B --> C[고객 화면 즉시 반영]",
+      "mermaid_script": "flowchart TD\n    A[관리자 판매 항목 품절 토글 ON] --> B[관련 메뉴와 옵션 표시 갱신]\n    B --> C[고객 화면 즉시 반영]",
       "status_notion": "초안"
     },
     {
@@ -1284,7 +1284,7 @@
       "post_condition": "재시도 성공 또는 직원 호출 안내",
       "normal_flow": "결제 진행 → 승인 실패 응답 수신(금액 불일치/주문 만료 등) → 실패 원인 화면 안내 → 결제 재시도 유도",
       "alternative_flow": "장바구니 내용은 유지되며 사용자가 다시 결제를 시도할 수 있음",
-      "mermaid_script": "flowchart TD\n    A[결제 SCR-007] --> B{결제 승인?}\n    B -->|실패| C[결제 실패 SCR-012]\n    C --> D[장바구니 유지 SCR-005]\n    D --> E[결제 재시도 SCR-007]\n    E --> A",
+      "mermaid_script": "flowchart TD\n    A[결제 진행] --> B{결제 승인?}\n    B -->|실패| C[실패 원인 화면 안내]\n    C --> D[장바구니 내용 유지]\n    D --> E[결제 재시도 유도]\n    E --> A",
       "status_notion": "초안"
     },
     {
@@ -1301,7 +1301,7 @@
       "post_condition": "고객이 품절되지 않은 항목으로 주문 진행",
       "normal_flow": "품절된 판매 항목은 회색 처리된 채 SOLD OUT 표시됨 → 선택 불가 → 고객이 다른 항목으로 대체 선택",
       "alternative_flow": "핵심 재료 또는 베이스 재료가 품절된 경우 해당 메뉴 또는 관련 카테고리 메뉴가 품절 표시됨",
-      "mermaid_script": "flowchart TD\n    A[관리자 품절 처리 SCR-011] --> B[메뉴/옵션 SOLD OUT 표시 SCR-003, SCR-004]\n    B --> C[고객 선택 불가 SCR-003, SCR-004]\n    C --> D[다른 항목으로 대체 선택 SCR-003, SCR-004]",
+      "mermaid_script": "flowchart TD\n    A[관리자 판매 항목 품절 처리] --> B[메뉴 상세와 옵션 목록에 SOLD OUT 표시]\n    B --> C[고객 선택 불가]\n    C --> D[다른 항목으로 대체 선택]",
       "status_notion": "초안"
     },
     {
@@ -1317,7 +1317,7 @@
       "post_condition": "고객이 안전하게 메뉴를 선택하거나 회피함",
       "normal_flow": "알레르기/비건 태그 확인 → 해당 재료 포함 여부 인지 → 태그 기준으로 메뉴 선택/회피",
       "alternative_flow": "태그 미표시 재료가 있을 경우 고객이 직접 문의하도록 안내 문구 필요",
-      "mermaid_script": "flowchart TD\n    A[메뉴/옵션 선택 SCR-003, SCR-004] --> B[알레르기/비건 태그 확인]\n    B --> C{해당 재료 포함?}\n    C -->|예| D[메뉴 회피 또는 옵션 조정]\n    C -->|아니오| E[정상 진행]",
+      "mermaid_script": "flowchart TD\n    A[옵션선택 단계 진입] --> B[알레르기/비건 태그 확인]\n    B --> C{해당 재료 포함?}\n    C -->|예| D[메뉴 회피 또는 옵션 조정]\n    C -->|아니오| E[정상 진행]",
       "status_notion": "초안"
     },
     {
@@ -1347,10 +1347,10 @@
         "FWD-PAY-001"
       ],
       "pre_condition": "재방문 고객이 키오스크 사용 시작",
-      "post_condition": "결제 완료 및 주문번호 표시, 화면 전환 5회 이내 목표 (2026-07-05 수정: 4단계→5회, 주문확인 화면 반영)",
-      "normal_flow": "메뉴 선택 → 추천조합 기본값 → 장바구니(SCR-005) → 주문 확인(SCR-006) → 결제(SCR-007) → 완료(SCR-008)",
+      "post_condition": "결제 완료 및 주문번호 표시, 화면 전환 4회 이내 목표 (2026-07-06: SCR-002·006 병합, 주문확인은 SCR-005 컨펌 팝업)",
+      "normal_flow": "메뉴 선택 → 추천조합 기본값 → 장바구니(SCR-005) 컨펌 팝업 확인 → 결제 → 완료",
       "alternative_flow": "없음",
-      "mermaid_script": "flowchart TD\n    A[메뉴 선택 SCR-003] --> B[추천조합 기본값 SCR-004]\n    B --> C[장바구니 SCR-005]\n    C --> D[주문 확인 SCR-006]\n    D --> E[결제 SCR-007]\n    E --> F[완료 SCR-008]",
+      "mermaid_script": "flowchart TD\n    A[메뉴 선택 SCR-003] --> B[추천조합 기본값 SCR-004]\n    B --> C[장바구니·주문확인 팝업 SCR-005]\n    C --> D[결제 SCR-007]\n    D --> E[완료 SCR-008]\n    E --> F[화면 전환 4회 이내]",
       "status_notion": "초안"
     },
     {
@@ -1359,9 +1359,11 @@
       "base_title": "일정시간 미입력 시 자동 초기화 (FWD-SYS-001)",
       "req_ids": [
         "FWD-SYS-001",
+        "DEV-ORDER-001",
         "FWD-CART-001",
         "FWD-CART-002",
-        "FWD-CART-003"
+        "FWD-CART-003",
+        "FWD-ORDER-001"
       ],
       "pre_condition": "주문 진행 중 고객이 자리를 비움",
       "post_condition": "초기화면으로 전환되고 다음 고객이 깨끗한 상태로 이용 가능",
@@ -1384,7 +1386,7 @@
       "post_condition": "신규 메뉴가 키오스크 메뉴선택 화면에 즉시 노출",
       "normal_flow": "관리자 로그인 → 신규 메뉴 등록(이름/가격/이미지/카테고리) → 옵션그룹 연결 → 저장",
       "alternative_flow": "필수값 누락 시 저장 불가 안내",
-      "mermaid_script": "flowchart TD\n    A[관리자 로그인 SCR-015] --> B[메뉴 관리 SCR-016]\n    B --> C[신규 메뉴 등록 SCR-017: 이름/가격/이미지/카테고리]\n    C --> D[옵션그룹 연결]\n    D --> E[저장 → 키오스크 메뉴 SCR-003 즉시 노출]",
+      "mermaid_script": "flowchart TD\n    A[관리자 로그인] --> B[신규 메뉴 등록: 이름/가격/이미지/카테고리]\n    B --> C[옵션그룹 연결]\n    C --> D[저장]\n    D --> E[키오스크 메뉴선택 화면에 즉시 노출]",
       "status_notion": "초안"
     },
     {
@@ -1399,7 +1401,7 @@
       "post_condition": "기간별 매출/판매량이 화면에 표시됨",
       "normal_flow": "관리자 로그인 → 기간 선택 → 일별 매출/메뉴별 판매량 조회",
       "alternative_flow": "해당 기간에 데이터가 없을 경우 공백 상태 안내",
-      "mermaid_script": "flowchart TD\n    A[관리자 로그인 SCR-015] --> B[기간 선택 SCR-019]\n    B --> C[일별 매출/메뉴별 판매량 조회 SCR-019]\n    C --> D{데이터 존재?}\n    D -->|없음| E[공백 상태 안내 SCR-019]\n    D -->|있음| F[표/그래프 표시 SCR-019]",
+      "mermaid_script": "flowchart TD\n    A[관리자 로그인] --> B[기간 선택]\n    B --> C[일별 매출/메뉴별 판매량 조회]\n    C --> D{데이터 존재?}\n    D -->|없음| E[공백 상태 안내]\n    D -->|있음| F[표/그래프 표시]",
       "status_notion": "초안"
     },
     {
@@ -1415,7 +1417,7 @@
       "post_condition": "영수증 출력 완료 또는 화면 주문번호 표시",
       "normal_flow": "결제 완료 화면에서 영수증 출력 여부 선택 → 출력 선택 시 모의 프린터 요청 → 미선택 시 화면 주문번호로 대체",
       "alternative_flow": "프린터 오류 시 화면 주문번호로 자동 대체",
-      "mermaid_script": "flowchart TD\n    A[주문 완료 SCR-008] --> B{영수증 출력? SCR-020}\n    B -->|예| C[API-019 모의 프린터 요청]\n    B -->|아니오| D[화면 주문번호 표시]\n    C --> E[출력 결과 확인]\n    E --> D",
+      "mermaid_script": "flowchart TD\n    A[결제완료 화면] --> B{영수증 출력 선택?}\n    B -->|예| C[모의 프린터 요청]\n    B -->|아니오| D[화면 주문번호로 대체]\n    C --> E[출력 결과 확인]",
       "status_notion": "초안"
     },
     {
@@ -1432,7 +1434,7 @@
       "post_condition": "주문 상태가 완료로 변경되고 관리자 화면에 반영됨",
       "normal_flow": "주문 접수 → 관리자 주문 목록에 노출 → 주문 상세 확인 → 준비중으로 상태 변경 → 조리 완료 후 완료로 변경",
       "alternative_flow": "없음",
-      "mermaid_script": "flowchart TD\n    A[고객 결제 완료 SCR-008] --> B[관리자 주문 목록 SCR-009]\n    B --> C[주문 상세 SCR-010]\n    C --> D[준비중으로 변경 API-008]\n    D --> E[완료로 변경 API-008]\n    E --> F[매장/포장 구분 표시 SCR-010]",
+      "mermaid_script": "flowchart TD\n    A[고객 결제 완료] --> B[관리자 화면에 주문 실시간 노출]\n    B --> C[접수 상태]\n    C --> D[준비중으로 변경]\n    D --> E[완료로 변경]\n    E --> F[매장/포장 구분 함께 표시]",
       "status_notion": "초안"
     },
     {
@@ -1452,9 +1454,9 @@
       ],
       "pre_condition": "ASAK 키오스크 화면 진입(처음 방문 고객)",
       "post_condition": "결제 완료 후 주문번호가 화면에 표시됨",
-      "normal_flow": "홈 → 먹고가기/포장 → 카테고리·메뉴 선택 → 옵션 선택 → 장바구니(SCR-005) → 주문 확인(SCR-006) → 결제(SCR-007) → 주문 완료(SCR-008)",
+      "normal_flow": "카테고리 탐색 → 메뉴 선택 → 베이스/드레싱/토핑 옵션 선택(추천조합 기본값) → 옵션 설명 확인 → 장바구니 담기 → 결제수단 선택 → 결제 → 주문번호 확인",
       "alternative_flow": "옵션이 헷갈려 이전 단계로 돌아가도 선택 내용이 유지됨 (사용자가 지적한 키오스크 취소 시 초기화 문제 개선)",
-      "mermaid_script": "flowchart TD\n    A[홈 SCR-001] --> B[먹고가기/포장 SCR-002]\n    B --> C[메뉴 선택 SCR-003]\n    C --> D[옵션 선택 SCR-004]\n    D --> E[장바구니 SCR-005]\n    E --> F[주문 확인 SCR-006]\n    F --> G[결제 SCR-007]\n    G --> H[주문 완료 SCR-008]",
+      "mermaid_script": "flowchart TD\n    A[키오스크 초기화면] --> B[카테고리 탐색]\n    B --> C[메뉴 선택]\n    C --> D[베이스/드레싱/토핑 옵션 선택 - 추천조합 기본값]\n    D --> E[옵션 설명 확인]\n    E --> F[장바구니 담기]\n    F --> G[결제수단 선택]\n    G --> H[결제 진행]\n    H --> I[주문번호 화면 표시]",
       "status_notion": "초안"
     },
     {
@@ -1465,11 +1467,11 @@
         "FWD-ORDER-001",
         "FWD-ORDER-002"
       ],
-      "pre_condition": "홈 화면에서 주문시작 버튼 클릭",
-      "post_condition": "주문에 orderType(EAT_IN/TAKE_OUT) 구분값이 저장되어 장바구니로 이동",
-      "normal_flow": "홈 화면에서 주문시작 클릭 → 먹고가기/포장 선택 → 선택값(orderType)을 장바구니와 주문확인 단계까지 유지 → 주문 생성 시 orderType에 반영",
+      "pre_condition": "키오스크 홈(SCR-001) 화면 진입",
+      "post_condition": "주문에 orderType(EAT_IN/TAKE_OUT) 구분값이 저장되어 장바구니(SCR-005)까지 유지",
+      "normal_flow": "홈(SCR-001)에서 매장/포장 선택 → orderType을 메뉴·옵션·장바구니(SCR-005)까지 유지 → 주문 생성(API-005) 시 orderType 반영",
       "alternative_flow": "선택 없이 다음 단계로 진행 불가(필수 선택)",
-      "mermaid_script": "flowchart TD\n    A[홈 SCR-001] --> B[주문 시작 클릭]\n    B --> C[먹고가기/포장 SCR-002]\n    C --> D[orderType 유지 SCR-005, SCR-006]\n    D --> E[주문 생성 시 orderType 반영]",
+      "mermaid_script": "flowchart TD\n    A[홈 매장·포장 SCR-001] --> B[orderType 선택]\n    B --> C[orderType 유지 SCR-003~005]\n    C --> D[주문 생성 시 orderType 반영]",
       "status_notion": "초안"
     },
     {
@@ -1484,7 +1486,7 @@
       "post_condition": "수정된 내용이 즉시 반영됨",
       "normal_flow": "장바구니 진입 → 담은 항목 수량 -/+ 조정 → 특정 항목 삭제 → 총금액 자동 재계산",
       "alternative_flow": "마지막 1개 삭제 시 장바구니 빈 상태로 메뉴선택 화면으로 유도",
-      "mermaid_script": "flowchart TD\n    A[장바구니 진입 SCR-005] --> B[수량 -/+ 조정 SCR-005]\n    B --> C[개별 항목 삭제 SCR-005]\n    C --> D[총금액 자동 재계산 SCR-005]\n    C -->|마지막 1개 삭제| E[메뉴선택 유도 SCR-003]",
+      "mermaid_script": "flowchart TD\n    A[장바구니 진입] --> B[수량 -/+ 조정]\n    B --> C[개별 항목 삭제]\n    C --> D[총금액 자동 재계산]",
       "status_notion": "초안"
     },
     {
@@ -1501,9 +1503,9 @@
       ],
       "pre_condition": "장바구니에 1개 이상 메뉴가 담겨있음",
       "post_condition": "결제 승인 완료 및 주문번호 표시",
-      "normal_flow": "장바구니(SCR-005) → 주문 확인(SCR-006) → API-005 주문 생성 → 결제(SCR-007) → 승인 → 주문 완료(SCR-008)",
+      "normal_flow": "장바구니에서 결제하기 → CARD 가상 결제수단 노출 → 결제 진행 → 승인 → 주문번호 생성",
       "alternative_flow": "없음(정상 흐름)",
-      "mermaid_script": "flowchart TD\n    A[장바구니 SCR-005] --> B[주문 확인 SCR-006]\n    B --> C[API-005 주문 생성]\n    C --> D[결제 SCR-007]\n    D --> E{결제 승인?}\n    E -->|성공| F[주문 완료 SCR-008]",
+      "mermaid_script": "flowchart TD\n    A[장바구니 확인] --> B[결제하기 버튼]\n    B --> C[CARD 가상 결제수단 확인 화면]\n    C --> D[결제 진행]\n    D --> E{결제 승인?}\n    E -->|성공| F[주문번호 생성]\n    F --> G[결제완료 화면 표시]",
       "status_notion": "초안"
     },
     {
@@ -1519,7 +1521,7 @@
       "post_condition": "장바구니/주문서에 제외 재료가 명시됨",
       "normal_flow": "기본 포함 재료 중 특정 항목 \"빼기\" 선택 → 가격 변동 없이 장바구니에 반영 → 주문서에 제외 항목 표시",
       "alternative_flow": "없음(가격 차감 로직 없음을 명확히 확인, 선생님 피드백 6번 반영)",
-      "mermaid_script": "flowchart TD\n    A[기본 포함 재료 확인 SCR-004] --> B[특정 재료 '빼기' 선택 SCR-004]\n    B --> C[가격 변동 없이 반영]\n    C --> D[장바구니/주문서 제외 항목 표시 SCR-005, SCR-006]",
+      "mermaid_script": "flowchart TD\n    A[기본 포함 재료 확인] --> B[특정 재료 '빼기' 선택]\n    B --> C[가격 변동 없이 반영]\n    C --> D[장바구니/주문서에 제외 항목 표시]",
       "status_notion": "초안"
     },
     {
@@ -1534,7 +1536,7 @@
       "post_condition": "결제완료 화면에 적립 여부가 표시됨(결제 전/후 이중 확인 없음)",
       "normal_flow": "결제 진행 중 멤버십 적립 여부 1회 확인 → 결제 완료 시 자동 적립 처리 → 결제완료 화면에 적립 결과 표시",
       "alternative_flow": "멤버십 미가입 고객은 적립 단계 생략하고 바로 결제 진행",
-      "mermaid_script": "flowchart TD\n    A[결제 SCR-007] --> B[적립 확인 SCR-021 1회 노출]\n    B --> C[결제 완료 SCR-008]\n    C --> D[적립 결과 자동 표시]",
+      "mermaid_script": "flowchart TD\n    A[멤버십 보유 고객 결제 진행] --> B[적립 확인창 1회 노출]\n    B --> C[결제 완료]\n    C --> D[적립 결과 자동 표시]",
       "status_notion": "초안"
     },
     {
@@ -1571,7 +1573,7 @@
       "post_condition": "관리자가 선택 옵션과 제외 재료를 구분해 조리 준비할 수 있음",
       "normal_flow": "커스텀 옵션이 포함된 주문 생성 → 관리자 주문 목록에서 해당 주문 선택 → 주문 상세에서 선택 옵션과 제외 재료 확인 → 조리 준비",
       "alternative_flow": "없음",
-      "mermaid_script": "flowchart TD\n    A[커스텀 옵션 포함 주문 접수 SCR-008] --> B[관리자 주문목록 SCR-009]\n    B --> C[추가 재료 강조 SCR-010]\n    C --> D[제외 재료 강조 SCR-010]\n    D --> E[조리 준비]",
+      "mermaid_script": "flowchart TD\n    A[커스텀 옵션 포함 주문 접수] --> B[관리자 주문목록에서 확인]\n    B --> C[추가 재료 색상 강조]\n    C --> D[제외 재료 색상 강조]\n    D --> E[조리 준비]",
       "status_notion": "초안"
     },
     {
@@ -1587,7 +1589,7 @@
       "post_condition": "선택한 수량만큼 장바구니에 가격이 반영됨",
       "normal_flow": "토핑 목록에서 특정 토핑 + 버튼으로 수량 증가 → 가격이 수량만큼 배수로 자동 재계산 → 같은 토핑을 최대 5개까지 중복 담을 수 있음",
       "alternative_flow": "최대치 도달 시 + 버튼 비활성화 및 안내",
-      "mermaid_script": "flowchart TD\n    A[토핑 선택 SCR-004] --> B[+ 버튼으로 수량 증가 SCR-004]\n    B --> C[가격 수량만큼 자동 재계산 SCR-005]\n    C --> D{최대 5개 도달?}\n    D -->|예| E[버튼 비활성화 안내 SCR-004]\n    D -->|아니오| F[계속 담기 가능 SCR-005]",
+      "mermaid_script": "flowchart TD\n    A[토핑 선택] --> B[+ 버튼으로 수량 증가]\n    B --> C[가격 수량만큼 자동 재계산]\n    C --> D{최대 5개 도달?}\n    D -->|예| E[버튼 비활성화 안내]\n    D -->|아니오| F[계속 담기 가능]",
       "status_notion": "초안"
     },
     {
@@ -1603,7 +1605,7 @@
       "post_condition": "장바구니에 기본 드레싱과 별도포장 드레싱이 각각 표시됨",
       "normal_flow": "기본 드레싱 선택 → 드레싱 별도포장 추가 선택(균일가) → 장바구니에 드레싱 2개(기본+추가) 반영 → 주문서에 별도포장 표시",
       "alternative_flow": "없음",
-      "mermaid_script": "flowchart TD\n    A[기본 드레싱 선택 SCR-004] --> B[별도포장 드레싱 추가 선택 SCR-004]\n    B --> C[장바구니에 드레싱 2개 표시 SCR-005]\n    C --> D[주문서에 별도포장 안내 SCR-006]",
+      "mermaid_script": "flowchart TD\n    A[기본 드레싱 선택] --> B[별도포장 드레싱 추가 선택 - 균일가]\n    B --> C[장바구니에 드레싱 2개 표시]\n    C --> D[주문서에 별도포장 안내]",
       "status_notion": "초안"
     },
     {
@@ -1626,9 +1628,9 @@
       ],
       "pre_condition": "Week 5 MVP(8/1) 또는 최종 발표(9/2) 전 전체 데모 환경이 준비되어 있음",
       "post_condition": "고객 주문 완료와 관리자 주문 확인/상태 변경까지 한 번에 시연 가능",
-      "normal_flow": "1. 홈(SCR-001) 주문 시작 → 2. 먹고가기/포장(SCR-002) → 3. 메뉴·옵션(SCR-003/004) → 4. 장바구니·주문확인(SCR-005/006) → 5. 결제(SCR-007) → 6. 완료(SCR-008) → 7. 관리자 주문 확인·상태변경(SCR-009/010)",
+      "normal_flow": "1. 홈(SCR-001)에서 매장/포장을 선택한다. 2. 메뉴를 선택하고 옵션을 구성한다(SCR-003/004). 3. 장바구니·주문확인 컨펌 팝업(SCR-005)을 거쳐 결제한다(SCR-007). 4. 주문 완료(SCR-008)를 확인한다. 5. 관리자가 주문 목록/상세(SCR-009/010)에서 상태와 옵션/제외 재료를 확인한다.",
       "alternative_flow": "결제 실패, 품절 항목 포함, 필수 옵션 미선택, 관리자 상태 변경 실패 시 해당 화면과 API 오류 응답을 기준으로 재시도 또는 오류 안내를 확인한다.",
-      "mermaid_script": "flowchart TD\n    A[홈 SCR-001] --> B[먹고가기/포장 SCR-002]\n    B --> C[메뉴·옵션 SCR-003/004]\n    C --> D[장바구니·주문확인 SCR-005/006]\n    D --> E[결제 SCR-007]\n    E --> F[완료 SCR-008]\n    F --> G[관리자 확인 SCR-009/010]",
+      "mermaid_script": "flowchart TD\n    A[홈 매장·포장 SCR-001] --> B[메뉴·옵션 SCR-003/004]\n    B --> C[장바구니·주문확인 팝업 SCR-005]\n    C --> D[결제 로딩 SCR-007]\n    D --> E[완료 SCR-008]\n    E --> F[관리자 확인 SCR-009/010]",
       "status_notion": "확정"
     },
     {
@@ -1642,7 +1644,7 @@
       "post_condition": "각 API가 명시된 목표 응답시간 내에 응답함",
       "normal_flow": "메뉴목록/옵션조회/결제 각 API 호출 → 목표 응답시간(2초/1초/3초) 내 응답 확인",
       "alternative_flow": "목표시간 초과 시 병목 구간(DB 인덱스, 쿼리문) 점검",
-      "mermaid_script": "flowchart TD\n    A[개발 완료 후 부하테스트] --> B[메뉴목록 API-001 - 목표 2초]\n    B --> C[옵션조회 API-004 - 목표 1초]\n    C --> D[결제 API-006 - 목표 3초]\n    D --> E{목표시간 내 응답?}\n    E -->|아니오| F[병목 구간 점검]",
+      "mermaid_script": "flowchart TD\n    A[개발 완료 후 부하테스트] --> B[메뉴목록 API 호출 - 목표 2초]\n    B --> C[옵션조회 API 호출 - 목표 1초]\n    C --> D[결제 API 호출 - 목표 3초]\n    D --> E{목표시간 내 응답?}\n    E -->|아니오| F[병목 구간 점검]",
       "status_notion": "초안"
     }
   ],
@@ -1826,7 +1828,7 @@
       "scenario_id": "SC-014",
       "purpose": "먹고가기/포장 선택 후 장바구니·주문확인·주문 생성까지 orderType(EAT_IN/TAKE_OUT)이 유지되고 API-005 요청에 반영된다.",
       "pre_condition": "키오스크 홈 화면 접근 가능",
-      "steps": "1) 홈에서 주문시작 2) 먹고가기 선택 3) 메뉴 1건 장바구니 담기 4) 주문확인 화면에서 orderType 확인 5) 주문 생성 API 요청 body의 orderType 확인",
+      "steps": "1) 홈(SCR-001)에서 매장(먹고가기) 선택 2) 메뉴 1건 장바구니 담기 3) 장바구니·주문확인(SCR-005)에서 orderType 확인 4) 컨펌 팝업 확인 후 API-005 body의 orderType 확인",
       "expected_result": "먹고가기/포장 선택 후 장바구니·주문확인·주문 생성까지 orderType(EAT_IN/TAKE_OUT)이 유지되고 API-005 요청에 반영된다.",
       "status_notion": "예정"
     },
@@ -1847,7 +1849,7 @@
     },
     {
       "id": "TC-016",
-      "title": "TC-016 포인트·쿠폰 적립 및 QR 할인 적용 (KSD-MEMBER-001 (EXCLUDED), RTOS-DEVICE-004 (EXCLUDED))",
+      "title": "TC-016 포인트·쿠폰 적립 및 QR 할인 적용 (KSD-MEMBER-001 (EXCLUDED))",
       "base_title": "포인트·쿠폰 적립 및 QR 할인 적용",
       "req_ids": [
         "KSD-MEMBER-001",
@@ -1873,6 +1875,475 @@
       "steps": "1. 결제 완료(SCR-008) 진입 2. 영수증 출력 선택 3. API-019 호출 4. 출력 결과 또는 주문번호 확인",
       "expected_result": "영수증 출력 선택 시 모의 프린터 요청 성공, 미선택 시 화면 주문번호 표시",
       "status_notion": "예정"
+    }
+  ],
+  "screens": [
+    {
+      "screen_id": "SCR-001",
+      "title": "홈 (매장·포장) (FWD-UI-002)",
+      "base_title": "홈 (매장·포장)",
+      "req_ids": [
+        "FWD-UI-002",
+        "FWD-UI-005",
+        "FWD-ORDER-001"
+      ],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=61-273",
+      "status_notion": "와이어프레임",
+      "category": "키오스크",
+      "phase": "FWD",
+      "input_vars": "없음",
+      "output_vars": "브랜드 안내, 매장(먹고가기)/포장 선택, orderType(EAT_IN 또는 TAKE_OUT)",
+      "related_sc": [
+        "SC-001",
+        "식당 키오스크 주문 흐름"
+      ],
+      "related_api": []
+    },
+    {
+      "screen_id": "SCR-002",
+      "title": "먹고가기 / 포장 선택",
+      "base_title": "먹고가기 / 포장 선택",
+      "req_ids": [],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-2",
+      "status_notion": "병합됨",
+      "category": "키오스크",
+      "phase": "FWD",
+      "input_vars": "없음",
+      "output_vars": "orderType(EAT_IN 또는 TAKE_OUT)",
+      "related_sc": [
+        "식당 키오스크 주문 흐름"
+      ],
+      "related_api": []
+    },
+    {
+      "screen_id": "SCR-003",
+      "title": "메뉴 선택 (FWD-MENU-001)",
+      "base_title": "메뉴 선택",
+      "req_ids": [
+        "FWD-MENU-001",
+        "FWD-MENU-006",
+        "FWD-UI-001",
+        "FWD-UI-002",
+        "LMIS-MENU-002"
+      ],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-3",
+      "status_notion": "와이어프레임",
+      "category": "키오스크",
+      "phase": "FWD",
+      "input_vars": "orderType, categoryId",
+      "output_vars": "카테고리 목록, 메뉴 목록, 메뉴 이미지, 메뉴명, 가격, 계산된 기본 칼로리, 메뉴 품절 여부, 재료 품절 뱃지, 주문 가능 여부",
+      "related_sc": [
+        "고객 주문 시나리오"
+      ],
+      "related_api": [
+        "API-001",
+        "API-002"
+      ]
+    },
+    {
+      "screen_id": "SCR-004",
+      "title": "메뉴 상세 / 옵션 선택 (FWD-MENU-001)",
+      "base_title": "메뉴 상세 / 옵션 선택",
+      "req_ids": [
+        "FWD-MENU-001",
+        "FWD-MENU-002",
+        "FWD-MENU-003",
+        "FWD-MENU-004",
+        "FWD-MENU-010",
+        "FWD-MENU-014",
+        "FWD-MENU-015",
+        "LMIS-MENU-002"
+      ],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-4",
+      "status_notion": "와이어프레임",
+      "category": "키오스크",
+      "phase": "FWD",
+      "input_vars": "menuId, 기본 재료 목록, excludedIngredientIds, optionItems(optionItemId, ingredientId, quantity)",
+      "output_vars": "선택 메뉴, 기본 재료, 제외 재료, 품절 재료 뱃지, 추가 옵션, 옵션 수량, 옵션그룹 유형, 세트 옵션, 옵션 제공량/단백질, 옵션 아이콘/색상, 품절 옵션칸, 베이스 변경 가능 여부, 예상 금액, 예상 알레르기 표시",
+      "related_sc": [
+        "옵션 선택 시나리오"
+      ],
+      "related_api": [
+        "API-003",
+        "API-004"
+      ]
+    },
+    {
+      "screen_id": "SCR-005",
+      "title": "장바구니·주문확인 (FWD-CART-001)",
+      "base_title": "장바구니·주문확인",
+      "req_ids": [
+        "FWD-CART-001",
+        "FWD-CART-002",
+        "FWD-CART-003",
+        "FWD-ORDER-001",
+        "DEV-ORDER-001"
+      ],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-6",
+      "status_notion": "와이어프레임",
+      "category": "키오스크",
+      "phase": "FWD",
+      "input_vars": "장바구니 항목, orderType, excludedIngredientIds, optionItems, 수량",
+      "output_vars": "선택 메뉴, 기본 재료 제외 목록, 추가 옵션, 수량, 예상 총액, orderType, 추가 제안 상품, orderId(컨펌 팝업 확인 후)",
+      "related_sc": [
+        "장바구니 확인 및 주문 생성 시나리오"
+      ],
+      "related_api": [
+        "API-005"
+      ]
+    },
+    {
+      "screen_id": "SCR-006",
+      "title": "주문 확인",
+      "base_title": "주문 확인",
+      "req_ids": [],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-7",
+      "status_notion": "병합됨",
+      "category": "키오스크",
+      "phase": "KSD",
+      "input_vars": "장바구니 항목, excludedIngredientIds, optionItems, 수량, orderType",
+      "output_vars": "orderId, orderNo, totalPrice, orderStatus",
+      "related_sc": [
+        "장바구니 확인 및 주문 생성 시나리오"
+      ],
+      "related_api": [
+        "API-005"
+      ]
+    },
+    {
+      "screen_id": "SCR-007",
+      "title": "결제 (FWD-PAY-001)",
+      "base_title": "결제",
+      "req_ids": [
+        "FWD-PAY-001",
+        "FWD-PAY-002",
+        "LMIS-MEMBER-001",
+        "KSD-PAY-001"
+      ],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-8",
+      "status_notion": "와이어프레임",
+      "category": "키오스크",
+      "phase": "KSD",
+      "input_vars": "orderId, paymentMethod, amount",
+      "output_vars": "paymentId, paymentStatus, orderStatus",
+      "related_sc": [
+        "가상 결제 완료 시나리오"
+      ],
+      "related_api": [
+        "API-006"
+      ]
+    },
+    {
+      "screen_id": "SCR-008",
+      "title": "주문 완료 (FWD-PAY-002)",
+      "base_title": "주문 완료",
+      "req_ids": [
+        "FWD-PAY-002",
+        "FWD-ORDER-002",
+        "RTOS-DEVICE-001",
+        "RTOS-DEVICE-002"
+      ],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-9",
+      "status_notion": "와이어프레임",
+      "category": "키오스크",
+      "phase": "KSD",
+      "input_vars": "orderNo, paymentStatus, totalPrice",
+      "output_vars": "주문번호, 주문 완료 안내",
+      "related_sc": [
+        "가상 결제 완료 시나리오"
+      ],
+      "related_api": [
+        "API-006"
+      ]
+    },
+    {
+      "screen_id": "SCR-009",
+      "title": "관리자 주문 관리 (LMIS-ORDER-001)",
+      "base_title": "관리자 주문 관리",
+      "req_ids": [
+        "LMIS-ORDER-001",
+        "LMIS-ORDER-002",
+        "LMIS-ORDER-004"
+      ],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-17",
+      "status_notion": "와이어프레임",
+      "category": "관리자",
+      "phase": "KSD",
+      "input_vars": "status",
+      "output_vars": "주문 목록, 주문번호, 주문유형, 결제상태, 주문상태, 주문금액, 주문일시",
+      "related_sc": [
+        "관리자 주문 목록 확인",
+        "주문 상세 확인 시나리오"
+      ],
+      "related_api": [
+        "API-007"
+      ]
+    },
+    {
+      "screen_id": "SCR-010",
+      "title": "관리자 주문 상세 (LMIS-ORDER-001)",
+      "base_title": "관리자 주문 상세",
+      "req_ids": [
+        "LMIS-ORDER-001",
+        "LMIS-ORDER-002",
+        "LMIS-ORDER-003",
+        "LMIS-ORDER-004",
+        "LMIS-ORDER-006"
+      ],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-18",
+      "status_notion": "와이어프레임",
+      "category": "관리자",
+      "phase": "KSD",
+      "input_vars": "orderId, 변경할 status",
+      "output_vars": "주문 상세 정보, 변경된 주문 상태",
+      "related_sc": [
+        "관리자 주문 상세 확인",
+        "주문 상태 변경 시나리오"
+      ],
+      "related_api": [
+        "API-007",
+        "API-008"
+      ]
+    },
+    {
+      "screen_id": "SCR-011",
+      "title": "관리자 판매 항목 품절 관리 (LMIS-MENU-001)",
+      "base_title": "관리자 판매 항목 품절 관리",
+      "req_ids": [
+        "LMIS-MENU-001",
+        "LMIS-MENU-002"
+      ],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-19",
+      "status_notion": "와이어프레임",
+      "category": "관리자",
+      "phase": "KSD",
+      "input_vars": "targetType(MENU/INGREDIENT), targetId, isSoldOut",
+      "output_vars": "메뉴 목록, 메뉴 기본 재료, 옵션 항목, 재료 역할, 변경된 품절 상태, 영향받는 메뉴/옵션",
+      "related_sc": [
+        "판매 항목 품절 관리 흐름(옵션기능)"
+      ],
+      "related_api": [
+        "API-002",
+        "API-003",
+        "API-004",
+        "API-009"
+      ]
+    },
+    {
+      "screen_id": "SCR-012",
+      "title": "결제 실패 / 재시도 (팝업·토스트) (FWD-PAY-002)",
+      "base_title": "결제 실패 / 재시도 (팝업·토스트)",
+      "req_ids": [
+        "FWD-PAY-002",
+        "DEV-PAY-002",
+        "KSD-PAY-001"
+      ],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-10",
+      "status_notion": "기획중",
+      "category": "오류예외",
+      "phase": "FWD",
+      "input_vars": "paymentId/orderId, errorCode, message",
+      "output_vars": "재결제 요청, 장바구니·주문확인(SCR-005) 복귀",
+      "related_sc": [
+        "결제 실패 흐름"
+      ],
+      "related_api": [
+        "API-006"
+      ]
+    },
+    {
+      "screen_id": "SCR-013",
+      "title": "타임아웃 안내 / 자동 초기화 (FWD-SYS-001)",
+      "base_title": "타임아웃 안내 / 자동 초기화",
+      "req_ids": [
+        "FWD-SYS-001"
+      ],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-11",
+      "status_notion": "기획중",
+      "category": "오류예외",
+      "phase": "FWD",
+      "input_vars": "남은 시간, 현재 주문 상태",
+      "output_vars": "주문 계속하기, 처음으로 이동",
+      "related_sc": [
+        "일정시간 미입력 시 자동 초기화"
+      ],
+      "related_api": []
+    },
+    {
+      "screen_id": "SCR-014",
+      "title": "접근성 설정 (FWD-UI-001)",
+      "base_title": "접근성 설정",
+      "req_ids": [
+        "FWD-UI-001",
+        "FWD-UI-003",
+        "FWD-UI-004"
+      ],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-12",
+      "status_notion": "기획중",
+      "category": "공통",
+      "phase": "FWD",
+      "input_vars": "선택 가능한 접근성 옵션",
+      "output_vars": "적용된 UI 설정",
+      "related_sc": [
+        "접근성 옵션으로 저시력 고객 주문"
+      ],
+      "related_api": [
+        "API-017"
+      ]
+    },
+    {
+      "screen_id": "SCR-015",
+      "title": "관리자 로그인 (LMIS-AUTH-001 (EXCLUDED))",
+      "base_title": "관리자 로그인",
+      "req_ids": [
+        "LMIS-AUTH-001"
+      ],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-13",
+      "status_notion": "기획중",
+      "category": "관리자",
+      "phase": "LMIS",
+      "input_vars": "아이디, 비밀번호",
+      "output_vars": "관리자 세션/토큰",
+      "related_sc": [
+        "관리자 접근 흐름"
+      ],
+      "related_api": []
+    },
+    {
+      "screen_id": "SCR-016",
+      "title": "관리자 메뉴 관리 (LMIS-MENU-004)",
+      "base_title": "관리자 메뉴 관리",
+      "req_ids": [
+        "LMIS-MENU-004"
+      ],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-14",
+      "status_notion": "기획중",
+      "category": "관리자",
+      "phase": "LMIS",
+      "input_vars": "메뉴 목록, 카테고리, 태그, 품절 상태",
+      "output_vars": "메뉴 등록/수정 화면 이동, 품절 변경",
+      "related_sc": [
+        "관리자의 신규 메뉴 등록",
+        "판매 항목 품절 처리"
+      ],
+      "related_api": [
+        "API-010",
+        "API-011",
+        "API-009"
+      ]
+    },
+    {
+      "screen_id": "SCR-017",
+      "title": "관리자 메뉴 등록/수정 (LMIS-MENU-004)",
+      "base_title": "관리자 메뉴 등록/수정",
+      "req_ids": [
+        "LMIS-MENU-004",
+        "FWD-MENU-013",
+        "FWD-MENU-014",
+        "FWD-MENU-015",
+        "LMIS-MENU-006"
+      ],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-15",
+      "status_notion": "기획중",
+      "category": "관리자",
+      "phase": "LMIS",
+      "input_vars": "메뉴명, 가격, 이미지, 재료, 옵션그룹, 추천 옵션, 태그",
+      "output_vars": "메뉴 저장 요청",
+      "related_sc": [
+        "관리자의 신규 메뉴 등록"
+      ],
+      "related_api": [
+        "API-012"
+      ]
+    },
+    {
+      "screen_id": "SCR-018",
+      "title": "관리자 결제수단 설정 (LMIS-PAY-001)",
+      "base_title": "관리자 결제수단 설정",
+      "req_ids": [
+        "LMIS-PAY-001"
+      ],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-16",
+      "status_notion": "기획중",
+      "category": "관리자",
+      "phase": "LMIS",
+      "input_vars": "결제수단 목록, 활성 여부, 정렬 순서",
+      "output_vars": "결제수단 설정 변경 요청",
+      "related_sc": [
+        "결제 성공 흐름(수단 노출 포함)"
+      ],
+      "related_api": [
+        "API-013",
+        "API-014"
+      ]
+    },
+    {
+      "screen_id": "SCR-019",
+      "title": "관리자 매출 요약 (LMIS-ORDER-005)",
+      "base_title": "관리자 매출 요약",
+      "req_ids": [
+        "LMIS-ORDER-005",
+        "ARCHIVE-LMIS-ORDER-005",
+        "LMIS-MENU-005"
+      ],
+      "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-23",
+      "status_notion": "기획중",
+      "category": "관리자",
+      "phase": "LMIS",
+      "input_vars": "조회 기간, 일별 매출 데이터",
+      "output_vars": "매출 요약 표시",
+      "related_sc": [
+        "관리자의 일별 매출 조회"
+      ],
+      "related_api": [
+        "API-015"
+      ]
+    },
+    {
+      "screen_id": "SCR-020",
+      "title": "영수증 출력 여부 선택 (RTOS-DEVICE-001)",
+      "base_title": "영수증 출력 여부 선택",
+      "req_ids": [
+        "RTOS-DEVICE-001"
+      ],
+      "figma_url": "",
+      "status_notion": "기획중",
+      "category": "키오스크",
+      "phase": "장치",
+      "input_vars": "orderId, orderNo, paymentStatus, totalPrice",
+      "output_vars": "영수증 출력 선택(예/아니오), 출력 결과 또는 화면 주문번호 표시",
+      "related_sc": [
+        "SC-015"
+      ],
+      "related_api": [
+        "API-019"
+      ]
+    },
+    {
+      "screen_id": "SCR-021",
+      "title": "포인트·쿠폰 적립 (LMIS-MEMBER-001)",
+      "base_title": "포인트·쿠폰 적립",
+      "req_ids": [
+        "LMIS-MEMBER-001",
+        "KSD-MEMBER-001",
+        "RTOS-DEVICE-004",
+        "RTOS-DEVICE-005",
+        "RTOS-DEVICE-006"
+      ],
+      "figma_url": "",
+      "status_notion": "기획중",
+      "category": "키오스크",
+      "phase": "KSD",
+      "input_vars": "memberId, orderId, scanValue(쿠폰/멤버십 QR), 결제 금액",
+      "output_vars": "적립 확인 결과, 스탬프 적립 여부, 쿠폰 할인 금액, 최종 결제 금액",
+      "related_sc": [
+        "SC-006",
+        "SC-016"
+      ],
+      "related_api": [
+        "API-018",
+        "API-020"
+      ]
     }
   ]
 }

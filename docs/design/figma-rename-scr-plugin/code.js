@@ -46,13 +46,15 @@ const FRAME_GAP = 80;
 
 /** 현재 Figma 레이어 이름 → SCR-XXX 목표 이름 */
 const RENAME_MAP = {
-  "홈 화면": "SCR-001 홈",
-  "먹고가기/포장 선택": "SCR-002 먹고가기 / 포장 선택",
+  "홈 화면": "SCR-001 홈 (매장·포장)",
+  "홈 (매장·포장)": "SCR-001 홈 (매장·포장)",
+  "먹고가기/포장 선택": "SCR-002 먹고가기 / 포장 선택 [병합됨→001]",
   "메뉴 선택": "SCR-003 메뉴 선택",
   "메뉴상세": "SCR-004 메뉴 상세 / 옵션 선택",
   "옵션 선택": "SCR-004 옵션 선택",
-  "장바구니": "SCR-005 장바구니",
-  "주문 확인": "SCR-006 주문 확인",
+  "장바구니": "SCR-005 장바구니·주문확인",
+  "장바구니·주문확인": "SCR-005 장바구니·주문확인",
+  "주문 확인": "SCR-006 주문 확인 [병합됨→005]",
   "결제": "SCR-007 결제",
   "주문 완료": "SCR-008 주문 완료",
   "관리자 주문관리": "SCR-009 관리자 주문 관리",
@@ -109,6 +111,24 @@ function isScrPrefixed(name) {
   return /^SCR-\d{3}(\s|$)/.test(String(name).trim());
 }
 
+/** 병합됨·Archive 대상 — 이름변경·페이지 이동 스킵 (2026-07-06 SCR-002→001, SCR-006→005) */
+function isMergedOrArchivedFrame(name, pageName) {
+  const trimmed = String(name).trim();
+  const page = String(pageName || "").trim();
+  if (/\[병합됨[→\->]/.test(trimmed) || /【병합됨/.test(trimmed)) return true;
+  if (/병합됨/.test(trimmed) && /^SCR-00[26](\s|$)/.test(trimmed)) return true;
+  if (/ARCHIVED/i.test(trimmed) || /\[ARCHIVE\]/i.test(trimmed)) return true;
+  if (/archive/i.test(page) || page === "06. Archive" || page === "🗑 Archive / References") {
+    return true;
+  }
+  return false;
+}
+
+/** SCR-002·006 레거시 ID — 활성 화면이 아니므로 이동·플레이스홀더 대상 제외 */
+function isMergedScrId(scrId) {
+  return scrId === "SCR-002" || scrId === "SCR-006";
+}
+
 /** figma-create-ds-plugin 미리보기 프레임 — SCR 화면이 아니므로 스킵 */
 function isDsSkipFrame(name) {
   const trimmed = String(name).trim();
@@ -135,6 +155,17 @@ function resolveTargetName(nodeName) {
   const trimmed = String(nodeName).trim();
 
   if (isScrPrefixed(trimmed)) {
+    const scrId = extractScrId(trimmed);
+    if (scrId && isMergedScrId(scrId)) {
+      const mergedTarget =
+        scrId === "SCR-002"
+          ? "SCR-002 먹고가기 / 포장 선택 [병합됨→001]"
+          : "SCR-006 주문 확인 [병합됨→005]";
+      if (trimmed !== mergedTarget && !/\[병합됨/.test(trimmed)) {
+        return { action: "rename", from: trimmed, to: mergedTarget, match: "merged_scr" };
+      }
+      return { action: "skip", reason: "merged_scr" };
+    }
     return { action: "skip", reason: "already_scr" };
   }
 
@@ -511,6 +542,13 @@ async function run() {
   for (const { page, node, name } of candidates) {
     if (renamedById.has(node.id)) continue;
 
+    if (isMergedOrArchivedFrame(name, page)) {
+      skippedScr += 1;
+      log.push(`[스킵] [${page}] ${name} (병합됨/Archive)`);
+      renamedById.add(node.id);
+      continue;
+    }
+
     const result = resolveTargetName(name);
     if (result.action === "rename") {
       const old = node.name;
@@ -520,6 +558,7 @@ async function run() {
       log.push(`[이름] [${page}] ${old} → ${result.to} (${result.match})`);
     } else if (result.action === "skip") {
       if (result.reason === "already_scr") skippedScr += 1;
+      else if (result.reason === "merged_scr") skippedScr += 1;
       else if (result.reason === "ds_candidate") dsSkip += 1;
       else skippedTarget += 1;
     } else {
@@ -534,6 +573,10 @@ async function run() {
     const scrId = extractScrId(name);
     if (!scrId) continue;
     scrIdsPresent.add(scrId);
+
+    if (isMergedOrArchivedFrame(name, page) || isMergedScrId(scrId)) {
+      continue;
+    }
 
     const targetPageName = targetPageForScrId(scrId);
     if (!targetPageName) continue;

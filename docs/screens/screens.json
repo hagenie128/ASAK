@@ -1,28 +1,30 @@
 [
   {
     "screen_id": "SCR-001",
-    "title": "홈 화면",
+    "title": "홈 (매장·포장)",
     "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=61-273",
     "prototype_url": "",
     "input_vars": "없음",
-    "output_vars": "주문 시작 버튼, 브랜드 안내",
+    "output_vars": "브랜드 안내, 매장(먹고가기)/포장 선택, orderType(EAT_IN 또는 TAKE_OUT)",
     "status": "와이어프레임",
     "status_devcopilot": "WIREFRAME",
     "category": "키오스크",
     "phase": "FWD",
     "priority": "상",
     "related_req": [
-      "FWD-UI-002"
+      "FWD-UI-002",
+      "FWD-ORDER-001"
     ],
     "related_sc": [
-      "SC-001"
+      "SC-001",
+      "식당 키오스크 주문 흐름"
     ],
     "related_api": [],
     "related_test": [
       "TC-001"
     ],
-    "description": "ASAK 키오스크 시작 화면. 브랜드명과 주문 시작 버튼을 보여준다.",
-    "notes": "키오스크 시작 화면. 주문 시작 버튼을 통해 먹고가기/포장 선택 화면으로 이동",
+    "description": "ASAK 키오스크 시작 화면. 브랜드 안내와 함께 매장(먹고가기)·포장 주문 유형을 한 화면에서 선택한다.",
+    "notes": "2026-07-06 SCR-002 병합. orderType은 장바구니·결제까지 유지. DS-02 Modern Minimal 적용.",
     "notion_url": "https://app.notion.com/p/39251ef04f0b81809f23d741a44576d4"
   },
   {
@@ -32,14 +34,12 @@
     "prototype_url": "",
     "input_vars": "없음",
     "output_vars": "orderType(EAT_IN 또는 TAKE_OUT)",
-    "status": "와이어프레임",
+    "status": "병합됨",
     "status_devcopilot": "WIREFRAME",
     "category": "키오스크",
     "phase": "FWD",
     "priority": "상",
-    "related_req": [
-      "FWD-ORDER-001"
-    ],
+    "related_req": [],
     "related_sc": [
       "식당 키오스크 주문 흐름"
     ],
@@ -47,8 +47,8 @@
     "related_test": [
       "TC-001"
     ],
-    "description": "고객이 주문 유형을 먹고가기 또는 포장으로 선택하는 화면",
-    "notes": "먹고가기/포장 선택값은 장바구니와 주문 확인 단계까지 유지",
+    "description": "【병합됨】2026-07-06 회의 결정으로 SCR-001「홈 (매장·포장)」에 통합. 별도 화면 없음.",
+    "notes": "SCR-001에 병합. ID·Notion URL 참조용 유지. Figma 프레임은 SCR-001로 통합 예정.",
     "notion_url": "https://app.notion.com/p/39251ef04f0b81f3817ed64352907379"
   },
   {
@@ -113,17 +113,17 @@
     "related_test": [
       "TC-003"
     ],
-    "description": "메뉴 상세 정보를 확인하고 기본 재료 제외, 드레싱/토핑 등 옵션을 선택하는 화면입니다.",
-    "notes": "기본 포함 재료도 추가 토핑으로 선택 가능. 옵션 재료 품절은 해당 옵션칸만 품절.",
+    "description": "메뉴 상세 정보를 확인하고 기본 재료 제외, 드레싱/토핑 등 옵션을 선택하는 화면입니다. 알레르기·칼로리 정보는 이 화면에서 표시합니다.",
+    "notes": "기본 포함 재료도 추가 토핑으로 선택 가능. 옵션 재료 품절은 해당 옵션칸만 품절. 알레르기·칼로리는 장바구니가 아닌 본 화면(옵션 선택)에 표시 (2026-07-06).",
     "notion_url": "https://app.notion.com/p/39151ef04f0b8163bec2c6b5cd0b6f19"
   },
   {
     "screen_id": "SCR-005",
-    "title": "장바구니",
+    "title": "장바구니·주문확인",
     "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-6",
     "prototype_url": "",
-    "input_vars": "장바구니 항목, orderType",
-    "output_vars": "선택 메뉴, 기본 재료 제외 목록, 추가 옵션, 수량, 예상 총액, 예상 알레르기 표시, orderType",
+    "input_vars": "장바구니 항목, orderType, excludedIngredientIds, optionItems, 수량",
+    "output_vars": "선택 메뉴, 기본 재료 제외 목록, 추가 옵션, 수량, 예상 총액, orderType, 추가 제안 상품, orderId(컨펌 팝업 확인 후)",
     "status": "와이어프레임",
     "status_devcopilot": "WIREFRAME",
     "category": "키오스크",
@@ -132,34 +132,7 @@
     "related_req": [
       "FWD-CART-001",
       "FWD-CART-002",
-      "FWD-CART-003"
-    ],
-    "related_sc": [
-      "장바구니 확인 및 주문 생성 시나리오"
-    ],
-    "related_api": [],
-    "related_test": [
-      "TC-001"
-    ],
-    "description": "고객이 담은 메뉴, 옵션, 수량, 총 금액을 확인하고 수정하는 화면",
-    "notes": "API 호출은 하지 않고 excludedIngredientIds와 optionItems를 주문 확인 화면까지 유지",
-    "notion_url": "https://app.notion.com/p/39151ef04f0b81adb474ddf94c33827d"
-  },
-  {
-    "screen_id": "SCR-006",
-    "title": "주문 확인",
-    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-7",
-    "prototype_url": "",
-    "input_vars": "장바구니 항목, excludedIngredientIds, optionItems, 수량, orderType",
-    "output_vars": "orderId, orderNo, totalPrice, orderStatus",
-    "status": "와이어프레임",
-    "status_devcopilot": "WIREFRAME",
-    "category": "키오스크",
-    "phase": "KSD",
-    "priority": "상",
-    "related_req": [
-      "FWD-CART-001",
-      "FWD-CART-002",
+      "FWD-CART-003",
       "FWD-ORDER-001",
       "DEV-ORDER-001"
     ],
@@ -173,8 +146,35 @@
       "TC-001",
       "TC-002"
     ],
-    "description": "결제 전 주문 메뉴, 옵션, 수량, 주문유형, 총 금액을 최종 확인하는 화면",
-    "notes": "주문 생성 시 기본 재료 제외는 item_exclusion, 추가 옵션은 order_item_option에 저장",
+    "description": "담은 메뉴·옵션·수량·총액을 확인·수정한다. 결제 전 최종 확인은 컨펌 팝업으로만 처리하며, 하단에 추가 제안 상품을 배치한다.",
+    "notes": "2026-07-06 SCR-006 병합. 주문번호는 결제 완료(SCR-008) 후 표시. 알레르기·칼로리는 SCR-004에서 표시. 주문 생성 시 API-005.",
+    "notion_url": "https://app.notion.com/p/39151ef04f0b81adb474ddf94c33827d"
+  },
+  {
+    "screen_id": "SCR-006",
+    "title": "주문 확인",
+    "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-7",
+    "prototype_url": "",
+    "input_vars": "장바구니 항목, excludedIngredientIds, optionItems, 수량, orderType",
+    "output_vars": "orderId, orderNo, totalPrice, orderStatus",
+    "status": "병합됨",
+    "status_devcopilot": "WIREFRAME",
+    "category": "키오스크",
+    "phase": "KSD",
+    "priority": "상",
+    "related_req": [],
+    "related_sc": [
+      "장바구니 확인 및 주문 생성 시나리오"
+    ],
+    "related_api": [
+      "API-005"
+    ],
+    "related_test": [
+      "TC-001",
+      "TC-002"
+    ],
+    "description": "【병합됨】2026-07-06 회의 결정으로 SCR-005「장바구니·주문확인」에 통합. 최종 확인은 컨펌 팝업만.",
+    "notes": "SCR-005에 병합. ID·Notion URL 참조용 유지. Figma 프레임은 SCR-005로 통합 예정.",
     "notion_url": "https://app.notion.com/p/39251ef04f0b8187af99d9f6add9af64"
   },
   {
@@ -204,8 +204,8 @@
       "TC-004",
       "TC-005"
     ],
-    "description": "주문 금액을 확인하고 실제 PG 연동 없이 가상 결제를 진행하는 화면",
-    "notes": "실제 결제 연동이 아닌 가상 결제 승인 흐름",
+    "description": "주문 금액을 확인하고 실제 PG 연동 없이 가상 결제를 진행하는 화면. 승인 대기 중 로딩 상태 필수.",
+    "notes": "실제 결제 연동이 아닌 가상 결제 승인 흐름. 결제 실패·재시도는 SCR-012 팝업/토스트 오버레이 (2026-07-06).",
     "notion_url": "https://app.notion.com/p/39151ef04f0b8125a9dacd7c7ad95831"
   },
   {
@@ -331,17 +331,17 @@
     "related_test": [
       "TC-006"
     ],
-    "description": "관리자가 메뉴 또는 재료의 품절 상태를 변경하는 화면입니다.",
-    "notes": "옵션기능 화면. 메뉴 상세/API-004 옵션 응답에서 ingredientId 확인 후 API-009로 품절 변경",
+    "description": "관리자가 메뉴 또는 재료의 품절 상태를 변경하는 화면입니다. 품절 변경 후 메뉴·재료 상태 목록을 확인할 수 있습니다.",
+    "notes": "옵션기능 화면. 메뉴 상세/API-004 옵션 응답에서 ingredientId 확인 후 API-009로 품절 변경. 품절 목록 뷰 필요 (2026-07-06).",
     "notion_url": "https://app.notion.com/p/39151ef04f0b811189b2fc39fe4f1959"
   },
   {
     "screen_id": "SCR-012",
-    "title": "결제 실패 / 재시도",
+    "title": "결제 실패 / 재시도 (팝업·토스트)",
     "figma_url": "https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-10",
     "prototype_url": "",
     "input_vars": "paymentId/orderId, errorCode, message",
-    "output_vars": "재결제 요청, 주문 확인 화면 이동",
+    "output_vars": "재결제 요청, 장바구니·주문확인(SCR-005) 복귀",
     "status": "기획중",
     "status_devcopilot": "WIREFRAME",
     "category": "오류예외",
@@ -360,8 +360,8 @@
     "related_test": [
       "TC-004"
     ],
-    "description": "가상 결제 실패 또는 금액 불일치 시 실패 사유를 안내하고 다시 결제하거나 주문 확인으로 돌아가는 화면",
-    "notes": "Week 5 MVP에서도 결제 실패 케이스는 최소 안내 화면이 필요",
+    "description": "가상 결제 실패 또는 금액 불일치 시 팝업·토스트로 실패 사유를 안내하고 재결제하거나 장바구니로 돌아간다.",
+    "notes": "2026-07-06: 별도 전체 화면보다 팝업·토스트 오버레이 우선. SCR-007 결제 중 표시.",
     "notion_url": "https://app.notion.com/p/39251ef04f0b815cb6a3cf814f31623b"
   },
   {
@@ -562,8 +562,8 @@
     "related_test": [
       "TC-013"
     ],
-    "description": "관리자가 일별 주문수와 매출 금액을 확인하는 화면",
-    "notes": "Week 5 MVP 제외, 8주 후반 확장",
+    "description": "관리자가 일별 주문수·매출 금액·매출 평균, 시간대별·판매 제품 통계를 확인하는 화면",
+    "notes": "Week 5 MVP 제외, 8주 후반 확장. 시간대별 판매·제품 통계 확장 (2026-07-06).",
     "notion_url": "https://app.notion.com/p/39251ef04f0b813d8e9ff5fa34adf007"
   },
   {

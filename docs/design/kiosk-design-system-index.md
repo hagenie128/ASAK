@@ -1,25 +1,26 @@
 # ASAK 키오스크 — 디자인 시스템 마스터 인덱스
 
-> **역할**: Figma **DS-01~07** · 후보 **A,B,D,E** · Notion **Trend-1~5** — **병합 없이** 나란히 매핑  
+> **역할**: Figma **DS-01~08** · 후보 **A,B,D,E** · Notion **Trend-1~5** — **병합 없이** 나란히 매핑  
 > **비교표**: [kiosk-design-system-comparison.md](./kiosk-design-system-comparison.md) · **구조**: [kiosk-design-system.md](./kiosk-design-system.md)  
 > **회의 요약**: [screen-design-meeting-opinion-template.md](./screen-design-meeting-opinion-template.md) § DS Preview  
 > **Notion**: [브랜드 · Trend 컬러](https://app.notion.com/p/39451ef04f0b814a9447f6fbf171b3b7) · [디자인 & 화면 hub](https://app.notion.com/p/39451ef04f0b8163b1f9ebb477917efc)
 
----
+> **회의 결정 (2026-07-06)**: **DS-02 Modern Minimal** 채택 — charcoal + electric lime. DS-08(02+04 하이브리드)은 논의·미채택 참고안. [회의록](./meetings/screen-design-meeting-minutes-2026-07-06.md) · [candidate-B](./kiosk-design-system-candidate-B.md)
 
-## 0. Figma frame 명명 (DS-01~07)
+---
 
 패턴: `DS-{NN} {Short Name}` — subtitle·컨셉은 프레임 본문에만.
 
 | DS | Figma frame | 구 이름 |
 |:--:|-------------|---------|
 | **01** | `DS-01 Fresh Greens` | DS Candidate A — Fresh Greens |
-| **02** | `DS-02 Modern Minimal` | DS Candidate B — Modern Minimal |
+| **02** | `DS-02 Modern Minimal` | DS Candidate B — Modern Minimal · **[회의 채택](./meetings/screen-design-meeting-minutes-2026-07-06.md)** · [candidate-B](./kiosk-design-system-candidate-B.md) |
 | **03** | `DS-03 Trend Forward` | DS Candidate D — Trend Forward |
 | **04** | `DS-04 A+C Trendy` | DS Candidate E — A+C Trend |
 | **05** | `DS-05 Pink-Green` | DS Trend-1 — Pink-Green |
 | **06** | `DS-06 Blush Forest` | DS Trend-4 — Blush Forest |
 | **07** | `DS-07 Pink-Lime Hybrid` | DS Hybrid B×T1 — Bold Pink-Lime |
+| **08** | `DS-08 Trendy Sage Hybrid` | DS Hybrid B×E — Minimal Warm Sage · **미채택 참고안** (회의 02+04 하이브리드 논의) · [ds-hybrid-02-04-trendy-green.md](./ds-hybrid-02-04-trendy-green.md) |
 
 > Candidate C (Warm Bistro)는 **보관** — DS 라인업 제외. 레거시 `DS-1~4` 프레임명도 플러그인 재실행 시 제거.
 
@@ -88,17 +89,18 @@ viewer 구현 기본(색상 확정 전): [`kiosk-tokens.css`](./kiosk-tokens.css
 
 ## 5. Figma · SCR
 
-- 플러그인: [figma-create-ds-plugin](./figma-create-ds-plugin/README.md) → **`DS-01`~`DS-07` 프레임 7개** (§0 매핑표) · 각 프레임 **Components** 섹션에 아래 **플러그인 예시 컴포넌트** 자동 생성 (834×2400 · 2열 그리드)
+- 플러그인: [figma-create-ds-plugin](./figma-create-ds-plugin/README.md) → **`DS-01`~`DS-08` 프레임 8개** (§0 매핑표) · 각 프레임 **Components** 섹션에 아래 **플러그인 예시 컴포넌트** 자동 생성 (834×2400 · 2열 그리드)
 
-### 플러그인 예시 컴포넌트 (DS-01~07 공통)
+### 플러그인 예시 컴포넌트 (DS-01~08 공통)
 
 - Home hero strip (SCR-001) · category tab bar · menu photo card · menu card horizontal · menu card sold-out
 - option chip row · option radio group (SCR-004) · quantity stepper · list group ×2
 - payment method row (SCR-007) · success toast · bottom sticky CTA bar
 - 헤더: 4색 미니 dot + 타이포 2샘플 인라인 (Colors/Typography 대형 섹션 없음)
 - Variables `asak-trend-1`~`5`는 Figma Variables로 별도 (DS-05/06 프레임과 병합하지 않음)
-- SCR-001: **DS-05 vs DS-06** (Variables A/B + 플러그인 프레임) + **DS-01 vs DS-04** (후보 비교) + **DS-02 vs DS-07** (minimal vs youth coral)
+- SCR-001: **DS-05 vs DS-06** (Variables A/B + 플러그인 프레임) + **DS-01 vs DS-04** (후보 비교) + **DS-02 vs DS-07** (minimal vs youth coral) + **DS-02 vs DS-08** · **DS-04 vs DS-08** (emerald hybrid)
 - **DS-07 Pink-Lime Hybrid**: B의 charcoal·cool gray·electric lime 구조에 Trend-1의 vivid coral→pink CTA를 합친 **7번째 비교 프레임** — DS-02·DS-05에 병합하지 않음 · 스와치 `asak-hybrid-b-t1`
+- **DS-08 Trendy Sage Hybrid**: DS-02 미니멀 레이아웃 + DS-04 웜·포토 무드 · emerald `#10B981` CTA — **미채택 참고안** (회의 02+04 하이브리드 논의) · 8번째 비교 프레임 · 스와치 `asak-hybrid-b-e-sage` · [명세](./ds-hybrid-02-04-trendy-green.md)
 
 ---
 

@@ -250,10 +250,12 @@ cd c:\ASAK\frontend
 ```
 
 데이터가 없으면 `data` 폴더에 JSON을 복사합니다.  
-`data-pipeline\phase1\output\` 의 파일을 `frontend\data\` 로 복사하거나, 팀 배치 파일을 경로에 맞게 수정해 사용합니다.
+뷰어는 기본적으로 `data-pipeline\phase1\output\` 을 직접 읽습니다. `frontend\data\` 로 복사하지 않습니다.
 
 ```powershell
 python run_viewer.py
+# 다른 데이터 폴더를 볼 때만:
+python run_viewer.py --data-dir ..\data-pipeline\phase1\output
 ```
 
 **성공 확인:**
@@ -283,7 +285,7 @@ python run_viewer.py
 1. **`.env`는 Git에 올리지 마세요.** 토큰·비밀번호를 커밋하면 위험합니다.
 2. **저장소 3개를 혼동하지 마세요.** 프론트 수정은 `ASAK-front`, 백엔드는 `ASAK-back`, 문서/파이프라인은 `ASAK` (`c:\ASAK`).
 3. **포트 충돌:** 8080(백엔드), 5173(프론트 Vite), 8765(뷰어)가 이미 쓰이면 "Address already in use" 에러 → 다른 프로그램 종료 또는 포트 변경.
-4. **`sync_phase1_data_to_front.bat`** 는 저장소 내 상대 경로를 사용합니다. 루트에서 `python sync_phase1_data_to_front.py`를 써도 됩니다.
+4. **데이터 파이프라인 산출물은 `data-pipeline\phase1\output\` 에 둡니다.** 프론트/백엔드 폴더로 복사하지 말고, 필요한 도구에서 `--data-dir` 로 경로를 지정합니다.
 5. **상업적 사용 금지:** 샐러디 공개 정보 참고용 학습 프로젝트입니다.
 6. **PowerShell 실행 정책:** 스크립트 실행이 막히면 가상환경 Python 경로를 직접 호출하세요 (위 2단계 참고).
 

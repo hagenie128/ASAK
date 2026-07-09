@@ -8,6 +8,8 @@ from pathlib import Path
 
 import requests
 
+from req_link_maps import SCR_REQ_MAP, title_with_req
+
 BASE = "https://devproject-hub-backend.onrender.com"
 WS = 2
 HEADERS = {"Content-Type": "application/json", "x-user-username": "hagenie128"}
@@ -20,10 +22,18 @@ def api(method: str, path: str, **kwargs) -> requests.Response:
     return requests.request(method, f"{BASE}{path}", headers=HEADERS, timeout=120, **kwargs)
 
 
+def screen_display_name(base_name: str, scr_id: str) -> str:
+    req_ids = SCR_REQ_MAP.get(scr_id, [])
+    primary = req_ids[0] if req_ids else None
+    return title_with_req(base_name.strip(), req_ids, primary_only=True, primary=primary)
+
+
 def to_body(item: dict) -> dict:
+    sid = item["id"]
+    base = item.get("base_name") or item.get("name") or sid
     return {
-        "id": item["id"],
-        "name": item["name"],
+        "id": sid,
+        "name": screen_display_name(base, sid),
         "inputs": item.get("inputs") or "",
         "outputs": item.get("outputs") or "",
         "status": item.get("status") or "WIREFRAME",
