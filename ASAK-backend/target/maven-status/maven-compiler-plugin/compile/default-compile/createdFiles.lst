@@ -1,0 +1,3 @@
+com\asak\backend\common\dto\ApiResponse.class
+com\asak\backend\AsakBackendApplication.class
+com\asak\backend\controller\HealthController.class

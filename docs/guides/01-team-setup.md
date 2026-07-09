@@ -56,7 +56,8 @@ c:\ASAK-back     -> ASAK-back
 코드를 합치는 것이 아니라, 1차 크롤링 JSON만 프론트로 가져올 때는 아래처럼 **파일 복사**만 하면 됩니다.
 
 ```powershell
-sync_phase1_data_to_front.bat
+cd c:\ASAK\frontend
+python run_viewer.py --data-dir ..\data-pipeline\phase1\output
 ```
 
 이 경우에도 Git 저장소를 서로 merge할 필요는 없습니다.
@@ -185,13 +186,13 @@ python build_viewer.py
 주요 폴더:
 
 - `viewer/`: 개발용 프론트 소스
-- `data/`: 프론트가 직접 읽는 JSON
+- `data/`: 사용하지 않음. 데이터는 `c:\ASAK\data-pipeline\phase1\output\` 을 직접 참조
 - `docs/`: 배포용 정적 결과
 
 데이터 동기화:
 
 ```powershell
-sync_phase1_data_to_front.bat
+python run_viewer.py --data-dir ..\data-pipeline\phase1\output
 ```
 
 ## 8. 통합 저장소 사용법
@@ -214,7 +215,7 @@ sync_phase1_data_to_front.bat
 ## 9. 작업 순서 추천
 
 1. `c:\ASAK\data-pipeline\phase1`에서 크롤링/가공 후 `output/` 데이터 최신화
-2. 필요하면 `sync_phase1_data_to_front.bat` 또는 직접 복사로 `c:\ASAK\data-pipeline\phase1\output\`의 JSON을 `ASAK-front\data\`에 반영
+2. 프론트 확인이 필요하면 `ASAK-front` 또는 `c:\ASAK\frontend`에서 `--data-dir c:\ASAK\data-pipeline\phase1\output` 으로 산출물을 직접 참조
 3. `ASAK-back`에서 실제 API/서비스 로직 작업
 4. `ASAK-front`에서 `python build_viewer.py` 실행
 5. 화면 확인 후 각 저장소별 커밋
@@ -368,7 +369,7 @@ ASAK 통합 구조 기준으로 frontend, backend, data-pipeline, 문서 연결 
 
 - PowerShell에서 `Activate.ps1`이 막히면 가상환경 활성화 대신 직접 Python 경로를 호출하세요.
 - 1차 크롤링 데이터 원본은 `c:\ASAK\data-pipeline\phase1\output` 기준으로 관리하는 것을 권장합니다.
-- 프론트는 기본적으로 크롤링 산출물을 포함하지 않으며, 필요할 때만 `ASAK-front\data`로 복사해 사용합니다.
+- 프론트는 크롤링 산출물을 포함하지 않으며, 필요할 때 `--data-dir c:\ASAK\data-pipeline\phase1\output` 으로 직접 참조합니다.
 - 토큰이나 비밀번호는 저장소에 커밋하지 않습니다.
 - AI가 관여한 작업은 PR, 이슈, 작업 기록 중 최소 한 곳에 남겨두는 것을 권장합니다.
 
@@ -402,7 +403,7 @@ python build_viewer.py
 - `c:\ASAK\data-pipeline\phase1`에서 `run_phase1.py` 실행이 된다.
 - `ASAK-front`에서 `python run_viewer.py` 실행이 된다.
 - `ASAK-front`에서 `python build_viewer.py` 실행이 된다.
-- `ASAK-front\data`와 `c:\ASAK\data-pipeline\phase1\output` 관계를 이해했다.
+- `ASAK-front`가 데이터를 소유하지 않고 `c:\ASAK\data-pipeline\phase1\output` 을 참조한다는 점을 이해했다.
 
 ### 작업 시작 전 체크
 

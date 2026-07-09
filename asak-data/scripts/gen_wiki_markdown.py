@@ -83,16 +83,16 @@ EXTRA_APIS = [
 TEST_CASES = [
     {
         "id": "TC-001", "name": "먹고가기/포장 선택 및 orderType 유지 검증", "sc": "SC-014",
-        "api": "API-005", "screen": "SCR-002", "phase": "FWD", "type": "화면", "prio": "상",
+        "api": "API-005", "screen": "SCR-001", "phase": "FWD", "type": "화면", "prio": "상",
         "pre": "키오스크 홈 화면 접근 가능",
-        "steps": "1) 홈에서 주문시작 2) 먹고가기 선택 3) 메뉴 1건 장바구니 담기 4) 주문확인에서 orderType 확인 5) API-005 body의 orderType 확인",
-        "expect": "orderType(EAT_IN/TAKE_OUT)이 장바구니·주문확인·주문 생성까지 유지",
+        "steps": "1) 홈(SCR-001)에서 매장(먹고가기) 선택 2) 메뉴 1건 장바구니 담기 3) 장바구니·주문확인(SCR-005)에서 orderType 확인 4) 컨펌 팝업 확인 후 API-005 body의 orderType 확인",
+        "expect": "orderType(EAT_IN/TAKE_OUT)이 장바구니·주문 생성까지 유지",
     },
     {
         "id": "TC-002", "name": "화면 전환 5회 이내 주문 완료 흐름 검증", "sc": "SC-002",
         "api": "API-002~006", "screen": "SCR-003~008", "phase": "FWD", "type": "화면", "prio": "상",
         "pre": "키오스크 정상 구동",
-        "steps": "메뉴선택→추천조합 기본값→장바구니→주문확인→결제, 화면 전환 5회 이내",
+        "steps": "메뉴선택→추천조합 기본값→장바구니·주문확인(컨펌 팝업)→결제(로딩), 화면 전환 5회 이내",
         "expect": "5회 이내 화면 전환으로 주문 완료",
     },
     {
@@ -107,7 +107,7 @@ TEST_CASES = [
         "api": "API-006", "screen": "SCR-007, SCR-012", "phase": "KSD", "type": "API", "prio": "상",
         "pre": "결제 실패를 의도적으로 유발할 수 있는 테스트 모드",
         "steps": "1) 장바구니 담기 2) 결제 3) 실패 응답 4) 안내 확인 5) 장바구니 유지",
-        "expect": "실패 원인 표시, 장바구니 유지",
+        "expect": "실패 원인 팝업/토스트 표시, 장바구니 유지",
     },
     {
         "id": "TC-005", "name": "스탬프 적립 확인이 결제 전후로 중복되지 않는지 검증", "sc": "SC-006",
@@ -281,12 +281,10 @@ def gen_scenarios() -> str:
         "",
         "```mermaid",
         "flowchart LR",
-        "    A[홈] --> B[먹고가기/포장]",
-        "    B --> C[메뉴선택]",
+        "    A[홈·매장/포장 SCR-001] --> C[메뉴선택]",
         "    C --> D[옵션선택]",
-        "    D --> E[장바구니]",
-        "    E --> F[주문확인]",
-        "    F --> G[결제]",
+        "    D --> E[장바구니·주문확인 SCR-005]",
+        "    E --> G[결제·로딩]",
         "    G --> H[완료]",
         "    H --> I[관리자 확인]",
         "```",
@@ -324,20 +322,41 @@ def gen_screen_design() -> str:
         f"| {s['screen_id']} | {s['title']} | {s.get('figma_url') or '*(Figma 예정)*'} | {s.get('status','')} |"
         for s in SCREENS
     )
+    ds_table = (
+        "| DS | Figma frame | 구 이름 |\n"
+        "|:--:|-------------|--------|\n"
+        "| **01** | `DS-01 Fresh Greens` | DS Candidate A — Fresh Greens |\n"
+        "| **02** | `DS-02 Modern Minimal` | DS Candidate B — Modern Minimal |\n"
+        "| **03** | `DS-03 Trend Forward` | DS Candidate D — Trend Forward |\n"
+        "| **04** | `DS-04 A+C Trendy` | DS Candidate E — A+C Trend |\n"
+        "| **05** | `DS-05 Pink-Green` | DS Trend-1 — Pink-Green |\n"
+        "| **06** | `DS-06 Blush Forest` | DS Trend-4 — Blush Forest |\n"
+        "| **07** | `DS-07 Pink-Lime Hybrid` | DS Hybrid B×T1 — Bold Pink-Lime |\n"
+        "| **08** | `DS-08 Trendy Sage Hybrid` | 미채택 참고안 (02+04 하이브리드) |\n"
+    )
     return (
         "# ASAK 화면 설계 및 Figma 연동\n\n"
-        "> Notion 04. 화면 설계 · SCR-001~021 · Figma 프로토타입 연동 예정 (2026-07-05)\n\n"
+        "> Notion 04. 화면 설계 · SCR-001~021 · Figma 프로토타입 연동 예정 (2026-07-06)\n\n"
         "## Figma 연동\n\n"
         "| 항목 | 내용 |\n|------|------|\n"
         "| 디자인 도구 | Figma (와이어프레임→프로토타입) |\n"
         "| Notion 역할 | SCR 목록·요구사항·API·테스트 추적 |\n"
-        "| DevCopilot | Screens 탭 + Wiki 본 문서 |\n"
+        "| DevCopilot | Screens 탭 + Wiki 본 문서 (wiki/5) |\n"
         "| Week 5 MVP | SCR-001~008 (8/1) + Week 6 SCR-009~011 (고객+관리자+결제실패) |\n\n"
+        "## 디자인 시스템 (DS-01~08)\n\n"
+        "**프로덕션 DS (2026-07-06)**: **DS-02 Modern Minimal** (charcoal + electric lime). "
+        "DS-08은 미채택 참고안.\n\n"
+        "Figma `kiosk_design` 파일의 DS 프레임. 상세: "
+        "[kiosk-design-system-index.md](../design/kiosk-design-system-index.md)\n\n"
+        f"{ds_table}\n"
+        "> Candidate C (Warm Bistro)는 보관 — DS 라인업 제외. "
+        "플러그인: [figma-create-ds-plugin](../design/figma-create-ds-plugin/README.md)\n\n"
         "## SCR 요약표\n\n"
         "| ID | 화면명 | Figma | 상태 |\n|----|--------|-------|------|\n"
         f"{figma_block}\n\n"
         "## 고객·관리자 흐름\n\n"
-        "**고객**: 홈 → 먹고가기/포장 → 메뉴 → 옵션 → 장바구니 → 주문확인 → 결제 → 완료\n\n"
+        "**고객**: 홈(매장·포장) → 메뉴 → 옵션 → 장바구니·주문확인(컨펌 팝업) → 결제(로딩) → 완료\n\n"
+        "> 2026-07-06: SCR-002→001, SCR-006→005 병합. **DS-02 Modern Minimal** 채택.\n\n"
         "**관리자**: 주문관리 → 주문상세 / 품절관리 / (후반) 로그인·메뉴·결제·매출\n\n"
         "---\n\n"
         "## SCR 상세 (SCR-001~021)\n\n"
@@ -573,8 +592,10 @@ def gen_api() -> str:
 
 
 def gen_wbs() -> str:
-    tasks = [t for t in DATA["tasks"] if not t["task_id"].startswith("WBS-EXT")]
-    tasks = sorted(tasks, key=lambda t: sort_key_id("WBS", t["task_id"]))
+    all_tasks = sorted(DATA["tasks"], key=lambda t: sort_key_id("WBS", t["task_id"]))
+    main_tasks = [t for t in all_tasks if not t["task_id"].startswith("WBS-EXT")]
+    ext_tasks = [t for t in all_tasks if t["task_id"].startswith("WBS-EXT")]
+    total = len(main_tasks) + len(ext_tasks)
     lines = [
         "# ASAK WBS 및 일정 계획",
         "",
@@ -586,7 +607,7 @@ def gen_wbs() -> str:
         "|------|-------------|------|----------------------|",
         "| Week 1 | 7/2(수)~7/4(금) · 3일 | 기획·Notion·시드·ERD — 설계만 | WBS-001~006, ERD, API 명세 초안, 시드 JSON |",
         "| Week 2 | 7/7(월)~7/11(금) | API/FE 골격 + 금 0.5일 연동 스모크 | API-001~002 골격, SCR 와이어·컴포넌트 뼈대 |",
-        "| Week 3 | 7/14(월)~7/18(금) | 키오스크 (1) | SCR-001~002, API-001~002 |",
+        "| Week 3 | 7/14(월)~7/18(금) | 키오스크 (1) | SCR-001(매장·포장 통합), API-001~002 · **DS-02** |",
         "| Week 4 | 7/21(월)~7/25(금) | 키오스크 (2) | SCR-003~004, API-003~004 |",
         "| Week 5 | 7/28(월)~8/1(금) | **MVP** | SCR-001~008, API-001~006, 8/1 E2E 1일 |",
         "| Week 6 | 8/4(월)~8/8(금) | 관리자 | SCR-009~011, API-007~009 |",
@@ -596,16 +617,25 @@ def gen_wbs() -> str:
         "",
         "> **8/15(금) 광복절** 휴일. Week 7: 8/14~8/22 DevCopilot·문서는 선택 또는 Week 8 이관.",
         "",
-        f"## WBS 작업표 ({len(tasks)}건)",
+        f"## WBS 작업표 ({total}건)",
+        "",
+        "> **WBS-033** 번호는 미사용(건너뜀). **WBS-EXT-001/002**는 Notion `[삭제요망]` 페이지 — Notion에서 수동 보관(archive) 권장.",
         "",
         "| ID | 작업명 | 담당 | 시작 | 종료 | 상태 |",
         "|----|--------|------|------|------|------|",
     ]
-    for t in tasks:
+    for t in main_tasks:
         lines.append(
             f"| {t['task_id']} | {t.get('title','')} | {t.get('assignee','')} | "
             f"{t.get('start_date','')} | {t.get('end_date','')} | {t.get('status_notion','')} |"
         )
+    if ext_tasks:
+        lines += ["", "### 확장·삭제요망 (Notion archive 권장)", ""]
+        for t in ext_tasks:
+            lines.append(
+                f"| {t['task_id']} | {t.get('title','')} | {t.get('assignee','')} | "
+                f"{t.get('start_date','')} | {t.get('end_date','')} | {t.get('status_notion','')} |"
+            )
     return "\n".join(lines) + "\n"
 
 
@@ -658,7 +688,15 @@ def gen_qa() -> str:
 def gen_meeting() -> str:
     return """# ASAK 회의록 및 최종 배포 검증
 
-> Notion 10. 회의록 + 11. 최종 제출 체크리스트 (2026-07-05)
+> Notion 10. 회의록 + 11. 최종 제출 체크리스트 (2026-07-06)
+
+## 회의록 인덱스
+
+| 회의 | Notion | 로컬 |
+|------|--------|------|
+| 2026-07-03 키오스크 컨셉 | (Notion 10) | 아래 § |
+| 화면 설계 초기 회의 · 사전 의견 | [Notion 인덱스](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac) | [docs/design/meetings/README.md](../design/meetings/README.md) |
+| **2026-07-06 화면 설계 초기 회의** | [Notion 취합본](https://app.notion.com/p/39551ef04f0b815f8dc6e788176186d7) | [회의록](../design/meetings/screen-design-meeting-minutes-2026-07-06.md) · [변경 이력](../design/meetings/screen-design-changes-2026-07-06.md) |
 
 ## 회의록
 
@@ -673,6 +711,19 @@ def gen_meeting() -> str:
 
 **MVP 고객**: 홈~결제완료 8화면 · **관리자**: 주문목록/상세/상태/품절
 
+### 2026-07-06 화면 설계 초기 회의
+
+| 항목 | 내용 |
+|------|------|
+| 참석 | 이하진, 김나연, 박유진, 강민준 |
+| 결정 | **DS-02 Modern Minimal**, SCR-001+002 병합, SCR-005+006 병합(컨펌 팝업), 고객 UI **6단계**, 결제 로딩·에러 팝업/토스트 |
+| 보류 | DS-08 참고안, 추천 우선 모드, 멤버십·영수증, 고객/관리자 DS 분리 |
+| 다음 | Figma DS-02·통합 와이어, Notion SCR DB 반영 |
+
+**MVP 고객 UI**: 홈·매장/포장 → 메뉴 → 옵션 → 장바구니·주문확인(팝업) → 결제 → 완료 (**6 UI 단계**, SCR-001~008 ID 유지)
+
+상세: [회의록](../design/meetings/screen-design-meeting-minutes-2026-07-06.md) · [변경 이력](../design/meetings/screen-design-changes-2026-07-06.md)
+
 ---
 
 ## 11. 최종 제출 체크리스트
@@ -683,7 +734,7 @@ def gen_meeting() -> str:
 |--------|------|------|
 | 요구사항 정의서 | Notion 02 / Wiki | 완료 |
 | 사용자 시나리오 | Notion 03 SC-001~018 | 완료 |
-| 화면 설계서 | Notion 04 SCR-001~021 | 진행중 |
+| 화면 설계서 | Notion 04 SCR-001~021 | 진행중 (로컬·Hub 반영 완료, Notion 수동) |
 | ERD·테이블 정의 | Notion 05 · 22테이블 | 완료 |
 | API 명세 | Notion 06 API-001~020 | 완료 |
 | React/Spring | GitHub ASAK-front/back | 예정 |
@@ -708,13 +759,20 @@ def gen_meeting() -> str:
 2. 산출물 8개 Wiki 문서 제목·내용 확인
 3. Requirements / APIs / WBS 탭과 ID 추적성 대조
 
+### 화면 설계 회의 반영 (2026-07-06)
+
+- [x] `screens.json`·Wiki·SCR_REQ_MAP 병합 반영 (001+002, 005+006)
+- [x] DS-02 Modern Minimal 프로덕션 DS 문서화
+- [ ] Notion 04 SCR DB 수동 반영
+- [ ] Figma DS-02·통합 와이어 적용
+
 ### Notion 문서 완성 (2026-07-05)
 
 - [x] API-001~020 정합
 - [x] SC-001~018 Mermaid
 - [x] DB ERD 22테이블
 - [x] WBS·테스트 Relation 컬럼
-- [ ] Figma 프로토타입 (Notion 밖)
+- [ ] Figma 프로토타입 (Notion 밖) — **DS-02 Modern Minimal** 방향 확정, 적용 진행
 - [ ] React/Spring 구현 (Notion 밖)
 """
 

@@ -1,0 +1,11 @@
+.gradle/
+build/
+out/
+bin/
+*.class
+*.log
+.env
+.env.*
+!.env.example
+src/main/resources/seed/
+src/main/resources/static/assets/menu/
