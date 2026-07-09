@@ -1,71 +1,59 @@
 # 사전의견 · 김나연
 
-> **김나연님 전용** — Duplicate 없이 아래 Step만 채우세요.  
-> **DS Preview·SCR 부록**: [인덱스](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac) · [템플릿 md](../screen-design-meeting-opinion-template.md)
+> **김나연님 전용** — [인덱스](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac)에서 DS 비교·Figma 링크 확인. 완료 후 인덱스 **팀 제출 현황** 체크.
+
+**작성자**: 김나연
 
 ---
 
-## 빠른 시작
+## Step 1 — 작성일
 
-1. **Step 1** 작성일 확인 (작성자: **김나연**)
-2. **Step 2** 전체 보고 들은 것 (3줄)
-3. **Step 3** 화면 DB에서 **2~3개** 코멘트
-4. **Step 4** DS 1순위 (DS-01~07) — [DS Preview](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac)
-5. **Step 5** 걱정·질문
-6. 완료 후 [인덱스 팀 제출 현황](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac) 체크
-
-> Figma 화면 없어도 됩니다. SCR 번호 몰라도 **화면 이름만** 적어도 OK.
+| **작성일** | 2026-07-06 |
+|------------|------------|
 
 ---
 
-## Step 1 — 기본 정보
+## Step 2 — 화면/UX 의견
 
-| 항목 | 내용 |
-|------|------|
-| **작성자** | 김나연 |
-| **작성일** | |
+> SCR 번호·Figma 없어도 됩니다. [04. 화면 설계](https://app.notion.com/p/1c751ef04f0b825ea3aa8145f563bbc8) 참고.
 
----
+1. **화면 개수·구분** — 관리자 8개 / 고객 10개 (총 18개)
+2. **헷갈리는 화면** — 없음
+3. **합치거나 빠진 화면** —
 
-## Step 2 — 전체 보고 들은 것 (3줄)
-
-1. **화면이 몇 개인지 이해했는지** — 21개? 고객/관리자 구분은?
-2. **헷갈리는 화면 구분** — 예: 장바구니 vs 주문확인
-3. **빠진 화면 / 합쳐도 될 것 같음**
+| 관심 화면 (이름만) | 이 화면에 필요한 것 | 다음 화면 흐름 |
+|-------------------|---------------------|----------------|
+| | | |
+| | | |
 
 ---
 
-## Step 3 — 화면 2~3개 코멘트
+## Step 3 — DS 느낌
 
-> [04. 화면 설계](https://app.notion.com/p/1c751ef04f0b825ea3aa8145f563bbc8) · [SCR 화면별 가이드](https://app.notion.com/p/39451ef04f0b81109d07c01293d73c6d)
-
-| 보고 싶은 화면 (이름만) | 이 화면에 뭐가 있어야 함 | 다음 화면으로 어떻게 넘어감 | DS 느낌 (DS-01~07) |
-|------------------------|--------------------------|------------------------------|:------------------:|
-| | | | |
-| | | | |
-| | | | |
+| 화면 (이름) | DS 느낌 |
+|-------------|:-------:|
+| | DS-__ |
+| | DS-__ |
 
 ---
 
-## Step 4 — DS 1순위
+## Step 4 — DS 선택
 
-| 선택 | DS | 한 줄 설명 |
-|:----:|------|------------|
-| [ ] | **DS-01** Fresh Greens | 밝은 크림 + 녹색. 샐러드·신선·MVP 기본 (구 Candidate A) |
-| [ ] | **DS-02** Modern Minimal | 흑백 + 라임. 대담·고대비 (구 Candidate B) |
-| [ ] | **DS-03** Trend Forward | 딥포레스트 + 민트 글래스. 다크 모드·Week7+ (구 Candidate D) |
-| [ ] | **DS-04** A+C Trendy | A 신선함 + warm terracotta. sage gradient (구 Candidate E) |
-| [ ] | **DS-05** Pink-Green | vivid coral CTA + sage. youth pink. SCR-001 Variables A (구 Trend-1) |
-| [ ] | **DS-06** Blush Forest | blush + forest CTA. youth pink-green. SCR-001 Variables B ⭐ (구 Trend-4) |
-| [ ] | **DS-07** Pink-Lime Hybrid | B minimal + coral CTA. 7번째 비교 (구 Hybrid B×T1) |
+| | DS | 한줄 |
+|:-:|----|------|
+| [ ] | **DS-01** | 신선·안전 |
+| [ ] | **DS-02** | 미니멀·라임 |
+| [ ] | **DS-03** | 다크·트렌디 |
+| [ ] | **DS-04** | A+C 실험 |
+| [ ] | **DS-05** | coral CTA |
+| [ ] | **DS-06** | blush + forest ⭐ |
+| [ ] | **DS-07** | B×coral hybrid |
 
 **1순위**: ___　**한 줄 이유**: ___
 
-> 매핑: A→DS-01 · B→02 · D→03 · E→04 · Trend-1→05 · Trend-4→06 · Hybrid→07 · ~~C 보관~~
-
 ---
 
-## Step 5 — 걱정·질문
+## Step 5 — 기타
 
 -
 -

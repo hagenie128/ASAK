@@ -16,6 +16,7 @@ from api_format import format_api_fields
 from extra_apis import merge_extra_apis
 from req_link_maps import (
     SCENARIO_REQ_MAP,
+    SCR_REQ_MAP,
     TC_SCENARIO_MAP,
     api_req_ids,
     expand_refs,
@@ -31,6 +32,7 @@ SCRIPT = Path(__file__).parent
 RAW = SCRIPT / "notion_raw"
 OUT = SCRIPT / "notion_data.json"
 COMPACT = SCRIPT / "compact_pages.json"
+SCREENS_JSON = SCRIPT.parents[1] / "docs" / "screens" / "screens.json"
 
 
 def props_to_text(url: str, props: dict) -> str:
@@ -202,8 +204,37 @@ def merge_rank(bucket: str, row: dict, text: str) -> tuple[int, int]:
     return (excluded, -richness_score(bucket, row, text))
 
 
+def load_screens_export() -> list[dict]:
+    """Populate screens from docs/screens/screens.json (export_screens output)."""
+    if not SCREENS_JSON.exists():
+        return []
+    rows: list[dict] = []
+    for s in json.loads(SCREENS_JSON.read_text(encoding="utf-8")):
+        sid = s.get("screen_id", "")
+        if not sid:
+            continue
+        req_ids = SCR_REQ_MAP.get(sid, s.get("related_req") or [])
+        primary = req_ids[0] if req_ids else None
+        base_title = s.get("title") or sid
+        rows.append({
+            "screen_id": sid,
+            "title": title_with_req(base_title, req_ids, primary_only=True, primary=primary),
+            "base_title": base_title,
+            "req_ids": req_ids,
+            "figma_url": s.get("figma_url") or "",
+            "status_notion": s.get("status") or "",
+            "category": s.get("category") or "",
+            "phase": s.get("phase") or "",
+            "input_vars": s.get("input_vars") or "",
+            "output_vars": s.get("output_vars") or "",
+            "related_sc": s.get("related_sc") or [],
+            "related_api": s.get("related_api") or [],
+        })
+    return sorted(rows, key=lambda r: r["screen_id"])
+
+
 def main():
-    data = {"requirements": [], "tasks": [], "apis": [], "scenarios": [], "qa": []}
+    data = {"requirements": [], "tasks": [], "apis": [], "scenarios": [], "qa": [], "screens": []}
     seen = {k: set() for k in data}
     key_map = {
         "requirements": "id",
@@ -247,10 +278,12 @@ def main():
     added = merge_extra_apis(data)
     if added:
         print(f"Merged {added} extra API(s) (API-018~020)")
+    data["screens"] = load_screens_export()
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     print(
         f"Wrote {OUT}: req={len(data['requirements'])}, api={len(data['apis'])}, "
-        f"scenario={len(data['scenarios'])}, task={len(data['tasks'])}, qa={len(data['qa'])}"
+        f"scenario={len(data['scenarios'])}, task={len(data['tasks'])}, qa={len(data['qa'])}, "
+        f"screens={len(data['screens'])}"
     )
     if merge_log:
         print(f"Merge log ({len(merge_log)} lines):")

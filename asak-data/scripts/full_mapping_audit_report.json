@@ -146,13 +146,6 @@
       "issue": "wrong_primary_req",
       "expected": "LMIS-MEMBER-001",
       "name": "포인트·쿠폰 적립"
-    },
-    {
-      "area": "qa",
-      "id": "TC-016",
-      "issue": "missing_excluded_marker",
-      "expected": "RTOS-DEVICE-004 (EXCLUDED)",
-      "title": "TC-016 포인트·쿠폰 적립 및 QR 할인 적용 (KSD-MEMBER-001 (EXCLUDED))"
     }
   ],
   "warnings": [],
@@ -203,7 +196,12 @@
       },
       {
         "id": "TC-016",
-        "text": "TC-016 포인트·쿠폰 적립 및 QR 할인 적용 (KSD-MEMBER-001 (EXCLUDED))",
+        "text": "TC-016 포인트·쿠폰 적립 및 QR 할인 적용 (KSD-MEMBER-001 (EXCLUDED), RTOS-DEVICE-004 (EXCLUDED))",
+        "has_marker": true
+      },
+      {
+        "id": "TC-016",
+        "text": "TC-016 포인트·쿠폰 적립 및 QR 할인 적용 (KSD-MEMBER-001 (EXCLUDED), RTOS-DEVICE-004 (EXCLUDED))",
         "has_marker": true
       }
     ]

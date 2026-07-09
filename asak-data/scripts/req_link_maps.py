@@ -53,15 +53,18 @@ API_EXTRA_REQS: dict[str, list[str]] = {
 }
 
 SCR_REQ_MAP: dict[str, list[str]] = {
-    "SCR-001": ["FWD-UI-002", "FWD-UI-005"],
-    "SCR-002": ["FWD-ORDER-001"],
+    "SCR-001": ["FWD-UI-002", "FWD-UI-005", "FWD-ORDER-001"],
+    "SCR-002": [],  # 2026-07-06 SCR-001 병합 — ID 참조용
     "SCR-003": ["FWD-MENU-001", "FWD-MENU-006", "FWD-UI-001", "FWD-UI-002", "LMIS-MENU-002"],
     "SCR-004": [
         "FWD-MENU-001", "FWD-MENU-002", "FWD-MENU-003", "FWD-MENU-004",
         "FWD-MENU-010", "FWD-MENU-014", "FWD-MENU-015", "LMIS-MENU-002",
     ],
-    "SCR-005": ["FWD-CART-001", "FWD-CART-002", "FWD-CART-003"],
-    "SCR-006": ["FWD-CART-001", "FWD-CART-002", "FWD-ORDER-001", "DEV-ORDER-001"],
+    "SCR-005": [
+        "FWD-CART-001", "FWD-CART-002", "FWD-CART-003",
+        "FWD-ORDER-001", "DEV-ORDER-001",
+    ],
+    "SCR-006": [],  # 2026-07-06 SCR-005 병합 — ID 참조용
     "SCR-007": ["FWD-PAY-001", "FWD-PAY-002", "LMIS-MEMBER-001", "KSD-PAY-001"],
     "SCR-008": ["FWD-PAY-002", "FWD-ORDER-002", "RTOS-DEVICE-001", "RTOS-DEVICE-002"],
     "SCR-009": ["LMIS-ORDER-001", "LMIS-ORDER-002", "LMIS-ORDER-004"],

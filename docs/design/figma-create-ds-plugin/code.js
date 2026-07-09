@@ -1,5 +1,5 @@
 /**
- * kiosk_design — 02. User Flow에 DS-01~07 프레임 7개 생성
+ * kiosk_design — 02. User Flow에 DS-01~08 프레임 8개 생성
  *
  * @see docs/design/kiosk-design-system-index.md
  * @see docs/design/kiosk-design-system-candidate-A.md … E
@@ -29,6 +29,8 @@ const LEGACY_DS_FRAME_NAMES = new Set([
   "DS Hybrid B×T1",
   "DS Hybrid B×T1 — Bold Pink-Lime",
   "DS Candidate F — B+Trend-1",
+  "DS Hybrid B×E",
+  "DS Hybrid B×E — Trendy Sage",
 ]);
 /** SCR rename 플러그인과 동일 — User Flow로 취급하는 레거시 페이지명 */
 const LEGACY_USER_FLOW_ALIASES = new Set([
@@ -55,26 +57,6 @@ const TYPE_SAMPLE_COUNT = 2;
 const KIT_SHADE_STEPS = 7;
 const KIT_RAMP_ROWS = 5;
 /** Salady CDN — data-pipeline/phase1/output/menus.json (bc2008f0 미완 → 플러그인 fetch) */
-const MENU_PHOTOS = {
-  poke: {
-    name: "노릇노릇두부 포케볼",
-    price: "₩8,900",
-    kcal: "420 kcal · 단백질 18g",
-    url: "https://salady.com/superboard/data/product/thumb/2038866161_0ZT9QVjB_1b30215c4762212db375306d7454d13882c5fab4.png",
-  },
-  salmon: {
-    name: "그라브락스 연어 포케볼",
-    price: "₩11,400",
-    subtitle: "연어 · 아보카도 · 밥",
-    url: "https://salady.com/superboard/data/product/thumb/2038866161_Rfkv6a1G_2a629851dc4f3a4abc99070382b8bacff02d3c8a.png",
-  },
-  bulgogi: {
-    name: "불고기 반미 샌드위치",
-    price: "₩7,400",
-    url: "https://salady.com/superboard/data/product/thumb/2038866161_dSxQez2q_d19c59898675900d365a060893ed27ff88b4f663.png",
-  },
-};
-const menuImageCache = {};
 const FONT_FAMILY = "Inter";
 const FONT_STYLES = ["Regular", "Medium", "Semi Bold", "Bold", "Extra Bold"];
 const fontCache = {};
@@ -161,7 +143,7 @@ const CANDIDATES = [
       { role: "Primary Light", hex: "#4A4E57" },
       { role: "Accent", hex: "#C8F135" },
       { role: "Accent Muted", hex: "#E8F5A0" },
-      { role: "Background", hex: "#F0F1ED" },
+      { role: "Background", hex: "#F5F5F0" },
       { role: "Surface", hex: "#FFFFFF" },
       { role: "Text", hex: "#1A1C20" },
       { role: "Border", hex: "#E5E7EB" },
@@ -175,15 +157,16 @@ const CANDIDATES = [
     ],
     buttonPrimary: { fill: "#C8F135", text: "#1A1C20", label: "주문 시작하기" },
     buttonSecondary: { fill: "#FFFFFF", stroke: "#1A1C20", text: "#1A1C20", label: "장바구니" },
-    bg: "#F0F1ED",
-    mood: { hero: false, cornerRadius: 16, miniBtnRadius: 8, whiteSurface: true },
+    bg: "#F5F5F0",
+    mood: { hero: false, cornerRadius: 16, miniBtnRadius: 12, whiteSurface: true },
     showcase: {
-      cardRadius: 8,
+      cardRadius: 12,
+      chipRadius: 10,
       cardSurface: "#FFFFFF",
       imageGradient: { start: "#1A1C20", end: "#4A4E57" },
       imageFill: "#1A1C20",
       imageStroke: "#E5E7EB",
-      chipSelected: { fill: "#1A1C20", text: "#C8F135" },
+      chipSelected: { fill: "#1A1C20", text: "#C8F135", stroke: "#C8F135" },
       chipUnselected: { fill: "#FFFFFF", text: "#1A1C20", stroke: "#E5E7EB" },
       badges: [
         { label: "HOT", fill: "#1A1C20", text: "#C8F135" },
@@ -466,16 +449,88 @@ const CANDIDATES = [
       ctaBarStroke: "#E5E7EB",
     },
   },
+  {
+    id: "hybrid-b-e-sage",
+    frameName: "DS-08 Trendy Sage Hybrid",
+    subtitle: "B minimal layout · E warm mood · emerald #10B981 CTA · 8번째 비교",
+    colors: [
+      { role: "Emerald Primary", hex: "#10B981" },
+      { role: "Emerald Accent", hex: "#6EE7B7" },
+      { role: "Accent Terra", hex: "#E07A5F" },
+      { role: "Text", hex: "#1F2320" },
+      { role: "Emerald Dark", hex: "#059669" },
+      { role: "Primary Light", hex: "#D1FAE5" },
+      { role: "Warm Secondary", hex: "#EDE8E0" },
+      { role: "Background", hex: "#F3F2ED" },
+      { role: "Border", hex: "#E0E4DF" },
+    ],
+    typeScale: [
+      { label: "Display 40/800", size: 40, weight: 800 },
+      { label: "Menu 22/700", size: 22, weight: 700 },
+      { label: "H1 34/800", size: 34, weight: 800 },
+      { label: "Body 17/500", size: 17, weight: 500 },
+      { label: "Button 18/700", size: 18, weight: 700 },
+    ],
+    buttonPrimary: {
+      gradient: true,
+      fillStart: "#10B981",
+      fillEnd: "#059669",
+      fill: "#10B981",
+      text: "#FFFFFF",
+      label: "주문 시작하기",
+    },
+    buttonSecondary: { fill: "#FFFFFF", stroke: "#1F2320", text: "#1F2320", label: "장바구니" },
+    bg: "#F3F2ED",
+    mood: {
+      hero: true,
+      bg: "#F8F5F0",
+      whiteSurface: true,
+      cornerRadius: 16,
+      miniBtnRadius: 12,
+      badgeColor: "#E07A5F",
+    },
+    showcase: {
+      cardRadius: 16,
+      cardSurface: "#FFFFFF",
+      imageGradient: { start: "#F8F5F0", end: "#10B981" },
+      imageFill: "#F8F5F0",
+      imageStroke: "#6EE7B7",
+      chipSelected: { fill: "#10B981", text: "#FFFFFF" },
+      chipUnselected: { fill: "#FFFFFF", text: "#1F2320", stroke: "#E0E4DF" },
+      badges: [
+        { label: "NEW", fill: "#E07A5F", text: "#FFFFFF" },
+        { label: "HOT", fill: "#6EE7B7", text: "#1F2320" },
+      ],
+      listIconFill: "#D1FAE5",
+      ctaBarFill: "#FFFFFF",
+      ctaBarStroke: "#E0E4DF",
+    },
+  },
 ];
 
 /** Figma API expects RGB in 0–1 range, not 0–255 */
 function rgb(r, g, b) {
-  return { r: r / 255, g: g / 255, b: b / 255 };
+  return {
+    r: Math.min(1, Math.max(0, r / 255)),
+    g: Math.min(1, Math.max(0, g / 255)),
+    b: Math.min(1, Math.max(0, b / 255)),
+  };
 }
 
+/** Hex string or {r,g,b} (0–255 or 0–1) → Figma 0–1 RGB */
 function hexToRgb(hex) {
-  const h = hex.replace("#", "");
-  const n = parseInt(h, 16);
+  if (hex && typeof hex === "object" && hex.r != null) {
+    const scale = hex.r > 1 || hex.g > 1 || hex.b > 1 ? 255 : 1;
+    return {
+      r: Math.min(1, Math.max(0, hex.r / scale)),
+      g: Math.min(1, Math.max(0, hex.g / scale)),
+      b: Math.min(1, Math.max(0, hex.b / scale)),
+    };
+  }
+  const str = typeof hex === "string" ? hex : String(hex || "#808080");
+  const h = str.replace("#", "");
+  const n = parseInt(h.length >= 6 ? h.slice(0, 6) : h, 16);
+  if (!Number.isFinite(n)) return rgb(128, 128, 128);
   return rgb((n >> 16) & 255, (n >> 8) & 255, n & 255);
 }
 
@@ -562,9 +617,17 @@ function appendCenteredText(parent, characters, style, fontSize, color, opacity)
   lbl.textAlignHorizontal = "CENTER";
   lbl.textAlignVertical = "CENTER";
   lbl.resize(parent.width, parent.height);
-  lbl.x = 0;
-  lbl.y = 0;
-  parent.appendChild(lbl);
+  if (typeof parent.appendChild === "function") {
+    lbl.x = 0;
+    lbl.y = 0;
+    parent.appendChild(lbl);
+  } else if (parent.parent && typeof parent.parent.appendChild === "function") {
+    lbl.x = parent.x;
+    lbl.y = parent.y;
+    parent.parent.appendChild(lbl);
+  } else {
+    throw new Error("appendCenteredText: parent cannot accept children");
+  }
   return lbl;
 }
 
@@ -572,6 +635,22 @@ function logSectionBuilt(name, node) {
   const shapes = node ? countVisibleShapes(node) : 0;
   console.log(`[DS build] ${name} — visible shapes: ${shapes}`);
   return shapes;
+}
+
+function callBuildStep(stepName, fn) {
+  if (typeof fn !== "function") {
+    throw new Error(
+      stepName + ": callback is not a function (got " + (fn === null ? "null" : typeof fn) + ")"
+    );
+  }
+  try {
+    return fn();
+  } catch (err) {
+    const msg = err && err.message ? err.message : String(err);
+    console.error(`[DS build] step failed: ${stepName} — ${msg}`);
+    if (err && err.stack) console.error(err.stack);
+    throw new Error(`${stepName}: ${msg}`);
+  }
 }
 
 function getAllPages() {
@@ -806,6 +885,32 @@ function generateShadeRamp(baseHex, steps) {
   return ramp;
 }
 
+function isDs02Candidate(candidate) {
+  return candidate && candidate.id === "b";
+}
+
+function colorRoleHex(candidate, role, fallback) {
+  const entry = candidate.colors.find(function (c) {
+    return c.role === role;
+  });
+  return entry ? entry.hex : fallback;
+}
+
+/** DS-02 semantic palette — charcoal / lime / gray only (no multi-hue Y2K ramps). */
+function getDs02SemanticSwatches(candidate) {
+  const charcoal = colorRoleHex(candidate, "Primary", "#1A1C20");
+  return [
+    { role: "Primary", hex: charcoal },
+    { role: "Accent", hex: colorRoleHex(candidate, "Accent", "#C8F135") },
+    { role: "Surface", hex: colorRoleHex(candidate, "Surface", "#FFFFFF") },
+    { role: "Background", hex: colorRoleHex(candidate, "Background", "#F5F5F0") },
+    { role: "Text", hex: colorRoleHex(candidate, "Text", charcoal) },
+    { role: "Border", hex: colorRoleHex(candidate, "Border", "#E5E7EB") },
+    { role: "Success", hex: colorRoleHex(candidate, "Accent", "#C8F135") },
+    { role: "Warning", hex: "#FACC15" },
+  ];
+}
+
 function getKitHues(candidate) {
   const skip = /background|surface|text|border|cream|blush tint|muted/i;
   const hues = candidate.colors.filter(function (c) {
@@ -821,6 +926,7 @@ function getKitHues(candidate) {
 
 function getKitTokens(candidate, textColor) {
   const showcase = candidate.showcase || {};
+  const ds02 = isDs02Candidate(candidate);
   const primary =
     candidate.buttonPrimary.fill ||
     (candidate.buttonPrimary.fillStart && candidate.buttonPrimary.fillStart) ||
@@ -842,58 +948,16 @@ function getKitTokens(candidate, textColor) {
     infoFg: primary,
     radius: (candidate.mood && candidate.mood.cornerRadius) || 16,
     miniRadius: (candidate.mood && candidate.mood.miniBtnRadius) || 12,
+    chipRadius: showcase.chipRadius != null ? showcase.chipRadius : ds02 ? 10 : 12,
+    strokeWeight: ds02 ? 2 : 1.5,
     text: textColor,
   };
-}
-
-async function fetchMenuImage(url) {
-  if (menuImageCache[url]) return menuImageCache[url];
-  try {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error("HTTP " + res.status);
-    const buf = await res.arrayBuffer();
-    const img = figma.createImage(new Uint8Array(buf));
-    menuImageCache[url] = img;
-    return img;
-  } catch (err) {
-    console.warn("메뉴 이미지 로드 실패:", url, err.message || err);
-    return null;
-  }
-}
-
-async function preloadMenuImages() {
-  const keys = Object.keys(MENU_PHOTOS);
-  const out = {};
-  for (let i = 0; i < keys.length; i++) {
-    const key = keys[i];
-    out[key] = await fetchMenuImage(MENU_PHOTOS[key].url);
-  }
-  return out;
-}
-
-function applyPhotoFill(imgFrame, image, showcase, candidate) {
-  if (image) {
-    imgFrame.fills = [
-      {
-        type: "IMAGE",
-        imageHash: image.hash,
-        scaleMode: "FILL",
-      },
-    ];
-    return;
-  }
-  if (showcase.imageGradient) {
-    imgFrame.fills = [makeGradientFill(showcase.imageGradient.start, showcase.imageGradient.end)];
-  } else {
-    imgFrame.fills = [{ type: "SOLID", color: hexToRgb(showcase.imageFill || "#E5E7EB") }];
-  }
-  addPhotoDecorations(imgFrame, showcase, candidate.id);
 }
 
 function addKitPillLabel(parent, text, x, y, surfaceHex, textColor, radius) {
   const pill = figma.createFrame();
   pill.name = "kit label / " + text;
-  pill.fills = [{ type: "SOLID", color: hexToRgb(surfaceHex) }];
+  setSolidFill(pill, surfaceHex, "#F3F4F6");
   pill.cornerRadius = radius >= 20 ? 14 : 10;
   pill.strokes = [{ type: "SOLID", color: hexToRgb(lightenHex(textColor, 0.85)) }];
   pill.strokeWeight = 1;
@@ -902,13 +966,102 @@ function addKitPillLabel(parent, text, x, y, surfaceHex, textColor, radius) {
   pill.x = x;
   pill.y = y;
   parent.appendChild(pill);
-  lbl.x = x + 7;
-  lbl.y = y + 4;
-  parent.appendChild(lbl);
+  lbl.x = 7;
+  lbl.y = 4;
+  pill.appendChild(lbl);
   return pill;
 }
 
+/** DS-02 section title — charcoal display weight (Space Grotesk stand-in: Inter Extra Bold). */
+function addKitFoundationsTitle(parent, text, x, y, textColor) {
+  const title = createTextSafe(text, "Extra Bold", 18, textColor);
+  title.name = "kit heading / " + text;
+  title.x = x;
+  title.y = y;
+  parent.appendChild(title);
+  return title.height + 6;
+}
+
+function addKitMinimalLabel(parent, text, x, y, textColor) {
+  const lbl = createTextSafe(text, "Semi Bold", 11, textColor);
+  lbl.name = "kit label / " + text;
+  lbl.x = x;
+  lbl.y = y;
+  parent.appendChild(lbl);
+  return lbl.height + 8;
+}
+
+/** DS-02: charcoal minimal label · others: pill chip */
+function addKitSectionLabel(parent, text, x, y, candidate, tokens) {
+  if (isDs02Candidate(candidate)) {
+    const headingColor = colorRoleHex(candidate, "Primary", "#1A1C20");
+    addKitMinimalLabel(parent, text, x, y, headingColor);
+    return;
+  }
+  addKitPillLabel(parent, text, x, y, tokens.surface, tokens.text, tokens.radius);
+}
+
+function kitSectionContentY(y, candidate) {
+  return y + (isDs02Candidate(candidate) ? 22 : 30);
+}
+
+function addKitSemanticSwatchGrid(parent, x, y, w, swatches, textColor, cols) {
+  const columnCount = cols || 4;
+  const gap = 8;
+  const swatchH = 36;
+  const labelH = 24;
+  const swW = Math.floor((w - gap * (columnCount - 1)) / columnCount);
+  let cursorY = y;
+  for (let row = 0; row < Math.ceil(swatches.length / columnCount); row++) {
+    const slice = swatches.slice(row * columnCount, row * columnCount + columnCount);
+    slice.forEach(function (entry, col) {
+      const sx = x + col * (swW + gap);
+      const sw = figma.createRectangle();
+      sw.name = "semantic / " + entry.role;
+      sw.resize(swW, swatchH);
+      sw.x = sx;
+      sw.y = cursorY;
+      sw.cornerRadius = 6;
+      sw.fills = [{ type: "SOLID", color: hexToRgb(entry.hex) }];
+      if (entry.hex.toUpperCase() === "#FFFFFF" || entry.hex.toUpperCase() === "#F0F1ED" || entry.hex.toUpperCase() === "#F5F5F0") {
+        sw.strokes = [{ type: "SOLID", color: hexToRgb("#E5E7EB") }];
+        sw.strokeWeight = 1;
+      }
+      parent.appendChild(sw);
+      const roleLbl = createTextSafe(entry.role, "Medium", 9, textColor);
+      roleLbl.x = sx;
+      roleLbl.y = cursorY + swatchH + 2;
+      parent.appendChild(roleLbl);
+      const hexLbl = createTextSafe(entry.hex, "Regular", 8, textColor, 0.55);
+      hexLbl.x = sx;
+      hexLbl.y = cursorY + swatchH + 13;
+      parent.appendChild(hexLbl);
+    });
+    cursorY += swatchH + labelH + gap;
+  }
+  return cursorY - y;
+}
+
+function addKitDs02FoundationsPalette(parent, x, y, w, candidate, tokens) {
+  const headingColor = colorRoleHex(candidate, "Primary", "#1A1C20");
+  let used = addKitFoundationsTitle(parent, "Foundations", x, y, headingColor);
+  used += addKitMinimalLabel(parent, "Colour palette", x, y + used, headingColor);
+  used += addKitSemanticSwatchGrid(
+    parent,
+    x,
+    y + used,
+    w,
+    getDs02SemanticSwatches(candidate),
+    headingColor,
+    4
+  );
+  return used + 4;
+}
+
 function addKitColorPalette(parent, x, y, w, candidate, tokens) {
+  if (isDs02Candidate(candidate)) {
+    return addKitDs02FoundationsPalette(parent, x, y, w, candidate, tokens);
+  }
   addKitPillLabel(parent, "Colour palette", x, y, tokens.surface, tokens.text, tokens.radius);
   const hues = getKitHues(candidate);
   const rowH = 22;
@@ -936,8 +1089,8 @@ function addKitColorPalette(parent, x, y, w, candidate, tokens) {
   return rowY - y + 8;
 }
 
-function addKitShadows(parent, x, y, w, tokens) {
-  addKitPillLabel(parent, "Shadows", x, y, tokens.surface, tokens.text, tokens.radius);
+function addKitShadows(parent, x, y, w, tokens, candidate) {
+  addKitSectionLabel(parent, "Shadows", x, y, candidate || null, tokens);
   const elevations = [
     { y: 1, radius: 3, opacity: 0.05 },
     { y: 3, radius: 8, opacity: 0.08 },
@@ -945,7 +1098,7 @@ function addKitShadows(parent, x, y, w, tokens) {
     { y: 10, radius: 28, opacity: 0.14 },
   ];
   const cardSize = Math.floor((w - 36) / 4);
-  const cardY = y + 32;
+  const cardY = kitSectionContentY(y, candidate);
   elevations.forEach(function (el, i) {
     const card = figma.createRectangle();
     card.name = "elevation / " + (i + 1);
@@ -971,14 +1124,14 @@ function addKitShadows(parent, x, y, w, tokens) {
 }
 
 function addKitTypography(parent, x, y, w, candidate, tokens) {
-  addKitPillLabel(parent, "Typography", x, y, tokens.surface, tokens.text, tokens.radius);
+  addKitSectionLabel(parent, "Typography", x, y, candidate, tokens);
   const samples = [
     { label: "H1", size: 32, weight: 700 },
     { label: "H2", size: 24, weight: 600 },
     { label: "H3", size: 18, weight: 600 },
     { label: "Body", size: 14, weight: 400 },
   ];
-  let ty = y + 30;
+  let ty = kitSectionContentY(y, candidate);
   samples.forEach(function (s) {
     const line = createTextSafe(
       s.label + " — The quick brown fox",
@@ -994,28 +1147,27 @@ function addKitTypography(parent, x, y, w, candidate, tokens) {
   return ty - y + 4;
 }
 
-function addKitIconsRow(parent, x, y, w, tokens) {
-  addKitPillLabel(parent, "Icons", x, y, tokens.surface, tokens.text, tokens.radius);
-  const icons = ["★", "♡", "⚙", "↗", "⊕", "◎", "▤", "⌂", "⟳", "✦"];
+function addKitIconsRow(parent, x, y, w, tokens, candidate) {
+  addKitSectionLabel(parent, "Icons", x, y, candidate, tokens);
+  const icons = isDs02Candidate(candidate)
+    ? ["홈", "메", "장", "결", "☰", "✓", "←", "🔍", "＋", "◎"]
+    : ["★", "♡", "⚙", "↗", "⊕", "◎", "▤", "⌂", "⟳", "✦"];
   const iconSize = 28;
   const gap = Math.floor((w - icons.length * iconSize) / (icons.length - 1));
   let ix = x;
-  const rowY = y + 32;
+  const rowY = kitSectionContentY(y, candidate) + 2;
   icons.forEach(function (ch) {
     const box = figma.createFrame();
     box.name = "icon / " + ch;
     box.resize(iconSize, iconSize);
     box.x = ix;
     box.y = rowY;
-    box.fills = [];
+    setSolidFill(box, tokens.surface, "#FFFFFF");
+    box.strokes = [{ type: "SOLID", color: hexToRgb(lightenHex(tokens.text, 0.85)) }];
+    box.strokeWeight = 1;
+    box.cornerRadius = 6;
     parent.appendChild(box);
-    const lbl = createTextSafe(ch, "Regular", 16, tokens.primary);
-    lbl.textAlignHorizontal = "CENTER";
-    lbl.textAlignVertical = "CENTER";
-    lbl.resize(iconSize, iconSize);
-    lbl.x = ix;
-    lbl.y = rowY;
-    parent.appendChild(lbl);
+    appendCenteredText(box, ch, "Regular", 16, tokens.primary);
     ix += iconSize + Math.max(4, gap);
   });
   return 68;
@@ -1027,7 +1179,7 @@ function createKitMatrixButton(parent, x, y, w, h, row, col, tokens, candidate) 
   btn.resize(w, h);
   btn.x = x;
   btn.y = y;
-  btn.cornerRadius = h / 2;
+  btn.cornerRadius = isDs02Candidate(candidate) ? tokens.miniRadius : h / 2;
   const primary = candidate.buttonPrimary;
   const variants = ["primary", "secondary", "tertiary"];
   const states = ["default", "hover", "disabled"];
@@ -1050,38 +1202,32 @@ function createKitMatrixButton(parent, x, y, w, h, row, col, tokens, candidate) 
   } else if (variant === "secondary") {
     btn.fills = [{ type: "SOLID", color: hexToRgb(tokens.secondaryFill) }];
     btn.strokes = [{ type: "SOLID", color: hexToRgb(tokens.secondaryStroke) }];
-    btn.strokeWeight = 1.5;
+    btn.strokeWeight = tokens.strokeWeight || 1.5;
     textColor = tokens.secondaryText;
     if (state === "hover") {
       btn.fills = [{ type: "SOLID", color: hexToRgb(lightenHex(tokens.primary, 0.88)) }];
     }
     if (state === "disabled") opacity = 0.38;
   } else {
-    btn.fills = [];
+    setSolidFill(btn, lightenHex(tokens.primary, 0.92), "#F3F4F6");
     textColor = tokens.primary;
     if (state === "hover") {
-      btn.fills = [{ type: "SOLID", color: hexToRgb(lightenHex(tokens.primary, 0.9)) }];
+      setSolidFill(btn, lightenHex(tokens.primary, 0.88), "#E5E7EB");
     }
     if (state === "disabled") opacity = 0.35;
   }
 
   parent.appendChild(btn);
-  const lbl = createTextSafe("Button", "Semi Bold", 12, textColor, opacity);
-  lbl.textAlignHorizontal = "CENTER";
-  lbl.textAlignVertical = "CENTER";
-  lbl.resize(w, h);
-  lbl.x = x;
-  lbl.y = y;
-  parent.appendChild(lbl);
+  appendCenteredText(btn, "Button", "Semi Bold", 12, textColor, opacity);
   return btn;
 }
 
 function addKitButtonsMatrix(parent, x, y, w, tokens, candidate) {
-  addKitPillLabel(parent, "Buttons", x, y, tokens.surface, tokens.text, tokens.radius);
+  addKitSectionLabel(parent, "Buttons", x, y, candidate, tokens);
   const btnW = Math.floor((w - 16) / 3);
   const btnH = 36;
   const gap = 8;
-  const startY = y + 30;
+  const startY = kitSectionContentY(y, candidate);
   for (let row = 0; row < 3; row++) {
     for (let col = 0; col < 3; col++) {
       createKitMatrixButton(
@@ -1101,12 +1247,12 @@ function addKitButtonsMatrix(parent, x, y, w, tokens, candidate) {
 }
 
 function addKitSegmentedControl(parent, x, y, w, tokens, candidate) {
-  addKitPillLabel(parent, "Segmented control", x, y, tokens.surface, tokens.text, tokens.radius);
-  const labels = ["Option A", "Option B", "Option C"];
+  addKitSectionLabel(parent, "Segmented control", x, y, candidate, tokens);
+  const labels = isDs02Candidate(candidate) ? ["홈", "메뉴", "장바구니"] : ["Option A", "Option B", "Option C"];
   const segH = 36;
   const gap = 6;
   const segW = Math.floor((w - gap * 2) / 3);
-  const segY = y + 30;
+  const segY = kitSectionContentY(y, candidate);
   const showcase = candidate.showcase || {};
   labels.forEach(function (label, i) {
     const active = i === 0;
@@ -1120,69 +1266,65 @@ function addKitSegmentedControl(parent, x, y, w, tokens, candidate) {
     seg.fills = [{ type: "SOLID", color: hexToRgb(spec.fill) }];
     if (!active) {
       seg.strokes = [{ type: "SOLID", color: hexToRgb(spec.stroke || tokens.secondaryStroke) }];
-      seg.strokeWeight = 1.5;
+      seg.strokeWeight = tokens.strokeWeight || 1.5;
+    } else if (isDs02Candidate(candidate)) {
+      seg.strokes = [{ type: "SOLID", color: hexToRgb(spec.stroke || tokens.primary) }];
+      seg.strokeWeight = tokens.strokeWeight || 2;
     } else {
       applyDropShadow(seg, { opacity: 0.1, y: 2, radius: 6 });
     }
     parent.appendChild(seg);
-    const lbl = createTextSafe(label, active ? "Bold" : "Medium", 11, spec.text);
-    lbl.textAlignHorizontal = "CENTER";
-    lbl.textAlignVertical = "CENTER";
-    lbl.resize(segW, segH);
-    lbl.x = seg.x;
-    lbl.y = seg.y;
-    parent.appendChild(lbl);
+    appendCenteredText(seg, label, active ? "Bold" : "Medium", 11, spec.text);
   });
   return 78;
 }
 
-function addKitNavBar(parent, x, y, w, tokens) {
-  addKitPillLabel(parent, "Nav bar", x, y, tokens.surface, tokens.text, tokens.radius);
-  const navY = y + 30;
-  const links = ["메뉴", "주문", "내역", "설정"];
-  const linkW = Math.floor(w / links.length);
+function addKitNavBar(parent, x, y, w, tokens, candidate) {
+  addKitSectionLabel(parent, "Nav bar", x, y, candidate, tokens);
+  const navY = kitSectionContentY(y, candidate);
+  const links = isDs02Candidate(candidate)
+    ? ["홈 SCR-001", "메뉴 SCR-003", "장바구니 SCR-005", "결제 SCR-007"]
+    : ["Components", "Patterns", "Resources", "Settings"];
+  const itemH = touchSize(44);
+  const gap = 6;
   links.forEach(function (link, i) {
     const active = i === 0;
+    const itemY = navY + i * (itemH + gap);
+    const item = figma.createFrame();
+    item.name = "nav / " + link;
+    item.resize(w, itemH);
+    item.x = x;
+    item.y = itemY;
+    item.cornerRadius = Math.max(8, tokens.radius - 6);
+    if (active) {
+      setSolidFill(item, tokens.primary, isDs02Candidate(candidate) ? "#C8F135" : "#16A34A");
+    } else {
+      setSolidFill(item, lightenHex(tokens.primary, 0.92), "#F3F4F6");
+      item.strokes = [{ type: "SOLID", color: hexToRgb(lightenHex(tokens.text, 0.85)) }];
+      item.strokeWeight = 1;
+    }
+    parent.appendChild(item);
     const lbl = createTextSafe(
       link,
       active ? "Bold" : "Medium",
-      13,
-      active ? tokens.primary : tokens.text,
-      active ? 1 : 0.55
+      12,
+      active ? tokens.primaryText : tokens.text,
+      active ? 1 : 0.65
     );
-    lbl.textAlignHorizontal = "CENTER";
-    lbl.resize(linkW, 20);
-    lbl.x = x + i * linkW;
-    lbl.y = navY + 4;
-    parent.appendChild(lbl);
-    if (active) {
-      const underline = figma.createRectangle();
-      underline.name = "nav active";
-      underline.resize(28, 3);
-      underline.x = x + i * linkW + (linkW - 28) / 2;
-      underline.y = navY + 26;
-      underline.cornerRadius = 2;
-      underline.fills = [{ type: "SOLID", color: hexToRgb(tokens.primary) }];
-      parent.appendChild(underline);
-    }
+    lbl.x = 12;
+    lbl.y = Math.floor((itemH - 12) / 2);
+    item.appendChild(lbl);
   });
-  const bar = figma.createRectangle();
-  bar.name = "nav divider";
-  bar.resize(w, 1);
-  bar.x = x;
-  bar.y = navY + 34;
-  bar.fills = [{ type: "SOLID", color: hexToRgb(lightenHex(tokens.text, 0.85)) }];
-  parent.appendChild(bar);
-  return 72;
+  return 30 + links.length * (itemH + gap) + 4;
 }
 
 function addKitIconButtons(parent, x, y, w, tokens, candidate) {
-  addKitPillLabel(parent, "Icon button", x, y, tokens.surface, tokens.text, tokens.radius);
-  const size = 40;
+  addKitSectionLabel(parent, "Icon button", x, y, candidate, tokens);
+  const size = touchSize(44);
   const gap = 12;
-  const icons = ["★", "♡", "⚙"];
+  const icons = ["＋", "✓", "←"];
   const states = ["default", "hover", "disabled"];
-  const startY = y + 30;
+  const startY = kitSectionContentY(y, candidate);
   states.forEach(function (state, si) {
     icons.forEach(function (icon, ii) {
       const cx = x + ii * (size + gap);
@@ -1203,20 +1345,14 @@ function addKitIconButtons(parent, x, y, w, tokens, candidate) {
         opacity = 0.45;
       }
       parent.appendChild(btn);
-      const lbl = createTextSafe(icon, "Medium", 16, tokens.primaryText, opacity);
-      lbl.textAlignHorizontal = "CENTER";
-      lbl.textAlignVertical = "CENTER";
-      lbl.resize(size, size);
-      lbl.x = cx;
-      lbl.y = cy;
-      parent.appendChild(lbl);
+      appendCenteredText(btn, icon, "Medium", 16, tokens.primaryText, opacity);
     });
   });
   return 30 + 3 * (size + gap);
 }
 
-function addKitToasters(parent, x, y, w, tokens) {
-  addKitPillLabel(parent, "Toaster", x, y, tokens.surface, tokens.text, tokens.radius);
+function addKitToasters(parent, x, y, w, tokens, candidate) {
+  addKitSectionLabel(parent, "Toaster", x, y, candidate, tokens);
   const items = [
     { kind: "success", bg: tokens.successBg, fg: tokens.successFg, msg: "주문이 완료되었습니다", icon: "✓" },
     { kind: "warning", bg: tokens.warningBg, fg: tokens.warningFg, msg: "재고가 부족합니다", icon: "!" },
@@ -1224,7 +1360,7 @@ function addKitToasters(parent, x, y, w, tokens) {
   ];
   const toastH = 40;
   const gap = 8;
-  let ty = y + 30;
+  let ty = kitSectionContentY(y, candidate);
   items.forEach(function (item) {
     const toast = figma.createFrame();
     toast.name = "toaster / " + item.kind;
@@ -1239,33 +1375,29 @@ function addKitToasters(parent, x, y, w, tokens) {
 
     const iconBg = figma.createEllipse();
     iconBg.resize(22, 22);
-    iconBg.x = x + 10;
-    iconBg.y = ty + 9;
+    iconBg.x = 10;
+    iconBg.y = 9;
     iconBg.fills = [{ type: "SOLID", color: hexToRgb(item.fg) }];
-    parent.appendChild(iconBg);
+    toast.appendChild(iconBg);
 
-    const iconLbl = createTextSafe(item.icon, "Bold", 11, "#FFFFFF");
-    iconLbl.textAlignHorizontal = "CENTER";
-    iconLbl.textAlignVertical = "CENTER";
-    iconLbl.resize(22, 22);
-    iconLbl.x = x + 10;
-    iconLbl.y = ty + 9;
-    parent.appendChild(iconLbl);
+    appendCenteredText(iconBg, item.icon, "Bold", 11, "#FFFFFF");
 
     const msg = createTextSafe(item.msg, "Medium", 12, tokens.text);
-    msg.x = x + 40;
-    msg.y = ty + 12;
-    parent.appendChild(msg);
+    msg.x = 40;
+    msg.y = 12;
+    toast.appendChild(msg);
     ty += toastH + gap;
   });
   return ty - y + 4;
 }
 
-function addKitRadioCheckboxes(parent, x, y, w, tokens) {
-  addKitPillLabel(parent, "Radio + Checkboxes", x, y, tokens.surface, tokens.text, tokens.radius);
+function addKitRadioCheckboxes(parent, x, y, w, tokens, candidate) {
+  addKitSectionLabel(parent, "Radio + Checkboxes", x, y, candidate, tokens);
   const colW = Math.floor((w - 16) / 2);
-  const startY = y + 30;
-  const radioLabels = ["Option 1", "Option 2", "Option 3"];
+  const startY = kitSectionContentY(y, candidate);
+  const radioLabels = isDs02Candidate(candidate)
+    ? ["매장 식사", "포장", "추천 메뉴"]
+    : ["Option 1", "Option 2", "Option 3"];
   radioLabels.forEach(function (label, i) {
     const ry = startY + i * 28;
     const selected = i === 0;
@@ -1306,19 +1438,13 @@ function addKitRadioCheckboxes(parent, x, y, w, tokens) {
     box.cornerRadius = 4;
     if (checked) {
       box.fills = [{ type: "SOLID", color: hexToRgb(tokens.primary) }];
-      const mark = createTextSafe("✓", "Bold", 11, tokens.primaryText);
-      mark.textAlignHorizontal = "CENTER";
-      mark.textAlignVertical = "CENTER";
-      mark.resize(18, 18);
-      mark.x = checkX;
-      mark.y = cy;
-      parent.appendChild(mark);
     } else {
-      box.fills = [];
+      setSolidFill(box, tokens.surface, "#FFFFFF");
       box.strokes = [{ type: "SOLID", color: hexToRgb(lightenHex(tokens.text, 0.7)) }];
       box.strokeWeight = 2;
     }
     parent.appendChild(box);
+    if (checked) appendCenteredText(box, "✓", "Bold", 11, tokens.primaryText);
     const lbl = createTextSafe(label, checked ? "Semi Bold" : "Regular", 12, tokens.text, checked ? 1 : 0.7);
     lbl.x = checkX + 26;
     lbl.y = cy + 1;
@@ -1352,27 +1478,71 @@ function buildFullKitPreview(parent, candidate, startY, textColor) {
   const rightX = innerPad + colW + colGap;
   let leftBottom = innerPad;
   let rightBottom = innerPad;
+  const ds02 = isDs02Candidate(candidate);
 
-  leftBottom += addKitColorPalette(kitRoot, leftX, leftBottom, colW, candidate, tokens) + 12;
-  leftBottom += addKitShadows(kitRoot, leftX, leftBottom, colW, tokens);
+  if (ds02) {
+    leftBottom += callBuildStep("addKitShadows", function () {
+      return addKitShadows(kitRoot, leftX, leftBottom, colW, tokens, candidate) + 12;
+    });
+    rightBottom +=
+      callBuildStep("addKitColorPalette", function () {
+        return addKitColorPalette(kitRoot, rightX, rightBottom, colW, candidate, tokens) + 12;
+      });
+    rightBottom += callBuildStep("addKitTypography", function () {
+      return addKitTypography(kitRoot, rightX, rightBottom, colW, candidate, tokens) + 8;
+    });
+    rightBottom += callBuildStep("addKitIconsRow", function () {
+      return addKitIconsRow(kitRoot, rightX, rightBottom, colW, tokens, candidate);
+    });
+  } else {
+    leftBottom +=
+      callBuildStep("addKitColorPalette", function () {
+        return addKitColorPalette(kitRoot, leftX, leftBottom, colW, candidate, tokens) + 12;
+      });
+    leftBottom += callBuildStep("addKitShadows", function () {
+      return addKitShadows(kitRoot, leftX, leftBottom, colW, tokens, candidate);
+    });
 
-  rightBottom += addKitTypography(kitRoot, rightX, rightBottom, colW, candidate, tokens) + 8;
-  rightBottom += addKitIconsRow(kitRoot, rightX, rightBottom, colW, tokens);
+    rightBottom += callBuildStep("addKitTypography", function () {
+      return addKitTypography(kitRoot, rightX, rightBottom, colW, candidate, tokens) + 8;
+    });
+    rightBottom += callBuildStep("addKitIconsRow", function () {
+      return addKitIconsRow(kitRoot, rightX, rightBottom, colW, tokens, candidate);
+    });
+  }
 
   const row2Y = Math.max(leftBottom, rightBottom) + 20;
   leftBottom = row2Y;
   rightBottom = row2Y;
 
-  leftBottom += addKitButtonsMatrix(kitRoot, leftX, leftBottom, colW, tokens, candidate) + 10;
-  leftBottom += addKitSegmentedControl(kitRoot, leftX, leftBottom, colW, tokens, candidate) + 8;
-  leftBottom += addKitNavBar(kitRoot, leftX, leftBottom, colW, tokens);
+  leftBottom += callBuildStep("addKitButtonsMatrix", function () {
+    return addKitButtonsMatrix(kitRoot, leftX, leftBottom, colW, tokens, candidate) + 10;
+  });
+  leftBottom += callBuildStep("addKitSegmentedControl", function () {
+    return addKitSegmentedControl(kitRoot, leftX, leftBottom, colW, tokens, candidate) + 8;
+  });
+  if (ds02) {
+    leftBottom += callBuildStep("addKitChipRow", function () {
+      return addKitChipRow(kitRoot, leftX, leftBottom, colW, tokens, candidate) + 8;
+    });
+  }
+  leftBottom += callBuildStep("addKitNavBar", function () {
+    return addKitNavBar(kitRoot, leftX, leftBottom, colW, tokens, candidate);
+  });
 
-  rightBottom += addKitIconButtons(kitRoot, rightX, rightBottom, colW, tokens, candidate) + 8;
-  rightBottom += addKitToasters(kitRoot, rightX, rightBottom, colW, tokens) + 8;
-  rightBottom += addKitRadioCheckboxes(kitRoot, rightX, rightBottom, colW, tokens);
+  rightBottom += callBuildStep("addKitIconButtons", function () {
+    return addKitIconButtons(kitRoot, rightX, rightBottom, colW, tokens, candidate) + 8;
+  });
+  rightBottom += callBuildStep("addKitToasters", function () {
+    return addKitToasters(kitRoot, rightX, rightBottom, colW, tokens, candidate) + 8;
+  });
+  rightBottom += callBuildStep("addKitRadioCheckboxes", function () {
+    return addKitRadioCheckboxes(kitRoot, rightX, rightBottom, colW, tokens, candidate);
+  });
 
   const kitH = Math.max(leftBottom, rightBottom) + innerPad;
   kitRoot.resize(contentW, kitH);
+  logSectionBuilt("full kit preview", kitRoot);
   return kitH;
 }
 
@@ -1391,7 +1561,7 @@ async function loadMenuImages() {
     const b64 = entries[i][1];
     if (!b64) continue;
     try {
-      menuImageCache[key] = await figma.createImageAsync(bytesFromBase64(b64));
+      menuImageCache[key] = figma.createImage(bytesFromBase64(b64));
     } catch (err) {
       console.warn("menu image load failed (" + key + "):", err.message || err);
     }
@@ -1453,6 +1623,11 @@ function addPhotoDecorations(imgFrame, showcase, candidateId) {
       { x: 0.05, y: 0.18, rw: 0.32, rh: 0.45, fill: "#C8F135", opacity: 0.75 },
       { x: 0.42, y: 0.1, rw: 0.38, rh: 0.5, fill: "#FF5C7A", opacity: 0.45 },
       { x: 0.55, y: 0.5, rw: 0.35, rh: 0.32, fill: "#52D98A", opacity: 0.35 },
+    ],
+    "hybrid-b-e-sage": [
+      { x: 0.08, y: 0.16, rw: 0.4, rh: 0.5, fill: "#10B981", opacity: 0.45 },
+      { x: 0.45, y: 0.12, rw: 0.38, rh: 0.42, fill: "#6EE7B7", opacity: 0.5 },
+      { x: 0.3, y: 0.52, rw: 0.42, rh: 0.32, fill: "#E07A5F", opacity: 0.3 },
     ],
   };
   const set = blobs[candidateId] || blobs.a;
@@ -1554,8 +1729,7 @@ function addInlineTypeSamples(parent, scale, startX, startY, textColor) {
     }
   });
 }
-function createMenuPhotoCard(parent, x, y, width, showcase, textColor, candidate, menuImages) {
-  const photo = MENU_PHOTOS.poke;
+function createMenuPhotoCard(parent, x, y, width, showcase, textColor, candidate) {
   const height = 228;
   const card = figma.createFrame();
   card.name = "component / menu photo card";
@@ -1577,27 +1751,23 @@ function createMenuPhotoCard(parent, x, y, width, showcase, textColor, candidate
   img.clipsContent = true;
   img.cornerRadius = Math.max(6, (showcase.cardRadius || 16) - 6);
   fillPhotoArea(img, showcase, candidate.id, MENU_SAMPLES.photoCard.imageKey);
+  img.strokes = [{ type: "SOLID", color: hexToRgb(showcase.imageStroke || "#D1D5DB") }];
+  img.strokeWeight = 1;
   card.appendChild(img);
 
   const badge = showcase.badges && showcase.badges[0];
   if (badge) {
     const padX = badge.label.length > 2 ? 12 : 10;
-    const bw = Math.max(44, badge.label.length * 7 + padX * 2);
+    const bw = Math.max(MIN_TOUCH, badge.label.length * 7 + padX * 2);
     const b = figma.createFrame();
     b.name = "badge / card";
     b.resize(bw, 24);
     b.x = 12;
     b.y = 20;
     b.cornerRadius = 12;
-    b.fills = [{ type: "SOLID", color: hexToRgb(badge.fill) }];
+    setSolidFill(b, badge.fill, "#16A34A");
     card.appendChild(b);
-    const bl = createTextSafe(badge.label, "Bold", 10, badge.text);
-    bl.textAlignHorizontal = "CENTER";
-    bl.textAlignVertical = "CENTER";
-    bl.resize(bw, 24);
-    bl.x = 12;
-    bl.y = 20;
-    card.appendChild(bl);
+    appendCenteredText(b, badge.label, "Bold", 10, badge.text || "#FFFFFF");
   }
 
   const infoY = imgH + 24;
@@ -1627,59 +1797,80 @@ function createMenuPhotoCard(parent, x, y, width, showcase, textColor, candidate
     hb.x = width - hw - 12;
     hb.y = infoY + 24;
     hb.cornerRadius = 11;
-    hb.fills = [{ type: "SOLID", color: hexToRgb(hotBadge.fill) }];
+    setSolidFill(hb, hotBadge.fill, "#FACC15");
     card.appendChild(hb);
-    const hl = createTextSafe(hotBadge.label, "Semi Bold", 9, hotBadge.text);
-    hl.textAlignHorizontal = "CENTER";
-    hl.textAlignVertical = "CENTER";
-    hl.resize(hw, 22);
-    hl.x = hb.x;
-    hl.y = hb.y;
-    card.appendChild(hl);
+    appendCenteredText(hb, hotBadge.label, "Semi Bold", 9, hotBadge.text || "#1F2937");
   }
 
+  logSectionBuilt("menu photo card", card);
   return card;
+}
+
+function addKitChipRow(parent, x, y, w, tokens, candidate) {
+  addKitSectionLabel(parent, "Chip", x, y, candidate, tokens);
+  const showcase = candidate.showcase || {};
+  const strokeW = tokens.strokeWeight || 2;
+  const chipRadius = tokens.chipRadius || 10;
+  const segY = kitSectionContentY(y, candidate);
+  const labels = isDs02Candidate(candidate) ? ["샐러드", "그레인", "음료"] : ["Small", "Medium", "Large"];
+  const gap = 8;
+  const chipH = 36;
+  const chipW = Math.floor((w - gap * 2) / 3);
+  labels.forEach(function (label, i) {
+    const selected = i === 0;
+    const disabled = isDs02Candidate(candidate) && i === 2;
+    const spec = disabled
+      ? { fill: "#FAFAFA", text: "#6B7280", stroke: "#E5E7EB" }
+      : selected
+        ? showcase.chipSelected
+        : showcase.chipUnselected;
+    const chip = figma.createFrame();
+    chip.name = "chip / " + label;
+    chip.resize(chipW, chipH);
+    chip.x = x + i * (chipW + gap);
+    chip.y = segY;
+    chip.cornerRadius = chipRadius;
+    setSolidFill(chip, spec.fill || "#FFFFFF");
+    chip.strokes = [{ type: "SOLID", color: hexToRgb(spec.stroke || tokens.secondaryStroke || "#E5E7EB") }];
+    chip.strokeWeight = strokeW;
+    parent.appendChild(chip);
+    appendCenteredText(chip, label, selected ? "Bold" : "Medium", 12, spec.text || tokens.text, disabled ? 0.5 : 1);
+  });
+  return 78;
 }
 
 function createOptionChipRow(parent, x, y, width, showcase, textColor) {
   const row = figma.createFrame();
   row.name = "component / option chips";
-  row.resize(width, 48);
+  row.resize(width, touchSize(48));
   row.x = x;
   row.y = y;
-  row.fills = [];
+  setSolidFill(row, showcase.cardSurface, "#F9FAFB");
+  row.cornerRadius = Math.max(8, (showcase.cardRadius || 16) - 4);
+  row.strokes = [{ type: "SOLID", color: hexToRgb(showcase.ctaBarStroke || "#E5E7EB") }];
+  row.strokeWeight = 2;
   parent.appendChild(row);
   const labels = ["소", "보통", "많이"];
   const gap = 10;
   const chipW = Math.floor((width - gap * 2) / 3);
-  const chipRadius =
-    showcase.cardRadius >= 20 ? 24 : showcase.cardRadius <= 8 ? 20 : showcase.cardRadius || 14;
+  const chipH = touchSize(44);
+  const chipRadius = showcase.chipRadius != null ? showcase.chipRadius : showcase.cardRadius <= 8 ? 10 : 12;
   labels.forEach((label, i) => {
     const selected = i === 1;
     const spec = selected ? showcase.chipSelected : showcase.chipUnselected;
     const chip = figma.createFrame();
     chip.name = `chip / ${label}${selected ? " · selected" : ""}`;
-    chip.resize(chipW, 44);
+    chip.resize(chipW, chipH);
     chip.x = i * (chipW + gap);
-    chip.y = 0;
+    chip.y = Math.floor((row.height - chipH) / 2);
     chip.cornerRadius = chipRadius;
-    chip.fills = [{ type: "SOLID", color: hexToRgb(spec.fill) }];
-    if (selected) {
-      chip.strokes = [];
-      applyDropShadow(chip, { opacity: 0.08, y: 2, radius: 8 });
-    } else {
-      chip.strokes = [{ type: "SOLID", color: hexToRgb(spec.stroke || "#E5E7EB") }];
-      chip.strokeWeight = spec.outline ? 2 : 1.5;
-    }
+    setSolidFill(chip, spec.fill, selected ? "#16A34A" : "#FFFFFF");
+    chip.strokes = [{ type: "SOLID", color: hexToRgb(spec.stroke || "#E5E7EB") }];
+    chip.strokeWeight = 2;
     row.appendChild(chip);
-    const lbl = createTextSafe(label, selected ? "Bold" : "Medium", 15, spec.text);
-    lbl.textAlignHorizontal = "CENTER";
-    lbl.textAlignVertical = "CENTER";
-    lbl.resize(chipW, 44);
-    lbl.x = chip.x;
-    lbl.y = chip.y;
-    row.appendChild(lbl);
+    appendCenteredText(chip, label, selected ? "Bold" : "Medium", 15, spec.text);
   });
+  logSectionBuilt("option chips", row);
   return row;
 }
 
@@ -1763,29 +1954,23 @@ function createBottomCTABar(parent, x, y, width, candidate, showcase, textColor)
   bar.appendChild(totalVal);
 
   const btnW = 168;
-  const btnH = 52;
+  const btnH = touchSize(52);
   const btn = figma.createFrame();
   btn.name = "button / 결제하기";
   btn.resize(btnW, btnH);
   btn.x = width - btnW - 16;
-  btn.y = 14;
+  btn.y = Math.floor((h - btnH) / 2);
   btn.cornerRadius = candidate.mood && candidate.mood.miniBtnRadius ? candidate.mood.miniBtnRadius : 12;
   applyButtonFill(btn, candidate.buttonPrimary);
   applyDropShadow(btn, { opacity: 0.15, y: 3, radius: 10 });
   bar.appendChild(btn);
-
-  const btnLbl = createTextSafe("결제하기", "Bold", 17, candidate.buttonPrimary.text);
-  btnLbl.textAlignHorizontal = "CENTER";
-  btnLbl.textAlignVertical = "CENTER";
-  btnLbl.resize(btnW, btnH);
-  btnLbl.x = btn.x;
-  btnLbl.y = btn.y;
-  bar.appendChild(btnLbl);
+  appendCenteredText(btn, "결제하기", "Bold", 17, candidate.buttonPrimary.text || "#FFFFFF");
+  logSectionBuilt("bottom sticky CTA", bar);
   return bar;
 }
 
 function createHeroStrip(parent, x, y, width, candidate, showcase, textColor) {
-  const h = 72;
+  const h = touchSize(72);
   const strip = figma.createFrame();
   strip.name = "component / home hero strip (SCR-001)";
   strip.resize(width, h);
@@ -1797,7 +1982,7 @@ function createHeroStrip(parent, x, y, width, candidate, showcase, textColor) {
     (showcase.imageGradient && showcase.imageGradient.start) ||
     candidate.bg;
   strip.clipsContent = true;
-  parent.appendChild(strip);
+  setSolidFill(strip, heroFill, "#16A34A");
   const heroKey = MENU_SAMPLES.heroImageKey;
   if (heroKey && menuImageCache[heroKey]) {
     applyMenuPhotoFill(strip, heroKey, "CROP");
@@ -1806,58 +1991,55 @@ function createHeroStrip(parent, x, y, width, candidate, showcase, textColor) {
     overlay.resize(width, h);
     overlay.fills = [{ type: "SOLID", color: hexToRgb(heroFill), opacity: 0.72 }];
     strip.appendChild(overlay);
-  } else {
-    strip.fills = [{ type: "SOLID", color: hexToRgb(heroFill) }];
   }
   if (candidate.mood && candidate.mood.heroStroke) {
     strip.strokes = [{ type: "SOLID", color: hexToRgb(candidate.mood.heroStroke) }];
     strip.strokeWeight = 1;
   }
+  parent.appendChild(strip);
 
-  const brand = createTextSafe("ASAK 키오스크", "Bold", 20, textColor);
+  const heroText = contrastOnBg(heroFill, textColor);
+  const brand = createTextSafe("ASAK 키오스크", "Bold", 20, heroText);
   brand.x = 20;
   brand.y = 14;
   strip.appendChild(brand);
 
-  const tagline = createTextSafe("신선한 한 끼, 지금 주문", "Regular", 12, textColor, 0.6);
+  const tagline = createTextSafe("신선한 한 끼, 지금 주문", "Regular", 12, heroText, 0.75);
   tagline.x = 20;
   tagline.y = 40;
   strip.appendChild(tagline);
 
   const btnW = 120;
-  const btnH = 40;
+  const btnH = touchSize(44);
   const btn = figma.createFrame();
   btn.name = "button / 주문 시작";
   btn.resize(btnW, btnH);
   btn.x = width - btnW - 16;
-  btn.y = 16;
+  btn.y = Math.floor((h - btnH) / 2);
   btn.cornerRadius = candidate.mood && candidate.mood.miniBtnRadius ? candidate.mood.miniBtnRadius : 12;
   applyButtonFill(btn, candidate.buttonPrimary);
   strip.appendChild(btn);
-
-  const btnLbl = createTextSafe("주문 시작", "Bold", 14, candidate.buttonPrimary.text);
-  btnLbl.textAlignHorizontal = "CENTER";
-  btnLbl.textAlignVertical = "CENTER";
-  btnLbl.resize(btnW, btnH);
-  btnLbl.x = btn.x;
-  btnLbl.y = btn.y;
-  strip.appendChild(btnLbl);
+  appendCenteredText(btn, "주문 시작", "Bold", 14, candidate.buttonPrimary.text || "#FFFFFF");
+  logSectionBuilt("home hero strip", strip);
   return strip;
 }
 
 function createTabBar(parent, x, y, width, showcase, textColor) {
-  const h = 44;
+  const h = touchSize(44);
   const bar = figma.createFrame();
   bar.name = "component / category tab bar";
   bar.resize(width, h);
   bar.x = x;
   bar.y = y;
-  bar.fills = [];
+  setSolidFill(bar, showcase.cardSurface, "#F3F4F6");
+  bar.cornerRadius = Math.max(8, (showcase.cardRadius || 16) - 4);
+  bar.strokes = [{ type: "SOLID", color: hexToRgb(showcase.ctaBarStroke || "#E5E7EB") }];
+  bar.strokeWeight = 1;
   parent.appendChild(bar);
 
   const tabs = ["메뉴", "샐러드", "음료"];
   const gap = 8;
-  const tabW = Math.floor((width - gap * (tabs.length - 1)) / tabs.length);
+  const tabW = Math.floor((width - 24 - gap * (tabs.length - 1)) / tabs.length);
   const tabRadius = showcase.cardRadius >= 20 ? 22 : showcase.cardRadius <= 8 ? 20 : 14;
 
   tabs.forEach((label, i) => {
@@ -1865,11 +2047,11 @@ function createTabBar(parent, x, y, width, showcase, textColor) {
     const spec = active ? showcase.chipSelected : showcase.chipUnselected;
     const tab = figma.createFrame();
     tab.name = `tab / ${label}${active ? " · active" : ""}`;
-    tab.resize(tabW, h);
-    tab.x = i * (tabW + gap);
-    tab.y = 0;
+    tab.resize(tabW, h - 8);
+    tab.x = 12 + i * (tabW + gap);
+    tab.y = 4;
     tab.cornerRadius = tabRadius;
-    tab.fills = [{ type: "SOLID", color: hexToRgb(spec.fill) }];
+    setSolidFill(tab, spec.fill, active ? "#16A34A" : "#FFFFFF");
     if (active) {
       applyDropShadow(tab, { opacity: 0.08, y: 2, radius: 6 });
     } else {
@@ -1877,14 +2059,9 @@ function createTabBar(parent, x, y, width, showcase, textColor) {
       tab.strokeWeight = spec.outline ? 2 : 1.5;
     }
     bar.appendChild(tab);
-    const lbl = createTextSafe(label, active ? "Bold" : "Medium", 15, spec.text);
-    lbl.textAlignHorizontal = "CENTER";
-    lbl.textAlignVertical = "CENTER";
-    lbl.resize(tabW, h);
-    lbl.x = tab.x;
-    lbl.y = tab.y;
-    bar.appendChild(lbl);
+    appendCenteredText(tab, label, active ? "Bold" : "Medium", 15, spec.text);
   });
+  logSectionBuilt("category tab bar", bar);
   return bar;
 }
 
@@ -1909,6 +2086,8 @@ function createHorizontalMenuCard(parent, x, y, width, showcase, textColor, cand
   img.clipsContent = true;
   img.cornerRadius = Math.max(6, (showcase.cardRadius || 16) - 8);
   fillPhotoArea(img, showcase, candidate.id, MENU_SAMPLES.horizontal.imageKey);
+  img.strokes = [{ type: "SOLID", color: hexToRgb(showcase.imageStroke || "#D1D5DB") }];
+  img.strokeWeight = 1;
   card.appendChild(img);
 
   const title = createTextSafe(MENU_SAMPLES.horizontal.name, "Bold", 16, textColor);
@@ -1930,6 +2109,7 @@ function createHorizontalMenuCard(parent, x, y, width, showcase, textColor, cand
   chev.x = width - 32;
   chev.y = 34;
   card.appendChild(chev);
+  logSectionBuilt("menu card horizontal", card);
   return card;
 }
 
@@ -1955,6 +2135,8 @@ function createSoldOutMiniCard(parent, x, y, width, showcase, textColor, candida
   img.clipsContent = true;
   img.cornerRadius = Math.max(6, (showcase.cardRadius || 16) - 8);
   fillPhotoArea(img, showcase, candidate.id, MENU_SAMPLES.soldOut.imageKey);
+  img.strokes = [{ type: "SOLID", color: hexToRgb(showcase.imageStroke || "#D1D5DB") }];
+  img.strokeWeight = 1;
   card.appendChild(img);
 
   const overlay = figma.createRectangle();
@@ -1974,15 +2156,9 @@ function createSoldOutMiniCard(parent, x, y, width, showcase, textColor, candida
   soldChip.x = 12 + (imgSize - chipW) / 2;
   soldChip.y = 12 + (imgSize - chipH) / 2;
   soldChip.cornerRadius = 11;
-  soldChip.fills = [{ type: "SOLID", color: hexToRgb("#374151") }];
+  setSolidFill(soldChip, "#374151");
   card.appendChild(soldChip);
-  const soldLbl = createTextSafe("품절", "Bold", 10, "#FFFFFF");
-  soldLbl.textAlignHorizontal = "CENTER";
-  soldLbl.textAlignVertical = "CENTER";
-  soldLbl.resize(chipW, chipH);
-  soldLbl.x = soldChip.x;
-  soldLbl.y = soldChip.y;
-  card.appendChild(soldLbl);
+  appendCenteredText(soldChip, "품절", "Bold", 10, "#FFFFFF");
 
   const title = createTextSafe(MENU_SAMPLES.soldOut.name, "Semi Bold", 15, textColor, 0.45);
   title.x = imgSize + 24;
@@ -2000,15 +2176,10 @@ function createSoldOutMiniCard(parent, x, y, width, showcase, textColor, candida
   cornerChip.x = width - 56;
   cornerChip.y = 8;
   cornerChip.cornerRadius = 10;
-  cornerChip.fills = [{ type: "SOLID", color: hexToRgb("#6B7280") }];
+  setSolidFill(cornerChip, "#6B7280");
   card.appendChild(cornerChip);
-  const cornerLbl = createTextSafe("SOLD", "Bold", 9, "#FFFFFF");
-  cornerLbl.textAlignHorizontal = "CENTER";
-  cornerLbl.textAlignVertical = "CENTER";
-  cornerLbl.resize(44, 20);
-  cornerLbl.x = cornerChip.x;
-  cornerLbl.y = cornerChip.y;
-  card.appendChild(cornerLbl);
+  appendCenteredText(cornerChip, "SOLD", "Bold", 9, "#FFFFFF");
+  logSectionBuilt("menu card sold-out", card);
   return card;
 }
 
@@ -2021,7 +2192,8 @@ function createRadioOptionGroup(parent, x, y, width, showcase, textColor, candid
   group.resize(width, optH * options.length + gap * (options.length - 1));
   group.x = x;
   group.y = y;
-  group.fills = [];
+  setSolidFill(group, showcase.cardSurface, "#F9FAFB");
+  group.cornerRadius = Math.max(8, (showcase.cardRadius || 16) - 4);
   parent.appendChild(group);
 
   const primaryHex =
@@ -2083,69 +2255,59 @@ function createRadioOptionGroup(parent, x, y, width, showcase, textColor, candid
     delta.y = 16;
     row.appendChild(delta);
   });
+  logSectionBuilt("option radio group", group);
   return group;
 }
 
 function createQuantityStepper(parent, x, y, width, showcase, textColor, candidate) {
-  const h = 52;
+  const h = touchSize(52);
   const stepper = figma.createFrame();
   stepper.name = "component / quantity stepper";
   stepper.resize(width, h);
   stepper.x = x;
   stepper.y = y;
   stepper.cornerRadius = Math.max(8, (showcase.cardRadius || 16) - 4);
-  stepper.fills = [{ type: "SOLID", color: hexToRgb(showcase.cardSurface || "#FFFFFF") }];
+  setSolidFill(stepper, showcase.cardSurface, "#FFFFFF");
   stepper.strokes = [{ type: "SOLID", color: hexToRgb(showcase.ctaBarStroke || "#E5E7EB") }];
   stepper.strokeWeight = 1;
   parent.appendChild(stepper);
 
   const lbl = createTextSafe("수량", "Semi Bold", 14, textColor);
   lbl.x = 16;
-  lbl.y = 16;
+  lbl.y = Math.floor((h - 14) / 2);
   stepper.appendChild(lbl);
 
-  const btnSize = 40;
+  const btnSize = touchSize(44);
   const btnRadius = candidate.mood && candidate.mood.miniBtnRadius ? candidate.mood.miniBtnRadius : 10;
   const minus = figma.createFrame();
   minus.name = "stepper / minus";
   minus.resize(btnSize, btnSize);
   minus.x = width - btnSize * 2 - 56;
-  minus.y = 6;
+  minus.y = Math.floor((h - btnSize) / 2);
   minus.cornerRadius = btnRadius;
-  minus.fills = [{ type: "SOLID", color: hexToRgb(showcase.chipUnselected.fill || "#FFFFFF") }];
+  setSolidFill(minus, showcase.chipUnselected.fill, "#FFFFFF");
   minus.strokes = [{ type: "SOLID", color: hexToRgb(showcase.ctaBarStroke || "#E5E7EB") }];
   minus.strokeWeight = 1.5;
   stepper.appendChild(minus);
-  const minusLbl = createTextSafe("−", "Bold", 20, textColor);
-  minusLbl.textAlignHorizontal = "CENTER";
-  minusLbl.textAlignVertical = "CENTER";
-  minusLbl.resize(btnSize, btnSize);
-  minusLbl.x = minus.x;
-  minusLbl.y = minus.y;
-  stepper.appendChild(minusLbl);
+  appendCenteredText(minus, "−", "Bold", 20, textColor);
 
   const countLbl = createTextSafe("1", "Bold", 18, textColor);
   countLbl.textAlignHorizontal = "CENTER";
   countLbl.resize(40, btnSize);
   countLbl.x = width - btnSize - 48;
-  countLbl.y = 6;
+  countLbl.y = Math.floor((h - btnSize) / 2);
   stepper.appendChild(countLbl);
 
   const plus = figma.createFrame();
   plus.name = "stepper / plus";
   plus.resize(btnSize, btnSize);
   plus.x = width - btnSize - 8;
-  plus.y = 6;
+  plus.y = Math.floor((h - btnSize) / 2);
   plus.cornerRadius = btnRadius;
   applyButtonFill(plus, candidate.buttonPrimary);
   stepper.appendChild(plus);
-  const plusLbl = createTextSafe("+", "Bold", 20, candidate.buttonPrimary.text);
-  plusLbl.textAlignHorizontal = "CENTER";
-  plusLbl.textAlignVertical = "CENTER";
-  plusLbl.resize(btnSize, btnSize);
-  plusLbl.x = plus.x;
-  plusLbl.y = plus.y;
-  stepper.appendChild(plusLbl);
+  appendCenteredText(plus, "+", "Bold", 20, candidate.buttonPrimary.text || "#FFFFFF");
+  logSectionBuilt("quantity stepper", stepper);
   return stepper;
 }
 
@@ -2187,6 +2349,7 @@ function createSuccessToast(parent, x, y, width, candidate, showcase, textColor)
   msg.x = 52;
   msg.y = 16;
   toast.appendChild(msg);
+  logSectionBuilt("success toast", toast);
   return toast;
 }
 
@@ -2217,24 +2380,24 @@ function createPaymentMethodRow(parent, x, y, width, showcase, textColor, candid
     const selected = i === 0;
     const box = figma.createFrame();
     box.name = `payment / ${m.label}${selected ? " · selected" : ""}`;
-    box.resize(methodW, 40);
+    box.resize(methodW, touchSize(44));
     box.x = 16 + i * (methodW + 12);
-    box.y = 32;
+    box.y = 28;
     box.cornerRadius = 10;
     if (selected) {
-      box.fills = [{ type: "SOLID", color: hexToRgb(showcase.chipSelected.fill) }];
+      setSolidFill(box, showcase.chipSelected.fill, "#16A34A");
       box.strokes = [];
     } else {
-      box.fills = [{ type: "SOLID", color: hexToRgb(showcase.chipUnselected.fill || "#FFFFFF") }];
+      setSolidFill(box, showcase.chipUnselected.fill, "#FFFFFF");
       box.strokes = [{ type: "SOLID", color: hexToRgb(showcase.ctaBarStroke || "#E5E7EB") }];
       box.strokeWeight = 1.5;
     }
     row.appendChild(box);
 
     const iconLbl = createTextSafe(m.icon, "Regular", 16, selected ? showcase.chipSelected.text : textColor);
-    iconLbl.x = box.x + 12;
-    iconLbl.y = box.y + 10;
-    row.appendChild(iconLbl);
+    iconLbl.x = 12;
+    iconLbl.y = Math.floor((box.height - 16) / 2);
+    box.appendChild(iconLbl);
 
     const lbl = createTextSafe(
       m.label,
@@ -2242,10 +2405,11 @@ function createPaymentMethodRow(parent, x, y, width, showcase, textColor, candid
       13,
       selected ? showcase.chipSelected.text : textColor
     );
-    lbl.x = box.x + 36;
-    lbl.y = box.y + 12;
-    row.appendChild(lbl);
+    lbl.x = 36;
+    lbl.y = Math.floor((box.height - 13) / 2);
+    box.appendChild(lbl);
   });
+  logSectionBuilt("payment method row", row);
   return row;
 }
 
@@ -2257,11 +2421,13 @@ function buildComponentsShowcase(parent, candidate, startY, textColor) {
   const showcase = candidate.showcase || {};
   let y = startY;
 
+  console.log(`[DS build] === components showcase: ${candidate.frameName} ===`);
+
   createHeroStrip(parent, pad, y, contentW, candidate, showcase, textColor);
-  y += 72 + 16;
+  y += touchSize(72) + 16;
 
   createTabBar(parent, pad, y, contentW, showcase, textColor);
-  y += 44 + 16;
+  y += touchSize(44) + 16;
 
   createMenuPhotoCard(parent, pad, y, contentW, showcase, textColor, candidate);
   y += 228 + 16;
@@ -2271,9 +2437,9 @@ function buildComponentsShowcase(parent, candidate, startY, textColor) {
   y += 96 + 16;
 
   createOptionChipRow(parent, pad, y, contentW, showcase, textColor);
-  y += 48 + 16;
+  y += touchSize(48) + 16;
 
-  const radioH = 48 * 3 + 10 * 2;
+  const radioH = touchSize(48) * 3 + 10 * 2;
   createRadioOptionGroup(parent, pad, y, colW, showcase, textColor, candidate);
   createQuantityStepper(parent, pad + colW + colGap, y, colW, showcase, textColor, candidate);
   y += radioH + 16;
@@ -2284,7 +2450,7 @@ function buildComponentsShowcase(parent, candidate, startY, textColor) {
   listBg.x = pad;
   listBg.y = y;
   listBg.cornerRadius = showcase.cardRadius >= 16 ? 14 : 10;
-  listBg.fills = [{ type: "SOLID", color: hexToRgb(showcase.cardSurface || "#FFFFFF") }];
+  setSolidFill(listBg, showcase.cardSurface, "#FFFFFF");
   listBg.strokes = [{ type: "SOLID", color: hexToRgb(showcase.ctaBarStroke || "#E5E7EB") }];
   listBg.strokeWeight = 1;
   applyDropShadow(listBg, { opacity: 0.06, y: 3, radius: 12 });
@@ -2292,6 +2458,7 @@ function buildComponentsShowcase(parent, candidate, startY, textColor) {
 
   createListRow(listBg, 0, 0, contentW, showcase, textColor, "매장 설정", "영업 시간 · 알림 · 프린터", true);
   createListRow(listBg, 0, 68, contentW, showcase, textColor, "결제 · 영수증", "카드 · 현금 · 간편결제", false);
+  logSectionBuilt("list group", listBg);
   y += 136 + 16;
 
   createPaymentMethodRow(parent, pad, y, colW, showcase, textColor, candidate);
@@ -2299,6 +2466,7 @@ function buildComponentsShowcase(parent, candidate, startY, textColor) {
   y += 72 + 16;
 
   createBottomCTABar(parent, pad, y, contentW, candidate, showcase, textColor);
+  console.log(`[DS build] === showcase complete: ${candidate.frameName} ===`);
 }
 function buildCandidateFrame(candidate, index) {
   const frame = figma.createFrame();
@@ -2319,14 +2487,35 @@ function buildCandidateFrame(candidate, index) {
   sub.x = pad;
   sub.y = pad + 26;
   frame.appendChild(sub);
-  addMiniHeaderSwatches(frame, candidate.colors, pad, pad + 48);
-  addInlineTypeSamples(frame, candidate.typeScale, pad + 100, pad + 50, textColor);
-  const spec = createTextSafe("834×2400 · touch ≥44px · Pretendard", "Regular", 9, textColor, 0.4);
+  const spec = createTextSafe("834×3300 · Full kit + Kiosk · touch ≥44px", "Regular", 9, textColor, 0.4);
   spec.x = pad;
-  spec.y = pad + 72;
+  spec.y = pad + 44;
   frame.appendChild(spec);
-  addSectionLabel(frame, "Components", pad, pad + 92, 13, textColor);
-  buildComponentsShowcase(frame, candidate, pad + 112, textColor);
+  console.log(`[DS build] === full kit: ${candidate.frameName} ===`);
+  let kitH;
+  try {
+    kitH = callBuildStep("buildFullKitPreview", function () {
+      return buildFullKitPreview(frame, candidate, pad + 64, textColor);
+    });
+  } catch (err) {
+    const msg = err && err.message ? err.message : String(err);
+    throw new Error(`full kit (${candidate.frameName}): ${msg}`);
+  }
+  try {
+    callBuildStep("buildComponentsShowcase", function () {
+      buildComponentsShowcase(frame, candidate, pad + 64 + kitH + 16, textColor);
+    });
+  } catch (err) {
+    const msg = err && err.message ? err.message : String(err);
+    throw new Error(`components showcase (${candidate.frameName}): ${msg}`);
+  }
+  const shapeCount = countVisibleShapes(frame);
+  console.log(`[DS build] frame ${candidate.frameName} — total visible shapes: ${shapeCount}`);
+  try {
+    frame.setPluginData("visibleShapeCount", String(shapeCount));
+  } catch (err) {
+    console.warn("setPluginData 건너뜀:", err.message || err);
+  }
   return frame;
 }
 async function run() {
@@ -2357,14 +2546,19 @@ async function run() {
   }
   removeExistingDsFrames(page);
   const created = [];
+  const shapeCounts = [];
   for (let i = 0; i < CANDIDATES.length; i++) {
     try {
       const frame = buildCandidateFrame(CANDIDATES[i], i);
       page.appendChild(frame);
       created.push(CANDIDATES[i].frameName);
+      const count = countVisibleShapes(frame);
+      shapeCounts.push(`${CANDIDATES[i].frameName.split(" ")[0]}:${count}`);
+      console.log(`[DS build] appended ${CANDIDATES[i].frameName} — visible shapes: ${count}`);
     } catch (err) {
       const msg = err && err.message ? err.message : String(err);
       console.error(`프레임 생성 실패 (${CANDIDATES[i].frameName}):`, msg);
+      if (err && err.stack) console.error(err.stack);
       throw new Error(`${CANDIDATES[i].frameName} 생성 실패: ${msg}`);
     }
   }
@@ -2378,15 +2572,16 @@ async function run() {
     }
   }
   const summary = `DS 후보 ${created.length}개 생성: ${created.join(" · ")}`;
+  const shapeSummary = shapeCounts.length ? ` · 도형 ${shapeCounts.join(" ")}` : "";
   const webNote = " (Desktop 권장 · 콘솔 Ctrl+Shift+I)";
   if (warnings.length > 0) {
-    figma.notify(warnings[0] + " · " + summary + webNote, { error: true, timeout: 15000 });
+    figma.notify(warnings[0] + " · " + summary + shapeSummary + webNote, { error: true, timeout: 15000 });
   } else if (fontWarnings.length > 0) {
-    figma.notify(summary + " · 일부 폰트 스타일 누락 (Regular로 대체)" + webNote, {
+    figma.notify(summary + shapeSummary + " · 일부 폰트 스타일 누락 (Regular로 대체)" + webNote, {
       timeout: 12000,
     });
   } else {
-    figma.notify(summary + webNote, { timeout: 12000 });
+    figma.notify(summary + shapeSummary + webNote, { timeout: 12000 });
   }
 }
 /** 즉시 피드백 + 타임아웃 폴백 + try/catch로 무응답·조용한 실패 방지 */
