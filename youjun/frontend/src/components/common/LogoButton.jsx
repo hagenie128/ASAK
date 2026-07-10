@@ -3,7 +3,7 @@
 function LogoButton() {
   return (
     // 로고 이미지를 보여주는 컴포넌트
-    <img src="/images/logo.png" alt="ASAK 로고" />
+    
   );
 }
 
