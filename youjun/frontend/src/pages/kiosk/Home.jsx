@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'; // 페이지 이동 기능 가져오기
-import useOrderTypeStore, { ORDER_TYPE } from '../../store/useOrderTypeStore'; // 주문 타입 store 가져오기
+import { useOrderTypeStore, ORDER_TYPE } from '../../store/useOrderTypeStore'; // 주문 타입 store 가져오기
 
 function Home() {
   const navigate = useNavigate(); // 페이지 이동시켜줄 함수 준비
