@@ -1,29 +1,15 @@
-const setupItems = [
-  'React + Vite workspace is ready.',
-  'No pipeline output is stored in frontend.',
-  'Connect API calls through backend endpoints as features are added.',
-];
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; // 라우팅 기능 가져오기
+import Home from './pages/kiosk/Home'; // 홈 화면 컴포넌트만 가져오기
 
-export default function App() {
+function App() {
   return (
-    <main className="app-shell">
-      <section className="hero">
-        <p className="eyebrow">ASAK Frontend</p>
-        <h1>Kiosk UI workspace</h1>
-        <p className="summary">
-          Clean frontend setup for the ASAK kiosk. Data pipeline assets stay in
-          the root data folders.
-        </p>
-      </section>
-
-      <section className="panel" aria-labelledby="setup-title">
-        <h2 id="setup-title">Setup Check</h2>
-        <ul>
-          {setupItems.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </section>
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />{' '}
+        {/* "/" 경로로 오면 Home 화면 보여주기 */}
+      </Routes>
+    </BrowserRouter>
   );
 }
+
+export default App;
