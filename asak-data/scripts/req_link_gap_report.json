@@ -1,112 +1,6 @@
 {
   "scenario_title_gaps": [],
-  "screen_name_gaps": [
-    {
-      "id": "SCR-001",
-      "missing_primary": "FWD-UI-002",
-      "name": "홈 화면"
-    },
-    {
-      "id": "SCR-002",
-      "missing_primary": "FWD-ORDER-001",
-      "name": "먹고가기 / 포장 선택"
-    },
-    {
-      "id": "SCR-003",
-      "missing_primary": "FWD-MENU-001",
-      "name": "메뉴 선택"
-    },
-    {
-      "id": "SCR-004",
-      "missing_primary": "FWD-MENU-001",
-      "name": "메뉴 상세 / 옵션 선택"
-    },
-    {
-      "id": "SCR-005",
-      "missing_primary": "FWD-CART-001",
-      "name": "장바구니"
-    },
-    {
-      "id": "SCR-006",
-      "missing_primary": "FWD-CART-001",
-      "name": "주문 확인"
-    },
-    {
-      "id": "SCR-007",
-      "missing_primary": "FWD-PAY-001",
-      "name": "결제"
-    },
-    {
-      "id": "SCR-008",
-      "missing_primary": "FWD-PAY-002",
-      "name": "주문 완료"
-    },
-    {
-      "id": "SCR-009",
-      "missing_primary": "LMIS-ORDER-001",
-      "name": "관리자 주문 관리"
-    },
-    {
-      "id": "SCR-010",
-      "missing_primary": "LMIS-ORDER-001",
-      "name": "관리자 주문 상세"
-    },
-    {
-      "id": "SCR-011",
-      "missing_primary": "LMIS-MENU-001",
-      "name": "관리자 판매 항목 품절 관리"
-    },
-    {
-      "id": "SCR-012",
-      "missing_primary": "FWD-PAY-002",
-      "name": "결제 실패 / 재시도"
-    },
-    {
-      "id": "SCR-013",
-      "missing_primary": "FWD-SYS-001",
-      "name": "타임아웃 안내 / 자동 초기화"
-    },
-    {
-      "id": "SCR-014",
-      "missing_primary": "FWD-UI-001",
-      "name": "접근성 설정"
-    },
-    {
-      "id": "SCR-015",
-      "missing_primary": "LMIS-AUTH-001",
-      "name": "관리자 로그인"
-    },
-    {
-      "id": "SCR-016",
-      "missing_primary": "LMIS-MENU-004",
-      "name": "관리자 메뉴 관리"
-    },
-    {
-      "id": "SCR-017",
-      "missing_primary": "LMIS-MENU-004",
-      "name": "관리자 메뉴 등록/수정"
-    },
-    {
-      "id": "SCR-018",
-      "missing_primary": "LMIS-PAY-001",
-      "name": "관리자 결제수단 설정"
-    },
-    {
-      "id": "SCR-019",
-      "missing_primary": "LMIS-ORDER-005",
-      "name": "관리자 매출 요약"
-    },
-    {
-      "id": "SCR-020",
-      "missing_primary": "RTOS-DEVICE-001",
-      "name": "영수증 출력 여부 선택"
-    },
-    {
-      "id": "SCR-021",
-      "missing_primary": "LMIS-MEMBER-001",
-      "name": "포인트·쿠폰 적립"
-    }
-  ],
+  "screen_name_gaps": [],
   "wiki16_scr_line_gaps": [],
   "wiki10_sc_line_gaps": [],
   "wiki5_stale": {
@@ -136,7 +30,7 @@
     "scenarios": 24,
     "screens": 21,
     "scenario_title_gaps": 0,
-    "screen_name_gaps": 21,
+    "screen_name_gaps": 0,
     "wiki16_gaps": 0,
     "wiki10_gaps": 0,
     "orphan_req_refs": 0

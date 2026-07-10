@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = ROOT / "docs" / "screens"
 RAW_DIR = Path(__file__).parent / "notion_raw"
 SNAPSHOT_FILE = Path(__file__).parent / "screens_notion_snapshot.json"
+FIGMA_LINKS = ROOT / "docs" / "design" / "figma-links.template.json"
 
 SCREEN_PAGE_IDS: dict[str, str] = {
     "SCR-001": "39251ef0-4f0b-8180-9f23-d741a44576d4",
@@ -53,6 +54,7 @@ def _week5_mvp_terms(text: str) -> str:
 
 
 NOTION_STATUS_TO_DC = {
+    "병합됨": "ARCHIVED",
     "기획중": "WIREFRAME",
     "와이어프레임": "WIREFRAME",
     "디자인중": "DESIGNING",
@@ -130,6 +132,25 @@ def parse_properties_from_fetch(text: str) -> dict[str, Any]:
     return row
 
 
+def load_figma_urls() -> dict[str, str]:
+    if not FIGMA_LINKS.exists():
+        return {}
+    data = json.loads(FIGMA_LINKS.read_text(encoding="utf-8"))
+    return {
+        s["scr_id"]: s.get("figma_url") or ""
+        for s in data.get("screens", [])
+        if s.get("scr_id")
+    }
+
+
+def merge_figma_urls(rows: list[dict[str, Any]]) -> None:
+    """Fill empty figma_url from figma-links.template.json (Notion raw often lacks links)."""
+    urls = load_figma_urls()
+    for row in rows:
+        if not row.get("figma_url") and urls.get(row.get("screen_id", "")):
+            row["figma_url"] = urls[row["screen_id"]]
+
+
 def load_from_notion_raw() -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for sid in sorted(SCREEN_PAGE_IDS):
@@ -152,23 +173,40 @@ def load_from_snapshot() -> list[dict[str, Any]]:
 
 def load_screens() -> list[dict[str, Any]]:
     rows = load_from_notion_raw()
-    if rows:
-        return sorted(rows, key=lambda r: r["screen_id"])
-    return sorted(load_from_snapshot(), key=lambda r: r["screen_id"])
+    if not rows:
+        rows = load_from_snapshot()
+    merge_figma_urls(rows)
+    return sorted(rows, key=lambda r: r["screen_id"])
+
+
+def screen_hub_name(screen: dict[str, Any]) -> str:
+    """DevCopilot Screens API name: base title + primary REQ label."""
+    sid = screen["screen_id"]
+    req_ids = SCR_REQ_MAP.get(sid, screen.get("related_req") or [])
+    primary = req_ids[0] if req_ids else None
+    return title_with_req(
+        screen["title"].strip(), req_ids, primary_only=True, primary=primary
+    )
 
 
 def to_devcopilot_localstorage(screens: list[dict[str, Any]], workspace_id: int = 2) -> dict[str, Any]:
-    items = [
-        {
-            "id": s["screen_id"],
-            "name": s["title"],
-            "figmaUrl": s.get("figma_url") or "",
-            "inputs": s.get("input_vars") or "",
-            "outputs": s.get("output_vars") or "",
-            "status": s.get("status", "WIREFRAME"),
-        }
-        for s in screens
-    ]
+    items = []
+    for s in screens:
+        name = screen_hub_name(s)
+        status_notion = s.get("status_notion", "")
+        status = NOTION_STATUS_TO_DC.get(status_notion, s.get("status", "WIREFRAME"))
+        if status_notion == "병합됨":
+            name = f"【병합됨】{s['title']}"
+        items.append(
+            {
+                "id": s["screen_id"],
+                "name": name,
+                "figmaUrl": s.get("figma_url") or "",
+                "inputs": s.get("input_vars") or "",
+                "outputs": s.get("output_vars") or "",
+                "status": status,
+            }
+        )
     return {
         "localStorage_key": f"ws_{workspace_id}_screens",
         "workspace_id": workspace_id,
@@ -215,7 +253,9 @@ def render_wiki_markdown(screens: list[dict[str, Any]]) -> str:
         "출처: Notion 04. 화면 설계 (2026-07-06 export)",
         "",
         "## 고객 키오스크 흐름",
-        "홈 → 먹고가기/포장 → 메뉴선택 → 메뉴상세/옵션 → 장바구니 → 주문확인 → 결제 → 주문완료",
+        "홈(매장·포장) → 메뉴선택 → 메뉴상세/옵션 → 장바구니·주문확인(컨펌 팝업) → 결제(로딩) → 주문완료",
+        "",
+        "> 2026-07-06: SCR-002→001, SCR-006→005 병합. SCR-002·006 ID는 참조용 유지.",
         "",
         "## 관리자 흐름",
         "주문관리 → 주문상세 / 품절관리 / (후반) 로그인·메뉴·결제수단·매출",
