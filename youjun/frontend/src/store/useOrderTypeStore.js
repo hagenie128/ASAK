@@ -7,12 +7,10 @@ export const ORDER_TYPE = {
 };
 
 // 주문 타입만 관리하는 전역 상태 보관함 생성
-const useOrderTypeStore = create((set) => ({
+export const useOrderTypeStore = create((set) => ({
   orderType: null, // 현재 선택된 주문 타입 (초기값 없음)
 
   setOrderType: (type) => set({ orderType: type }), // 주문 타입 저장하는 함수
 
   resetOrderType: () => set({ orderType: null }), // 주문 타입 초기화하는 함수
 }));
-
-export default useOrderTypeStore; // 다른 파일에서 가져다 쓸 수 있도록 내보내기
