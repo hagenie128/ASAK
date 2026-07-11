@@ -12,6 +12,8 @@ __pycache__/
 data-pipeline/phase1/output/
 frontend/docs/
 frontend/data/
+frontend/node_modules/
+frontend/dist/
 .agents/
 .cursor/
 .vscode/
