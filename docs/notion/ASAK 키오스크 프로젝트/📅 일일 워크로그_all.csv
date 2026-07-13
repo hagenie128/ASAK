@@ -1,0 +1,14 @@
+﻿제목,Git daily,WBS,날짜,담당,블로커,요약
+_template,,,2026년 1월 1일,미지정,No,(템플릿 — 복제 후 수정)
+🎯 9/2 최종 발표 (ASAK),https://github.com/hagenie128/ASAK/blob/main/TEAM_SETUP.md,week-9,2026년 9월 2일,미지정,No,최종 발표일 · 팀 전체 시연 · milestone week-9
+2026-07-05 팀 일일,https://github.com/hagenie128/ASAK/blob/main/worklog/daily/_team/2026-07-05.md,worklog,2026년 7월 5일,미지정,No,worklog 폴더 구조·캘린더 초기 세팅 — daily/·entries/·build_http://calendar.py (ASAK)
+2026-07-05 미지정 일일,https://github.com/hagenie128/ASAK/blob/main/worklog/daily/_team/2026-07-05.md,worklog,2026년 7월 5일,미지정,No,worklog 폴더 구조·캘린더 초기 세팅 — daily/·entries/·build_calendar.py (ASAK)
+2026-07-05 이하진 일일,https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-07-05.md,worklog / docs,2026년 7월 5일,이하진,No,워크로그 시스템 — 가이드·템플릿 통합(68e4631)·daily 재작성·담당자 매핑 (ASAK)
+2026-07-05 이하진 일일,https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-07-05.md,WBS / API · asak-data,2026년 7월 5일,이하진,No,Git·코드·seed — API envelope·asak-data seed·리포 정리(2f05f54)·push (ASAK-back / ASAK)
+2026-07-05 이하진 일일,https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-07-05.md,Notion / docs,2026년 7월 5일,이하진,No,Notion·문서 정리 — 허브 TOC·QA 48·Day10 치환 47·디자인 hub·docs/guides·용어 통일 (ASAK)
+2026-07-05 이하진 일일,https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-07-05.md,DevCopilot / docs/screens,2026년 7월 5일,이하진,Yes,DevCopilot·화면설계 — Wiki/16·SCR 19 업로드 workspace/2 (ASAK)
+2026-07-07 김나연 일일,https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-07-07.md,,2026년 7월 7일,김나연,No,"키오스크 디자인 레퍼런스 리서치, 디자인 시안 선택 회의, 고객·관리자 화면 시안 제작, 회의록 정리, 관리자 카테고리 섹션 컴포넌트 제작 (-)"
+2026-07-08 김나연 일일,https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-07-08.md,피그마,2026년 7월 8일,김나연,No,"관리자 로그인, 주문 현황, 메뉴 관리·등록·수정, 매출 요약, 품절 관리, 결제수단 설정 화면 UI 컴포넌트 설계 (-)"
+2026-07-09 김나연 일일,,피그마,2026년 7월 9일,김나연,No,"메뉴 보기 화면 설계 & 메뉴 상세 보기 화면 설계를 리디자인하면서, 피그마로 컴포넌트 제작 "
+2026-07-10 김나연 일일,,피그마,2026년 7월 10일,김나연,No," 장바구니 화면  & 결제창 설계를 리디자인하면서, 피그마로 컴포넌트 제작 "
+2026-07-11 김나연 일일,,피그마,2026년 7월 11일,김나연,No,"결제과정 화면  & 결제 실패 및 시간초과 팝업 설계, 영수증 출력 화면 리디자인 하면서, 피그마로 컴포넌트 제작 "
