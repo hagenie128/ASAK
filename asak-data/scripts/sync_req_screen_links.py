@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -14,6 +15,8 @@ from req_link_maps import EXCLUDED_REQ_IDS, SCR_REQ_MAP, format_req_label, title
 BASE = "https://devproject-hub-backend.onrender.com"
 WS = 2
 HEADERS = {"Content-Type": "application/json", "x-user-username": "hagenie128"}
+if token := os.getenv("DEVCOPILOT_TOKEN"):
+    HEADERS["Authorization"] = f"Bearer {token}"
 REPO = Path(__file__).resolve().parents[2]
 SCREENS_JSON = REPO / "docs" / "screens" / "screens-devcopilot-import-array.json"
 WIKI_MD = REPO / "docs" / "screens" / "screens-wiki.md"

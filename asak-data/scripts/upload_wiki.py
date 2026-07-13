@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -12,6 +13,8 @@ import requests
 BASE = "https://devproject-hub-backend.onrender.com"
 WS = 2
 HEADERS = {"Content-Type": "application/json", "x-user-username": "hagenie128"}
+if token := os.getenv("DEVCOPILOT_TOKEN"):
+    HEADERS["Authorization"] = f"Bearer {token}"
 REPO_ROOT = Path(__file__).resolve().parents[2]
 WIKI_UI_BASE = "https://devcopilot.ai.kr/workspace/2/wiki"
 
