@@ -269,5 +269,6 @@ python docs/design/figma-create-ds02-components-plugin/embed_kiosk_icons.py
 
 ## 관련 플러그인
 
-- [figma-create-ds-plugin](../figma-create-ds-plugin/) — DS-01~08 후보 프레임 전체 생성
 - [figma-rename-scr-plugin](../figma-rename-scr-plugin/) — SCR 프레임 이름 정리
+- [figma-apply-ds02-theme-plugin](../figma-apply-ds02-theme-plugin/) — 기존 프레임 DS-02 테마 적용
+- [Figma 플러그인 안내](../FIGMA_PLUGINS.md)

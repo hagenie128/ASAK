@@ -44,7 +44,7 @@
 | Error Soft | `#FEE2E2` | 오류 배너 |
 | Warn Soft | `#FFF7ED` | 경고 배너 |
 
-> **DS 구조 (2026-07-06)**: 팀 선택용 **후보 A~E 5안 + Trend-1~5 Variables** — [인덱스](./kiosk-design-system-index.md) · [비교표](./kiosk-design-system-comparison.md). Trend hex: [color-swatches.html](./color-swatches.html) · Notion [브랜드 · Trend 컬러](https://app.notion.com/p/39451ef04f0b814a9447f6fbf171b3b7). Figma: **`DS-01`~`DS-07`** 프레임 + Variables `asak-trend-1`~`5`.
+> **DS 구조 (2026-07-06)**: 회의 채택안 **Candidate B / DS-02 Modern Minimal**을 정본으로 사용합니다. 상세 토큰: [candidate-B](./kiosk-design-system-candidate-B.md) · [tokens-B](./kiosk-tokens-candidate-B.css). Trend 색상 참고: [color-swatches.html](./color-swatches.html).
 
 ---
 
@@ -177,7 +177,7 @@ Figma에 Pretendard가 없으면 **Inter**로 대체 후, 한글 스타일은 Pr
 | Variables | Collection `ASAK / Color` · modes: `asak-trend-*` |
 | SCR 적용 | `03. Kiosk Screens` 각 frame에 토큰 적용 |
 
-**플러그인**: [`figma-create-ds-plugin`](./figma-create-ds-plugin/README.md) — DS frame 자동 생성
+**플러그인**: [`figma-create-ds02-components-plugin`](./figma-create-ds02-components-plugin/README.md) — DS-02 컴포넌트·UI Kit 생성
 
 ---
 

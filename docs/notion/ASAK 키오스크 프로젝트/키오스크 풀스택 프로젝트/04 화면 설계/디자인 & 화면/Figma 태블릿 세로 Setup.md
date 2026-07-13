@@ -216,7 +216,7 @@ https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id={nodeId
 
 ## Kiosk DS 토큰 정본 (Git · 2026-07)
 
-> 정본: `docs/design/kiosk-design-system.md` · CSS 변수: `docs/design/kiosk-tokens.css` · Figma: `figma-create-ds-plugin` README
+> 정본: `docs/design/kiosk-design-system.md` · CSS 변수: `docs/design/kiosk-tokens.css` · Figma: `figma-create-ds02-components-plugin` README
 >
 
 | 카테고리 | Token | 값 |
@@ -241,23 +241,17 @@ Trend A/B 팔레트(hex): [브랜드 · Trend 컬러](%EB%B8%8C%EB%9E%9C%EB%93%9
 
 [브랜드 · Trend 컬러](%EB%B8%8C%EB%9E%9C%EB%93%9C%20%C2%B7%20Trend%20%EC%BB%AC%EB%9F%AC.md) **ASAK Trend-1~5** + Option A 벤치마크.
 
-### DS 7안 (팀 선택 · 2026-07-06 통합 · DS-01~07 명명)
+### 채택 디자인 시스템 (DS-02)
 
 | DS | Figma frame | Variables mode | Git |
 | --- | --- | --- | --- |
-| **DS-01 Fresh Greens** | `DS-01 Fresh Greens` | `ds-candidate-a-fresh-greens` | [candidate-A](https://github.com/hagenie128/ASAK/blob/main/docs/design/kiosk-design-system-candidate-A.md) |
 | **DS-02 Modern Minimal** | `DS-02 Modern Minimal` | `ds-candidate-b-modern-minimal` · `asak-trend-3-electric-lime` | [candidate-B](https://github.com/hagenie128/ASAK/blob/main/docs/design/kiosk-design-system-candidate-B.md) |
-| **DS-03 Trend Forward** | `DS-03 Trend Forward` | `ds-candidate-d-trend-forward` | [candidate-D](https://github.com/hagenie128/ASAK/blob/main/docs/design/kiosk-design-system-candidate-D.md) |
-| **DS-04 A+C Trendy** | `DS-04 A+C Trendy` | `ds-candidate-e-fresh-warm-trend` | [candidate-E](https://github.com/hagenie128/ASAK/blob/main/docs/design/kiosk-design-system-candidate-E-ac-trendy.md) |
-| **DS-05 Pink-Green** | `DS-05 Pink-Green` | `asak-trend-1-pink-green` | Variables A · SCR-001 |
-| **DS-06 Blush Forest** ⭐ | `DS-06 Blush Forest` | `asak-trend-4-blush-forest` | Variables B · SCR-001 |
-| **DS-07 Pink-Lime Hybrid** | `DS-07 Pink-Lime Hybrid` | `asak-hybrid-b-t1` | 7번째 비교 프레임 |
 
 **결정 (2026-07-06)**: 프로덕션 DS **DS-02 Modern Minimal** 채택. SCR frame 와이어에 DS-02 적용.
 
 **결제 옵션**: `asak-trend-5-citrus-navy` — SCR-007·012 only
 
-**Figma**: `02. User Flow` → 플러그인 [figma-create-ds-plugin](https://github.com/hagenie128/ASAK/blob/main/docs/design/figma-create-ds-plugin/README.md) → **7** frame (`DS-01`~`DS-07`)
+**Figma**: `02. User Flow` → 플러그인 [Create DS-02 Components](https://github.com/hagenie128/ASAK/blob/main/docs/design/figma-create-ds02-components-plugin/README.md) → 컴포넌트·UI Kit 생성
 
 컬러 미리보기: [color-swatches.html](https://github.com/hagenie128/ASAK/blob/main/docs/design/color-swatches.html)
 

@@ -323,16 +323,9 @@ def gen_screen_design() -> str:
         for s in SCREENS
     )
     ds_table = (
-        "| DS | Figma frame | 구 이름 |\n"
-        "|:--:|-------------|--------|\n"
-        "| **01** | `DS-01 Fresh Greens` | DS Candidate A — Fresh Greens |\n"
-        "| **02** | `DS-02 Modern Minimal` | DS Candidate B — Modern Minimal |\n"
-        "| **03** | `DS-03 Trend Forward` | DS Candidate D — Trend Forward |\n"
-        "| **04** | `DS-04 A+C Trendy` | DS Candidate E — A+C Trend |\n"
-        "| **05** | `DS-05 Pink-Green` | DS Trend-1 — Pink-Green |\n"
-        "| **06** | `DS-06 Blush Forest` | DS Trend-4 — Blush Forest |\n"
-        "| **07** | `DS-07 Pink-Lime Hybrid` | DS Hybrid B×T1 — Bold Pink-Lime |\n"
-        "| **08** | `DS-08 Trendy Sage Hybrid` | 미채택 참고안 (02+04 하이브리드) |\n"
+        "| DS | Figma frame | 정본 |\n"
+        "|:--:|-------------|------|\n"
+        "| **02** | `DS-02 Modern Minimal` | Candidate B — Modern Minimal |\n"
     )
     return (
         "# ASAK 화면 설계 및 Figma 연동\n\n"
@@ -343,14 +336,13 @@ def gen_screen_design() -> str:
         "| Notion 역할 | SCR 목록·요구사항·API·테스트 추적 |\n"
         "| DevCopilot | Screens 탭 + Wiki 본 문서 (wiki/5) |\n"
         "| Week 5 MVP | SCR-001~008 (8/1) + Week 6 SCR-009~011 (고객+관리자+결제실패) |\n\n"
-        "## 디자인 시스템 (DS-01~08)\n\n"
+        "## 디자인 시스템 (DS-02)\n\n"
         "**프로덕션 DS (2026-07-06)**: **DS-02 Modern Minimal** (charcoal + electric lime). "
-        "DS-08은 미채택 참고안.\n\n"
+        "다른 후보와 하이브리드 문서는 정리했다.\n\n"
         "Figma `kiosk_design` 파일의 DS 프레임. 상세: "
         "[kiosk-design-system-index.md](../design/kiosk-design-system-index.md)\n\n"
         f"{ds_table}\n"
-        "> Candidate C (Warm Bistro)는 보관 — DS 라인업 제외. "
-        "플러그인: [figma-create-ds-plugin](../design/figma-create-ds-plugin/README.md)\n\n"
+        "> 플러그인: [Create DS-02 Components](../design/figma-create-ds02-components-plugin/README.md) — DS-02 컴포넌트·UI Kit 생성\n\n"
         "## SCR 요약표\n\n"
         "| ID | 화면명 | Figma | 상태 |\n|----|--------|-------|------|\n"
         f"{figma_block}\n\n"

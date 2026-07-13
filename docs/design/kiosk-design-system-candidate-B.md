@@ -149,4 +149,4 @@
 
 - CSS 토큰: [kiosk-tokens-candidate-B.css](./kiosk-tokens-candidate-B.css)
 - 비교표: [kiosk-design-system-comparison.md](./kiosk-design-system-comparison.md)
-- Figma 플러그인: [figma-create-ds-plugin](./figma-create-ds-plugin/README.md)
+- Figma 플러그인: [Create DS-02 Components](./figma-create-ds02-components-plugin/README.md)

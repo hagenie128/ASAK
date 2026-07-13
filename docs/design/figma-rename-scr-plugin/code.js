@@ -129,7 +129,7 @@ function isMergedScrId(scrId) {
   return scrId === "SCR-002" || scrId === "SCR-006";
 }
 
-/** figma-create-ds-plugin 미리보기 프레임 — SCR 화면이 아니므로 스킵 */
+/** DS-02 라이브러리·UI Kit 프레임 — SCR 화면이 아니므로 스킵 */
 function isDsSkipFrame(name) {
   const trimmed = String(name).trim();
   if (trimmed === "Design System" || trimmed === "🎨 Design System") return true;

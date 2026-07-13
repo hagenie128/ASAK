@@ -382,10 +382,6 @@ figma-rename-scr-plugin/
 
 
 
-레거시: `docs/design/figma-rename-scr-plugin.js` (패키지 사용 권장)
-
-
-
 ---
 
 
@@ -398,5 +394,5 @@ figma-rename-scr-plugin/
 
 - Git: [`SCR_FIGMA_CHECKLIST.md`](../SCR_FIGMA_CHECKLIST.md) · [`figma-links.template.json`](../figma-links.template.json)
 
-- Design System frame: [`figma-create-ds-plugin`](../figma-create-ds-plugin/README.md) · [`kiosk-design-system.md`](../kiosk-design-system.md)
+- Design System: [`figma-create-ds02-components-plugin`](../figma-create-ds02-components-plugin/README.md) · [`kiosk-design-system.md`](../kiosk-design-system.md)
 

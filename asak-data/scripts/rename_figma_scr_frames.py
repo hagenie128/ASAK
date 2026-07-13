@@ -2,7 +2,7 @@
 """kiosk_design Figma frame 이름을 SCR-XXX 이름 형식으로 맞추는 도구.
 
 - FIGMA_TOKEN(또는 FIGMA_ACCESS_TOKEN)이 있으면: 파일 구조 조회 + figma-links.template.json node_id 동기화
-- 실제 rename은 Figma REST API로 불가 → docs/design/figma-rename-scr-plugin.js 를 Figma에서 실행
+- 실제 rename은 Figma REST API로 불가 → docs/design/figma-rename-scr-plugin/ 패키지를 Figma에서 실행
 
 Usage:
   set FIGMA_TOKEN=figd_...

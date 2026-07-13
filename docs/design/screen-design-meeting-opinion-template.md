@@ -34,7 +34,7 @@
 |------|------|
 | 화면 설계 DB | [04. 화면 설계](https://app.notion.com/p/1c751ef04f0b825ea3aa8145f563bbc8) |
 | 와이어 가이드 | [SCR 화면별 가이드](https://app.notion.com/p/39451ef04f0b81109d07c01293d73c6d) |
-| Figma · DS | [02 User Flow](https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design) · 프레임 없으면 `Ctrl+/` → **Create DS Candidates** ([플러그인 README](./figma-create-ds-plugin/README.md)) |
+| Figma · DS | [02 User Flow](https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design) · 라이브러리 없으면 `Ctrl+/` → **Create DS-02 User Flow Components** ([플러그인 README](./figma-create-ds02-components-plugin/README.md)) |
 | DS 상세 | [kiosk-design-system-index.md](./kiosk-design-system-index.md) · [디자인 hub](https://app.notion.com/p/39451ef04f0b8163b1f9ebb477917efc) |
 
 ### DS 한눈에 (Step 3·4 참고)

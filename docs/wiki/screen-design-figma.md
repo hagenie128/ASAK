@@ -11,24 +11,17 @@
 | DevCopilot | Screens 탭 + Wiki 본 문서 (wiki/5) |
 | Week 5 MVP | SCR-001~008 (8/1) + Week 6 SCR-009~011 (고객+관리자+결제실패) |
 
-## 디자인 시스템 (DS-01~08)
+## 디자인 시스템 (DS-02)
 
-**프로덕션 DS (2026-07-06)**: **DS-02 Modern Minimal** (charcoal + electric lime). DS-08은 미채택 참고안.
+**프로덕션 DS (2026-07-06)**: **DS-02 Modern Minimal** (charcoal + electric lime). 다른 후보와 하이브리드 문서는 정리했다.
 
 Figma `kiosk_design` 파일의 DS 프레임. 상세: [kiosk-design-system-index.md](../design/kiosk-design-system-index.md)
 
-| DS | Figma frame | 구 이름 |
-|:--:|-------------|--------|
-| **01** | `DS-01 Fresh Greens` | DS Candidate A — Fresh Greens |
-| **02** | `DS-02 Modern Minimal` | DS Candidate B — Modern Minimal |
-| **03** | `DS-03 Trend Forward` | DS Candidate D — Trend Forward |
-| **04** | `DS-04 A+C Trendy` | DS Candidate E — A+C Trend |
-| **05** | `DS-05 Pink-Green` | DS Trend-1 — Pink-Green |
-| **06** | `DS-06 Blush Forest` | DS Trend-4 — Blush Forest |
-| **07** | `DS-07 Pink-Lime Hybrid` | DS Hybrid B×T1 — Bold Pink-Lime |
-| **08** | `DS-08 Trendy Sage Hybrid` | 미채택 참고안 (02+04 하이브리드) |
+| DS | Figma frame | 정본 |
+|:--:|-------------|------|
+| **02** | `DS-02 Modern Minimal` | Candidate B — Modern Minimal |
 
-> Candidate C (Warm Bistro)는 보관 — DS 라인업 제외. 플러그인: [figma-create-ds-plugin](../design/figma-create-ds-plugin/README.md)
+> 플러그인: [Create DS-02 Components](../design/figma-create-ds02-components-plugin/README.md) — DS-02 컴포넌트·UI Kit 생성
 
 ## SCR 요약표
 
