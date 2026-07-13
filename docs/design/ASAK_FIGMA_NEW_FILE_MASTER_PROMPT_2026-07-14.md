@@ -35,6 +35,33 @@
 5) 새 파일의 모든 편집 대상은 Auto Layout 기반으로 만들고, 절대 위치 배치만으로 화면을 구성하지 않는다.
 
 ────────────────────────────────
+0-A. 원본 자산 재사용 우선 원칙 (필수)
+────────────────────────────────
+이 작업은 원본을 참고해 새 디자인을 만드는 작업이 아니다. **원본에서 실제 사용 중인 컴포넌트, 컴포넌트 인스턴스, 아이콘, 이미지, 색상 스타일, effect style, 변수, 텍스트 스타일을 새 파일로 가져와 정리·재사용하는 마이그레이션 작업**이다.
+
+1) 화면을 새로 그리기 전에 원본에서 다음 목록을 먼저 조사하고 `00. START HERE > Asset migration inventory`에 기록한다.
+   - 원본 component set과 variant
+   - 화면 안의 주요 component instance
+   - 아이콘 component/instance와 이미지 asset
+   - color/text/effect/grid styles와 variables
+   - 이미 사용된 Auto Layout 구조
+2) 원본 component set이 있으면 새 파일로 가져와 이름, property, variant, Auto Layout만 정리한다. 동일 기능을 가진 새 component set을 따로 만들지 않는다.
+3) 원본 화면 안의 component instance는 가능한 한 인스턴스 관계를 유지한 채 새 파일로 가져온다. detached copy를 기본 작업 방식으로 쓰지 않는다.
+4) 아이콘·로고·메뉴 이미지·일러스트는 원본 asset을 재사용한다. 유사한 새 아이콘, placeholder 이미지, 다른 icon pack을 만들거나 섞지 않는다.
+5) 원본의 color/text/effect style 또는 variable이 있으면 새 Foundations에서 이름을 정리하고 alias를 연결한다. 똑같은 값의 새 스타일을 중복 생성하지 않는다.
+6) 원본에 없는 UI 또는 상태만 새 컴포넌트로 추가한다. 새로 만든 항목은 반드시 `Asset migration inventory`에 `New — reason: <원본에 없음>`으로 남긴다.
+7) 중복 또는 잘못된 원본 컴포넌트를 통합해야 하는 경우, 기존 사용처를 정식 component set 인스턴스로 교체한 뒤에만 archive 처리한다. 사용처를 detached layer로 바꾸지 않는다.
+
+재사용 판단 순서:
+```text
+원본 component/style/asset 존재?
+├─ 예 → 복제/가져오기 → 이름·속성·레이아웃 정리 → 기존 instance 유지 → 새 파일에서 사용
+└─ 아니오 → 기존 공통 컴포넌트로 조합 가능한가?
+          ├─ 예 → 기존 instance 조합
+          └─ 아니오 → 새 component 생성 + inventory에 생성 사유 기록
+```
+
+────────────────────────────────
 1. 페이지 구조 (페이지 이름은 정확히 사용)
 ────────────────────────────────
 새 파일에 아래 페이지를 이 순서대로 만든다.
@@ -103,29 +130,186 @@ Actions: selectPeriod, openMonthlySales, openDailySales
 ────────────────────────────────
 3. Foundations 및 디자인 토큰
 ────────────────────────────────
-`01. Foundations`에서 원본의 Palette, Semantic color, 텍스트, 그림자, 그리드 스타일을 검토해 다음 항목을 정리한다.
+**중요 — 첨부 레퍼런스 이미지는 색상·크기·아이콘·UI 디자인의 출처가 아니라, 디자인 시스템을 전시하는 “정리 형식”의 레퍼런스다.** 이미지의 파랑, 숫자, 폰트 스케일, 컴포넌트 모양을 ASAK에 그대로 적용하거나 추측하지 않는다. ASAK 원본 파일에서 실제 사용 중인 시각 언어를 추출하여 그 값을 정리하고, 글꼴만 아래 지시에 따라 `Noto Sans KR`로 통일한다. 아래의 토큰명·카탈로그 예시는 **분류용 이름 예시일 뿐 수치/hex/효과값을 확정하지 않는다**. Figma 작업 시에는 원본에서 추출한 실제 값으로 교체하고, 원본에 없는 값은 `TBD — design decision required`로 표시해 임의로 결정하지 않는다.
 
-1) Color variables
-   - Collection: `Color`
-   - Groups: `Color/Surface`, `Color/Text`, `Color/Border`, `Color/Action`, `Color/Status`, `Color/Brand`
-   - 기본 모드는 `Light`로 명명한다. `Mode 1`을 사용하지 않는다.
-   - 원본의 팔레트 값을 그대로 활용하되 UI에는 primitive 색상 대신 semantic color variable을 바인딩한다.
-2) Number variables
-   - Collection: `Layout`
-   - `Space/0`, `Space/4`, `Space/8`, `Space/12`, `Space/16`, `Space/20`, `Space/24`, `Space/32`, `Space/40`, `Space/48`
-   - `Radius/0`, `Radius/4`, `Radius/8`, `Radius/12`, `Radius/16`, `Radius/Full`
-   - `Stroke/Default`, `Elevation/1`, `Elevation/2`, `Elevation/3`
-3) Text styles
-   - 모호한 숫자형 이름 대신 `Kiosk/Heading/L`, `Kiosk/Body/M`, `Admin/Heading/L`, `Admin/Body/M`, `Shared/Label/S`처럼 역할 기반으로 정리한다.
-   - 오탈자 `payment_boidy`가 있으면 새 파일에는 `Payment/Body`로 정정한다.
-4) Effect and grid styles
-   - 그림자와 레이아웃 그리드는 명시적 이름을 사용한다.
-5) 각 foundation 영역에는 사용 규칙과 Do/Don't를 짧은 메모로 남긴다.
+`01. Foundations`는 첨부 레퍼런스처럼 큰 흰색 보드 위에 `Color`, `Typography / PC`, `Typography / MO`, `Iconography`, `Effects & Borders` 섹션을 **열(column) 단위로 병렬 배치**해 한눈에 검수 가능하게 구성한다. 각 섹션에는 토큰 샘플, 이름, 실제 값, 사용 상태를 표 또는 스와치로 보여 준다. 기존 원본의 실제 값을 우선 확인하되, 아래 토큰 명칭과 사용 규칙은 반드시 지킨다.
+
+### 3-1. Typeface 및 Typography
+
+- **유일한 제품 글꼴은 `Noto Sans KR`**로 지정한다. 영문, 숫자, 한글, 통화, 날짜, 버튼, 표, 차트 라벨 모두 `Noto Sans KR`을 사용한다. 별도 영문 Display 글꼴이나 Paperlogy를 사용하지 않는다.
+- Figma에 `Noto Sans KR`이 제공되지 않을 경우에만 `Noto Sans`를 임시 대체로 쓰고, `00. START HERE`의 QA checklist에 `FONT FALLBACK USED`를 남긴다. 임의의 다른 글꼴로 대체하지 않는다.
+- Font collection 또는 텍스트 스타일의 명칭은 `Type/...`로 통일하고, weight는 실제 값(`Regular 400`, `Medium 500`, `Bold 700`, `ExtraBold 800`)을 쓴다. `SemiBold`는 원본에 확정된 경우만 사용한다.
+- 텍스트 색상은 스타일 내부에 하드코딩하지 않고 `Color/Text/*` variable로 연결한다.
+
+PC/MO text style의 **행 구성과 표기 방식은 첨부 레퍼런스의 Typography 보드처럼** `스타일명 | Weight | Size | Line height | 예시(가나다 Aa 123)` 열로 만든다. 아래 항목은 필요한 스타일 카탈로그이며, 수치와 weight는 원본 ASAK 화면을 분석해 확정한다. 임의의 Paperlogy 스타일을 복사하지 않는다.
+
+PC text styles (font family: Noto Sans KR, values to be extracted from ASAK source):
+```text
+Type/PC/Display/52: 52 / 68, Medium 500
+Type/PC/Display/40: 40 / 56, Regular 400
+Type/PC/Display/32: 32 / 44, Medium 500
+Type/PC/Display/28: 28 / 40, Medium 500
+Type/PC/Display/24: 24 / 34, Medium 500
+Type/PC/Display/20: 20 / 30, Medium 500
+Type/PC/Display/18: 18 / 28, Medium 500
+Type/PC/Display/16: 16 / 24, Medium 500
+Type/PC/Body/40: 40 / 56, ExtraBold 800
+Type/PC/Body/28: 28 / 40, Bold 700; Medium 500
+Type/PC/Body/24: 24 / 34, Bold 700; Medium 500
+Type/PC/Body/20: 20 / 30, ExtraBold 800; Bold 700; Medium 500
+Type/PC/Body/18: 18 / 28, Bold 700; Medium 500
+Type/PC/Body/16: 16 / 24, Bold 700; Medium 500; Light 300
+Type/PC/Body/14: 14 / 22, Bold 700; Medium 500; Light 300
+Type/PC/Body/13: 13 / 20, Medium 500
+Type/PC/Body/12: 12 / 18, Bold 700; Medium 500
+```
+
+MO text styles (font family: Noto Sans KR, values to be extracted from ASAK source):
+```text
+Type/MO/Display/52: 52 / 68, Medium 500; Regular 400
+Type/MO/Display/32: 32 / 44, Medium 500
+Type/MO/Display/28: 28 / 40, Medium 500
+Type/MO/Display/24: 24 / 34, Medium 500
+Type/MO/Display/20: 20 / 30, Medium 500
+Type/MO/Display/18: 18 / 28, Medium 500
+Type/MO/Display/16: 16 / 24, Medium 500
+Type/MO/Body/28: 28 / 40, Bold 700
+Type/MO/Body/24: 24 / 34, ExtraBold 800; Bold 700
+Type/MO/Body/20: 20 / 30, Bold 700; Medium 500
+Type/MO/Body/18: 18 / 28, Bold 700; Medium 500
+Type/MO/Body/16: 16 / 24, Bold 700; Medium 500; Light 300
+Type/MO/Body/14: 14 / 22, Bold 700; Medium 500; Light 300
+Type/MO/Body/13: 13 / 20, Medium 500
+Type/MO/Body/12: 12 / 18, Bold 700; Medium 500
+```
+
+- 본문 기본값은 PC `Type/PC/Body/16 / Medium`, 모바일 `Type/MO/Body/16 / Medium`이다.
+- 버튼은 최소 14px Medium, 표/보조 정보는 최소 12px Medium으로 한다. 12px 미만 본문 텍스트는 만들지 않는다.
+- 숫자 금액은 proportional numeral을 유지하되, 표의 비교 열은 필요할 때만 tabular figures를 적용한다.
+
+### 3-2. Color variables
+
+Collection은 `Color` 하나로 만들고 모드는 `Light`만 사용한다. `Mode 1`이라는 이름은 금지한다. primitive token과 semantic token을 분리하며, 컴포넌트와 화면은 반드시 semantic token만 사용한다. Color 보드는 첨부 레퍼런스처럼 좌측에 그룹명(Primary, Secondary, Surface, Text, Grayscale, Icon)을 두고, 우측에 스와치 + 토큰명 + hex 값을 행별로 전시한다.
+
+```text
+Color/Brand/Primary/Enabled   #00B0E1
+Color/Brand/Primary/Pressed   #0091C2
+Color/Brand/Primary/Disabled  #A1C7D6
+Color/Brand/Secondary/Enabled #007DC5
+Color/Brand/Secondary/Pressed #186995
+Color/Brand/Secondary/Disabled #8FBAD2
+
+Color/Surface/01              #D8F2FA
+Color/Surface/02              #E8F6FB
+Color/Surface/03              #F2FAFD
+Color/Surface/04              #FFFFFF
+Color/Surface/05              #2B2B2B
+Color/Surface/06              #F3F6F6
+
+Color/Text/Primary            #222222
+Color/Text/Secondary          #51585E
+Color/Text/Tertiary           #758185
+Color/Text/Inverse            #FFFFFF
+Color/Text/Link               {Color/Brand/Secondary/Enabled}
+
+Color/Neutral/900             #222222
+Color/Neutral/800             #344143
+Color/Neutral/700             #51585E
+Color/Neutral/600             #758185
+Color/Neutral/500             #99A3A7
+Color/Neutral/400             #C6D0D2
+Color/Neutral/300             #E0E5E6
+Color/Neutral/200             #EBEEEE
+Color/Neutral/100             #EEF2F3
+Color/Neutral/50              #F7F7F7
+
+Color/Border/Default          {Color/Neutral/300}
+Color/Border/Subtle           {Color/Neutral/200}
+Color/Border/Strong           {Color/Neutral/600}
+Color/Border/Focus            {Color/Brand/Primary/Enabled}
+Color/Icon/Default            {Color/Text/Primary}
+Color/Icon/Secondary          {Color/Text/Secondary}
+Color/Icon/Brand              {Color/Brand/Primary/Enabled}
+
+Color/Status/Success           #2E9B62
+Color/Status/Success-Subtle    #E8F6EE
+Color/Status/Warning           #E39A18
+Color/Status/Warning-Subtle    #FFF6E3
+Color/Status/Error             #D94343
+Color/Status/Error-Subtle      #FDEDED
+Color/Status/Info              {Color/Brand/Secondary/Enabled}
+Color/Status/Info-Subtle       {Color/Surface/01}
+```
+
+- 위 hex 값은 확정 디자인 지시가 아니다. 새 파일을 만들 때 **ASAK 원본에 존재하는 실제 색상·그라디언트·상태색을 추출해 교체**한다. 첨부 이미지를 근거로 새 블루/그레이 팔레트를 만들지 않는다. 각 색상 보드에는 원본에서 가져온 최종 hex만 표시한다.
+- disabled 상태는 opacity로 색을 흐리게 만들지 말고 해당 disabled token을 사용한다. 투명도가 필요한 overlay만 opacity를 사용한다.
+- 위험/성공/경고 색상을 일반 본문·브랜드 장식에 재사용하지 않는다.
+
+### 3-3. Gradients
+
+Gradient는 별도 `Gradient` 보드에 linear/radial 미리보기 스와치, style name, stop color, angle, 사용처를 함께 표시한다. 원본에 없는 새 gradient를 임의로 추가하지 않는다. 장식적 강조와 hero/summary 영역에만 쓰고, 버튼·본문·표의 정보 전달에는 solid semantic token을 우선 사용한다.
+
+```text
+Gradient/Brand/Soft: linear 135deg, #00B0E1 0% → #007DC5 100%
+Gradient/Brand/Pale: linear 135deg, #E8F6FB 0% → #D8F2FA 100%
+Gradient/Surface/Blue-Wash: linear 180deg, #FFFFFF 0% → #F2FAFD 100%
+Gradient/Overlay/Scrim: linear 180deg, rgba(34,34,34,0.00) 0% → rgba(34,34,34,0.56) 100%
+```
+
+- gradient는 `Gradient/...` paint style로만 사용한다. 노드마다 독립 Gradient fill을 만들지 않는다.
+- 텍스트 위 gradient를 사용할 경우 WCAG AA 대비를 확인하고, 충족하지 않으면 단색 텍스트로 전환한다.
+
+### 3-4. Stroke, Radius, Spacing
+
+`Layout` collection에는 Spacing, Radius, Stroke 보드를 별도로 만들고, 첨부 레퍼런스처럼 각 값의 시각적 예시와 token name, 숫자 값을 함께 전시한다. 실제 scale은 ASAK 원본에서 추출해 확정하고 오토레이아웃 gap/padding, radius, stroke에 직접 바인딩한다.
+
+```text
+Space/0=0, Space/2=2, Space/4=4, Space/6=6, Space/8=8,
+Space/12=12, Space/16=16, Space/20=20, Space/24=24,
+Space/32=32, Space/40=40, Space/48=48, Space/64=64
+
+Radius/None=0, Radius/XS=4, Radius/SM=8, Radius/MD=12,
+Radius/LG=16, Radius/XL=24, Radius/Full=999
+
+Stroke/Hairline=1, Stroke/Default=1, Stroke/Strong=2,
+Stroke/Focus=2
+```
+
+- 기본 카드·입력창은 `Radius/MD`와 `Stroke/Default`를 사용한다.
+- 작은 태그/칩은 `Radius/Full` 또는 `Radius/SM`, 모달은 `Radius/LG`, 이미지 썸네일은 용도에 맞는 `Radius/SM` 또는 `Radius/MD`를 사용한다.
+- Focus 상태는 `Color/Border/Focus` 2px stroke로 표현하고, 색상만으로 상태를 구분하지 않는다.
+- 카드 테두리는 `Color/Border/Subtle`, 입력/테이블 구분선은 `Color/Border/Default`, 선택된 항목은 `Color/Border/Focus`를 사용한다.
+
+### 3-5. Shadows and effects
+
+Effect 보드는 elevation별 카드 미리보기, style name, X/Y/blur/spread/색상/opacity를 한 행씩 보여 주는 형식으로 만든다. 실제 shadow 수치는 ASAK 원본의 사용값을 추출해 확정한다. 불투명한 검정 대신 neutral 기반의 낮은 농도를 사용하며, 컴포넌트별로 임의 shadow 값을 만들지 않는다.
+
+```text
+Elevation/None: none
+Elevation/XS: 0 1 2 0 rgba(34,34,34,0.08)
+Elevation/SM: 0 2 6 0 rgba(34,34,34,0.10)
+Elevation/MD: 0 8 20 0 rgba(34,34,34,0.12)
+Elevation/LG: 0 16 40 0 rgba(34,34,34,0.16)
+Elevation/Focus: 0 0 0 3 rgba(0,176,225,0.24)
+```
+
+- 일반 카드: `Elevation/XS` 또는 border만 사용한다.
+- hover 가능 요소: 기본 `Elevation/XS` → hover `Elevation/SM`.
+- drawer, modal, floating save bar: `Elevation/MD`; 중요한 full dialog만 `Elevation/LG`.
+- 그림자는 레이어 효과로만 적용한다. shadow 색을 fill로 만들어 겹치지 않는다.
+- background blur는 modal/drawer overlay 외에 쓰지 않으며, overlay fill은 `rgba(34,34,34,0.48)`을 기본으로 한다.
+
+### 3-6. Icons, grid, documentation
+
+- Iconography 보드는 첨부 레퍼런스처럼 `12 / 16 / 20 / 24 / 32 / 40 / 48` 사이즈별 섹션으로 나누고, 각 줄에 실제 아이콘 인스턴스를 배치한다. 아이콘은 인스턴스 교체가 가능하도록 `Icon/...` 컴포넌트로 정리한다.
+- 기본 icon 색상은 `Color/Icon/Default`, 비활성은 `Color/Neutral/500`, 브랜드 강조는 `Color/Icon/Brand`만 사용한다.
+- PC와 kiosk는 8pt spacing grid, 모바일은 4pt의 배수로 정렬한다. grid style도 `Grid/Desktop`, `Grid/Tablet`, `Grid/Mobile`로 명시한다.
+- Foundations의 각 샘플에는 이름, 실제 값, 연결된 variable/style, 권장 사용처를 표시한다. Do/Don't 메모도 짧게 남긴다.
 
 ────────────────────────────────
 4. 공통 컴포넌트와 속성
 ────────────────────────────────
-컴포넌트는 반드시 최상위 Component Set으로 만들고, 인스턴스 복제본을 컴포넌트처럼 방치하지 않는다. 상태 변화는 필요한 경우에만 Variant로 만들고, 텍스트·아이콘·단순 표시 여부는 Component Property를 우선 사용한다.
+컴포넌트는 반드시 최상위 Component Set으로 만들고, 인스턴스 복제본을 컴포넌트처럼 방치하지 않는다. 단, 아래 목록을 별도로 새로 그리라는 뜻으로 해석하지 말고 **원본의 같은 컴포넌트를 먼저 찾아 가져와 정식 이름·속성으로 정리하는 목표 목록**으로 사용한다. 상태 변화는 필요한 경우에만 Variant로 만들고, 텍스트·아이콘·단순 표시 여부는 Component Property를 우선 사용한다.
 
 공통 컴포넌트:
 - `Shared/Button`
