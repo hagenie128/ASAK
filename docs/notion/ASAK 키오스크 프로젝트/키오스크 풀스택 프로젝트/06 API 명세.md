@@ -1,4 +1,6 @@
-# 06. API 명세
+﻿# 06. API 명세
+
+> ID 연계 정본: [00 현재 운영 기준](00%20현재%20운영%20기준.md)의 정식 API 목록을 사용한다. `API-HOLD-*`는 보류/이력 전용이다.
 
 <aside>
 🎯
@@ -97,14 +99,14 @@ Week 5 MVP: 고객 키오스크 주문 흐름(API-001~006) 완성이 최우선. 
 | API-009 | 관리자 | 판매 항목 품절 상태 변경 | PATCH | /api/admin/sold-out-items | menu, ingredient, option_item, menu_ingredient, menu_option_group, common_code | 옵션 |
 
 > API URL은 `/api` prefix를 포함한 실제 구현 기준으로 작성합니다. 화면/요구사항 문서에서 `/categories`처럼 적힌 경우도 실제 구현 시에는 `/api/categories`로 맞춥니다.
-> 
+>
 
 ---
 
 # 상태값 기준
 
 > DB에는 상태값 문자열을 직접 저장하지 않고 `code_group`, `common_code`에 등록한 값을 FK로 저장합니다. API 요청/응답에서는 아래 코드 문자열을 그대로 사용합니다.
-> 
+>
 
 | 구분 | 값 | 설명 |
 | --- | --- | --- |
@@ -218,7 +220,7 @@ GET /api/menus?categoryId=233
 ```
 
 > categoryId 예시: 231=신메뉴, 236=샌드위치, 233=샐러디·볼, 235=랩, 234=프로틴, 232=기타 (`category.json` seed 기준)
-> 
+>
 
 ## 성공 응답 예시
 
@@ -246,7 +248,7 @@ GET /api/menus?categoryId=233
 ```
 
 > seed: menu 364 · category 231(신메뉴) · menu_nutrition kcal 463.7→464
-> 
+>
 
 ## 실패 응답 예시
 
@@ -315,7 +317,7 @@ GET /api/menus?categoryId=233
 ```
 
 > 예시: `GET /api/menus/364` · seed `menu.json` id=364, `category.json` id=231(신메뉴)
-> 
+>
 
 ## 실패 응답 예시
 
@@ -410,7 +412,7 @@ GET /api/menus?categoryId=233
 ```
 
 > 예시: `GET /api/menus/364/options` · seed option_group 240, option_item 269(기본), 247
-> 
+>
 
 ## 실패 응답 예시
 
@@ -467,7 +469,7 @@ GET /api/menus?categoryId=233
 ```
 
 > seed: menu 364, option_item 269(크리미칠리), ingredient 169(양파) 제외
-> 
+>
 
 ## 성공 응답 예시
 
@@ -769,7 +771,7 @@ GET /api/admin/orders?status=RECEIVED
 ```
 
 > targetType은 MENU, INGREDIENT, OPTION_ITEM 중 하나입니다. seed ingredient 155 = 케이준쉬림프 (menu 364 CORE)
-> 
+>
 
 ## 성공 응답 예시
 
@@ -864,55 +866,55 @@ Week 5 MVP(API-001~009) 이후 구현. seed 예시는 menu 364·ingredient 155·
 </aside>
 
 - API-010 GET `/api/admin/sold-out-items`
-    
+
     관리자 품절 대상 목록 조회
-    
+
     - Query: `targetType`, `keyword`
     - Response: `[{ targetType, targetId, name, isSoldOut, reasonType }]`
     - 테이블: menu, ingredient, option_item
 - API-011 GET `/api/admin/menus`
-    
+
     관리자 메뉴 목록
-    
+
     - Query: `categoryId`, `keyword`, `isSoldOut`
     - seed: menu 364, category 231
 - API-012 POST/PUT `/api/admin/menus`
-    
+
     메뉴 등록/수정
-    
+
     - Body: categoryId, name, price, imageUrl, optionGroupIds
 - API-013 GET `/api/payment-methods`
-    
+
     활성 결제수단
-    
+
     - seed: payment_method_config CARD(method_id 19)
 - API-014 PATCH `/api/admin/payment-methods/{methodId}`
-    
+
     결제수단 활성/정렬 변경
-    
+
     - 테이블: payment_method_config, common_code
 - API-015 GET `/api/admin/sales/daily`
-    
+
     일별 매출·메뉴별 판매량
-    
+
     - Query: `from`, `to`
     - 테이블: orders, order_item, payment
 - API-016 POST `/api/cart/validate`
-    
+
     장바구니 서버 검증(품절·필수옵션·금액)
-    
+
     - Body: API-005와 동일 items 구조
 - API-017 GET `/api/ui/accessibility-options`
-    
+
     접근성 설정 조회(fontScale, highContrast 등)
-    
+
     - FWD-UI-001 연계
 - API-018 POST `/api/membership/stamps`
-    
+
     멤버십 스탬프 1회 확인·적립. SC-006, LMIS-MEMBER-001
-    
+
     - Body: orderId, memberId, confirmStamp
-    
+
     ```json
     {
       "success": true,
@@ -921,13 +923,13 @@ Week 5 MVP(API-001~009) 이후 구현. seed 예시는 menu 364·ingredient 155·
       "data": { "memberId": 10, "orderId": 1, "orderNo": "ASAK-20260703-001", "stampAdded": true, "stampCount": 5 }
     }
     ```
-    
+
 - API-019 POST `/api/orders/{orderId}/receipt-print`
-    
+
     영수증 출력 요청. SC-015, RTOS-DEVICE-001. Week 5 MVP 제외.
-    
+
 - API-020 POST `/api/device/scan`
-    
+
     QR/바코드 스캔·쿠폰 할인. SC-016, RTOS-DEVICE-002
-    
+
     - Body: scanType, code

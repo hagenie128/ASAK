@@ -1,4 +1,4 @@
-# 장치: 영수증 출력 모의 구현 (RTOS-DEVICE-001)
+﻿# 장치: 영수증 출력 모의 구현 (RTOS-DEVICE-001)
 
 ↔ 요구사항: 영수증 출력 처리 (../../02%20%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD%20%EC%A0%95%EC%9D%98/%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD%20%EB%AA%A9%EB%A1%9D%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/%EC%98%81%EC%88%98%EC%A6%9D%20%EC%B6%9C%EB%A0%A5%20%EC%B2%98%EB%A6%AC.md)
 관련 산출물: RTOS-DEVICE-001, SC-015, POST /api/orders/{orderId}/receipt-print, 주문완료 화면

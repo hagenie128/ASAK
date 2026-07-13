@@ -1,4 +1,4 @@
-# Figma 태블릿 세로 Setup
+﻿# Figma 태블릿 세로 Setup
 
 <aside>
 📌
@@ -34,7 +34,7 @@
 ---
 
 > **팀 정본 파일 하나**에서 Page·Frame 추가. 별도 Design file 생성 없음.
-> 
+>
 
 | 항목 | 값 |
 | --- | --- |
@@ -66,7 +66,7 @@
 | **스크롤** | 메뉴·옵션·장바구니 등 **콘텐츠 영역만** 세로 스크롤. CTA·하단 네비는 고정 |  |
 
 > Primary(834×1194)로 frame 생성. Fallback은 **02. User Flow** Specs 요약에 768×1024 검증용 frame 1개만 두면 충분.
-> 
+>
 
 ---
 
@@ -79,7 +79,7 @@
 | **04. Admin Screens** | SCR-015~019 | 후반 관리자 (로그인·메뉴·결제·매출) | **플러그인** — 프레임 이름·이동 |
 
 > 구버전 `📱 Customer` / `🛠 Admin` / `📐 Specs` / `🎨 Design System` 페이지는 플러그인이 **03·04**로 통합 이동합니다. 비어 있으면 수동 삭제.
-> 
+>
 
 ---
 
@@ -210,14 +210,14 @@ https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id={nodeId
 | [Courses Dashboard UI KIT](https://www.figma.com/design/MZ7cCNaum5g4nAspeuENgn/Courses---Courses-Dashboard-UI-KIT?node-id=14-410) | Duplicate to Design System Page | Admin SCR(015~019) · card palette node `14-410` |
 
 > Community frame은 **참고용**. SCR frame은 반드시 **834×1194 portrait**로 새로 만든다.
-> 
+>
 
 ---
 
 ## Kiosk DS 토큰 정본 (Git · 2026-07)
 
 > 정본: `docs/design/kiosk-design-system.md` · CSS 변수: `docs/design/kiosk-tokens.css` · Figma: `figma-create-ds-plugin` README
-> 
+>
 
 | 카테고리 | Token | 값 |
 | --- | --- | --- |
@@ -262,7 +262,7 @@ Trend A/B 팔레트(hex): [브랜드 · Trend 컬러](%EB%B8%8C%EB%9E%9C%EB%93%9
 컬러 미리보기: [color-swatches.html](https://github.com/hagenie128/ASAK/blob/main/docs/design/color-swatches.html)
 
 > Variables·Typography는 **`02. User Flow`** Page의 DS 요약 섹션 또는 **03·04 SCR frame**에 직접 적용. (구 `🎨 Design System` 별도 Page 없음 — 무료 3페이지 통합)
-> 
+>
 
 ### 1단계 — Collection 생성
 
@@ -278,7 +278,7 @@ Trend A/B 팔레트(hex): [브랜드 · Trend 컬러](%EB%B8%8C%EB%9E%9C%EB%93%9
 4. Color 변수: `primary`, `secondary`, `accent`, `background`, `text` — hex는 [브랜드 · Trend 컬러](%EB%B8%8C%EB%9E%9C%EB%93%9C%20%C2%B7%20Trend%20%EC%BB%AC%EB%9F%AC.md) §D
 
 > **Naming**: `asak-trend-*` 사용. `proteinner` 등 타 브랜드명 Variables 금지.
-> 
+>
 
 ### 2단계 — Courses kit Duplicate → Variables 복사
 
@@ -305,7 +305,7 @@ Trend A/B 팔레트(hex): [브랜드 · Trend 컬러](%EB%B8%8C%EB%9E%9C%EB%93%9
 | 앱 정본 URL | `/assets/menu/{id}.png` (`menu.json` `image_url`) | 동일 id 매핑 |
 | 보조 (placeholder) | [Unsplash](https://unsplash.com/s/photos/salad) salad | seed 없는 메뉴만 |
 
-**SCR-003 `photo-card`**: 카드 상단 16:9 crop, `object-fit: cover` — 버거킹형 풀블리드.  
+**SCR-003 `photo-card`**: 카드 상단 16:9 crop, `object-fit: cover` — 버거킹형 풀블리드.
 
 **SCR-004 `hero-detail`**: 상단 35% hero — 동일 `{id}.png`.
 

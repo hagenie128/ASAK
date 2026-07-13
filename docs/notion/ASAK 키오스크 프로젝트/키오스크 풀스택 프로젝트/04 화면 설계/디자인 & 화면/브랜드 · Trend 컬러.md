@@ -1,4 +1,4 @@
-# 브랜드 · Trend 컬러
+﻿# 브랜드 · Trend 컬러
 
 <aside>
 📐
@@ -60,15 +60,15 @@
 ---
 
 > 키오스크(태블릿 세로 **834×1194**) Figma 템플릿용 **컬러·타이포·UI 패턴** 참고안.
-> 
+>
 
 > 외식 브랜드 공개 자료는 **학습·포트폴리오·비상업적 벤치마킹** 목적이며, ASAK **오리지널 팔레트**로 재해석합니다.
-> 
+>
 
 ## 회의 확정 + Trend 추천 *(2026-07-03)*
 
 > Notion: [2026.07.03 회의록](../../10%20%ED%9A%8C%EC%9D%98%EB%A1%9D/%ED%9A%8C%EC%9D%98%EB%A1%9D%20%EB%AA%A9%EB%A1%9D/2026%2007%2003.md) · wireframe → [SCR 화면별 가이드](SCR%20%ED%99%94%EB%A9%B4%EB%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C%20(%ED%83%9C%EB%B8%94%EB%A6%BF%20%EC%84%B8%EB%A1%9C).md)
-> 
+>
 
 | 회의 확정 | 내용 |
 | --- | --- |
@@ -122,14 +122,14 @@ cd docs/design && python -m http.server 8765
 | 프로티너(Proteinner) | — | — | **복제 금지** | mood 참고 1줄만 (§C) |
 
 > **팀 회의용**: 초록 단색(Salady) 대신 트렌드 조합을 보려면 **Trend-1 vs Trend-4** A/B on **SCR-001** 권장.
-> 
+>
 
 ---
 
 ## A. 키오스크 UI + 사진 참고 (실제 매장·앱)
 
 > Figma Community flow: [Kiosk Prototype](https://www.figma.com/community/file/784444951689918956/kiosk-prototype) · 세로 UX: [Case Study](https://www.figma.com/community/file/1497969269675579774/kiosk-ui-ux-case-study)
-> 
+>
 
 | 브랜드 | 참고 포인트 | 키오스크 UX 패턴 | ASAK SCR | 회의 정합 |
 | --- | --- | --- | --- | --- |
@@ -162,7 +162,7 @@ cd docs/design && python -m http.server 8765
 | **용도** | Admin SCR-015~019 |
 
 > node `14-410` Fill hex → 팀 정본 갱신. placeholder:
-> 
+>
 
 | Token | 스와치 | Hex | 용도 |
 | --- | --- | --- | --- |
@@ -190,7 +190,7 @@ cd docs/design && python -m http.server 8765
 
 ## D. ASAK 트렌드 컬러 조합 ★ 키오스크 정본 후보
 
-Figma Variables: `asak-trend-1` … `asak-trend-5` (not proteinner).  
+Figma Variables: `asak-trend-1` … `asak-trend-5` (not proteinner).
 
 스와치 미리보기: [color-swatches.html](https://github.com/hagenie128/ASAK/blob/main/docs/design/color-swatches.html)
 

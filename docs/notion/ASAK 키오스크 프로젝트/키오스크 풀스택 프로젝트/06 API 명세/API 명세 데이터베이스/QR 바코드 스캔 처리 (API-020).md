@@ -1,4 +1,4 @@
-# QR/바코드 스캔 처리
+﻿# QR/바코드 스캔 처리
 
 API ID: API-020
 Error: SCAN_INVALID, COUPON_EXPIRED

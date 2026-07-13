@@ -1,4 +1,4 @@
-# 백엔드: 추천 드레싱 menu_option 반영
+﻿# 백엔드: 추천 드레싱 menu_option 반영
 
 ↔ 요구사항: 메뉴별 추천 드레싱 표시 (../../02%20%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD%20%EC%A0%95%EC%9D%98/%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD%20%EB%AA%A9%EB%A1%9D%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/%EB%A9%94%EB%89%B4%EB%B3%84%20%EC%B6%94%EC%B2%9C%20%EB%93%9C%EB%A0%88%EC%8B%B1%20%ED%91%9C%EC%8B%9C.md)
 관련 산출물: API-003, API-004, menu_option 조회 로직

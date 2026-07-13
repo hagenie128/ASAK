@@ -429,6 +429,15 @@ def main() -> None:
     )
     try:
         with conn.cursor() as cur:
+            # This loader owns the pre-short-name schema.  Running it after
+            # migrate_short_names_mysql.py would recreate the old tables next
+            # to the canonical ones and split the data model.
+            cur.execute("SHOW TABLES LIKE 'ing'")
+            if cur.fetchone():
+                raise RuntimeError(
+                    "Short-name schema detected. This legacy loader cannot be used; "
+                    "update the seed loader for the canonical schema first."
+                )
             for ddl in DDL:
                 cur.execute(ddl)
 

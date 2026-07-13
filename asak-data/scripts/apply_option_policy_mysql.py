@@ -252,6 +252,14 @@ def main() -> None:
     )
     try:
         with conn.cursor() as cur:
+            # This script targets the pre-short-name option tables.  Refuse to
+            # recreate that schema beside the canonical opt_* tables.
+            cur.execute("SHOW TABLES LIKE 'opt_group'")
+            if cur.fetchone():
+                raise RuntimeError(
+                    "Short-name schema detected. This legacy option-policy loader "
+                    "cannot be used; update it for the canonical schema first."
+                )
             for ddl in DDL:
                 cur.execute(ddl)
 

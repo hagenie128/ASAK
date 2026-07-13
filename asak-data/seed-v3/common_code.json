@@ -1,0 +1,258 @@
+[
+  {
+    "id": 11,
+    "code_grp_id": 1,
+    "code": "RECEIVED",
+    "name": "접수",
+    "sort_no": 1,
+    "active": true
+  },
+  {
+    "id": 12,
+    "code_grp_id": 1,
+    "code": "PREPARING",
+    "name": "준비중",
+    "sort_no": 2,
+    "active": true
+  },
+  {
+    "id": 13,
+    "code_grp_id": 1,
+    "code": "COMPLETED",
+    "name": "완료",
+    "sort_no": 3,
+    "active": true
+  },
+  {
+    "id": 14,
+    "code_grp_id": 2,
+    "code": "READY",
+    "name": "결제 대기",
+    "sort_no": 4,
+    "active": true
+  },
+  {
+    "id": 15,
+    "code_grp_id": 2,
+    "code": "APPROVED",
+    "name": "결제 승인",
+    "sort_no": 5,
+    "active": true
+  },
+  {
+    "id": 16,
+    "code_grp_id": 2,
+    "code": "FAILED",
+    "name": "결제 실패",
+    "sort_no": 6,
+    "active": true
+  },
+  {
+    "id": 17,
+    "code_grp_id": 3,
+    "code": "EAT_IN",
+    "name": "먹고가기",
+    "sort_no": 7,
+    "active": true
+  },
+  {
+    "id": 18,
+    "code_grp_id": 3,
+    "code": "TAKE_OUT",
+    "name": "포장",
+    "sort_no": 8,
+    "active": true
+  },
+  {
+    "id": 19,
+    "code_grp_id": 4,
+    "code": "CARD",
+    "name": "카드",
+    "sort_no": 9,
+    "active": true
+  },
+  {
+    "id": 20,
+    "code_grp_id": 5,
+    "code": "TOPPING",
+    "name": "토핑 추가",
+    "sort_no": 10,
+    "active": true
+  },
+  {
+    "id": 21,
+    "code_grp_id": 5,
+    "code": "DRESSING",
+    "name": "드레싱 선택",
+    "sort_no": 11,
+    "active": true
+  },
+  {
+    "id": 22,
+    "code_grp_id": 5,
+    "code": "BASE",
+    "name": "베이스 선택/추가",
+    "sort_no": 12,
+    "active": true
+  },
+  {
+    "id": 23,
+    "code_grp_id": 5,
+    "code": "SET_SIDE",
+    "name": "세트 사이드 선택",
+    "sort_no": 13,
+    "active": true
+  },
+  {
+    "id": 24,
+    "code_grp_id": 5,
+    "code": "SET_DRINK",
+    "name": "세트 음료 선택",
+    "sort_no": 14,
+    "active": true
+  },
+  {
+    "id": 25,
+    "code_grp_id": 5,
+    "code": "REQUEST",
+    "name": "빼기/요청사항",
+    "sort_no": 15,
+    "active": true
+  },
+  {
+    "id": 26,
+    "code_grp_id": 6,
+    "code": "VEGGIE",
+    "name": "채소",
+    "sort_no": 16,
+    "active": true
+  },
+  {
+    "id": 27,
+    "code_grp_id": 6,
+    "code": "PROTEIN",
+    "name": "단백질",
+    "sort_no": 17,
+    "active": true
+  },
+  {
+    "id": 28,
+    "code_grp_id": 6,
+    "code": "DRESSING",
+    "name": "드레싱",
+    "sort_no": 18,
+    "active": true
+  },
+  {
+    "id": 29,
+    "code_grp_id": 6,
+    "code": "BASE",
+    "name": "베이스",
+    "sort_no": 19,
+    "active": true
+  },
+  {
+    "id": 30,
+    "code_grp_id": 6,
+    "code": "SIDE",
+    "name": "사이드",
+    "sort_no": 20,
+    "active": true
+  },
+  {
+    "id": 31,
+    "code_grp_id": 6,
+    "code": "BEVERAGE",
+    "name": "음료",
+    "sort_no": 21,
+    "active": true
+  },
+  {
+    "id": 32,
+    "code_grp_id": 7,
+    "code": "CORE",
+    "name": "핵심 재료",
+    "sort_no": 22,
+    "active": true
+  },
+  {
+    "id": 33,
+    "code_grp_id": 7,
+    "code": "BASE",
+    "name": "베이스 재료",
+    "sort_no": 23,
+    "active": true
+  },
+  {
+    "id": 34,
+    "code_grp_id": 7,
+    "code": "DEFAULT",
+    "name": "일반 기본 재료",
+    "sort_no": 24,
+    "active": true
+  },
+  {
+    "id": 35,
+    "code_grp_id": 8,
+    "code": "G",
+    "name": "g",
+    "sort_no": 25,
+    "active": true
+  },
+  {
+    "id": 36,
+    "code_grp_id": 8,
+    "code": "ML",
+    "name": "ml",
+    "sort_no": 26,
+    "active": true
+  },
+  {
+    "id": 37,
+    "code_grp_id": 8,
+    "code": "EA",
+    "name": "개",
+    "sort_no": 27,
+    "active": true
+  },
+  {
+    "id": 38,
+    "code_grp_id": 9,
+    "code": "BEST",
+    "name": "베스트",
+    "sort_no": 28,
+    "active": true
+  },
+  {
+    "id": 39,
+    "code_grp_id": 9,
+    "code": "NEW",
+    "name": "신규",
+    "sort_no": 29,
+    "active": true
+  },
+  {
+    "id": 40,
+    "code_grp_id": 9,
+    "code": "LOW_SUGAR",
+    "name": "저당",
+    "sort_no": 30,
+    "active": true
+  },
+  {
+    "id": 41,
+    "code_grp_id": 10,
+    "code": "SALADY_REFERENCE",
+    "name": "샐러디 참고 데이터",
+    "sort_no": 31,
+    "active": true
+  },
+  {
+    "id": 42,
+    "code_grp_id": 10,
+    "code": "ASAK_CURATED",
+    "name": "ASAK 큐레이션",
+    "sort_no": 32,
+    "active": true
+  }
+]

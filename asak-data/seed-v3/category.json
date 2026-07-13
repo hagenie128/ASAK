@@ -1,0 +1,38 @@
+[
+  {
+    "id": 231,
+    "name": "신메뉴",
+    "sort_no": 0,
+    "active": true
+  },
+  {
+    "id": 232,
+    "name": "기타",
+    "sort_no": 8,
+    "active": true
+  },
+  {
+    "id": 233,
+    "name": "샐러디·볼",
+    "sort_no": 2,
+    "active": true
+  },
+  {
+    "id": 234,
+    "name": "프로틴",
+    "sort_no": 5,
+    "active": true
+  },
+  {
+    "id": 235,
+    "name": "랩",
+    "sort_no": 3,
+    "active": true
+  },
+  {
+    "id": 236,
+    "name": "샌드위치",
+    "sort_no": 1,
+    "active": true
+  }
+]

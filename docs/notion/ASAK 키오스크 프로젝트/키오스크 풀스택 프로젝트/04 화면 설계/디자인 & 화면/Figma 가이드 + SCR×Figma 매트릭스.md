@@ -1,4 +1,4 @@
-# Figma 가이드 + SCR×Figma 매트릭스
+﻿# Figma 가이드 + SCR×Figma 매트릭스
 
 <aside>
 ✅
@@ -50,7 +50,7 @@
 ---
 
 > 팀 Figma **kiosk_design** · 태블릿 세로(portrait) · SCR-001~021 frame 템플릿
-> 
+>
 
 ---
 
@@ -101,7 +101,7 @@ SCR wireframe: [SCR 화면별 가이드](SCR%20%ED%99%94%EB%A9%B4%EB%B3%84%20%EA
 | **04. Admin Screens** | 015~019 | 관리자 화면 |
 
 > 상세 셋업·**페이지별 안에서 만들 것** 체크리스트 → [Figma 태블릿 세로 Setup](Figma%20%ED%83%9C%EB%B8%94%EB%A6%BF%20%EC%84%B8%EB%A1%9C%20Setup.md) · 유료 시 00~06 분리 가능
-> 
+>
 
 ---
 
@@ -163,12 +163,12 @@ https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id={nodeId
 | 4 | [Design Systems Checklist](https://www.figma.com/community/file/1152167555200057574/design-systems-checklist) | DS QA |
 | 5 | [Courses Dashboard UI KIT](https://www.figma.com/design/MZ7cCNaum5g4nAspeuENgn/Courses---Courses-Dashboard-UI-KIT?node-id=14-410) | Admin UI · node 14-410 |
 
-브랜드 컬러·UI 패턴: [브랜드 · Trend 컬러](%EB%B8%8C%EB%9E%9C%EB%93%9C%20%C2%B7%20Trend%20%EC%BB%AC%EB%9F%AC.md) · 스와치 [color-swatches.html](https://github.com/hagenie128/ASAK/blob/main/docs/design/color-swatches.html)  
+브랜드 컬러·UI 패턴: [브랜드 · Trend 컬러](%EB%B8%8C%EB%9E%9C%EB%93%9C%20%C2%B7%20Trend%20%EC%BB%AC%EB%9F%AC.md) · 스와치 [color-swatches.html](https://github.com/hagenie128/ASAK/blob/main/docs/design/color-swatches.html)
 
 ASAK Trend-1~5 오리지널 팔레트 (프로티너 등 타 브랜드 색상 복제 금지, mood 참고만)
 
 > Community frame은 참고용. SCR frame은 **834×1194 portrait**로 새로 생성.
-> 
+>
 
 ---
 

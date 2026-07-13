@@ -1,4 +1,4 @@
-# SCR 화면별 가이드 (태블릿 세로)
+﻿# SCR 화면별 가이드 (태블릿 세로)
 
 <aside>
 ✅
@@ -33,10 +33,10 @@
 ---
 
 > **834 × 1194** portrait · Safe area 상하 24 / 좌우 16 · Touch min **48px**
-> 
+>
 
 > 팀 정본: [kiosk_design](https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design) · Page 셋업: [Figma 태블릿 세로 Setup](Figma%20%ED%83%9C%EB%B8%94%EB%A6%BF%20%EC%84%B8%EB%A1%9C%20Setup.md)
-> 
+>
 
 ---
 
@@ -49,7 +49,7 @@
 | **프랜차이즈 UX** | 벤치마크 | 버거킹·공차 등 **패턴 이름**만 차용, 브랜드 색·로고 복제 금지 |
 
 > 회의와 모순되는 패턴(과한 자연풍 히어로, 복잡한 다단 메뉴, 고급 무게감 레이아웃)은 **대안**으로만 표기. 회의 컨셉·팔레트·Trend 매핑 → [브랜드 · Trend 컬러](%EB%B8%8C%EB%9E%9C%EB%93%9C%20%C2%B7%20Trend%20%EC%BB%AC%EB%9F%AC.md) · Figma 리소스·매트릭스 → [Figma 가이드](Figma%20%EA%B0%80%EC%9D%B4%EB%93%9C%20+%20SCR%C3%97Figma%20%EB%A7%A4%ED%8A%B8%EB%A6%AD%EC%8A%A4.md)
-> 
+>
 
 ---
 
@@ -98,7 +98,7 @@
 ## SCR-002 / 먹고가기 · 포장 선택
 
 > **【병합됨】** 2026-07-06 — SCR-001「홈 (매장·포장)」에 통합. 별도 라우트·와이어 없음. Figma frame은 Archive 또는 `[병합됨]` 라벨.
-> 
+>
 
 **회의 반영 (참고·Archive):**
 
@@ -283,7 +283,7 @@
 ## SCR-006 / 주문 확인
 
 > **【병합됨】** 2026-07-06 — SCR-005「장바구니·주문확인」에 통합. 최종 확인은 컨펌 팝업만. Figma frame은 Archive 또는 `[병합됨]` 라벨.
-> 
+>
 
 **회의 반영 (참고·Archive):**
 

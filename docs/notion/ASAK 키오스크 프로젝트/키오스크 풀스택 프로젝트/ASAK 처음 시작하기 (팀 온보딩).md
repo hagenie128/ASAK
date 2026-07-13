@@ -1,4 +1,4 @@
-# ASAK 처음 시작하기 (팀 온보딩)
+﻿# ASAK 처음 시작하기 (팀 온보딩)
 
 <aside>
 📌
@@ -10,7 +10,7 @@
 ---
 
 > **한 줄 요약:** ASAK는 샐러디 키오스크를 만드는 풀스택 학습 프로젝트입니다. 화면(프론트)과 API(백엔드)를 **둘 다** 켜야 실제 주문 흐름을 볼 수 있습니다.
-> 
+>
 
 처음이어도 괜찮아요. 이 문서만 순서대로 따라 하면 됩니다.
 
@@ -50,7 +50,7 @@
 실제 키오스크 개발은 `ASAK-front`와 `ASAK-back`에서 합니다.
 
 > 작업 후 통합 저장소(`ASAK`)에 다시 합칠 필요는 **없습니다.** 어디서 작업했으면 그 저장소에만 push 하면 됩니다.
-> 
+>
 
 ---
 
@@ -107,7 +107,7 @@ npm run dev
 - [ ]  백엔드 + 프론트 기동 → 메뉴 표시 🎉
 
 > **상세 명령·에러 해결·5단계 뷰어**는 Git 정본 [`docs/GETTING_STARTED.md`](https://github.com/hagenie128/ASAK/blob/main/docs/GETTING_STARTED.md) Part 1 참고.
-> 
+>
 
 ---
 
@@ -134,7 +134,7 @@ python asak-data/scripts/create_worklog.py --date today --author 이하진 --tas
 ```
 
 > **Part 2 전체(토큰 검증·중복 정리·명령표)**는 Git [`docs/GETTING_STARTED.md` Part 2](https://github.com/hagenie128/ASAK/blob/main/docs/GETTING_STARTED.md#part-2--워크로그-쓰기-유치원-선생님-모드) 또는 위 팀 가이드 정본을 보세요.
-> 
+>
 
 ---
 

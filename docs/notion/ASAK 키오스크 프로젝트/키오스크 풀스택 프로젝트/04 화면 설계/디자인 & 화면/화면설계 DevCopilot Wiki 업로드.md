@@ -1,4 +1,4 @@
-# 화면설계 DevCopilot/Wiki 업로드
+﻿# 화면설계 DevCopilot/Wiki 업로드
 
 <aside>
 📌
@@ -21,7 +21,7 @@
 Notion [**04. 화면 설계**](../../04%20%ED%99%94%EB%A9%B4%20%EC%84%A4%EA%B3%84.md) SCR DB (SCR-001~021)를 학원 PC에서 DevCopilot에 올리는 방법입니다.
 
 > Figma frame 링크·셋업 → [Figma 태블릿 세로 Setup](Figma%20%ED%83%9C%EB%B8%94%EB%A6%BF%20%EC%84%B8%EB%A1%9C%20Setup.md) · [Figma 가이드](Figma%20%EA%B0%80%EC%9D%B4%EB%93%9C%20+%20SCR%C3%97Figma%20%EB%A7%A4%ED%8A%B8%EB%A6%AD%EC%8A%A4.md)
-> 
+>
 
 ## 미리 준비한 파일 (집에서 USB/클라우드로 복사)
 
@@ -139,7 +139,7 @@ curl -X POST "https://devproject-hub-backend.onrender.com/api/workspaces/2/wikis
 
 ## Week 5 MVP 우선 화면 (SCR-001~011)
 
-고객 흐름 001~008 + 관리자 009~011 + 결제실패 012(최소 안내).  
+고객 흐름 001~008 + 관리자 009~011 + 결제실패 012(최소 안내).
 
 SCR-013~021은 후반 확장 — Wiki에만 있어도 제출 가능.
 

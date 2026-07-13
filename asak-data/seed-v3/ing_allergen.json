@@ -1,0 +1,542 @@
+[
+  {
+    "id": 59,
+    "ing_id": 58,
+    "allergen_id": 43
+  },
+  {
+    "id": 60,
+    "ing_id": 58,
+    "allergen_id": 44
+  },
+  {
+    "id": 62,
+    "ing_id": 61,
+    "allergen_id": 45
+  },
+  {
+    "id": 63,
+    "ing_id": 61,
+    "allergen_id": 46
+  },
+  {
+    "id": 64,
+    "ing_id": 61,
+    "allergen_id": 43
+  },
+  {
+    "id": 65,
+    "ing_id": 61,
+    "allergen_id": 44
+  },
+  {
+    "id": 67,
+    "ing_id": 66,
+    "allergen_id": 47
+  },
+  {
+    "id": 68,
+    "ing_id": 66,
+    "allergen_id": 43
+  },
+  {
+    "id": 69,
+    "ing_id": 66,
+    "allergen_id": 44
+  },
+  {
+    "id": 71,
+    "ing_id": 70,
+    "allergen_id": 47
+  },
+  {
+    "id": 72,
+    "ing_id": 70,
+    "allergen_id": 43
+  },
+  {
+    "id": 73,
+    "ing_id": 70,
+    "allergen_id": 44
+  },
+  {
+    "id": 74,
+    "ing_id": 70,
+    "allergen_id": 50
+  },
+  {
+    "id": 76,
+    "ing_id": 75,
+    "allergen_id": 47
+  },
+  {
+    "id": 78,
+    "ing_id": 77,
+    "allergen_id": 47
+  },
+  {
+    "id": 79,
+    "ing_id": 77,
+    "allergen_id": 43
+  },
+  {
+    "id": 80,
+    "ing_id": 77,
+    "allergen_id": 44
+  },
+  {
+    "id": 81,
+    "ing_id": 77,
+    "allergen_id": 50
+  },
+  {
+    "id": 82,
+    "ing_id": 77,
+    "allergen_id": 53
+  },
+  {
+    "id": 84,
+    "ing_id": 83,
+    "allergen_id": 43
+  },
+  {
+    "id": 85,
+    "ing_id": 83,
+    "allergen_id": 44
+  },
+  {
+    "id": 86,
+    "ing_id": 83,
+    "allergen_id": 51
+  },
+  {
+    "id": 87,
+    "ing_id": 83,
+    "allergen_id": 50
+  },
+  {
+    "id": 90,
+    "ing_id": 89,
+    "allergen_id": 45
+  },
+  {
+    "id": 91,
+    "ing_id": 89,
+    "allergen_id": 43
+  },
+  {
+    "id": 92,
+    "ing_id": 89,
+    "allergen_id": 44
+  },
+  {
+    "id": 93,
+    "ing_id": 89,
+    "allergen_id": 55
+  },
+  {
+    "id": 94,
+    "ing_id": 89,
+    "allergen_id": 53
+  },
+  {
+    "id": 97,
+    "ing_id": 96,
+    "allergen_id": 45
+  },
+  {
+    "id": 98,
+    "ing_id": 96,
+    "allergen_id": 47
+  },
+  {
+    "id": 99,
+    "ing_id": 96,
+    "allergen_id": 43
+  },
+  {
+    "id": 101,
+    "ing_id": 100,
+    "allergen_id": 43
+  },
+  {
+    "id": 102,
+    "ing_id": 100,
+    "allergen_id": 44
+  },
+  {
+    "id": 103,
+    "ing_id": 100,
+    "allergen_id": 55
+  },
+  {
+    "id": 104,
+    "ing_id": 100,
+    "allergen_id": 53
+  },
+  {
+    "id": 106,
+    "ing_id": 105,
+    "allergen_id": 45
+  },
+  {
+    "id": 107,
+    "ing_id": 105,
+    "allergen_id": 43
+  },
+  {
+    "id": 109,
+    "ing_id": 108,
+    "allergen_id": 43
+  },
+  {
+    "id": 112,
+    "ing_id": 111,
+    "allergen_id": 45
+  },
+  {
+    "id": 113,
+    "ing_id": 111,
+    "allergen_id": 43
+  },
+  {
+    "id": 114,
+    "ing_id": 111,
+    "allergen_id": 44
+  },
+  {
+    "id": 116,
+    "ing_id": 115,
+    "allergen_id": 43
+  },
+  {
+    "id": 117,
+    "ing_id": 115,
+    "allergen_id": 44
+  },
+  {
+    "id": 126,
+    "ing_id": 125,
+    "allergen_id": 50
+  },
+  {
+    "id": 129,
+    "ing_id": 128,
+    "allergen_id": 47
+  },
+  {
+    "id": 130,
+    "ing_id": 128,
+    "allergen_id": 43
+  },
+  {
+    "id": 131,
+    "ing_id": 128,
+    "allergen_id": 44
+  },
+  {
+    "id": 132,
+    "ing_id": 128,
+    "allergen_id": 50
+  },
+  {
+    "id": 133,
+    "ing_id": 128,
+    "allergen_id": 53
+  },
+  {
+    "id": 135,
+    "ing_id": 134,
+    "allergen_id": 43
+  },
+  {
+    "id": 136,
+    "ing_id": 134,
+    "allergen_id": 52
+  },
+  {
+    "id": 137,
+    "ing_id": 134,
+    "allergen_id": 53
+  },
+  {
+    "id": 139,
+    "ing_id": 138,
+    "allergen_id": 43
+  },
+  {
+    "id": 140,
+    "ing_id": 138,
+    "allergen_id": 44
+  },
+  {
+    "id": 141,
+    "ing_id": 138,
+    "allergen_id": 55
+  },
+  {
+    "id": 142,
+    "ing_id": 138,
+    "allergen_id": 53
+  },
+  {
+    "id": 144,
+    "ing_id": 143,
+    "allergen_id": 43
+  },
+  {
+    "id": 145,
+    "ing_id": 143,
+    "allergen_id": 52
+  },
+  {
+    "id": 147,
+    "ing_id": 146,
+    "allergen_id": 43
+  },
+  {
+    "id": 148,
+    "ing_id": 146,
+    "allergen_id": 52
+  },
+  {
+    "id": 150,
+    "ing_id": 149,
+    "allergen_id": 45
+  },
+  {
+    "id": 152,
+    "ing_id": 151,
+    "allergen_id": 43
+  },
+  {
+    "id": 154,
+    "ing_id": 153,
+    "allergen_id": 52
+  },
+  {
+    "id": 156,
+    "ing_id": 155,
+    "allergen_id": 43
+  },
+  {
+    "id": 157,
+    "ing_id": 155,
+    "allergen_id": 54
+  },
+  {
+    "id": 158,
+    "ing_id": 155,
+    "allergen_id": 53
+  },
+  {
+    "id": 160,
+    "ing_id": 159,
+    "allergen_id": 45
+  },
+  {
+    "id": 161,
+    "ing_id": 159,
+    "allergen_id": 47
+  },
+  {
+    "id": 162,
+    "ing_id": 159,
+    "allergen_id": 43
+  },
+  {
+    "id": 163,
+    "ing_id": 159,
+    "allergen_id": 55
+  },
+  {
+    "id": 167,
+    "ing_id": 166,
+    "allergen_id": 43
+  },
+  {
+    "id": 171,
+    "ing_id": 170,
+    "allergen_id": 51
+  },
+  {
+    "id": 173,
+    "ing_id": 172,
+    "allergen_id": 43
+  },
+  {
+    "id": 176,
+    "ing_id": 175,
+    "allergen_id": 51
+  },
+  {
+    "id": 177,
+    "ing_id": 175,
+    "allergen_id": 56
+  },
+  {
+    "id": 180,
+    "ing_id": 179,
+    "allergen_id": 43
+  },
+  {
+    "id": 181,
+    "ing_id": 179,
+    "allergen_id": 44
+  },
+  {
+    "id": 183,
+    "ing_id": 182,
+    "allergen_id": 48
+  },
+  {
+    "id": 185,
+    "ing_id": 184,
+    "allergen_id": 43
+  },
+  {
+    "id": 187,
+    "ing_id": 186,
+    "allergen_id": 44
+  },
+  {
+    "id": 190,
+    "ing_id": 189,
+    "allergen_id": 47
+  },
+  {
+    "id": 192,
+    "ing_id": 191,
+    "allergen_id": 43
+  },
+  {
+    "id": 194,
+    "ing_id": 193,
+    "allergen_id": 47
+  },
+  {
+    "id": 196,
+    "ing_id": 195,
+    "allergen_id": 45
+  },
+  {
+    "id": 197,
+    "ing_id": 195,
+    "allergen_id": 43
+  },
+  {
+    "id": 198,
+    "ing_id": 195,
+    "allergen_id": 55
+  },
+  {
+    "id": 200,
+    "ing_id": 199,
+    "allergen_id": 45
+  },
+  {
+    "id": 201,
+    "ing_id": 199,
+    "allergen_id": 43
+  },
+  {
+    "id": 202,
+    "ing_id": 199,
+    "allergen_id": 44
+  },
+  {
+    "id": 203,
+    "ing_id": 199,
+    "allergen_id": 49
+  },
+  {
+    "id": 206,
+    "ing_id": 205,
+    "allergen_id": 47
+  },
+  {
+    "id": 207,
+    "ing_id": 205,
+    "allergen_id": 53
+  },
+  {
+    "id": 209,
+    "ing_id": 208,
+    "allergen_id": 47
+  },
+  {
+    "id": 211,
+    "ing_id": 210,
+    "allergen_id": 43
+  },
+  {
+    "id": 212,
+    "ing_id": 210,
+    "allergen_id": 44
+  },
+  {
+    "id": 213,
+    "ing_id": 210,
+    "allergen_id": 50
+  },
+  {
+    "id": 214,
+    "ing_id": 210,
+    "allergen_id": 53
+  },
+  {
+    "id": 216,
+    "ing_id": 215,
+    "allergen_id": 45
+  },
+  {
+    "id": 217,
+    "ing_id": 215,
+    "allergen_id": 47
+  },
+  {
+    "id": 218,
+    "ing_id": 215,
+    "allergen_id": 43
+  },
+  {
+    "id": 220,
+    "ing_id": 219,
+    "allergen_id": 43
+  },
+  {
+    "id": 221,
+    "ing_id": 219,
+    "allergen_id": 44
+  },
+  {
+    "id": 224,
+    "ing_id": 223,
+    "allergen_id": 45
+  },
+  {
+    "id": 225,
+    "ing_id": 223,
+    "allergen_id": 47
+  },
+  {
+    "id": 226,
+    "ing_id": 223,
+    "allergen_id": 43
+  },
+  {
+    "id": 227,
+    "ing_id": 223,
+    "allergen_id": 56
+  },
+  {
+    "id": 229,
+    "ing_id": 228,
+    "allergen_id": 45
+  },
+  {
+    "id": 230,
+    "ing_id": 228,
+    "allergen_id": 43
+  }
+]
