@@ -17,5 +17,11 @@ frontend/dist/
 .agents/
 .cursor/
 .vscode/
+.claude/
 ASAK-front-recovered/
 ASAK-back-recovered/
+
+# Local Notion export archives; the curated docs/notion tree is versioned instead.
+docs/notion/notion.zip
+docs/notion/*_ExportBlock-*/
+docs/notion/개인 페이지 & 공유된 페이지/
