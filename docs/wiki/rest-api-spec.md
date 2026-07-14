@@ -4,6 +4,8 @@
 
 > Notion 06. API 명세 · API-001~020 · 공통 응답 `{success,status,code,message,data}`
 
+> **2026-07-14 표준:** 모든 서비스 endpoint는 `/api`로 시작하며 JSON property는 `camelCase`다. 제공된 DevCopilot MCP 연결 URL은 서비스 API endpoint가 아니다. DB의 `snake_case` 컬럼명은 API에 노출하지 않는다. 상세 전환 기준은 [2026-07-14 피드백 반영 기준](../team/2026-07-14-feedback-resolution.md)을 따른다.
+
 > **Week 5 MVP:** 고객 키오스크 주문 흐름(API-001~006) 완성이 최우선. 장치·멤버십·실결제·상세통계는 후반 확장.
 
 ## 작성 체크리스트
