@@ -4,7 +4,7 @@
 > 대상 Figma: `ASAK — Design System / Product UI — 2026-07-14` (`node-id=2:6`)
 > 우선 대상 페이지: `💻 05. 관리자 웹 와이어프레임`, `🖼️ 06. Hi-fi 디자인`
 > 근거 우선순위: 실제 코드 → 최신 API/프론트 계약 → DB 백업 DDL·seed-v3 → 요구사항/기존 Figma 점검 문서.
-> 한계: 연결된 Figma 파일은 이 감사 환경에서 읽기 전용으로도 열리지 않아, 프레임의 실제 픽셀/레이어 존재 여부는 기존 2026-07-14 Figma 점검 보고서의 인벤토리를 기준으로 했다. Figma Agent는 수정 전 페이지 05·06을 다시 스캔하여 이 문서의 ‘확인 필요’를 확정해야 한다.
+> Figma 직접 점검(2026-07-15): 링크 파일 `VXKyzoNdsgM4oN57mrECxb`는 현재 `00. START HERE` 한 개의 top-level 페이지와 `start-here-memo`/`asset-migration-inventory`만 노출한다. `node-id=2:6`은 선택 컨텍스트를 반환하지 않았고, 05·06 Frame은 이 파일에서 확인되지 않았다. 인벤토리에는 ASAK-1/ASAK-2에서 키오스크 15개, 관리자 24개 화면을 이관 대상으로 적어 두었지만 화면 인스턴스 자체는 없다. 그러므로 Figma Agent는 우선 실제 화면이 있는 source 파일/branch를 찾거나, 이 파일 안에 새 05·06 페이지를 만들 권한·범위를 확인해야 한다.
 
 ## A. 프로젝트 데이터 구조 요약
 
@@ -13,6 +13,13 @@
 - `ASAK-back`은 `GET /api/health`와 `ApiResponse`만 구현된 Spring Boot 골격이다. Entity/DTO/Repository/Service/주문 Controller는 현재 없다.
 - `ASAK-Kiosk`는 API 클라이언트, Zustand 주문 세션, 일부 메뉴 목록/카테고리 mock 연결만 존재한다. 메뉴 상세·장바구니·결제·주문완료·관리자 페이지와 대부분의 컴포넌트는 자리표시자다.
 - 그러므로 API-001~020의 DTO/응답 필드는 **현재 실행 코드가 아니라** `ASAK-Kiosk/src/contracts/api-data-contract.md`, `ASAK/docs/wiki/rest-api-spec.md`, `public/mocks/kiosk.json`에 정의된 구현 계약이다. Figma에는 이 계약의 필드명/상태를 쓰되, 지원하지 않는 값을 실데이터처럼 고정하지 않는다.
+
+### 링크 Figma의 실제 확인 결과
+
+- `00. START HERE`의 목적은 `MCP / Code Connect ready design source`, 원본 `ASAK-1 + ASAK-2`는 수정 금지, 프런트 구현은 화면 스크린샷이 아니라 Figma 컴포넌트를 사용한다는 것이다.
+- 확인된 디자인 시스템은 Light mode 색상 변수 42개, spacing token 13개, radius token 7개, elevation style 4개, Noto Sans KR text style 32개다.
+- 같은 페이지의 QA checklist에서 아직 미완료인 항목은 (1) 모든 화면 root의 `__spec` Route/Data/States/Actions, (2) 모든 반복 UI의 Auto Layout+Component Instance, (3) Kiosk/Admin loading·empty·error, (4) 불확정 데이터의 `데이터 연결 예정`/`Mock settings` 표기, (5) asset migration inventory 완료다.
+- 따라서 아래 05·06 표와 Figma Agent 프롬프트는 **목표 화면 명세**다. 현재 링크의 05·06 화면을 이미 존재하는 화면으로 간주하거나, 보지 못한 화면의 레이아웃을 사실처럼 보고하지 않는다.
 
 ### 주요 테이블·관계
 
@@ -53,7 +60,7 @@
 
 ### Figma/계약에서 반드시 보완할 항목
 
-1. 기존 보고서상 05에는 `A-001~A-007`, 06은 비어 있다. 05의 관리자 프레임은 실제 코드 화면명·API 데이터·상태를 명시하고, 06에는 디자인 완료본을 **복제/정리**해 배치해야 한다. 06을 근거 없는 새 기능 화면으로 채우지 않는다.
+1. 링크 파일에는 현재 05·06 Frame이 확인되지 않는다. source ASAK-1/ASAK-2 또는 의도한 branch에서 화면 Frame을 먼저 확인하고, 이 파일에 새 05/06을 만든다면 실제 코드 화면명·API 데이터·상태를 명시한다. 06을 근거 없는 새 기능 화면으로 채우지 않는다.
 2. 주문 목록/상세는 `orderNo`, `orderType`, `orderStatus`, `paymentStatus`, `totalPrice`, `createdAt`, `items`, `selectedOptions`, `excludedIngredients`를 구분해 표시해야 한다. 옵션과 제외 재료가 합쳐진 하나의 ‘요청사항’이면 조리 오류가 난다.
 3. 품절 관리는 `targetType=MENU|INGREDIENT|OPTION_ITEM`, `targetId`, `name`, `isSoldOut`, `reasonType`을 보여야 한다. 메뉴 자체 품절과 핵심 재료 품절(주문 불가), 일반 재료/옵션 품절(선택 불가·안내)을 같은 빨간 배지 하나로 축소하지 않는다.
 4. 관리자 매출은 `from/to` 기간, 요약, 일별 매출·메뉴별 판매량, 로딩/빈/오류를 갖춰야 한다. ‘평균 주문금액’, 결제수단별 통계, 할인·환불은 현 API/DDL에 근거가 없으므로 확정 KPI로 두지 않는다.
