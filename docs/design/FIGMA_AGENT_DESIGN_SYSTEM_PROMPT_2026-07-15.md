@@ -25,7 +25,7 @@
 - 새 파일의 첫 페이지에 `Source Inventory`를 만들고 `원본 fileKey`, `원본 node ID`, `복사일`, `원본 Component name`, `새 Component name`, `사용 화면`을 기록한다.
 - React 코드를 작성하지 않는다. 다만 웹·앱 구현을 막는 Figma 구조는 아래 `0-4. 구현 가능성 보정` 규칙 안에서 새 파일의 Local Component/화면에 한해 수정할 수 있다. 수정은 React props·배열 렌더링·반응형 레이아웃 관점에서 문서화한다.
 - 추측으로 가격·할인·환불·칼로리·결제수단·매출 KPI를 확정값으로 추가하지 않는다. API/DB 근거가 없으면 `Mock settings`, `데이터 연결 예정`, `__manual-check`로 남긴다.
-- API URL/JSON/Figma Property는 camelCase, DB 출처 메모는 snake_case, Component Set/클래스는 PascalCase, 상수·토큰은 UpperCamelCase를 사용한다.
+- API URL/JSON/Figma Property는 camelCase, DB 출처 메모는 snake_case, React 클래스·컴포넌트·파일명은 PascalCase, 상수·토큰은 UpperCamelCase를 사용한다. Figma Component Set 이름은 코드 식별자가 아니라 계층형 자산명으로 `Area/Component Name` 표기를 사용한다. 예: `Admin/Nav Item`, `Admin/Sidebar Item`, `Kiosk/Menu Card`.
 
 ### 허용 작업과 금지 작업
 
@@ -50,7 +50,7 @@
 3. 실제 Enum/상태값이 있는데 Figma Variant가 부족하면 해당 값만 Variant 또는 Boolean Property로 추가한다. 자유 텍스트·금액·이미지는 무한 Variant 대신 Property로 둔다.
 4. 화면별 loading, empty, error, disabled, selected, soldOut, processing 상태가 실제 API/흐름으로 확인되는데 빠져 있으면 Local Screen/Component에 상태를 보완한다. 근거 없는 취소·환불·KPI·결제수단·칼로리 계산값은 추가하지 않는다.
 5. 웹/앱의 viewport, safe area, keyboard, bottom CTA, table/detail panel, touch target 때문에 구현 불가능한 고정 크기·중첩 스크롤·클릭 영역은 제약을 명시하고 수정한다. Kiosk는 1080×1920, Admin은 1920×1080을 기본 검증 크기로 한다.
-6. 개발 전달을 방해하는 Local Component/Property/Variant 이름은 위 네이밍 규칙에 맞춰 정리할 수 있다. 이때 `Source Inventory`에 원본 이름·원본 node ID·새 이름을 모두 남기고, 모든 Local Instance를 새 Component로 swap한 뒤 연결을 검증한다.
+6. 개발 전달을 방해하는 Local Component/Property/Variant 이름은 위 네이밍 규칙에 맞춰 정리할 수 있다. Figma Component Set은 사람이 읽기 쉬운 계층형 표기(`Admin/Nav Item`)를 유지하고, React target에는 별도의 PascalCase 코드명(`AdminNavItem` 또는 `NavItem`)을 기록한다. 이때 `Source Inventory`에 원본 이름·원본 node ID·새 Figma 이름·React target을 모두 남기고, 모든 Local Instance를 새 Component로 swap한 뒤 연결을 검증한다.
 7. 색만으로 상태를 전달하거나 접근 가능한 이름/터치 영역이 없어 구현·접근성 검증이 어려우면 기존 디자인 언어 안에서 label/icon, state description, 48×48 px 이상 hit area를 보완한다.
 
 다음 경우에는 수정하지 않고 `__manual-check`로 남긴다: DB/API가 제공하지 않는 값, 서로 충돌하는 문서와 코드, 실제 Enum에 없는 상태, 계산 주체가 정해지지 않은 가격·할인·영양 정보, 플랫폼별 정책 결정이 필요한 동작.
@@ -91,7 +91,7 @@
 
 ### 0-3. 이름·레이어·명세 기록 방식
 
-- 복사한 원본 Frame/Component Set의 이름과 계층은 임의로 고치지 않는다. 자동 이름·오탈자는 `Source Inventory`의 `recommendedName` 열과 `__manual-check`에서만 관리한다.
+- 복사한 원본 Frame/Component Set의 이름과 계층은 임의로 고치지 않는다. 자동 이름·오탈자는 `Source Inventory`의 `recommendedFigmaName`, `reactTarget` 열과 `__manual-check`에서 분리 관리한다. Figma의 `/`는 자산 그룹 구분자이므로 `Admin/Nav-Item`을 React PascalCase 규칙만을 이유로 `Admin/NavItem`으로 바꾸지 않는다. 가독성 개선이 필요한 경우에만 `Admin/Nav Item`처럼 Figma 표기를 정리한다.
 - 새로 만드는 문서 Frame만 `SCR-XXX / Area / Screen / State` 형식을 사용한다. 예: `SCR-003 / Kiosk / Menu List / Default`.
 - 새 문서의 레이어 이름은 역할 기반 PascalCase를 쓴다. 예: `Header`, `Content`, `Footer`, `StatePanel`, `SpecPanel`, `SourceInventoryTable`. 의미 없는 `Frame 1`은 새 문서에서만 사용하지 않는다.
 - 각 이관 화면의 인덱스/문서 카드에는 `__spec`을 둔다. 복사한 화면 root 내부에 원래 없던 레이어를 삽입해야 한다면 화면 구조를 바꾸지 말고, 화면 바깥의 인덱스 카드에 `__spec`을 둔다.
@@ -129,7 +129,7 @@
 
 ## 2. 공통 컴포넌트 정비
 
-`Property 1`, `Variant2`, `sourse`, `menu-itme`, `Frame 1` 같은 자동 이름과 오탈자는 원본에서 고치지 않는다. 새 파일의 인벤토리에는 권장 이름을 PascalCase/camelCase 규칙으로 병기하고, 원본 이름·ID·사용처를 함께 기록한다.
+`Property 1`, `Variant2`, `sourse`, `menu-itme`, `Frame 1` 같은 자동 이름과 오탈자는 원본에서 고치지 않는다. 새 파일의 인벤토리에는 `recommendedFigmaName`과 `reactTarget`을 분리해 병기한다. Figma Component Set은 `Area/Component Name` 계층형 표기, Figma Property는 camelCase, React target은 PascalCase를 사용하며 원본 이름·ID·사용처를 함께 기록한다.
 
 다음 Component Set은 새로 만들거나 구조를 바꾸지 않는다. 현재 쓰이는 Set의 Property/Variant/사용처를 인벤토리와 description으로 정리한다.
 
