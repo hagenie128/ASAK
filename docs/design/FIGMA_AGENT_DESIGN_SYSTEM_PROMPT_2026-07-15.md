@@ -33,20 +33,63 @@
 - 금지: 복사된 자산의 색상·spacing·radius·elevation·이미지·아이콘·레이아웃·컴포넌트 계층·Property·Variant·상태·토큰을 Agent 판단으로 변경, 추가, 삭제, 교체, 병합, 분리하는 행위. 폰트 외 시각/구조 변경은 하지 않는다.
 - 아래의 화면별 Property/상태 목록은 **코드 반영을 위한 데이터 계약 문서화 목록**이다. 해당 Property/Variant가 기존에 없으면 Figma를 고치지 말고 `__manual-check`와 Component description에 기록한다.
 
+### 0-1. 새 파일 이관 순서와 완료 조건
+
+1. 새 Design 파일을 만든 직후 `00. START HERE`를 만든다. 이 페이지는 원본을 편집하는 공간이 아니라 새 파일의 사용 범위와 출처를 설명하는 표지다.
+2. 화면을 복사하기 전에 화면별 사용 Component·Style·Variable·Asset과 원본 node ID를 `Source Inventory`에 기록한다. 원본 이름이 부정확해도 원본 이름은 보존하고, 권장 이름은 별도 열에 기록한다.
+3. Component Set, 화면 Frame, 아이콘·이미지, 실제 사용 Style/Variable을 복사한다. 복사한 뒤 새 파일의 Local Component/Local Style/Local Variable인지 확인하고, 외부 참조만 새 파일에서 끊어 Local Component로 swap한다.
+4. 화면 인스턴스의 수, Property 값, Variant 값, 텍스트 내용, Auto Layout 방향·padding·gap·크기, 이미지가 복사 전후 동일한지 대조한다. 새 파일에서 허용한 유일한 시각 변경은 `Noto Sans KR` 적용이다.
+5. 출처가 없는 인스턴스, remote style, remote variable, external library component가 하나라도 남으면 완료로 표시하지 않는다. 이유와 대응 여부를 `__manual-check`에 남긴다.
+
+`00. START HERE`에는 아래 항목을 Auto Layout 표로 정리한다.
+
+- `Source file`: `VXKyzoNdsgM4oN57mrECxb` 및 원본 페이지/node 링크
+- `Purpose`: 구현 handoff와 포트폴리오용 독립 사본
+- `Scope`: 05/06 화면에서 실제 사용된 자산만 이관
+- `Font`: `Noto Sans KR` (fallback은 `Noto Sans`, 사용 시 `FONT FALLBACK USED` 기록)
+- `Isolation rule`: 원본·외부 라이브러리 참조 0건, 새 파일 Local Component/Style/Variable만 사용
+- `Source Inventory`와 `Migration QA` 링크
+
+### 0-2. 새 파일 페이지 구조
+
+아래 이름과 순서로 새 파일을 구성한다. 원본의 동일 페이지를 이동·개명하는 것이 아니라, 새 파일에 만든 페이지다.
+
+| 순서 | 새 파일 페이지 | 내용 |
+| --- | --- | --- |
+| 00 | `00. START HERE` | 파일 목적, 범위, Source Inventory, Migration QA, 읽는 순서 |
+| 01 | `01. Foundations` | 실제 사용 토큰·스타일·아이콘·그리드의 사용처 문서 |
+| 02 | `02. Components / Shared` | 이관된 공통 Local Component와 사용처/계약 |
+| 03 | `03. Components / Kiosk` | 이관된 Kiosk Local Component와 사용처/계약 |
+| 04 | `04. Components / Admin` | 이관된 Admin Local Component와 사용처/계약 |
+| 05 | `05. Screens / Kiosk` | 포트폴리오·handoff에 필요한 이관 화면과 상태 증빙 |
+| 06 | `06. Screens / Admin` | 포트폴리오·handoff에 필요한 이관 화면과 상태 증빙 |
+| 07 | `07. User Flows & Prototype` | 원본 흐름의 문서화와 분기/상태표 |
+| 08 | `08. Handoff / Specs` | 구현 계약, 데이터 근거, 포트폴리오 서술 |
+| 99 | `99. Archive / Imported Legacy` | 명시적으로 보존할 필요가 있는 복사본만; 미사용 원본 자산은 이관하지 않음 |
+
+### 0-3. 이름·레이어·명세 기록 방식
+
+- 복사한 원본 Frame/Component Set의 이름과 계층은 임의로 고치지 않는다. 자동 이름·오탈자는 `Source Inventory`의 `recommendedName` 열과 `__manual-check`에서만 관리한다.
+- 새로 만드는 문서 Frame만 `SCR-XXX / Area / Screen / State` 형식을 사용한다. 예: `SCR-003 / Kiosk / Menu List / Default`.
+- 새 문서의 레이어 이름은 역할 기반 PascalCase를 쓴다. 예: `Header`, `Content`, `Footer`, `StatePanel`, `SpecPanel`, `SourceInventoryTable`. 의미 없는 `Frame 1`은 새 문서에서만 사용하지 않는다.
+- 각 이관 화면의 인덱스/문서 카드에는 `__spec`을 둔다. 복사한 화면 root 내부에 원래 없던 레이어를 삽입해야 한다면 화면 구조를 바꾸지 말고, 화면 바깥의 인덱스 카드에 `__spec`을 둔다.
+- `__spec`은 `Route`, `Data`, `States`, `Actions`, `Source node`, `Local component dependencies`, `Manual checks`만 적는다. API/DTO 전문이나 추측 데이터는 넣지 않는다.
+
 ## 1. Foundations 사용처 정리
 
-원본 파일의 Light color 변수 42개, spacing 13개, radius 7개, elevation 4개, text style 32개의 **실제 사용처**를 새 파일에 정리한다. 토큰 체계를 재설계하거나 alias를 새로 만들지 않는다. 원본의 폰트는 변경하지 않으며 새 파일의 텍스트만 `Noto Sans KR`로 사용한다.
+원본 파일의 Light color 변수 42개, spacing 13개, radius 7개, elevation 4개, text style 32개의 **실제 사용처**를 새 파일에 정리한다. 토큰 체계를 재설계하거나 alias를 새로 만들지 않는다. 원본 파일은 어떤 글꼴도 변경하지 않으며, 새 파일로 복사된 화면·컴포넌트·문서의 모든 텍스트만 `Noto Sans KR`로 통일한다.
 
 ### 1-1. Token inventory
 
 - 각 활성 화면/컴포넌트가 실제로 참조하는 color·spacing·radius·elevation·text style을 표로 기록한다.
 - 값, 이름, alias, 색상 역할은 수정하지 않는다. 사용되지 않는 자산도 삭제하거나 Archive로 이동하지 않는다.
 - 시각적인 판단이나 새로운 semantic token 제안이 필요하면 수정하지 말고 `__manual-check` 메모로만 남긴다.
+- `01. Foundations`는 Color, Typography, Spacing, Radius, Elevation, Icon/Asset, Grid/Breakpoint의 문서 보드로 나누되, 모든 표는 원본에서 실제로 확인한 값과 사용처만 표시한다. 견본 색·임의 토큰·가상의 반응형 수치를 만들지 않는다.
 
 ### 1-2. Space, radius, elevation, type
 
 - existing padding/gap/radius/elevation/size 값은 유지한다.
-- 새 파일에서 만드는 인벤토리·표·설명·포트폴리오 텍스트는 모두 `Noto Sans KR`를 사용한다. 원본 화면/Component Set의 font family, size, weight, line height, letter spacing, text style은 변경하지 않는다.
+- 새 파일의 모든 텍스트는 `Noto Sans KR`를 사용한다. 해당 폰트가 사용할 수 없으면 `Noto Sans`를 fallback으로 쓰고 `Migration QA`에 `FONT FALLBACK USED`를 남긴다. 새 파일에서 font family 외 size, weight, line height, letter spacing, text style 값은 복사 당시 값을 유지한다. 원본 화면/Component Set은 font family를 포함해 어떤 값도 변경하지 않는다.
 
 ### 1-3. 접근성
 
@@ -59,6 +102,8 @@
 `Property 1`, `Variant2`, `sourse`, `menu-itme`, `Frame 1` 같은 자동 이름과 오탈자는 원본에서 고치지 않는다. 새 파일의 인벤토리에는 권장 이름을 PascalCase/camelCase 규칙으로 병기하고, 원본 이름·ID·사용처를 함께 기록한다.
 
 다음 Component Set은 새로 만들거나 구조를 바꾸지 않는다. 현재 쓰이는 Set의 Property/Variant/사용처를 인벤토리와 description으로 정리한다.
+
+아래 표의 필수 항목은 **목표 계약표**다. 이관된 Local Component에 이미 있는 Property/Variant는 그대로 기록하고, 없는 항목은 추가하지 말고 `currentSupport`, `missingContract`, `__manual-check`로 구분한다. 원본 또는 복사본을 표에 맞추려고 재구성하지 않는다.
 
 | Component Set | 필수 Property/Variant |
 | --- | --- |
@@ -159,6 +204,13 @@
   `States: default | loading | empty | error | ...`
   `Actions: ...`
 
+### 5-1. Migration QA와 포트폴리오 검증
+
+- 화면별로 `sourceNodeId`, `localNodeId`, `sourceComponent`, `localComponent`, `remoteReference=0`, `font=Noto Sans KR|Noto Sans fallback`, `instanceCount`, `variantCheck`, `autoLayoutCheck`, `overflowCheck`를 표로 남긴다.
+- Noto Sans KR 적용으로 생기는 줄바꿈·잘림은 기록하고, 문장·콘텐츠·여백·컴포넌트 구조를 바꿔 해결하지 않는다. 폰트 자체를 적용할 수 없는 항목은 원인과 함께 `FONT FALLBACK USED` 또는 `__manual-check`로 남긴다.
+- `loading`, `empty`, `error`, `disabled`, `soldOut`, `processing`, `selected` 상태는 원본에 실제 존재하는 화면/Variant를 우선 증빙한다. 존재하지 않는 상태는 새로운 화면을 꾸며 만들지 말고, 필요한 이유와 API/Enum 근거를 `__manual-check`에 기록한다.
+- Prototype은 새 파일의 이관 화면 사이에서만 최소 연결한다. 상호작용/전환이 원본에 없거나 데이터 계약이 불명확하면 링크를 추측해 만들지 않고 흐름표로 남긴다.
+
 ## 6. 새 파일 완료 보고서
 
 새 파일 작성 후 다음을 표로 보고한다.
@@ -175,9 +227,9 @@
 
 이 프롬프트는 화면 예쁘게 정리하는 데서 끝나지 않도록 다음을 강제합니다.
 
-- 화면 root의 `__spec`에는 `Route`, `Data`, `States`, `Actions`를 기록합니다. 구현자는 화면 캡처가 아니라 이 계약과 Component Set을 기준으로 React를 작성합니다.
-- Component Set은 데이터명이 드러나는 `camelCase` Property와 상태 Variant를 사용하므로, React prop/DTO 필드에 그대로 대응할 수 있습니다. 예: `MenuCard.menuName`, `CartItem.lineTotal`, `PaymentMethodCard.selected`, `DataTableRow.orderStatus`.
-- Code Connect 준비 대상은 Figma Component Set과 아래 코드 파일을 1:1로 기록합니다. 매핑 추가는 컴포넌트 구조를 정리한 뒤에만 수행합니다.
+- 화면 인덱스/문서 카드의 `__spec`에는 `Route`, `Data`, `States`, `Actions`, `Source node`, `Local component dependencies`, `Manual checks`를 기록합니다. 구현자는 화면 캡처가 아니라 이 계약과 이관된 Local Component를 기준으로 React를 작성합니다.
+- 이관된 Component Set의 실제 `camelCase` Property와 상태 Variant만 React prop/DTO 후보로 기록합니다. 예: 실제 존재할 때 `MenuCard.menuName`, `CartItem.lineTotal`, `PaymentMethodCard.selected`, `DataTableRow.orderStatus`. 표에 있지만 현재 Figma에 없는 항목은 Component를 고치지 않고 `missingContract`로 남깁니다.
+- Code Connect는 새 파일의 Local Component Set과 아래 코드 파일의 **후보 매핑표**까지만 작성합니다. 이 작업에서 Code Connect 연결이나 코드 파일 생성은 하지 않으며, 구현자가 실제 컴포넌트 인터페이스를 확정한 후 1:1 매핑합니다.
 
 | Figma Component Set | React 대상 |
 | --- | --- |
@@ -186,10 +238,10 @@
 | `OrderStatusBadge`, `OrderTable`, `SoldOutToggle`, `SalesChart` | `ASAK-Kiosk/src/components/admin/*.jsx` |
 | `DataTableRow`, `OrderDetailRow`, `SoldOutItem`, `SalesMetricCard` | 관리자 컴포넌트 구현 시 같은 PascalCase 파일명으로 생성 |
 
-- 각 Component Set description에 `Purpose`, `Props`, `Variants`, `API fields`, `React target`, `Do not use for`를 짧게 기록합니다. 최상위 화면 Frame에는 API/DTO 원문을 복사하지 말고 `__spec`으로 링크합니다.
-- 포트폴리오용으로 `08. Handoff / Specs` 페이지를 정리합니다. 다음 섹션을 Auto Layout과 실제 Component Instance로 구성합니다: `Project Overview`, `Problem & Goal`, `Design Principles`, `Design Tokens`, `Core Components`, `Kiosk Flow`, `Admin Flow`, `State Design`, `Data Contract`, `Before / After`, `Implementation Handoff`.
+- 각 Local Component Set description에 `Purpose`, `Current props`, `Current variants`, `API fields`, `React target`, `Do not use for`, `Source node`를 짧게 기록합니다. 최상위 화면 Frame에는 API/DTO 원문을 복사하지 말고 화면 밖 `__spec` 링크로 연결합니다.
+- 포트폴리오용으로 `08. Handoff / Specs` 페이지를 정리합니다. 다음 섹션을 Auto Layout과 **이관된 Local Component Instance 또는 화면 사본**으로만 구성합니다: `Project Overview`, `Problem & Goal`, `Design Principles`, `Design Tokens`, `Core Components`, `Kiosk Flow`, `Admin Flow`, `State Design`, `Data Contract`, `Migration Method`, `Implementation Handoff`. 새 시각 컴포넌트를 만들거나 화면을 재디자인하지 않습니다.
 - 포트폴리오에는 실제 개인정보, 실결제 정보, 확정되지 않은 매출/KPI를 넣지 않습니다. 예시 데이터는 `Sample` 또는 `Mock settings`로 표시합니다.
-- Archive는 `99. Archive / Imported Legacy`에만 두고, 실제 사용 중인 Component Set/화면과 섞지 않습니다. 삭제 전에는 instance 사용처를 확인합니다.
+- Archive는 `99. Archive / Imported Legacy`에만 두고, 명시적으로 보존한 복사본만 넣습니다. 실제 사용 중인 Component Set/화면과 섞지 않으며 원본 자산을 새 파일로 무분별하게 이관하지 않습니다.
 
 ## 근거
 
