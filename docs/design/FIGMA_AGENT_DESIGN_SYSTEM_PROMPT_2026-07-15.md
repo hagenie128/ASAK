@@ -23,22 +23,44 @@
 - 복사한 화면은 `SCR-001/003/004/005/007/008/012/013/014`와 `SCR-009/010/011/015/018/019/020/021` 중 실제 포트폴리오 및 handoff에 쓰는 상태만 포함한다. Loading/Empty/Error는 같은 화면의 상태 증빙으로 한 세트씩만 포함한다.
 - 새 파일의 Local Components/Local Styles로 사용한다. 원본의 published-library reference, remote component reference, source-file instance reference가 발견되면 새 파일에서만 detach 또는 local main component 재지정 후 instance swap을 수행한다. 재지정 전후로 화면별 instance 수, Variant 값, 텍스트 값, Auto Layout 크기를 비교해 동일하게 유지됐는지 검증한다.
 - 새 파일의 첫 페이지에 `Source Inventory`를 만들고 `원본 fileKey`, `원본 node ID`, `복사일`, `원본 Component name`, `새 Component name`, `사용 화면`을 기록한다.
-- React 코드를 작성하지 않는다. 현재 Component Property, Variant, Auto Layout을 React props와 배열 렌더링 관점에서 문서화하고, 구조 변경이 필요하면 `__manual-check`로 남긴다.
+- React 코드를 작성하지 않는다. 다만 웹·앱 구현을 막는 Figma 구조는 아래 `0-4. 구현 가능성 보정` 규칙 안에서 새 파일의 Local Component/화면에 한해 수정할 수 있다. 수정은 React props·배열 렌더링·반응형 레이아웃 관점에서 문서화한다.
 - 추측으로 가격·할인·환불·칼로리·결제수단·매출 KPI를 확정값으로 추가하지 않는다. API/DB 근거가 없으면 `Mock settings`, `데이터 연결 예정`, `__manual-check`로 남긴다.
 - API URL/JSON/Figma Property는 camelCase, DB 출처 메모는 snake_case, Component Set/클래스는 PascalCase, 상수·토큰은 UpperCamelCase를 사용한다.
 
 ### 허용 작업과 금지 작업
 
-- 허용: 새 파일로의 복사, 새 파일에서 활성 자산의 사용처 인벤토리, description/`__spec`/`__manual-check` 메모, 원본 ID/이름/사용처 링크, 새 파일의 모든 텍스트 `Noto Sans KR` 적용.
-- 금지: 복사된 자산의 색상·spacing·radius·elevation·이미지·아이콘·레이아웃·컴포넌트 계층·Property·Variant·상태·토큰을 Agent 판단으로 변경, 추가, 삭제, 교체, 병합, 분리하는 행위. 폰트 외 시각/구조 변경은 하지 않는다.
-- 아래의 화면별 Property/상태 목록은 **코드 반영을 위한 데이터 계약 문서화 목록**이다. 해당 Property/Variant가 기존에 없으면 Figma를 고치지 말고 `__manual-check`와 Component description에 기록한다.
+- 허용: 새 파일로의 복사, 새 파일에서 활성 자산의 사용처 인벤토리, description/`__spec`/`__manual-check` 메모, 원본 ID/이름/사용처 링크, 새 파일의 모든 텍스트 `Noto Sans KR` 적용, 그리고 `0-4`의 근거·기록 조건을 충족하는 구현 가능성 보정.
+- 금지: 원본 파일에서의 모든 변경, 근거 없는 기능/데이터/상태 추가, 브랜드 색·spacing·radius·elevation·이미지·아이콘을 Agent 판단으로 재설계하는 행위, 원본/외부 인스턴스 연결을 깨는 행위, 구현 편의를 이유로 데이터 계약을 추측하는 행위.
+- 아래의 화면별 Property/상태 목록은 **코드 반영을 위한 데이터 계약 목록**이다. 현재 Figma에 없더라도 API·DTO·Enum·실제 화면 흐름에 근거하고 `0-4`의 조건을 충족하면 새 파일의 Local Component에 추가할 수 있다. 근거가 없으면 `__manual-check`와 Component description에만 기록한다.
+
+### 0-4. 구현 가능성 보정 — 새 파일 Local 자산에만 적용
+
+원본 디자인 의도를 유지하되, 웹/React 및 앱 구현을 어렵게 만드는 요소는 새 파일의 Local Component·Local Screen에서 직접 수정한다. 이 절은 "문서화만" 하는 규칙의 예외이며, 변경은 다음 조건을 모두 충족해야 한다.
+
+- 근거: 실제 React 구조, API/DTO field, Enum/상수, 확인된 화면 흐름, 또는 웹/앱 플랫폼 제약 중 하나를 명시한다.
+- 범위: 새 파일의 Local Component/Style/Variable/화면에만 적용한다. 원본 노드와 원본/외부 library는 절대 수정하지 않는다.
+- 보존: 브랜드 방향과 화면의 정보 우선순위는 유지한다. Color·Spacing·Radius·Elevation은 기존 토큰을 우선 사용하며, 새 임의 토큰은 만들지 않는다.
+- 기록: 변경마다 `Implementation Change Log`에 `reason`, `evidence`, `sourceNodeId`, `localNodeId`, `affectedComponents`, `affectedScreens`, `before/after`, `verification`을 남긴다.
+- 검증: 변경 후 desktop 1920×1080, kiosk 1080×1920 및 해당 상태에서 Auto Layout, overflow, instance 연결, Property/Variant, long text, touch/click target을 재점검한다.
+
+다음 유형은 근거가 있을 때 **직접 수정한다**.
+
+1. Absolute Position으로 인해 목록/긴 텍스트/번역/동적 데이터에서 겹치거나 잘리는 영역은 동일한 시각 우선순위를 유지한 Auto Layout, Hug/Fill/Fixed, min/max width, scroll container로 바꾼다.
+2. 반복 메뉴·옵션·장바구니·테이블 행이 복제된 정적 레이어라면 하나의 Local Component와 배열 렌더링 가능한 구조로 정리한다. 실제 코드/API의 필드에 대응하는 Text/Boolean/Instance-swap Property를 추가한다.
+3. 실제 Enum/상태값이 있는데 Figma Variant가 부족하면 해당 값만 Variant 또는 Boolean Property로 추가한다. 자유 텍스트·금액·이미지는 무한 Variant 대신 Property로 둔다.
+4. 화면별 loading, empty, error, disabled, selected, soldOut, processing 상태가 실제 API/흐름으로 확인되는데 빠져 있으면 Local Screen/Component에 상태를 보완한다. 근거 없는 취소·환불·KPI·결제수단·칼로리 계산값은 추가하지 않는다.
+5. 웹/앱의 viewport, safe area, keyboard, bottom CTA, table/detail panel, touch target 때문에 구현 불가능한 고정 크기·중첩 스크롤·클릭 영역은 제약을 명시하고 수정한다. Kiosk는 1080×1920, Admin은 1920×1080을 기본 검증 크기로 한다.
+6. 개발 전달을 방해하는 Local Component/Property/Variant 이름은 위 네이밍 규칙에 맞춰 정리할 수 있다. 이때 `Source Inventory`에 원본 이름·원본 node ID·새 이름을 모두 남기고, 모든 Local Instance를 새 Component로 swap한 뒤 연결을 검증한다.
+7. 색만으로 상태를 전달하거나 접근 가능한 이름/터치 영역이 없어 구현·접근성 검증이 어려우면 기존 디자인 언어 안에서 label/icon, state description, 48×48 px 이상 hit area를 보완한다.
+
+다음 경우에는 수정하지 않고 `__manual-check`로 남긴다: DB/API가 제공하지 않는 값, 서로 충돌하는 문서와 코드, 실제 Enum에 없는 상태, 계산 주체가 정해지지 않은 가격·할인·영양 정보, 플랫폼별 정책 결정이 필요한 동작.
 
 ### 0-1. 새 파일 이관 순서와 완료 조건
 
 1. 새 Design 파일을 만든 직후 `00. START HERE`를 만든다. 이 페이지는 원본을 편집하는 공간이 아니라 새 파일의 사용 범위와 출처를 설명하는 표지다.
 2. 화면을 복사하기 전에 화면별 사용 Component·Style·Variable·Asset과 원본 node ID를 `Source Inventory`에 기록한다. 원본 이름이 부정확해도 원본 이름은 보존하고, 권장 이름은 별도 열에 기록한다.
 3. Component Set, 화면 Frame, 아이콘·이미지, 실제 사용 Style/Variable을 복사한다. 복사한 뒤 새 파일의 Local Component/Local Style/Local Variable인지 확인하고, 외부 참조만 새 파일에서 끊어 Local Component로 swap한다.
-4. 화면 인스턴스의 수, Property 값, Variant 값, 텍스트 내용, Auto Layout 방향·padding·gap·크기, 이미지가 복사 전후 동일한지 대조한다. 새 파일에서 허용한 유일한 시각 변경은 `Noto Sans KR` 적용이다.
+4. 화면 인스턴스의 수, Property 값, Variant 값, 텍스트 내용, Auto Layout 방향·padding·gap·크기, 이미지를 복사 전후 대조한다. 차이가 있으면 `Noto Sans KR` 적용 또는 `0-4`의 구현 가능성 보정으로 인한 것인지 `Implementation Change Log`에 명시한다.
 5. 출처가 없는 인스턴스, remote style, remote variable, external library component가 하나라도 남으면 완료로 표시하지 않는다. 이유와 대응 여부를 `__manual-check`에 남긴다.
 
 `00. START HERE`에는 아래 항목을 Auto Layout 표로 정리한다.
@@ -89,7 +111,7 @@
 ### 1-2. Space, radius, elevation, type
 
 - existing padding/gap/radius/elevation/size 값은 유지한다.
-- 새 파일의 모든 텍스트는 `Noto Sans KR`를 사용한다. 해당 폰트가 사용할 수 없으면 `Noto Sans`를 fallback으로 쓰고 `Migration QA`에 `FONT FALLBACK USED`를 남긴다. 새 파일에서 font family 외 size, weight, line height, letter spacing, text style 값은 복사 당시 값을 유지한다. 원본 화면/Component Set은 font family를 포함해 어떤 값도 변경하지 않는다.
+- 새 파일의 모든 텍스트는 `Noto Sans KR`를 사용한다. 해당 폰트가 사용할 수 없으면 `Noto Sans`를 fallback으로 쓰고 `Migration QA`에 `FONT FALLBACK USED`를 남긴다. 새 파일에서 font family 외 size, weight, line height, letter spacing, text style 값은 복사 당시 값을 유지하되, `0-4`의 overflow·접근성·플랫폼 제약 보정은 예외로 하고 Change Log에 기록한다. 원본 화면/Component Set은 font family를 포함해 어떤 값도 변경하지 않는다.
 
 ### 1-3. 접근성
 
@@ -103,7 +125,7 @@
 
 다음 Component Set은 새로 만들거나 구조를 바꾸지 않는다. 현재 쓰이는 Set의 Property/Variant/사용처를 인벤토리와 description으로 정리한다.
 
-아래 표의 필수 항목은 **목표 계약표**다. 이관된 Local Component에 이미 있는 Property/Variant는 그대로 기록하고, 없는 항목은 추가하지 말고 `currentSupport`, `missingContract`, `__manual-check`로 구분한다. 원본 또는 복사본을 표에 맞추려고 재구성하지 않는다.
+아래 표의 필수 항목은 **목표 계약표**다. 이관된 Local Component에 이미 있는 Property/Variant는 그대로 기록한다. 없는 항목은 API·DTO·Enum·실제 코드 근거와 `0-4` 조건이 있으면 새 파일의 Local Component에 추가하고, 없으면 `currentSupport`, `missingContract`, `__manual-check`로 구분한다. 원본을 표에 맞추려고 재구성하지 않는다.
 
 | Component Set | 필수 Property/Variant |
 | --- | --- |
@@ -192,7 +214,7 @@
 
 ## 5. 레이아웃·프로토타입·검증 기록
 
-- 원본의 Auto Layout, absolute position, 스크롤, Bottom CTA safe area, Sidebar/table/detail panel 구성을 읽고 새 파일의 점검표에 기록한다. 원본 레이아웃을 고치지 않는다.
+- 원본의 Auto Layout, absolute position, 스크롤, Bottom CTA safe area, Sidebar/table/detail panel 구성을 읽고 새 파일의 점검표에 기록한다. 구현을 막는 문제는 `0-4`의 근거·기록·검증 조건에서 새 파일 Local 레이아웃으로 고치고, 원본 레이아웃은 고치지 않는다.
 - 텍스트 줄바꿈, long menuName, 0원/무료 옵션, 긴 errorMessage, 빈 목록에서 overflow/잘림이 없는지 점검표에 기록한다.
 - 최소 prototype 흐름은 원본 연결 상태를 기록한다.
   - Kiosk: Menu List → Menu Detail → Cart → Payment → Processing → Complete, Payment Error/Timeout 분기
@@ -207,8 +229,8 @@
 ### 5-1. Migration QA와 포트폴리오 검증
 
 - 화면별로 `sourceNodeId`, `localNodeId`, `sourceComponent`, `localComponent`, `remoteReference=0`, `font=Noto Sans KR|Noto Sans fallback`, `instanceCount`, `variantCheck`, `autoLayoutCheck`, `overflowCheck`를 표로 남긴다.
-- Noto Sans KR 적용으로 생기는 줄바꿈·잘림은 기록하고, 문장·콘텐츠·여백·컴포넌트 구조를 바꿔 해결하지 않는다. 폰트 자체를 적용할 수 없는 항목은 원인과 함께 `FONT FALLBACK USED` 또는 `__manual-check`로 남긴다.
-- `loading`, `empty`, `error`, `disabled`, `soldOut`, `processing`, `selected` 상태는 원본에 실제 존재하는 화면/Variant를 우선 증빙한다. 존재하지 않는 상태는 새로운 화면을 꾸며 만들지 말고, 필요한 이유와 API/Enum 근거를 `__manual-check`에 기록한다.
+- Noto Sans KR 적용으로 생기는 줄바꿈·잘림은 먼저 기록한다. 실제 구현에서 문제를 만들면 `0-4`에 따라 Local Auto Layout·제약·텍스트 영역을 보정하고 Change Log에 남긴다. 폰트 자체를 적용할 수 없는 항목은 원인과 함께 `FONT FALLBACK USED` 또는 `__manual-check`로 남긴다.
+- `loading`, `empty`, `error`, `disabled`, `soldOut`, `processing`, `selected` 상태는 원본에 실제 존재하는 화면/Variant를 우선 증빙한다. 실제 API/Enum/흐름 근거가 있는 누락 상태는 Local Component/Screen에 보완하고, 근거가 없으면 새로운 화면을 꾸며 만들지 말고 `__manual-check`에 기록한다.
 - Prototype은 새 파일의 이관 화면 사이에서만 최소 연결한다. 상호작용/전환이 원본에 없거나 데이터 계약이 불명확하면 링크를 추측해 만들지 않고 흐름표로 남긴다.
 
 ## 6. 새 파일 완료 보고서
@@ -221,6 +243,7 @@
 4. 제거·보류한 하드코딩/미근거 KPI/상태
 5. Auto Layout·overflow·instance 연결 재검증 결과
 6. Figma만으로 해결할 수 없어 `__manual-check`로 남긴 항목
+7. `Implementation Change Log`: 웹/앱 구현을 위해 Local 자산에 적용한 변경, 근거, 영향 화면, 전후 검증 결과
 ```
 
 ## 코드 반영·포트폴리오 정리 기준
