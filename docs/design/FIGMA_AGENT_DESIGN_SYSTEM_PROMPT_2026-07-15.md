@@ -78,16 +78,16 @@
 
 | 순서 | 새 파일 페이지 | 내용 |
 | --- | --- | --- |
-| 00 | `00. START HERE` | 파일 목적, 범위, Source Inventory, Migration QA, 읽는 순서 |
-| 01 | `01. Foundations` | 실제 사용 토큰·스타일·아이콘·그리드의 사용처 문서 |
-| 02 | `02. Components / Shared` | 이관된 공통 Local Component와 사용처/계약 |
-| 03 | `03. Components / Kiosk` | 이관된 Kiosk Local Component와 사용처/계약 |
-| 04 | `04. Components / Admin` | 이관된 Admin Local Component와 사용처/계약 |
-| 05 | `05. Screens / Kiosk` | 포트폴리오·handoff에 필요한 이관 화면과 상태 증빙 |
-| 06 | `06. Screens / Admin` | 포트폴리오·handoff에 필요한 이관 화면과 상태 증빙 |
-| 07 | `07. User Flows & Prototype` | 원본 흐름의 문서화와 분기/상태표 |
-| 08 | `08. Handoff / Specs` | 구현 계약, 데이터 근거, 포트폴리오 서술 |
-| 99 | `99. Archive / Imported Legacy` | 명시적으로 보존할 필요가 있는 복사본만; 미사용 원본 자산은 이관하지 않음 |
+| 00 | `🏁 00. START HERE` | 파일 목적, 범위, Source Inventory, Migration QA, 읽는 순서 |
+| 01 | `🎨 01. Foundations` | 실제 사용 토큰·스타일·아이콘·그리드의 사용처 문서 |
+| 02 | `🧩 02. Components / Shared` | 이관된 공통 Local Component와 사용처/계약 |
+| 03 | `🖥️ 03. Components / Kiosk` | 이관된 Kiosk Local Component와 사용처/계약 |
+| 04 | `🛠️ 04. Components / Admin` | 이관된 Admin Local Component와 사용처/계약 |
+| 05 | `🛒 05. Screens / Kiosk` | 포트폴리오·handoff에 필요한 이관 화면과 상태 증빙 |
+| 06 | `📊 06. Screens / Admin` | 포트폴리오·handoff에 필요한 이관 화면과 상태 증빙 |
+| 07 | `🔀 07. User Flows & Prototype` | 원본 흐름의 문서화와 분기/상태표 |
+| 08 | `📐 08. Handoff / Specs` | 구현 계약, 데이터 근거, 포트폴리오 서술 |
+| 99 | `🗄️ 99. Archive / Imported Legacy` | 명시적으로 보존할 필요가 있는 복사본만; 미사용 원본 자산은 이관하지 않음 |
 
 ### 0-3. 이름·레이어·명세 기록 방식
 
@@ -96,6 +96,14 @@
 - 새 문서의 레이어 이름은 역할 기반 PascalCase를 쓴다. 예: `Header`, `Content`, `Footer`, `StatePanel`, `SpecPanel`, `SourceInventoryTable`. 의미 없는 `Frame 1`은 새 문서에서만 사용하지 않는다.
 - 각 이관 화면의 인덱스/문서 카드에는 `__spec`을 둔다. 복사한 화면 root 내부에 원래 없던 레이어를 삽입해야 한다면 화면 구조를 바꾸지 말고, 화면 바깥의 인덱스 카드에 `__spec`을 둔다.
 - `__spec`은 `Route`, `Data`, `States`, `Actions`, `Source node`, `Local component dependencies`, `Manual checks`만 적는다. API/DTO 전문이나 추측 데이터는 넣지 않는다.
+
+### 0-3-1. 아이콘 접두어와 카테고리 구분선
+
+- 새 파일의 **페이지 이름과 문서용 섹션 제목**은 위 표의 아이콘 접두어를 사용한다. 화면·컴포넌트·토큰의 기술 이름, `Component Set`, `Property`, `Variant`, 레이어 이름에는 아이콘/이모지를 넣지 않는다. 코드·Code Connect·검색·instance swap은 기술 이름으로만 연결한다.
+- 섹션 제목에는 제목 앞 16~24 px의 leading icon을 둔다. 원본에서 이관한 Local icon asset이 있으면 그것을 우선 사용하고, 없으면 Figma 기본 아이콘 중 의미가 동일한 단색 아이콘만 사용한다. 새로운 일러스트·브랜드 아이콘·이모지 이미지를 추가하지 않는다.
+- 동일 페이지 안에서 `Foundation`, `Component`, `Screen`, `Flow`, `Spec`, `Inventory`, `QA` 같은 최상위 카테고리가 바뀔 때마다 제목 아래 또는 카테고리 사이에 구분선을 둔다. 구분선은 기존 Border/Neutral 토큰 또는 이관한 Divider 스타일만 사용하고, 새 색상·새 효과·임의 토큰을 만들지 않는다.
+- 구분선은 정보 계층을 나누는 용도만으로 사용한다. 카드 내부의 모든 행, 실제 제품 화면의 메뉴 목록, 테이블 행에 일괄 추가하지 않으며, 원본 제품 화면에는 추가하지 않는다. 새 파일의 문서·포트폴리오 보드와 구현 보정이 필요한 Local Screen에만 적용한다.
+- 아이콘과 제목, 구분선은 Auto Layout 안에 배치한다. 아이콘은 텍스트와 같은 baseline/중앙 정렬을 유지하고, 긴 제목에서도 icon이 고정되고 텍스트가 Hug/Fill 규칙을 따르도록 한다.
 
 ## 1. Foundations 사용처 정리
 
