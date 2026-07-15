@@ -164,6 +164,26 @@ Lime은 Primary CTA, 선택 상태, 핵심 성공 피드백에만 사용한다. 
 6. Figma만으로 해결할 수 없어 `__manual-check`로 남긴 항목
 ```
 
+## 코드 반영·포트폴리오 정리 기준
+
+이 프롬프트는 화면 예쁘게 정리하는 데서 끝나지 않도록 다음을 강제합니다.
+
+- 화면 root의 `__spec`에는 `Route`, `Data`, `States`, `Actions`를 기록합니다. 구현자는 화면 캡처가 아니라 이 계약과 Component Set을 기준으로 React를 작성합니다.
+- Component Set은 데이터명이 드러나는 `camelCase` Property와 상태 Variant를 사용하므로, React prop/DTO 필드에 그대로 대응할 수 있습니다. 예: `MenuCard.menuName`, `CartItem.lineTotal`, `PaymentMethodCard.selected`, `DataTableRow.orderStatus`.
+- Code Connect 준비 대상은 Figma Component Set과 아래 코드 파일을 1:1로 기록합니다. 매핑 추가는 컴포넌트 구조를 정리한 뒤에만 수행합니다.
+
+| Figma Component Set | React 대상 |
+| --- | --- |
+| `Button`, `Modal`, `EmptyState`, `ErrorState`, `LoadingState`, `ConfirmDialog` | `ASAK-Kiosk/src/components/common/*.jsx` |
+| `MenuCard`, `OptionGroup`, `CartItem`, `PaymentMethodCard`, `CategoryTab` | `ASAK-Kiosk/src/components/kiosk/*.jsx` |
+| `OrderStatusBadge`, `OrderTable`, `SoldOutToggle`, `SalesChart` | `ASAK-Kiosk/src/components/admin/*.jsx` |
+| `DataTableRow`, `OrderDetailRow`, `SoldOutItem`, `SalesMetricCard` | 관리자 컴포넌트 구현 시 같은 PascalCase 파일명으로 생성 |
+
+- 각 Component Set description에 `Purpose`, `Props`, `Variants`, `API fields`, `React target`, `Do not use for`를 짧게 기록합니다. 최상위 화면 Frame에는 API/DTO 원문을 복사하지 말고 `__spec`으로 링크합니다.
+- 포트폴리오용으로 `08. Handoff / Specs` 페이지를 정리합니다. 다음 섹션을 Auto Layout과 실제 Component Instance로 구성합니다: `Project Overview`, `Problem & Goal`, `Design Principles`, `Design Tokens`, `Core Components`, `Kiosk Flow`, `Admin Flow`, `State Design`, `Data Contract`, `Before / After`, `Implementation Handoff`.
+- 포트폴리오에는 실제 개인정보, 실결제 정보, 확정되지 않은 매출/KPI를 넣지 않습니다. 예시 데이터는 `Sample` 또는 `Mock settings`로 표시합니다.
+- Archive는 `99. Archive / Imported Legacy`에만 두고, 실제 사용 중인 Component Set/화면과 섞지 않습니다. 삭제 전에는 instance 사용처를 확인합니다.
+
 ## 근거
 
 - [실제 화면·데이터 감사](./FIGMA_AGENT_DATA_CONTRACT_AUDIT_2026-07-15.md)
