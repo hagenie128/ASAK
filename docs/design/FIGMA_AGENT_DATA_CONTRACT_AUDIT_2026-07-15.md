@@ -1,178 +1,149 @@
-# ASAK Figma Agent 데이터 계약 감사 및 작업 지시문
+# ASAK Figma Agent 작업 지시문 — 실제 화면·데이터 계약 감사
 
 > 작성일: 2026-07-15
-> 대상 Figma: `ASAK — Design System / Product UI — 2026-07-14` (`node-id=2:6`)
-> 우선 대상 페이지: `💻 05. 관리자 웹 와이어프레임`, `🖼️ 06. Hi-fi 디자인`
-> 근거 우선순위: 실제 코드 → 최신 API/프론트 계약 → DB 백업 DDL·seed-v3 → 요구사항/기존 Figma 점검 문서.
-> Figma 직접 점검(2026-07-15): 링크 파일 `VXKyzoNdsgM4oN57mrECxb`는 현재 `00. START HERE` 한 개의 top-level 페이지와 `start-here-memo`/`asset-migration-inventory`만 노출한다. `node-id=2:6`은 선택 컨텍스트를 반환하지 않았고, 05·06 Frame은 이 파일에서 확인되지 않았다. 인벤토리에는 ASAK-1/ASAK-2에서 키오스크 15개, 관리자 24개 화면을 이관 대상으로 적어 두었지만 화면 인스턴스 자체는 없다. 그러므로 Figma Agent는 우선 실제 화면이 있는 source 파일/branch를 찾거나, 이 파일 안에 새 05·06 페이지를 만들 권한·범위를 확인해야 한다.
+> Figma 파일: `VXKyzoNdsgM4oN57mrECxb` — ASAK Design System & Product UI
+> MCP 직접 점검 대상: `05. Screens / Kiosk` (page `2:6`), `06. Screens / Admin` (page `2:7`)
+> 수정 범위: Figma Agent가 화면과 컴포넌트를 직접 수정하되, 코드·DB·API 근거 없는 데이터/기능은 `__manual-check`로 남긴다.
 
 ## A. 프로젝트 데이터 구조 요약
 
-### 구현 성숙도와 정본
+### 실제 구현과 계약의 구분
 
-- `ASAK-back`은 `GET /api/health`와 `ApiResponse`만 구현된 Spring Boot 골격이다. Entity/DTO/Repository/Service/주문 Controller는 현재 없다.
-- `ASAK-Kiosk`는 API 클라이언트, Zustand 주문 세션, 일부 메뉴 목록/카테고리 mock 연결만 존재한다. 메뉴 상세·장바구니·결제·주문완료·관리자 페이지와 대부분의 컴포넌트는 자리표시자다.
-- 그러므로 API-001~020의 DTO/응답 필드는 **현재 실행 코드가 아니라** `ASAK-Kiosk/src/contracts/api-data-contract.md`, `ASAK/docs/wiki/rest-api-spec.md`, `public/mocks/kiosk.json`에 정의된 구현 계약이다. Figma에는 이 계약의 필드명/상태를 쓰되, 지원하지 않는 값을 실데이터처럼 고정하지 않는다.
+- Spring backend(`ASAK-back`)는 `GET /api/health`와 공통 `ApiResponse`만 구현된 골격이다. 메뉴·주문·결제 Entity, DTO, Repository, Service, Controller는 아직 없다.
+- Kiosk 프런트는 API client와 Zustand `orderSessionStore`는 존재하지만, 메뉴 상세·장바구니·결제·완료 페이지 및 다수 컴포넌트는 placeholder다.
+- 따라서 아래 API/DTO는 실행 완료된 백엔드가 아니라 `ASAK-Kiosk/src/contracts/api-data-contract.md`, `ASAK/docs/wiki/rest-api-spec.md`, `public/mocks/kiosk.json`의 최신 구현 계약이다. Figma는 이 계약을 데이터 표시 기준으로 사용한다.
 
-### 링크 Figma의 실제 확인 결과
+### 명명 규칙
 
-- `00. START HERE`의 목적은 `MCP / Code Connect ready design source`, 원본 `ASAK-1 + ASAK-2`는 수정 금지, 프런트 구현은 화면 스크린샷이 아니라 Figma 컴포넌트를 사용한다는 것이다.
-- 확인된 디자인 시스템은 Light mode 색상 변수 42개, spacing token 13개, radius token 7개, elevation style 4개, Noto Sans KR text style 32개다.
-- 같은 페이지의 QA checklist에서 아직 미완료인 항목은 (1) 모든 화면 root의 `__spec` Route/Data/States/Actions, (2) 모든 반복 UI의 Auto Layout+Component Instance, (3) Kiosk/Admin loading·empty·error, (4) 불확정 데이터의 `데이터 연결 예정`/`Mock settings` 표기, (5) asset migration inventory 완료다.
-- 따라서 아래 05·06 표와 Figma Agent 프롬프트는 **목표 화면 명세**다. 현재 링크의 05·06 화면을 이미 존재하는 화면으로 간주하거나, 보지 못한 화면의 레이아웃을 사실처럼 보고하지 않는다.
-
-### 주요 테이블·관계
-
-| 목적 | 테이블/핵심 컬럼 | 화면 조합 |
+| 대상 | 규칙 | 예시 |
 | --- | --- | --- |
-| 메뉴 | `category(id,name,sort_order,is_active)` → `menu(id,category_id,name,price,image_url,description,is_sold_out)` | 카테고리·메뉴 카드 |
-| 태그/영양 | `menu_tag(menu_id,tag_id)` → `tag(code,name,color_hex)`; `menu_nutrition(menu_id,kcal,protein_g,carb_g,...)` | BEST/NEW/저당, 기본 영양 |
-| 재료/알레르기 | `menu_ingredient(menu_id,ingredient_id,role_id,quantity,unit_id,is_default,can_remove)` → `ingredient(kcal,protein_g,is_sold_out)` → `ingredient_allergen` → `allergen` | 기본/제외 재료, 핵심·일반 품절, 알레르기 |
-| 옵션 | `option_group(min_select,max_select)`; `option_item(option_group_id,ingredient_id,name,extra_price,original_price,amount,unit_id,is_sold_out)`; 현재 seed-v3은 `menu_opt_policy`/`opt_policy`/`opt_policy_item`로 메뉴별 선택정책·기본/추천을 연결 | 베이스·드레싱·토핑·세트, 추가금/품절/추천 |
-| 주문 | `orders(order_no,order_type_id,status_id,total_price,created_at)` → `order_item(order_id,menu_id,quantity,price)` → `order_item_option(order_item_id,option_item_id,quantity,price)`, `item_exclusion(order_item_id,ingredient_id)` | 장바구니, 관리자 주문 목록/상세 |
-| 결제 | `payment(order_id,method_id,status_id,amount,paid_at)` (주문당 unique), `payment_method_config(method_id,name,is_active,sort_order)` | 결제수단/승인/관리 |
+| 백엔드·프런트 URL, API JSON 필드, Figma Property | `camelCase` | `categoryId`, `orderNo`, `paymentStatus`, `extraPrice` |
+| DB 테이블·컬럼 | `snake_case` | `order_item`, `total_price`, `is_sold_out` |
+| Java 클래스·React 컴포넌트·Figma Component Set | `PascalCase` | `OrderResponse`, `MenuCard`, `OrderDetailRow` |
+| 상수·토큰 | `UpperCamelCase` | `OrderStatus`, `PaymentStatus`, `OrderSessionResetReason` |
 
-### API·상태·세션 계약
+기존 `ORDER_SESSION_RESET_REASON`, `API_ENDPOINTS`, `Property 1`, `sourse`, `menu-itme`, `Frame 1`은 이 규칙과 다른 기존 자산이다. Figma Agent는 정상 인스턴스 연결을 깨지 않는 범위에서 이름과 Variant Property를 위 규칙으로 정리한다.
 
-- 고객: `GET /api/categories`, `GET /api/menus?categoryId`, `GET /api/menus/{menuId}`, `GET /api/menus/{menuId}/options`, `POST /api/orders`, `POST /api/payments`.
-- 관리자: 주문 조회/상태 변경(API-007/008), 품절 조회/변경(API-009/010), 메뉴(API-011/012), 결제수단(API-013/014), 매출(API-015). 모든 응답은 `{ success, status, code, message, data }`다.
-- 화면 상태 Enum 계약: `ORDER_STATUS = RECEIVED | PREPARING | COMPLETED`; `PAYMENT_STATUS = READY | APPROVED | FAILED`; `ORDER_TYPE = EAT_IN | TAKE_OUT`; 결제수단 seed는 현재 `CARD`만 확인된다.
-- `orderSessionStore`: `orderType`, `items[]`, `order{orderId,orderNo,orderType,totalPrice,orderStatus,paymentStatus}`, `payment{paymentId,orderId,orderNo,amount,paymentStatus,paidAt}`, `paymentError`를 보관하며 승인 또는 timeout-confirmed 뒤만 reset한다.
+### 주요 DB·API·상태
 
-### 명명 표준 (프로젝트 고정)
-
-| 대상 | 표기 | 적용 예시 |
+| 영역 | DB/응답 필드 | 화면 의미 |
 | --- | --- | --- |
-| 백엔드·프런트 API URL 및 JSON 필드 | `camelCase` | `/api/menus?categoryId`, `orderNo`, `paymentStatus`, `extraPrice` |
-| DB 테이블·컬럼 | `snake_case` | `order_item`, `total_price`, `is_sold_out`, `paid_at` |
-| Java 클래스·React 컴포넌트 | `PascalCase` | `OrderResponse`, `PaymentService`, `MenuCard`, `OrderDetailRow` |
-| 상수 | `UpperCamelCase` | `OrderStatus`, `PaymentStatus`, `OrderSessionResetReason` |
+| 메뉴 | `menu.name,price,image_url,description,is_sold_out`; API `menuId,name,price,imageUrl,baseKcal,isSoldOut,hasSoldOutIngredient,soldOutBadges` | 메뉴 카드·상세·품절 |
+| 영양 | `menu_nutrition.kcal`, `ingredient.kcal`; API `baseKcal`, option `extraKcal` | 기본/예상 칼로리 |
+| 재료/알레르기 | `menu_ingredient.can_remove,role_id`, `ingredient.is_sold_out`, `ingredient_allergen`; API `ingredients,allergens,allergyText,isOrderable,soldOutReason` | 기본·제외 재료, 알레르기, 핵심/일반 품절 |
+| 옵션 | `option_group.min_select,max_select`, `option_item.extra_price,is_sold_out`, 정책의 `is_recommended,is_default`; API `optionGroupId,selectType,minSelect,maxSelect,isRequired,items[]` | 베이스·드레싱·토핑·추가 금액 |
+| 주문 | `orders.order_no,total_price,created_at`; `order_item.quantity,price`; `order_item_option.quantity,price`; `item_exclusion` | 장바구니·주문 목록·상세 |
+| 결제 | `payment.method_id,status_id,amount,paid_at`; API `paymentId,orderId,orderNo,amount,paymentStatus,paidAt` | 결제·완료·관리 |
 
-상수는 요청 기준인 `UpperCamelCase`를 사용한다. 기존의 `ORDER_SESSION_RESET_REASON`, `API_ENDPOINTS`처럼 다른 표기가 남아 있는 파일은 이 감사에서 발견한 **기존 불일치**이며, Figma Property/Variant에는 그대로 전파하지 않는다. API DTO 변환 계층에서 `snake_case` DB 컬럼을 `camelCase` JSON 필드로 바꾸고, Figma Property는 API/React prop과 같은 `camelCase`를 사용한다.
+상태 계약은 `orderStatus = RECEIVED | PREPARING | COMPLETED`, `paymentStatus = READY | APPROVED | FAILED`, `orderType = EAT_IN | TAKE_OUT`, 품절 대상 `targetType = MENU | INGREDIENT | OPTION_ITEM`이다.
 
-### 가격·칼로리 계산 경계
+### 가격·영양 계산
 
-- 화면 표시 계약: `lineTotal = (unitPrice + Σ(option.extraPrice × option.quantity)) × item.quantity`; `orderTotal = Σ(lineTotal)`; `paymentAmount`는 API-006 요청 `amount` 및 승인 응답 `amount`와 일치해야 한다.
-- 할인/환불 필드는 현재 주문/결제 DDL과 API-005/006 계약에 없다. 따라서 `discountAmount`, 쿠폰 할인, 환불금, ‘기본가 대비 할인’은 0원으로 임의 표시하거나 확정 금액으로 디자인하면 안 된다. 필요 시 `지원 예정/수동 확인` 상태만 쓴다.
-- 기준 메뉴 칼로리는 `menu_nutrition.kcal`/API `baseKcal`; 재료 칼로리는 `ingredient.kcal`; 옵션 API 계약은 `extraKcal`을 제공한다. 옵션 추가·제외에 따른 계산 UI는 가능하지만, 주문 스냅샷 및 API 최종 `totalKcal` 필드는 없다. 수량 포함 최종 칼로리는 서버 계약 확정 전 ‘예상’으로만 표기한다.
+```text
+lineTotal = (unitPrice + Σ(option.extraPrice × option.quantity)) × item.quantity
+orderTotal = Σ(lineTotal)
+payment.amount = 결제 요청·승인 금액
+estimatedKcal = baseKcal + Σ(선택 option.extraKcal) - Σ(제외 재료 kcal)
+```
 
-## B. 누락 및 불일치 분석
+- 현재 API/DDL에는 `discountAmount`, 환불금, 취소 사유, 결제 실패 사유, 원가, 주문 영양 스냅샷이 없다.
+- `estimatedKcal`은 옵션 선택 화면의 예상값만 가능하며 완료/관리 화면에서 확정값처럼 표시하면 안 된다.
+- 주문 당시 가격 보존은 `order_item.price`, `order_item_option.price`를 사용해야 하나 단가/행합계 의미가 아직 확정되지 않았다. Figma에는 `unitPrice`, `additionalPrice`, `lineTotal`을 각각 분리한다.
 
-### Figma/계약에서 반드시 보완할 항목
+## B. 실제 Figma 화면 점검과 불일치
 
-1. 링크 파일에는 현재 05·06 Frame이 확인되지 않는다. source ASAK-1/ASAK-2 또는 의도한 branch에서 화면 Frame을 먼저 확인하고, 이 파일에 새 05/06을 만든다면 실제 코드 화면명·API 데이터·상태를 명시한다. 06을 근거 없는 새 기능 화면으로 채우지 않는다.
-2. 주문 목록/상세는 `orderNo`, `orderType`, `orderStatus`, `paymentStatus`, `totalPrice`, `createdAt`, `items`, `selectedOptions`, `excludedIngredients`를 구분해 표시해야 한다. 옵션과 제외 재료가 합쳐진 하나의 ‘요청사항’이면 조리 오류가 난다.
-3. 품절 관리는 `targetType=MENU|INGREDIENT|OPTION_ITEM`, `targetId`, `name`, `isSoldOut`, `reasonType`을 보여야 한다. 메뉴 자체 품절과 핵심 재료 품절(주문 불가), 일반 재료/옵션 품절(선택 불가·안내)을 같은 빨간 배지 하나로 축소하지 않는다.
-4. 관리자 매출은 `from/to` 기간, 요약, 일별 매출·메뉴별 판매량, 로딩/빈/오류를 갖춰야 한다. ‘평균 주문금액’, 결제수단별 통계, 할인·환불은 현 API/DDL에 근거가 없으므로 확정 KPI로 두지 않는다.
-5. 메뉴 편집은 현재 계약상 `categoryId,name,price,imageUrl,optionGroupIds`만 확정이다. 원가, 영양 편집, 재료/태그/활성화 저장 UI는 API 계약이 없으므로 `수동 확인`으로 남긴다.
-6. 기존 점검의 `Badge` variant에는 `cancelled/refunded`가 제안됐지만 현재 Enum/DDL/API에는 없다. `RECEIVED/PREPARING/COMPLETED`와 `READY/APPROVED/FAILED`만 실제 variant로 제공하고 취소·환불은 planned/hidden으로 분리한다.
+### 페이지 인벤토리
 
-### DB/API/코드 불일치와 개발 이슈
+- `05. Screens / Kiosk`에는 `SCR-001`, `SCR-003`, `SCR-004`, `SCR-005`, 결제 접힘/펼침/처리/오류, timeout, 완료, 접근성 3상태, 메뉴·장바구니·결제의 Empty/Loading 상태가 있다.
+- `06. Screens / Admin`에는 Login, 주문 목록/상세, 품절 관리, 결제수단, 매출 요약/월별/일별, 주문·품절·메뉴·결제수단·매출의 Loading/Empty/Error 상태가 있다.
+- `00. START HERE`의 QA checklist에는 모든 화면의 `__spec`, 반복 UI의 Auto Layout + Component Instance, loading/empty/error, 불확정 데이터의 `데이터 연결 예정`/`Mock settings` 표기가 미완료로 남아 있다.
 
-| 등급 | 사실 | 영향 |
+### 확인된 화면별 핵심 이슈
+
+| Figma Frame ID | 실제 화면 관찰 | 데이터 계약 기준 수정 |
 | --- | --- | --- |
-| 차단 | Spring backend에 주문·메뉴·결제 Entity/DTO/Repository/Service/Controller가 없다. | Figma의 API 연결 메모는 설계 계약일 뿐 실행 검증 불가 |
-| 높음 | `constants/order.js`, `constants/status.js`, `cartRules.js`, `soldOutPolicy.js`, `types/menu.js`, `types/order.js`, 주요 화면/컴포넌트가 placeholder다. | 수량 한계, 에러문구, 상태 prop을 코드에서 단일 값으로 보장하지 못함 |
-| 높음 | 주문 스냅샷 DDL의 `order_item.price`, `order_item_option.price`는 있으나 가격의 의미(단가/행합계, option 추가단가/행합계)가 명시되지 않았다. | 과거 주문 금액 보존과 재계산 규칙을 백엔드에서 확정해야 함 |
-| 높음 | `orders.total_price`/`payment.amount` 외 `discount_amount`, 결제 실패 사유, 취소/환불 상태/금액 컬럼이 없다. | 할인/실패 사유/환불 UI를 실제 값으로 표시 불가 |
-| 중간 | 옵션 테이블의 DB 컬럼은 `extra_price`, mock/API는 `extraPrice`; menu seed에는 `is_sold_out`, 일부 v3 자료는 `sold_out`. | DB snake_case → API camelCase 변환을 DTO에서 강제해야 함 |
-| 중간 | DB에는 `menu_nutrition` 및 `ingredient.kcal`이 있으나 주문 시점 영양 스냅샷·최종 칼로리 API가 없다. | 완료/관리자 화면의 확정 영양 합계는 표시 금지 |
-| 중간 | `payment_method_config` seed 기준 활성 결제수단은 CARD 한 종류다. | 카드/카카오/현금 등 다중 결제수단을 실제 가능 상태로 고정하면 안 됨 |
-| 중간 | 문서에는 자동 초기화가 ‘경고 없이 30초 예시’와 별도 timeout 모달 요구로 섞여 있고, 코드에는 시간 상수가 없다. | 시간·모달 문구/계속 주문 동작은 기획 결정 필요 |
+| `2:4704` SCR-003 Menu List | 모든 카드가 ‘불고기 랩 / 7,900원 / 410 kcal’로 반복되고 일부만 BEST/NEW다. 하단은 `0개`인데 CTA 구조가 남아 있다. | `menus[]` 반복 Property와 image/soldOut/tag 상태를 만들고, 빈·로딩 상태와 실제 itemCount/totalAmount를 분리 |
+| `2:4775` SCR-004 Menu Detail | 메뉴명/이미지/베이스/드레싱/토핑이 placeholder다. 알레르기와 필수·최대 선택 안내는 있다. | `ingredients`, `allergens`, `optionGroups.items`를 배열 구조로 연결; `extraPrice`, `extraKcal`, `isRecommended`, `isSoldOut` 표시 보완 |
+| `2:4791` SCR-005 Cart | 두 항목의 상품별 합계는 각 7,200원인데 하단은 `2개 27,000원`이다. 할인 `0개/0원` 행과 560kcal 표시가 있다. | lineTotal/orderTotal을 한 기준으로 통일; 할인 행은 API가 생길 때까지 `__manual-check`; 최종 kcal는 `예상`으로만 표기 |
+| `2:4816/2:4828` SCR-007 Payment | 카드·삼성페이와 카카오페이 결제수단이 실제 화면에 있다. | 현재 seed/API에서 확정된 수단은 CARD뿐이다. 활성 방법 API 결과 기반으로 표시하고 미확정 수단은 Mock settings 처리 |
+| `2:4851` SCR-012 Payment Error | 실패 프레임은 존재한다. | 오류 code/message, 재시도, 장바구니 복귀, 금액 불일치 처리 Property를 추가 |
+| `2:4877` SCR-008 Complete | 주문번호 1225, 바코드, 영수증 출력, 5초 자동 초기화가 있다. 결제금액·수단·시간은 없다. | `orderNo,amount,paymentMethod,paidAt,paymentStatus,receiptState`를 추가하고 timeout 상수는 수동 확인 |
+| `2:8162` SCR-009/010 Order List + Detail | 표/상세가 한 화면에 있고, `취소`, `환불`, `결제완료` 상태가 있다. | API Enum 밖인 취소·환불·결제완료 문구를 `RECEIVED/PREPARING/COMPLETED`, `READY/APPROVED/FAILED`와 분리. 옵션과 제외 재료도 별도 섹션으로 표시 |
+| `29:12269` SCR-011 Sold-out | 메뉴/재료/옵션 탭, 저장 Modal/Toast, 검색/카테고리 필터는 있다. | `targetType,targetId,name,isSoldOut,reasonType`를 Component Property로; 핵심 재료 품절과 일반 재료/옵션 품절의 영향 문구 분리 |
+| `2:8726` SCR-019 Sales Summary | 고객 수, 취소·환불, 승인 결제금액, 시간대/카테고리/인기메뉴 TOP 5 KPI가 있다. | API-015는 기간별 일별 매출·메뉴별 판매량만 확정. 미지원 KPI/환불 수치는 확정 데이터처럼 두지 말고 `Mock settings` 또는 제거 |
 
-### 데이터 조합 판정
+### Figma Component/Variant 불일치
 
-- 가능: 메뉴↔재료/알레르기/태그/옵션, 주문↔선택 옵션/제외 재료, 주문↔결제는 FK와 교차 테이블로 조합 가능하다.
-- 가능하나 서버 규칙 필요: `CORE` 재료 품절은 메뉴 주문 불가, 일반 재료/옵션 품절은 선택 비활성이라는 계산은 `role_id`와 `is_sold_out`으로 가능하다. 응답의 `hasSoldOutIngredient`, `isOrderable`, `soldOutReason`을 서버가 일관되게 계산해야 한다.
-- 불가능/미확정: 할인·환불·실패 사유, 원가, 결제수단별 통계, 주문 스냅샷 기반 최종 칼로리, 주문 당시 메뉴명/이미지/알레르기 보존, 메뉴별 활성 상태(`is_active`)는 현재 확정 구조만으로 안전하게 만들 수 없다.
+- `Admin/OrderCard` 내부에 `menu name`, `item name`, `2000원` placeholder가 남아 있다. `OrderMenuCard`, `orderMenuOptionList`, `Admin/OrderMenuOptionItem`은 API 응답 배열로 치환 가능해야 한다.
+- `Admin/DataTableRow-Active`는 `접수/준비중/완료/취소` 한글 Variant를 사용한다. Variant 값은 `received/preparing/completed`처럼 enum 매핑용 값으로 바꾸고 표시 문구만 한국어로 둔다.
+- `Property 1=base/sourse/+/-`, `menu-itme`, `Frame 1`은 의미 있는 `PascalCase` Component/`camelCase` Property 이름으로 정리한다. `sourse`는 `source` 또는 실제 역할명으로 수정한다.
+- 품절 화면의 `__spec`은 `menuItems[], ingredients[], searchQuery`만 적혀 있다. `optionItems[]`, `targetType`, `reasonType`, `isSoldOut`, `toggleProgress`를 추가한다.
 
 ## C. 화면별 데이터 매핑표
 
-| 화면(Figma ID/권장명) | 표시 항목 → 출처/응답 | Figma Property·Variant | 결론/수정 |
-| --- | --- | --- | --- |
-| 05 `A-001` → `SCR-015 / Admin / Login` | 인증 계약 미확정 | `email`, `password`, `state=default|invalid|loading|unauthorized` | UI 상태만; 성공 사용자/권한 값 하드코딩 금지 |
-| 05 `A-002` → `SCR-009 / Admin / Order List` | `orders` + API-007 `content[].orderNo,orderType,orderStatus,paymentStatus,totalPrice,createdAt` | `OrderTable` row text props; `status`; `state=loading|empty|error|default` | 기간/상태/검색/pagination은 response 계약 확정 전 placeholder label로 |
-| 05 `A-003` → `SCR-010 / Admin / Order Detail` | `order_item`, `order_item_option`, `item_exclusion`, payment + API-007 items/selectedOptions/excludedIngredients | `OrderDetailRow(menuName,quantity,unitPrice,optionSummary,exclusionSummary,lineTotal)`; two Badge props | 옵션·제외를 분리하고 상태변경 confirm/pending/failed 추가 |
-| 05 `A-004` → `SCR-011 / Admin / Sold-out Management` | API-010 `targetType,targetId,name,isSoldOut,reasonType`; API-009 request | `SoldOutToggle(targetType,targetId,checked,disabled,loading)` | MENU/INGREDIENT/OPTION_ITEM filter와 성공/실패 토스트·빈 상태 추가 |
-| 05 `A-005` → `SCR-016/017 / Admin / Menu Manage/Edit` | API-011/012 `categoryId,name,price,imageUrl,optionGroupIds`; menu table | `MenuForm` properties; `state=default|invalid|saving|error` | 원가/칼로리/활성화 UI는 근거 없음 표시 또는 숨김 |
-| 05 `A-006` → `SCR-018 / Admin / Payment Methods` | `payment_method_config.name,is_active,sort_order`, API-013/014 | `PaymentMethodRow(name,isActive,sortOrder,loading)` | CARD 외 방법을 실사용 가능처럼 표시하지 않음 |
-| 05 `A-007` → `SCR-019 / Admin / Sales Summary` | API-015 `from,to`, 일별 매출/메뉴별 판매량 | `DateRange`, `SalesChart`, `state=loading|empty|error|default` | 매출/건수는 지원; 평균/결제수단/환불 KPI는 수동 확인 |
-| 06 Hi-fi | 05의 승인된 화면과 같은 API/DTO 계약 | 05와 같은 Component Set 인스턴스 | 새 데이터 구조를 만들지 말고, 05의 확정 상태를 hi-fi로 반영; 빈 페이지면 위 7개를 우선 배치 |
-| 키오스크 연계(06에 포함 시) | API-002~006: `baseKcal`, 옵션 `extraPrice/extraKcal`, order `totalPrice`, payment `amount/paidAt` | `MenuCard`, `OptionGroup`, `CartItem`, `PaymentMethodCard`, `BottomCTA` | 가격/칼로리/품절/결제 실패/완료 상태가 관리자 화면과 같은 Enum/문구를 사용해야 함 |
+| 화면·ID | 표시 항목 | 출처/API 필드 | Property/Variant | 상태/수정 |
+| --- | --- | --- | --- | --- |
+| SCR-003 `2:4704` | 카드명/이미지/가격/기본 kcal/태그/품절 | API-002 `name,imageUrl,price,baseKcal,isSoldOut,hasSoldOutIngredient,soldOutBadges` | `MenuCard(menuName,image,price,baseKcal,isSoldOut,tags)` | `default/loading/empty/soldOut/imageMissing` |
+| SCR-004 `2:4775` | 설명·알레르기·기본/제외 재료·옵션 | API-003/004 `ingredients,allergens,allergyText,optionGroups.items` | `OptionGroup(minSelect,maxSelect,isRequired)`, `OptionItem(extraPrice,extraKcal,isRecommended,isSoldOut)` | `default/requiredError/maxReached/soldOut` |
+| SCR-005 `2:4791` | 메뉴·옵션·제외·수량·단가·행합계·주문합계 | session `items[]`, API-005 `totalPrice` | `CartItem(menuName,optionSummary,exclusionSummary,quantity,unitPrice,lineTotal)` | `default/empty/soldOut/quantityMin/quantityMax` |
+| SCR-007/012 `2:4816` 등 | 총 결제금액·결제수단·처리/실패 | API-006 `amount,paymentStatus,paidAt`; error `code,message` | `PaymentMethodCard(methodName,selected,disabled)`, `PaymentState` | `default/processing/failed/retry` |
+| SCR-008 `2:4877` | 주문번호·결제금액·수단·시간·영수증 | API-006 `orderNo,amount,paymentStatus,paidAt`; API-019 확장 | `OrderComplete(orderNo,paidAmount,paymentMethod,paidAt,receiptState)` | `approved/receiptLoading/receiptFailed/timeout` |
+| SCR-009/010 `2:8162` | 주문 목록·상세·상태·옵션·제외 재료 | API-007/008 `orderNo,orderType,orderStatus,paymentStatus,totalPrice,createdAt,items,selectedOptions,excludedIngredients` | `DataTableRow`, `OrderDetailRow`, `OrderStatusBadge` | `default/loading/empty/error/changingStatus` |
+| SCR-011 `29:12269` | 품절 대상·이유·저장 결과 | API-009/010 `targetType,targetId,name,isSoldOut,reasonType` | `SoldOutItem`, `SoldOutToggle`, `ConfirmDialog` | `default/loading/empty/toggleProgress/toggleSuccess/toggleError` |
+| SCR-018 `2:13336` | 결제수단 활성/정렬 | API-013/014, `payment_method_config` | `PaymentMethodRow(name,isActive,sortOrder,loading)` | `default/saving/error/empty` |
+| SCR-019 `2:8726` | 기간·일별 매출·메뉴별 판매량 | API-015 `from,to`, sales/day, menu sales | `SalesMetricCard`, `DateRange`, `SalesChart` | `default/loading/empty/error` |
 
-### 명명 계약
-
-```text
-orderStatus       → ORDER_STATUS          → Badge.orderStatus=received|preparing|completed
-paymentStatus     → PAYMENT_STATUS        → Badge.paymentStatus=ready|approved|failed
-isSoldOut         → menu/ingredient/item  → state=soldOut 또는 disabled=true
-extraPrice        → option item           → additionalPriceText
-totalPrice        → order/API-005          → BottomCTA.totalAmount / OrderTable.amount
-payment.amount    → API-006               → OrderComplete.paidAmount
-baseKcal/extraKcal→ menu/options API      → nutrition.baseKcal / nutrition.estimatedKcal
-```
-
-Figma의 status 값은 API Enum을 소문자 property 값으로만 변환하고, 표시 문구는 별도 text property/문구 사전(`접수`, `준비중`, `완료`, `결제 대기`, `결제 승인`, `결제 실패`)으로 둔다. Figma Component Set/레이어의 컴포넌트명은 `PascalCase`, Property는 API와 같은 `camelCase`, DB 출처 메모는 `snake_case`, 상수/토큰 이름은 `UpperCamelCase`로 둔다. `Property 1`, `Variant2`, `Frame …`, `sourse` 같은 자동/오탈자 명명은 제거한다.
-
-## D. Figma Agent에 전달할 최종 프롬프트
+## D. Figma Agent 최종 프롬프트
 
 ```text
-당신은 ASAK Figma 파일 “ASAK — Design System / Product UI — 2026-07-14”의 편집 담당자다. 우선 `💻 05. 관리자 웹 와이어프레임`과 `🖼️ 06. Hi-fi 디자인`을 점검·수정한다. 수정 전 05/06의 모든 Frame, Component Set, 인스턴스 연결, 이름, 레이어, 오버플로우를 스캔하고 아래의 프로젝트 계약과 대조하라.
+대상 파일은 ASAK — Design System & Product UI (fileKey VXKyzoNdsgM4oN57mrECxb)다. 반드시 `05. Screens / Kiosk`와 `06. Screens / Admin`의 기존 Frame/Component Set을 MCP로 읽고 수정한다. 05는 키오스크, 06은 관리자 화면이다.
 
-[근거와 제한]
-- 실제 Spring backend는 health endpoint만 구현된 골격이다. API-001~020은 `ASAK-Kiosk/src/contracts/api-data-contract.md`와 `ASAK/docs/wiki/rest-api-spec.md`의 구현 계약이다. DB는 `ASAK/asak-data/schema-backups/short-name-before-20260713-115747.sql`, seed는 `seed-v3`을 근거로 한다.
-- DB/API/실제 코드 근거 없이 기능, 숫자, 메뉴명, 가격, 칼로리, 결제수단, KPI를 발명하지 말라. 예시 데이터는 `Sample` 또는 교체 가능한 text property로만 둔다.
-- 화면 ID와 주요 Component Set 이름, 브랜드 색/디자인 방향, 정상 인스턴스 연결을 임의로 깨거나 재설계하지 말라. 안전하게 이름을 보완할 때는 기존 ID를 보존하고 alias/description으로 이전 이름을 남긴다.
-- React 코드를 생성하지 않는다. 대신 배열 렌더링과 props에 적합한 Auto Layout·Component Property·Variant 구조를 만든다. 불명확한 데이터는 `__manual-check` 메모로 남기고 확정 UI로 만들지 않는다.
+1. 기준 확인
+- API URL/JSON/Figma Property는 camelCase, DB 출처 메모는 snake_case, Component Set/클래스는 PascalCase, 상수/토큰은 UpperCamelCase로 한다.
+- 공통 API envelope는 `{ success,status,code,message,data }`다.
+- orderStatus는 RECEIVED/PREPARING/COMPLETED, paymentStatus는 READY/APPROVED/FAILED, orderType은 EAT_IN/TAKE_OUT, 품절 targetType은 MENU/INGREDIENT/OPTION_ITEM만 실제 계약으로 간주한다.
+- `lineTotal=(unitPrice + Σ(extraPrice×optionQuantity))×itemQuantity`, `orderTotal=Σ(lineTotal)`, `payment.amount=결제 요청/승인 금액`을 모든 화면에 동일하게 적용한다.
 
-1) 프로젝트 기준 확인
-- 공통 응답 envelope는 `{ success,status,code,message,data }`, API URL/필드는 camelCase다. DB 출처는 snake_case, Component Set/클래스는 PascalCase, 상수는 UpperCamelCase를 사용한다.
-- 실제 상태: orderStatus=`RECEIVED|PREPARING|COMPLETED`, paymentStatus=`READY|APPROVED|FAILED`, orderType=`EAT_IN|TAKE_OUT`, 품절 targetType=`MENU|INGREDIENT|OPTION_ITEM`.
-- 가격: `lineTotal=(unitPrice + Σ(extraPrice×optionQuantity))×itemQuantity`, `orderTotal=Σ(lineTotal)`, `payment.amount=최종 결제 요청/승인 금액`. 현재 discount/refund/원가/결제 실패 사유는 계약에 없다.
-- 영양: `baseKcal`, `extraKcal`은 표시 가능하나 최종 주문 영양 스냅샷은 없다. “예상” 표기 외 확정 총칼로리를 만들지 말라.
+2. 05. Screens / Kiosk 수정
+- SCR-003 `2:4704`: MenuCard를 메뉴 배열 반복 구조로 만들고 menuName/image/price/baseKcal/tags/isSoldOut/hasSoldOutIngredient를 Property로 둔다. 같은 메뉴·가격·kcal의 하드코딩을 제거하고 default/loading/empty/soldOut/imageMissing을 보완한다.
+- SCR-004 `2:4775`: ingredients, allergens, allergyText, optionGroups/items를 표시 가능하게 한다. OptionItem에 extraPrice, extraKcal, isRecommended, isSoldOut을 연결하고 필수 미선택/최대 선택/품절 Variant를 추가한다.
+- SCR-005 `2:4791`: CartItem에 메뉴명·선택 옵션·제외 재료·수량·단가·행합계를 분리한다. 두 상품 합계와 장바구니 총액이 불일치하지 않게 고치고, 할인 값은 계약 전에는 확정값으로 표시하지 않는다. kcal는 `예상`으로만 표기한다.
+- SCR-007/012: 활성 결제수단은 API 결과로 교체 가능한 리스트여야 한다. 현재 CARD 외 수단은 Mock settings 또는 manual-check로 표기한다. processing/failed/retry 상태와 errorCode/errorMessage 영역을 추가한다.
+- SCR-008 `2:4877`: orderNo, paidAmount, paymentMethod, paidAt, paymentStatus, receiptState를 표시한다. 영수증 출력 loading/failure와 자동 초기화 안내를 보완한다. timeout 초는 기획 확정값이 아니므로 상수 Property로 둔다.
 
-2) 05 화면과 데이터 대조·직접 수정
-- A-001~A-007이 있으면 다음 권장 이름을 description에 추가하고, 안전하면 Frame 이름을 변경한다: `SCR-015 Admin Login`, `SCR-009 Admin Order List`, `SCR-010 Admin Order Detail`, `SCR-011 Admin Sold-out Management`, `SCR-016/017 Admin Menu Manage/Edit`, `SCR-018 Admin Payment Methods`, `SCR-019 Admin Sales Summary`.
-- Order List는 `orderNo,orderType,orderStatus,paymentStatus,totalPrice,createdAt` 컬럼과 loading/empty/error/default, 상태 필터, 검색, pagination 영역을 갖춘다.
-- Order Detail은 `items`, 선택 옵션(`selectedOptions`/order_item_option), 제외 재료(`excludedIngredients`/item_exclusion), 수량, 단가, 항목 합계, totalPrice, paymentStatus를 구분한다. 상태 변경에는 confirm/pending/failed 상태를 만든다.
-- Sold-out Management는 MENU/INGREDIENT/OPTION_ITEM 필터, name, isSoldOut, reasonType, Toggle pending/success/error/empty 상태를 만든다. 핵심 재료 품절=메뉴 주문 불가, 일반 재료/옵션 품절=선택 불가 안내를 구별하는 UI를 만든다.
-- Menu Form은 `categoryId,name,price,imageUrl,optionGroupIds`만 확정 필드로 둔다. 원가·영양편집·활성화·태그 저장은 `__manual-check`로 남긴다.
-- Payment Methods는 `name,isActive,sortOrder`로 구성하며 현재 CARD 한 종류를 다중 수단처럼 확정 표시하지 않는다.
-- Sales Summary는 from/to 기간, 일별 매출, 메뉴별 판매량, loading/empty/error을 만든다. 평균 주문금액·결제수단별 통계·할인/환불 KPI는 확정 카드로 추가하지 않는다.
+3. 06. Screens / Admin 수정
+- SCR-009/010 `2:8162`: DataTableRow는 orderNo, createdAt, orderType, itemCount, totalPrice, orderStatus, paymentStatus로 구성한다. 주문 상세는 items, selectedOptions, excludedIngredients를 분리한다. 취소/환불/결제완료는 현재 API Enum 밖이므로 실제 status Variant에서 제거하거나 __manual-check로 남긴다.
+- SCR-011 `29:12269`: targetType/targetId/name/isSoldOut/reasonType을 직접 반영한다. MENU·INGREDIENT·OPTION_ITEM 탭, 저장 confirm, pending/success/error toast를 유지하고 핵심 재료 품절=메뉴 주문 불가와 일반 재료/옵션 품절=선택 불가 안내를 구분한다.
+- SCR-018 `2:13336`: name/isActive/sortOrder 기반의 결제수단 행, 저장/loading/error/empty 상태를 구성한다.
+- SCR-019 `2:8726`: from/to, 일별 매출, 메뉴별 판매량, loading/empty/error만 확정 데이터로 둔다. 고객 수, 취소·환불, 승인 결제금액, 시간대/카테고리/인기메뉴 KPI는 API 근거가 생길 때까지 Mock settings 또는 __manual-check 처리한다.
 
-3) 06 Hi-fi 직접 수정
-- 06이 비어 있으면 05에서 검증한 관리자 7개 화면의 hi-fi 버전을 우선 배치한다. wireframe과 hi-fi가 서로 다른 데이터/상태를 요구하지 않게 동일 Component Set 인스턴스를 사용한다.
-- 06에 키오스크 화면이 있거나 추가하는 경우: MenuCard=`menuName,image,price,baseKcal,isSoldOut,hasSoldOutIngredient,tags`; OptionGroup=`minSelect,maxSelect,isRequired,extraPrice,extraKcal,isRecommended,isSoldOut`; CartItem=`menuName,optionSummary,exclusionSummary,quantity,unitPrice,lineTotal`; 결제/완료=`totalPrice,payment.amount,paymentStatus,orderNo,paidAt`를 적용한다.
-- 할인, 환불, 확정 최종 칼로리, 근거 없는 결제수단은 만들지 않는다.
+4. 공통 정리
+- `Property 1`, `sourse`, `menu-itme`, `Frame 1` 등 자동/오탈자 명명을 PascalCase Component Set과 camelCase Property로 정리한다. 기존 인스턴스 연결과 Frame ID는 유지한다.
+- Button, MenuCard, OptionGroup, CartItem, PaymentMethodCard, DataTableRow, OrderDetailRow, SoldOutItem, SalesMetricCard, EmptyState, ErrorState, LoadingState, ConfirmDialog에 데이터·상태 Property를 추가한다.
+- 반복 영역은 Auto Layout과 Component Instance를 사용하고, 텍스트 잘림·겹침·오버플로우·불필요한 absolute position·깨진 instance를 수정한다.
+- 각 화면 root에 `__spec`을 두고 Route/Data/States/Actions를 기록한다. 불확정 데이터는 `데이터 연결 예정`, `Mock settings`, 또는 `__manual-check`로 표시한다.
 
-4) 컴포넌트·Variant·Auto Layout 정리
-- `Button(label,leadingIcon,trailingIcon,disabled,loading,variant)`, `OrderStatusBadge(orderStatus,paymentStatus)`, `OrderDetailRow`, `SoldOutToggle`, `PaymentMethodRow`, `DataTable`, `EmptyState`, `ErrorState`, `LoadingState`, `Modal/ConfirmDialog`을 재사용 가능하게 한다.
-- `state=default|loading|empty|error|disabled|soldOut|selected|processing`은 실제 해당 컴포넌트에만 만들고, 주문/결제 상태는 위 Enum 범위만 variant/property로 제공한다.
-- Auto Layout과 Hug/Fill/Fixed를 정리하고 반복 행은 vertical/horizontal Auto Layout으로 구성한다. 텍스트 잘림, 오버플로우, 겹침, 불필요한 absolute position을 수정한다. 정상 Component Set을 불필요하게 분할하지 않는다.
-- Property 이름은 `menuName`, `unitPrice`, `additionalPrice`, `lineTotal`, `totalAmount`, `baseKcal`, `estimatedKcal`, `isSoldOut`, `orderStatus`, `paymentStatus`처럼 API/React prop에 맞춘 camelCase를 쓴다. Component Set/레이어는 `MenuCard`, `OrderStatusBadge`처럼 PascalCase, 상수/토큰은 `OrderStatus`, `PaymentStatus`처럼 UpperCamelCase를 쓴다. DB snake_case를 Figma property에 사용하지 않는다.
+5. 재검증·보고
+- 수정 후 05/06 전체의 가격 정합성, 상태 Enum, 품절 처리, loading/empty/error, instance 연결, 오버플로우를 재점검한다.
+- Frame ID, 수정 Component Set/Property/Variant, 데이터 근거(API/DB/코드), manual-check 잔여 항목을 표로 보고한다.
 
-5) 흐름과 재검증
-- 최소 Prototype: 관리자 주문목록 → 주문상세 → 상태변경 confirm → 성공/실패, 품절관리 → 토글 pending/성공/실패, 매출 → 기간필터 → 데이터/빈/오류를 연결한다.
-- 키오스크 인스턴스가 있으면 홈 → 메뉴 → 옵션 → 장바구니 → 결제 → 처리중 → 완료와 결제실패·timeout 분기도 확인한다.
-- 완료 후 05/06 전체에서 누락, 겹침, 잘림, 오버플로우, 깨진 instance, 자동 이름, enum 밖 상태, 하드코딩 금액/칼로리를 다시 검사한다.
-- 마지막으로 수정 보고서를 작성한다: 수정한 Frame/Component ID, 근거 파일/API/DB 필드, 추가한 Property/Variant, 제거 또는 `__manual-check`로 남긴 항목, 확인하지 못한 사항, 깨진 인스턴스 0건 여부.
+제한: DB/API/문서/실제 코드 근거 없이 기능·가격·칼로리·결제수단·KPI를 추가하지 않는다. 가격 계산을 임의 변경하지 않는다. 브랜드 컬러/방향을 재설계하지 않는다. React 코드를 생성하지 않는다.
 ```
 
-## E. Figma 밖에서 해결할 항목
+## E. Figma만으로 해결되지 않는 항목
 
-| 분류 | 필요한 결정/변경 |
+| 분류 | 필요 작업 |
 | --- | --- |
-| DB | 할인/쿠폰·환불·결제 실패 사유, 주문 당시 메뉴/옵션명·가격·영양 스냅샷, 메뉴 활성 상태, 필요 시 원가와 결제수단별 집계의 저장 모델 |
-| API | API-005 항목별 금액/할인 필드, API-006 실패 `code/message`와 취소/재결제 계약, API-015 응답 스키마·지원 KPI 확정, 영양 예상/확정의 책임 주체 |
-| DTO/백엔드 | menu/order/payment Entity·DTO·Repository·Service·Controller 구현, snake_case DB↔camelCase API 매핑, 핵심/일반 재료 품절 계산, 서버 측 총액 검증·가격 스냅샷 |
-| Enum/상수 | `constants/status.js`, `constants/order.js`, 수량 최소/최대, 옵션 최대 선택, timeout, 페이지 크기, 오류/성공 문구를 단일 모듈로 정의 |
-| 프런트 | `cartRules.js`, `soldOutPolicy.js`, `useKioskTimeout.js`, 타입 정의, 모든 placeholder 페이지/컴포넌트 구현; API 오류/로딩/빈 상태 연결 |
-| 기획 | timeout 경고 여부와 시간, 취소/환불 지원, 할인 정책, 영수증/바코드·QR의 MVP 범위, 매출 KPI와 결제수단 범위 |
+| DB | 할인/쿠폰·환불·실패 사유, 주문 당시 메뉴/옵션명·가격·영양 스냅샷, 원가, 고객·결제수단별 집계 저장 모델 |
+| API/DTO | API-005의 항목별 금액/할인, API-006의 실패 code/message·재결제/취소, API-015의 실제 응답·지원 KPI 확정 |
+| Backend | menu/order/payment Entity·DTO·Repository·Service·Controller, DB snake_case→API camelCase 변환, 서버 총액 검증, 핵심/일반 품절 계산 |
+| Frontend | `cartRules.js`, `soldOutPolicy.js`, `useKioskTimeout.js`, 타입/상수, placeholder 화면과 로딩·오류·빈 상태 구현 |
+| 기획 | timeout 시간/모달, 카드 외 결제수단, 취소·환불, 할인, 영수증·바코드·QR, 매출 KPI의 MVP 범위 |
 
-## 감사 근거 파일
+## 근거 파일
 
-- `docs/design/ASAK_FIGMA_MCP_REVIEW_2026-07-14.md`
-- `docs/wiki/db-table-definition.md`, `docs/wiki/rest-api-spec.md`, `docs/wiki/requirements-definition.md`, `docs/wiki/user-scenarios.md`
-- `asak-data/schema-backups/short-name-before-20260713-115747.sql`, `asak-data/seed-v3/*.json`
-- `../ASAK-Kiosk/src/contracts/api-data-contract.md`, `src/store/orderSessionStore.js`, `src/features/order/orderFlow.js`, `src/api/*.js`, `src/pages/**/*.jsx`, `src/components/**/*.jsx`
-- `../ASAK-back/src/main/java/**` (health-only skeleton 확인)
+- `ASAK-Kiosk/src/contracts/api-data-contract.md`
+- `ASAK/docs/wiki/rest-api-spec.md`, `db-table-definition.md`, `requirements-definition.md`, `user-scenarios.md`
+- `ASAK/asak-data/schema-backups/short-name-before-20260713-115747.sql`, `ASAK/asak-data/seed-v3/*.json`
+- `ASAK-Kiosk/src/store/orderSessionStore.js`, `src/api/*.js`, `src/pages/**/*.jsx`, `src/components/**/*.jsx`
+- Figma MCP: page `2:6`, page `2:7`; Frame `2:4704`, `2:4775`, `2:4791`, `2:4816`, `2:4877`, `2:8162`, `29:12269`, `2:8726`
