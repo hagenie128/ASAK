@@ -5,44 +5,48 @@
 ```text
 당신은 ASAK 키오스크·관리자 제품 UI의 Figma 디자인 시스템 담당자다.
 
-대상 파일: ASAK — Design System & Product UI (`VXKyzoNdsgM4oN57mrECxb`)
-주요 대상 페이지:
+원본 참조 파일: ASAK — Design System & Product UI (`VXKyzoNdsgM4oN57mrECxb`)
+작업 파일: 새 Figma Design 파일 `ASAK — Handoff & Portfolio — 2026-07-15`를 생성해 사용한다.
+원본 참조 페이지:
 - `05. Screens / Kiosk` (page `2:6`): 1080×1920 세로 키오스크
 - `06. Screens / Admin` (page `2:7`): 1920×1080 관리자 웹
 
-목표는 브랜드를 새로 디자인하는 것이 아니다. 현재의 밝은 Lime 액션 컬러, Charcoal 텍스트, Noto Sans KR, 여백이 넉넉한 카드 UI라는 방향을 유지하면서, 디자인 시스템을 실제 React/API 구현과 연결 가능한 수준으로 정리하고 화면 품질·상태·데이터 정합성을 높이는 것이다.
+목표는 브랜드나 디자인 시스템을 새로 만드는 것이 아니다. 원본 화면에서 실제로 사용 중인 Frame·Component Set·Instance·변수·스타일을 **새 파일로 복사**하고, 새 파일 안에서만 사용처·코드 handoff·포트폴리오를 정리하는 것이다. 원본 라이브러리 Component를 참조하지 않으며, 새 파일의 모든 텍스트는 `Noto Sans KR`만 사용한다.
 
 ## 0. 절대 원칙
 
-- 먼저 파일의 `01. Foundations`, `02. Components / Shared`, `03. Components / Kiosk`, `04. Components / Admin`, `05`, `06`을 읽고 기존 Component Set/인스턴스/변수/스타일을 파악한다.
-- 기존 Frame ID, 정상적인 Component Set, 인스턴스 연결, 브랜드 컬러 방향은 유지한다. 안전한 리네이밍은 가능하나 기존 의미와 연결을 끊지 않는다.
-- React 코드를 작성하지 않는다. 대신 React props와 배열 렌더링에 맞는 Component Property, Variant, Auto Layout을 만든다.
+- 원본 파일의 `01. Foundations`, `02. Components / Shared`, `03. Components / Kiosk`, `04. Components / Admin`, `05`, `06`을 읽고 **각 화면에서 실제 사용 중인** Component Set·Instance·변수·스타일과 사용처를 인벤토리로 만든다.
+- 원본 파일은 읽기 전용이다. 원본의 Frame ID, Component Set, 인스턴스 연결, Variant, 변수, 색상, spacing, radius, elevation, 레이아웃, 이미지, 텍스트를 변경·교체·분리·병합·삭제·이름변경하지 않는다.
+- 새 파일에는 원본에서 **실제로 사용 중인 자산만** 복사한다: 해당 화면 Frame, 그 화면이 쓰는 Shared/Kiosk/Admin Component Set, 필요한 아이콘·이미지·스타일·변수. 미사용/Legacy/Archive 자산은 복사하지 않는다.
+- 복사 후 새 파일 내부 Component Set으로 독립시킨다. 새 파일의 인스턴스가 원본 파일, published library, 외부 library의 Component를 참조한다면 **새 파일 안에서만** 그 연결을 끊는다. 복사본을 Local Component/Local Component Set으로 지정한 뒤, 새 파일의 모든 화면 인스턴스를 해당 Local Component로 다시 연결한다. 원본 파일의 Component reference/instance link는 절대 변경하지 않는다.
+- 최소 복사 범위는 실제 05/06 화면에서 사용 중인 자산으로 한정한다: `Button`, `Modal`, `ConfirmDialog`, `EmptyState`, `ErrorState`, `LoadingState`; `MenuCard`, `OptionGroup`, `CartItem`, `PaymentMethodCard`, `BottomCTA`, `Header`, `CategoryTab`; `Admin/Navbar`, `Admin/OrderPageHeader`, `Admin/DataTableHeader`, `Admin/DataTableRow-Active`, `Admin/OrderDetail*`, `Admin/FilterDropdown`, `Admin/SearchInput`, `Admin/Pagination`, `Admin/SalesMetricCard`, `SoldOut` 관련 카드/토글/Modal.
+- 복사한 화면은 `SCR-001/003/004/005/007/008/012/013/014`와 `SCR-009/010/011/015/018/019/020/021` 중 실제 포트폴리오 및 handoff에 쓰는 상태만 포함한다. Loading/Empty/Error는 같은 화면의 상태 증빙으로 한 세트씩만 포함한다.
+- 새 파일의 Local Components/Local Styles로 사용한다. 원본의 published-library reference, remote component reference, source-file instance reference가 발견되면 새 파일에서만 detach 또는 local main component 재지정 후 instance swap을 수행한다. 재지정 전후로 화면별 instance 수, Variant 값, 텍스트 값, Auto Layout 크기를 비교해 동일하게 유지됐는지 검증한다.
+- 새 파일의 첫 페이지에 `Source Inventory`를 만들고 `원본 fileKey`, `원본 node ID`, `복사일`, `원본 Component name`, `새 Component name`, `사용 화면`을 기록한다.
+- React 코드를 작성하지 않는다. 현재 Component Property, Variant, Auto Layout을 React props와 배열 렌더링 관점에서 문서화하고, 구조 변경이 필요하면 `__manual-check`로 남긴다.
 - 추측으로 가격·할인·환불·칼로리·결제수단·매출 KPI를 확정값으로 추가하지 않는다. API/DB 근거가 없으면 `Mock settings`, `데이터 연결 예정`, `__manual-check`로 남긴다.
 - API URL/JSON/Figma Property는 camelCase, DB 출처 메모는 snake_case, Component Set/클래스는 PascalCase, 상수·토큰은 UpperCamelCase를 사용한다.
 
-## 1. Foundations 정비
+### 허용 작업과 금지 작업
 
-현재 파일의 Light color 변수 42개, spacing 13개, radius 7개, elevation 4개, Noto Sans KR text style 32개를 우선 재사용한다. 새 값을 중복 생성하지 않는다.
+- 허용: 새 파일로의 복사, 새 파일에서 활성 자산의 사용처 인벤토리, description/`__spec`/`__manual-check` 메모, 원본 ID/이름/사용처 링크, 새 파일의 모든 텍스트 `Noto Sans KR` 적용.
+- 금지: 복사된 자산의 색상·spacing·radius·elevation·이미지·아이콘·레이아웃·컴포넌트 계층·Property·Variant·상태·토큰을 Agent 판단으로 변경, 추가, 삭제, 교체, 병합, 분리하는 행위. 폰트 외 시각/구조 변경은 하지 않는다.
+- 아래의 화면별 Property/상태 목록은 **코드 반영을 위한 데이터 계약 문서화 목록**이다. 해당 Property/Variant가 기존에 없으면 Figma를 고치지 말고 `__manual-check`와 Component description에 기록한다.
 
-### 1-1. Semantic token 구조
+## 1. Foundations 사용처 정리
 
-기존 색상 변수를 다음 역할 체계로 alias 정리한다. 값 자체는 브랜드 방향을 유지한다.
+원본 파일의 Light color 변수 42개, spacing 13개, radius 7개, elevation 4개, text style 32개의 **실제 사용처**를 새 파일에 정리한다. 토큰 체계를 재설계하거나 alias를 새로 만들지 않는다. 원본의 폰트는 변경하지 않으며 새 파일의 텍스트만 `Noto Sans KR`로 사용한다.
 
-- `Color/Brand/Primary`, `Color/Brand/PrimaryHover`, `Color/Brand/PrimaryPressed`, `Color/Brand/PrimarySubtle`
-- `Color/Surface/Canvas`, `Color/Surface/Base`, `Color/Surface/Raised`, `Color/Surface/Selected`, `Color/Surface/Disabled`
-- `Color/Text/Primary`, `Color/Text/Secondary`, `Color/Text/Tertiary`, `Color/Text/Inverse`, `Color/Text/Disabled`
-- `Color/Border/Default`, `Color/Border/Strong`, `Color/Border/Focus`, `Color/Border/Danger`
-- `Color/Status/Success`, `Color/Status/Warning`, `Color/Status/Danger`, `Color/Status/Info`
-- `Color/Overlay/Scrim`
+### 1-1. Token inventory
 
-Lime은 Primary CTA, 선택 상태, 핵심 성공 피드백에만 사용한다. 본문 텍스트·큰 면적 배경·위험 액션에 과도하게 쓰지 않는다. 환불/삭제/위험 저장은 Lime이 아니라 Danger token을 쓴다.
+- 각 활성 화면/컴포넌트가 실제로 참조하는 color·spacing·radius·elevation·text style을 표로 기록한다.
+- 값, 이름, alias, 색상 역할은 수정하지 않는다. 사용되지 않는 자산도 삭제하거나 Archive로 이동하지 않는다.
+- 시각적인 판단이나 새로운 semantic token 제안이 필요하면 수정하지 말고 `__manual-check` 메모로만 남긴다.
 
 ### 1-2. Space, radius, elevation, type
 
-- 기존 0~64 space token과 None~Full radius token을 Auto Layout의 padding/gap/radius에 연결한다. 임의 숫자 여백을 줄인다.
-- elevation은 `Elevation/Xs|Sm|Md|Lg` 역할만 사용한다. 카드 기본은 낮은 elevation 또는 border, Modal은 Md/Lg를 사용한다.
-- Noto Sans KR text style을 유지하고, 임의 font size/weight를 줄인다. 키오스크는 터치 인지에 필요한 제목/가격/CTA 대비를 우선하며, 관리자는 표 가독성과 숫자 정렬을 우선한다.
-- 금액/수량/주문번호는 tabular numeral 또는 동일 폭 숫자 스타일을 우선 적용해 열 정렬이 흔들리지 않게 한다.
+- existing padding/gap/radius/elevation/size 값은 유지한다.
+- 새 파일에서 만드는 인벤토리·표·설명·포트폴리오 텍스트는 모두 `Noto Sans KR`를 사용한다. 원본 화면/Component Set의 font family, size, weight, line height, letter spacing, text style은 변경하지 않는다.
 
 ### 1-3. 접근성
 
@@ -52,9 +56,9 @@ Lime은 Primary CTA, 선택 상태, 핵심 성공 피드백에만 사용한다. 
 
 ## 2. 공통 컴포넌트 정비
 
-자동 이름과 오탈자를 정리한다: `Property 1`, `Variant2`, `sourse`, `menu-itme`, `Frame 1`은 의미 있는 이름으로 바꾼다. Component Set은 PascalCase, Property는 camelCase, Variant 값은 코드 연결용 소문자 값으로 둔다.
+`Property 1`, `Variant2`, `sourse`, `menu-itme`, `Frame 1` 같은 자동 이름과 오탈자는 원본에서 고치지 않는다. 새 파일의 인벤토리에는 권장 이름을 PascalCase/camelCase 규칙으로 병기하고, 원본 이름·ID·사용처를 함께 기록한다.
 
-다음 Component Set을 기존 자산을 활용해 정리한다.
+다음 Component Set은 새로 만들거나 구조를 바꾸지 않는다. 현재 쓰이는 Set의 Property/Variant/사용처를 인벤토리와 description으로 정리한다.
 
 | Component Set | 필수 Property/Variant |
 | --- | --- |
@@ -73,6 +77,8 @@ Lime은 Primary CTA, 선택 상태, 핵심 성공 피드백에만 사용한다. 
 텍스트로 바뀌는 내용이나 단순 on/off는 Variant를 무한히 늘리지 말고 Text/Boolean/Instance swap Property를 사용한다.
 
 ## 3. 05. Screens / Kiosk 개선
+
+이 절은 원본 05 화면을 바꾸라는 명령이 아니다. 새 파일의 화면별 데이터 계약·사용처 표에 기록할 점검 항목이다. 원본 Frame, Component, Variant, 텍스트, 레이아웃에는 손대지 않는다.
 
 ### SCR-003 Menu List (`2:4704`)
 
@@ -111,6 +117,8 @@ Lime은 Primary CTA, 선택 상태, 핵심 성공 피드백에만 사용한다. 
 
 ## 4. 06. Screens / Admin 개선
 
+이 절은 원본 06 화면을 바꾸라는 명령이 아니다. 새 파일의 화면별 데이터 계약·사용처 표에 기록할 점검 항목이다. 원본 Frame, Component, Variant, 텍스트, 레이아웃에는 손대지 않는다.
+
 ### SCR-009/010 Order List + Detail (`2:8162`)
 
 - 테이블 열은 `orderNo`, `createdAt`, `orderType`, `itemCount`, `totalPrice`, `orderStatus`, `paymentStatus`로 정리한다.
@@ -137,27 +145,26 @@ Lime은 Primary CTA, 선택 상태, 핵심 성공 피드백에만 사용한다. 
 - 화면의 고객 수, 취소·환불, 승인 결제금액, 시간대/카테고리/인기메뉴 KPI는 API 근거가 없다. 해당 카드/차트는 삭제하지 않고 `Mock settings` 또는 `__manual-check`로 분리해 실제 확정 데이터처럼 보이지 않게 한다.
 - `SalesMetricCard`와 `SalesChart`는 `loading`, `empty`, `error`, `data` 상태를 일관되게 가진다.
 
-## 5. 레이아웃·프로토타입·검증
+## 5. 레이아웃·프로토타입·검증 기록
 
-- 연관된 자식은 Auto Layout으로 묶고, outer frame만 캔버스 좌표를 사용한다. 반복 카드·행·버튼 내부의 absolute position을 최소화한다.
-- 키오스크는 세로 스크롤과 Bottom CTA safe area를 확인한다. 관리자는 Sidebar, 필터, table, detail panel의 고정/스크롤 영역을 명확히 구분한다.
-- 텍스트 줄바꿈, long menuName, 0원/무료 옵션, 긴 errorMessage, 빈 목록에서 overflow/잘림이 없는지 확인한다.
-- 최소 prototype 흐름을 연결한다.
+- 원본의 Auto Layout, absolute position, 스크롤, Bottom CTA safe area, Sidebar/table/detail panel 구성을 읽고 새 파일의 점검표에 기록한다. 원본 레이아웃을 고치지 않는다.
+- 텍스트 줄바꿈, long menuName, 0원/무료 옵션, 긴 errorMessage, 빈 목록에서 overflow/잘림이 없는지 점검표에 기록한다.
+- 최소 prototype 흐름은 원본 연결 상태를 기록한다.
   - Kiosk: Menu List → Menu Detail → Cart → Payment → Processing → Complete, Payment Error/Timeout 분기
   - Admin: Order List → Detail → Status Change Confirm → Success/Error, Sold-out Toggle → Save Confirm → Toast, Sales Date Filter → Data/Empty/Error
-- 각 화면 root에 다음 형식의 `__spec`을 넣는다.
+- 새 파일의 화면 인덱스 항목마다 다음 형식의 `__spec`을 기록한다.
 
   `Route: /...`
   `Data: ...`
   `States: default | loading | empty | error | ...`
   `Actions: ...`
 
-## 6. 수정 완료 보고서
+## 6. 새 파일 완료 보고서
 
-수정 후 다음을 표로 보고한다.
+새 파일 작성 후 다음을 표로 보고한다.
 
-1. 수정한 Frame ID와 Component Set
-2. 추가/변경한 Property와 Variant
+1. 참조한 원본 Frame ID와 Component Set
+2. 현재 확인한 Property와 Variant
 3. API/DB/코드 근거
 4. 제거·보류한 하드코딩/미근거 KPI/상태
 5. Auto Layout·overflow·instance 연결 재검증 결과
