@@ -32,6 +32,17 @@
 - 화면 상태 Enum 계약: `ORDER_STATUS = RECEIVED | PREPARING | COMPLETED`; `PAYMENT_STATUS = READY | APPROVED | FAILED`; `ORDER_TYPE = EAT_IN | TAKE_OUT`; 결제수단 seed는 현재 `CARD`만 확인된다.
 - `orderSessionStore`: `orderType`, `items[]`, `order{orderId,orderNo,orderType,totalPrice,orderStatus,paymentStatus}`, `payment{paymentId,orderId,orderNo,amount,paymentStatus,paidAt}`, `paymentError`를 보관하며 승인 또는 timeout-confirmed 뒤만 reset한다.
 
+### 명명 표준 (프로젝트 고정)
+
+| 대상 | 표기 | 적용 예시 |
+| --- | --- | --- |
+| 백엔드·프런트 API URL 및 JSON 필드 | `camelCase` | `/api/menus?categoryId`, `orderNo`, `paymentStatus`, `extraPrice` |
+| DB 테이블·컬럼 | `snake_case` | `order_item`, `total_price`, `is_sold_out`, `paid_at` |
+| Java 클래스·React 컴포넌트 | `PascalCase` | `OrderResponse`, `PaymentService`, `MenuCard`, `OrderDetailRow` |
+| 상수 | `UpperCamelCase` | `OrderStatus`, `PaymentStatus`, `OrderSessionResetReason` |
+
+상수는 요청 기준인 `UpperCamelCase`를 사용한다. 기존의 `ORDER_SESSION_RESET_REASON`, `API_ENDPOINTS`처럼 다른 표기가 남아 있는 파일은 이 감사에서 발견한 **기존 불일치**이며, Figma Property/Variant에는 그대로 전파하지 않는다. API DTO 변환 계층에서 `snake_case` DB 컬럼을 `camelCase` JSON 필드로 바꾸고, Figma Property는 API/React prop과 같은 `camelCase`를 사용한다.
+
 ### 가격·칼로리 계산 경계
 
 - 화면 표시 계약: `lineTotal = (unitPrice + Σ(option.extraPrice × option.quantity)) × item.quantity`; `orderTotal = Σ(lineTotal)`; `paymentAmount`는 API-006 요청 `amount` 및 승인 응답 `amount`와 일치해야 한다.
@@ -94,7 +105,7 @@ payment.amount    → API-006               → OrderComplete.paidAmount
 baseKcal/extraKcal→ menu/options API      → nutrition.baseKcal / nutrition.estimatedKcal
 ```
 
-Figma의 status 값은 API Enum을 소문자 property 값으로만 변환하고, 표시 문구는 별도 text property/문구 사전(`접수`, `준비중`, `완료`, `결제 대기`, `결제 승인`, `결제 실패`)으로 둔다. `Property 1`, `Variant2`, `Frame …`, `sourse` 같은 자동/오탈자 명명은 제거한다.
+Figma의 status 값은 API Enum을 소문자 property 값으로만 변환하고, 표시 문구는 별도 text property/문구 사전(`접수`, `준비중`, `완료`, `결제 대기`, `결제 승인`, `결제 실패`)으로 둔다. Figma Component Set/레이어의 컴포넌트명은 `PascalCase`, Property는 API와 같은 `camelCase`, DB 출처 메모는 `snake_case`, 상수/토큰 이름은 `UpperCamelCase`로 둔다. `Property 1`, `Variant2`, `Frame …`, `sourse` 같은 자동/오탈자 명명은 제거한다.
 
 ## D. Figma Agent에 전달할 최종 프롬프트
 
@@ -108,7 +119,7 @@ Figma의 status 값은 API Enum을 소문자 property 값으로만 변환하고,
 - React 코드를 생성하지 않는다. 대신 배열 렌더링과 props에 적합한 Auto Layout·Component Property·Variant 구조를 만든다. 불명확한 데이터는 `__manual-check` 메모로 남기고 확정 UI로 만들지 않는다.
 
 1) 프로젝트 기준 확인
-- 공통 응답 envelope는 `{ success,status,code,message,data }`, API 필드는 camelCase다.
+- 공통 응답 envelope는 `{ success,status,code,message,data }`, API URL/필드는 camelCase다. DB 출처는 snake_case, Component Set/클래스는 PascalCase, 상수는 UpperCamelCase를 사용한다.
 - 실제 상태: orderStatus=`RECEIVED|PREPARING|COMPLETED`, paymentStatus=`READY|APPROVED|FAILED`, orderType=`EAT_IN|TAKE_OUT`, 품절 targetType=`MENU|INGREDIENT|OPTION_ITEM`.
 - 가격: `lineTotal=(unitPrice + Σ(extraPrice×optionQuantity))×itemQuantity`, `orderTotal=Σ(lineTotal)`, `payment.amount=최종 결제 요청/승인 금액`. 현재 discount/refund/원가/결제 실패 사유는 계약에 없다.
 - 영양: `baseKcal`, `extraKcal`은 표시 가능하나 최종 주문 영양 스냅샷은 없다. “예상” 표기 외 확정 총칼로리를 만들지 말라.
@@ -131,7 +142,7 @@ Figma의 status 값은 API Enum을 소문자 property 값으로만 변환하고,
 - `Button(label,leadingIcon,trailingIcon,disabled,loading,variant)`, `OrderStatusBadge(orderStatus,paymentStatus)`, `OrderDetailRow`, `SoldOutToggle`, `PaymentMethodRow`, `DataTable`, `EmptyState`, `ErrorState`, `LoadingState`, `Modal/ConfirmDialog`을 재사용 가능하게 한다.
 - `state=default|loading|empty|error|disabled|soldOut|selected|processing`은 실제 해당 컴포넌트에만 만들고, 주문/결제 상태는 위 Enum 범위만 variant/property로 제공한다.
 - Auto Layout과 Hug/Fill/Fixed를 정리하고 반복 행은 vertical/horizontal Auto Layout으로 구성한다. 텍스트 잘림, 오버플로우, 겹침, 불필요한 absolute position을 수정한다. 정상 Component Set을 불필요하게 분할하지 않는다.
-- Property 이름은 `menuName`, `unitPrice`, `additionalPrice`, `lineTotal`, `totalAmount`, `baseKcal`, `estimatedKcal`, `isSoldOut`, `orderStatus`, `paymentStatus`처럼 API/React prop에 맞춘 camelCase를 쓴다. DB snake_case를 Figma property에 사용하지 않는다.
+- Property 이름은 `menuName`, `unitPrice`, `additionalPrice`, `lineTotal`, `totalAmount`, `baseKcal`, `estimatedKcal`, `isSoldOut`, `orderStatus`, `paymentStatus`처럼 API/React prop에 맞춘 camelCase를 쓴다. Component Set/레이어는 `MenuCard`, `OrderStatusBadge`처럼 PascalCase, 상수/토큰은 `OrderStatus`, `PaymentStatus`처럼 UpperCamelCase를 쓴다. DB snake_case를 Figma property에 사용하지 않는다.
 
 5) 흐름과 재검증
 - 최소 Prototype: 관리자 주문목록 → 주문상세 → 상태변경 confirm → 성공/실패, 품절관리 → 토글 pending/성공/실패, 매출 → 기간필터 → 데이터/빈/오류를 연결한다.
