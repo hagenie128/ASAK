@@ -4,6 +4,7 @@
 
 - [Current status baseline](current-status-baseline.md)
 - [WBS 2.0](wbs-v2.md)
+- [Legacy WBS2 mapping audit](legacy-wbs2-mapping-audit-2026-07-16.md)
 - [Traceability matrix](traceability-matrix.md)
 - [Future scope](future-scope.md)
 - [DevCopilot sync report](devcopilot-sync-report.md)

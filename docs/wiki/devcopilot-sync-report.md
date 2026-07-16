@@ -1,5 +1,36 @@
 # DevCopilot Sync Report
 
+## Legacy semantic-overlap follow-up (2026-07-16)
+
+The 37 active Legacy WBS records were audited against the 64 active WBS2 records by DevCopilot internal record ID. The detailed mapping, replacement reason, and evidence are in [legacy-wbs2-mapping-audit-2026-07-16.md](legacy-wbs2-mapping-audit-2026-07-16.md).
+
+| Metric | Before audit | After audit | Formula / reason |
+|---|---:|---:|---|
+| Legacy Active | 37 | 7 | 30 replaced/future Legacy records moved to EXCLUDED; no record deleted |
+| WBS2 Active | 64 | 64 | WBS2 scope unchanged |
+| Active total | 101 | 71 | `7 + 64` |
+| DONE | 9 | 8 | Legacy Internal ID 29 had a planned Notion source and no backend evidence; it is not DONE |
+| EXCLUDED | 67 | 97 | `67` duplicate records + `30` Legacy superseded/future records |
+| Total WBS | 168 | 168 | No creation or deletion |
+| Dashboard WBS progress | 5.4% | 4.8% | `8 DONE / 168 total records = 4.76%` |
+| Operational WBS progress | n/a | 11.3% | `8 DONE / 71 Active records = 11.27%`; EXCLUDED omitted |
+
+`DevCopilot Dashboard WBS progress is not operationally reliable`. The observed dashboard formula includes `EXCLUDED` records in its denominator. It must remain an unmodified system metric; use the operational formula above for current execution tracking.
+
+### DONE evidence verification
+
+| Internal ID | Task ID | Result | Evidence boundary |
+|---:|---|---|---|
+| 10 | WBS-001 | Retained DONE | Menu/option design/data definitions exist; no React completion claim. |
+| 15 | WBS-003 | Retained DONE | Stack/role documentation exists; no feature completion claim. |
+| 16 | WBS-004 | Retained DONE | ERD/API documentation exists; no backend API completion claim. |
+| 27 | WBS-024 | Retained DONE | Seed bundle contains menu/ingredient/option data; app migration is still open. |
+| 29 | WBS-026 | Changed to EXCLUDED | Source record was planned and no backend implementation evidence exists. |
+| 31 | WBS-023 | Retained DONE | Schema constraint artifact exists; it is not a connected application migration. |
+| 119 | WBS2-001 | Retained DONE | Baseline snapshot document exists. |
+| 120 | WBS2-002 | Retained DONE | Repository actual/target baseline document exists. |
+| 127 | WBS2-009 | Retained DONE | Design-system evidence review exists; it is design-only. |
+
 > 기준일: 2026-07-16 · Status: IN_PROGRESS
 
 ## Supported MCP changes

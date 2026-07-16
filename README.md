@@ -4,7 +4,7 @@
 
 > **처음이신가요?** 👉 [**처음 시작하기 (GETTING_STARTED)**](docs/operations/setup/GETTING_STARTED.md) · Windows 설치 상세 [**INSTALL_WINDOWS.md**](docs/operations/setup/INSTALL_WINDOWS.md) · Notion [🚀 팀 온보딩](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) — 클론·세팅·워크로그까지 한 문서로!
 
-`ASAK`는 `A Salad A Kiosk`의 **통합 Git 저장소**입니다. 로컬 클론 경로는 **`C:\ASAK`** 를 권장합니다.
+`ASAK`는 `A Salad A Kiosk`의 **통합 Git 저장소**입니다. 로컬 클론 위치는 각 팀원의 작업 환경에 맞게 정합니다.
 
 **9주 (7/2~9/2)** · Week 5 MVP SCR-001~008 (8/1) · 최종 발표 9/2(수). 산출물·진행 허브: [Notion 키오스크 풀스택 프로젝트](https://app.notion.com/p/39151ef04f0b808f99f8ea068efb5790) · 일일 워크로그: [팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95) · Git [`worklog/guide-personal-worklog.md`](worklog/guide-personal-worklog.md) · [확인 순서](worklog/README.md)
 

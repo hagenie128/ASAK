@@ -1,5 +1,7 @@
 # ASAK WBS 2.0
 
+> 2026-07-16 Legacy semantic-overlap audit: the authoritative 37-record mapping is [legacy-wbs2-mapping-audit-2026-07-16.md](legacy-wbs2-mapping-audit-2026-07-16.md). `DevCopilot Dashboard WBS progress is not operationally reliable`: its observed denominator includes `EXCLUDED` records. Use active-scope progress separately for team operation.
+
 > 기준일: 2026-07-16 · Legacy `WBS-*` records are preserved. `WBS2-*` is the execution plan and does not imply source-code completion.
 
 ## Field contract
