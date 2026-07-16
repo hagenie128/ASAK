@@ -60,4 +60,4 @@
 
 ## Human decision status overlay
 
-The following former conflicts are decided by human direction and remain intentionally unimplemented in code: `API-01`, `API-02`, `API-03`, `SCR-01`, and `SCR-02` are `DECIDED_PENDING_CODE_CHANGE`; `DATA-01` is `DECIDED_NOT_IMPLEMENTED` and will be handled by an API adapter without renaming current store fields. See [Canonical Contract Decisions](CANONICAL_CONTRACT_DECISIONS.md). `UI-01` and DB migration/seed selection remain open.
+The following former conflicts are decided by human direction and remain intentionally unimplemented in code: `API-01`, `API-02`, `API-03`, `SCR-01`, and `SCR-02` are `DECIDED_PENDING_CODE_CHANGE`; `DATA-01` is `DECIDED_NOT_IMPLEMENTED` and will be handled by an API adapter without renaming current store fields. See [Canonical Contract Decisions](../governance/CANONICAL_CONTRACT_DECISIONS.md). `UI-01` and DB migration/seed selection remain open.

@@ -74,7 +74,7 @@ git clone https://github.com/hagenie128/ASAK-back.git c:\ASAK-back
 
 ## 4. 필수 프로그램
 
-> **Windows 초보자:** 다운로드·설치 마법사·폴더·PATH·클론·`NOTION_TOKEN` 은 [`docs/INSTALL_WINDOWS.md`](../INSTALL_WINDOWS.md) (**유치원 선생님 모드**)를 **먼저** 따라 하세요.
+> **Windows 초보자:** 다운로드·설치 마법사·폴더·PATH·클론·`NOTION_TOKEN` 은 [`INSTALL_WINDOWS.md`](../operations/setup/INSTALL_WINDOWS.md) (**유치원 선생님 모드**)를 **먼저** 따라 하세요.
 
 권장 설치 항목:
 

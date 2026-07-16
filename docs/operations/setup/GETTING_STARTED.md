@@ -308,10 +308,10 @@ python run_viewer.py --data-dir ..\data-pipeline\phase1\output
 |------|------|
 | [INSTALL_WINDOWS.md](INSTALL_WINDOWS.md) | **Windows 설치** (자동 스크립트 + 수동 fallback) |
 | [MCP_SETUP.md](MCP_SETUP.md) | Cursor MCP·Notion·환경 변수 |
-| [guides/01-team-setup.md](guides/01-team-setup.md) | 팀 세팅·Git·9주 일정 (상세) |
-| [guides/README.md](guides/README.md) | 가이드 읽는 순서 |
-| [wiki/tech-stack-summary.md](wiki/tech-stack-summary.md) | Java, React, 라이브러리 정리 |
-| [worklog/README.md](../worklog/README.md) | 일일 워크로그 |
+| [guides/01-team-setup.md](../../guides/01-team-setup.md) | 팀 세팅·Git·9주 일정 (상세) |
+| [guides/README.md](../../guides/README.md) | 가이드 읽는 순서 |
+| [wiki/tech-stack-summary.md](../../wiki/tech-stack-summary.md) | Java, React, 라이브러리 정리 |
+| [worklog/README.md](../../../worklog/README.md) | 일일 워크로그 |
 | [Notion 프로젝트 허브](https://app.notion.com/p/39151ef04f0b808f99f8ea068efb5790) | 요구사항·WBS 정본 |
 
 팀원에게 물어볼 때: **어느 저장소에서 작업 중인지**, **에러 메시지 전문**, **어느 단계에서 막혔는지**를 함께 알려주면 빨리 도와줄 수 있습니다.
@@ -542,16 +542,16 @@ python worklog/scripts/sync_daily_to_notion.py --date today --json > _sync.json
 
 | 문서 | 내용 |
 |------|------|
-| [worklog/guide-team-daily.md](../worklog/guide-team-daily.md) | 팀 일일 워크로그 상세 |
-| [worklog/guide-personal-worklog.md](../worklog/guide-personal-worklog.md) | 개인별 명령 요약 |
-| [worklog/README.md](../worklog/README.md) | 폴더 구조·확인 순서 |
+| [worklog/guide-team-daily.md](../../../worklog/guide-team-daily.md) | 팀 일일 워크로그 상세 |
+| [worklog/guide-personal-worklog.md](../../../worklog/guide-personal-worklog.md) | 개인별 명령 요약 |
+| [worklog/README.md](../../../worklog/README.md) | 폴더 구조·확인 순서 |
 | [Notion 팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95) | 토큰·DB 스키마 정본 |
 
 ---
 
 ## 다음에 할 일
 
-1. [guides/README.md](guides/README.md) 순서대로 01~02 읽기  
+1. [guides/README.md](../../guides/README.md) 순서대로 01~02 읽기  
 2. Notion [문서 읽는 순서](https://app.notion.com/p/39451ef04f0b81088a91d914f985fb11) · [팀 문서 안내](https://app.notion.com/p/39551ef04f0b813b8765e64384f2dfd3) 확인  
 3. `develop` 브랜치에서 `feature/...` 로 작업 시작  
 4. **매일 퇴근 전** 워크로그 한 줄 ✍️

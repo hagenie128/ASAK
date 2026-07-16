@@ -1,6 +1,6 @@
 # Implementation Priority
 
-> `DECIDED_PENDING_CODE_CHANGE`: canonical contracts are decided in [Canonical Contract Decisions](CANONICAL_CONTRACT_DECISIONS.md), but this phase authorizes documentation only. Slice 1 uses the decided kiosk paths; Slice 5 is implemented in ASAK-Admin.
+> `DECIDED_PENDING_CODE_CHANGE`: canonical contracts are decided in [Canonical Contract Decisions](../governance/CANONICAL_CONTRACT_DECISIONS.md), but this phase authorizes documentation only. Slice 1 uses the decided kiosk paths; Slice 5 is implemented in ASAK-Admin.
 
 > 원칙: 계층별 일괄 구현 대신 API–Backend–UI–검증을 하나씩 완료하는 Vertical Slice로 진행한다. 승인 전 이 문서는 계획일 뿐 소스 변경을 포함하지 않는다.
 

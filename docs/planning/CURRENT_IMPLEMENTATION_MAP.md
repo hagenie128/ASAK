@@ -1,6 +1,6 @@
 # Current Implementation Map
 
-> Human decisions, 2026-07-16: canonical API/route/response fields are in [Canonical Contract Decisions](CANONICAL_CONTRACT_DECISIONS.md). Code remains unchanged. `DECIDED_PENDING_CODE_CHANGE` means the target is fixed but source changes are deferred; `DECIDED_NOT_IMPLEMENTED` means the adapter decision is fixed but intentionally not implemented.
+> Human decisions, 2026-07-16: canonical API/route/response fields are in [Canonical Contract Decisions](../governance/CANONICAL_CONTRACT_DECISIONS.md). Code remains unchanged. `DECIDED_PENDING_CODE_CHANGE` means the target is fixed but source changes are deferred; `DECIDED_NOT_IMPLEMENTED` means the adapter decision is fixed but intentionally not implemented.
 
 ## Decision status overlay
 

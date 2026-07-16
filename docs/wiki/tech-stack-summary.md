@@ -13,7 +13,7 @@
 | Python | **3.13.x** | 데이터 파이프라인·워크로그 (3.12는 Windows 바이너리 중단) |
 | Git | 2.4x+ | 저장소 클론 |
 
-Windows 설치 상세: [`docs/INSTALL_WINDOWS.md`](../INSTALL_WINDOWS.md)
+Windows 설치 상세: [`INSTALL_WINDOWS.md`](../operations/setup/INSTALL_WINDOWS.md)
 
 ## 백엔드 (Spring Boot 4.1 · Java 25)
 

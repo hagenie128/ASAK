@@ -1,6 +1,6 @@
 # Document Inventory
 
-> Decision update: `docs/product_bible` is the retained canonical path. ASAK-Admin is canonical for admin implementation, Kiosk Admin scaffolds are Legacy Reference, and MVP mock JSON files remain source assets. See [Canonical Contract Decisions](CANONICAL_CONTRACT_DECISIONS.md) and [Document Status Manifest](DOCUMENT_STATUS_MANIFEST.md).
+> Decision update: `docs/product_bible` is the retained canonical path. ASAK-Admin is canonical for admin implementation, Kiosk Admin scaffolds are Legacy Reference, and MVP mock JSON files remain source assets. See [Canonical Contract Decisions](../governance/CANONICAL_CONTRACT_DECISIONS.md) and [Document Status Manifest](../governance/DOCUMENT_STATUS_MANIFEST.md).
 
 > 파일 삭제·이동·rename 없이 문서 군을 내용과 정본 관계로 분류한 인벤토리다. `_archive`는 현재 기준에서 제외한다.
 

@@ -1,7 +1,7 @@
 # Windows 설치 가이드 (유치원 선생님 모드)
 
 > **선생님이 따라가요** — 클릭할 버튼, 체크할 상자, 폴더 경로까지 **한 단계씩** 적어 두었습니다.  
-> **LTS 기준:** 2026-07 · 정본 스택: [`wiki/tech-stack-summary.md`](wiki/tech-stack-summary.md)  
+> **LTS 기준:** 2026-07 · 정본 스택: [`wiki/tech-stack-summary.md`](../../wiki/tech-stack-summary.md)  
 > **Notion 온보딩:** [🚀 ASAK 처음 시작하기 (팀 온보딩)](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b)
 
 **목차**
@@ -494,7 +494,7 @@ Test-Path C:\ASAK-back\.git
 
 1. [`GETTING_STARTED.md`](GETTING_STARTED.md) — 백엔드·프론트 실행, 워크로그
 2. [`MCP_SETUP.md`](MCP_SETUP.md) — Cursor Notion MCP
-3. [`guides/01-team-setup.md`](guides/01-team-setup.md) — Git 브랜치·9주 일정
+3. [`guides/01-team-setup.md`](../../guides/01-team-setup.md) — Git 브랜치·9주 일정
 3. [Notion 🚀 팀 온보딩](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b)
 
 화이팅! 🥗

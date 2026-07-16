@@ -1,6 +1,6 @@
 # Legacy and Reference Index
 
-> This index classifies non-canonical documents without deleting, moving, or rewriting their unique content. Canonical product rules are in [Product Bible](README.md#pack-112).
+> This index classifies non-canonical documents without deleting, moving, or rewriting their unique content. Canonical product rules are in [Product Bible](../README.md#pack-112).
 
 ## Reference
 

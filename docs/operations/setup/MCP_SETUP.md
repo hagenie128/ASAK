@@ -1,6 +1,6 @@
 # Cursor MCP 설정 (ASAK 팀)
 
-> **관련:** [worklog/guide-mcp-sync.md](../worklog/guide-mcp-sync.md) · [GETTING_STARTED.md](GETTING_STARTED.md)  
+> **관련:** [worklog/guide-mcp-sync.md](../../../worklog/guide-mcp-sync.md) · [GETTING_STARTED.md](GETTING_STARTED.md)  
 > **자동 설정:** `.\scripts\setup-mcp.ps1` (또는 `setup-windows.ps1` 에 포함)
 
 Cursor에서 Notion·기타 MCP를 쓰기 위한 팀 공통 안내입니다.
@@ -63,7 +63,7 @@ cd C:\ASAK
 | **REST API** (`NOTION_TOKEN` + `sync_daily_to_notion.py`) | 로컬·CI, 토큰 있을 때 **권장** |
 | **Cursor Notion MCP** | 토큰 없이 에이전트가 Notion에 직접 upsert |
 
-상세: [worklog/guide-mcp-sync.md](../worklog/guide-mcp-sync.md)
+상세: [worklog/guide-mcp-sync.md](../../../worklog/guide-mcp-sync.md)
 
 ---
 
@@ -103,7 +103,7 @@ Cursor Settings → MCP → **Add new MCP server**
 | Notion MCP 연결 안 됨 | Cursor 재시작 · Notion 플러그인 재연결 · 워크스페이스 Integration 권한 확인 |
 | `NOTION_TOKEN not set` | `.env` 또는 `$env:NOTION_TOKEN` 설정 후 터미널 재시작 |
 | `.cursor/mcp.json` 없음 | `.\scripts\setup-mcp.ps1` 재실행 |
-| MCP와 REST 결과 불일치 | Git `worklog/daily/` 가 정본 — [guide-mcp-sync.md](../worklog/guide-mcp-sync.md) upsert 규칙 확인 |
+| MCP와 REST 결과 불일치 | Git `worklog/daily/` 가 정본 — [guide-mcp-sync.md](../../../worklog/guide-mcp-sync.md) upsert 규칙 확인 |
 
 ---
 
