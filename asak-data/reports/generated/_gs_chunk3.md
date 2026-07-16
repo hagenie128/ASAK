@@ -1,3 +1,9 @@
+> Status: ARCHIVED
+> Archived Date: 2026-07-16
+> Reason: One-off generated report fragment.
+> Canonical Replacement: None; regenerate only when required.
+> Original Path: `asak-data/scripts/_gs_chunk3.md`
+
 ## 워크로그가 뭐예요? 왜 써요?
 
 <table header-row="true">

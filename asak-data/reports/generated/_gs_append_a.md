@@ -1,63 +1,8 @@
-<callout icon="📌" color="blue_bg">
-**Notion 정본** · Git mirror: [`docs/GETTING_STARTED.md`](https://github.com/hagenie128/ASAK/blob/main/docs/GETTING_STARTED.md)
-</callout>
----
-> **한 줄 요약:** ASAK는 샐러디 키오스크를 만드는 풀스택 학습 프로젝트입니다. 화면(프론트)과 API(백엔드)를 **둘 다** 켜야 실제 주문 흐름을 볼 수 있습니다.
-
-처음이어도 괜찮아요. 이 문서만 순서대로 따라 하면 됩니다.
-
-**목차**
-
-- [Part 1 — 프로젝트 세팅](https://github.com/hagenie128/ASAK/blob/main/#part-1--프로젝트-세팅)
-- [Part 2 — 워크로그 쓰기 (유치원 선생님 모드)](https://github.com/hagenie128/ASAK/blob/main/#part-2--워크로그-쓰기-유치원-선생님-모드)
-
----
-
-# Part 1 — 프로젝트 세팅
-
-## 이 프로젝트가 뭔가요?
-
-**ASAK** = **A Salad A Kiosk** (샐러디 키오스크 풀스택 프로젝트)
-
-- 고객이 키오스크에서 메뉴를 고르고 주문하는 **화면(프론트엔드)**
-- 메뉴·주문 데이터를 주고받는 **서버(백엔드 API)**
-- 메뉴 원본 데이터를 모으는 **데이터 파이프라인(Python)**
-
-이 세 가지가 함께 동작합니다.
-
----
-
-## 꼭 알아둘 것: 저장소가 3개예요
-
-헷갈리기 쉬운 부분이라 **먼저** 읽어 주세요.
-
-<table header-row="true">
-<tr>
-<td>로컬 폴더 (예시)</td>
-<td>GitHub</td>
-<td>하는 일</td>
-</tr>
-<tr>
-<td>`c:\ASAK`</td>
-<td>[ASAK](https://github.com/hagenie128/ASAK)</td>
-<td>문서, 데이터 파이프라인, 팀 가이드</td>
-</tr>
-<tr>
-<td>`c:\ASAK-front`</td>
-<td>[ASAK-front](https://github.com/hagenie128/ASAK-front)</td>
-<td>**실제** 키오스크 화면 (React)</td>
-</tr>
-<tr>
-<td>`c:\ASAK-back`</td>
-<td>[ASAK-back](https://github.com/hagenie128/ASAK-back)</td>
-<td>**실제** API 서버 (Spring Boot)</td>
-</tr>
-</table>
-
-`ASAK` 통합 저장소 안의 `frontend/`, `backend/` 폴더는 **구조 참고용**에 가깝습니다.  
-실제 키오스크 개발은 `ASAK-front`와 `ASAK-back`에서 합니다.
-
-> 작업 후 통합 저장소(`ASAK`)에 다시 합칠 필요는 **없습니다.** 어디서 작업했으면 그 저장소에만 push 하면 됩니다.
+> Status: ARCHIVED
+> Archived Date: 2026-07-16
+> Reason: One-off generated report fragment.
+> Canonical Replacement: None; regenerate only when required.
+> Original Path: `asak-data/scripts/_gs_append_a.md`
 
 ---
 
@@ -240,11 +185,7 @@ npm run dev
 - 브라우저에 키오스크 화면이 열림
 
 백엔드 API 주소는 `ASAK-front`의 환경 설정(예: `.env`, `VITE_API_URL`)을 확인하세요.  
-백엔드가 꺼져 있으면 **네트워크 에러·빈 목록**이 나올 수 있습니다.
-
----
-
-## 5단계 (선택): ASAK 간단 데이터 뷰어
+백엔드가 꺼져 있으면 **네트워크 에러·빈 목록**이 나올 수 있습니다.## 5단계 (선택): ASAK 간단 데이터 뷰어
 
 크롤링 JSON만 빠르게 볼 때:
 
@@ -348,3 +289,10 @@ python run_viewer.py
 팀원에게 물어볼 때: **어느 저장소에서 작업 중인지**, **에러 메시지 전문**, **어느 단계에서 막혔는지**를 함께 알려주면 빨리 도와줄 수 있습니다.
 
 ---
+
+# Part 2 — 워크로그 쓰기 (유치원 선생님 모드)
+
+안녕하세요! 오늘도 수고 많으셨어요. 🌱
+
+워크로그는 **"오늘 뭘 했는지"를 팀에게 알려주는 일기**예요.  
+퇴근 전 **5분**만 쓰면 됩니다. 어렵지 않아요 — 차근차근 따라와 주세요!

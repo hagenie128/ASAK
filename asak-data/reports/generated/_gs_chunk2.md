@@ -1,3 +1,9 @@
+> Status: ARCHIVED
+> Archived Date: 2026-07-16
+> Reason: One-off generated report fragment.
+> Canonical Replacement: None; regenerate only when required.
+> Original Path: `asak-data/scripts/_gs_chunk2.md`
+
 ## 5단계 (선택): ASAK 간단 데이터 뷰어
 
 크롤링 JSON만 빠르게 볼 때:

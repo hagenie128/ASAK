@@ -1,3 +1,9 @@
+> Status: ARCHIVED
+> Archived Date: 2026-07-16
+> Reason: One-off generated report fragment.
+> Canonical Replacement: None; regenerate only when required.
+> Original Path: `asak-data/scripts/_gs_chunk1.md`
+
 ---
 
 ## 왜 프론트와 백엔드를 둘 다 켜야 하나요?
