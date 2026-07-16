@@ -128,4 +128,4 @@ python asak-data/scripts/sync_figma_links.py --all
 - [SCR_FIGMA_CHECKLIST.md](./SCR_FIGMA_CHECKLIST.md)
 - [figma-rename-scr-plugin](./figma-rename-scr-plugin/)
 - [figma-create-ds02-components-plugin](./figma-create-ds02-components-plugin/)
-- [notion-merge-sync-audit-2026-07-06.md](../team/notion-merge-sync-audit-2026-07-06.md)
+- [notion-merge-sync-audit-2026-07-06.md](../archive/design-audits/notion-merge-sync-audit-2026-07-06.md)

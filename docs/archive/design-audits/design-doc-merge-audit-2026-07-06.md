@@ -39,7 +39,7 @@
 | `docs/design/meetings/*` (회의록·취합·변경 이력) | Before/After 의도적 기록 |
 | `docs/design/prompts/kiosk-icon-pack-prompt.md` | 6단계·병합 주석 |
 | `docs/team/hub-notion-sync-checklist.md` | 병합·Notion 반영 안내 |
-| `docs/team/notion-merge-sync-audit-2026-07-06.md` | Notion MCP 동기화 기록 |
+| `docs/archive/design-audits/notion-merge-sync-audit-2026-07-06.md` | Notion MCP 동기화 기록 |
 
 ### 🔧 FIXED (이번 수정)
 

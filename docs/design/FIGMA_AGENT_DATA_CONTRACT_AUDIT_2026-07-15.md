@@ -144,6 +144,6 @@ estimatedKcal = baseKcal + Σ(선택 option.extraKcal) - Σ(제외 재료 kcal)
 
 - `ASAK-Kiosk/src/contracts/api-data-contract.md`
 - `ASAK/docs/wiki/rest-api-spec.md`, `db-table-definition.md`, `requirements-definition.md`, `user-scenarios.md`
-- `ASAK/asak-data/schema-backups/short-name-before-20260713-115747.sql`, `ASAK/asak-data/seed-v3/*.json`
+- `ASAK/asak-data/archive/schema/short-name-before-20260713-115747.sql`, `ASAK/asak-data/seed-v3/*.json`
 - `ASAK-Kiosk/src/store/orderSessionStore.js`, `src/api/*.js`, `src/pages/**/*.jsx`, `src/components/**/*.jsx`
 - Figma MCP: page `2:6`, page `2:7`; Frame `2:4704`, `2:4775`, `2:4791`, `2:4816`, `2:4877`, `2:8162`, `29:12269`, `2:8726`

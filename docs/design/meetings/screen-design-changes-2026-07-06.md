@@ -96,7 +96,7 @@
 | Figma 플러그인 | `docs/design/figma-rename-scr-plugin/code.js` |
 | 아이콘 프롬프트 | `docs/design/prompts/kiosk-icon-pack-prompt.md` |
 | 회의록 | 본 문서, `meeting-deliverables-checklist.md` |
-| **문서 감사** | [design-doc-merge-audit-2026-07-06.md](../../team/design-doc-merge-audit-2026-07-06.md) |
+| **문서 감사** | [design-doc-merge-audit-2026-07-06.md](../../archive/design-audits/design-doc-merge-audit-2026-07-06.md) |
 
 ---
 
