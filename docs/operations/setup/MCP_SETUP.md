@@ -115,4 +115,4 @@ Cursor Settings → MCP → **Add new MCP server**
 | `config/mcp.json.example` | 프로젝트 MCP 템플릿 |
 | `.env.example` | `NOTION_TOKEN`, `FIGMA_TOKEN` 플레이스홀더 |
 | `worklog/notion_config.json` | 워크로그 DB ID |
-| `docs/INSTALL_WINDOWS.md` | Windows 전체 설치 (수동 fallback) |
+| `docs/operations/setup/INSTALL_WINDOWS.md` | Windows 전체 설치 (수동 fallback) |

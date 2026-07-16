@@ -476,7 +476,7 @@ Notion [📅 일일 워크로그](https://app.notion.com/p/eeae4beb07ad4051928a8
 ### ❌ `create_worklog.py` 실패 예
 
 ```text
-NOTION_TOKEN not set. Set env var or see docs/GETTING_STARTED.md#part-2--워크로그-쓰기-유치원-선생님-모드
+NOTION_TOKEN not set. Set env var or see docs/operations/setup/GETTING_STARTED.md#part-2--워크로그-쓰기-유치원-선생님-모드
 ```
 
 → 0단계 토큰 설정 후 다시 실행하세요.

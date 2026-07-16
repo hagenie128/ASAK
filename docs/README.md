@@ -9,8 +9,13 @@
 5. [Document–Code Gap Report](architecture/DOCUMENT_CODE_GAP_REPORT.md)
 6. [Product Bible Pack 1~12](product_bible/)
 7. [Operations setup](operations/setup/)
-8. [Design](design/) / [Screens](screens/) / [Guides](guides/) / [Wiki](wiki/) / [Team](team/) / [Notion](notion/)
-9. [Documentation management](documentation-management/)
+8. [Design](design/)
+9. [Screens](screens/)
+10. [Guides](guides/)
+11. [Team](team/)
+12. [Wiki](wiki/)
+13. [Notion](notion/)
+14. [Documentation management](documentation-management/)
 
 ## 정본과 범위
 
@@ -24,13 +29,18 @@
 
 | Folder | Purpose |
 |---|---|
-| `product_bible` | Current Product Bible Pack 1~12; `_archive` is excluded from implementation criteria. |
 | `governance` | Canonical-source, contract, status, and legacy/reference policy. |
 | `planning` | Current implementation state, MVP order, and Vertical Slice plan. |
 | `architecture` | Document-to-code gap analysis. |
-| `documentation-management` | Documentation inventory, structure, and archival-management records. |
+| `product_bible` | Current Product Bible Pack 1~12; `_archive` is excluded from implementation criteria. |
 | `operations/setup` | Installation, onboarding, and MCP setup. |
-| `design`, `screens`, `guides`, `team`, `wiki`, `notion` | Existing design, screen, guidance, team, reference, and Notion-export assets. |
+| `design` | Design system, Figma, and visual design references. |
+| `screens` | Screen definitions and screen-level specifications. |
+| `guides` | Team development and implementation guides. |
+| `team` | Team collaboration and role-related documents. |
+| `wiki` | Project knowledge and reference documents. |
+| `notion` | Preserved Notion-export source documents. |
+| `documentation-management` | Documentation inventory, structure, and archival-management records. |
 
 ## Pack 1~12
 
