@@ -6,16 +6,25 @@ The 37 active Legacy WBS records were audited against the 64 active WBS2 records
 
 | Metric | Before audit | After audit | Formula / reason |
 |---|---:|---:|---|
-| Legacy Active | 37 | 7 | 30 replaced/future Legacy records moved to EXCLUDED; no record deleted |
-| WBS2 Active | 64 | 64 | WBS2 scope unchanged |
-| Active total | 101 | 71 | `7 + 64` |
+| Legacy Active | 37 | 6 | Legacy Internal ID 24 was split and excluded; no record deleted |
+| WBS2 Active | 64 | 66 | WBS2-065 Release and WBS2-066 Presentation/Demo were created |
+| Active total | 101 | 72 | `6 + 66` |
 | DONE | 9 | 8 | Legacy Internal ID 29 had a planned Notion source and no backend evidence; it is not DONE |
-| EXCLUDED | 67 | 97 | `67` duplicate records + `30` Legacy superseded/future records |
-| Total WBS | 168 | 168 | No creation or deletion |
-| Dashboard WBS progress | 5.4% | 4.8% | `8 DONE / 168 total records = 4.76%` |
-| Operational WBS progress | n/a | 11.3% | `8 DONE / 71 Active records = 11.27%`; EXCLUDED omitted |
+| EXCLUDED | 67 | 98 | `67` duplicate records + `31` Legacy superseded/future records |
+| Total WBS | 168 | 170 | Two WBS2 split records created; no deletion |
+| Dashboard WBS progress | 5.4% | 4.7% | `8 DONE / 170 total records = 4.71%` |
+| Operational WBS progress | n/a | 11.1% | `8 DONE / 72 Active records = 11.11%`; EXCLUDED omitted |
 
 `DevCopilot Dashboard WBS progress is not operationally reliable`. The observed dashboard formula includes `EXCLUDED` records in its denominator. It must remain an unmodified system metric; use the operational formula above for current execution tracking.
+
+### Release and presentation split
+
+Legacy Internal ID 24 was preserved as `[SUPERSEDED]` and `EXCLUDED`, then split without source-code changes:
+
+| WBS2 ID | DevCopilot status | Owner | Definition of Done | Evidence |
+|---|---|---|---|---|
+| WBS2-065 | BLOCKED | Primary 하진; Support 나연 | Branch/PR, per-repository build, environment, release checklist, and RC are reviewed; deployment environment/responsible party is confirmed. | Product Bible Release Checklist exists; no environment or RC evidence yet. |
+| WBS2-066 | TODO | `NEEDS_CONFIRMATION` Primary; Team joint work | Slides, Kiosk/Admin Demo 1–5 sequence, script, contingency, and rehearsal are team-reviewed. | 2026-07-03 meeting records 하진·나연 as joint presentation/demo owners; Demo Scenario exists; no representative owner or rehearsal evidence yet. |
 
 ### DONE evidence verification
 
@@ -44,11 +53,13 @@ Requirements, scenarios, screens, WBS tasks, API specs, DB tables/columns, QA te
 | Requirements | DONE 3 / TODO 47 / EXCLUDED 7 | TODO 33 / IN_PROGRESS 11 / EXCLUDED 13 | Removed unsupported DONE; recorded existing Kiosk scaffolds as IN_PROGRESS; moved explicit future scope out of MVP |
 | Scenarios | DRAFT 24 | DRAFT 21 / ARCHIVED 3 | Receipt, membership, and QR scenarios preserved as Future Scope |
 | Screens | 21 | 24 | SCR-020/021 migrated to Monthly/Daily Sales; SCR-022 Dashboard and archived SCR-023/024 added |
-| WBS | 65 | 168 records | Legacy and accidental duplicate records preserved as 67 EXCLUDED entries; 64 active WBS2 entries created |
+| WBS | 65 | 170 records | Legacy and accidental duplicate records are preserved; 66 active WBS2 entries include the Release/Presentation split |
 | QA | TODO 16 | TODO 16 | No PASS claim; Future Scope tests retitled only |
 | Bugs | 0 | 0 | No test execution occurred |
 
-## WBS reconciliation (internal record ID basis)
+## Initial WBS reconciliation (internal record ID basis)
+
+> This table preserves the original duplicate-record reconciliation. The current final counts after the Legacy semantic-overlap audit and the Release/Presentation split are in the follow-up section above.
 
 | Category | Record count | Meaning |
 |---|---:|---|

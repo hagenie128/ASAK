@@ -1,6 +1,6 @@
 # Legacy WBS to WBS2 Mapping Audit
 
-> Audit date: 2026-07-16. Scope: the 37 non-EXCLUDED Legacy WBS records in DevCopilot, compared with the 64 active `WBS2-*` records. Internal ID means DevCopilot's immutable numeric record ID; it is not the Task ID.
+> Audit date: 2026-07-16. Scope: the 37 non-EXCLUDED Legacy WBS records in DevCopilot, initially compared with 64 active `WBS2-*` records. The Release/Presentation split subsequently added WBS2-065 and WBS2-066, making 66 active WBS2 records. Internal ID means DevCopilot's immutable numeric record ID; it is not the Task ID.
 
 ## Method and limitation
 
@@ -24,7 +24,7 @@
 | 21 | WBS-013 | 백엔드: 판매 항목 품절 상태 변경 API | WBS2-052 | SUPERSEDED | EXCLUDED | WBS2 owns the sold-out backend slice and API evidence. |
 | 22 | WBS-015 | 프론트-백엔드 연동 테스트 | WBS2-057 to WBS2-060 | SUPERSEDED | EXCLUDED | Contract mapping and Kiosk/Admin/Sales integration are split in WBS2. |
 | 23 | WBS-016 | 키오스크 예외처리(결제/터치/타임아웃) | WBS2-027, WBS2-029 to WBS2-032 | SUPERSEDED | EXCLUDED | Failure, timeout, states, and touch QA are separately testable WBS2 work. |
-| 24 | WBS-019 | 배포 · 발표자료 · 시연 시나리오 | WBS2-064 | NEEDS_CONFIRMATION | BLOCKED | WBS2-064 covers documentation/demo handoff, but deployment ownership/scope is not evidenced. |
+| 24 | WBS-019 | 배포 · 발표자료 · 시연 시나리오 | WBS2-065, WBS2-066 | SUPERSEDED | EXCLUDED | Split into Release readiness and Presentation/Demo readiness. Original meeting evidence makes presentation joint work; no representative owner or deployment environment is confirmed. |
 | 25 | WBS-022 | 프론트: 접근성 UI 적용 | WBS2-015, WBS2-032, WBS2-044, WBS2-062 | SUPERSEDED | EXCLUDED | Checklist, Kiosk/Admin states, and execution QA are distinct in WBS2. |
 | 27 | WBS-024 | DB: ASAK 샘플 메뉴/재료/옵션 데이터 구성 | WBS2-047 | COMPLETED_WITH_EVIDENCE | DONE 유지 | `asak-data/seed/asak_seed_bundle.json` contains menu/ingredient/option data; application migration remains separate. |
 | 28 | WBS-025 | 백엔드: 장바구니 검증 API | WBS2-050 | SUPERSEDED | EXCLUDED | Cart/order validation is part of the WBS2 transaction slice; no backend implementation proof. |
@@ -52,14 +52,14 @@
 
 | Metric | Count | Calculation |
 |---|---:|---|
-| Legacy active | 7 | 5 `COMPLETED_WITH_EVIDENCE` + 1 `UNIQUE_LEGACY` + 1 `NEEDS_CONFIRMATION` |
-| Active WBS2 | 64 | No WBS2 scope/status change in this audit |
-| Active total | 71 | `7 + 64` |
-| Newly superseded Legacy | 30 | 29 `SUPERSEDED` + 1 Future Scope `UNIQUE_LEGACY` |
+| Legacy active | 6 | 5 `COMPLETED_WITH_EVIDENCE` + 1 retained `UNIQUE_LEGACY` |
+| Active WBS2 | 66 | WBS2-065 Release and WBS2-066 Presentation/Demo were split from Legacy Internal ID 24 |
+| Active total | 72 | `6 + 66` |
+| Newly superseded Legacy | 31 | 30 `SUPERSEDED` + 1 Future Scope `UNIQUE_LEGACY` |
 | Legacy `UNIQUE_LEGACY` retained | 1 | Internal ID 44 |
-| `NEEDS_CONFIRMATION` | 1 | Internal ID 24, moved to `BLOCKED` |
+| `NEEDS_CONFIRMATION` | 1 | WBS2-066 representative Primary Owner is not agreed |
 | DONE | 8 | 5 evidence-backed Legacy + 3 evidence-backed WBS2 |
-| EXCLUDED | 97 | Previous 67 duplicate records + 30 Legacy records excluded here |
-| Total WBS | 168 | No deletion or creation |
+| EXCLUDED | 98 | Previous 67 duplicate records + 31 Legacy records excluded here |
+| Total WBS | 170 | Two WBS2 split records created; no record deleted |
 
-The remaining human decision is Internal ID 24 (deployment/presentation ownership). It remains `BLOCKED`, not falsely complete and not silently excluded.
+The remaining human decisions are WBS2-065 deployment environment/Release Candidate ownership (`BLOCKED`) and WBS2-066 representative Primary Owner (`NEEDS_CONFIRMATION`).

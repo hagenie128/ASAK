@@ -76,6 +76,8 @@ Every task uses: WBS2 ID, Phase, Epic, Work Package, Detailed Task, Deliverable,
 | WBS2-062 | P7 QA / Accessibility | Run high-contrast, keyboard, touch tests | All | 나연 / 하진 | TODO | Executed evidence | Accessibility QA |
 | WBS2-063 | P7 QA / Regression | Run kiosk/admin integration regression | All | 나연 / 하진 | BLOCKED | Integrated app available | Regression QA |
 | WBS2-064 | P8 Docs / Handoff | Sync evidence, WBS, traceability, demo checklist | ASAK | 하진 / 나연 | IN_PROGRESS | Human review | DevCopilot sync |
+| WBS2-065 | P8 Release / Readiness | Check branch/PR state, repository builds, environment configuration, release checklist, and Release Candidate | All repositories | 하진 / 나연 | BLOCKED | All repository checks pass; deployment environment and responsible party are confirmed; Release Candidate is reviewed | Definition of Done: checklist approved and RC evidence attached. Evidence: [Release Checklist](../product_bible/09_QA_Bible/docs/10-qa/07-demo-release/RELEASE_CHECKLIST.md); environment/RC evidence is not yet available. |
+| WBS2-066 | P8 Presentation / Demo | Prepare slides, demo order, Kiosk/Admin scenario, script, contingency, and final rehearsal | All repositories | NEEDS_CONFIRMATION / Team | TODO | Slides, script, Demo 1–5 sequence, fallback, and final rehearsal record are reviewed by the team | Definition of Done: team review complete with rehearsal evidence. Evidence: 2026-07-03 meeting assigns presentation/demo jointly to 하진·나연; [Demo Scenario](../product_bible/09_QA_Bible/docs/10-qa/07-demo-release/DEMO_SCENARIO.md). Representative Primary Owner is not agreed. |
 
 ## Ownership and review
 
