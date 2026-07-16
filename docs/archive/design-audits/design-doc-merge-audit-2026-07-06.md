@@ -36,10 +36,10 @@
 | `docs/design/kiosk-design-system-index.md` | DS-02 채택, DS-08 참고안 |
 | `docs/design/SCR_FIGMA_CHECKLIST.md` | 병합됨·Archive 가이드 |
 | `docs/design/figma-merge-scr-guide.md` | 6 UI 단계 체크리스트 |
-| `docs/design/meetings/*` (회의록·취합·변경 이력) | Before/After 의도적 기록 |
+| `docs/archive/project-history/design-meetings/*` (회의록·취합·변경 이력) | Before/After 의도적 기록 |
 | `docs/design/prompts/kiosk-icon-pack-prompt.md` | 6단계·병합 주석 |
-| `docs/team/hub-notion-sync-checklist.md` | 병합·Notion 반영 안내 |
-| `docs/archive/design-audits/notion-merge-sync-audit-2026-07-06.md` | Notion MCP 동기화 기록 |
+| `docs/archive/notion-audits/hub-notion-sync-checklist.md` | 병합·Notion 반영 안내 |
+| `docs/archive/notion-audits/notion-merge-sync-audit-2026-07-06.md` | Notion MCP 동기화 기록 |
 
 ### 🔧 FIXED (이번 수정)
 
