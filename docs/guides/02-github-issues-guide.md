@@ -1,5 +1,7 @@
 # GitHub Issues 가이드 (ASAK)
 
+> **2026-07-16 override:** issue, branch, and PR instructions must distinguish the current four repositories. Do not create Kiosk migration issues that change remotes, pull, reset, rebase, or move files until the canonical repository decision is approved. WBS execution IDs use `WBS2-*`; legacy WBS identifiers remain historical records.
+
 > **Notion:** [01. 팀/역할/일정](https://app.notion.com/p/15451ef04f0b821c83568124e6ebb32f) · [📖 문서 읽는 순서](https://app.notion.com/p/39451ef04f0b81088a91d914f985fb11)  
 > **Git:** [`docs/guides/README.md`](README.md) — 가이드 읽기 순서 **02**  
 > **Git (원본):** [docs/guides/02-github-issues-guide.md](https://github.com/hagenie128/ASAK/tree/main/docs/guides/02-github-issues-guide.md) — ASAK repo

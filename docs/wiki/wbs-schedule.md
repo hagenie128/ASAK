@@ -1,5 +1,7 @@
 # ASAK WBS 및 일정 계획
 
+> **Legacy WBS notice (2026-07-16):** this document preserves WBS-001~036 and historical schedules for audit. New execution planning is [WBS 2.0](wbs-v2.md); duplicate DevCopilot records are archived rather than deleted.
+
 > Notion 01·07 · 9주 (7/2~9/2) · Week 5 MVP (8/1) + 9/2 최종 발표 (2026-07-06)
 
 ## 9주 로드맵

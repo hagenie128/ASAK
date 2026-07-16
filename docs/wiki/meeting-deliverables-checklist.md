@@ -1,5 +1,7 @@
 # ASAK 회의록 및 최종 배포 검증
 
+> **Current audit notice (2026-07-16):** deliverable existence is not implementation evidence. Current evidence and remaining blockers are maintained in [current status baseline](current-status-baseline.md), [WBS 2.0](wbs-v2.md), and [DevCopilot sync report](devcopilot-sync-report.md).
+
 > Notion 10. 회의록 + 11. 최종 제출 체크리스트 (2026-07-06)
 
 ## 회의록 인덱스
