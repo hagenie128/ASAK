@@ -9,7 +9,7 @@
 | `docs/guides/**` | onboarding and work guidance, not product contract | team setup, Git process, work-log formats | link to current Pack where applicable |
 | `docs/wiki/**` | exported project summaries | requirements, scenario, DB/API/WBS context | compare with Product Bible before reuse |
 | `docs/design/**` (current Figma guides/specs) | Figma support material | Figma nodes, design assets, design process | confirm latest Figma/Screen Registry |
-| `docs/notion/**/02 요구사항 정의/**` | original requirement context | QR, device/event logs, performance targets, multilingual ideas | identify material not covered by Bible |
+| `docs/notion/**` | script-backed Notion input snapshot | DevCopilot upload source only | compare with Product Bible before reuse |
 
 ## Legacy
 
@@ -24,12 +24,12 @@
 | Document group | Why archived |
 |---|---|
 | `docs/product_bible/_archive/**` | explicitly excluded from current implementation criteria |
-| `docs/notion/**/Archive — 방치 페이지 보관/**` | historical Notion archive |
+| `docs/archive/notion-exports/**` | historical Notion export |
 | concluded meetings, dated schedules, completed WBS records | preserved history; not a current requirement |
 
 ## Needs Review
 
-- `docs/notion/**` that is neither an explicit archive nor a clearly dated worklog/meeting: it may include valid requirements not yet represented in Product Bible.
+- `docs/notion/**` is retained solely where a current script reads it; review any policy intake against Product Bible before use.
 - `docs/design/**/prompts/**`, plugin documents, and older design candidates: useful tooling history but must be checked against current Figma and Pack 08.
 
 ## Candidate unique information for Product Bible review

@@ -27,7 +27,7 @@ The inventory used repository-wide file enumeration (excluding `.git`), SHA-256 
 | --- | ---: | --- | --- | --- | --- |
 | `docs/product_bible/01_*`–`12_*` | 212 | Product, screen, component, QA and implementation standards | KEEP_CANONICAL | Keep in place; governance index names these as current | Low |
 | `docs/product_bible/_archive/` | 58 | Prior Bible pack snapshots, including Pack 3/4/7 copies | MOVE_TO_ARCHIVE | Keep under the existing `_archive` until a human approves consolidation into `docs/archive/project-history/` | Medium |
-| `docs/notion/` | 288 | Notion export/reference and historic work records | NEEDS_CONFIRMATION | Keep in place now; split only after page-level ownership review | High |
+| `docs/notion/` | 268 | Script-backed DevCopilot source inputs and linked reference graph | ACTIVE_REFERENCE | Retain execution inputs; 20 explicit historic Archive/daily exports moved to `docs/archive/notion-exports/` | High |
 | `docs/design/` | 68 | Figma guides, plugins, prompts, dated audits and assets | KEEP_ACTIVE_TOOL / NEEDS_CONFIRMATION | Keep active guides/plugins; date-based completed audits may move to `docs/archive/design-audits/` | Medium |
 | `docs/wiki/` | 20 tracked + 8 protected untracked paths | DevCopilot sync source and summaries | KEEP_ACTIVE_TOOL | Keep in place; never overwrite the protected current WBS work | High |
 | `docs/screens/` | 6 | Screen export/source and DevCopilot payloads | NEEDS_CONFIRMATION | `screens.json` is active source; generated local-storage/import payloads need retention decision | High |
@@ -52,7 +52,7 @@ The inventory used repository-wide file enumeration (excluding `.git`), SHA-256 
 | `asak-data/images/original/*.png` | 84 | PNG source images | Used by `apply_original_images.py` workflow | KEEP_CANONICAL | Keep | Preserve image provenance and regeneration source. Medium risk. |
 | `asak-data/scripts/notion_raw/*.json` | 151 | API response snapshots | Produced/consumed by scripts using `scripts/notion_raw` | GENERATED_ARTIFACT | Batch B move to `snapshots/notion/` with Python paths updated | Re-creatable but useful audit evidence; current path is hard-coded. |
 | `docs/product_bible/_archive/**` | 58 | Archived Product Bible packs | Explicitly excluded by governance index | MOVE_TO_ARCHIVE | Retain in current `_archive`; assess deduplication only after reference check | 34+ exact-document duplicate groups are historical evidence, not deletion targets. |
-| `docs/notion/**` | 288 | Notion exports, pages, meeting/worklog history | Reference content; some unique policy context | NEEDS_CONFIRMATION | Retain; classify page-by-page in a later batch | Filename duplication frequently represents different Notion databases, not duplicate content. |
+| `docs/notion/**` | 268 | Current DevCopilot sync inputs and linked reference graph | Execution input only; not policy canonical | ACTIVE_REFERENCE | Keep because Python sync scripts and Export-relative links read these paths | Explicit Archive/daily exports moved to `docs/archive/notion-exports/`. |
 | `worklog/daily/**`, `worklog/entries/**` | 23 non-template records | Team member work history | Calendar, README and sync tools depend on current layout | KEEP_ACTIVE_TOOL | Do not move in Batch A | Move requires current/archive participant decision plus code/README updates. |
 | `docs/wiki/current-status-baseline.md`, `db-abbreviation-glossary.md`, `db-audit-plan.md`, `devcopilot-sync-report.md`, `future-scope.md`, `traceability-matrix.md`, `wbs-v2.md`, `snapshots/**` | 8 untracked paths | Running DevCopilot/WBS work | Protected by user instruction | NEEDS_CONFIRMATION | Leave untouched and uncommitted | Current working files must not be overwritten or absorbed into this cleanup commit. |
 
@@ -172,7 +172,17 @@ README additions are deferred: they are useful only after Batch B path changes a
 | --- | --- | --- | --- |
 | `asak-data/schema-backups/short-name-before-20260713-115747.sql` | `asak-data/archive/schema/short-name-before-20260713-115747.sql` | `docs/design/FIGMA_AGENT_DATA_CONTRACT_AUDIT_2026-07-15.md` | Immutable pre-migration evidence; no executable caller. |
 | `docs/team/design-doc-merge-audit-2026-07-06.md` | `docs/archive/design-audits/design-doc-merge-audit-2026-07-06.md` | Worklog/design/team links | Concluded 2026-07-06 audit retained with history. |
-| `docs/team/notion-merge-sync-audit-2026-07-06.md` | `docs/archive/design-audits/notion-merge-sync-audit-2026-07-06.md` | Worklog/design links | Concluded 2026-07-06 sync audit retained with history. |
+| `docs/team/notion-merge-sync-audit-2026-07-06.md` | `docs/archive/notion-audits/notion-merge-sync-audit-2026-07-06.md` | Worklog/design links | Concluded 2026-07-06 sync audit retained with Notion audit history. |
+
+#### Post-rebase Batch A supplement — completed (2026-07-16)
+
+`docs/archive/design-audits/notion-merge-sync-audit-2026-07-06.md` audited Notion merge and synchronization work; it was moved after the successful rebase to the following target:
+
+```text
+docs/archive/notion-audits/notion-merge-sync-audit-2026-07-06.md
+```
+
+`docs/archive/migration-audits/` is not selected because this document does not record a schema, data, or code migration. `design-doc-merge-audit-2026-07-06.md` remains in `docs/archive/design-audits/`.
 
 ### Batch B — reference/code updates required; approval required
 

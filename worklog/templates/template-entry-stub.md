@@ -1,6 +1,6 @@
 # {{DATE}} {{TITLE}}
 
-> **템플릿:** [03-work-log-template.md](../../../docs/guides/03-work-log-template.md) · **일일:** [{{DATE}}.md](../../daily/{{PERSON}}/{{DATE}}.md)
+> **템플릿:** [03-work-log-template.md](../../docs/guides/03-work-log-template.md) · **일일:** [{{DATE}}.md](../daily/{{PERSON}}/{{DATE}}.md)
 
 ---
 

@@ -9,8 +9,8 @@
 | 회의 | Notion | 로컬 |
 |------|--------|------|
 | 2026-07-03 키오스크 컨셉 | (Notion 10) | 아래 § |
-| 화면 설계 초기 회의 · 사전 의견 | [Notion 인덱스](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac) | [docs/design/meetings/README.md](../design/meetings/README.md) |
-| **2026-07-06 화면 설계 초기 회의** | [Notion 취합본](https://app.notion.com/p/39551ef04f0b815f8dc6e788176186d7) | [회의록](../design/meetings/screen-design-meeting-minutes-2026-07-06.md) · [변경 이력](../design/meetings/screen-design-changes-2026-07-06.md) |
+| 화면 설계 초기 회의 · 사전 의견 | [Notion 인덱스](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac) | [Archive 회의 기록](../archive/project-history/design-meetings/README.md) |
+| **2026-07-06 화면 설계 초기 회의** | [Notion 취합본](https://app.notion.com/p/39551ef04f0b815f8dc6e788176186d7) | [회의록](../archive/project-history/design-meetings/screen-design-meeting-minutes-2026-07-06.md) · [변경 이력](../archive/project-history/design-meetings/screen-design-changes-2026-07-06.md) |
 
 ## 회의록
 
@@ -36,7 +36,7 @@
 
 **MVP 고객 UI**: 홈·매장/포장 → 메뉴 → 옵션 → 장바구니·주문확인(팝업) → 결제 → 완료 (**6 UI 단계**, SCR-001~008 ID 유지)
 
-상세: [회의록](../design/meetings/screen-design-meeting-minutes-2026-07-06.md) · [변경 이력](../design/meetings/screen-design-changes-2026-07-06.md)
+상세: [회의록](../archive/project-history/design-meetings/screen-design-meeting-minutes-2026-07-06.md) · [변경 이력](../archive/project-history/design-meetings/screen-design-changes-2026-07-06.md)
 
 ---
 

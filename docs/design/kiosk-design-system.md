@@ -44,7 +44,7 @@
 | Error Soft | `#FEE2E2` | 오류 배너 |
 | Warn Soft | `#FFF7ED` | 경고 배너 |
 
-> **DS 구조 (2026-07-06)**: 회의 채택안 **Candidate B / DS-02 Modern Minimal**을 정본으로 사용합니다. 상세 토큰: [candidate-B](./kiosk-design-system-candidate-B.md) · [tokens-B](./kiosk-tokens-candidate-B.css). Trend 색상 참고: [color-swatches.html](./color-swatches.html).
+> **DS 구조 (2026-07-06)**: 회의 채택안 **Candidate B / DS-02 Modern Minimal**의 현재 정본은 이 문서와 [kiosk-tokens.css](./kiosk-tokens.css)입니다. 선택 기록은 [Archive](../archive/design-migrations/kiosk-design-system-candidate-B.md)에 보존합니다. Trend 색상 참고: [color-swatches.html](./color-swatches.html).
 
 ---
 
@@ -184,7 +184,7 @@ Figma에 Pretendard가 없으면 **Inter**로 대체 후, 한글 스타일은 Pr
 ## 관련 문서
 
 - [kiosk-design-system-index.md](./kiosk-design-system-index.md) — A~E · Trend 매핑 (병합 없음)
-- [kiosk-design-system-comparison.md](./kiosk-design-system-comparison.md) — 팀 비교표 · 왜 다른가
+- [Archive 비교표](../archive/design-migrations/kiosk-design-system-comparison.md) — 팀 비교표 · 왜 다른가
 - [Figma 태블릿 세로 Setup](https://app.notion.com/p/39451ef04f0b81c1b71accd381097699)
 - [color-swatches.html](./color-swatches.html)
 - [figma-links.template.json](./figma-links.template.json)

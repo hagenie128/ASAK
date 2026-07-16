@@ -4,15 +4,13 @@
 
 | Path rule | Status | Canonical reference |
 |---|---|---|
-| `docs/design/**` | Needs Review; `design/meetings/**` is Legacy | Product Bible Pack 07/08 and latest Figma |
-| `docs/screens/**` | Needs Review | Product Bible Pack 07 Screen Registry |
+| `docs/design/**` | Active only for reusable Figma guide/system/token/mapping material | Product Bible Pack 07/08 and latest Figma |
+| `docs/screens/screens*.{md,json}` | Generated / non-canonical; keep execution path | Product Bible Pack 07 Screen Registry |
 | `docs/guides/**` | Reference | Product Bible and repository README |
 | `docs/wiki/**` | Reference | Product Bible and current implementation map |
-| `docs/team/**` | Legacy | Product Bible Decision Log |
-| `docs/archive/design-audits/**` | Archived | none; concluded dated audit history only |
-| `docs/notion/**/Archive — 방치 페이지 보관/**` | Archived | none; historical record only |
-| `docs/notion/**/일일 워크로그/**`, `**/회의록/**`, dated WBS | Legacy | Product Bible Decision Log |
-| all remaining `docs/notion/**` | Needs Review | Product Bible; may contain unique valid context |
+| `docs/team/**` | Current team coordination only | Product Bible Decision Log |
+| `docs/archive/**` | Archived | none; retain history only |
+| `docs/notion/**` | Script-backed DevCopilot input snapshot; not a policy source | Product Bible and Wiki |
 
 Use [Legacy and Reference Index](LEGACY_AND_REFERENCE_INDEX.md) for rationale and potential Product Bible intake candidates.
 
