@@ -10,3 +10,11 @@
 
 - [figma-links.template.json](./figma-links.template.json)
 - [SCR_FIGMA_CHECKLIST.md](./SCR_FIGMA_CHECKLIST.md)
+
+## 05-C/06-C 시각·정책 복구 감사 (2026-07-17)
+
+Figma 실측(PNG/PDF) + Figma MCP 실측 + Product Bible + 실제 코드(ASAK-Kiosk/ASAK-Admin/ASAK-back)를 대조한 통합 감사.
+
+- [ASAK_FIGMA_INTEGRATED_AUDIT.md](./ASAK_FIGMA_INTEGRATED_AUDIT.md) — Part A(시각 복구·Batch 지시서·QA 체크리스트) · Part B(Legacy→Final Instance Swap 매핑·메뉴 이미지 Swap 계획) · Part C(유저플로우·정책·핸드오프 갭·실무 트리아지 통합 우선순위) · Part D(Admin 대시보드 추가 위젯 제안)
+
+> 시작점: Part C "실무 트리아지 기준과 통합 우선순위" — 문서 전체를 가로지르는 처리 순서.

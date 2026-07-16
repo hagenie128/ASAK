@@ -5,9 +5,11 @@
 1. [Product Bible Index](governance/PRODUCT_BIBLE_INDEX.md)
 2. [Canonical Contract Decisions](governance/CANONICAL_CONTRACT_DECISIONS.md)
 3. [Current Implementation Map](planning/CURRENT_IMPLEMENTATION_MAP.md)
-4. [Implementation Priority](planning/IMPLEMENTATION_PRIORITY.md)
-5. [Document–Code Gap Report](architecture/DOCUMENT_CODE_GAP_REPORT.md)
-6. [Product Bible Pack 1~12](product_bible/)
+4. [Implementation Guide Start](implementation_guide/00_START_HERE.md)
+5. [API·응답 구현 가이드](implementation_guide/04_API_DB_IMPLEMENTATION.md)
+6. [Implementation Priority](planning/IMPLEMENTATION_PRIORITY.md)
+7. [Document–Code Gap Report](architecture/DOCUMENT_CODE_GAP_REPORT.md)
+8. [Product Bible Pack 1~12](product_bible/)
 7. [Operations setup](operations/setup/)
 8. [Design](design/)
 9. [Screens](screens/)
@@ -24,6 +26,8 @@
 - 기존 Notion export, 회의록, WBS는 고유 맥락을 보존하는 Reference 또는 Archive이며 Product Bible을 대체하지 않는다.
 - Product Bible 문서 수는 구현 범위를 뜻하지 않는다. 구현은 MVP와 `FUTURE_SCOPE`를 구분해 승인된 Vertical Slice만 진행한다.
 - 계약 결정은 [Canonical Contract Decisions](governance/CANONICAL_CONTRACT_DECISIONS.md), 과거 문서의 분류는 [Legacy and Reference Index](governance/LEGACY_AND_REFERENCE_INDEX.md)를 따른다.
+- 화면 구현은 승인된 Figma `00-C`(파일 맵), `05-C`(Kiosk), `06-C`(Admin), `07-C`(상태 QA)을 함께 확인한다. 화면의 Default만 보고 구현 완료로 판단하지 않는다.
+- 구현 가이드는 Product Bible을 대체하지 않는다. 화면별 API 요청·응답·오류 형태는 [04 API·응답 구현 가이드](implementation_guide/04_API_DB_IMPLEMENTATION.md)와 기능별 원본 API Contract를 함께 사용한다.
 
 ## Folder purpose
 

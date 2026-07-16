@@ -1,0 +1,679 @@
+{
+  "style": {
+    "viewBox": "0 0 48 48",
+    "stroke": "currentColor",
+    "strokeWidth": 2,
+    "usage": "CSS color: inherit / currentColor 로 톤 맞추기"
+  },
+  "icons": [
+    "avocado",
+    "bacon",
+    "beef",
+    "berry",
+    "bottle",
+    "bowl",
+    "bread",
+    "cabbage",
+    "carrot",
+    "cheese",
+    "chicken",
+    "chips",
+    "corn",
+    "cucumber",
+    "default",
+    "egg",
+    "fish",
+    "flake",
+    "ham",
+    "leaf",
+    "mushroom",
+    "noodle",
+    "nuts",
+    "olive",
+    "onion",
+    "pasta",
+    "pepper",
+    "pork",
+    "rice",
+    "sauce",
+    "seaweed",
+    "seed",
+    "shrimp",
+    "soup",
+    "tofu",
+    "tomato",
+    "wrap"
+  ],
+  "items": [
+    {
+      "ingredient_id": 57,
+      "ingredient_name": "채소볼",
+      "type_id": 29,
+      "icon_key": "bowl",
+      "icon_path": "svg/bowl.svg"
+    },
+    {
+      "ingredient_id": 58,
+      "ingredient_name": "포케볼",
+      "type_id": 29,
+      "icon_key": "rice",
+      "icon_path": "svg/rice.svg"
+    },
+    {
+      "ingredient_id": 61,
+      "ingredient_name": "메밀면볼",
+      "type_id": 29,
+      "icon_key": "noodle",
+      "icon_path": "svg/noodle.svg"
+    },
+    {
+      "ingredient_id": 66,
+      "ingredient_name": "파스타볼",
+      "type_id": 29,
+      "icon_key": "pasta",
+      "icon_path": "svg/pasta.svg"
+    },
+    {
+      "ingredient_id": 70,
+      "ingredient_name": "양송이크림스프",
+      "type_id": 30,
+      "icon_key": "soup",
+      "icon_path": "svg/soup.svg"
+    },
+    {
+      "ingredient_id": 75,
+      "ingredient_name": "단호박크림스프",
+      "type_id": 30,
+      "icon_key": "soup",
+      "icon_path": "svg/soup.svg"
+    },
+    {
+      "ingredient_id": 77,
+      "ingredient_name": "포테이토크림스프",
+      "type_id": 30,
+      "icon_key": "soup",
+      "icon_path": "svg/soup.svg"
+    },
+    {
+      "ingredient_id": 83,
+      "ingredient_name": "치킨토마토스튜",
+      "type_id": 30,
+      "icon_key": "chicken",
+      "icon_path": "svg/chicken.svg"
+    },
+    {
+      "ingredient_id": 88,
+      "ingredient_name": "카사바칩",
+      "type_id": 30,
+      "icon_key": "chips",
+      "icon_path": "svg/chips.svg"
+    },
+    {
+      "ingredient_id": 89,
+      "ingredient_name": "오리엔탈",
+      "type_id": 28,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 95,
+      "ingredient_name": "(저당) 발사믹",
+      "type_id": 28,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 96,
+      "ingredient_name": "(저당) 랜치",
+      "type_id": 28,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 100,
+      "ingredient_name": "고추장비빔",
+      "type_id": 28,
+      "icon_key": "pepper",
+      "icon_path": "svg/pepper.svg"
+    },
+    {
+      "ingredient_id": 105,
+      "ingredient_name": "크리미칠리",
+      "type_id": 28,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 108,
+      "ingredient_name": "크리미할라피뇨",
+      "type_id": 28,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 110,
+      "ingredient_name": "(저당) 레몬허브",
+      "type_id": 28,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 111,
+      "ingredient_name": "(저당) 참깨소이",
+      "type_id": 28,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 115,
+      "ingredient_name": "(저당) 스리라차소이",
+      "type_id": 28,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 118,
+      "ingredient_name": "아메리카노",
+      "type_id": 31,
+      "icon_key": "seed",
+      "icon_path": "svg/seed.svg"
+    },
+    {
+      "ingredient_id": 119,
+      "ingredient_name": "그린밀싹",
+      "type_id": 31,
+      "icon_key": "leaf",
+      "icon_path": "svg/leaf.svg"
+    },
+    {
+      "ingredient_id": 120,
+      "ingredient_name": "오렌지당근",
+      "type_id": 31,
+      "icon_key": "carrot",
+      "icon_path": "svg/carrot.svg"
+    },
+    {
+      "ingredient_id": 121,
+      "ingredient_name": "레드클렌즈",
+      "type_id": 31,
+      "icon_key": "seed",
+      "icon_path": "svg/seed.svg"
+    },
+    {
+      "ingredient_id": 122,
+      "ingredient_name": "코크제로",
+      "type_id": 31,
+      "icon_key": "seed",
+      "icon_path": "svg/seed.svg"
+    },
+    {
+      "ingredient_id": 123,
+      "ingredient_name": "스프라이트제로",
+      "type_id": 31,
+      "icon_key": "soup",
+      "icon_path": "svg/soup.svg"
+    },
+    {
+      "ingredient_id": 124,
+      "ingredient_name": "애사비사과스파클링",
+      "type_id": 31,
+      "icon_key": "seed",
+      "icon_path": "svg/seed.svg"
+    },
+    {
+      "ingredient_id": 125,
+      "ingredient_name": "닭가슴살",
+      "type_id": 27,
+      "icon_key": "chicken",
+      "icon_path": "svg/chicken.svg"
+    },
+    {
+      "ingredient_id": 127,
+      "ingredient_name": "그라브락스연어",
+      "type_id": 27,
+      "icon_key": "fish",
+      "icon_path": "svg/fish.svg"
+    },
+    {
+      "ingredient_id": 128,
+      "ingredient_name": "로스트닭다리살",
+      "type_id": 27,
+      "icon_key": "chicken",
+      "icon_path": "svg/chicken.svg"
+    },
+    {
+      "ingredient_id": 134,
+      "ingredient_name": "그라운드비프",
+      "type_id": 27,
+      "icon_key": "beef",
+      "icon_path": "svg/beef.svg"
+    },
+    {
+      "ingredient_id": 138,
+      "ingredient_name": "우삼겹",
+      "type_id": 27,
+      "icon_key": "beef",
+      "icon_path": "svg/beef.svg"
+    },
+    {
+      "ingredient_id": 143,
+      "ingredient_name": "베이컨",
+      "type_id": 27,
+      "icon_key": "bacon",
+      "icon_path": "svg/bacon.svg"
+    },
+    {
+      "ingredient_id": 146,
+      "ingredient_name": "로스트삼겹",
+      "type_id": 27,
+      "icon_key": "pork",
+      "icon_path": "svg/pork.svg"
+    },
+    {
+      "ingredient_id": 149,
+      "ingredient_name": "에그",
+      "type_id": 27,
+      "icon_key": "egg",
+      "icon_path": "svg/egg.svg"
+    },
+    {
+      "ingredient_id": 151,
+      "ingredient_name": "두부",
+      "type_id": 27,
+      "icon_key": "tofu",
+      "icon_path": "svg/tofu.svg"
+    },
+    {
+      "ingredient_id": 153,
+      "ingredient_name": "잠봉슬라이스",
+      "type_id": 27,
+      "icon_key": "ham",
+      "icon_path": "svg/ham.svg"
+    },
+    {
+      "ingredient_id": 155,
+      "ingredient_name": "케이준쉬림프",
+      "type_id": 27,
+      "icon_key": "shrimp",
+      "icon_path": "svg/shrimp.svg"
+    },
+    {
+      "ingredient_id": 159,
+      "ingredient_name": "스크램블에그",
+      "type_id": 27,
+      "icon_key": "egg",
+      "icon_path": "svg/egg.svg"
+    },
+    {
+      "ingredient_id": 164,
+      "ingredient_name": "올리브",
+      "type_id": 26,
+      "icon_key": "olive",
+      "icon_path": "svg/olive.svg"
+    },
+    {
+      "ingredient_id": 165,
+      "ingredient_name": "할라피뇨",
+      "type_id": 26,
+      "icon_key": "pepper",
+      "icon_path": "svg/pepper.svg"
+    },
+    {
+      "ingredient_id": 166,
+      "ingredient_name": "머쉬룸",
+      "type_id": 26,
+      "icon_key": "mushroom",
+      "icon_path": "svg/mushroom.svg"
+    },
+    {
+      "ingredient_id": 168,
+      "ingredient_name": "옥수수",
+      "type_id": 26,
+      "icon_key": "corn",
+      "icon_path": "svg/corn.svg"
+    },
+    {
+      "ingredient_id": 169,
+      "ingredient_name": "양파",
+      "type_id": 26,
+      "icon_key": "onion",
+      "icon_path": "svg/onion.svg"
+    },
+    {
+      "ingredient_id": 170,
+      "ingredient_name": "토마토",
+      "type_id": 26,
+      "icon_key": "tomato",
+      "icon_path": "svg/tomato.svg"
+    },
+    {
+      "ingredient_id": 172,
+      "ingredient_name": "당근라페",
+      "type_id": 26,
+      "icon_key": "carrot",
+      "icon_path": "svg/carrot.svg"
+    },
+    {
+      "ingredient_id": 174,
+      "ingredient_name": "적채",
+      "type_id": 26,
+      "icon_key": "cabbage",
+      "icon_path": "svg/cabbage.svg"
+    },
+    {
+      "ingredient_id": 175,
+      "ingredient_name": "드라이토마토",
+      "type_id": 26,
+      "icon_key": "tomato",
+      "icon_path": "svg/tomato.svg"
+    },
+    {
+      "ingredient_id": 178,
+      "ingredient_name": "파인애플",
+      "type_id": 26,
+      "icon_key": "leaf",
+      "icon_path": "svg/leaf.svg"
+    },
+    {
+      "ingredient_id": 179,
+      "ingredient_name": "후리가케",
+      "type_id": 30,
+      "icon_key": "flake",
+      "icon_path": "svg/flake.svg"
+    },
+    {
+      "ingredient_id": 182,
+      "ingredient_name": "견과류",
+      "type_id": 30,
+      "icon_key": "nuts",
+      "icon_path": "svg/nuts.svg"
+    },
+    {
+      "ingredient_id": 184,
+      "ingredient_name": "나쵸칩",
+      "type_id": 30,
+      "icon_key": "chips",
+      "icon_path": "svg/chips.svg"
+    },
+    {
+      "ingredient_id": 186,
+      "ingredient_name": "양파플레이크",
+      "type_id": 30,
+      "icon_key": "flake",
+      "icon_path": "svg/flake.svg"
+    },
+    {
+      "ingredient_id": 188,
+      "ingredient_name": "크랜베리",
+      "type_id": 30,
+      "icon_key": "berry",
+      "icon_path": "svg/berry.svg"
+    },
+    {
+      "ingredient_id": 189,
+      "ingredient_name": "슈레드치즈",
+      "type_id": 30,
+      "icon_key": "cheese",
+      "icon_path": "svg/cheese.svg"
+    },
+    {
+      "ingredient_id": 191,
+      "ingredient_name": "김자반",
+      "type_id": 30,
+      "icon_key": "seaweed",
+      "icon_path": "svg/seaweed.svg"
+    },
+    {
+      "ingredient_id": 193,
+      "ingredient_name": "몬테레이치즈",
+      "type_id": 30,
+      "icon_key": "cheese",
+      "icon_path": "svg/cheese.svg"
+    },
+    {
+      "ingredient_id": 195,
+      "ingredient_name": "에그마요",
+      "type_id": 28,
+      "icon_key": "egg",
+      "icon_path": "svg/egg.svg"
+    },
+    {
+      "ingredient_id": 199,
+      "ingredient_name": "스윗포테이토",
+      "type_id": 28,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 204,
+      "ingredient_name": "단호박",
+      "type_id": 28,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 205,
+      "ingredient_name": "사워크림",
+      "type_id": 28,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 208,
+      "ingredient_name": "바질페스토",
+      "type_id": 28,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 210,
+      "ingredient_name": "바베큐소스",
+      "type_id": 28,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 215,
+      "ingredient_name": "화이트치즈소스",
+      "type_id": 28,
+      "icon_key": "cheese",
+      "icon_path": "svg/cheese.svg"
+    },
+    {
+      "ingredient_id": 219,
+      "ingredient_name": "(저당) 들기름소이",
+      "type_id": 28,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 222,
+      "ingredient_name": "고추간장 소스",
+      "type_id": 28,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 223,
+      "ingredient_name": "시저",
+      "type_id": 28,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 228,
+      "ingredient_name": "허니머스타드",
+      "type_id": 28,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 367,
+      "ingredient_name": "채소",
+      "type_id": 29,
+      "icon_key": "bowl",
+      "icon_path": "svg/bowl.svg"
+    },
+    {
+      "ingredient_id": 377,
+      "ingredient_name": "화이트치즈",
+      "type_id": 26,
+      "icon_key": "cheese",
+      "icon_path": "svg/cheese.svg"
+    },
+    {
+      "ingredient_id": 771,
+      "ingredient_name": "곡물, 채소",
+      "type_id": 29,
+      "icon_key": "bowl",
+      "icon_path": "svg/bowl.svg"
+    },
+    {
+      "ingredient_id": 1571,
+      "ingredient_name": "메밀면, 채소",
+      "type_id": 29,
+      "icon_key": "noodle",
+      "icon_path": "svg/noodle.svg"
+    },
+    {
+      "ingredient_id": 1836,
+      "ingredient_name": "곡물 (*채소믹스 미포함)",
+      "type_id": 29,
+      "icon_key": "leaf",
+      "icon_path": "svg/leaf.svg"
+    },
+    {
+      "ingredient_id": 1845,
+      "ingredient_name": "데리야끼소스",
+      "type_id": 26,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 1848,
+      "ingredient_name": "시저 드레싱",
+      "type_id": 26,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 1851,
+      "ingredient_name": "참기름",
+      "type_id": 26,
+      "icon_key": "leaf",
+      "icon_path": "svg/leaf.svg"
+    },
+    {
+      "ingredient_id": 2118,
+      "ingredient_name": "잠봉",
+      "type_id": 26,
+      "icon_key": "ham",
+      "icon_path": "svg/ham.svg"
+    },
+    {
+      "ingredient_id": 3251,
+      "ingredient_name": "파스타면, 채소",
+      "type_id": 29,
+      "icon_key": "noodle",
+      "icon_path": "svg/noodle.svg"
+    },
+    {
+      "ingredient_id": 3666,
+      "ingredient_name": "곡물(1.5배), 채소",
+      "type_id": 29,
+      "icon_key": "bowl",
+      "icon_path": "svg/bowl.svg"
+    },
+    {
+      "ingredient_id": 3669,
+      "ingredient_name": "로스트닭다리살x3",
+      "type_id": 26,
+      "icon_key": "chicken",
+      "icon_path": "svg/chicken.svg"
+    },
+    {
+      "ingredient_id": 3796,
+      "ingredient_name": "바질 파스타면(2배), 채소",
+      "type_id": 29,
+      "icon_key": "noodle",
+      "icon_path": "svg/noodle.svg"
+    },
+    {
+      "ingredient_id": 3799,
+      "ingredient_name": "닭가슴살x3",
+      "type_id": 26,
+      "icon_key": "chicken",
+      "icon_path": "svg/chicken.svg"
+    },
+    {
+      "ingredient_id": 3929,
+      "ingredient_name": "우삼겹x3",
+      "type_id": 26,
+      "icon_key": "beef",
+      "icon_path": "svg/beef.svg"
+    },
+    {
+      "ingredient_id": 4319,
+      "ingredient_name": "*채소 미포함",
+      "type_id": 29,
+      "icon_key": "leaf",
+      "icon_path": "svg/leaf.svg"
+    },
+    {
+      "ingredient_id": 6278,
+      "ingredient_name": "곡물",
+      "type_id": 29,
+      "icon_key": "bowl",
+      "icon_path": "svg/bowl.svg"
+    },
+    {
+      "ingredient_id": 6290,
+      "ingredient_name": "(*채소믹스 미포함",
+      "type_id": 26,
+      "icon_key": "leaf",
+      "icon_path": "svg/leaf.svg"
+    },
+    {
+      "ingredient_id": 6293,
+      "ingredient_name": "드레싱 미제공)",
+      "type_id": 26,
+      "icon_key": "bottle",
+      "icon_path": "svg/bottle.svg"
+    },
+    {
+      "ingredient_id": 6813,
+      "ingredient_name": "통밀 치아바타",
+      "type_id": 29,
+      "icon_key": "bread",
+      "icon_path": "svg/bread.svg"
+    },
+    {
+      "ingredient_id": 6821,
+      "ingredient_name": "화이트치즈 (*채소믹스 미포함)",
+      "type_id": 26,
+      "icon_key": "cheese",
+      "icon_path": "svg/cheese.svg"
+    },
+    {
+      "ingredient_id": 6927,
+      "ingredient_name": "채소믹스",
+      "type_id": 26,
+      "icon_key": "leaf",
+      "icon_path": "svg/leaf.svg"
+    },
+    {
+      "ingredient_id": 9419,
+      "ingredient_name": "참기름 (*채소믹스 미포함",
+      "type_id": 26,
+      "icon_key": "leaf",
+      "icon_path": "svg/leaf.svg"
+    },
+    {
+      "ingredient_id": 9815,
+      "ingredient_name": "곡물밥x1.5",
+      "type_id": 26,
+      "icon_key": "rice",
+      "icon_path": "svg/rice.svg"
+    }
+  ]
+}

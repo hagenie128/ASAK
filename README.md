@@ -2,9 +2,22 @@
 
 > **Current structure notice (2026-07-16):** the active implementation repositories are `ASAK-Kiosk`, `ASAK-Admin`, and `ASAK-back`; `ASAK` is the documentation/data/Product Bible source. The historical `ASAK-front` and integrated `frontend/`/`backend/` instructions below are retained as **Legacy Reference** only and must not be used for new work. See [current status baseline](docs/wiki/current-status-baseline.md).
 
+> **현재 작업 기준:** 구현 전에는 [문서 시작점](docs/implementation_guide/00_START_HERE.md) → Product Bible → 승인된 Figma `00-C/05-C/06-C/07-C` → 실제 코드 순서로 확인합니다. `ASAK`는 문서·데이터 정본 저장소이며, 고객 UI는 `ASAK-Kiosk`, 관리자 UI는 `ASAK-Admin`, API는 `ASAK-back`에서 구현합니다.
+
 > **처음이신가요?** 👉 [**처음 시작하기 (GETTING_STARTED)**](docs/operations/setup/GETTING_STARTED.md) · Windows 설치 상세 [**INSTALL_WINDOWS.md**](docs/operations/setup/INSTALL_WINDOWS.md) · Notion [🚀 팀 온보딩](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) — 클론·세팅·워크로그까지 한 문서로!
 
 `ASAK`는 `A Salad A Kiosk`의 **통합 Git 저장소**입니다. 로컬 클론 위치는 각 팀원의 작업 환경에 맞게 정합니다.
+
+## 현재 저장소 역할
+
+| 저장소 | 담당 | 시작 문서 |
+| --- | --- | --- |
+| `ASAK` | Product Bible, Figma 기준, 데이터, QA, 구현 가이드 | [docs/README.md](docs/README.md) |
+| `ASAK-Kiosk` | 고객용 React JavaScript | `ASAK-Kiosk/README.md` |
+| `ASAK-Admin` | 관리자용 React JavaScript | `ASAK-Admin/README.md` |
+| `ASAK-back` | Spring Boot API, DTO, DB 연동 | `ASAK-back/README.md` |
+
+상위의 `frontend/`, `backend/`, `ASAK-front` 설명은 과거 자료다. 새 기능의 구현 위치로 사용하지 않는다.
 
 **9주 (7/2~9/2)** · Week 5 MVP SCR-001~008 (8/1) · 최종 발표 9/2(수). 산출물·진행 허브: [Notion 키오스크 풀스택 프로젝트](https://app.notion.com/p/39151ef04f0b808f99f8ea068efb5790) · 일일 워크로그: [팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95) · Git [`worklog/guide-personal-worklog.md`](worklog/guide-personal-worklog.md) · [확인 순서](worklog/README.md)
 

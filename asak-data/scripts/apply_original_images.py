@@ -9,15 +9,27 @@ import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-REPO_ROOT = ROOT.parent
+ASAK = ROOT.parent
+WORKSPACE = ASAK.parent
 SEED_DIR = ROOT / "seed"
 IMAGES_DIR = ROOT / "images"
 ORIGINAL_DIR = IMAGES_DIR / "original"
 MENU_IMG_DIR = IMAGES_DIR / "menu"
-BACKEND_SEED = REPO_ROOT / "backend" / "src" / "main" / "resources" / "seed" / "menu.json"
-BACKEND_STATIC = (
-    REPO_ROOT / "backend" / "src" / "main" / "resources" / "static" / "assets" / "menu"
+# 실제 저장소명: ASAK-back (구 backend 경로 아님)
+BACKEND_SEED = (
+    WORKSPACE / "ASAK-back" / "src" / "main" / "resources" / "seed" / "menu.json"
 )
+BACKEND_STATIC = (
+    WORKSPACE
+    / "ASAK-back"
+    / "src"
+    / "main"
+    / "resources"
+    / "static"
+    / "assets"
+    / "menu"
+)
+KIOSK_PUBLIC = WORKSPACE / "ASAK-Kiosk" / "public" / "assets" / "menu"
 
 
 def find_original(menu_id: int) -> Path | None:
@@ -58,6 +70,7 @@ def main() -> None:
     args.copy_to.mkdir(parents=True, exist_ok=True)
     if args.sync_backend:
         BACKEND_STATIC.mkdir(parents=True, exist_ok=True)
+        KIOSK_PUBLIC.mkdir(parents=True, exist_ok=True)
 
     updated = 0
     missing = 0
@@ -73,6 +86,7 @@ def main() -> None:
         shutil.copy2(src, dest)
         if args.sync_backend:
             shutil.copy2(src, BACKEND_STATIC / filename)
+            shutil.copy2(src, KIOSK_PUBLIC / filename)
 
         menu["image_url"] = f"{args.prefix}{filename}"
         updated += 1
@@ -85,6 +99,7 @@ def main() -> None:
     print(f"  복사: {args.copy_to}")
     if args.sync_backend:
         print(f"  backend static: {BACKEND_STATIC}")
+        print(f"  kiosk public:   {KIOSK_PUBLIC}")
         print(f"  backend seed: {BACKEND_SEED}")
     if missing:
         print(f"  건너뜀: {missing}개 (original/ 없음 — download_menu_images.py 실행)")
