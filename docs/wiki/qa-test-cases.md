@@ -1,5 +1,7 @@
 # ASAK QA 테스트 케이스
 
+> **Execution status override (2026-07-16):** all DevCopilot QA cases are TODO/NOT_RUN because no execution evidence was supplied. Do not mark PASS from design, mock data, or a successful frontend build alone. Future Scope tests remain preserved but do not affect MVP completion.
+
 > Notion 09. 테스트/오류 관리 · TC-001~016 (2026-07-06)
 
 ## 테스트 범위

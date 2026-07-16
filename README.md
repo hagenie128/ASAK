@@ -1,5 +1,7 @@
 # ASAK
 
+> **Current structure notice (2026-07-16):** the active implementation repositories are `ASAK-Kiosk`, `ASAK-Admin`, and `ASAK-back`; `ASAK` is the documentation/data/Product Bible source. The historical `ASAK-front`, `C:\ASAK-front`, and integrated `frontend/`/`backend/` instructions below are retained as **Legacy Reference** only and must not be used for new work. See [current status baseline](docs/wiki/current-status-baseline.md).
+
 > **처음이신가요?** 👉 [**처음 시작하기 (GETTING_STARTED)**](docs/operations/setup/GETTING_STARTED.md) · Windows 설치 상세 [**INSTALL_WINDOWS.md**](docs/operations/setup/INSTALL_WINDOWS.md) · Notion [🚀 팀 온보딩](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) — 클론·세팅·워크로그까지 한 문서로!
 
 `ASAK`는 `A Salad A Kiosk`의 **통합 Git 저장소**입니다. 로컬 클론 경로는 **`C:\ASAK`** 를 권장합니다.
