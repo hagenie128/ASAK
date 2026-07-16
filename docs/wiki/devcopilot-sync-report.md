@@ -17,6 +17,27 @@ Requirements, scenarios, screens, WBS tasks, API specs, DB tables/columns, QA te
 | QA | TODO 16 | TODO 16 | No PASS claim; Future Scope tests retitled only |
 | Bugs | 0 | 0 | No test execution occurred |
 
+## WBS reconciliation (internal record ID basis)
+
+| Category | Record count | Meaning |
+|---|---:|---|
+| Before: total WBS | 65 | Original DevCopilot records |
+| Before: unique Task ID | 37 | `65 - 28` duplicate extra records |
+| Before: duplicate Task ID groups | 28 | Each legacy group had one additional record |
+| Before: duplicate additional records | 28 | Kept as EXCLUDED, not deleted |
+| New intended WBS2 | 64 | Unique active `WBS2-001`–`WBS2-064` records |
+| Existing retained Active | 37 | Original representative records |
+| Existing EXCLUDED / ARCHIVED | 0 / 0 | No such WBS status at the baseline |
+| New EXCLUDED | 67 | 28 legacy duplicate records + 39 accidental WBS2 duplicate records |
+| After: total records | 168 | `37 active legacy + 64 active WBS2 + 67 EXCLUDED` |
+| After: Active | 101 | TODO 74 / DONE 9 / IN_PROGRESS 12 / BLOCKED 6 |
+| After: EXCLUDED | 67 | All marked `[ARCHIVED DUPLICATE]`; no permanent deletion |
+| After: other status | 0 | No WBS ARCHIVED record status |
+
+`67` is neither a duplicate Task ID group count nor the Legacy WBS total. It is the total **additional duplicate record** count preserved as EXCLUDED. There are 28 legacy duplicate Task ID groups and zero active duplicate Task ID groups after reconciliation.
+
+`WBS2-006` remains active because it is a documentation task that separates Future Scope; it is not Future Scope implementation work.
+
 ## API mismatch record
 
 | API ID | Existing DevCopilot path | Latest target path | Implementation evidence | Decision needed | Status |
@@ -34,7 +55,7 @@ The MCP exposes API creation/read but no API update/archive operation. This tabl
 |---|---:|---:|---|
 | Requirement implementation | 5.3% | 0.0% | Three unsupported DONE records were corrected; IN_PROGRESS is not treated as DONE |
 | Traceability | 87.7% | 87.7% | No explicit link mutation is exposed by MCP |
-| WBS progress | 9.2% | 5.4% | Legacy/duplicate cleanup and WBS2 creation triggered recalculation; this is not a delivery regression |
+| WBS progress | 9.2% | 5.4% | `9 DONE / 168 total records = 5.36%`; MCP currently includes 67 EXCLUDED records in the denominator. This is a calculation limitation, not a delivery regression. |
 | QA pass | 0.0% | 0.0% | No execution evidence |
 | Open bug | 0 | 0 | No test execution occurred |
 
@@ -45,6 +66,10 @@ The MCP exposes API creation/read but no API update/archive operation. This tabl
 - Kanban board management
 - Wiki/checklist management
 - Explicit traceability-link mutation
+
+## Metric verification limitation
+
+`MCP_UNSUPPORTED`: the dashboard calculation formula and denominator configuration are not exposed. The observed WBS value proves that EXCLUDED is still counted (`9 / 168`), while traceability remains a system-provided 87.7% with no readable numerator/denominator. Do not alter state merely to improve those metrics.
 
 ## Safety controls
 

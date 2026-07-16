@@ -4,7 +4,7 @@
 
 ## Field contract
 
-Every task uses: WBS2 ID, Phase, Epic, Work Package, Detailed Task, Deliverable, Repository, Primary Owner, Support Owner, Review Owner, QA Owner, Dependency, Handoff Condition, Start/Target Date, Status, Definition of Done, Evidence, Requirement, Scenario, SCR, API, DB, QA, and Notes. `—` means not applicable; `NEEDS_CONFIRMATION` means evidence or ownership is not yet available.
+Every task uses: WBS2 ID, Phase, Epic, Work Package, Detailed Task, Deliverable, Repository, Primary Owner, Support Owner, Review Owner, QA Owner, Dependency, Handoff Condition, Start/Target Date, Status, Definition of Done, Evidence, Requirement, Scenario, SCR, API, DB, QA, and Notes. In the compact table below, **Handoff condition + Evidence / linked scope is the row-level Definition of Done**: a row can be DONE only when its handoff condition is met and its evidence is concrete. `—` means not applicable; `NEEDS_CONFIRMATION` means evidence or ownership is not yet available.
 
 ## Execution backlog
 
