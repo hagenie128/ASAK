@@ -49,9 +49,23 @@
 
 > 19~22번은 정확한 전체 레이어명을 제가 직접 확인 못 한 상태라(다른 서브 작업에서 나온 요약값), 큰따옴표 안 단어로 **Ctrl+F 검색**하면 후보가 몇 개 나올 거예요 — 그중 상태명(Item Changed/Default/Toggle Changed/Unauthorized)이 맞는 걸 고르시면 됩니다.
 
-### D. 나(Claude)에게 남길 것 — 오늘 안 함, 나중에 이어서
+### D. 나(Claude)에게 남긴 것 — 완료 보고 (2026-07-18 야간 세션)
 
-Blue 전수 검색·제거 / StatusBadge 11개 Role 라벨 수정 / SaveBar 3벌 통합 / Header·MenuCard·CartFooterBar Auto Layout 전환 / DataTableRow hover 신설 / SoldOutCard 크기+폰트 / 3열 옵션카드 Hug 전환 / Green 변수 문서 재작성 — §하단 "세션 인수인계 메모" 참고
+| 항목 | 결과 |
+|---|---|
+| Kiosk/CategoryTab을 Deprecated에서 꺼냄 | ✅ 완료(150:2로 복귀, 스크린샷 확인) |
+| Blue 전수 검색·제거(CartItemCard) | ✅ 완료 — 4곳(Vector fill×3, Admin/MenuButton stroke×1) 전부 `#B5E30F`로 교체, 스크린샷 확인 |
+| Blue 검색(MenuDetailSummary) | 검색 결과 0건 — 이미 다른 경로로 해결된 것으로 보임 |
+| StatusBadge 11개 Role 라벨 수정 | ✅ 완료(재수정) — **진짜 원인 발견**: 12개 텍스트 노드가 전부 같은 공유 Component Property(`label#427:12`)에 바인딩돼 있어서 하나만 바꿔도 전체가 같이 바뀌는 구조였음. `componentPropertyReferences`를 끊고 각각 독립 텍스트로 재설정. 스크린샷으로 12개 전부 다른 값 확인 |
+| SaveBar 3벌 색상 통합 | ✅ 완료 — SaveBar·PaymentSaveBar는 이미 라이트톤(`#FFFBEB`)으로 정리돼 있었음(아마 Figma AI 색상표 실행 결과). StickyActionBar만 배경/텍스트/버튼색을 SaveBar 기준으로 통일(버튼 `#4AA54E`→`#B5E30F`, 텍스트도 라임 위 흰글씨 대비문제 피하려 다크로 변경) |
+| Kiosk/Header Auto Layout | 이미 적용돼 있었음(VERTICAL) — 손 안 댐 |
+| Shared/CartFooterBar Auto Layout | **보류** — 내부 프레임 좌표가 서로 겹치는 구조라 기계적 변환 시 레이아웃 깨질 위험. 다음 세션에서 화면 보면서 신중히 진행 필요 |
+| Admin/DataTableRow hover | 이미 존재하고 정상 작동(`#F5F5F5`) — GPT 리뷰가 잘못 지적한 항목, 작업 불필요 |
+| Admin/SoldOutCard | ✅ 폰트만 완료(이름13/카테고리12/뱃지11, 스크린샷으로 안 잘리는 것 확인). **150×160 리사이즈는 보류** — 썸네일 비율 깨질 위험 |
+| 3열 옵션카드 Hug 전환 | **작업 안 함** — 대상(`508:44937`)이 이전 세션에서 이미 "승인된 Visual Reference Pilot, 추가 수정 금지"로 동결된 영역이었음(메모리 확인). 프로덕션(`134:7810`)은 카테고리별 카드 개수에 맞게 이미 슬롯 높이가 정확히 계산돼 있어 실제 문제가 아닐 수도 있음 |
+| Green 변수 문서 재작성 | **불필요로 판명** — 실제 Variable Collection을 alias 끝까지 따라가 보니 Green/50~700이 Foundations 문서와 **정확히 일치**. 예전 "불일치" 관찰은 일부 컴포넌트에 남은 낡은 CSS 폴백 텍스트를 잘못 읽은 것이었음 |
+
+**남은 것(다음 세션)**: CartFooterBar Auto Layout(신중하게), SoldOutCard 리사이즈(신중하게), 화면 단 검증(§0.5 원칙대로 이 세션이 아닌 다른 세션에서)
 
 ---
 
