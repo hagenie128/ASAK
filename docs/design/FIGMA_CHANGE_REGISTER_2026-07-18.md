@@ -42,13 +42,32 @@
 출력 형식: Change ID | Master node | as-is 수치 | 수정 필요 속성 | instance 영향
 ```
 
-## 지금 할 일
+## 0718 복구 배치 (2026-07-18) — 완료 요약
 
-1. 먼저 B와 `M0-1`을 끝낸다. 아직 Figma는 수정하지 않는다.
-2. A → D의 M0-2, M0-3가 끝나면 `B0-01`만 Figma에서 수정한다.
-3. 수정 뒤 이 문서에서 `사람 수정`을 `완료`로 바꾼다.
-4. AI에게 `B0-01 D 검증만 해줘`라고 요청한다.
-5. D가 PASS면 다음 행 `B0-02`로 간다.
+**쓰기 타깃:** `yHhvn5RKjBd91U8BJUQz7F` (0718)  
+**참고:** ASAK-1 · 0714(화면 시각) · 0715 **구분선 아래** 컴포넌트/화면 보관본  
+**정본 표:** [FIGMA_0718_COLOR_CANON_2026-07-18.md](./FIGMA_0718_COLOR_CANON_2026-07-18.md)
+
+| Phase | 내용 | 결과 |
+|---|---|---|
+| 0 | 색·파일 정본 표 | 완료 |
+| 1 | Master TEXT→BG/Surface 오바인딩 | Shared 41 · Admin 2 · Kiosk 0 → **잔여 0** |
+| 2 | BottomCTA disabled opacity 제거 · loading→Brand/Subtle · Blue/Orange 표 재바인딩 | 완료 · `Semantic/Category/Side`·`WarningText` 추가 |
+| 3 | 갭 | CategoryTap→Deprecated · StickyActionBar Master 04-C 재부착 · 0715 아래는 반입 창고로 유지 |
+| 4 | 05-C/06-C 화면 Blue/Orange override | Kiosk Blue 3 · Admin Blue 206 + Orange 192 |
+| — | 표 밖 unbound hex | 바꾸지 않음 · 캐논 문서에 목록만 |
+| 5 | 화면 조합 (잘 데려가기) | 맵 문서 · 키오스크/Admin Core·QA 섹션 · SCR-008/001/003 정리 · Archive Default ID 확정 |
+
+**조합 맵:** [FIGMA_0718_SCREEN_COMBINE_MAP_2026-07-18.md](./FIGMA_0718_SCREEN_COMBINE_MAP_2026-07-18.md)
+
+### 지금 할 일
+
+1. 0718에서 Modal / BottomCTA / SaveBar / MenuButton side·drink 눈 QA
+2. 깨진 Default만 수동 복붙  
+   - 키오스크 → **0714**  
+   - Admin → **0715 Archive** (`525:19726` 등, 맵 표 참고)  
+   - 붙여넣은 뒤 **0718 로컬 Semantic만** 재바인딩 (**Figma AI bulk 금지**)
+3. 기존 Change ID(B0/B1…)는 수치·구조 이슈용으로 유지 — 색·조합과 섞지 않음
 
 **한 번에 한 행만 진행한다.** 새 의견은 아래 Change ID에 덧붙이고, 같은 대상의 새 문서를 만들지 않는다.
 
