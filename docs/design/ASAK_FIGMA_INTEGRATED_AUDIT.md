@@ -2264,11 +2264,973 @@ P3  A8 옵션/제외 · 메뉴 화면 힌트 · 품절×인기 교차
 
 ---
 
+
+---
+
+# Part E: Figma Agent 실행 스펙 — BATCH 1~3 전체 (Cursor 정본 + Claude 검증)
+
+> **작성:** Cursor가 공통 잠금 블록 + BATCH 1/2-A/2-B/2-C/2-D/3 전체를 실행 프롬프트 형태로 완성했다. Claude가 Part B(컴포넌트 정본) node-id 전수와 대조해 오류 0건 확인했고, D6 처리 방식만 두 초안(Claude 초안 vs Cursor 정본)을 절충해서 반영했다. 아래가 최종본이며, 이전 Claude 초안(BATCH 2-A~3 개별 프롬프트)은 이 버전으로 대체한다.
+
+## E-1. 결정 필요 상태 요약
+
+| ID | 내용 | 처리 |
+|---|---|---|
+| D1 | Touch min: Bible 80 vs 통합안 ≥64 vs candidate-B 44 | 토큰 확정 전까지 전 배치 **≥64만 적용**, 80 강제 금지 |
+| D2 | CANONICAL_SOURCE(B) vs 구현 가이드(C) | 이번 Figma 작업 범위는 05-C/06-C Production. Bible 문서 갱신은 별도 Wave, Figma Agent 범위 아님 |
+| D3 | SCR-001 Home 다크 히어로 완화 시점 | BATCH 1에서는 Canvas 개편 금지. 완화는 BATCH 7 이후 별도 |
+| D4 | OrderDetailRow(150:247) vs OptionSelectionRow(160:1831) 역할 | **해결.** 화면 위치로 분기 — SCR-004 옵션 행=OptionSelectionRow(160:1831), Cart/Payment/Complete 요약 행=OrderDetailRow(150:247). 모호하면 residual |
+| D5 | Category(150:700) vs CategoryTab(150:695) | **해결.** Production은 CategoryTab(150:695)만. Category(150:700)는 신규 연결 금지 |
+| D6 | Admin/MenuButton이 05-C(Kiosk)에 6건 | **절충.** BATCH 2-C에서 교체를 **시도**한다(기존 03-C Button으로). 정확히 대응하는 Kiosk 컴포넌트가 없으면 새로 만들지 말고 residual로 보고 — 강제 해결도, 방치도 아닌 "시도 후 근거 있으면 보류" |
+
+D1~D3만 실제로 사람이 결정해야 한다. D4~D6은 Figma Agent가 아래 배치 프롬프트대로 그대로 실행하면 된다.
+
+---
+
+## E-2. 공통 잠금 (모든 배치 상단에 붙일 것)
+
+```text
+파일: ASAK — Design System & Product UI 0715
+fileKey: JSrjOy668zhfkiLplCkreh
+정본: Visual=B 레퍼런스(밝음·음식·Lime) / Logic·State·Component=C (05-C/06-C + 02~04-C)
+구분선: 233:30019 — 위=정본(00-C~08-C), 아래=Legacy(읽기·Archive만)
+
+절대 금지(전 배치 공통):
+- C 폐기 / B 복구
+- AI SaaS·Glass·Neon·Gradient 리브랜딩
+- Instance Detach
+- Frame 크기 변경 (Kiosk 1080×1920 / Admin 1920×1080)
+- Hardcoded hex (01-C Variable만)
+- Selected에 Blue
+- 카드/옵션/카트 전체 Dark Charcoal Fill
+- 품절=카드 전체 검정·블러·과도 opacity
+- 새 Component Set 중복 생성 (없는 Master만 구분선 위 승격 허용: BATCH 2-B)
+- Receipt / Membership / Coupon / QR / Delivery 추가
+- 07-C 구조 변경
+- 「예쁘게」「세련되게」식 추상 지시로 임의 스타일 변경
+- 없는 node-id 추측 생성 — 이름으로 재확인 후 실제 ID 보고
+
+결정 필요(임의 선택 금지 — E-1 참고):
+D1 Touch: Bible 80 vs ≥64 vs 44 → 확정 전 ≥64만 적용, 80 강제 금지
+D2 CANONICAL_SOURCE B vs Guide C → 이번 Figma 작업은 05-C/06-C 유지
+D3 Home 다크 히어로 완화 → BATCH 1에서 Canvas 개편 금지
+D4 OrderDetailRow vs OptionSelectionRow → 옵션=160:1831, 요약행=150:247 (해결됨, 그대로 실행)
+D5 Category vs CategoryTab → Production은 CategoryTab 150:695만 (해결됨, 그대로 실행)
+D6 05-C의 Admin/MenuButton 6건 → 2-C에서 교체 시도, 대응 없으면 residual (절충안, 그대로 실행)
+
+실행 순서: 1 → 2-A → 2-B → 2-C → 2-D → 3
+BATCH 2 전체 없이 BATCH 3 금지.
+```
+
+---
+
+## E-3. BATCH 1 — Home 주문방식 중복 제거
+
+```text
+FIGMA AGENT — BATCH 1 ONLY
+ASAK Design Director / QA Reviewer
+
+이번 요청은 BATCH 1만 실행한다. BATCH 2-A 이후는 실행하지 마라.
+
+═══════════════════════════════════════
+1. 작업 목적
+═══════════════════════════════════════
+정책 P1: 주문유형(EAT_IN|TAKE_OUT)은 Home에서 1회만.
+코드 정합: 선택 → orderType 저장 → /menu 직행.
+Figma의 Order Type Selection / 중복 Modal 재질문 Prototype·잔재를 Production 경로에서 제거한다.
+
+═══════════════════════════════════════
+2. 대상 Page / Frame / Node ID
+═══════════════════════════════════════
+Page: 05-C Screens/Kiosk (134:7720)
+Component(카피 동기화): 03-C (150:2)
+
+| 대상 | 후보 node-id |
+| SCR-001 Home Default | 134:7721 |
+| 주문방식 버튼 | 134:7788 |
+| Order Type Selection | 224:10766 |
+| 중복 Modal | 224:10870 |
+| HomeActionButton Final | 150:718 |
+| HomeActionButton Legacy(카피만) | 31:11077 |
+| Navigate 도착: SCR-003 Menu List Default | 이름으로 확인 |
+
+═══════════════════════════════════════
+3. 변경할 항목
+═══════════════════════════════════════
+1. Order Type Selection / 중복 Modal로 가는 Prototype 전부 해제
+2. Home 「매장에서 먹기」「포장하기」→ SCR-003 Menu List Default 직접 Navigate
+3. Note/`__spec`: onSelect → orderType=EAT_IN|TAKE_OUT 저장 → /menu (본문과 안 겹치게)
+4. Order Type Selection 이름 → ARCHIVED_duplicate_orderType_selection 후 Archive (삭제 금지)
+5. Ghost overlap / 동일좌표 State → Visible false 또는 Archive → Production overlap 0
+6. 포장 영문 Eat In → Take Out (화면 + Master 150:718, Legacy 있으면 카피만)
+7. Selected Blue → 01-C Lime Selected
+8. `__spec` 본문 겹침 시 Annotation 영역으로 이동
+
+═══════════════════════════════════════
+4. 유지할 항목
+═══════════════════════════════════════
+Home 2버튼 구조, 음식 히어로 콘셉트, High Contrast State 존재, 1080×1920, C State 카탈로그
+
+═══════════════════════════════════════
+5. 변경 금지 항목
+═══════════════════════════════════════
+Home Canvas/히어로 밝기·레이아웃 대규모 변경(D3)
+Menu List·Detail·Cart·Admin·Master 시각(2-A)·Swap(2-D)
+Detach, 새 Set, 리브랜딩, Frame 크기 변경
+
+═══════════════════════════════════════
+6. 정량 기준
+═══════════════════════════════════════
+| 지표 | PASS |
+| Home→Menu List 클릭 | 1 |
+| 재질문 Prototype 참조 | 0 |
+| Production overlap | 0 |
+| Eat In (포장 CTA) | 0 |
+| Take Out | 존재 |
+| Selected Blue | 0 |
+| Selected Lime Variable | 필수 |
+| Frame | 1080×1920 |
+| Detach | 0 |
+| Selection Frame 삭제 | 0 (Archive만) |
+
+═══════════════════════════════════════
+7. 완료 조건
+═══════════════════════════════════════
+[ ] 1클릭 Menu List
+[ ] 재질문 Prototype 0
+[ ] ARCHIVED_* 존재·삭제 0
+[ ] overlap 0
+[ ] Take Out + Lime Selected
+[ ] Screenshot: Home / Menu List 도착 / Archive Frame
+[ ] BATCH 2+ 미실행
+
+═══════════════════════════════════════
+8. PASS/FAIL — 실측 완료 (2026-07-17, Claude use_figma 직접 조회)
+═══════════════════════════════════════
+| # | 항목 | P/F |
+| 1 | Home→Menu List 1클릭 | **PASS** — 두 버튼 모두 ON_CLICK→NODE→134:7792(SCR-003/Menu List/Default) 직행 |
+| 2 | Selection/Modal Prototype 0 | **PASS** — 페이지 전체 findAll로 224:10766/224:10870을 destinationId로 갖는 reaction 0건 |
+| 3 | ARCHIVED 존재, 삭제 0 | **PASS** — 224:10766 name="ARCHIVED_SCR-001 / Home / Order Type Selection", visible=false, 노드 존재(미삭제) |
+| 4 | overlap 0 | **PASS** — Home Default(x=0,y=208) 좌표에 다른 top-level frame 없음 |
+| 5 | Take Out, Eat In=0 | **PASS** — 134:7789=매장에서 먹기/"Eat In"(정상), 134:7790=포장하기/"Take Out"(정상), 라벨 오배치 없음 |
+| 6 | Lime Selected, Blue=0 | **해당 없음** — HomeActionButton Master(150:718)는 variant가 type=eatIn/type=takeOut 2개뿐, Selected 상태 자체가 없어 Blue 잔존 여지 없음 |
+| 7 | 1080×1920 | **PASS** — 134:7721 width=1080 height=1920 |
+| 8 | Detach 0 | **PASS** — 134:7789/134:7790 모두 type=INSTANCE (Detach 아님) |
+| 9 | Canvas 대규모 미변경 | **PASS** — 이번 세션에서 쓰기 작업 0건 (조회만 수행) |
+| 10 | BATCH 2+ 미실행 | **PASS** — BATCH 1 범위만 조회, 2-A 이후 미실행 |
+| 11 | Screenshot 3종 | **PASS** — Home(134:7721)·Menu List 도착(134:7792) 스크린샷 확보. Archive Frame(224:10766)은 visible=false라 스크린샷이 1×1 빈 이미지로 반환됨 — 이 자체가 "정상적으로 숨김 처리됨"의 증거 |
+
+**결론: BATCH 1은 이번 조사 시점 기준 이미 전부 완료된 상태. 이번 세션에서 추가로 변경한 것은 없음.** 실행자·시점 불명(이 문서의 이전 Cursor/Claude 세션 중 하나에서 처리됐을 가능성이 높으나 이력에 기록되지 않았었음).
+
+═══════════════════════════════════════
+9. 최종 보고 형식
+═══════════════════════════════════════
+BATCH 1 REPORT (실측)
+| 논리명 | 실제 node-id |
+| Home Default | 134:7721 |
+| 주문방식 버튼(매장) | 134:7789 |
+| 주문방식 버튼(포장) | 134:7790 |
+| Order Type Selection | 224:10766 (ARCHIVED_, visible=false) |
+| 중복 Modal | 224:10870 (order-type-modal, ARCHIVED 하위) |
+| Menu List Default | 134:7792 |
+| HomeActionButton Master | 150:718 (variant: type=eatIn, type=takeOut) |
+
+| Prototype 해제/연결 | from | to |
+| 매장 버튼 | 134:7789 | 134:7792 (NAVIGATE) |
+| 포장 버튼 | 134:7790 | 134:7792 (NAVIGATE) |
+
+| Archive | name | node | deleted? |
+| ARCHIVED_SCR-001 / Home / Order Type Selection | 224:10766 | No |
+
+| residual | 없음 |
+
+Screenshots: Home Default, Menu List 도착 — PASS/FAIL 표 §8 참고
+```
+
+---
+
+## E-4. BATCH 2-A — Final Master 시각 결함 수정
+
+```text
+FIGMA AGENT — BATCH 2-A ONLY
+선행: BATCH 1 PASS. 이번은 2-A만. 2-B~2-D·BATCH 3 금지.
+Production 화면 대량 수정·Legacy Swap 금지. Master(02-C/03-C) 시각만.
+
+═══════════════════════════════════════
+1. 작업 목적
+═══════════════════════════════════════
+Swap(2-D) 전에 Final Master가 밝고 정책 준수가 되게 한다.
+OptionSelectionRow default가 다크인 채로 598건 Swap되면 전 화면이 다크로 오염된다.
+
+═══════════════════════════════════════
+2. 대상 Page / Frame / Node ID
+═══════════════════════════════════════
+Page: 02-C Shared (145:2), 03-C Kiosk (150:2), 01-C Foundations(Variable bind)
+
+| Component | Final node |
+| Kiosk/OptionSelectionRow | 160:1831 |
+| Kiosk/MenuCard | 150:678 |
+| Kiosk/CartItemCard | 150:404 |
+| Kiosk/BottomCTA | 150:385 |
+| Kiosk/QuantityStepper | 150:166 |
+| Shared/Modal | 158:23908 |
+| Shared/ConfirmDialog | 158:23975 |
+| Shared/Toast | 158:24049 |
+| AllergenNotice | 158:24225 |
+| AllergenTag | 158:24215 |
+| Kiosk/SoldOutBadge | 311:1789 |
+
+Override vs Master 원인 구분: Master Fill이 다크인지 / Instance Override인지 표로 보고.
+
+═══════════════════════════════════════
+3. 변경할 항목
+═══════════════════════════════════════
+A. OptionSelectionRow (160:1831) — Swap 전 필수
+- default: Dark charcoal 삭제 → White / Warm Neutral
+- selected: Blue → 01-C Lime Selected (subtle fill + Lime stroke/indicator, 전체 Lime fill 금지)
+- soldOut: Badge(SoldOutBadge) + 텍스트, 카드 전체 다크/블러 금지
+- name: FILL, max 2 lines, mid-word 1글자 줄바꿈 0
+- price: min-width ≥120, right align, clip 0
+- row min-height ≥80
+- disabled: 선택 불가 시각 명확
+
+B. MenuCard (150:678) soldOut
+- White surface 유지
+- 이미지만 채도↓ (텍스트 블러 금지)
+- 품절 Badge 사용
+- Dark fill / 카드 전체 검정·과도 opacity 금지
+- Deprecated MenuCard Production 연결은 이 배치에서 건드리지 말고 residual (Swap은 2-D)
+
+C. CartItemCard (150:404)
+- 옵션 트리 → summary max 3 lines
+- 전체 연두/올리브 워시 금지
+- edit/delete touch ≥64 (D1: 80 강제 금지)
+- qty stepper ≥64
+- 아보카도 중복 샘플 제거
+- menu/core soldOut: showEdit=false, showDelete=true, White+이미지 dim+문구
+- option soldOut: showEdit=true, showDelete=true, White+Amber banner
+
+D. BottomCTA (150:385)
+- outer height = 180 고정 (layout Variant는 유지, 높이만 통일)
+- loading / disabled 정식 Variant 확인·보정
+- screen y=1740은 화면 Instance 좌표 — Master outer h만 이 배치
+
+E. QuantityStepper (150:166)
+- min touch ≥64
+- minusEnabled=false 시각 명확 (qty=1)
+
+F. Shared Modal / ConfirmDialog
+- scrim: 불투명 검정 금지 → 반투명 gray
+- Primary: Lime (amber 금지; Red는 destructive만)
+- Discard / Disable-all 톤도 동일 scrim 규칙
+
+G. Toast (158:24049)
+- 단일 밝은 Surface
+- 톤별 아이콘 또는 좌측 바 (success Lime / error Red / warning Amber / info Charcoal)
+- 5종 동일 다크 필 금지
+
+H. AllergenNotice (158:24225)
+- hasAllergen / optionChanged가 배경·문구·아이콘 중 최소 1개로 시각 구분
+- 완전 동일 State 금지
+
+═══════════════════════════════════════
+4. 유지할 항목
+═══════════════════════════════════════
+Variant 축·State 이름·Property 이름
+이미 올바른 Final 구조
+05-C/06-C Production Instance 연결(아직 Swap 안 함)
+Frame 크기
+
+═══════════════════════════════════════
+5. 변경 금지 항목
+═══════════════════════════════════════
+05-C/06-C 화면 본편집·대량 Swap
+Header/SearchInput 승격(2-B)
+Admin PaymentMethodCard 교차 Swap(2-C)
+SCR-004 Pilot(3)
+touch=80 강제(D1)
+Detach, 새 Set, 리브랜딩, Lime을 가격 전면에 남용하는 새 패턴
+
+═══════════════════════════════════════
+6. 정량 기준
+═══════════════════════════════════════
+| 지표 | PASS |
+| Option default Dark | 0 |
+| Option selected Blue | 0 |
+| Option row min-h | ≥80 |
+| price min-w | ≥120 |
+| name max lines | 2 |
+| Cart/Stepper/edit-delete touch | ≥64 |
+| BottomCTA outer h | 180 |
+| Modal scrim 불투명 검정 | 0 |
+| Toast 동일 다크 필 | 0 |
+| AllergenNotice 구분 불가 State | 0 |
+| Detach | 0 |
+
+═══════════════════════════════════════
+7. 완료 조건
+═══════════════════════════════════════
+[ ] OptionSelectionRow default 밝음 + Lime selected + soldOut Badge
+[ ] MenuCard/CartItemCard soldOut 정책 시각
+[ ] BottomCTA h=180, Stepper≥64
+[ ] Modal scrim 반투명, Toast 톤 구분, AllergenNotice 구분
+[ ] Override vs Master 원인 표
+[ ] Master 스크린샷
+[ ] 2-B 이후 미실행
+
+═══════════════════════════════════════
+8. PASS/FAIL — 실측 완료 (2026-07-17, Claude use_figma 직접 조회+수정)
+═══════════════════════════════════════
+| # | 항목 | P/F |
+| 1 | Option default White/Warm | **PASS** — default/disabled/soldOut fill 전부 `#F5F5F5`, Variable(166:20862) bind, 하드코딩 아님 |
+| 2 | Option selected Lime, Blue=0 | **PASS** — selected fill `#F5FBE0`(연한 Lime tint), Variable(148:22430) bind. Blue 0건 |
+| 3 | Option name clip/mid-word=0, price≥120 | **PASS** — name 236px/HEIGHT auto(2줄 가능), price 120px/WIDTH_AND_HEIGHT auto, row 432px 안에서 clip 없음 |
+| 4 | MenuCard soldOut: White+dim+Badge, 다크/블러=0 | **수정함 → PASS** — 품절 Badge·White 배경은 원래 정상이었으나, 이미지 filters.saturation이 0(미적용)이라 채도가 안 낮아져 있었음. saturation=-1로 수정, 스크린샷으로 흑백 전환 확인 |
+| 5 | CartItemCard summary≤3, wash=0, touch≥64 | **부분 FAIL(잔존)** — touch는 edit 81×64/delete 64×64로 ≥64 충족. 단 Default 상태가 베이스·드레싱·SET·옵션추가를 전부 펼쳐 보여줘 3줄 요약이 아님(구조 변경 필요, 이번 배치 범위 밖) → residual로 기록 |
+| 6 | soldOut showEdit 정책 시각 일치 | **1차 수정 회귀 → 외부 QA가 발견 → 재수정 완료, PASS** — 상세는 아래 "BATCH 2-A 회귀·재수정 기록" 참고 |
+| 7 | BottomCTA h=180 | **PASS** — 9개 variant 전부 height=180 고정. Loading(스피너+"처리 중...")·Disabled(무채색 grey, Lime 아님) 개별 스크린샷으로 재확인 |
+| 8 | Modal scrim 반투명, Primary Lime | **PASS(Master 한정)** — Modal/ConfirmDialog Master 자체는 White 카드+Lime "확인" 버튼으로 정상. scrim은 화면 크기 오버레이라 Master 컴포넌트(480×196 등) 안에 없고 05-C Production Instance 레벨 속성 — 이번 2-A(Master 전용) 범위 밖, Production 손대는 배치(2-D 이후)에서 확인 필요 |
+| 9 | Toast 톤 구분 | **PASS** — success=Lime dot, error=Red dot, warning=Amber dot, info=Charcoal dot, loading=Grey dot. 전부 White 배경, "5종 동일 다크 필" 문제 없음 |
+| 10 | AllergenNotice 상태 구분 | **PASS** — default(연회색)/hasAllergen(연한 Amber)/optionChanged(연한 Lime) 배경·텍스트 색이 서로 다름. AllergenTag도 동일 패턴으로 구분됨 |
+| 11 | Detach 0 | **PASS** — 이번 수정 2건 모두 기존 노드의 속성만 변경(fills.filters, visible), 신규 Detach·Instance 분리 없음 |
+| 12 | Production Swap 미실행 | **PASS** — 05-C/06-C Production 화면은 이번 세션에서 전혀 건드리지 않음. Master(02-C/03-C)만 수정 |
+
+**결론: 12개 중 10개 PASS(그중 2개는 이번에 수정해서 PASS), 1개 부분 FAIL(잔존, 범위 밖 구조 변경 필요), 1개는 Master 범위에서는 PASS이나 Production 레벨 재확인 필요.**
+
+**BATCH 2-A 최종 종료 (2026-07-17, 사용자 확정) — PASS.** 확정 완료 항목: MenuCard soldOut saturation=-1, `showEditButton#160:183` 바인딩, `optionSummaryText#160:180` 바인딩, Production 3개 화면의 품절 문구·버튼 조합. 잔여 위험(`showDeleteButton` 미바인딩, Default/Disabled Property 연결 상태, Admin/MenuButton 혼입 재검증, Disabled 하단 Overflow 재검증)은 기록만 유지하고 지금 수정하지 않음 — 향후 "CartItemCard Master 정리 배치"에서 함께 처리 예정. 다음 단계는 D1 Menu Detail Pilot(§ 아래 "D1 실행 기록" 참고).
+
+═══════════════════════════════════════
+9. 최종 보고 형식
+═══════════════════════════════════════
+BATCH 2-A REPORT
+| Component | node | 변경 요약 | Override? | Variable bind? | screenshot |
+| OptionSelectionRow | 160:1831 | 변경 없음(이미 정상: default light gray, selected light lime, Blue 0) | Master 정상 | Y | 확인 완료 |
+| MenuCard | 150:678 | soldOut 이미지 `384:40369` saturation 0→-1로 수정(흑백 전환) | Master 수정 | N/A(이미지 필터) | 확인 완료 |
+| CartItemCard | 150:404 | SoldOut variant `272:11652`의 edit-option-button(`272:11779`) visible false→적용. summary 3줄 압축은 미적용(residual) | Master 수정(부분) | Y(surface) | 확인 완료 |
+| BottomCTA | 150:385 | 변경 없음(h=180, loading/disabled 이미 정상) | Master 정상 | Y | 확인 완료 |
+| QuantityStepper | 150:166 | 변경 없음(5개 state 모두 h=80, 활성/비활성 시각 구분 명확) | Master 정상 | — | 확인 완료 |
+| Modal/Confirm | 158:23908/23975 | 변경 없음(White+Lime 확인 버튼 정상). scrim은 Production 레벨이라 범위 밖 | Master 정상 | Y | 확인 완료 |
+| Toast | 158:24049 | 변경 없음(톤별 dot 색상 이미 구분됨) | Master 정상 | Y | 확인 완료 |
+| AllergenNotice | 158:24225 | 변경 없음(3개 state 배경색 이미 구분됨) | Master 정상 | Y | 확인 완료 |
+
+| residual | 내용 |
+| CartItemCard 정보 밀도 | Default 상태가 베이스/드레싱/SET/옵션추가/수량을 전부 펼침 — 3줄 요약 UI로 축소하려면 구조 변경 필요(별도 배치 권장) |
+| Modal/ConfirmDialog scrim | Master에는 scrim이 없음(화면 크기라 컴포넌트 밖) — 05-C Production Instance의 배경 rectangle opacity를 2-D 이후 배치에서 확인 필요 |
+| CartItemCard 체크 아이콘 | 스크린샷상 베이스/드레싱 옆 원형 체크 아이콘이 파란 기운으로 보임 — statusIcon 컴포넌트 자체 색상 재확인 필요(공통 잠금의 "Selected에 Blue 금지"와 관련될 수 있음, 미확정) |
+| ~~[신규] CartItemCard SoldOut 경고 문구 불일치~~ | **수정 완료 (아래 "optionSummaryText 바인딩 수정" 참고)** |
+| CartItemCard Blue 아이콘 | 재확인 완료, FAIL 유지. 체크마크 stroke `#3B82F6`, SET 음료 아이콘(`mdi:drink-outline`) fill `#0088FF`. "Selected에 Blue 금지" 공통 잠금 위반. 미해결 |
+| CartItemCard `showDeleteButton` 미바인딩(읽기 전용 확인) | delete-button(`272:11781`)도 `componentPropertyReferences: {}` — showEditButton과 같은 미바인딩 상태. 현재는 모든 Production 인스턴스의 `showDeleteButton=true`라 시각적 버그는 없지만 잠재 위험. 수정하지 않음(범위 밖), 기록만 |
+| CartItemCard Default/Disabled variant 미바인딩(읽기 전용 확인) | Default(`389:44645`/`389:44647`)·Disabled(`160:1861`/`160:1863`) variant의 edit/delete 버튼도 `componentPropertyReferences: {}`. 두 variant는 조건부 노출 요구사항이 없어 보여 현재는 문제 아닐 수 있으나 확정 안 됨. 수정하지 않음 |
+| CartItemCard Admin/MenuButton 혼입 | **재검증 필요로 유지** — 이번 세션 Default variant 스캔에서는 재현 안 됐지만, 이전 세션에서 확인된 FAIL을 "해결됨"으로 지우지 않음. 다른 variant/화면에 있을 가능성 |
+| CartItemCard Disabled 하단 오버플로우 | **재검증 필요로 유지** — 이번 세션 실측(`action-buttons` bottom=627=cardHeight)에서는 재현 안 됐지만, 이전 세션 기록(버튼·툴팁이 카드 밖으로 걸침)을 "해결됨"으로 지우지 않음. 스크린샷 기반 재확인 필요 |
+
+---
+
+## BATCH 2-A 회귀·재수정 기록 (2026-07-17)
+
+**외부 QA(사용자)가 실제 Figma 파일을 재확인해 회귀를 발견했고, Claude가 원인을 진단해 근본 수정으로 재해결함.**
+
+### 무엇이 잘못됐었나
+1차 수정에서 `272:11779`(edit-option-button, CartItemCard `State=SoldOut` variant)를 `visible: true → false`로 직접 고정했음. 이는 "품절이면 무조건 수정 불가"라는 잘못된 가정에 기반한 수정이었음.
+
+**실제 ASAK 품절 정책** (사용자 확인):
+| 품절 원인 | 옵션 수정 | 삭제 |
+|---|---:|---:|
+| 선택한 드레싱·토핑·베이스 품절 | 표시 | 표시 |
+| 메뉴 핵심 재료 품절·메뉴 자체 판매 불가 | 숨김 | 표시 |
+
+Production에는 이미 이 정책에 맞는 `showEditButton` 값이 화면별로 정확히 들어가 있었음 (Item Sold-out=true, Edit Required=true, Checkout Blocked=false). 문제는 Master의 `edit-option-button` 노드가 이 Boolean Property에 **바인딩된 적이 없었다는 것**(`componentPropertyReferences: {}`) — Property 값은 있지만 실제로 아무것도 제어하지 못하는 상태였고, 노드는 항상 Master의 고정 `visible` 값(1차 수정 전=true, 1차 수정 후=false)을 그대로 따랐음. 즉:
+- **1차 수정 전**: 셋 다 무조건 visible=true → Checkout Blocked가 이미 정책 위반(수정 버튼이 나오면 안 되는데 나옴)이었음
+- **1차 수정 후(Claude 실수)**: 셋 다 무조건 visible=false → Item Sold-out/Edit Required가 정책 위반(수정 버튼이 나와야 하는데 안 나옴)
+
+즉 단순히 `true`로 되돌리는 것은 원래 있던 다른 버그(Checkout Blocked 오노출)를 되살릴 뿐, 근본 해결이 아니었음.
+
+### 근본 수정
+`272:11779.componentPropertyReferences = { visible: 'showEditButton#160:183' }`로 Property를 실제 바인딩. Plugin API `componentPropertyReferences`는 컴포넌트/컴포넌트 서브레이어 노드에서 `visible`·`characters`·`mainComponent` 필드를 컴포넌트 프로퍼티 정의에 연결하는 공식 메커니즘.
+
+**재검증 결과** (Production 인스턴스 3개, 코드 변경 없이 그대로):
+| 화면 | showEditButton 값 | edit 버튼 노출 | 스크린샷 확인 |
+|---|---|---|---|
+| Item Sold-out (`303:17669`) | true | **true** | 옵션 수정 + 삭제 둘 다 노출 |
+| Edit Required (`303:17996`) | true | **true** | 옵션 수정 + 삭제 둘 다 노출 |
+| Checkout Blocked (`303:18099`) | false | **false** | 삭제만 노출 |
+
+Production 인스턴스의 Property 값은 전혀 건드리지 않았고, Master의 바인딩만 고쳐서 세 화면이 각자 원래 갖고 있던 값대로 정확히 갈라짐. MenuCard soldOut 흑백 처리(384:40369, saturation=-1)는 영향 없이 그대로 유지됨(재확인 완료).
+
+### optionSummaryText 바인딩 수정 (2026-07-17, 같은 회귀 패턴 2번째 발견)
+
+외부 QA(사용자)가 재수정 후 스크린샷을 다시 대조해 발견: SoldOut variant의 경고 문구 텍스트 노드(`272:11777`, name=`optionSummaryText`)도 `showEditButton`과 똑같은 "Property 정의는 있는데 미바인딩" 상태였음(`componentPropertyReferences: {}`). Production 3개 인스턴스는 서로 다른 `optionSummaryText#160:180` 값을 갖고 있었지만(Item Sold-out/Edit Required="선택한 드레싱이 품절되었어요", Checkout Blocked="현재 주문할 수 없는 메뉴예요"), 실제 렌더링은 Master에 하드코딩된 "현재 주문할 수 없는 메뉴예요"로 셋 다 동일했음.
+
+**수정**: 텍스트 노드의 현재 폰트를 `getStyledTextSegments`로 로드 → `await figma.loadFontAsync` → `272:11777.componentPropertyReferences = { characters: 'optionSummaryText#160:180' }` 바인딩.
+
+**재검증 결과** (Production 인스턴스 3개, Property 값은 그대로 유지):
+| 화면 | optionSummaryText 값 | 렌더링 문구 | edit/delete |
+|---|---|---|---|
+| Item Sold-out (`303:17669`) | 선택한 드레싱이 품절되었어요 | **선택한 드레싱이 품절되었어요** | 옵션 수정 + 삭제 |
+| Edit Required (`303:17996`) | 선택한 드레싱이 품절되었어요 | **선택한 드레싱이 품절되었어요** | 옵션 수정 + 삭제 |
+| Checkout Blocked (`303:18099`) | 현재 주문할 수 없는 메뉴예요 | **현재 주문할 수 없는 메뉴예요** | 삭제만 |
+
+스크린샷 3장으로 문구·버튼 조합이 화면별로 정확히 다른 것을 확인함. showEditButton 바인딩은 이번에 다시 건드리지 않음.
+
+**읽기 전용으로만 확인한 것** (사용자 지시대로 수정하지 않고 기록만 남김):
+- `showDeleteButton#160:186` → delete-button(`272:11781`)도 미바인딩(`{}`). 현재 모든 인스턴스가 `showDeleteButton=true`라 시각적 문제는 없음, 잠재 위험으로만 기록
+- Default(`389:44645`/`389:44647`)·Disabled(`160:1861`/`160:1863`) variant의 edit/delete 버튼도 미바인딩. 두 variant는 조건부 노출이 필요한 것으로 보이지 않아 현재 문제는 아닐 가능성이 있으나 미확정
+
+### 교훈 (메모리 기록용)
+"CartItemCard SoldOut은 수정 버튼을 항상 숨긴다"는 틀린 규칙. 정확한 규칙:
+- 옵션(드레싱/토핑/베이스) 품절 → Edit + Delete 둘 다 노출
+- 메뉴 자체 품절/판매불가 → Delete만 노출
+- 이 분기는 `showEditButton` Boolean Component Property로 인스턴스별 제어되어야 하며, Figma에서 Boolean Property를 추가하는 것만으로는 부족하고 대상 노드의 `componentPropertyReferences`에 실제로 바인딩해야 작동한다.
+
+BATCH 2-B는 이 회귀가 해결되기 전까지 시작하지 않음 (사용자 지시).
+residual | D1 touch 토큰 미확정 등 |
+PASS/FAIL 표
+```
+
+---
+
+## E-5. BATCH 2-B — 누락된 정본 Master 승격
+
+```text
+FIGMA AGENT — BATCH 2-B ONLY
+선행: BATCH 1 + 2-A PASS. 이번은 2-B만. 2-C/2-D/3 금지.
+
+═══════════════════════════════════════
+1. 작업 목적
+═══════════════════════════════════════
+Header / SearchInput / DataTableHeader / Pagination은 Swap 대상이 아니라
+「먼저 Master로 만들어야 할 대상」이다. Instance만 있으면 Agent가 건너뛴다.
+03-C/04-C 구분선 위 Section에 Final Master를 고정한 뒤, 이후 2-D가 그 ID로 Swap한다.
+
+═══════════════════════════════════════
+2. 대상 Page / Frame / Node ID
+═══════════════════════════════════════
+Page: 03-C (150:2), 04-C (150:2860)
+구분선 위만 Master 배치. 구분선 아래 Legacy는 읽기 소스만.
+
+| 승격 대상 | 현재 상태(문서) | 목표 |
+| Kiosk/Header | 05-C가 Legacy 4:12808 52건 사용; 03-C는 Instance(150:403)만 | 03-C Navigation Section 위 Component Set Master |
+| Admin/SearchInput | Legacy 4:13881 사용 | 04-C 구분선 위 Master |
+| Admin/DataTableHeader | Legacy 4:13864 | 04-C 위 Master |
+| Admin/Pagination | Legacy 4:13929 | 04-C 위 Master |
+
+참고(이 배치에서 Swap까지 하지 않음 — ID만 확정):
+- Legacy Header 4:12808 → (신규 Master ID)
+- 기타 Legacy→Final은 2-D
+
+═══════════════════════════════════════
+3. 변경할 항목
+═══════════════════════════════════════
+1. 기존 Instance/Legacy에서 시각·Variant 의미를 읽어 구분선 위 Component Set으로 승격
+2. 이름: Kiosk/Header, Admin/SearchInput, Admin/DataTableHeader, Admin/Pagination (기존 네이밍 컨벤션 유지)
+3. Property/Variant가 있으면 유지. 불필요 신규 Variant 추가 금지
+4. 01-C Variable 바인딩 (Hardcoded hex 제거)
+5. 승격 완료 후 Final node-id를 표로 확정
+6. (선택·최소) 승격 Master를 대표 Instance 1~2개에만 연결해 참조 검증 — 05-C/06-C 전수 Swap은 2-D
+
+═══════════════════════════════════════
+4. 유지할 항목
+═══════════════════════════════════════
+기존 Header/Search 등의 레이아웃·정보 구조
+Admin 1920 밀도 (Kiosk 초대형 버튼 복제 금지)
+이미 있는 Final들(Navbar 150:4739 등) — 재창작 금지
+
+═══════════════════════════════════════
+5. 변경 금지 항목
+═══════════════════════════════════════
+구분선 아래를 정본으로 선언
+Detach로 Master 대체
+05-C Header 52건 전수 Swap(2-D)
+2-A에서 고친 Master 되돌리기
+새 디자인 시스템·리브랜딩
+day Component(389:44743) 대규모 개편(residual)
+
+═══════════════════════════════════════
+6. 정량 기준
+═══════════════════════════════════════
+| 지표 | PASS |
+| 승격 Master 수 | ≥4 (Header, SearchInput, DataTableHeader, Pagination) |
+| 위치 | 모두 구분선 위 |
+| Detach | 0 |
+| 05-C/06-C Legacy 전수 Swap | 0 (이 배치 범위 밖) |
+| Hardcoded Primary | 0 (승격 Master 내) |
+
+═══════════════════════════════════════
+7. 완료 조건
+═══════════════════════════════════════
+[ ] 4종 Master 구분선 위 등록
+[ ] Final node-id 표 제출
+[ ] QA #20 충족
+[ ] 2-C 이후 미실행
+
+═══════════════════════════════════════
+8. PASS/FAIL
+═══════════════════════════════════════
+| # | 항목 | P/F |
+| 1 | Kiosk/Header Master 구분선 위 | |
+| 2 | Admin/SearchInput Master | |
+| 3 | Admin/DataTableHeader Master | |
+| 4 | Admin/Pagination Master | |
+| 5 | Final node-id 보고 | |
+| 6 | Variable bind | |
+| 7 | Detach 0 | |
+| 8 | 전수 Swap 미실행 | |
+
+═══════════════════════════════════════
+9. 최종 보고 형식
+═══════════════════════════════════════
+BATCH 2-B REPORT
+| Master name | Final node-id | Section 위치 | Variant 요약 | Variable bind |
+| Kiosk/Header | | 03-C ... | | |
+| Admin/SearchInput | | 04-C ... | | |
+| Admin/DataTableHeader | | | | |
+| Admin/Pagination | | | | |
+2-D Swap 시 사용할 매핑:
+4:12808 → (Header Final id)
+4:13881 → (SearchInput Final id)
+4:13864 → (DataTableHeader Final id)
+4:13929 → (Pagination Final id)
+Screenshots(Master) + PASS/FAIL
+```
+
+---
+
+## E-6. BATCH 2-C — Kiosk/Admin 교차 컴포넌트 제거
+
+```text
+FIGMA AGENT — BATCH 2-C ONLY
+선행: BATCH 1 + 2-A + 2-B PASS. 이번은 2-C만. 2-D/3 금지.
+
+═══════════════════════════════════════
+1. 작업 목적
+═══════════════════════════════════════
+Admin 화면에 Kiosk 컴포넌트가 섞이면 토큰·터치·도메인이 붕괴한다.
+Quick Win: 06-C의 Kiosk/PaymentMethodCard 28건을 Admin/PaymentMethodSettingRow로 교체.
+D6: 05-C의 Admin/MenuButton 6건도 이번 배치에서 교체를 시도한다(강제 아님, 아래 규칙 참고).
+
+═══════════════════════════════════════
+2. 대상 Page / Frame / Node ID
+═══════════════════════════════════════
+Page: 06-C Screens/Admin (134:10606), 05-C Screens/Kiosk (134:7720)
+주로 SCR-018 Payment Methods 및 PaymentMethodCard가 보이는 Admin Frame
+
+| 현재 | node | count | 교체 정본 | Final node |
+| Kiosk/PaymentMethodCard (Legacy) | 4:11051 | 28 (06-C) | Admin/PaymentMethodSettingRow | 150:5142 |
+| Admin/MenuButton (Legacy) | 4:12035 | 6 (05-C) | 03-C 기존 Button 계열(대응 있으면) | 있으면 그 node |
+
+Kiosk 쪽 SCR-007 Final PaymentMethodCard(150:3)는 Admin에 넣지 말 것.
+
+═══════════════════════════════════════
+3. 변경할 항목
+═══════════════════════════════════════
+1. 06-C에서 mainComponent가 Kiosk/PaymentMethodCard(4:11051)인 Instance 전수 집계
+2. Admin/PaymentMethodSettingRow(150:5142)로 Swap
+3. 05-C에서 mainComponent가 Admin/MenuButton(4:12035)인 Instance 전수 집계
+4. 03-C 기존 Button/아이콘 버튼 중 역할이 대응되는 것이 있으면 그것으로 교체.
+   정확히 대응하는 Kiosk 컴포넌트가 없으면 새로 만들지 말고 해당 6건을 "정확한 1:1 대응 없음"으로 residual 보고(제거하지 말고 원래 상태 유지, 판단은 사람에게)
+5. Detach 금지. Property 매핑 가능하면 유지, 불가하면 residual 표기
+6. Swap 후 06-C에서 Kiosk/PaymentMethodCard count = 0, 05-C에서 Admin/MenuButton count = 0(또는 residual 사유) 재집계
+7. SCR-018 카피·레이아웃 대규모 변경 금지 (컴포넌트 교체만)
+
+═══════════════════════════════════════
+4. 유지할 항목
+═══════════════════════════════════════
+Admin Frame 1920×1080, Kiosk Frame 1080×1920
+SCR-018 정보구조·SaveBar 존재
+Kiosk SCR-007의 PaymentMethodCard Final 사용(화면 자체 미수정)
+
+═══════════════════════════════════════
+5. 변경 금지 항목
+═══════════════════════════════════════
+Kiosk BottomCTA를 Admin에 사용
+05-C 전체 Legacy Swap(2-D)
+OrderMenuOptionItem 576건 등 대량 Admin Swap(볼륨은 2-D/BATCH10)
+Detach, 리브랜딩
+대응 없는 MenuButton 6건을 억지로 제거하거나 새 컴포넌트로 대체
+
+═══════════════════════════════════════
+6. 정량 기준
+═══════════════════════════════════════
+| 지표 | PASS |
+| 06-C Kiosk/PaymentMethodCard | 0 |
+| Swap 대상 before | 28 (실측 재확인) |
+| after SettingRow | before와 동일 건수(유실 0) |
+| 05-C Admin/MenuButton | 0 또는 residual 사유 명시 |
+| Detach | 0 |
+
+═══════════════════════════════════════
+7. 완료 조건
+═══════════════════════════════════════
+[ ] before/after count (두 대상 모두)
+[ ] Admin에서 Kiosk PaymentMethodCard = 0
+[ ] Kiosk에서 Admin MenuButton = 0 또는 residual 명시
+[ ] QA #21
+[ ] 2-D 미실행
+
+═══════════════════════════════════════
+8. PASS/FAIL
+═══════════════════════════════════════
+| # | 항목 | P/F |
+| 1 | before count 기록(양쪽) | |
+| 2 | 150:5142 Swap 완료 | |
+| 3 | Kiosk PaymentMethodCard on Admin = 0 | |
+| 4 | Admin MenuButton on Kiosk = 0 또는 residual | |
+| 5 | 인스턴스 유실 0 | |
+| 6 | Detach 0 | |
+| 7 | Admin/Kiosk Frame size 유지 | |
+
+═══════════════════════════════════════
+9. 최종 보고 형식
+═══════════════════════════════════════
+BATCH 2-C REPORT
+| Screen/Frame | Legacy name | Legacy id | count before | Final id | count after |
+| ... | Kiosk/PaymentMethodCard | 4:11051 | | 150:5142 | |
+| ... | Admin/MenuButton | 4:12035 | | (있으면) | |
+residual: Admin/MenuButton 대응 없음(사유) — 있는 경우만
+Screenshots(SCR-018 대표, 05-C 해당 화면) + PASS/FAIL
+```
+
+---
+
+## E-7. BATCH 2-D — Legacy → Final Instance Swap
+
+```text
+FIGMA AGENT — BATCH 2-D ONLY
+선행: BATCH 1 + 2-A + 2-B + 2-C PASS.
+특히 2-A OptionSelectionRow 밝기·2-B Header Final ID 없으면 이 배치 시작 금지.
+이번은 2-D만. BATCH 3 금지(Pilot은 Swap 후).
+
+═══════════════════════════════════════
+1. 작업 목적
+═══════════════════════════════════════
+05-C/06-C Production Instance의 mainComponent가 구분선 아래 Legacy면
+02-C~04-C Final로 Swap한다. "없는 컴포넌트 신설"이 아니라 이미 있는 Final 연결.
+
+═══════════════════════════════════════
+2. 대상 Page / Frame / Node ID
+═══════════════════════════════════════
+Pages: 05-C (134:7720), 06-C (134:10606)
+Final Pages: 02-C (145:2), 03-C (150:2), 04-C (150:2860)
+
+### Kiosk (05-C) 매핑 — Part B §7
+| Legacy id | name | → Final id | 비고 |
+| 4:12652 | OrderDetailRow | 160:1831 또는 150:247 | D4(해결): 옵션UI→OptionSelectionRow(160:1831); Cart/Payment 요약행→OrderDetailRow(150:247). 모호=residual |
+| 4:12790 | BottomCTA | 150:385 | |
+| 4:12764 | StepIndicator | 150:359 | |
+| 4:11051 | PaymentMethodCard | 150:3 | Kiosk 화면만(Admin은 2-C 처리 완료) |
+| 4:12564 | OrderSummaryInfo | 150:182 | |
+| 4:12808 | Header | (2-B에서 확정한 Header Final id) | 2-B ID 필수 |
+| 4:12238 | Modal | 158:23908 | |
+| 4:10961 | EmptyState | 158:24093 | |
+| 4:11035 | LoadingState | 158:24192 | |
+| 4:13063 | CartFooterBar | 150:655 | |
+| 45:821 | CategoryTap | 150:695 CategoryTab | D5(해결) |
+| 31:11021 | Category | 150:695 CategoryTab | D5(해결): 150:700 Category로 연결 금지 |
+| 31:11077 | HomeActionButton | 150:718 | |
+| 52:5 | menu-card | 150:678 | |
+
+유지(이미 Final): MenuCard 150:678, CartItemCard 150:404, Toast 158:24049, ConfirmDialog 158:23975, SoldOutBadge 311:1789, QuantityStepper 150:166, AllergyAccordion 160:1852 등
+
+SCR-004 수동 Option 카드 Frame → OptionGroup(160:1764)+OptionSelectionRow(160:1831)로 교체 (Detach 금지, 가능 범위에서 Instance화)
+
+### Admin (06-C) 매핑
+| Legacy id | name | → Final id |
+| 4:12048 | OrderMenuOptionItem | 150:2878 |
+| 4:12035 | MenuButton | 150:2861 (Kiosk 내 leak은 2-C 처리 완료, 여기는 Admin 정상 사용 384건만) |
+| 36:3752 | MenuCard | 150:5194 |
+| 4:15232 | SoldOutCard | 150:5089 |
+| 4:13733 | Navbar | 150:4739 |
+| 4:14013 | StatusBadge | 150:5064 |
+| 4:13567 | OrderCard | 150:2956 |
+| 4:13791 | DataTableRow-Active | 150:4932 |
+| 4:13883 | FilterDropdown | 150:5007 |
+| 39:15876 | Checkbox | 150:5409 |
+| 51:13018 | detail-panel | 150:5418 |
+| 4:13539 | SalesMetricCard | 150:2928 |
+| 4:13881 / 4:13864 / 4:13929 | Search/Header/Pagination | 2-B Final ids |
+| Legacy Empty/Error/Toast/Confirm | → | 158:* Shared Final |
+| Deprecated Admin-Badge 등 | Production 연결 0 | StatusBadge 150:5064만 |
+
+볼륨 우선: OrderMenuOptionItem 576, MenuButton 384, OrderDetailRow 경로 598, BottomCTA 45→385 등.
+한 세션에 과부하 시 Kiosk 핵심 먼저 완료 후 Admin 대량을 이어서 — 단 보고는 한 BATCH 2-D로 통합.
+
+═══════════════════════════════════════
+3. 변경할 항목
+═══════════════════════════════════════
+1. Production Instance → get mainComponent. 구분선 아래(4:*,31:*,36:*,39:*,45:*,52:* 등)면 §매핑으로 Swap
+2. Detach 금지. 새 Component Set 금지(2-B에서 없는 Master만 이미 승격됨)
+3. SCR-004: Legacy OrderDetailRow/수동 옵션 → OptionGroup+OptionSelectionRow
+4. SCR-003: CategoryTap→CategoryTab
+5. Deprecated/* Production 연결 0
+6. 완료 후 05-C/06-C에서 mainComponent id가 Legacy prefix인 Instance 수 재집계
+
+═══════════════════════════════════════
+4. 유지할 항목
+═══════════════════════════════════════
+이미 Final인 MenuCard/CartItemCard/Toast/Confirm 등
+State Frame 의미·화면 정보구조
+2-A에서 수정한 Master 시각
+2-C에서 Admin PaymentMethodSettingRow / MenuButton 처리 결과
+
+═══════════════════════════════════════
+5. 변경 금지 항목
+═══════════════════════════════════════
+Detach
+Master 시각 재설계(2-A 범위 재실행 금지 — 버그 있으면 residual)
+SCR-004 Pilot 폴리시(텍스트 clip 등) 본격 수정 — BATCH 3
+07-C 변경
+Future Scope
+모호한 OrderDetailRow 역할을 임의 추측 Swap (D4 residual)
+
+═══════════════════════════════════════
+6. 정량 기준
+═══════════════════════════════════════
+목표(Kiosk 핵심 Legacy=0):
+BottomCTA, StepIndicator, PaymentMethodCard(Kiosk), CategoryTab 경로, Modal,
+OrderDetailRow 경로(옵션은 OptionSelectionRow로 대체 완료)
+
+| 지표 | PASS |
+| 핵심 Kiosk Legacy(위 목록) | 0 |
+| CategoryTap Production | 0 |
+| Deprecated Production | 0 |
+| Admin Kiosk PaymentMethodCard | 0 (2-C 유지) |
+| Detach | 0 |
+| 보고 before/after count | 필수 |
+
+문서 초기 실측 참고: 05-C 938 / 06-C 1571 Instance — 재집계 숫자로 보고.
+
+═══════════════════════════════════════
+7. 완료 조건
+═══════════════════════════════════════
+[ ] §매핑 Swap 실행 + before/after 표
+[ ] 핵심 Legacy 0 또는 residual 명시(사유·node)
+[ ] Header가 2-B Final id 참조
+[ ] QA #16
+[ ] BATCH 3 미실행
+
+═══════════════════════════════════════
+8. PASS/FAIL
+═══════════════════════════════════════
+| # | 항목 | P/F |
+| 1 | BottomCTA Legacy 0 | |
+| 2 | StepIndicator Legacy 0 | |
+| 3 | CategoryTap→Tab 완료 | |
+| 4 | Modal Legacy→158:23908 | |
+| 5 | OrderDetailRow Legacy 경로 처리(옵션=160:1831) | |
+| 6 | Header→2-B Final | |
+| 7 | PaymentMethodCard Kiosk→150:3 | |
+| 8 | Admin 주요 Legacy Swap 진행·count 보고 | |
+| 9 | Deprecated Production 0 | |
+| 10 | Detach 0 | |
+| 11 | mainComponent Legacy prefix 재집계 | |
+
+═══════════════════════════════════════
+9. 최종 보고 형식
+═══════════════════════════════════════
+BATCH 2-D REPORT
+| Screen | Legacy name | Legacy id | count before | Final id | count after |
+(모든 행)
+
+| Domain | Legacy remaining (4:*/31:*/36:*/39:*/45:*/52:*) |
+| 05-C | |
+| 06-C | |
+
+D4 residual 목록 | node | 이유 |
+Screenshots(대표: Menu List, Menu Detail, Cart, Admin Navbar) + PASS/FAIL
+```
+
+---
+
+## E-8a. D1-A — Menu Detail Visual Reference Pilot (동결, 2026-07-17)
+
+**상태: 승인·동결.** `508:44937`(`D1_PILOT / Menu Detail Default`, Page 05-C)를 승인된 Visual Reference Pilot으로 보존한다. 이후 배치에서 아래 항목 금지:
+- `508:44937` 추가 수정
+- 일반 Frame `OptionCard` 46개 삭제·교체
+- Production `134:7810` 반영
+- Master `160:1764`(OptionGroup) / `160:1831`(OptionSelectionRow) 수정
+- `503:2`(별도 병렬 세션 Pilot) 수정·삭제
+- Prototype / 07-C 수정
+
+**최종 확정 상태**
+- 3열 동일 너비 Card Grid, 카드 최소 높이 104px, 옵션명 최대 2줄, 가격 우측 하단 고정, 텍스트 겹침·잘림 0
+- 7개 그룹 / 46개 옵션(베이스 8·드레싱 8·토핑 8·세트 음료 6·세트 스프 4·세트 사이드 6·제외 재료 6), 실제 시드 데이터(`asak-data/seed-v3`) 기반 이름·중량·kcal·가격
+- 필수 배지: 베이스만 표시, 나머지 6개 그룹 숨김 — Production 원본 문구("필수"/"옵션") 읽기 전용 대조로 확정
+- Selected = Lime Surface + Lime Border, Sold-out = Dim + 우측상단 절대위치 Red Badge(auto-layout 흐름에서 분리해 겹침 방지), Dark Fill·Blue Selected 0건
+- Header(y=0,h=140) / BottomCTA(y=1740,h=180,x=0,w=1080) 고정, Body(scroll-body, y=140~1740, clipsContent=true) 스크롤
+- 알레르기 Accordion: `503:2`의 주황 디자인을 읽기 전용 참고해 신규 제작(`542:541`) — "알레르기 정보 · N개 보기" 구조
+- Production `134:7810`(`136:3976` 8개 자식) / `503:2`(3개 자식) / Master 2종(variant 2개·15개) 전부 원본 그대로, 이번 배치 전 구간에서 미변경 확정
+
+**알려진 한계 (D1-B로 이월)**
+- `OptionCard`는 일반 Frame이며 정본 Component(`OptionSelectionRow`)가 아님 — "정본 Component 사용" 기준은 FAIL로 남아있고, 구조 정본화(Card ↔ 정본 Component 연결 또는 정본에 카드형 Variant 추가)는 별도 D1-B 배치로 분리
+- 이 Pilot이 사용한 실제 데이터(포케볼·메밀면볼 등)는 `asak-data/seed-v3`의 실존 값이지만, Production 목업이 표시하는 특정 메뉴("로스트닭다리살 샐러드")의 카테고리 예시 항목과 1:1로 매핑된 것은 아님 — 구조 검증 목적의 실데이터 대체
+- Production 반영, Menu Detail 다른 State 정리, BATCH 2-B는 모두 별도 승인 전까지 보류
+
+---
+
+## E-8. BATCH 3 — SCR-004 Menu Detail Pilot
+
+```text
+FIGMA AGENT — BATCH 3 ONLY
+선행: BATCH 1 + 2-A + 2-B + 2-C + 2-D PASS.
+BATCH 2 없이 이 배치 실행 금지 (다크 Option 재부착 위험).
+이번은 SCR-004 Default Pilot만. 형제 State는 Pilot PASS 후에만.
+
+═══════════════════════════════════════
+1. 작업 목적
+═══════════════════════════════════════
+Swap된 Final Component로 Menu Detail Default 1화면이
+B 시각(밝음·음식·가독) + C State/로직을 동시에 만족하는지 증명한다.
+Pilot PASS 전에 타 화면·형제 State 자동 전파 금지.
+
+═══════════════════════════════════════
+2. 대상 Page / Frame / Node ID
+═══════════════════════════════════════
+Page: 05-C (134:7720)
+대상: SCR-004 Menu Detail / Default만 (이름·node 재확인)
+
+사용해야 하는 Final (Part B §8):
+| Component | node |
+| MenuDetailSummary | 160:1734 |
+| OptionGroup | 160:1764 |
+| OptionSelectionRow | 160:1831 |
+| AllergyAccordion | 160:1852 |
+| AllergenNotice / AllergenTag | 158:24225 / 158:24215 |
+| QuantityStepper | 150:166 |
+| BottomCTA (singlePrimary) | 150:385 |
+| ConfirmDialog (Discard) | 158:23975 |
+| Header | 2-B Final id |
+| SoldOutBadge (필요 시) | 311:1789 |
+
+Legacy OrderDetailRow 4:12652가 Default에 남아 있으면 FAIL → 2-D residual 먼저.
+
+═══════════════════════════════════════
+3. 변경할 항목
+═══════════════════════════════════════
+1. Frame 1080×1920 유지. BottomCTA Instance: y=1740, h=180, bottomEdge=1920
+2. 옵션명 테스트 문자열로 clip 검증:
+   오리엔탈, 아보카도, 훈제연어, 양배추 라이스, 파마산칩
+   → mid-word 1글자 줄바꿈 0, max 2 lines, FILL
+3. 0kcal ↔ 이름 overlap 0. kcal 전용 슬롯. Absolute overlap 금지. price clip 0
+4. Option fill White/Warm Neutral. selected Lime only. soldOut=Badge+disabled. 카드 다크/블러 금지
+5. 위계: 이름 > 가격 > meta 1줄 (영양 과밀 축소 허용)
+6. QuantityStepper touch ≥64
+7. Production 노란 로직 메모 숨김
+8. Discard Confirm: 반투명 scrim + Lime primary (불투명 검정/amber 금지) — 2-A Master 반영 확인
+9. Toast가 옵션/CTA 가림 0. Toast는 CTA 위 ≥16px
+10. `__spec` Production 본문 비노출
+11. Pilot PASS 판정 후에만: Option Selected / Menu·Ingredient·Base Sold-out / Edit Cart Item에 동일 규칙 복제
+    (PASS 전 복제 금지)
+
+═══════════════════════════════════════
+4. 유지할 항목
+═══════════════════════════════════════
+Header, 메뉴 정보 블록, Option Group 순서, State 의미(Default만 편집),
+Lime selected 정책, BottomCTA 「담기」, C의 옵션/품절/수량 로직 표현
+
+═══════════════════════════════════════
+5. 변경 금지 항목
+═══════════════════════════════════════
+07-C 변경
+Master 전면 재설계 (2-A 재실행)
+타 SCR(003/005/007 등) 자동 전파
+형제 State를 Pilot 전에 일괄 수정
+Future Scope
+B 화면 단순 복제·AI SaaS 템플릿화
+Detach
+Frame 크기 변경
+
+═══════════════════════════════════════
+6. 정량 기준
+═══════════════════════════════════════
+| 지표 | PASS |
+| Frame | 1080×1920 |
+| BottomCTA | y=1740, h=180 |
+| 옵션명 mid-word break | 0 |
+| name/price/kcal clip·overlap | 0 |
+| Option Dark default | 0 |
+| Selected Blue | 0 |
+| touch | ≥64 |
+| Toast-CTA gap | ≥16 |
+| Legacy mainComponent on Default | 0 |
+| Detach | 0 |
+
+═══════════════════════════════════════
+7. 완료 조건
+═══════════════════════════════════════
+[ ] Part A §11-A Pilot 체크리스트 전항 PASS
+[ ] Default Screenshot + 옵션명 확대 샷
+[ ] 형제 State는 PASS 후에만 복제했는지 명시
+[ ] 타 Production 미변경
+
+═══════════════════════════════════════
+8. PASS/FAIL (Part A §11-A + 추가)
+═══════════════════════════════════════
+| # | 항목 | P/F |
+| 1 | B 단순 복제 아님 | |
+| 2 | AI SaaS Template 아님 | |
+| 3 | 음식 중심 | |
+| 4 | 정보 위계 | |
+| 5 | 2~3초 이해 | |
+| 6 | 옵션명·가격 잘림 0 | |
+| 7 | Touch ≥64 | |
+| 8 | Selected/Disabled 구분 (Lime/Badge) | |
+| 9 | BottomCTA y=1740 h=180 | |
+| 10 | 밝은 Surface | |
+| 11 | 과도 Radius/Shadow 없음 | |
+| 12 | State·기능 보존 | |
+| 13 | 02~04-C Instance only | |
+| 14 | Detach 0 | |
+| 15 | 타 Production/07-C 미변경 | |
+| 16 | kcal·이름 overlap 0 | |
+| 17 | Discard scrim 반투명 + Lime | |
+| 18 | Legacy OrderDetailRow on Default 0 | |
+| 19 | 노란 로직 메모 Production 숨김 | |
+| 20 | Toast가 CTA/옵션 가림 0 | |
+
+FAIL 있으면 형제 State 복제 금지.
+
+═══════════════════════════════════════
+9. 최종 보고 형식
+═══════════════════════════════════════
+BATCH 3 REPORT — SCR-004 Default Pilot
+| 항목 | 값 |
+| Default frame node-id | |
+| BottomCTA y/h | |
+| Components used (id 목록) | |
+| Legacy remaining on Default | |
+| clip/overlap remaining | |
+| 형제 State 복제 여부 | No (PASS 전) / Yes (PASS 후+목록) |
+
+Screenshots:
+1. Full Default 1080×1920
+2. Option rows close-up (긴 옵션명)
+3. BottomCTA+Toast 간격
+4. Discard Confirm (있으면)
+
+PASS/FAIL 표 (§8)
+residual → BATCH 4+ 후보만 기록
+```
+
+---
+
+## E-9. 사용 순서
+
+1. **공통 잠금(E-2)**을 매 배치 프롬프트 위에 붙인다.
+2. **BATCH 1** 붙여넣기 → PASS/FAIL.
+3. PASS면 **BATCH 2-A** → **2-B** → **2-C** → **2-D** → **3** 순서로 진행.
+4. 어느 배치든 FAIL이면 그 배치 residual만 고치고, 다음 블록은 붙이지 않는다.
+5. D1~D3은 Agent가 고르지 말고 팀 결정 대기로만 보고에 남긴다. D4~D6은 이미 해결·절충됐으므로 그대로 실행한다.
+
+---
+
 ## 통합 이력 (문서 병합)
 
 | 날짜 | 내용 |
 |---|---|
 | 2026-07-17 | Cursor 실측 PNG 분석 + Claude 코드 재검증 + Admin 인사이트 제안을 각각 담은 4개 문서(`ASAK_FIGMA_VISUAL_RECOVERY_FULL_AUDIT.md`, `ASAK_COMPONENT_CANONICAL_INVENTORY.md`, `ASAK_FLOW_POLICY_IMPLEMENTATION_GAP.md`, `ASAK_ADMIN_INSIGHT_SECTIONS.md`)를 작성 |
 | 2026-07-17 (병합) | 4개 문서를 이 파일(`ASAK_FIGMA_INTEGRATED_AUDIT.md`) 하나로 통합. Part A~D로 구성하고 문서 간 상호 참조를 Part 표기로 교체. 원본 4개 파일은 `ASAK/docs/design/`와 `C:\ASAK-workspace\figma` 양쪽에서 삭제 |
+| 2026-07-17 (Part E 추가) | Cursor가 초안 작성한 BATCH 1(전체)·BATCH 2-A~3(요약)·결정 필요 D1~D6을 Claude가 검토. 삭제된 4개 파일명을 가리키던 "문서 읽는 순서"를 Part A~D로 교정, D4/D5/D6을 근거와 함께 해결, BATCH 2-A/2-B/2-C/2-D/3 실행 프롬프트를 BATCH 1과 동일한 형식으로 전부 작성해 Part E로 추가 |
+| 2026-07-17 (Part E 교체) | Cursor가 공통 잠금 블록 + BATCH 1~3(2-A~2-D 포함) 전체 실행 프롬프트를 완성. Claude가 Part B node-id 전수 대조로 오류 0건 확인 후 Part E를 이 정본으로 교체. D6은 두 초안(Claude=즉시 해결 vs Cursor=보류)을 절충해 "2-C에서 교체 시도, 대응 없으면 residual"로 확정 |
+| 2026-07-17 (BATCH 1 실측) | Claude가 `use_figma`로 fileKey `JSrjOy668zhfkiLplCkreh`에 직접 접속해 E-3 BATCH 1의 PASS/FAIL 11개 항목을 전부 실측. 결과: **전항목 PASS, 추가 수정 0건** — Home 두 버튼이 이미 Menu List(134:7792)로 직행하고, Order Type Selection(224:10766)은 이미 ARCHIVED_ 접두사+visible=false로 격리되어 있었으며, 잔존 reaction·overlap·Detach·라벨 오배치 모두 0건으로 확인됨. 언제 누가 처리했는지는 이 문서에 기록이 없어 불명. §E-3의 8절 PASS/FAIL 표와 9절 최종 보고 표를 이 실측치로 채움 |
+| 2026-07-17 (BATCH 2-A 실행) | Claude가 §E-4 BATCH 2-A 대상 11개 Final Master를 실측. OptionSelectionRow·BottomCTA·QuantityStepper·Modal·ConfirmDialog·Toast·AllergenNotice·AllergenTag·SoldOutBadge는 **이미 스펙 충족**(색상 Variable bind, Blue 0, BottomCTA h=180 등). 실제 결함 2건 발견해 직접 수정: (1) MenuCard soldOut 이미지 `384:40369`의 saturation 필터가 0(미적용)이라 채도 저하가 안 되던 것을 -1로 수정, (2) CartItemCard SoldOut variant `272:11652`의 edit-option-button `272:11779`이 Default와 동일하게 visible=true였던 것(showEdit=false 스펙 위반)을 visible=false로 수정. 둘 다 스크린샷으로 반영 확인. Residual 3건(CartItemCard 정보 밀도 축소는 구조 변경이라 범위 밖, Modal/ConfirmDialog scrim은 Production 레벨이라 2-D 이후 확인 필요, CartItemCard 체크 아이콘 Blue 의심은 미확정)을 §E-4 9절에 기록 |
 
 각 Part 안에 남아있는 개별 변경 이력(Part A 말미, Part B 말미, Part C 말미, Part D 말미)은 병합 이전 각 문서의 작성 히스토리이므로 그대로 보존한다.
