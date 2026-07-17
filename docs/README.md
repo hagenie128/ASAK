@@ -1,64 +1,83 @@
 # ASAK Documentation
 
-## 문서 진입 순서
+> **태그 전체 지도:** [DOCUMENT_TAG_INDEX.md](./DOCUMENT_TAG_INDEX.md)  
+> **상태 정책:** [governance/DOCUMENT_STATUS_MANIFEST.md](./governance/DOCUMENT_STATUS_MANIFEST.md)
 
-1. [Product Bible Index](governance/PRODUCT_BIBLE_INDEX.md)
-2. [Canonical Contract Decisions](governance/CANONICAL_CONTRACT_DECISIONS.md)
-3. [Current Implementation Map](planning/CURRENT_IMPLEMENTATION_MAP.md)
-4. [Implementation Guide Start](implementation_guide/00_START_HERE.md)
-5. [API·응답 구현 가이드](implementation_guide/04_API_DB_IMPLEMENTATION.md)
-6. [Implementation Priority](planning/IMPLEMENTATION_PRIORITY.md)
-7. [Document–Code Gap Report](architecture/DOCUMENT_CODE_GAP_REPORT.md)
-8. [Product Bible Pack 1~12](product_bible/)
-7. [Operations setup](operations/setup/)
-8. [Design](design/)
-9. [Screens](screens/)
-10. [Guides](guides/)
-11. [Team](team/)
-12. [Wiki](wiki/)
-13. [Notion](notion/)
-14. [Documentation management](documentation-management/)
+이 폴더는 ASAK **중앙 문서 허브**입니다. 구현 저장소(Kiosk/Admin/back) 문서는 각 저장소에 두고, 여기는 정본·가이드·이력을 둡니다.
+
+---
+
+## 30초 진입 (추천 순서)
+
+| 순서 | 문서 | 태그 |
+|:--:|---|---|
+| 1 | [Product Bible Index](./governance/PRODUCT_BIBLE_INDEX.md) | `#canonical` |
+| 2 | [Canonical Contract Decisions](./governance/CANONICAL_CONTRACT_DECISIONS.md) | `#canonical` |
+| 3 | [Current Implementation Map](./planning/CURRENT_IMPLEMENTATION_MAP.md) | `#current` |
+| 4 | [Implementation Guide — Start](./implementation_guide/00_START_HERE.md) | `#current` |
+| 5 | [Figma QA 통합본](./design/FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md) | `#current` |
+| 6 | [문서 태그 인덱스](./DOCUMENT_TAG_INDEX.md) | `#reference` |
+
+---
+
+## 폴더 한눈에 (태그)
+
+| 폴더 | 태그 | 용도 | 바로 가기 |
+|---|---|---|---|
+| `product_bible/` | `#canonical` | Pack 1~12 정본 | [폴더](./product_bible/) |
+| `governance/` | `#canonical` / `#reference` | 계약·상태·레거시 정책 | [폴더](./governance/) |
+| `planning/` | `#current` | 구현 지도·우선순위 | [README](./planning/README.md) |
+| `architecture/` | `#current` | 문서↔코드 갭 | [README](./architecture/README.md) |
+| `implementation_guide/` | `#current` | 화면·API 구현 절차 | [00_START_HERE](./implementation_guide/00_START_HERE.md) |
+| `operations/` | `#current` | 설치·온보딩·MCP | [README](./operations/README.md) |
+| `design/` | `#current` / `#wip` | Figma·디자인 QA | [README](./design/README.md) |
+| `screens/` | `#reference` | SCR 표·DevCopilot JSON | [README](./screens/README.md) |
+| `guides/` | `#reference` | 팀 가이드 | [README](./guides/README.md) |
+| `wiki/` | `#reference` | DevCopilot Wiki 산출물 | [README](./wiki/README.md) |
+| `team/` | `#reference` | Notion hub 동기화 | [README](./team/README.md) |
+| `notion/` | `#legacy` / `#archive` | Notion export 원본 | [README](./notion/README.md) |
+| `documentation-management/` | `#reference` | 문서 구조·인벤토리 | [README](./documentation-management/README.md) |
+| `_archive/` | `#archive` | 중앙 보관함 | [README](./_archive/README.md) |
+| `design/_archive/` | `#archive` | Figma 중복·일회성 | [README](./design/_archive/README.md) |
+| `product_bible/_archive/` | `#archive` | 이전 Pack | 구현 기준 제외 |
+
+---
 
 ## 정본과 범위
 
-- `docs/product_bible`이 현재 Product Bible 정본이다. 실제 폴더명 `product_bible`을 유지한다.
-- `docs/product_bible/_archive`는 현재 구현의 기준에서 제외한다.
-- 기존 Notion export, 회의록, WBS는 고유 맥락을 보존하는 Reference 또는 Archive이며 Product Bible을 대체하지 않는다.
-- Product Bible 문서 수는 구현 범위를 뜻하지 않는다. 구현은 MVP와 `FUTURE_SCOPE`를 구분해 승인된 Vertical Slice만 진행한다.
-- 계약 결정은 [Canonical Contract Decisions](governance/CANONICAL_CONTRACT_DECISIONS.md), 과거 문서의 분류는 [Legacy and Reference Index](governance/LEGACY_AND_REFERENCE_INDEX.md)를 따른다.
-- 화면 구현은 승인된 Figma `00-C`(파일 맵), `05-C`(Kiosk), `06-C`(Admin), `07-C`(상태 QA)을 함께 확인한다. 화면의 Default만 보고 구현 완료로 판단하지 않는다.
-- 구현 가이드는 Product Bible을 대체하지 않는다. 화면별 API 요청·응답·오류 형태는 [04 API·응답 구현 가이드](implementation_guide/04_API_DB_IMPLEMENTATION.md)와 기능별 원본 API Contract를 함께 사용한다.
+- `docs/product_bible`이 Product Bible **정본**이다. 폴더명 `product_bible`을 유지한다.
+- `product_bible/_archive`와 `notion/**/Archive*`는 **현재 구현 기준에서 제외**한다.
+- Notion export·회의록·WBS는 고유 맥락을 보존하는 Reference/Archive이며 Bible을 **대체하지 않는다**.
+- 화면은 Figma `00-C` / `05-C` / `06-C` / `07-C`와 Pack 07을 함께 본다. Default만 보고 완료로 판단하지 않는다.
+- 구현 가이드는 Bible을 대체하지 않는다. API 형태는 [04 API·응답](./implementation_guide/04_API_DB_IMPLEMENTATION.md) + 기능별 API Contract를 함께 쓴다.
+- Admin 구현 정본 저장소는 **ASAK-Admin**. Kiosk 내부 Admin 스캐폴드는 `#legacy`.
 
-## Folder purpose
-
-| Folder | Purpose |
-|---|---|
-| `governance` | Canonical-source, contract, status, and legacy/reference policy. |
-| `planning` | Current implementation state, MVP order, and Vertical Slice plan. |
-| `architecture` | Document-to-code gap analysis. |
-| `product_bible` | Current Product Bible Pack 1~12; `_archive` is excluded from implementation criteria. |
-| `operations/setup` | Installation, onboarding, and MCP setup. |
-| `design` | Design system, Figma, and visual design references. |
-| `screens` | Screen definitions and screen-level specifications. |
-| `guides` | Team development and implementation guides. |
-| `team` | Team collaboration and role-related documents. |
-| `wiki` | Project knowledge and reference documents. |
-| `notion` | Preserved Notion-export source documents. |
-| `documentation-management` | Documentation inventory, structure, and archival-management records. |
+---
 
 ## Pack 1~12
 
 | Pack | 링크 |
 |---|---|
-| 01 Foundation | [README](product_bible/01_Foundation/README.md) |
-| 02 Order / Cart / Payment | [README](product_bible/02_Order_Cart_Payment/README.md) |
-| 03 Menu / Inventory / Sold-out | [README](product_bible/03_Menu_Inventory_SoldOut/README.md) |
-| 04 Dashboard / Sales / Kitchen / TTS | [README](product_bible/04_Dashboard_Sales_Kitchen_TTS/README.md) |
-| 05 Accessibility / Timeout / Error | [README](product_bible/05_Accessibility_Timeout_Error/README.md) |
-| 06 Engineering | [README](product_bible/06_Engineering_Bible/README.md) |
-| 07 Screen | [README](product_bible/07_Screen_Bible/README.md) |
-| 08 Component | [README](product_bible/08_Component_Bible/README.md) |
-| 09 QA | [README](product_bible/09_QA_Bible/README.md) |
-| 10 AI Master | [README](product_bible/10_AI_Master_Bible/README.md) |
-| 11 Backend Implementation | [README](product_bible/11_Backend_Implementation/README.md) |
-| 12 Frontend Implementation | [README](product_bible/12_Frontend_Implementation/README.md) |
+| 01 Foundation | [README](./product_bible/01_Foundation/README.md) |
+| 02 Order / Cart / Payment | [README](./product_bible/02_Order_Cart_Payment/README.md) |
+| 03 Menu / Inventory / Sold-out | [README](./product_bible/03_Menu_Inventory_SoldOut/README.md) |
+| 04 Dashboard / Sales / Kitchen / TTS | [README](./product_bible/04_Dashboard_Sales_Kitchen_TTS/README.md) |
+| 05 Accessibility / Timeout / Error | [README](./product_bible/05_Accessibility_Timeout_Error/README.md) |
+| 06 Engineering | [README](./product_bible/06_Engineering_Bible/README.md) |
+| 07 Screen | [README](./product_bible/07_Screen_Bible/README.md) |
+| 08 Component | [README](./product_bible/08_Component_Bible/README.md) |
+| 09 QA | [README](./product_bible/09_QA_Bible/README.md) |
+| 10 AI Master | [README](./product_bible/10_AI_Master_Bible/README.md) |
+| 11 Backend Implementation | [README](./product_bible/11_Backend_Implementation/README.md) |
+| 12 Frontend Implementation | [README](./product_bible/12_Frontend_Implementation/README.md) |
+
+---
+
+## 저장소 로컬 문서
+
+| 저장소 | 시작점 |
+|---|---|
+| ASAK-Kiosk | `ASAK-Kiosk/README.md` |
+| ASAK-Admin | `ASAK-Admin/docs/README.md` |
+| ASAK-back | `ASAK-back/README.md` |
+| 워크로그 | `ASAK/worklog/README.md` |
