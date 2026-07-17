@@ -14,8 +14,8 @@
 
 | 용도 | 파일 |
 |---|---|
-| 디자인 명세 | [kiosk-design-system-candidate-B.md](./kiosk-design-system-candidate-B.md) |
-| CSS 토큰 | [kiosk-tokens-candidate-B.css](./kiosk-tokens-candidate-B.css) |
+| 디자인 명세 | [kiosk-design-system.md](./kiosk-design-system.md) |
+| CSS 토큰 | [kiosk-tokens.css](./kiosk-tokens.css) |
 | 공통 토큰 | [kiosk-tokens.css](./kiosk-tokens.css) |
 | Figma 플러그인 | [FIGMA_PLUGINS.md](./FIGMA_PLUGINS.md) |
 

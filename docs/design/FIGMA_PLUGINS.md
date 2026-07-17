@@ -8,4 +8,4 @@
 | 2 | [Create DS-02 Components](./figma-create-ds02-components-plugin/README.md) | DS-02 컴포넌트 라이브러리와 UI Kit 생성 |
 | 3 | [Apply DS-02 Theme](./figma-apply-ds02-theme-plugin/README.md) | 기존 프레임 또는 선택 영역에 DS-02 색상 적용 |
 
-디자인 정본은 [Candidate B](./kiosk-design-system-candidate-B.md)입니다. 후보 프레임 생성 플러그인은 DS-02 컴포넌트 플러그인으로 통합해 제거했습니다.
+디자인 정본은 [kiosk-design-system.md](./kiosk-design-system.md)입니다. Candidate B 선택 기록은 [Archive](../archive/design-migrations/kiosk-design-system-candidate-B.md)에 보존합니다. 후보 프레임 생성 플러그인은 DS-02 컴포넌트 플러그인으로 통합해 제거했습니다.

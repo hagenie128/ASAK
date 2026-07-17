@@ -1,5 +1,20 @@
 # ASAK Documentation
 
+> 2026-07-16 cleanup: product rules stay in `product_bible`, current delivery state stays in `wiki`, and concluded evidence belongs in `archive`. `docs/notion` retains only script-backed DevCopilot source inputs; historic exports are in `archive/notion-exports`.
+
+## 운영 원칙
+
+- **정본:** `product_bible/`(정책·요구사항·Screen Registry), `wiki/`(현재 상태·WBS2), `design/`(반복 사용하는 Figma 실행 기준), `governance/`(정본·상태 정책).
+- **생성물:** `screens-devcopilot-*.json`과 `asak-data` 보고서는 생성 스크립트의 출력 계약을 확인한 뒤에만 위치를 바꾼다.
+- **Archive:** 완료 감사·프롬프트·과거 계획·Notion Export는 `archive/`에 보존하며, 삭제하거나 정본으로 되돌리지 않는다.
+- **주의:** `docs/notion`과 `worklog/daily`는 현재 Python 동기화 경로가 직접 읽는다. 경로를 바꾸려면 스크립트 변경 승인과 재검증이 필요하다.
+
+```powershell
+git status
+python asak-data/scripts/sync_current_docs_devcopilot.py --help
+python worklog/scripts/build_calendar.py
+```
+
 ## 문서 진입 순서
 
 1. [Product Bible Index](governance/PRODUCT_BIBLE_INDEX.md)
@@ -14,8 +29,8 @@
 10. [Guides](guides/)
 11. [Team](team/)
 12. [Wiki](wiki/)
-13. [Notion](notion/)
-14. [Documentation management](documentation-management/)
+13. [Notion script inputs](notion/)
+14. [Archive](archive/)
 
 ## 정본과 범위
 
@@ -39,8 +54,8 @@
 | `guides` | Team development and implementation guides. |
 | `team` | Team collaboration and role-related documents. |
 | `wiki` | Project knowledge and reference documents. |
-| `notion` | Preserved Notion-export source documents. |
-| `documentation-management` | Documentation inventory, structure, and archival-management records. |
+| `notion` | Current DevCopilot sync input snapshots only; not a product-policy source. |
+| `archive` | Concluded audits, prompts, plans, generated reports, Notion exports, and project history. |
 
 ## Pack 1~12
 

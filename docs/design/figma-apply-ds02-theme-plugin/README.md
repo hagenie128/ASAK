@@ -38,6 +38,6 @@ node docs/design/figma-apply-ds02-theme-plugin/_test_mock.js
 
 ## 관련 문서
 
-- [y2k-to-ds02-migration.md](../y2k-to-ds02-migration.md)
+- [Archive migration mapping](../../archive/design-migrations/y2k-to-ds02-migration.md)
 - [figma-create-ds02-components-plugin](../figma-create-ds02-components-plugin/README.md)
 - [Figma 플러그인 안내](../FIGMA_PLUGINS.md)

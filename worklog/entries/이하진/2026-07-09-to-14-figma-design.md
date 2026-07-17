@@ -133,5 +133,5 @@ ASAK Figma 파일의 고객 키오스크 주문 흐름, 관리자 화면, 공통
 
 - Figma: [ASAK — Design System & Product UI](https://www.figma.com/design/VXKyzoNdsgM4oN57mrECxb/ASAK-%E2%80%94-Design-System---Product-UI-%E2%80%94-2026-07-14?node-id=2-6)
 - Figma: [ASAK](https://www.figma.com/design/o9mxSeovLQPdWNwM4mNySk/ASAK?node-id=395-12975)
-- [Figma–React 검토 문서](../../../docs/design/ASAK_FIGMA_MCP_REVIEW_2026-07-14.md)
+- [Figma–React 검토 기록](../../../docs/archive/design-audits/ASAK_FIGMA_MCP_REVIEW_2026-07-14.md)
 - 화면·데이터 요구사항 맵: `ASAK-Kiosk/src/contracts/requirements-screen-map.md`, `ASAK-Admin/src/contracts/requirements-screen-map.md`

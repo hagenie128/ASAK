@@ -2,8 +2,8 @@
 
 > **ASAK 키오스크** · SCR-001~021  
 > **Notion**: [화면 설계 초기 회의 · 사전 의견](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac)  
-> **개인 페이지**: [`docs/design/meetings/README.md`](./meetings/README.md)  
-> **취합본**: [`screen-design-meeting-opinion-consolidated.md`](./meetings/screen-design-meeting-opinion-consolidated.md)
+> **과거 개인 페이지**: [`docs/archive/project-history/design-meetings/README.md`](../archive/project-history/design-meetings/README.md)
+> **과거 취합본**: [`screen-design-meeting-opinion-consolidated.md`](../archive/project-history/design-meetings/screen-design-meeting-opinion-consolidated.md)
 
 ---
 
