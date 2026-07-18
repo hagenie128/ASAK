@@ -50,15 +50,8 @@
 | [planning/CURRENT_IMPLEMENTATION_MAP.md](./planning/CURRENT_IMPLEMENTATION_MAP.md) | 현재 구현 지도 |
 | [planning/IMPLEMENTATION_PRIORITY.md](./planning/IMPLEMENTATION_PRIORITY.md) | 우선순위 |
 | [architecture/DOCUMENT_CODE_GAP_REPORT.md](./architecture/DOCUMENT_CODE_GAP_REPORT.md) | 문서↔코드 갭 |
-| [design/FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md](./design/FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md) | Figma QA 통합본 |
-| [design/ASAK_FIGMA_INTEGRATED_AUDIT.md](./design/ASAK_FIGMA_INTEGRATED_AUDIT.md) | 05-C/06-C 통합 감사 |
+| [design/README.md](./design/README.md) | 디자인 현재 상태·구현 전환 안내 |
 | [operations/setup/](./operations/setup/) | 설치·온보딩·MCP |
-
-### `#wip`
-
-| 경로 | 설명 |
-|---|---|
-| [design/FIGMA_QA_IMPLEMENTATION_FINAL_cluade_2026-07-17.md](./design/FIGMA_QA_IMPLEMENTATION_FINAL_cluade_2026-07-17.md) | Claude 재실측본 (정리 중) |
 
 ### `#reference`
 

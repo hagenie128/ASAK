@@ -1,6 +1,6 @@
 # ASAK 팀 세팅 가이드
 
-> **2026-07-16 override:** do not clone or modify `ASAK-front` for current implementation work. The current workspace root contains `ASAK`, `ASAK-Kiosk`, `ASAK-Admin`, and `ASAK-back`. Kiosk remote migration is blocked pending owner confirmation; see [current status baseline](../wiki/current-status-baseline.md).
+> **2026-07-16 override:** do not clone or modify `ASAK-front` for current implementation work. The current workspace root contains `ASAK`, `ASAK-Kiosk`, `ASAK-Admin`, and `ASAK-back`. Start from the [project work hub](../../PROJECT_HUB.md).
 
 > **Notion:** [01. 팀/역할/일정](https://app.notion.com/p/15451ef04f0b821c83568124e6ebb32f) · [📖 문서 읽는 순서](https://app.notion.com/p/39451ef04f0b81088a91d914f985fb11)  
 > **Git:** [`docs/guides/README.md`](README.md) — 가이드 읽기 순서 **01**
@@ -100,7 +100,7 @@ node --version
 
 팀 확정 스택과 **필수/권장 라이브러리**(도입 Week 포함)는 아래를 정본으로 봅니다.
 
-- Git: [`docs/wiki/tech-stack-summary.md`](../wiki/tech-stack-summary.md)
+- 실제 의존성: `ASAK-Kiosk/package.json`, `ASAK-Admin/package.json`, `ASAK-back/build.gradle`
 - Notion: [기술 스택 & 라이브러리](https://app.notion.com/p/39051ef04f0b801cb506f1a930b847a5)
 
 요약: 백엔드는 Spring Boot 4.1 + Java 25 + JPA + MySQL/H2, 프론트는 React 19 + Vite 8 + Zustand + Axios(Tailwind 미사용). 실제 구현 repo는 `ASAK-front` / `ASAK-back`입니다.

@@ -310,7 +310,7 @@ python run_viewer.py --data-dir ..\data-pipeline\phase1\output
 | [MCP_SETUP.md](MCP_SETUP.md) | Cursor MCP·Notion·환경 변수 |
 | [guides/01-team-setup.md](../../guides/01-team-setup.md) | 팀 세팅·Git·9주 일정 (상세) |
 | [guides/README.md](../../guides/README.md) | 가이드 읽는 순서 |
-| [wiki/tech-stack-summary.md](../../wiki/tech-stack-summary.md) | Java, React, 라이브러리 정리 |
+| [프로젝트 작업 허브](../../../PROJECT_HUB.md) | 현재 저장소 역할·작업 순서 |
 | [worklog/README.md](../../../worklog/README.md) | 일일 워크로그 |
 | [Notion 프로젝트 허브](https://app.notion.com/p/39151ef04f0b808f99f8ea068efb5790) | 요구사항·WBS 정본 |
 

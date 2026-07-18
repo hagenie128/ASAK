@@ -1,7 +1,7 @@
 # Windows 설치 가이드 (유치원 선생님 모드)
 
 > **선생님이 따라가요** — 클릭할 버튼, 체크할 상자, 폴더 경로까지 **한 단계씩** 적어 두었습니다.  
-> **LTS 기준:** 2026-07 · 정본 스택: [`wiki/tech-stack-summary.md`](../../wiki/tech-stack-summary.md)  
+> **LTS 기준:** 2026-07 · 실제 의존성은 `ASAK-Kiosk/package.json`, `ASAK-Admin/package.json`, `ASAK-back/build.gradle`을 확인합니다.  
 > **Notion 온보딩:** [🚀 ASAK 처음 시작하기 (팀 온보딩)](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b)
 
 **목차**

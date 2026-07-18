@@ -1,15 +1,20 @@
-# docs/_archive — 중앙 보관함
+# docs/_archive — 참고·이력 보관함
 
-> 태그: `#archive` · **삭제 아님**
+> 상태: `#archive` · 삭제한 파일이 아니라, **현재 작업에서는 열지 않는 근거**다.
 
-| 폴더 | 내용 | 원래 위치 |
-|---|---|---|
-| `notion-export/` | Notion export 전체 (~270 md) | `docs/notion/` |
-| `wiki-secondary/` | Wiki 부가 요약·감사·스냅샷 | `docs/wiki/` |
-| `guides-dev-overlap/` | guides 07~11 (구현 가이드와 중복) | `docs/guides/` |
-| `doc-mgmt-plans/` | 구조/병합 계획서 | `documentation-management/` |
-| `team-audits-2026-07/` | team 날짜 감사 | `docs/team/` |
-| `screens-legacy/` | 구 Figma 요약 + screens-wiki | `docs/screens/` |
+## 먼저 할 일
 
-design 쪽 보관은 [`../design/_archive/`](../design/_archive/README.md)  
-지금 쓰는 문서: [`../README.md`](../README.md) · [`../DOCUMENT_TAG_INDEX.md`](../DOCUMENT_TAG_INDEX.md)
+1. 구현은 [구현 작업대](../implementation_guide/00_START_HERE.md)에서 시작한다.
+2. 과거 결정·수치·회의 기록이 꼭 필요할 때만 아래 폴더를 연다.
+3. 보관 문서를 현재 기준으로 복사하거나 새 작업의 정본으로 쓰지 않는다.
+
+| 폴더 | 필요할 때만 찾을 내용 |
+|---|---|
+| `notion-export/` | 과거 Notion 원문 |
+| `wiki-secondary/` | 이전 요약·감사·스냅샷 |
+| `guides-dev-overlap/` | 구현 가이드의 이전 중복본 |
+| `doc-mgmt-plans/` | 문서 구조를 바꾼 이유 |
+| `team-audits-2026-07/` | 당시 팀 감사 기록 |
+| `screens-legacy/` | 이전 화면·Figma 요약 |
+
+디자인 참고: [`../design/_archive/`](../design/_archive/README.md) · 현재 문서: [`../README.md`](../README.md)

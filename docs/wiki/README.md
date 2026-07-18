@@ -1,20 +1,18 @@
-# ASAK DevCopilot Wiki
+# ASAK DevCopilot Wiki 원본
 
-> 태그: `#reference` (학원 산출물) · 구현 정본 아님  
-> 정본: [Product Bible](../product_bible/) · 지도: [../DOCUMENT_TAG_INDEX.md](../DOCUMENT_TAG_INDEX.md)
+> 상태: `#reference` · DevCopilot 업로드와 학원 제출용 원본이다. **새 기능 구현의 시작점으로 읽지 않는다.**
 
-## 산출물 (유지)
+## 사용 규칙
 
-| 문서 | DevCopilot |
+1. 구현 시작은 [프로젝트 작업 허브](../../PROJECT_HUB.md)와 [구현 작업대](../implementation_guide/00_START_HERE.md)에서 한다.
+2. DevCopilot 업로드·재생성이 필요할 때만 이 폴더의 원본을 수정한다.
+3. Product Bible·정본 계약과 다르면 이 문서는 고치거나 구현 기준으로 쓰지 않고 차이를 기록한다.
+
+## 이 폴더에 남기는 이유
+
+| 원본 묶음 | 사용할 때 |
 |---|---|
-| [requirements-definition.md](./requirements-definition.md) | wiki/9 |
-| [user-scenarios.md](./user-scenarios.md) | wiki/10 |
-| [screen-design-figma.md](./screen-design-figma.md) | wiki/5 |
-| [db-table-definition.md](./db-table-definition.md) | wiki/11 |
-| [rest-api-spec.md](./rest-api-spec.md) | wiki/12 |
-| [wbs-schedule.md](./wbs-schedule.md) | wiki/13 |
-| [qa-test-cases.md](./qa-test-cases.md) | wiki/14 |
-| [meeting-deliverables-checklist.md](./meeting-deliverables-checklist.md) | wiki/15 |
-| [index.md](./index.md) | 운영 인덱스 |
+| 요구·시나리오·화면·DB·API·WBS·QA 문서 | DevCopilot 업로드 또는 제출물 확인 |
+| `index.md` | 과거 DevCopilot 운영 인덱스 |
 
-부가 요약·감사·스냅샷 → [`../_archive/wiki-secondary/`](../_archive/wiki-secondary/)
+부가 요약·감사·스냅샷: [`../_archive/wiki-secondary/`](../_archive/wiki-secondary/) · 현재 정본: [Product Bible](../product_bible/)

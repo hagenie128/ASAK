@@ -7,6 +7,22 @@
 
 ---
 
+## 지금 작업할 때는 이것만
+
+1. 만들 기능 선택 → [구현 작업대](./implementation_guide/00_START_HERE.md)
+2. 실제 코드 상태 확인 → [현재 구현 지도](./planning/CURRENT_IMPLEMENTATION_MAP.md)와 해당 저장소 코드
+3. 끝난 작업 기록 → [팀 워크로그](../worklog/TEAM_WORKLOG.md)
+
+막히는 경우에만 Product Bible, Figma, 과거 QA를 연다. `#reference`, `_archive`, 날짜가 붙은 회의·감사 문서는 시작점이 아니다.
+
+## 포트폴리오에 남길 것
+
+- 기능별 **문제 → 내 판단 → 직접 구현 → AI 검토 → 검증 → 개선** 기록
+- PR, 테스트 결과, 화면 캡처·시연 영상, 해결한 버그의 원인과 결과
+- 개인 정리 양식: [포트폴리오 템플릿](./guides/05-personal-portfolio-template.md)
+
+---
+
 ## 30초 진입 (추천 순서)
 
 | 순서 | 문서 | 태그 |
@@ -15,7 +31,7 @@
 | 2 | [Canonical Contract Decisions](./governance/CANONICAL_CONTRACT_DECISIONS.md) | `#canonical` |
 | 3 | [Current Implementation Map](./planning/CURRENT_IMPLEMENTATION_MAP.md) | `#current` |
 | 4 | [Implementation Guide — Start](./implementation_guide/00_START_HERE.md) | `#current` |
-| 5 | [Figma QA 통합본](./design/FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md) | `#current` |
+| 5 | [디자인 현재 상태](./design/README.md) | `#current` |
 | 6 | [문서 태그 인덱스](./DOCUMENT_TAG_INDEX.md) | `#reference` |
 
 ---

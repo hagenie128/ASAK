@@ -11,7 +11,7 @@ Figma **0718** 수치 FAIL은 대부분 반영됨 → 코드는 **SCR-003 메뉴
 | --- | --- |
 | Figma 쓰기 전용 | `yHhvn5RKjBd91U8BJUQz7F` (0718) |
 | Brand Primary | `#B5E30F` (쑥색 `#5DA45D` / Blue `#0088FF` 금지) |
-| 문서 정본 | `ASAK/docs/design/0718.md` |
+| 디자인 참고 | `ASAK/docs/design/_archive/2026-07-18-figma-handoff/` |
 | 구현 입구 | `ASAK/docs/implementation_guide/00_START_HERE.md` |
 | 가격/수량 단일 기준 | `ASAK-Kiosk/src/utils/priceCalculation.js`, `quantityLimits.js` |
 | 브랜치 (문서) | `ASAK` → `handoff/0718-to-kiosk-continue` |
@@ -166,13 +166,13 @@ code C:\ASAK-workspace
 
 - 파일: 0718만 write
 - KEEP: `✅ KEEP — Code Core` / `✅ KEEP — Admin Code Core`
-- 검수 프롬프트·결과: `ASAK/docs/design/0718.md`
+- 검수 프롬프트·결과: `ASAK/docs/design/_archive/2026-07-18-figma-handoff/`
 
 ## 관련 문서
 
 | 문서 | 용도 |
 | --- | --- |
-| [0718.md](../design/0718.md) | Figma FAIL 진행 로그 |
+| [Figma 작업 보관 묶음](../design/_archive/2026-07-18-figma-handoff/README.md) | Figma FAIL 진행 로그·QA·수정 계획 |
 | [00_START_HERE.md](../implementation_guide/00_START_HERE.md) | 화면별 구현 입구 |
 | [한국어_명령어_표](../../../한국어_명령어_표.md) | `이어서` `주문` `가격` 등 |
 | [SETUP_EDITOR.md](../../../SETUP_EDITOR.md) | 에디터·확장 요약 (워크스페이스 루트) |

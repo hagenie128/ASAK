@@ -1,7 +1,7 @@
 # ASAK Figma 종합 수정 실행 계획 — 사람 vs AI 역할 분담
 
 **작성일**: 2026-07-17
-**근거 문서**: [FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md](FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md)(출처 A~E 통합) + [ASAK_FIGMA_DESIGN_FEEDBACK_COMPONENT_SCREEN_2026-07-17.md](ASAK_FIGMA_DESIGN_FEEDBACK_COMPONENT_SCREEN_2026-07-17.md)(출처 C)
+**근거 문서**: [FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md](FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md)(출처 A~E 통합) + 당시 출처 C 메모(별도 원문 미보관)
 **목적**: "AI로만 전체 계획 돌리니까 제자리걸음"이라는 문제를 해결 — 사람이 직접 하면 빠른 것과 AI가 해야 정확한 것을 분리해서, 판단이 필요한 곳에서 AI가 왕복하며 멈추는 일을 없앤다.
 
 ---

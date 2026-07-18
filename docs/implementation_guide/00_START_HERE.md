@@ -19,7 +19,7 @@
 | API 공통 처리·기존 mock 연결 | [API 공통 규칙](04_API_DB_IMPLEMENTATION.md) | envelope, error, adapter, Backend 진행 상태 |
 | UI 컴포넌트/토큰 | [UI 컴포넌트](05_UI_COMPONENT_GUIDE.md) | 기존 컴포넌트 재사용, Figma 상태 |
 | Figma 화면 상태를 하나씩 대조 | [상태 체크리스트](09_FIGMA_STATE_CHECKLIST.md) | Default/Loading/Empty/Error/Saving/복구 |
-| Figma 완료처럼 보이는데 코드/정책 갭 | [유저플로우·정책·핸드오프 갭](../../../figma/ASAK_FLOW_POLICY_IMPLEMENTATION_GAP.md) | 시안≠구현, route/API/정책 충돌 |
+| 코드·정책 상태가 다를 때 | [현재 구현 지도](../planning/CURRENT_IMPLEMENTATION_MAP.md) + [정본 계약](../governance/CANONICAL_CONTRACT_DECISIONS.md) | 실제 코드·route·API 계약 충돌 |
 | 테스트·시연 직전 | [QA](06_QA_RELEASE_GUIDE.md) | 화면 상태, P0 시나리오 |
 
 ## 작업할 때 보는 순서

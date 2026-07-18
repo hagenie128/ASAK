@@ -16,7 +16,7 @@
 1. [`implementation_guide/00_START_HERE.md`](../implementation_guide/00_START_HERE.md) — 기능 고르고 블록만
 2. [`planning/CURRENT_IMPLEMENTATION_MAP.md`](../planning/CURRENT_IMPLEMENTATION_MAP.md) — 코드 실제 상태
 3. [`planning/IMPLEMENTATION_PRIORITY.md`](../planning/IMPLEMENTATION_PRIORITY.md) — Vertical Slice 1~5
-4. [`design/FIGMA_0718_COLOR_CANON_2026-07-18.md`](./FIGMA_0718_COLOR_CANON_2026-07-18.md) — 0718 색·파일 정본
+4. [Figma 작업 보관 묶음](./_archive/2026-07-18-figma-handoff/README.md) — 색·화면·QA 근거가 필요할 때만 확인
 5. Product Bible Screen Registry — 화면 ID
 
 ## Figma (참고만 · 2주간 안 건드림)
@@ -50,7 +50,7 @@
 
 ## 피그마 졸업 → 코드 (2026-07-18 밤)
 
-- 검수 모음: [`0718.md`](./0718.md) (목차·중복 정리됨)
+- 검수 모음: [Figma 작업 보관 묶음](./_archive/2026-07-18-figma-handoff/README.md)
 - **다음:** `implementation_guide/00_START_HERE.md` → Slice 1 메뉴 목록 (`ASAK-Kiosk`)
 - 피그마 AI bulk / 전면 재작업은 하지 않음. Master 수치 FAIL만 필요할 때 최소 수정.
 
