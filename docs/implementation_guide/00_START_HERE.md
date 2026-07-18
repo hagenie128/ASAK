@@ -1,7 +1,8 @@
 # ASAK 구현 작업대
 
 > **문서를 처음부터 읽지 않는다.** 지금 만들 기능을 골라서 해당 블록만 본다.  
-> 이 폴더는 Product Bible을 다시 쓴 문서가 아니라, 구현 중 필요한 정보를 빠르게 찾는 **작업용 인덱스**다.
+> 이 폴더는 Product Bible을 다시 쓴 문서가 아니라, 구현 중 필요한 정보를 빠르게 찾는 **작업용 인덱스**다.  
+> **노트북 이어서:** [핸드오프 2026-07-18](../handoff/LAPTOP_CONTINUE_2026-07-18.md) · 브랜치 `handoff/0718-to-kiosk-continue` · 다음 **SCR-005 장바구니**
 
 ## 지금 하는 일 선택
 
@@ -38,12 +39,15 @@
 
 ## 기준 화면 빠른 링크
 
+> **정본 파일: 0718** (`yHhvn5RKjBd91U8BJUQz7F`). 0715는 Archive(읽기 전용).
+
 | 용도 | Figma |
 | --- | --- |
-| 파일 구조 확인 | [00-C Cover / File Map](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=174-8727) |
-| 고객 키오스크 | [05-C Screens / Kiosk](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=134-7720) |
-| 관리자 | [06-C Screens / Admin](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=134-10606) |
-| 상태 QA | [07-C QA / Screen State Matrix](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=190-2) |
+| 파일 구조 확인 | [00-C Cover](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=174-8727) |
+| 고객 키오스크 | [05-C Screens / Kiosk](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/?node-id=134-7720) |
+| 관리자 | [06-C Screens / Admin](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/?node-id=134-10606) |
+| KEEP 키오스크 | [✅ KEEP — Code Core](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/?node-id=3006-12340) |
+| KEEP 관리자 | [✅ KEEP — Admin Code Core](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/?node-id=3006-40067) |
 
 <details>
 <summary>원본 정책이 서로 다를 때만 열기</summary>

@@ -21,10 +21,24 @@
 | 004 | Default, Loading, Error, Option Selected, Menu Sold-out | 0714 `2:4775` | Edit*는 QA 섹션 |
 | 005 | Default, Empty, Delete Confirm, Sold-out* | 0714 `2:4791` | |
 | 007 | Collapsed, Expanded, Processing, Loading, Method Selected, All Disabled, Network Error | 0714 계열 | |
-| 008 | Default **1개만** | 0714 `2:4877` | 중복 제거 |
+| 008 | Default **1개만** (영수증 히어로) | ASAK-1 `255:11228` 구성 + 영수증 본문 | 휑한 중앙 제거 · BottomCTA `1080×180` |
 | 012 | Declined, Network, Retry Loading | 0714 | |
 | 013 | Expired, Warning, Continue | 0714 | |
 | 014 | Default, High Contrast, Reverted | 0714 | |
+| **023** | Receipt `preview` + `success` | 신규 (Extension SCR-023) | printing/error는 QA |
+
+### SCR-008 To-Be
+
+- 상단: Header + 완료 문구
+- 중단: **영수증 카드** (주문번호·품목·합계·바코드) — 비주얼 중심
+- 하단: 대기 수 / N초 후 홈 + CTA (`영수증 보기` → SCR-023, `홈으로`)
+- Product Bible: 주문번호 크게 · `waitingOrderCount`
+
+### SCR-023 To-Be
+
+- Core: `preview`, `success` 각 1
+- QA: `printing`, `error`
+- 흐름: SCR-007 → SCR-008 → (영수증) SCR-023 → 홈
 
 나머지는 `ARCHIVED_` 접두 또는 **QA States** 섹션으로 이동.
 

@@ -11,6 +11,17 @@
 | 3 | 0715 | `JSrjOy668zhfkiLplCkreh` | AI 손상본 · 읽기 전용. **구분선(`---`) 아래**에 01~06·05-B/06-B·Pre-componentization Archive 등 화면·컴포넌트 다수 보관 |
 | 4 | **0718** | `yHhvn5RKjBd91U8BJUQz7F` | 유일한 쓰기 타깃. 구분선 아래는 비움 · C페이지(위)만 유지 |
 
+## 로고 정본 (2차 배치)
+
+| 항목 | 값 |
+|---|---|
+| 파일 | kiosk_design `iqaoVwFjFE6Zq1WpOVgjeG` |
+| 노드 | Header `499:30323` → `ASAK LOGO` `509:2697` |
+| 형태 | 워드마크 ASAK + 태그라인 `A Salad A Kiosk` (라임+차콜) |
+| 0718 목표 바인딩 | 라임 영역 → `Semantic/Brand/Primary` `#B5E30F` · 차콜 → Text Primary/OnPrimary |
+| **오바인딩 (고칠 것)** | `#5DA45D` · `Semantic/Status/Success`에 묶인 로고 벡터 |
+| P0에서 무시 | Cover 장식 Tailwind 초록 `#22C55E` `#84CC16` |
+
 ## 0718 Brand 정본 (유지)
 
 | Token | Hex |

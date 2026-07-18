@@ -57,17 +57,16 @@
 | 4 | 05-C/06-C 화면 Blue/Orange override | Kiosk Blue 3 · Admin Blue 206 + Orange 192 |
 | — | 표 밖 unbound hex | 바꾸지 않음 · 캐논 문서에 목록만 |
 | 5 | 화면 조합 (잘 데려가기) | 맵 문서 · 키오스크/Admin Core·QA 섹션 · SCR-008/001/003 정리 · Archive Default ID 확정 |
+| 6 | 로고·영수증 2차 | 로고 정본(kiosk_design) · SCR-008 영수증 히어로 · SCR-023 · YOU/AI 디스패치 |
 
-**조합 맵:** [FIGMA_0718_SCREEN_COMBINE_MAP_2026-07-18.md](./FIGMA_0718_SCREEN_COMBINE_MAP_2026-07-18.md)
+**조합 맵:** [FIGMA_0718_SCREEN_COMBINE_MAP_2026-07-18.md](./FIGMA_0718_SCREEN_COMBINE_MAP_2026-07-18.md)  
+**디스패치:** [FIGMA_0718_YOU_AI_DISPATCH_2026-07-18.md](./FIGMA_0718_YOU_AI_DISPATCH_2026-07-18.md)
 
 ### 지금 할 일
 
-1. 0718에서 Modal / BottomCTA / SaveBar / MenuButton side·drink 눈 QA
-2. 깨진 Default만 수동 복붙  
-   - 키오스크 → **0714**  
-   - Admin → **0715 Archive** (`525:19726` 등, 맵 표 참고)  
-   - 붙여넣은 뒤 **0718 로컬 Semantic만** 재바인딩 (**Figma AI bulk 금지**)
-3. 기존 Change ID(B0/B1…)는 수치·구조 이슈용으로 유지 — 색·조합과 섞지 않음
+1. [디스패치](./FIGMA_0718_YOU_AI_DISPATCH_2026-07-18.md) STEP A(로고) → B(SCR-008) 순서
+2. AI: 쑥색 로고 바인딩 · ReceiptCard · SCR-023 · Modal/OrderCard/DatePicker
+3. **Figma AI bulk 금지** · 기존 Change ID(B0/B1…)와 색·영수증 배치 섞지 않음
 
 **한 번에 한 행만 진행한다.** 새 의견은 아래 Change ID에 덧붙이고, 같은 대상의 새 문서를 만들지 않는다.
 
