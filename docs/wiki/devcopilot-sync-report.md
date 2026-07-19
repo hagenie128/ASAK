@@ -1,5 +1,26 @@
 # DevCopilot Sync Report
 
+## 코드 기준 재동기화 (2026-07-20)
+
+문서(07-16)만 믿지 않고 **실제 코드**를 1차 정본으로 재감사했습니다.
+
+| 항목 | 결과 |
+|---|---|
+| WBS2-001~066 제목 | 전부 **한글**로 통일 (`update_wbs_task`) |
+| WBS P3/P4 상태 | 코드 증거 반영 (예: 라우트·수량한도 DONE, Admin 정적 UI IN_PROGRESS, 결제 flow TODO) |
+| LMIS 요구사항 8건 | UI shell 존재 → `IN_PROGRESS` (DONE 아님) |
+| 화면 SCR-020~024 | 월별/일별 매출·대시보드 / 영수증·멤버십은 향후 범위로 정리 |
+| Target API | MCP update 불가 → `[TARGET]` create: `/api/kiosk/*`, `/api/admin/soldOut`, sales summary/monthly |
+| 로컬 문서 | `current-status-baseline.md`, `wbs-v2.md`, `screens.json` 동시 갱신 |
+
+**코드 현실 요약**
+
+- Kiosk: Home→장바구니 mock 동작. 결제/타임아웃은 shell.
+- Admin: Figma 정적 화면 연결. mock repository는 있으나 Page 연동 0.
+- Backend: `GET /api/health`만.
+
+정본 우선순위: **코드 → Canonical/Product Bible → DevCopilot → 구 문서**.
+
 ## Legacy 의미 중복 후속 (2026-07-16)
 
 DevCopilot internal record ID 기준으로 활성 Legacy WBS 37건을 활성 WBS2 64건과 감사했습니다. 상세 매핑, 대체 사유, evidence는 [legacy-wbs2-mapping-audit-2026-07-16.md](legacy-wbs2-mapping-audit-2026-07-16.md)를 참고하세요.

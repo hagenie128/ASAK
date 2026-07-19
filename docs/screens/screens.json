@@ -246,7 +246,7 @@
     "prototype_url": "",
     "input_vars": "status",
     "output_vars": "주문 목록, 주문번호, 주문유형, 결제상태, 주문상태, 주문금액, 주문일시",
-    "status": "와이어프레임",
+    "status": "구현중(정적 UI)",
     "status_devcopilot": "WIREFRAME",
     "category": "관리자",
     "phase": "KSD",
@@ -267,8 +267,9 @@
       "TC-014"
     ],
     "description": "관리자가 주문 목록을 확인하고 특정 주문의 상세 화면으로 이동하는 화면",
-    "notes": "주문 상태 변경은 관리자 주문 상세 화면에서 수행한다.",
-    "notion_url": "https://app.notion.com/p/39151ef04f0b816a89b6c3b956e9974a"
+    "notes": "주문 상태 변경은 관리자 주문 상세 화면에서 수행한다. | 2026-07-20: 코드 경로 / , Figma 정적 UI 연결, mock 미연동",
+    "notion_url": "https://app.notion.com/p/39151ef04f0b816a89b6c3b956e9974a",
+    "route": "/"
   },
   {
     "screen_id": "SCR-010",
@@ -277,7 +278,7 @@
     "prototype_url": "",
     "input_vars": "orderId, 변경할 status",
     "output_vars": "주문 상세 정보, 변경된 주문 상태",
-    "status": "와이어프레임",
+    "status": "구현중(정적 UI)",
     "status_devcopilot": "WIREFRAME",
     "category": "관리자",
     "phase": "KSD",
@@ -300,8 +301,9 @@
       "TC-014"
     ],
     "description": "관리자가 특정 주문의 메뉴, 옵션, 주문유형, 결제상태, 주문상태를 확인하는 화면",
-    "notes": "별도 주문 상세 API는 Week 5 MVP에서 만들지 않고 API-007 목록/상세 데이터 기반으로 표시",
-    "notion_url": "https://app.notion.com/p/39251ef04f0b81869277fd3fc980ff52"
+    "notes": "별도 주문 상세 API는 Week 5 MVP에서 만들지 않고 API-007 목록/상세 데이터 기반으로 표시 | 2026-07-20: 코드 경로 /orders, Figma 정적 UI 연결, mock 미연동",
+    "notion_url": "https://app.notion.com/p/39251ef04f0b81869277fd3fc980ff52",
+    "route": "/orders"
   },
   {
     "screen_id": "SCR-011",
@@ -310,7 +312,7 @@
     "prototype_url": "",
     "input_vars": "targetType(MENU/INGREDIENT), targetId, isSoldOut",
     "output_vars": "메뉴 목록, 메뉴 기본 재료, 옵션 항목, 재료 역할, 변경된 품절 상태, 영향받는 메뉴/옵션",
-    "status": "와이어프레임",
+    "status": "구현중(정적 UI)",
     "status_devcopilot": "WIREFRAME",
     "category": "관리자",
     "phase": "KSD",
@@ -332,8 +334,9 @@
       "TC-006"
     ],
     "description": "관리자가 메뉴 또는 재료의 품절 상태를 변경하는 화면입니다. 품절 변경 후 메뉴·재료 상태 목록을 확인할 수 있습니다.",
-    "notes": "옵션기능 화면. 메뉴 상세/API-004 옵션 응답에서 ingredientId 확인 후 API-009로 품절 변경. 품절 목록 뷰 필요 (2026-07-06).",
-    "notion_url": "https://app.notion.com/p/39151ef04f0b811189b2fc39fe4f1959"
+    "notes": "옵션기능 화면. 메뉴 상세/API-004 옵션 응답에서 ingredientId 확인 후 API-009로 품절 변경. 품절 목록 뷰 필요 (2026-07-06). | 2026-07-20: 코드 경로 /sold-out, Figma 정적 UI 연결, mock 미연동",
+    "notion_url": "https://app.notion.com/p/39151ef04f0b811189b2fc39fe4f1959",
+    "route": "/sold-out"
   },
   {
     "screen_id": "SCR-012",
@@ -452,7 +455,7 @@
     "prototype_url": "",
     "input_vars": "메뉴 목록, 카테고리, 태그, 품절 상태",
     "output_vars": "메뉴 등록/수정 화면 이동, 품절 변경",
-    "status": "기획중",
+    "status": "구현중(정적 UI)",
     "status_devcopilot": "WIREFRAME",
     "category": "관리자",
     "phase": "LMIS",
@@ -474,8 +477,9 @@
       "TC-010"
     ],
     "description": "관리자가 메뉴 목록, 가격, 태그, 품절 상태를 확인하는 화면",
-    "notes": "관리자 기능 5~6주차 확장",
-    "notion_url": "https://app.notion.com/p/39251ef04f0b812fba53ed19e6089d7b"
+    "notes": "관리자 기능 5~6주차 확장 | 2026-07-20: 코드 경로 /menus, Figma 정적 UI 연결, mock 미연동",
+    "notion_url": "https://app.notion.com/p/39251ef04f0b812fba53ed19e6089d7b",
+    "route": "/menus"
   },
   {
     "screen_id": "SCR-017",
@@ -484,7 +488,7 @@
     "prototype_url": "",
     "input_vars": "메뉴명, 가격, 이미지, 재료, 옵션그룹, 추천 옵션, 태그",
     "output_vars": "메뉴 저장 요청",
-    "status": "기획중",
+    "status": "구현중(정적 UI)",
     "status_devcopilot": "WIREFRAME",
     "category": "관리자",
     "phase": "LMIS",
@@ -505,8 +509,9 @@
       "TC-011"
     ],
     "description": "관리자가 메뉴 기본정보, 기본 재료, 추천 드레싱, 옵션그룹, 태그를 등록/수정하는 화면",
-    "notes": "추천 드레싱은 menu_option 기준으로 저장",
-    "notion_url": "https://app.notion.com/p/39251ef04f0b81e3bf1dcbe8caf82632"
+    "notes": "추천 드레싱은 menu_option 기준으로 저장 | 2026-07-20: 코드 경로 /menus/new|/menus/edit, Figma 정적 UI 연결, mock 미연동",
+    "notion_url": "https://app.notion.com/p/39251ef04f0b81e3bf1dcbe8caf82632",
+    "route": "/menus/new|/menus/edit"
   },
   {
     "screen_id": "SCR-018",
@@ -515,7 +520,7 @@
     "prototype_url": "",
     "input_vars": "결제수단 목록, 활성 여부, 정렬 순서",
     "output_vars": "결제수단 설정 변경 요청",
-    "status": "기획중",
+    "status": "구현중(정적 UI)",
     "status_devcopilot": "WIREFRAME",
     "category": "관리자",
     "phase": "LMIS",
@@ -534,8 +539,9 @@
       "TC-012"
     ],
     "description": "관리자가 카드/간편결제 등 결제수단 노출 여부와 순서를 설정하는 화면",
-    "notes": "결제수단은 common_code/payment_method_config 기준",
-    "notion_url": "https://app.notion.com/p/39251ef04f0b81b084fae81a1dc8e1c7"
+    "notes": "결제수단은 common_code/payment_method_config 기준 | 2026-07-20: 코드 경로 /payment-methods, Figma 정적 UI 연결, mock 미연동",
+    "notion_url": "https://app.notion.com/p/39251ef04f0b81b084fae81a1dc8e1c7",
+    "route": "/payment-methods"
   },
   {
     "screen_id": "SCR-019",
@@ -544,7 +550,7 @@
     "prototype_url": "",
     "input_vars": "조회 기간, 일별 매출 데이터",
     "output_vars": "매출 요약 표시",
-    "status": "기획중",
+    "status": "구현중(정적 UI)",
     "status_devcopilot": "WIREFRAME",
     "category": "관리자",
     "phase": "LMIS",
@@ -563,18 +569,106 @@
       "TC-013"
     ],
     "description": "관리자가 일별 주문수·매출 금액·매출 평균, 시간대별·판매 제품 통계를 확인하는 화면",
-    "notes": "Week 5 MVP 제외, 8주 후반 확장. 시간대별 판매·제품 통계 확장 (2026-07-06).",
-    "notion_url": "https://app.notion.com/p/39251ef04f0b813d8e9ff5fa34adf007"
+    "notes": "Week 5 MVP 제외, 8주 후반 확장. 시간대별 판매·제품 통계 확장 (2026-07-06). | 2026-07-20: 코드 경로 /sales, Figma 정적 UI 연결, mock 미연동",
+    "notion_url": "https://app.notion.com/p/39251ef04f0b813d8e9ff5fa34adf007",
+    "route": "/sales"
   },
   {
     "screen_id": "SCR-020",
+    "title": "관리자 월별 매출",
+    "figma_url": "",
+    "prototype_url": "",
+    "input_vars": "year, month, 월별 매출 데이터",
+    "output_vars": "월별 매출 요약·차트·테이블",
+    "status": "구현중(정적 UI)",
+    "status_devcopilot": "WIREFRAME",
+    "category": "관리자",
+    "phase": "LMIS",
+    "priority": "중",
+    "related_req": [
+      "LMIS-ORDER-005"
+    ],
+    "related_sc": [
+      "SC-018"
+    ],
+    "related_api": [
+      "API-015"
+    ],
+    "related_test": [
+      "TC-013"
+    ],
+    "description": "관리자가 월을 선택해 월별 매출·주문 수를 확인하는 화면. 코드 경로: /sales/monthly",
+    "notes": "2026-07-20: 구 SCR-020(영수증)은 SCR-023으로 이동. Admin MonthlySalesPage 정적 UI 존재, mock 미연동.",
+    "route": "/sales/monthly",
+    "notion_url": ""
+  },
+  {
+    "screen_id": "SCR-021",
+    "title": "관리자 일별 매출",
+    "figma_url": "",
+    "prototype_url": "",
+    "input_vars": "date, 일별 매출 데이터",
+    "output_vars": "일별 매출 요약·시간대 통계",
+    "status": "구현중(정적 UI)",
+    "status_devcopilot": "WIREFRAME",
+    "category": "관리자",
+    "phase": "LMIS",
+    "priority": "중",
+    "related_req": [
+      "LMIS-ORDER-005"
+    ],
+    "related_sc": [
+      "SC-018"
+    ],
+    "related_api": [
+      "API-015"
+    ],
+    "related_test": [
+      "TC-013"
+    ],
+    "description": "관리자가 일자를 선택해 일별 매출을 확인하는 화면. 코드 경로: /sales/daily",
+    "notes": "2026-07-20: 구 SCR-021(멤버십)은 SCR-024로 이동. Admin DailySalesPage 정적 UI 존재, mock 미연동.",
+    "route": "/sales/daily",
+    "notion_url": ""
+  },
+  {
+    "screen_id": "SCR-022",
+    "title": "관리자 대시보드",
+    "figma_url": "",
+    "prototype_url": "",
+    "input_vars": "KPI, 최근 주문",
+    "output_vars": "대시보드 요약 표시",
+    "status": "구현중(정적 UI)",
+    "status_devcopilot": "WIREFRAME",
+    "category": "관리자",
+    "phase": "LMIS",
+    "priority": "중",
+    "related_req": [
+      "LMIS-ORDER-001",
+      "LMIS-ORDER-005"
+    ],
+    "related_sc": [
+      "SC-024"
+    ],
+    "related_api": [
+      "API-007",
+      "API-015"
+    ],
+    "related_test": [],
+    "description": "관리자 KPI·최근 주문을 한눈에 보는 대시보드. 코드 경로: /dashboard",
+    "notes": "2026-07-20 추가. DashboardPage 정적 UI 존재, mock 미연동.",
+    "route": "/dashboard",
+    "notion_url": ""
+  },
+  {
+    "screen_id": "SCR-023",
     "title": "영수증 출력 여부 선택",
     "figma_url": "",
     "prototype_url": "",
     "input_vars": "orderId, orderNo, paymentStatus, totalPrice",
     "output_vars": "영수증 출력 선택(예/아니오), 출력 결과 또는 화면 주문번호 표시",
-    "status": "기획중",
-    "status_devcopilot": "WIREFRAME",
+    "status": "향후 범위",
+    "status_devcopilot": "ARCHIVED",
     "category": "키오스크",
     "phase": "장치",
     "priority": "중",
@@ -591,18 +685,18 @@
       "TC-015"
     ],
     "description": "결제 완료 직후 고객이 영수증 출력 여부를 선택하는 화면",
-    "notes": "Week 5 MVP 제외, Week 7~8 확장. SCR-008 주문 완료 후 분기",
+    "notes": "Week 5 MVP 제외, Week 7~8 확장. SCR-008 주문 완료 후 분기 | 2026-07-20 ID 재매핑: SCR-020→SCR-023",
     "notion_url": "https://app.notion.com/p/39551ef04f0b810a84aae4af6de3d5c7"
   },
   {
-    "screen_id": "SCR-021",
+    "screen_id": "SCR-024",
     "title": "포인트·쿠폰 적립",
     "figma_url": "",
     "prototype_url": "",
     "input_vars": "memberId, orderId, scanValue(쿠폰/멤버십 QR), 결제 금액",
     "output_vars": "적립 확인 결과, 스탬프 적립 여부, 쿠폰 할인 금액, 최종 결제 금액",
-    "status": "기획중",
-    "status_devcopilot": "WIREFRAME",
+    "status": "향후 범위",
+    "status_devcopilot": "ARCHIVED",
     "category": "키오스크",
     "phase": "KSD",
     "priority": "중",
@@ -625,7 +719,7 @@
       "TC-016"
     ],
     "description": "결제 단계에서 멤버십 스탬프 적립 1회 확인 및 쿠폰 QR 스캔·할인 표시",
-    "notes": "Week 5 MVP 제외. SCR-007 결제 화면 내 패널/모달. 적립 확인 1회만",
+    "notes": "Week 5 MVP 제외. SCR-007 결제 화면 내 패널/모달. 적립 확인 1회만 | 2026-07-20 ID 재매핑: SCR-021→SCR-024",
     "notion_url": "https://app.notion.com/p/39551ef04f0b810cbfacfec11674a302"
   }
 ]

@@ -1,0 +1,84 @@
+{
+  "requirements": [
+    {
+      "requirement_id": "LMIS-MENU-001",
+      "ok": true,
+      "status": "IN_PROGRESS",
+      "resp": "{'message': 'Requirement updated successfully', 'requirement': {}}"
+    },
+    {
+      "requirement_id": "LMIS-ORDER-001",
+      "ok": true,
+      "status": "IN_PROGRESS",
+      "resp": "{'message': 'Requirement updated successfully', 'requirement': {}}"
+    },
+    {
+      "requirement_id": "LMIS-MENU-002",
+      "ok": true,
+      "status": "IN_PROGRESS",
+      "resp": "{'message': 'Requirement updated successfully', 'requirement': {}}"
+    },
+    {
+      "requirement_id": "LMIS-PAY-001",
+      "ok": true,
+      "status": "IN_PROGRESS",
+      "resp": "{'message': 'Requirement updated successfully', 'requirement': {}}"
+    },
+    {
+      "requirement_id": "LMIS-ORDER-002",
+      "ok": true,
+      "status": "IN_PROGRESS",
+      "resp": "{'message': 'Requirement updated successfully', 'requirement': {}}"
+    },
+    {
+      "requirement_id": "LMIS-MENU-004",
+      "ok": true,
+      "status": "IN_PROGRESS",
+      "resp": "{'message': 'Requirement updated successfully', 'requirement': {}}"
+    },
+    {
+      "requirement_id": "LMIS-ORDER-005",
+      "ok": true,
+      "status": "IN_PROGRESS",
+      "resp": "{'message': 'Requirement updated successfully', 'requirement': {}}"
+    },
+    {
+      "requirement_id": "LMIS-ORDER-003",
+      "ok": true,
+      "status": "IN_PROGRESS",
+      "resp": "{'message': 'Requirement updated successfully', 'requirement': {}}"
+    }
+  ],
+  "screens": [
+    {
+      "screen_id": "SCR-021",
+      "ok": true,
+      "name": "관리자 일별 매출",
+      "resp": "{'message': 'Screen updated successfully', 'screen': {}}"
+    },
+    {
+      "screen_id": "SCR-020",
+      "ok": true,
+      "name": "관리자 월별 매출",
+      "resp": "{'message': 'Screen updated successfully', 'screen': {}}"
+    },
+    {
+      "screen_id": "SCR-023",
+      "ok": true,
+      "name": "영수증 출력 (향후 범위)",
+      "resp": "{'message': 'Screen updated successfully', 'screen': {}}"
+    },
+    {
+      "screen_id": "SCR-024",
+      "ok": true,
+      "name": "멤버십/쿠폰 (향후 범위)",
+      "resp": "{'message': 'Screen updated successfully', 'screen': {}}"
+    },
+    {
+      "screen_id": "SCR-022",
+      "ok": true,
+      "name": "관리자 대시보드",
+      "resp": "{'message': 'Screen updated successfully', 'screen': {}}"
+    }
+  ]
+}

@@ -1,80 +1,115 @@
 # Current Implementation Map
 
-> 사람 결정, 2026-07-16: canonical API/route/response 필드는 [Canonical Contract Decisions](../governance/CANONICAL_CONTRACT_DECISIONS.md)에 있습니다. 코드는 변경하지 않았습니다. `DECIDED_PENDING_CODE_CHANGE`는 목표가 확정됐으나 소스 변경은 연기됨을 뜻하고, `DECIDED_NOT_IMPLEMENTED`는 adapter 결정은 확정됐으나 의도적으로 미구현임을 뜻합니다.
+> 기준일: **2026-07-20** · **코드 실측** 정본.  
+> 문서 입구: [START_HERE](../START_HERE.md)  
+> 이전 07-16 버전은 Cart/Admin을 MISSING으로 적어 **과소평가**되어 폐기 수준으로 대체됨.  
+> Canonical(미코드 반영): [CANONICAL_CONTRACT_DECISIONS.md](../governance/CANONICAL_CONTRACT_DECISIONS.md)  
+> 일일 baseline: [current-status-baseline.md](../wiki/current-status-baseline.md)  
+> WBS: [wbs-v2.md](../wiki/wbs-v2.md) · [wbs-status-notes.md](../wiki/wbs-status-notes.md)
 
-## Decision status overlay
+## 상태 범례
 
-| Prior conflict | Updated status | Decided canonical target |
+| 코드 | 의미 |
+|---|---|
+| `IMPLEMENTED` | 코드로 동작 확인 |
+| `PARTIAL` | UI·로직 일부만 |
+| `MOCK_WIRED` | mock으로 화면까지 연결 |
+| `MOCK_READY` | mock/repository만 있고 페이지 미연결 |
+| `UI_ONLY` | Figma 정적/shell, 데이터·flow 없음 |
+| `PLACEHOLDER` | 파일만 존재 |
+| `MISSING` | 없음 |
+| `BLOCKED` | 의존성(백엔드 등) 때문에 진행 불가 |
+| `CONFLICT` | 문서 Canonical과 코드 불일치 |
+| `FUTURE` | MVP 밖 |
+
+## Decision overlay (Canonical vs 코드)
+
+| 항목 | 상태 | 코드 현실 | Canonical 목표 |
+|---|---|---|---|
+| Kiosk API path | `CONFLICT` / DECIDED_PENDING | `/api/menus`, `/api/orders`… | `/api/kiosk/menuList` 등 |
+| Admin routes | `CONFLICT` / DECIDED_PENDING | `/`, `/sold-out`, `/payment-methods` | `/orders/live`, `/soldOut`, `/paymentMethods` |
+| 금액 필드 | DECIDED_NOT_IMPLEMENTED | store `totalPrice` 등 | adapter → `totalAmount` 등 |
+| Admin 소유권 | 확정 | `ASAK-Admin` 정본 | Kiosk 내 Admin = Legacy Reference |
+
+---
+
+## Kiosk (`ASAK-Kiosk`)
+
+| 화면 | 경로 | 상태 | 근거 / WBS |
+|---|---|---|---|
+| SCR-001 Home | `/` | `IMPLEMENTED` | 유형 선택 → `/menu` · WBS2-017 DONE |
+| SCR-003 Menu List | `/menu` | `MOCK_WIRED` | `kiosk.json` 직접 import · WBS2-018 |
+| SCR-004 Detail | `/menu/:menuId` | `MOCK_WIRED` | 옵션·담기·가격 · WBS2-019~021 |
+| SCR-005 Cart | `/cart` | `MOCK_WIRED` | 수량·삭제·합계 · WBS2-025 |
+| SCR-007 Payment | `/payment` | `UI_ONLY` | 수단/결제 disabled · WBS2-026 |
+| SCR-008 Complete | `/complete` | `UI_ONLY` | 주문번호 미연결 · WBS2-028 |
+| SCR-012 Pay Error | `/payment-error` | `UI_ONLY` | flow 미연결 · WBS2-027 |
+| SCR-013 Timeout | `/timeout` | `UI_ONLY` | 타이머 stub · WBS2-029~030 |
+| SCR-014 A11y | `/accessibility` | `UI_ONLY` | 정적 |
+| SCR-023 Receipt | `/receipt` | `FUTURE` | 향후 범위 |
+
+| 자산 | 상태 | 비고 |
 |---|---|---|
-| Kiosk menu/order/payment paths | DECIDED_PENDING_CODE_CHANGE | `/api/kiosk/menuList`, `/api/kiosk/menuDetail/{menuId}`, `/api/kiosk/orders`, `/api/kiosk/payments` |
-| Admin Dashboard/Live Order/Sold-out/Payment routes | DECIDED_PENDING_CODE_CHANGE | `/`, `/orders/live`, `/soldOut`, `/paymentMethods` |
-| Store field versus API fields | DECIDED_NOT_IMPLEMENTED | adapter가 canonical field 매핑; `totalPrice`, `amount`, `paidAt` 유지 |
-| Admin implementation ownership | DECIDED_NOT_IMPLEMENTED | ASAK-Admin; Kiosk Admin scaffold는 Legacy Reference |
+| `priceCalculation.js` | `IMPLEMENTED` | **단일 기준 — 복제 금지** |
+| `quantityLimits.js` | `IMPLEMENTED` | 9/30 적용 · 4초 toast는 TODO (WBS2-024) |
+| `orderSessionStore` / cart 호환 | `IMPLEMENTED` | |
+| `api/*` + adapters | `PLACEHOLDER` / `PARTIAL` | 페이지 미사용 |
+| `public/mocks/kiosk.json` | `MOCK_WIRED` | 정본 mock |
 
-> 2026-07-16 코드 정적 조사 및 Kiosk/Admin production build 기준. 상태: `IMPLEMENTED`, `PARTIAL`, `MOCK_ONLY`, `MISSING`, `CONFLICT`, `FUTURE_SCOPE`.
+---
 
-## 화면과 라우트
+## Admin (`ASAK-Admin`)
 
-| 문서 화면 | 실제 경로/파일 | 상태 | 근거 |
+| 화면 | 경로(코드) | 상태 | 근거 / WBS |
 |---|---|---|---|
-| SCR-001 Home | Kiosk `HomePage`, `/` | PARTIAL | 주문 유형 선택과 `/menu` 이동만 연결 |
-| SCR-003 Menu List | `MenuListPage`, `/menu` | MOCK_ONLY | `public/mocks/kiosk.json`으로 카테고리/메뉴 표시 |
-| SCR-004 Menu Detail | `MenuDetailPage`, `/menu/:menuId` | PARTIAL | 라우트·파라미터·store import만 있고 UI/검증/추가 미완성 |
-| SCR-005 Cart | `CartPage.jsx` | MISSING | 파일은 빈 스캐폴드, 라우트 없음 |
-| SCR-007 Payment | `PaymentPage.jsx` | MISSING | 파일은 빈 스캐폴드, 라우트 없음 |
-| SCR-008 Complete | `OrderCompletePage.jsx` | MISSING | 파일은 빈 스캐폴드, 라우트 없음 |
-| SCR-012 Payment Error | 없음 | MISSING | paymentError state만 존재 |
-| SCR-013 Timeout | `useKioskTimeout.js` 자리만 존재 | PARTIAL | 앱 연결·overlay·reset 흐름 없음 |
-| SCR-014 Accessibility | `AccessibilityPage.jsx` | MISSING | 빈 스캐폴드, 라우트 없음 |
-| SCR-015 Admin Login | `LoginPage.jsx` | MISSING | 빈 스캐폴드, 라우트 없음 |
-| SCR-022 Dashboard | Admin `/` | CONFLICT | `AdminApp`이 SCR-009 라벨/placeholder를 `/`에 사용 |
-| SCR-009 Live Order | Admin `/` | CONFLICT | 문서는 `/orders/live`; 실제는 `/` placeholder |
-| SCR-010 Order Management | `OrderList/DetailPage` | MISSING | 페이지 파일은 placeholder, 라우트 없음 |
-| SCR-011 Sold-out | Admin `/sold-out` | CONFLICT | 문서 canonical route는 `/soldOut`; 컴포넌트/페이지는 placeholder |
-| SCR-016 Menu Management | Admin `/menus` | PARTIAL | route placeholder만 존재; 관리 페이지 파일은 미연결 |
-| SCR-018 Payment Settings | Admin `/payment-methods` | CONFLICT | 문서는 `/paymentMethods`; 실제 placeholder route는 kebab-case |
-| SCR-019 Sales Summary | Admin `/sales` | PARTIAL | route placeholder, SalesChart/page 파일은 placeholder |
-| SCR-020/021 Monthly/Daily | 없음 | MISSING | 문서 route 미구현 |
+| SCR-009 Live | `/` | `UI_ONLY` | Figma 정적 · WBS2-035 |
+| SCR-022 Dashboard | `/dashboard` | `UI_ONLY` | WBS2-034 |
+| SCR-010 Orders | `/orders` | `UI_ONLY` | WBS2-036 · Detail 라우트 미연결 |
+| SCR-011 Sold-out | `/sold-out` | `UI_ONLY` | WBS2-038 · Canonical `/soldOut` CONFLICT |
+| SCR-016 Menus | `/menus` | `UI_ONLY` | WBS2-039 |
+| SCR-017 Menu edit | `/menus/new\|edit` | `PLACEHOLDER` | |
+| SCR-018 Payments | `/payment-methods` | `UI_ONLY` | disabled · WBS2-040 |
+| SCR-019 Sales | `/sales` | `UI_ONLY` | WBS2-041 |
+| SCR-020 Monthly | `/sales/monthly` | `UI_ONLY` | WBS2-042 |
+| SCR-021 Daily | `/sales/daily` | `UI_ONLY` | WBS2-043 |
+| SCR-015 Login | `/login` | `UI_ONLY` / EXCLUDED 성격 | |
 
-## Kiosk 보존·재사용 자산
-
-| 분류 | 파일/역할 | 상태 | 처리 |
-|---|---|---|---|
-| 앱/라우터 | `apps/kiosk/KioskApp.jsx`, `entries/kiosk.jsx` | PARTIAL | 기존 세 route를 확장 |
-| 메뉴 UI | `MenuCard`, `CategoryTabs`, `Header` | PARTIAL | 메뉴 조회 adapter와 상태만 보강 |
-| 상세 UI | `MenuDetailSummary`, `OptionItem`, `OptionGroup` | PARTIAL | props/렌더링 결함 보정 후 재사용 |
-| 주문 상태 | `orderSessionStore.js` | PARTIAL | 단일 session 방향은 유지, cart item identity/총액/검증 추가 |
-| 호환 exports | `cartStore.js`, `orderStore.js` | IMPLEMENTED | 기존 import 호환성 보존 |
-| API client | `api/client.js`, `unwrapResponse` | PARTIAL | envelope 처리 재사용, canonical endpoint로 통일 필요 |
-| API modules | menu/category/order/payment | PARTIAL | 함수 골격은 있으나 현재 API와 미연결 |
-| Mock | `public/mocks/kiosk.json` | MOCK_ONLY | 메뉴 목록 데모 자산으로 유지 |
-| styles | `styles/*.css` | IMPLEMENTED | CSS 방식 유지 |
-
-## Admin 인벤토리
-
-| 분류 | 파일/역할 | 상태 |
+| 자산 | 상태 | 비고 |
 |---|---|---|
-| 앱 | `apps/AdminApp.jsx` | PARTIAL/CONFLICT |
-| shell | `layouts/AdminLayout.jsx`, `components/admin/AdminSidebar.jsx` | MISSING |
-| pages | Login, Menu, Order, SoldOut, PaymentMethod, Sales | MISSING (placeholder) |
-| components | OrderTable, OrderStatusBadge, SoldOutToggle, SalesChart | MISSING (placeholder) |
-| store/hook | `adminSessionStore.js`, `useAdminAuth.js` | MISSING (placeholder) |
-| API | `api/client.js` | PARTIAL; `admin.js`, `sales.js`, constants | MISSING (placeholder) |
-| mock | `public/mocks/asak-admin-data.json` | MOCK_ONLY; 실제 화면 미사용 |
+| `AdminLayout` / `AdminSidebar` | `IMPLEMENTED` | |
+| `adminMockRepository.js` | `MOCK_READY` | **Page 연동 0** |
+| `asak-admin-data.json` | `MOCK_READY` | |
+| `api/*`, `hooks/*`, `adapters/*` | `PLACEHOLDER` | |
+| 공통 admin 컴포넌트 일부 | `PARTIAL` | DataTable 등은 placeholder 혼재 |
 
-## Backend 및 DB
+---
 
-| 계층 | 실제 파일 | 상태 | 비고 |
-|---|---|---|---|
-| Bootstrap | `AsakBackendApplication` | IMPLEMENTED | Spring Boot 4.1.0 / Java 25 |
-| Controller | `HealthController` (`GET /api/health`) | IMPLEMENTED | 유일한 business endpoint |
-| DTO | `ApiResponse` | PARTIAL | 성공 factory만 있고 오류/validation/exception 정책 미구현 |
-| Service/Repository/Entity | 없음 | MISSING | 메뉴·주문·결제·관리자 도메인 미구현 |
-| DB/JPA/Flyway | build/application 설정에 없음 | MISSING | schema·seed가 ASAK에 있으나 앱 연결 없음 |
-| Test | context test 1개 | PARTIAL | business/API contract test 없음 |
+## Backend (`ASAK-back`)
 
-## 중복 및 명명 관찰
+| 계층 | 상태 |
+|---|---|
+| `GET /api/health` | `IMPLEMENTED` |
+| 도메인 Controller/Service/Entity | `MISSING` |
+| JPA / migration | `MISSING` |
+| 프론트 실연동 | `BLOCKED` (WBS2-058~060) |
 
-- `ASAK-Kiosk`에 Admin pages/components/API가 함께 존재하지만 `ASAK-Admin`의 동명 역할은 placeholder다. Admin의 정본 구현 위치는 `ASAK-Admin`으로 확정해야 한다.
-- Kiosk의 `orderStore`와 `cartStore`는 중복 store가 아니라 `orderSessionStore`를 re-export하는 의도적 호환 계층이므로 유지한다.
-- `Header`가 `components/kiosk`와 `components/common`에 공존한다. 역할을 검증한 뒤 Kiosk Header는 보존하고 공통 Header를 성급히 통합하지 않는다.
+---
+
+## 화면 ID 재정렬 (2026-07-20)
+
+| ID | 의미 |
+|---|---|
+| SCR-020 | **관리자 월별 매출** (구 영수증 → SCR-023) |
+| SCR-021 | **관리자 일별 매출** (구 멤버십 → SCR-024) |
+| SCR-022 | 관리자 대시보드 |
+| SCR-023 | 영수증 (Future) |
+| SCR-024 | 멤버십/쿠폰 (Future) |
+
+---
+
+## 다음 작업 (문서 → 코드)
+
+1. Kiosk: 결제 mock 연결 · 한도 toast · 타임아웃 (WBS2-024, 026~030)  
+2. Admin: `adminMockRepository` → Page 바인딩 (WBS2-034~043)  
+3. Canonical path/상수 정렬 (DECIDED_PENDING)  
+4. Backend P5 세로 슬라이스 (WBS2-046+)

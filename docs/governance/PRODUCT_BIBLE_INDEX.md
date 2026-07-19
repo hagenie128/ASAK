@@ -1,6 +1,8 @@
 # Product Bible Index
 
-> 분석 기준: `docs/product_bible`의 Pack 1~12만 사용했다. `_archive`는 구버전 보관 영역으로 읽거나 구현 기준으로 사용하지 않았다.
+> **입구:** [START_HERE](../START_HERE.md) · **얇은 안내(MVP Pack):** [product_bible/README.md](../product_bible/README.md)  
+> Pack **README만** 먼저 읽고, 세부 문서는 필요할 때만. `_archive`는 구현 기준 제외.  
+> 분석 기준: `docs/product_bible` Pack 1~12.
 
 ## 참조 우선순위
 

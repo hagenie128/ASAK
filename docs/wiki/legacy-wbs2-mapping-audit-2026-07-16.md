@@ -1,6 +1,8 @@
 # Legacy WBS to WBS2 Mapping Audit
 
-> 감사일: 2026-07-16. 범위: DevCopilot의 EXCLUDED가 아닌 Legacy WBS 37건, 초기에는 활성 `WBS2-*` 64건과 비교. 이후 Release/Presentation 분리로 WBS2-065·WBS2-066이 추가되어 활성 WBS2는 66건. Internal ID는 DevCopilot의 불변 숫자 record ID이며 Task ID가 아닙니다.
+> **⚠️ HISTORICAL — 실행에 쓰지 마세요.**  
+> → 대신 [**START_HERE**](../START_HERE.md) · [**wbs-v2.md**](wbs-v2.md) · [**wbs-status-notes.md**](wbs-status-notes.md)  
+> 감사일: 2026-07-16. 범위: Legacy WBS 37건 ↔ `WBS2-*` 매핑. 활성 WBS2는 66건. Internal ID는 DevCopilot 불변 숫자 ID.
 
 ## 방법 및 한계
 

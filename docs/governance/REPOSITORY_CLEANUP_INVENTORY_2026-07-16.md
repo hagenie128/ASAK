@@ -1,6 +1,8 @@
 # 저장소 정리 인벤토리 — 2026-07-16
 
-> 범위: `ASAK` 문서/데이터 저장소만 해당. `ASAK-Kiosk`, `ASAK-Admin`, `ASAK-back` 및 구현 소스 코드는 변경하거나 이동 계획에 포함하지 않았습니다.
+> **⚠️ HISTORICAL — 실행에 쓰지 마세요.**  
+> → 대신 [**START_HERE**](../START_HERE.md) · [DOC_INVENTORY_SLIM](../DOC_INVENTORY_SLIM.md) · [DOCUMENT_STATUS_MANIFEST](DOCUMENT_STATUS_MANIFEST.md)  
+> 범위: `ASAK` 문서/데이터만. 앱 소스 이동 계획 없음. 파일 삭제 없음.
 >
 > 상태: 읽기 전용 인벤토리 완료 후 Batch A만 실행했습니다. 파일은 삭제하지 않았습니다. `docs/wiki/` 아래 현재 DevCopilot/WBS 미추적(untracked) 파일은 보호 대상이며 모든 이동에서 제외합니다.
 

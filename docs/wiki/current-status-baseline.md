@@ -1,17 +1,20 @@
 # ASAK Current Status Baseline
 
-> 기준일: 2026-07-16 · 소스 저장소와 DevCopilot workspace 2를 점검했습니다. 이 문서는 구현 baseline이며 완료 주장이 아닙니다.
+> 기준일: **2026-07-20** · 소스 코드(실제 구현)를 1차 정본으로 재감사했습니다.  
+> 문서 입구: [START_HERE](../START_HERE.md) · WBS: [wbs-v2](wbs-v2.md) · [상태 메모](wbs-status-notes.md)  
+> 이전 07-16 문서는 과소평가되어 있었고, DevCopilot WBS/요구사항도 함께 코드 기준으로 맞췄습니다.  
+> 이 문서는 구현 baseline이며 **완료(DONE) 주장이 아닙니다.**
 
 ## Evidence 기반 상태
 
 | 영역 | 검증된 상태 | Status |
 |---|---|---|
 | Figma foundation/shared/component structure | 사용자 제공 Figma evidence; Figma MCP 미사용 | DESIGN_DONE only |
-| Kiosk | React/Vite 빌드 통과; route는 home/menu/detail만; 데이터 I/O 작업 진행 중 | IN_PROGRESS |
-| Admin | React/Vite 빌드 통과; 화면은 placeholder이며 route가 registry와 충돌 | TODO |
-| Backend | Spring Boot 4.1.0 / Java 25 skeleton과 `GET /api/health`만 존재 | business API는 TODO |
-| DB | DevCopilot model 26 tables·4 views; backend에 schema/entity/repository 구현 없음 | TODO |
-| QA | 테스트 케이스 16건, 실행 evidence 없음 | TODO |
+| Kiosk | 라우트 10개 연결. Home→메뉴→상세→장바구니까지 mock 동작. 가격(`priceCalculation`)·수량한도(`quantityLimits` 9/30) 적용. 결제/완료/타임아웃은 UI shell만 | **IN_PROGRESS** |
+| Admin | Figma 정적 화면 10+ 라우트 연결. mock JSON·`adminMockRepository`는 준비됐으나 **Page 연동 0**. api/hook/adapter는 placeholder | **IN_PROGRESS** (UI shell) |
+| Backend | Spring Boot skeleton + `GET /api/health`만 | business API **TODO** |
+| DB | DevCopilot model 26 tables·4 views; backend schema/entity/repository 없음 | **TODO** |
+| QA | 테스트 케이스 16건, 실행 evidence 없음 | **TODO** |
 
 ## 저장소 baseline
 
@@ -22,8 +25,39 @@
 | `ASAK-Admin` | `hagenie128/ASAK_Admin` | 관리자 React 앱 | 현재 정본 admin 구현 대상 |
 | `ASAK-back` | `hagenie128/ASAK-back` | Spring Boot API | Skeleton only |
 
+## 코드 기준 프론트 진척 (2026-07-20)
+
+### Kiosk (`ASAK-Kiosk`)
+
+| 항목 | 실제 | Status |
+|---|---|---|
+| `/` `/menu` `/menu/:id` `/cart` | mock 데이터로 동작 | DONE~IN_PROGRESS |
+| `/payment` `/complete` `/payment-error` `/timeout` | 라우트+UI shell, flow 미연결 | IN_PROGRESS / TODO |
+| `priceCalculation.js` / `quantityLimits.js` | 단일 기준 적용 | DONE (한도 toast UX는 TODO) |
+| API adapter | stub / 미연결 | IN_PROGRESS |
+
+### Admin (`ASAK-Admin`)
+
+| 경로(코드) | 화면 | 데이터 |
+|---|---|---|
+| `/` | 주문 현황(Live) 정적 | 하드코딩 |
+| `/dashboard` | 대시보드 정적 | 하드코딩 |
+| `/orders` | 주문 관리 정적 | 하드코딩 |
+| `/sold-out` | 품절 관리 정적 | 하드코딩 |
+| `/menus`, `/menus/new\|edit` | 메뉴 관리/편집 | 정적/placeholder |
+| `/payment-methods` | 결제수단 | 정적·disabled |
+| `/sales`, `/sales/monthly`, `/sales/daily` | 매출 3화면 | 정적 |
+
+> Canonical 문서 경로(`/orders/live`, `/soldOut`, `/paymentMethods`)와 **코드 kebab-case가 불일치**. 다음 작업: mock 바인딩 + route 정렬.
+
 ## 적용 규칙
 
-- Design 완료는 코드·통합·QA evidence 없이 implementation DONE이 되지 않습니다.
+- Design/정적 UI 완료는 코드·mock 연동·QA evidence 없이 implementation DONE이 되지 않습니다.
 - DevCopilot에 문서화된 API·DB model은 backend evidence가 있을 때까지 명세입니다.
-- Kiosk 저장소 마이그레이션은 `NEEDS_CONFIRMATION`; pull, remote rewrite, reset, rebase, 소스 수정은 허용되지 않습니다.
+- **정본 우선순위:** 코드 증거 → Product Bible / Canonical 계약 → DevCopilot → 구 문서.
+- Kiosk 저장소 마이그레이션은 `NEEDS_CONFIRMATION`; pull, remote rewrite, reset, rebase는 허용되지 않습니다.
+
+## 2026-07-20 동기화 메모
+
+- DevCopilot `WBS2-001`~`066` 제목을 한글로 통일하고, P3/P4 상태를 코드 증거에 맞게 조정했습니다.
+- `screens.json`의 SCR-020/021(영수증·멤버십)은 DevCopilot·Admin 구현(월별/일별 매출)과 충돌 → SCR-020/021=매출, SCR-023/024=향후 범위로 재정렬합니다.

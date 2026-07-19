@@ -1,60 +1,43 @@
 # ASAK
 
-> **Current structure notice (2026-07-16):** the active implementation repositories are `ASAK-Kiosk`, `ASAK-Admin`, and `ASAK-back`; `ASAK` is the documentation/data/Product Bible source. The historical `ASAK-front` and integrated `frontend/`/`backend/` instructions below are retained as **Legacy Reference** only and must not be used for new work. See [current status baseline](docs/wiki/current-status-baseline.md).
+> **👉 문서·구현 입구:** [**START_HERE**](docs/START_HERE.md) · [**PROJECT_HUB**](PROJECT_HUB.md)  
+> **Current structure notice (2026-07-16/20):** 실행 코드는 `ASAK-Kiosk`, `ASAK-Admin`, `ASAK-back`. 이 저장소는 문서·데이터·Product Bible. 아래 `frontend/`·`ASAK-front` 안내는 **Legacy Reference** — 신규 작업에 쓰지 마세요. 현실: [baseline](docs/wiki/current-status-baseline.md).
 
-> **처음이신가요?** 👉 [**처음 시작하기 (GETTING_STARTED)**](docs/operations/setup/GETTING_STARTED.md) · Windows 설치 상세 [**INSTALL_WINDOWS.md**](docs/operations/setup/INSTALL_WINDOWS.md) · Notion [🚀 팀 온보딩](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) — 클론·세팅·워크로그까지 한 문서로!
+> **설치/온보딩:** [**GETTING_STARTED**](docs/operations/setup/GETTING_STARTED.md) · [**INSTALL_WINDOWS**](docs/operations/setup/INSTALL_WINDOWS.md) · Notion [팀 온보딩](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b)
 
-`ASAK`는 `A Salad A Kiosk`의 **통합 Git 저장소**입니다. 로컬 클론 위치는 각 팀원의 작업 환경에 맞게 정합니다.
+`ASAK`는 `A Salad A Kiosk`의 **문서·데이터·Product Bible** 정본 저장소입니다.  
+앱 실행 코드는 워크스페이스의 `ASAK-Kiosk` · `ASAK-Admin` · `ASAK-back`에 있습니다.  
+로컬에서는 보통 `ASAK-workspace` + `ASAK.code-workspace`로 네 저장소를 함께 엽니다. ([워크스페이스 README](../README.md))
 
-**9주 (7/2~9/2)** · Week 5 MVP SCR-001~008 (8/1) · 최종 발표 9/2(수). 산출물·진행 허브: [Notion 키오스크 풀스택 프로젝트](https://app.notion.com/p/39151ef04f0b808f99f8ea068efb5790) · 일일 워크로그: [팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95) · Git [`worklog/guide-personal-worklog.md`](worklog/guide-personal-worklog.md) · [확인 순서](worklog/README.md)
+**9주 (7/2~9/2)** · Week 5 MVP · 최종 발표 9/2(수).  
+할 일: [WBS 2.0](docs/wiki/wbs-v2.md) · 현실: [baseline](docs/wiki/current-status-baseline.md) · Notion [프로젝트 허브](https://app.notion.com/p/39151ef04f0b808f99f8ea068efb5790)
 
-## 클론
+## 저장소 역할 (2026-07-20)
+
+| 폴더 / 원격 | 역할 |
+|---|---|
+| `ASAK` → `hagenie128/ASAK` | docs, Product Bible, asak-data, worklog |
+| `ASAK-Kiosk` → `hagenie128/ASAK-Kiosk` (로컬 remote가 `ASAK-front`일 수 있음) | 고객 키오스크 React |
+| `ASAK-Admin` → `hagenie128/ASAK_Admin` | 관리자 React **정본** |
+| `ASAK-back` → `hagenie128/ASAK-back` | Spring Boot (현재 health only) |
+
+> `frontend/` · `ASAK-front` 단독 클론 안내는 **Legacy**. 신규 작업은 위 표만 따르세요.
+
+## 작업 방식
+
+네 폴더는 **서로 다른 Git 저장소**입니다. 변경은 **해당 폴더에서** 커밋·푸시합니다.
 
 ```powershell
-git clone https://github.com/hagenie128/ASAK.git
-# 또는 로컬 경로 지정
-git clone https://github.com/hagenie128/ASAK.git C:\ASAK
+# 문서
+cd C:\ASAK-workspace\ASAK
+
+# 키오스크 / 관리자 / 백엔드
+cd C:\ASAK-workspace\ASAK-Kiosk
+cd C:\ASAK-workspace\ASAK-Admin
+cd C:\ASAK-workspace\ASAK-back
 ```
 
-이 저장소는 프론트, 실제 백엔드, 데이터 파이프라인 작업을 한곳에서 관리하기 위한 루트이며, 실제 구현은 아래처럼 분리되어 있습니다.
-
-- `frontend/`: ASAK 정적 뷰어와 배포 자산
-- `backend/`: 실제 백엔드 앱 기본 구조
-- `data-pipeline/phase1/`: 1차 크롤링, 데이터 가공, DB 문서
-
-## 로컬 구조
-
-```text
-frontend/   프론트엔드 뷰어
-backend/    실제 백엔드 앱
-data-pipeline/
-  phase1/   1차 크롤링/데이터 파이프라인
-.github/    통합 워크플로우
-```
-
-## 별도 저장소
-
-- `ASAK-front`
-- `ASAK-back`
-
-각 저장소는 이 통합 구조를 기준으로 별도 폴더와 원격으로도 분리됩니다.
-
-## 작업 방식 (중요)
-
-세 폴더는 **서로 다른 Git 저장소**입니다. 작업 후 ASAK 통합 저장소에 다시 합칠 필요는 없습니다.
-
-- 프론트 개발 → `c:\ASAK-front` → `ASAK-front` 저장소에 푸시
-- 백엔드 개발 → `c:\ASAK-back` → `ASAK-back` 저장소에 푸시
-- 문서/파이프라인 → `C:\ASAK` → **ASAK** 저장소에 푸시
-
-자세한 설명은 [`docs/guides/01-team-setup.md`](docs/guides/01-team-setup.md)의 **2. Git 저장소 관계**를 참고하세요.
-
-## 저장소
-
-- 통합: `https://github.com/hagenie128/ASAK`
-- 프론트: `https://github.com/hagenie128/ASAK-front`
-- 백엔드: `https://github.com/hagenie128/ASAK-back`
-
+구조·계획: 각 앱 `IMPLEMENTATION_PLAN.md`, `src/STRUCTURE_GUIDE.md` · 문서 입구: [START_HERE](docs/START_HERE.md)
 ## 데이터·이미지
 
 키오스크 **학원 과제·포트폴리오**용입니다. 메뉴 데이터·이미지는 [샐러디(salady.com)](https://salady.com) 공개 정보를 참고했습니다. 상업적 서비스·실매장 배포에는 그대로 사용하지 마세요.

@@ -1,6 +1,8 @@
 # ASAK WBS 및 일정 계획
 
-> **Legacy WBS 안내 (2026-07-16):** 이 문서는 WBS-001~036과 역사 일정을 감사용으로 보존합니다. 새 실행 계획은 [WBS 2.0](wbs-v2.md)이며, DevCopilot duplicate 레코드는 삭제 대신 archived 처리합니다.
+> **⚠️ HISTORICAL — 실행에 쓰지 마세요.**  
+> → 대신 [**START_HERE**](../START_HERE.md) · [**wbs-v2.md**](wbs-v2.md) · [**wbs-status-notes.md**](wbs-status-notes.md) · [baseline](current-status-baseline.md)  
+> **Legacy WBS 안내 (2026-07-16):** 이 문서는 WBS-001~036과 역사 일정을 감사용으로 보존합니다. DevCopilot duplicate는 삭제 대신 archived.
 
 > Notion 01·07 · 9주 (7/2~9/2) · Week 5 MVP (8/1) + 9/2 최종 발표 (2026-07-06)
 
