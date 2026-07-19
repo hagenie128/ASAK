@@ -1,15 +1,15 @@
-# ASAK Wiki Index
+# ASAK 위키 색인
 
-> Current operational entry point — 2026-07-16.
+> 현재 운영 진입점 — 2026-07-16.
 
-- [Current status baseline](current-status-baseline.md)
+- [현재 상태 baseline](current-status-baseline.md)
 - [WBS 2.0](wbs-v2.md)
-- [Legacy WBS2 mapping audit](legacy-wbs2-mapping-audit-2026-07-16.md)
-- [Traceability matrix](traceability-matrix.md)
-- [Future scope](future-scope.md)
-- [DevCopilot sync report](devcopilot-sync-report.md)
-- [DB abbreviation glossary](db-abbreviation-glossary.md)
-- [DB audit plan](db-audit-plan.md)
-- [DevCopilot baseline snapshot](snapshots/devcopilot-baseline-2026-07-16.md)
+- [레거시 WBS2 매핑 감사](legacy-wbs2-mapping-audit-2026-07-16.md)
+- [추적성(Traceability) 매트릭스](traceability-matrix.md)
+- [향후 범위(Future scope)](future-scope.md)
+- [DevCopilot 동기화 보고](devcopilot-sync-report.md)
+- [DB 약어 용어집](db-abbreviation-glossary.md)
+- [DB 감사 계획](db-audit-plan.md)
+- [DevCopilot baseline 스냅샷](snapshots/devcopilot-baseline-2026-07-16.md)
 
-Product decisions and screen IDs are governed by `docs/product_bible`, especially the current Screen Registry. Legacy Wiki and Notion exports are retained as references, not implementation-completion evidence.
+제품 결정과 화면 ID는 `docs/product_bible`, 특히 현재 Screen Registry가 기준입니다. 레거시 Wiki와 Notion export는 참고용으로 보존되며, 구현 완료 증거로 쓰지 않습니다.

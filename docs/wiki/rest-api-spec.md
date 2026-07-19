@@ -1,6 +1,6 @@
 # ASAK REST API 명세서
 
-> **Contract-gap override (2026-07-16):** the legacy paths in this document remain specifications only. Target paths are `GET /api/kiosk/menuList`, `GET /api/kiosk/menuDetail/{menuId}`, `POST /api/kiosk/orders`, `POST /api/kiosk/payments`, and `PATCH /api/admin/soldOut`. ASAK-back currently implements only `/api/health`; no business API is DONE. See [traceability matrix](traceability-matrix.md).
+> **Contract-gap override (2026-07-16):** 이 문서의 legacy path는 명세로만 유지. Target path는 `GET /api/kiosk/menuList`, `GET /api/kiosk/menuDetail/{menuId}`, `POST /api/kiosk/orders`, `POST /api/kiosk/payments`, `PATCH /api/admin/soldOut`. ASAK-back는 현재 `/api/health`만 구현; business API DONE 없음. [traceability matrix](traceability-matrix.md) 참고.
 
 > API 목록은 Notion DB 참조 — [06. API 명세](https://app.notion.com/p/34651ef04f0b838ca3a481e55eebfb2b)
 

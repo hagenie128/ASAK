@@ -1,41 +1,41 @@
-# Legacy and Reference Index
+# 레거시(Legacy) 및 참조(Reference) 색인
 
-> This index classifies non-canonical documents without deleting, moving, or rewriting their unique content. Canonical product rules are in [Product Bible](../README.md#pack-112).
+> 이 색인은 고유 콘텐츠를 삭제·이동·재작성하지 않고 비정본(non-canonical) 문서를 분류합니다. 정본(Canonical) 제품 규칙은 [Product Bible](../README.md#pack-112)에 있습니다.
 
-## Reference
+## 참조(Reference)
 
-| Document group | Why it is not canonical | Unique information to preserve | Follow-up |
+| 문서 그룹 | 정본이 아닌 이유 | 보존할 고유 정보 | 후속 조치 |
 |---|---|---|---|
-| `docs/guides/**` | onboarding and work guidance, not product contract | team setup, Git process, work-log formats | link to current Pack where applicable |
-| `docs/wiki/**` | exported project summaries | requirements, scenario, DB/API/WBS context | compare with Product Bible before reuse |
-| `docs/design/**` (current Figma guides/specs) | Figma support material | Figma nodes, design assets, design process | confirm latest Figma/Screen Registry |
-| `docs/notion/**` | script-backed Notion input snapshot | DevCopilot upload source only | compare with Product Bible before reuse |
+| `docs/guides/**` | 온보딩 및 작업 가이드이며, 제품 계약이 아님 | 팀 설정, Git 프로세스, 작업 로그 형식 | 해당되는 경우 현재 Pack으로 링크 |
+| `docs/wiki/**` | 내보낸 프로젝트 요약 | 요구사항, 시나리오, DB/API/WBS 맥락 | 재사용 전 Product Bible과 비교 |
+| `docs/design/**` (현재 Figma 가이드/스펙) | Figma 지원 자료 | Figma 노드, 디자인 에셋, 디자인 프로세스 | 최신 Figma/Screen Registry 확인 |
+| `docs/notion/**` | 스크립트 기반 Notion 입력 스냅샷 | DevCopilot 업로드 소스 전용 | 재사용 전 Product Bible과 비교 |
 
-## Legacy
+## 레거시(Legacy)
 
-| Document group | Why not canonical | Unique information to preserve |
+| 문서 그룹 | 정본이 아닌 이유 | 보존할 고유 정보 |
 |---|---|---|
-| `ASAK-Kiosk/src/pages/admin/**`, `components/admin/**`, `api/admin.js`, `api/sales.js` | Admin implementation canonical is ASAK-Admin | prior frontend scaffold and field expectations |
-| `docs/team/**`, design meeting opinions | dated collaboration/decision context | authorship, review history, unresolved feedback |
-| Notion daily worklogs and prior implementation plans | point-in-time progress records | implementation history and test evidence |
+| `ASAK-Kiosk/src/pages/admin/**`, `components/admin/**`, `api/admin.js`, `api/sales.js` | 관리자 구현 정본은 ASAK-Admin | 이전 프론트엔드 스캐폴드 및 필드 기대값 |
+| `docs/team/**`, 디자인 회의 의견 | 날짜가 있는 협업/결정 맥락 | 작성자, 리뷰 이력, 미해결 피드백 |
+| Notion 일일 작업 로그 및 이전 구현 계획 | 특정 시점 진행 기록 | 구현 이력 및 테스트 증거 |
 
-## Archived
+## 아카이브(Archived)
 
-| Document group | Why archived |
+| 문서 그룹 | 아카이브된 이유 |
 |---|---|
-| `docs/product_bible/_archive/**` | explicitly excluded from current implementation criteria |
-| `docs/archive/notion-exports/**` | historical Notion export |
-| concluded meetings, dated schedules, completed WBS records | preserved history; not a current requirement |
+| `docs/product_bible/_archive/**` | 현재 구현 기준에서 명시적으로 제외됨 |
+| `docs/archive/notion-exports/**` | 과거 Notion 내보내기 |
+| 종료된 회의, 날짜가 있는 일정, 완료된 WBS 기록 | 보존된 이력; 현재 요구사항이 아님 |
 
-## Needs Review
+## 검토 필요(Needs Review)
 
-- `docs/notion/**` is retained solely where a current script reads it; review any policy intake against Product Bible before use.
-- `docs/design/**/prompts/**`, plugin documents, and older design candidates: useful tooling history but must be checked against current Figma and Pack 08.
+- `docs/notion/**`은 현재 스크립트가 읽는 경우에만 유지합니다. 사용 전 정책 수용 여부를 Product Bible과 대조해 검토하세요.
+- `docs/design/**/prompts/**`, 플러그인 문서, 이전 디자인 후보: 유용한 도구 이력이지만 현재 Figma 및 Pack 08과 대조해야 합니다.
 
-## Candidate unique information for Product Bible review
+## Product Bible 검토 후보 고유 정보
 
-1. Device event logs and API performance targets.
-2. Korean/English UI switching, QR/barcode scanning, packaging bag options, set discounts, and advanced topping quantity controls.
-3. Past requirement rationale and QA evidence that is absent from Pack 09.
+1. 디바이스 이벤트 로그 및 API 성능 목표.
+2. 한/영 UI 전환, QR/바코드 스캔, 포장 봉투 옵션, 세트 할인, 고급 토핑 수량 제어.
+3. Pack 09에 없는 과거 요구사항 근거 및 QA 증거.
 
-These are review candidates only. They are not MVP commitments until a human accepts them into the Product Bible.
+위 항목은 검토 후보일 뿐입니다. 사람이 Product Bible에 수용하기 전까지는 MVP 약속이 아닙니다.

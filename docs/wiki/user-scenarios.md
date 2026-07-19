@@ -1,6 +1,6 @@
 # ASAK 사용자 시나리오 명세
 
-> **Scenario status override (2026-07-16):** all imported scenarios are planning drafts until their requirement, screen, API contract, and QA evidence are confirmed. Future Scope scenarios remain preserved but are not MVP completion evidence.
+> **시나리오 status override (2026-07-16):** 가져온 시나리오는 requirement, screen, API contract, QA evidence가 확인될 때까지 기획 draft입니다. Future Scope 시나리오는 보존되나 MVP 완료 evidence가 아닙니다.
 
 > Notion 03. 사용자 시나리오 · SC-001~024 (2026-07-06)
 

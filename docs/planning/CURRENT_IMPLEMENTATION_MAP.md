@@ -1,6 +1,6 @@
 # Current Implementation Map
 
-> Human decisions, 2026-07-16: canonical API/route/response fields are in [Canonical Contract Decisions](../governance/CANONICAL_CONTRACT_DECISIONS.md). Code remains unchanged. `DECIDED_PENDING_CODE_CHANGE` means the target is fixed but source changes are deferred; `DECIDED_NOT_IMPLEMENTED` means the adapter decision is fixed but intentionally not implemented.
+> 사람 결정, 2026-07-16: canonical API/route/response 필드는 [Canonical Contract Decisions](../governance/CANONICAL_CONTRACT_DECISIONS.md)에 있습니다. 코드는 변경하지 않았습니다. `DECIDED_PENDING_CODE_CHANGE`는 목표가 확정됐으나 소스 변경은 연기됨을 뜻하고, `DECIDED_NOT_IMPLEMENTED`는 adapter 결정은 확정됐으나 의도적으로 미구현임을 뜻합니다.
 
 ## Decision status overlay
 
@@ -8,8 +8,8 @@
 |---|---|---|
 | Kiosk menu/order/payment paths | DECIDED_PENDING_CODE_CHANGE | `/api/kiosk/menuList`, `/api/kiosk/menuDetail/{menuId}`, `/api/kiosk/orders`, `/api/kiosk/payments` |
 | Admin Dashboard/Live Order/Sold-out/Payment routes | DECIDED_PENDING_CODE_CHANGE | `/`, `/orders/live`, `/soldOut`, `/paymentMethods` |
-| Store field versus API fields | DECIDED_NOT_IMPLEMENTED | adapter maps canonical fields; preserve `totalPrice`, `amount`, `paidAt` |
-| Admin implementation ownership | DECIDED_NOT_IMPLEMENTED | ASAK-Admin; Kiosk Admin scaffolds are Legacy Reference |
+| Store field versus API fields | DECIDED_NOT_IMPLEMENTED | adapter가 canonical field 매핑; `totalPrice`, `amount`, `paidAt` 유지 |
+| Admin implementation ownership | DECIDED_NOT_IMPLEMENTED | ASAK-Admin; Kiosk Admin scaffold는 Legacy Reference |
 
 > 2026-07-16 코드 정적 조사 및 Kiosk/Admin production build 기준. 상태: `IMPLEMENTED`, `PARTIAL`, `MOCK_ONLY`, `MISSING`, `CONFLICT`, `FUTURE_SCOPE`.
 

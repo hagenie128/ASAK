@@ -1,6 +1,6 @@
 # ASAK 요구사항 정의서
 
-> **Implementation status override (2026-07-16):** requirement status is evidence-based. Figma-only work is not DONE; backend specification/model presence is not implementation evidence; receipt, membership, QR/barcode, device and CMS scope are retained as EXCLUDED/Future Scope. See [baseline](current-status-baseline.md) and [future scope](future-scope.md).
+> **구현 상태 override (2026-07-16):** requirement status는 evidence 기반입니다. Figma만으로는 DONE 아님; backend 명세/model 존재만으로 implementation evidence 아님; receipt, membership, QR/barcode, device, CMS 범위는 EXCLUDED/Future Scope로 보존. [baseline](current-status-baseline.md)과 [future scope](future-scope.md) 참고.
 
 > Notion 02. 요구사항 정의 · `notion_data.json` (2026-07-05)
 

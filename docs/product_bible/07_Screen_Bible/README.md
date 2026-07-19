@@ -1,27 +1,27 @@
-# ASAK Product Bible Pack 7 — Screen Bible
+# ASAK Product Bible Pack 7 — Screen Bible (화면 정본)
 
-## Included
+## 포함 내용
 
-- Screen Registry
-- Kiosk screens
-- Admin screens
-- Extension screens
+- Screen Registry (화면 레지스트리)
+- 키오스크 화면
+- 관리자 화면
+- 확장 화면
 
 각 문서는 다음을 포함한다.
 
 - 목적
-- Figma reference
-- Main data
-- Required states
-- Product rules
-- React component map
-- API contract
-- Edge cases
-- Accessibility
+- Figma 참조
+- 주요 데이터
+- 필수 상태
+- 제품 규칙
+- React 컴포넌트 맵
+- API 계약
+- 예외 케이스
+- 접근성
 - QA
-- Definition of Done
+- Definition of Done (완료 정의)
 
-## Important
+## 중요
 
-이 Pack은 화면별 Source of Truth 초안이다.
-Screen ID 충돌이 생기면 `SCREEN_REGISTRY.md`를 먼저 수정한다.
+이 Pack은 화면별 Source of Truth(정본) 초안이다.
+Screen ID가 충돌하면 `SCREEN_REGISTRY.md`를 먼저 수정한다.

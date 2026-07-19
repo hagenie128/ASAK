@@ -60,4 +60,4 @@
 
 ## Human decision status overlay
 
-The following former conflicts are decided by human direction and remain intentionally unimplemented in code: `API-01`, `API-02`, `API-03`, `SCR-01`, and `SCR-02` are `DECIDED_PENDING_CODE_CHANGE`; `DATA-01` is `DECIDED_NOT_IMPLEMENTED` and will be handled by an API adapter without renaming current store fields. See [Canonical Contract Decisions](../governance/CANONICAL_CONTRACT_DECISIONS.md). `UI-01` and DB migration/seed selection remain open.
+다음 이전 충돌은 사람 방향으로 결정됐으며 코드에는 의도적으로 미반영입니다: `API-01`, `API-02`, `API-03`, `SCR-01`, `SCR-02`는 `DECIDED_PENDING_CODE_CHANGE`; `DATA-01`은 `DECIDED_NOT_IMPLEMENTED`이며 현재 store 필드 이름 변경 없이 API adapter로 처리합니다. [Canonical Contract Decisions](../governance/CANONICAL_CONTRACT_DECISIONS.md)를 참고하세요. `UI-01`과 DB migration/seed 선택은 아직 열려 있습니다.
