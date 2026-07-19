@@ -5,6 +5,7 @@
 ## 정본
 
 - `FIGMA_GUIDE.md`: Figma와 SCR 매핑의 진입점
+- `FIGMA-TOKEN-REPORT.md`: 0718 이식 중 관찰한 토큰·이탈 정리
 - `kiosk-design-system.md`, `kiosk-design-system-index.md`, `kiosk-tokens.css`: 현재 디자인 시스템·토큰
 - `SCR_TABLET_PORTRAIT_FRAMES.md`, `TABLET_PORTRAIT_FIGMA_SETUP.md`: 현재 태블릿 프레임 기준
 - `SCREENS_UPLOAD_GUIDE.md`: DevCopilot 업로드 시 현재 Screen Registry를 참조하는 방법
