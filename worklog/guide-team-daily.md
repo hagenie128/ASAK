@@ -100,7 +100,7 @@ python worklog/scripts/sync_daily_to_notion.py --date today
 - **이슈:** 화면/장바구니 가격 불일치 → 공통 계산 함수로 통일
 - **검증:** `npm run dev` — 옵션·수량·필수옵션·장바구니 총액 ✅
 - **포트폴리오 요약:** React SCR-003 옵션 UI 상태·가격 계산 직접 설계
-- **상세 기록 →** [`entries/이하진/2026-07-02-scr-003-menu-option-ui.md`](entries/이하진/2026-07-02-scr-003-menu-option-ui.md) · [04 예시](../docs/guides/04-sample-work-log-example.md)
+- **상세 기록 →** [entries 작성 규칙](entries/README.md) · [04 예시](../docs/guides/04-sample-work-log-example.md)
 ```
 
 ---

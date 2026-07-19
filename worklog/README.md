@@ -1,5 +1,13 @@
 # ASAK 워크로그
 
+> Cleanup 상태: `daily/`, `entries/`, `weekly/`는 캘린더·Notion 동기화의 현재 경로입니다. 완료 이력은 삭제하지 않으며, 스크립트 경로를 변경할 승인 전에는 `archive/`로 일괄 이동하지 않습니다. `archive/completed/`, `archive/former-members/`, `archive/plans/`, `current/`은 다음 경로 전환을 위한 예약 구조입니다.
+
+## 역할과 중복 원칙
+
+- Worklog는 실제 수행 증거이며 현재 요구사항이나 WBS 정본이 아닙니다.
+- 현재 작업은 GitHub Issue(실행 대화)와 WBS2(일정·담당)에 연결하고, Worklog에는 Issue/WBS/PR·Commit 증거만 보강합니다.
+- `daily/`와 `entries/`를 옮기려면 `worklog_paths.py`, calendar data, Notion sync URL을 함께 갱신해야 합니다. 이 cleanup은 Source Code 변경 0건 원칙에 따라 해당 경로를 유지합니다.
+
 > **처음이면:** Notion [🚀 ASAK 처음 시작하기 — Part 2](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) · Git [`docs/operations/setup/GETTING_STARTED.md`](../docs/operations/setup/GETTING_STARTED.md#part-2--워크로그-쓰기-유치원-선생님-모드)
 > **Notion:** [📅 일일 워크로그 — 팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95) (정본) · [📅 일일 워크로그 DB](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9)  
 > **Git:** [worklog/](https://github.com/hagenie128/ASAK/tree/main/worklog)

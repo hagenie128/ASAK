@@ -29,9 +29,10 @@ body:
       label: 저장소
       description: 작업 대상 Git 저장소
       options:
-        - ASAK-front
+        - ASAK-Kiosk
+        - ASAK-Admin
         - ASAK-back
-        - ASAK(통합)
+        - ASAK
     validations:
       required: true
 

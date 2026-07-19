@@ -10,13 +10,13 @@
 
 | 파일 | 용도 |
 |------|------|
-| `docs/screens/screens.md` | Screens UI 수동 입력용 표 |
+| `docs/screens/screens.md` | Screens UI 수동 입력용 생성 표 (정본 아님) |
 | `docs/screens/screens.json` | 구조화 체크리스트 |
 | `docs/screens/screens-devcopilot-import-array.json` | localStorage import 배열 |
-| `docs/screens/screens-wiki.md` | Wiki 업로드 본문 |
+| `docs/screens/screens-wiki.md` | Wiki 업로드용 생성 본문 (정본 아님) |
 | `asak-data/scripts/upload_screens_wiki.py` | Wiki API 업로드 |
 
-재생성: `python asak-data/scripts/export_screens.py`
+정본 확인: `docs/product_bible/07_Screen_Bible/` → 재생성: `python asak-data/scripts/export_screens.py`
 
 ## 방법 비교
 
