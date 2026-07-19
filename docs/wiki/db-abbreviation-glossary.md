@@ -1,11 +1,11 @@
 # DB Abbreviation Glossary
 
-> Draft — the real backend schema has not been implemented. No table or column rename is authorized by this document.
+> 초안 — 실제 backend schema는 아직 구현되지 않았습니다. 이 문서만으로 table·column 이름 변경은 승인되지 않습니다.
 
 | Abbreviation | Full Name | Korean Meaning | Used In | Table/Column | Related Requirement | Notes | Confirmation Status |
 |---|---|---|---|---|---|---|---|
-| `vw` | View | 데이터베이스 뷰 | Modeler | `vw_sales_*`, `vw_top_menu_*` | LMIS-ORDER-005 | Read-model candidate, not a proven backend object | NEEDS_CONFIRMATION |
-| `id` | Identifier | 식별자 | Modeler | PK/FK columns | all entity requirements | Keep existing naming | CONFIRMED_CONVENTION |
-| `fk` | Foreign Key | 외래 키 | Modeler metadata | relation columns | data requirements | Do not infer missing backend FK from Modeler alone | NEEDS_CONFIRMATION |
-| `pk` | Primary Key | 기본 키 | Modeler metadata | `id` columns | data requirements | Do not rename | CONFIRMED_CONVENTION |
-| `qty` | Quantity | 수량 | API/UI contract candidate | order/menu payloads | FWD-CART-002 | Actual current fields use `quantity` | NEEDS_CONFIRMATION |
+| `vw` | View | 데이터베이스 뷰 | Modeler | `vw_sales_*`, `vw_top_menu_*` | LMIS-ORDER-005 | Read-model 후보, 입증된 backend 객체 아님 | NEEDS_CONFIRMATION |
+| `id` | Identifier | 식별자 | Modeler | PK/FK columns | all entity requirements | 기존 명명 유지 | CONFIRMED_CONVENTION |
+| `fk` | Foreign Key | 외래 키 | Modeler metadata | relation columns | data requirements | Modeler만으로 backend FK 누락 추론 금지 | NEEDS_CONFIRMATION |
+| `pk` | Primary Key | 기본 키 | Modeler metadata | `id` columns | data requirements | 이름 변경 금지 | CONFIRMED_CONVENTION |
+| `qty` | Quantity | 수량 | API/UI contract candidate | order/menu payloads | FWD-CART-002 | 현재 실제 필드는 `quantity` 사용 | NEEDS_CONFIRMATION |

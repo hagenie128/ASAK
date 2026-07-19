@@ -1,87 +1,94 @@
 # ASAK WBS 2.0
 
-> 2026-07-16 Legacy semantic-overlap audit: the authoritative 37-record mapping is [legacy-wbs2-mapping-audit-2026-07-16.md](legacy-wbs2-mapping-audit-2026-07-16.md). `DevCopilot Dashboard WBS progress is not operationally reliable`: its observed denominator includes `EXCLUDED` records. Use active-scope progress separately for team operation.
+> **실행 할 일 정본.** 문서 입구: [START_HERE](../START_HERE.md) · 코드 요약: [wbs-status-notes.md](wbs-status-notes.md)  
+> DevCopilot 대시보드 %는 EXCLUDED 포함으로 **운영용으로 쓰지 마세요.** Legacy 매핑(참고만): [legacy-wbs2-mapping-audit](legacy-wbs2-mapping-audit-2026-07-16.md).
 
-> 기준일: 2026-07-16 · Legacy `WBS-*` records are preserved. `WBS2-*` is the execution plan and does not imply source-code completion.
+> 기준일: **2026-07-20** · 상태는 **코드 증거** 기준. DevCopilot WBS 제목도 한글로 동기화됨. Legacy WBS-* 레코드는 보존됩니다.
+>
+> Legacy `WBS-*` 레코드는 보존됩니다. `WBS2-*`는 실행 계획이며 소스 코드 완료를 의미하지 않습니다.
+>
+> **프론트 스프린트 (2026-07-20 ~ 07-22):** P3 키오스크·P4 관리자 프론트 동작 완성 목표는 Target Date `2026-07-22`.  
+> 학원 3일 실행표(블록 DoD·게이트·데모 대본·버퍼): [FRONTEND_WEDNESDAY_WBS_2026-07-20.md](../planning/FRONTEND_WEDNESDAY_WBS_2026-07-20.md).  
+> 전제: UI 이식 완료 · 이번 스프린트는 로직/mock 연결만. Backend P5·실연동 P6 제외.
 
-## Field contract
+## 필드 계약
 
-Every task uses: WBS2 ID, Phase, Epic, Work Package, Detailed Task, Deliverable, Repository, Primary Owner, Support Owner, Review Owner, QA Owner, Dependency, Handoff Condition, Start/Target Date, Status, Definition of Done, Evidence, Requirement, Scenario, SCR, API, DB, QA, and Notes. In the compact table below, **Handoff condition + Evidence / linked scope is the row-level Definition of Done**: a row can be DONE only when its handoff condition is met and its evidence is concrete. `—` means not applicable; `NEEDS_CONFIRMATION` means evidence or ownership is not yet available.
+모든 작업은 WBS2 ID, Phase, Epic, Work Package, Detailed Task, Deliverable, Repository, Primary Owner, Support Owner, Review Owner, QA Owner, Dependency, Handoff Condition, Start/Target Date, Status, Definition of Done, Evidence, Requirement, Scenario, SCR, API, DB, QA, Notes를 사용합니다. 아래 간략 표에서 **Handoff condition + Evidence / linked scope가 행 단위 Definition of Done**입니다: handoff condition을 충족하고 evidence가 구체적일 때만 행을 DONE으로 둘 수 있습니다. `—`는 해당 없음, `NEEDS_CONFIRMATION`은 evidence 또는 담당이 아직 확정되지 않음을 뜻합니다.
 
-## Execution backlog
+## 실행 백로그
 
 | ID | Phase / work package | Detailed task | Repository | Primary / support | Status | Handoff condition | Evidence / linked scope |
 |---|---|---|---|---|---|---|---|
-| WBS2-001 | P1 Baseline / Snapshot | Preserve MCP baseline and metric values | ASAK | 하진 / — | DONE | Snapshot reviewed | Snapshot, DEV-SYS-002 |
-| WBS2-002 | P1 Baseline / Repository | Record four-repository actual/target map | ASAK | 하진 / — | DONE | Map reviewed | current-status-baseline |
-| WBS2-003 | P1 Baseline / Kiosk remote | Confirm ASAK-front vs ASAK-Kiosk canonical repository | ASAK-Kiosk | 나연 / 하진 | BLOCKED | Owner confirms migration plan | NEEDS_CONFIRMATION |
-| WBS2-004 | P1 Baseline / Kiosk remote | Compare branch and uncommitted work before migration | ASAK-Kiosk | 나연 / 하진 | BLOCKED | Na-yeon provides evidence | NEEDS_CONFIRMATION |
-| WBS2-005 | P1 Baseline / Docs | Audit requirement, scenario, screen ID conflicts | ASAK | 하진 / — | IN_PROGRESS | Findings linked | traceability-matrix |
-| WBS2-006 | P1 Baseline / Docs | Separate MVP and future scope | ASAK | 하진 / — | IN_PROGRESS | Scope document reviewed | future-scope |
-| WBS2-007 | P1 Baseline / API | Publish legacy-to-target API gap table | ASAK | 하진 / 나연 | IN_PROGRESS | Backend review requested | rest-api-spec |
-| WBS2-008 | P1 Baseline / DB | Prepare non-destructive DB audit plan | ASAK | 하진 / 나연 | TODO | Backend artifacts available | db-audit-plan |
-| WBS2-009 | P2 Design / Foundation | Verify 01-C token evidence and modes | Figma / ASAK | 하진 / — | DONE | Design QA record | DESIGN_DONE |
-| WBS2-010 | P2 Design / Shared | Verify shared state components documentation | Figma / ASAK | 하진 / — | IN_PROGRESS | Cover/visual QA reviewed | DESIGN_DONE |
-| WBS2-011 | P2 Design / Kiosk | Record 03-C component structure mapping | Figma / ASAK | 하진 / 나연 | IN_PROGRESS | Mapping accepted | SCR-003–008 |
-| WBS2-012 | P2 Design / Admin | Record 04-C component structure mapping | Figma / ASAK | 하진 / — | IN_PROGRESS | Mapping accepted | SCR-009–022 |
-| WBS2-013 | P2 Design / Kiosk screens | Record 05-C screen instance-apply gap | Figma / ASAK | 하진 / 나연 | TODO | Figma owner confirms | DESIGN_DONE only |
-| WBS2-014 | P2 Design / Admin screens | Record 06-C active-work conflict boundary | Figma / ASAK | 하진 / — | IN_PROGRESS | No conflict with active agent | SCR-019–022 |
-| WBS2-015 | P2 Design / Accessibility | Define high-contrast review checklist | ASAK | 하진 / 나연 | TODO | Design and implementation evidence | FWD-UI-001 |
-| WBS2-016 | P2 Design / Prototype | Record prototype/instance swap as pending | Figma / ASAK | 하진 / — | TODO | Figma owner evidence | NEEDS_CONFIRMATION |
-| WBS2-017 | P3 Kiosk / Route | Preserve and assess home/menu/detail routes | ASAK-Kiosk | 나연 / — | IN_PROGRESS | Route review complete | SCR-001,003,004 |
-| WBS2-018 | P3 Kiosk / Menu | Validate menu-list response adapter contract | ASAK-Kiosk | 나연 / — | IN_PROGRESS | Contract reviewed | FWD-MENU-001, API target |
-| WBS2-019 | P3 Kiosk / Detail | Validate menu-detail response adapter contract | ASAK-Kiosk | 나연 / — | IN_PROGRESS | Contract reviewed | SCR-004 |
-| WBS2-020 | P3 Kiosk / Options | Implement/verify option selection validation | ASAK-Kiosk | 나연 / — | IN_PROGRESS | Interaction evidence | FWD-MENU-002 |
-| WBS2-021 | P3 Kiosk / Allergy | Implement conditional allergy disclosure | ASAK-Kiosk | 나연 / — | TODO | UI and QA evidence | FWD-MENU-004 |
-| WBS2-022 | P3 Kiosk / Store | Enforce same-menu maximum quantity 9 | ASAK-Kiosk | 나연 / — | TODO | Store test evidence | cart policy |
-| WBS2-023 | P3 Kiosk / Store | Enforce cart total maximum 30 | ASAK-Kiosk | 나연 / — | TODO | Store test evidence | cart policy |
-| WBS2-024 | P3 Kiosk / Store | Add limit-specific four-second toast behavior | ASAK-Kiosk | 나연 / — | TODO | Interaction evidence | cart policy |
-| WBS2-025 | P3 Kiosk / Cart | Integrate cart route and item edit/delete | ASAK-Kiosk | 나연 / 하진 | TODO | SCR-005 route works | FWD-CART-002 |
-| WBS2-026 | P3 Kiosk / Payment | Integrate payment-method route and display | ASAK-Kiosk | 나연 / — | TODO | SCR-007 route works | FWD-PAY-001 |
-| WBS2-027 | P3 Kiosk / Payment | Handle payment failure and cart retention | ASAK-Kiosk | 나연 / — | TODO | Error-flow evidence | SCR-012, TC-004 |
-| WBS2-028 | P3 Kiosk / Complete | Render order number, amount, waiting count, home action | ASAK-Kiosk | 나연 / — | TODO | Completion evidence | SCR-008 |
-| WBS2-029 | P3 Kiosk / Timeout | Implement 30s, 20s warning, 10s countdown | ASAK-Kiosk | 나연 / — | TODO | Timer QA evidence | SCR-013 |
-| WBS2-030 | P3 Kiosk / Timeout | Disable timeout while payment is PROCESSING | ASAK-Kiosk | 나연 / — | TODO | Payment-state evidence | SCR-013 |
-| WBS2-031 | P3 Kiosk / States | Add loading, empty, error states to core flow | ASAK-Kiosk | 나연 / — | TODO | State QA evidence | FWD-MENU-001 |
-| WBS2-032 | P3 Kiosk / QA | Touch target and responsive review | ASAK-Kiosk | 나연 / 하진 | TODO | QA execution | 48px target |
-| WBS2-033 | P4 Admin / Route | Align route metadata with Screen Registry | ASAK-Admin | 하진 / — | TODO | Registry review | SCR-022,009–021 |
-| WBS2-034 | P4 Admin / Dashboard | Implement Dashboard shell at `/` | ASAK-Admin | 하진 / — | TODO | Route and state evidence | SCR-022 |
-| WBS2-035 | P4 Admin / Live order | Implement Live Order shell at `/orders/live` | ASAK-Admin | 하진 / — | TODO | Route evidence | SCR-009 |
-| WBS2-036 | P4 Admin / Orders | Implement order-management list at `/orders` | ASAK-Admin | 하진 / — | TODO | Screen evidence | SCR-010 |
-| WBS2-037 | P4 Admin / Orders | Implement order status update UI and TTS policy | ASAK-Admin | 하진 / — | TODO | PATCH/TTS evidence | LMIS-ORDER-003 |
-| WBS2-038 | P4 Admin / Sold-out | Implement `/soldOut` page and save state | ASAK-Admin | 하진 / — | TODO | UI state evidence | SCR-011 |
-| WBS2-039 | P4 Admin / Menu | Implement menu-management shell | ASAK-Admin | 하진 / — | TODO | UI evidence | SCR-016 |
-| WBS2-040 | P4 Admin / Payments | Implement payment-method shell | ASAK-Admin | 하진 / — | TODO | UI evidence | SCR-018 |
-| WBS2-041 | P4 Admin / Sales | Implement sales summary shell | ASAK-Admin | 하진 / — | TODO | UI evidence | SCR-019 |
-| WBS2-042 | P4 Admin / Sales | Implement monthly sales screen | ASAK-Admin | 하진 / — | TODO | UI evidence | SCR-020 |
-| WBS2-043 | P4 Admin / Sales | Implement daily sales screen | ASAK-Admin | 하진 / — | TODO | UI evidence | SCR-021 |
-| WBS2-044 | P4 Admin / States | Add loading/empty/error/navbar states | ASAK-Admin | 하진 / — | TODO | State QA evidence | Admin common |
-| WBS2-045 | P4 Admin / QA | Verify date filter, totals, and active navigation | ASAK-Admin | 하진 / 나연 | TODO | QA execution | Sales/Admin QA |
-| WBS2-046 | P5 Backend / Baseline | Add persistence implementation decision record | ASAK-back | 하진 / 나연 | TODO | Team decision | DB audit |
-| WBS2-047 | P5 Backend / Schema | Select schema/migration/seed approach | ASAK-back | 하진 / 나연 | TODO | Review approval | DB audit |
-| WBS2-048 | P5 Backend / Menu | Implement Menu List controller/service/repository slice | ASAK-back | NEEDS_CONFIRMATION / 나연 | TODO | API test evidence | GET menuList |
-| WBS2-049 | P5 Backend / Menu | Implement Menu Detail controller/service/repository slice | ASAK-back | NEEDS_CONFIRMATION / 나연 | TODO | API test evidence | GET menuDetail |
-| WBS2-050 | P5 Backend / Orders | Implement order validation and transaction slice | ASAK-back | NEEDS_CONFIRMATION / 나연 | TODO | API test evidence | POST orders |
-| WBS2-051 | P5 Backend / Payments | Implement payment approval/failure slice | ASAK-back | NEEDS_CONFIRMATION / 나연 | TODO | API test evidence | POST payments |
-| WBS2-052 | P5 Backend / Admin | Implement sold-out slice | ASAK-back | NEEDS_CONFIRMATION / 하진 | TODO | API test evidence | PATCH soldOut |
-| WBS2-053 | P5 Backend / Admin | Implement order-query/status slice | ASAK-back | NEEDS_CONFIRMATION / 하진 | TODO | API test evidence | Admin orders |
-| WBS2-054 | P5 Backend / Sales | Define and implement sales aggregation source | ASAK-back | NEEDS_CONFIRMATION / 하진 | TODO | Sum validation | sales views |
-| WBS2-055 | P5 Backend / Common | Add error envelope and validation evidence | ASAK-back | NEEDS_CONFIRMATION / — | TODO | Contract tests | API common |
-| WBS2-056 | P5 Backend / DB | Compare Modeler, schema, entity, FK, index, constraints | ASAK / ASAK-back | 하진 / 나연 | TODO | Audit report | db-audit-plan |
-| WBS2-057 | P6 Integration / Contracts | Define adapter mapping for canonical fields | ASAK-Kiosk / ASAK-Admin | 나연 / 하진 | TODO | Contract review | totalAmount etc. |
-| WBS2-058 | P6 Integration / Kiosk | Integrate kiosk against approved backend contract | ASAK-Kiosk | 나연 / — | BLOCKED | Backend contract exists | Kiosk API |
-| WBS2-059 | P6 Integration / Admin | Integrate admin against approved backend contract | ASAK-Admin | 하진 / — | BLOCKED | Backend contract exists | Admin API |
-| WBS2-060 | P6 Integration / Sales | Validate payment/order/time totals | All | 하진 / 나연 | BLOCKED | Sales source exists | Sales QA |
-| WBS2-061 | P7 QA / Requirement | Run requirement-based tests; record actual result | All | 나연 / 하진 | TODO | Executed evidence | QA suite |
-| WBS2-062 | P7 QA / Accessibility | Run high-contrast, keyboard, touch tests | All | 나연 / 하진 | TODO | Executed evidence | Accessibility QA |
-| WBS2-063 | P7 QA / Regression | Run kiosk/admin integration regression | All | 나연 / 하진 | BLOCKED | Integrated app available | Regression QA |
-| WBS2-064 | P8 Docs / Handoff | Sync evidence, WBS, traceability, demo checklist | ASAK | 하진 / 나연 | IN_PROGRESS | Human review | DevCopilot sync |
-| WBS2-065 | P8 Release / Readiness | Check branch/PR state, repository builds, environment configuration, release checklist, and Release Candidate | All repositories | 하진 / 나연 | BLOCKED | All repository checks pass; deployment environment and responsible party are confirmed; Release Candidate is reviewed | Definition of Done: checklist approved and RC evidence attached. Evidence: [Release Checklist](../product_bible/09_QA_Bible/docs/10-qa/07-demo-release/RELEASE_CHECKLIST.md); environment/RC evidence is not yet available. |
-| WBS2-066 | P8 Presentation / Demo | Prepare slides, demo order, Kiosk/Admin scenario, script, contingency, and final rehearsal | All repositories | NEEDS_CONFIRMATION / Team | TODO | Slides, script, Demo 1–5 sequence, fallback, and final rehearsal record are reviewed by the team | Definition of Done: team review complete with rehearsal evidence. Evidence: 2026-07-03 meeting assigns presentation/demo jointly to 하진·나연; [Demo Scenario](../product_bible/09_QA_Bible/docs/10-qa/07-demo-release/DEMO_SCENARIO.md). Representative Primary Owner is not agreed. |
+| WBS2-001 | P1 Baseline / Snapshot | MCP baseline 및 지표 값 보존 | ASAK | 하진 / — | DONE | Snapshot 검토 완료 | Snapshot, DEV-SYS-002 |
+| WBS2-002 | P1 Baseline / Repository | 4개 저장소 실제/목표 맵 기록 | ASAK | 하진 / — | DONE | Map 검토 완료 | current-status-baseline |
+| WBS2-003 | P1 Baseline / Kiosk remote | ASAK-front vs ASAK-Kiosk 정본 저장소 확인 | ASAK-Kiosk | 나연 / 하진 | BLOCKED | 담당자가 마이그레이션 계획 확인 | NEEDS_CONFIRMATION |
+| WBS2-004 | P1 Baseline / Kiosk remote | 마이그레이션 전 브랜치·미커밋 작업 비교 | ASAK-Kiosk | 나연 / 하진 | BLOCKED | 나연이 evidence 제공 | NEEDS_CONFIRMATION |
+| WBS2-005 | P1 Baseline / Docs | 요구사항·시나리오·화면 ID 충돌 감사 | ASAK | 하진 / — | IN_PROGRESS | 발견 사항 연결 완료 | traceability-matrix |
+| WBS2-006 | P1 Baseline / Docs | MVP와 향후 범위 분리 | ASAK | 하진 / — | IN_PROGRESS | 범위 문서 검토 완료 | future-scope |
+| WBS2-007 | P1 Baseline / API | Legacy→목표 API 갭 표 게시 | ASAK | 하진 / 나연 | IN_PROGRESS | 백엔드 검토 요청 | rest-api-spec |
+| WBS2-008 | P1 Baseline / DB | 비파괴 DB 감사 계획 준비 | ASAK | 하진 / 나연 | TODO | 백엔드 산출물 확보 | db-audit-plan |
+| WBS2-009 | P2 Design / Foundation | 01-C 토큰 evidence 및 모드 검증 | Figma / ASAK | 하진 / — | DONE | Design QA 기록 | DESIGN_DONE |
+| WBS2-010 | P2 Design / Shared | 공유 상태 컴포넌트 문서 검증 | Figma / ASAK | 하진 / — | IN_PROGRESS | Cover/visual QA 검토 | DESIGN_DONE |
+| WBS2-011 | P2 Design / Kiosk | 03-C 컴포넌트 구조 매핑 기록 | Figma / ASAK | 하진 / 나연 | IN_PROGRESS | 매핑 승인 | SCR-003–008 |
+| WBS2-012 | P2 Design / Admin | 04-C 컴포넌트 구조 매핑 기록 | Figma / ASAK | 하진 / — | IN_PROGRESS | 매핑 승인 | SCR-009–022 |
+| WBS2-013 | P2 Design / Kiosk screens | 05-C 화면 instance-apply 갭 기록 | Figma / ASAK | 하진 / 나연 | TODO | Figma 담당 확인 | DESIGN_DONE only |
+| WBS2-014 | P2 Design / Admin screens | 06-C active-work 충돌 경계 기록 | Figma / ASAK | 하진 / — | IN_PROGRESS | active agent와 충돌 없음 | SCR-019–022 |
+| WBS2-015 | P2 Design / Accessibility | 고대비 검토 체크리스트 정의 | ASAK | 하진 / 나연 | TODO | Design·구현 evidence | FWD-UI-001 |
+| WBS2-016 | P2 Design / Prototype | prototype/instance swap 보류 기록 | Figma / ASAK | 하진 / — | TODO | Figma 담당 evidence | NEEDS_CONFIRMATION |
+| WBS2-017 | P3 Kiosk / Route | 키오스크 전체 라우트 연결·흐름 점검 | ASAK-Kiosk | 나연 / — | DONE | Route 검토 완료 | SCR-001,003,004 · Sprint Target **2026-07-20** |
+| WBS2-018 | P3 Kiosk / Menu | 메뉴 목록 mock→화면 어댑터 연결 | ASAK-Kiosk | 나연 / — | IN_PROGRESS | Contract 검토 | FWD-MENU-001 · Target **2026-07-20** (mock OK) |
+| WBS2-019 | P3 Kiosk / Detail | 메뉴 상세 mock·옵션 UI·담기 검증 | ASAK-Kiosk | 나연 / — | IN_PROGRESS | Contract·담기 동작 | SCR-004 · Target **2026-07-21** |
+| WBS2-020 | P3 Kiosk / Options | 필수/선택 옵션 검증·담기 버튼 제어 | ASAK-Kiosk | 나연 / — | IN_PROGRESS | Interaction evidence | FWD-MENU-002 · Target **2026-07-21** |
+| WBS2-021 | P3 Kiosk / Allergy | 알레르기 아코디언 조건부 노출 | ASAK-Kiosk | 나연 / — | IN_PROGRESS | UI·QA evidence | FWD-MENU-004 · Target **2026-07-21** |
+| WBS2-022 | P3 Kiosk / Store | 동일 메뉴 최대 수량 9 적용 | ASAK-Kiosk | 나연 / — | DONE | Store 테스트 evidence | cart policy · Target **2026-07-20** |
+| WBS2-023 | P3 Kiosk / Store | 장바구니 총 최대 수량 30 적용 | ASAK-Kiosk | 나연 / — | DONE | Store 테스트 evidence | cart policy · Target **2026-07-20** |
+| WBS2-024 | P3 Kiosk / Store | 수량 한도 초과 시 4초 토스트 UX | ASAK-Kiosk | 나연 / — | TODO | Interaction evidence | cart policy · Target **2026-07-20** |
+| WBS2-025 | P3 Kiosk / Cart | 장바구니 수량·삭제·비우기 연동 | ASAK-Kiosk | 나연 / 하진 | IN_PROGRESS | SCR-005 route 동작 | FWD-CART-002 · Target **2026-07-20** |
+| WBS2-026 | P3 Kiosk / Payment | 결제 화면 수단 표시·선택 연동 | ASAK-Kiosk | 나연 / — | IN_PROGRESS | SCR-007 route 동작 | FWD-PAY-001 · Target **2026-07-20** |
+| WBS2-027 | P3 Kiosk / Payment | 결제 실패·장바구니 유지 처리 | ASAK-Kiosk | 나연 / — | TODO | Error-flow evidence | SCR-012 · Target **2026-07-21** |
+| WBS2-028 | P3 Kiosk / Complete | 주문 완료 화면(번호·금액·대기) 데이터 연결 | ASAK-Kiosk | 나연 / — | IN_PROGRESS | Completion evidence | SCR-008 · Target **2026-07-21** |
+| WBS2-029 | P3 Kiosk / Timeout | 무조작 타임아웃 경고·카운트다운 | ASAK-Kiosk | 나연 / — | TODO | Timer QA evidence | SCR-013 · Target **2026-07-21** |
+| WBS2-030 | P3 Kiosk / Timeout | 결제 처리 중 타임아웃 비활성화 | ASAK-Kiosk | 나연 / — | TODO | Payment-state evidence | SCR-013 · Target **2026-07-21** |
+| WBS2-031 | P3 Kiosk / States | 키오스크 loading/empty/error 상태 | ASAK-Kiosk | 나연 / — | IN_PROGRESS | State QA evidence | Target **2026-07-22** |
+| WBS2-032 | P3 Kiosk / QA | 키오스크 터치·반응형 QA | ASAK-Kiosk | 나연 / 하진 | TODO | QA 실행 | 48px · Target **2026-07-22** |
+| WBS2-033 | P4 Admin / Route | 관리자 라우트를 Screen Registry와 정렬 | ASAK-Admin | 하진 / — | IN_PROGRESS | Registry 검토 | Target **2026-07-20** |
+| WBS2-034 | P4 Admin / Dashboard | 관리자 대시보드 KPI·최근주문 mock 연결 | ASAK-Admin | 하진 / — | IN_PROGRESS | Route·state evidence | SCR-022 · Target **2026-07-20** |
+| WBS2-035 | P4 Admin / Live order | 실시간 주문 현황 목록·상태 표시 | ASAK-Admin | 하진 / — | IN_PROGRESS | Route evidence | SCR-009 · Target **2026-07-20** |
+| WBS2-036 | P4 Admin / Orders | 주문 관리 목록·상세 연결 | ASAK-Admin | 하진 / — | IN_PROGRESS | Screen evidence | SCR-010 · `OrderDetailPage` · Target **2026-07-21** |
+| WBS2-037 | P4 Admin / Orders | 주문 상태 변경 UI·TTS 정책(stub) | ASAK-Admin | 하진 / — | TODO | PATCH mock evidence | Target **2026-07-21** |
+| WBS2-038 | P4 Admin / Sold-out | 품절 draft·저장 상태 관리 | ASAK-Admin | 하진 / — | IN_PROGRESS | UI state evidence | SCR-011 · Target **2026-07-21** |
+| WBS2-039 | P4 Admin / Menu | 메뉴 관리·편집 폼 mock 저장 | ASAK-Admin | 하진 / — | IN_PROGRESS | UI evidence | SCR-016 · `MenuEditPage` · Target **2026-07-22** |
+| WBS2-040 | P4 Admin / Payments | 결제수단 토글·저장 | ASAK-Admin | 하진 / — | IN_PROGRESS | UI evidence | SCR-018 · Target **2026-07-21** |
+| WBS2-041 | P4 Admin / Sales | 매출 요약·기간(날짜) 필터 | ASAK-Admin | 하진 / — | IN_PROGRESS | UI evidence | SCR-019 · Target **2026-07-21** |
+| WBS2-042 | P4 Admin / Sales | 월별 매출·월 선택 | ASAK-Admin | 하진 / — | IN_PROGRESS | UI evidence | SCR-020 · Target **2026-07-22** |
+| WBS2-043 | P4 Admin / Sales | 일별 매출·일자/기간 설정 | ASAK-Admin | 하진 / — | IN_PROGRESS | UI evidence | SCR-021 · Target **2026-07-22** |
+| WBS2-044 | P4 Admin / States | 관리자 loading/empty/error·내비 상태 | ASAK-Admin | 하진 / — | TODO | State QA evidence | Target **2026-07-22** |
+| WBS2-045 | P4 Admin / QA | 날짜 필터·합계·활성 내비 QA | ASAK-Admin | 하진 / 나연 | TODO | QA 실행 | Sales 3화면 · Target **2026-07-22** |
+| WBS2-046 | P5 Backend / Baseline | persistence 구현 결정 기록 추가 | ASAK-back | 하진 / 나연 | TODO | 팀 결정 | DB audit |
+| WBS2-047 | P5 Backend / Schema | schema/migration/seed 접근 방식 선택 | ASAK-back | 하진 / 나연 | TODO | 검토 승인 | DB audit |
+| WBS2-048 | P5 Backend / Menu | 메뉴 목록 API(controller/service/repository) 슬라이스 구현 | ASAK-back | NEEDS_CONFIRMATION / 나연 | TODO | API 테스트 evidence | GET menuList |
+| WBS2-049 | P5 Backend / Menu | 메뉴 상세 API(controller/service/repository) 슬라이스 구현 | ASAK-back | NEEDS_CONFIRMATION / 나연 | TODO | API 테스트 evidence | GET menuDetail |
+| WBS2-050 | P5 Backend / Orders | 주문 검증·트랜잭션 슬라이스 구현 | ASAK-back | NEEDS_CONFIRMATION / 나연 | TODO | API 테스트 evidence | POST orders |
+| WBS2-051 | P5 Backend / Payments | 결제 승인/실패 슬라이스 구현 | ASAK-back | NEEDS_CONFIRMATION / 나연 | TODO | API 테스트 evidence | POST payments |
+| WBS2-052 | P5 Backend / Admin | 품절 API 슬라이스 구현 | ASAK-back | NEEDS_CONFIRMATION / 하진 | TODO | API 테스트 evidence | PATCH soldOut |
+| WBS2-053 | P5 Backend / Admin | 주문 조회/상태 슬라이스 구현 | ASAK-back | NEEDS_CONFIRMATION / 하진 | TODO | API 테스트 evidence | Admin orders |
+| WBS2-054 | P5 Backend / Sales | 매출 집계 소스 정의·구현 | ASAK-back | NEEDS_CONFIRMATION / 하진 | TODO | 합계 검증 | sales views |
+| WBS2-055 | P5 Backend / Common | error envelope·validation evidence 추가 | ASAK-back | NEEDS_CONFIRMATION / — | TODO | Contract tests | API common |
+| WBS2-056 | P5 Backend / DB | Modeler, schema, entity, FK, index, constraints 비교 | ASAK / ASAK-back | 하진 / 나연 | TODO | Audit report | db-audit-plan |
+| WBS2-057 | P6 Integration / Contracts | canonical field용 adapter 매핑 정의 | ASAK-Kiosk / ASAK-Admin | 나연 / 하진 | TODO | Contract 검토 | totalAmount 등 |
+| WBS2-058 | P6 Integration / Kiosk | 승인된 backend contract 기준 kiosk 연동 | ASAK-Kiosk | 나연 / — | BLOCKED | Backend contract 존재 | Kiosk API |
+| WBS2-059 | P6 Integration / Admin | 승인된 backend contract 기준 admin 연동 | ASAK-Admin | 하진 / — | BLOCKED | Backend contract 존재 | Admin API |
+| WBS2-060 | P6 Integration / Sales | 결제/주문/시간 합계 검증 | All | 하진 / 나연 | BLOCKED | Sales source 존재 | Sales QA |
+| WBS2-061 | P7 QA / Requirement | 요구사항 기반 테스트 실행·실제 결과 기록 | All | 나연 / 하진 | TODO | 실행 evidence | QA suite |
+| WBS2-062 | P7 QA / Accessibility | 고대비·키보드·터치 테스트 실행 | All | 나연 / 하진 | TODO | 실행 evidence | Accessibility QA |
+| WBS2-063 | P7 QA / Regression | kiosk/admin 통합 회귀 테스트 | All | 나연 / 하진 | BLOCKED | 통합 앱 사용 가능 | Regression QA |
+| WBS2-064 | P8 Docs / Handoff | 문서·추적성·데모 인수인계 동기화 | ASAK | 하진 / 나연 | IN_PROGRESS | 사람 검토 | DevCopilot sync |
+| WBS2-065 | P8 Release / Readiness | branch/PR 상태, 저장소 빌드, 환경 설정, release checklist, Release Candidate 점검 | All repositories | 하진 / 나연 | BLOCKED | 모든 저장소 점검 통과; 배포 환경·담당 확인; Release Candidate 검토 | Definition of Done: checklist 승인 및 RC evidence 첨부. Evidence: [Release Checklist](../product_bible/09_QA_Bible/docs/10-qa/07-demo-release/RELEASE_CHECKLIST.md); 환경/RC evidence 아직 없음. |
+| WBS2-066 | P8 Presentation / Demo | 슬라이드, demo 순서, Kiosk/Admin 시나리오, 스크립트, 비상 대안, 최종 리허설 준비 | All repositories | NEEDS_CONFIRMATION / Team | TODO | 슬라이드, 스크립트, Demo 1–5 순서, fallback, 최종 리허설 기록이 팀 검토 완료 | Definition of Done: 팀 검토 및 리허설 evidence 완료. Evidence: 2026-07-03 회의에서 발표/demo를 하진·나연이 공동 담당; [Demo Scenario](../product_bible/09_QA_Bible/docs/10-qa/07-demo-release/DEMO_SCENARIO.md). 대표 Primary Owner 미합의. |
 
-## Ownership and review
+## 담당 및 검토
 
-- Primary owner is the accountable current lead; support is recorded only where planned.
-- Review owner: 하진 for structure, Admin, DevCopilot and documentation; 나연 for Kiosk data I/O; shared review for integration decisions.
-- QA owner: 나연 for Kiosk flows, 하진 for Admin/data-documentation flows, and both for integration QA.
-- Target dates are intentionally deferred until repository migration and backend ownership are confirmed. This prevents a fabricated schedule.
+- Primary owner는 책임 현재 리드; support는 계획된 경우만 기록합니다.
+- Review owner: 구조·Admin·DevCopilot·문서는 하진; Kiosk 데이터 I/O는 나연; 통합 결정은 공동 검토.
+- QA owner: Kiosk 흐름은 나연, Admin/데이터·문서 흐름은 하진, 통합 QA는 둘 다.
+- 저장소 마이그레이션·backend 담당이 확정될 때까지 목표 일정은 의도적으로 미정입니다. 허위 일정을 만들지 않기 위함입니다.

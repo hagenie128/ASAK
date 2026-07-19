@@ -1,0 +1,530 @@
+[
+  {
+    "task_id": "WBS2-001",
+    "pk": 119,
+    "ok": true,
+    "status": "DONE",
+    "title": "MCP 기준선 스냅샷 및 대시보드 지표 보존",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-001', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-002",
+    "pk": 120,
+    "ok": true,
+    "status": "DONE",
+    "title": "저장소 실제/목표 구조 기준선 작성",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-002', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-003",
+    "pk": 121,
+    "ok": true,
+    "status": "BLOCKED",
+    "title": "키오스크 정본 저장소 결정 (ASAK-front vs ASAK-Kiosk)",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-003', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-004",
+    "pk": 122,
+    "ok": true,
+    "status": "BLOCKED",
+    "title": "마이그레이션 전 브랜치·미커밋 작업 확인",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-004', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-005",
+    "pk": 123,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "요구사항·시나리오·화면 ID 충돌 감사",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-005', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-006",
+    "pk": 124,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "MVP와 향후 범위 분리",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-006', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-007",
+    "pk": 125,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "레거시→목표 API 갭 표 작성",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-007', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-008",
+    "pk": 126,
+    "ok": true,
+    "status": "TODO",
+    "title": "비파괴 DB 감사 계획 준비",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-008', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-009",
+    "pk": 127,
+    "ok": true,
+    "status": "DONE",
+    "title": "디자인 시스템(Foundation) 증거 검토",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-009', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-010",
+    "pk": 128,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "공유 컴포넌트 문서 QA",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-010', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-011",
+    "pk": 129,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "키오스크 컴포넌트 매핑 기록",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-011', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-012",
+    "pk": 130,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "관리자 컴포넌트 매핑 기록",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-012', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-013",
+    "pk": 131,
+    "ok": true,
+    "status": "TODO",
+    "title": "키오스크 화면 instance-apply 갭 기록",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-013', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-014",
+    "pk": 132,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "관리자 Figma 작업 중 충돌 경계 기록",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-014', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-015",
+    "pk": 133,
+    "ok": true,
+    "status": "TODO",
+    "title": "고대비 디자인 QA 체크리스트",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-015', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-016",
+    "pk": 134,
+    "ok": true,
+    "status": "TODO",
+    "title": "프로토타입·instance swap 증거 기록",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-016', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-017",
+    "pk": 135,
+    "ok": true,
+    "status": "DONE",
+    "title": "키오스크 전체 라우트 연결·흐름 점검",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-017', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-018",
+    "pk": 136,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "메뉴 목록 mock→화면 어댑터 연결",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-018', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-019",
+    "pk": 137,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "메뉴 상세 mock·옵션 UI·담기 검증",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-019', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-020",
+    "pk": 138,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "필수/선택 옵션 검증·담기 버튼 제어",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-020', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-021",
+    "pk": 139,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "알레르기 아코디언 조건부 노출",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-021', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-022",
+    "pk": 140,
+    "ok": true,
+    "status": "DONE",
+    "title": "동일 메뉴 최대 수량 9 적용",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-022', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-023",
+    "pk": 141,
+    "ok": true,
+    "status": "DONE",
+    "title": "장바구니 총 최대 수량 30 적용",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-023', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-024",
+    "pk": 142,
+    "ok": true,
+    "status": "TODO",
+    "title": "수량 한도 초과 시 4초 토스트 UX",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-024', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-025",
+    "pk": 143,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "장바구니 수량·삭제·비우기 연동",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-025', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-026",
+    "pk": 144,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "결제 화면 수단 표시·선택 연동",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-026', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-027",
+    "pk": 145,
+    "ok": true,
+    "status": "TODO",
+    "title": "결제 실패·장바구니 유지 처리",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-027', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-028",
+    "pk": 146,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "주문 완료 화면(번호·금액·대기) 데이터 연결",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-028', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-029",
+    "pk": 147,
+    "ok": true,
+    "status": "TODO",
+    "title": "무조작 타임아웃 경고·카운트다운",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-029', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-030",
+    "pk": 148,
+    "ok": true,
+    "status": "TODO",
+    "title": "결제 처리 중 타임아웃 비활성화",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-030', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-031",
+    "pk": 149,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "키오스크 loading/empty/error 상태",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-031', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-032",
+    "pk": 150,
+    "ok": true,
+    "status": "TODO",
+    "title": "키오스크 터치·반응형 QA",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-032', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-033",
+    "pk": 151,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "관리자 라우트를 Screen Registry와 정렬",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-033', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-034",
+    "pk": 152,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "관리자 대시보드 KPI·최근주문 mock 연결",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-034', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-035",
+    "pk": 153,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "실시간 주문 현황 목록·상태 표시",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-035', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-036",
+    "pk": 154,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "주문 관리 목록·상세 연결",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-036', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-037",
+    "pk": 155,
+    "ok": true,
+    "status": "TODO",
+    "title": "주문 상태 변경 UI·TTS 정책(stub)",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-037', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-038",
+    "pk": 156,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "품절 draft·저장 상태 관리",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-038', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-039",
+    "pk": 157,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "메뉴 관리·편집 폼 mock 저장",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-039', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-040",
+    "pk": 158,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "결제수단 토글·저장",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-040', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-041",
+    "pk": 159,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "매출 요약·기간(날짜) 필터",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-041', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-042",
+    "pk": 160,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "월별 매출·월 선택",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-042', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-043",
+    "pk": 161,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "일별 매출·일자/기간 설정",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-043', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-044",
+    "pk": 162,
+    "ok": true,
+    "status": "TODO",
+    "title": "관리자 loading/empty/error·내비 상태",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-044', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-045",
+    "pk": 163,
+    "ok": true,
+    "status": "TODO",
+    "title": "날짜 필터·합계·활성 내비 QA",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-045', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-046",
+    "pk": 164,
+    "ok": true,
+    "status": "TODO",
+    "title": "백엔드 persistence 구현 방식 결정",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-046', 'assignee_name': 'NEEDS_"
+  },
+  {
+    "task_id": "WBS2-047",
+    "pk": 165,
+    "ok": true,
+    "status": "TODO",
+    "title": "스키마·마이그레이션·시드 접근 방식 선택",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-047', 'assignee_name': 'NEEDS_"
+  },
+  {
+    "task_id": "WBS2-048",
+    "pk": 166,
+    "ok": true,
+    "status": "TODO",
+    "title": "메뉴 목록 API 세로 슬라이스 구현",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-048', 'assignee_name': 'NEEDS_"
+  },
+  {
+    "task_id": "WBS2-049",
+    "pk": 167,
+    "ok": true,
+    "status": "TODO",
+    "title": "메뉴 상세 API 세로 슬라이스 구현",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-049', 'assignee_name': 'NEEDS_"
+  },
+  {
+    "task_id": "WBS2-050",
+    "pk": 168,
+    "ok": true,
+    "status": "TODO",
+    "title": "주문 검증·트랜잭션 슬라이스 구현",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-050', 'assignee_name': 'NEEDS_"
+  },
+  {
+    "task_id": "WBS2-051",
+    "pk": 169,
+    "ok": true,
+    "status": "TODO",
+    "title": "결제 승인/실패 슬라이스 구현",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-051', 'assignee_name': 'NEEDS_"
+  },
+  {
+    "task_id": "WBS2-052",
+    "pk": 171,
+    "ok": true,
+    "status": "TODO",
+    "title": "품절 API 세로 슬라이스 구현",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-052', 'assignee_name': 'NEEDS_"
+  },
+  {
+    "task_id": "WBS2-053",
+    "pk": 173,
+    "ok": true,
+    "status": "TODO",
+    "title": "관리자 주문 조회/상태 슬라이스 구현",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-053', 'assignee_name': 'NEEDS_"
+  },
+  {
+    "task_id": "WBS2-054",
+    "pk": 175,
+    "ok": true,
+    "status": "TODO",
+    "title": "매출 집계 소스 정의·구현",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-054', 'assignee_name': 'NEEDS_"
+  },
+  {
+    "task_id": "WBS2-055",
+    "pk": 176,
+    "ok": true,
+    "status": "TODO",
+    "title": "에러 envelope·검증 테스트 추가",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-055', 'assignee_name': 'NEEDS_"
+  },
+  {
+    "task_id": "WBS2-056",
+    "pk": 178,
+    "ok": true,
+    "status": "TODO",
+    "title": "Modeler와 백엔드 DB 감사 비교",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-056', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-057",
+    "pk": 181,
+    "ok": true,
+    "status": "TODO",
+    "title": "정본 필드용 어댑터 매핑 정의",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-057', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-058",
+    "pk": 183,
+    "ok": true,
+    "status": "BLOCKED",
+    "title": "키오스크↔백엔드 연동",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-058', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-059",
+    "pk": 185,
+    "ok": true,
+    "status": "BLOCKED",
+    "title": "관리자↔백엔드 연동",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-059', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-060",
+    "pk": 187,
+    "ok": true,
+    "status": "BLOCKED",
+    "title": "매출 합계 연동 검증",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-060', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-061",
+    "pk": 189,
+    "ok": true,
+    "status": "TODO",
+    "title": "요구사항 기반 QA 실행·결과 기록",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-061', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-062",
+    "pk": 191,
+    "ok": true,
+    "status": "TODO",
+    "title": "접근성 QA 실행",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-062', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-063",
+    "pk": 192,
+    "ok": true,
+    "status": "BLOCKED",
+    "title": "키오스크·관리자 통합 회귀 테스트",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-063', 'assignee_name': '김나연', "
+  },
+  {
+    "task_id": "WBS2-064",
+    "pk": 194,
+    "ok": true,
+    "status": "IN_PROGRESS",
+    "title": "문서·추적성·데모 인수인계 동기화",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-064', 'assignee_name': '이하진', "
+  },
+  {
+    "task_id": "WBS2-065",
+    "pk": 222,
+    "ok": true,
+    "status": "BLOCKED",
+    "title": "배포 준비: 브랜치·PR·빌드·환경·체크리스트·RC",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-065', 'assignee_name': '하진 (Su"
+  },
+  {
+    "task_id": "WBS2-066",
+    "pk": 223,
+    "ok": true,
+    "status": "TODO",
+    "title": "발표·데모 준비(슬라이드·시나리오·리허설)",
+    "resp": "{'message': 'WBS Task updated successfully', 'task': {'workspace_id': 2, 'task_id': 'WBS2-066', 'assignee_name': 'NEEDS_"
+  }
+]

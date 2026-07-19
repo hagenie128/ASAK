@@ -1,13 +1,18 @@
 # ASAK Documentation
 
-> 2026-07-16 cleanup: product rules stay in `product_bible`, current delivery state stays in `wiki`, and concluded evidence belongs in `archive`. `docs/notion` retains only script-backed DevCopilot source inputs; historic exports are in `archive/notion-exports`.
+> **👉 처음이면 [START_HERE.md](START_HERE.md)만 보세요.** (단일 진입점)  
+> **2026-07-20:** 구현 현실은 `wiki/current-status-baseline.md` + `planning/CURRENT_IMPLEMENTATION_MAP.md`가 정본.  
+> 07-16 cleanup 정책(정본/생성물/Archive 분리)은 유지. `docs/notion`은 DevCopilot 스크립트 입력용.
 
 ## 운영 원칙
 
-- **정본:** `product_bible/`(정책·요구사항·Screen Registry), `wiki/`(현재 상태·WBS2), `design/`(반복 사용하는 Figma 실행 기준), `governance/`(정본·상태 정책).
-- **생성물:** `screens-devcopilot-*.json`과 `asak-data` 보고서는 생성 스크립트의 출력 계약을 확인한 뒤에만 위치를 바꾼다.
-- **Archive:** 완료 감사·프롬프트·과거 계획·Notion Export는 `archive/`에 보존하며, 삭제하거나 정본으로 되돌리지 않는다.
-- **주의:** `docs/notion`과 `worklog/daily`는 현재 Python 동기화 경로가 직접 읽는다. 경로를 바꾸려면 스크립트 변경 승인과 재검증이 필요하다.
+- **입구:** [START_HERE](START_HERE.md) · [PROJECT_HUB](../PROJECT_HUB.md)
+- **정책 정본:** `product_bible/` (먼저 [얇은 README](product_bible/README.md)) · **계약:** `governance/CANONICAL_CONTRACT_DECISIONS.md`
+- **구현 현실:** `wiki/`(baseline·WBS2) · `planning/CURRENT_IMPLEMENTATION_MAP.md`
+- **앱 실행 문서:** 각 저장소 `IMPLEMENTATION_PLAN.md`, `src/STRUCTURE_GUIDE.md`
+- **Archive:** `archive/` — 삭제·정본 복귀 금지
+- **신규 파일명:** [DOCUMENT_NAMING.md](DOCUMENT_NAMING.md) · 인벤토리: [DOC_INVENTORY_SLIM.md](DOC_INVENTORY_SLIM.md)
+- **주의:** `docs/notion`, `worklog/daily` 경로는 스크립트가 읽음 — 무단 이동 금지
 
 ```powershell
 git status
@@ -17,20 +22,18 @@ python worklog/scripts/build_calendar.py
 
 ## 문서 진입 순서
 
-1. [Product Bible Index](governance/PRODUCT_BIBLE_INDEX.md)
-2. [Canonical Contract Decisions](governance/CANONICAL_CONTRACT_DECISIONS.md)
-3. [Current Implementation Map](planning/CURRENT_IMPLEMENTATION_MAP.md)
-4. [Implementation Priority](planning/IMPLEMENTATION_PRIORITY.md)
-5. [Document–Code Gap Report](architecture/DOCUMENT_CODE_GAP_REPORT.md)
-6. [Product Bible Pack 1~12](product_bible/)
-7. [Operations setup](operations/setup/)
-8. [Design](design/)
-9. [Screens](screens/)
-10. [Guides](guides/)
-11. [Team](team/)
-12. [Wiki](wiki/)
-13. [Notion script inputs](notion/)
-14. [Archive](archive/)
+1. **[START_HERE](START_HERE.md)** ← 여기부터
+2. [Wiki 색인](wiki/index.md) · [현재 상태 baseline](wiki/current-status-baseline.md)
+3. [WBS 2.0](wiki/wbs-v2.md) · [WBS 상태 메모](wiki/wbs-status-notes.md)
+4. [Canonical Contract Decisions](governance/CANONICAL_CONTRACT_DECISIONS.md)
+5. [Current Implementation Map](planning/CURRENT_IMPLEMENTATION_MAP.md)
+6. [Document–Code Gap Report](architecture/DOCUMENT_CODE_GAP_REPORT.md)
+7. [Implementation Priority](planning/IMPLEMENTATION_PRIORITY.md) *(목표 순서 · 현실은 MAP)*
+8. [프론트 3일 WBS](planning/FRONTEND_WEDNESDAY_WBS_2026-07-20.md)
+9. [Product Bible 얇은 안내](product_bible/README.md) · [Index](governance/PRODUCT_BIBLE_INDEX.md) · Pack README만
+10. [Design](design/) · [Screens](screens/)
+11. [Operations setup](operations/setup/)
+12. [Archive](archive/) — 한물간 문서, 실행에 쓰지 않음
 
 ## 정본과 범위
 
@@ -58,6 +61,8 @@ python worklog/scripts/build_calendar.py
 | `archive` | Concluded audits, prompts, plans, generated reports, Notion exports, and project history. |
 
 ## Pack 1~12
+
+먼저 [product_bible/README.md](product_bible/README.md). 세부 문서는 Pack README 이후.
 
 | Pack | 링크 |
 |---|---|

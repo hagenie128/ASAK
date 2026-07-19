@@ -1,8 +1,10 @@
 # Implementation Priority
 
-> `DECIDED_PENDING_CODE_CHANGE`: canonical contracts are decided in [Canonical Contract Decisions](../governance/CANONICAL_CONTRACT_DECISIONS.md), but this phase authorizes documentation only. Slice 1 uses the decided kiosk paths; Slice 5 is implemented in ASAK-Admin.
+> **목표 순서 문서** — 코드 현실과 혼동하지 마세요.  
+> → 현실: [**START_HERE**](../START_HERE.md) · [baseline](../wiki/current-status-baseline.md) · [CURRENT_IMPLEMENTATION_MAP](CURRENT_IMPLEMENTATION_MAP.md) · [wbs-v2](../wiki/wbs-v2.md)  
+> 갱신 **2026-07-20:** Slice 1~3은 UI·mock 일부 있음. Slice 4(결제)·5(Admin)는 UI shell / 정적 UI.
 
-> 원칙: 계층별 일괄 구현 대신 API–Backend–UI–검증을 하나씩 완료하는 Vertical Slice로 진행한다. 승인 전 이 문서는 계획일 뿐 소스 변경을 포함하지 않는다.
+> `DECIDED_PENDING_CODE_CHANGE`: canonical은 [Canonical Contract Decisions](../governance/CANONICAL_CONTRACT_DECISIONS.md). 코드 path는 아직 legacy/kebab.
 
 ## 첫 번째 Vertical Slice 5개
 

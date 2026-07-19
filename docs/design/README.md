@@ -1,4 +1,4 @@
-# Design documentation
+# 디자인 문서
 
 이 폴더는 현재 반복 사용하는 Figma 실행 기준만 둡니다. 제품 정책과 SCR 정본은 각각 `docs/product_bible/`과 `docs/product_bible/07_Screen_Bible/`에서 확인합니다.
 
