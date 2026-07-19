@@ -3,6 +3,10 @@
 > 2026-07-16 Legacy 의미 중복 감사: 권위 있는 37건 매핑은 [legacy-wbs2-mapping-audit-2026-07-16.md](legacy-wbs2-mapping-audit-2026-07-16.md)를 참고하세요. `DevCopilot 대시보드 WBS 진행률은 운영상 신뢰할 수 없습니다`: 관측된 분모에 `EXCLUDED` 레코드가 포함됩니다. 팀 운영용으로는 활성 범위 진행률을 별도로 사용하세요.
 
 > 기준일: 2026-07-16 · Legacy `WBS-*` 레코드는 보존됩니다. `WBS2-*`는 실행 계획이며 소스 코드 완료를 의미하지 않습니다.
+>
+> **프론트 스프린트 (2026-07-20 ~ 07-22):** P3 키오스크·P4 관리자 프론트 동작 완성 목표는 Target Date `2026-07-22`.  
+> 학원 3일 실행표(블록 DoD·게이트·데모 대본·버퍼): [FRONTEND_WEDNESDAY_WBS_2026-07-20.md](../planning/FRONTEND_WEDNESDAY_WBS_2026-07-20.md).  
+> 전제: UI 이식 완료 · 이번 스프린트는 로직/mock 연결만. Backend P5·실연동 P6 제외.
 
 ## 필드 계약
 
@@ -28,35 +32,35 @@
 | WBS2-014 | P2 Design / Admin screens | 06-C active-work 충돌 경계 기록 | Figma / ASAK | 하진 / — | IN_PROGRESS | active agent와 충돌 없음 | SCR-019–022 |
 | WBS2-015 | P2 Design / Accessibility | 고대비 검토 체크리스트 정의 | ASAK | 하진 / 나연 | TODO | Design·구현 evidence | FWD-UI-001 |
 | WBS2-016 | P2 Design / Prototype | prototype/instance swap 보류 기록 | Figma / ASAK | 하진 / — | TODO | Figma 담당 evidence | NEEDS_CONFIRMATION |
-| WBS2-017 | P3 Kiosk / Route | home/menu/detail route 보존·평가 | ASAK-Kiosk | 나연 / — | IN_PROGRESS | Route 검토 완료 | SCR-001,003,004 |
-| WBS2-018 | P3 Kiosk / Menu | menu-list response adapter 계약 검증 | ASAK-Kiosk | 나연 / — | IN_PROGRESS | Contract 검토 | FWD-MENU-001, API target |
-| WBS2-019 | P3 Kiosk / Detail | menu-detail response adapter 계약 검증 | ASAK-Kiosk | 나연 / — | IN_PROGRESS | Contract 검토 | SCR-004 |
-| WBS2-020 | P3 Kiosk / Options | 옵션 선택 검증 구현/검증 | ASAK-Kiosk | 나연 / — | IN_PROGRESS | Interaction evidence | FWD-MENU-002 |
-| WBS2-021 | P3 Kiosk / Allergy | 조건부 알레르기 고지 구현 | ASAK-Kiosk | 나연 / — | TODO | UI·QA evidence | FWD-MENU-004 |
-| WBS2-022 | P3 Kiosk / Store | 동일 메뉴 최대 수량 9 적용 | ASAK-Kiosk | 나연 / — | TODO | Store 테스트 evidence | cart policy |
-| WBS2-023 | P3 Kiosk / Store | 장바구니 총 최대 30 적용 | ASAK-Kiosk | 나연 / — | TODO | Store 테스트 evidence | cart policy |
-| WBS2-024 | P3 Kiosk / Store | 한도 전용 4초 toast 동작 추가 | ASAK-Kiosk | 나연 / — | TODO | Interaction evidence | cart policy |
-| WBS2-025 | P3 Kiosk / Cart | cart route 및 항목 수정/삭제 연동 | ASAK-Kiosk | 나연 / 하진 | TODO | SCR-005 route 동작 | FWD-CART-002 |
-| WBS2-026 | P3 Kiosk / Payment | payment-method route·표시 연동 | ASAK-Kiosk | 나연 / — | TODO | SCR-007 route 동작 | FWD-PAY-001 |
-| WBS2-027 | P3 Kiosk / Payment | 결제 실패·장바구니 유지 처리 | ASAK-Kiosk | 나연 / — | TODO | Error-flow evidence | SCR-012, TC-004 |
-| WBS2-028 | P3 Kiosk / Complete | 주문번호·금액·대기 건수·홈 액션 렌더 | ASAK-Kiosk | 나연 / — | TODO | Completion evidence | SCR-008 |
-| WBS2-029 | P3 Kiosk / Timeout | 30s, 20s 경고, 10s 카운트다운 구현 | ASAK-Kiosk | 나연 / — | TODO | Timer QA evidence | SCR-013 |
-| WBS2-030 | P3 Kiosk / Timeout | 결제 PROCESSING 중 timeout 비활성화 | ASAK-Kiosk | 나연 / — | TODO | Payment-state evidence | SCR-013 |
-| WBS2-031 | P3 Kiosk / States | 핵심 흐름에 loading/empty/error 상태 추가 | ASAK-Kiosk | 나연 / — | TODO | State QA evidence | FWD-MENU-001 |
-| WBS2-032 | P3 Kiosk / QA | 터치 타깃·반응형 검토 | ASAK-Kiosk | 나연 / 하진 | TODO | QA 실행 | 48px target |
-| WBS2-033 | P4 Admin / Route | route metadata를 Screen Registry와 정렬 | ASAK-Admin | 하진 / — | TODO | Registry 검토 | SCR-022,009–021 |
-| WBS2-034 | P4 Admin / Dashboard | `/` Dashboard shell 구현 | ASAK-Admin | 하진 / — | TODO | Route·state evidence | SCR-022 |
-| WBS2-035 | P4 Admin / Live order | `/orders/live` Live Order shell 구현 | ASAK-Admin | 하진 / — | TODO | Route evidence | SCR-009 |
-| WBS2-036 | P4 Admin / Orders | `/orders` 주문 관리 목록 구현 | ASAK-Admin | 하진 / — | TODO | Screen evidence | SCR-010 |
-| WBS2-037 | P4 Admin / Orders | 주문 상태 업데이트 UI·TTS 정책 구현 | ASAK-Admin | 하진 / — | TODO | PATCH/TTS evidence | LMIS-ORDER-003 |
-| WBS2-038 | P4 Admin / Sold-out | `/soldOut` 페이지·저장 상태 구현 | ASAK-Admin | 하진 / — | TODO | UI state evidence | SCR-011 |
-| WBS2-039 | P4 Admin / Menu | 메뉴 관리 shell 구현 | ASAK-Admin | 하진 / — | TODO | UI evidence | SCR-016 |
-| WBS2-040 | P4 Admin / Payments | 결제수단 shell 구현 | ASAK-Admin | 하진 / — | TODO | UI evidence | SCR-018 |
-| WBS2-041 | P4 Admin / Sales | 매출 요약 shell 구현 | ASAK-Admin | 하진 / — | TODO | UI evidence | SCR-019 |
-| WBS2-042 | P4 Admin / Sales | 월별 매출 화면 구현 | ASAK-Admin | 하진 / — | TODO | UI evidence | SCR-020 |
-| WBS2-043 | P4 Admin / Sales | 일별 매출 화면 구현 | ASAK-Admin | 하진 / — | TODO | UI evidence | SCR-021 |
-| WBS2-044 | P4 Admin / States | loading/empty/error/navbar 상태 추가 | ASAK-Admin | 하진 / — | TODO | State QA evidence | Admin common |
-| WBS2-045 | P4 Admin / QA | 날짜 필터·합계·활성 내비 검증 | ASAK-Admin | 하진 / 나연 | TODO | QA 실행 | Sales/Admin QA |
+| WBS2-017 | P3 Kiosk / Route | home/menu/detail route 보존·평가 | ASAK-Kiosk | 나연 / — | IN_PROGRESS | Route 검토 완료 | SCR-001,003,004 · Sprint Target **2026-07-20** |
+| WBS2-018 | P3 Kiosk / Menu | menu-list response adapter 계약 검증 | ASAK-Kiosk | 나연 / — | IN_PROGRESS | Contract 검토 | FWD-MENU-001 · Target **2026-07-20** (mock OK) |
+| WBS2-019 | P3 Kiosk / Detail | **메뉴 상세** response·옵션 UI 검증 | ASAK-Kiosk | 나연 / — | IN_PROGRESS | Contract·담기 동작 | SCR-004 · Target **2026-07-21** |
+| WBS2-020 | P3 Kiosk / Options | 옵션 선택 검증 구현/검증 | ASAK-Kiosk | 나연 / — | IN_PROGRESS | Interaction evidence | FWD-MENU-002 · Target **2026-07-21** |
+| WBS2-021 | P3 Kiosk / Allergy | 조건부 알레르기 고지 구현 | ASAK-Kiosk | 나연 / — | TODO | UI·QA evidence | FWD-MENU-004 · Target **2026-07-21** |
+| WBS2-022 | P3 Kiosk / Store | 동일 메뉴 최대 수량 9 적용 | ASAK-Kiosk | 나연 / — | TODO | Store 테스트 evidence | cart policy · Target **2026-07-20** |
+| WBS2-023 | P3 Kiosk / Store | 장바구니 총 최대 30 적용 | ASAK-Kiosk | 나연 / — | TODO | Store 테스트 evidence | cart policy · Target **2026-07-20** |
+| WBS2-024 | P3 Kiosk / Store | 한도 전용 4초 toast 동작 추가 | ASAK-Kiosk | 나연 / — | TODO | Interaction evidence | cart policy · Target **2026-07-20** |
+| WBS2-025 | P3 Kiosk / Cart | cart route 및 항목 수정/삭제 연동 | ASAK-Kiosk | 나연 / 하진 | TODO | SCR-005 route 동작 | FWD-CART-002 · Target **2026-07-20** |
+| WBS2-026 | P3 Kiosk / Payment | payment-method route·표시 연동 | ASAK-Kiosk | 나연 / — | TODO | SCR-007 route 동작 | FWD-PAY-001 · Target **2026-07-20** |
+| WBS2-027 | P3 Kiosk / Payment | 결제 실패·장바구니 유지 처리 | ASAK-Kiosk | 나연 / — | TODO | Error-flow evidence | SCR-012 · Target **2026-07-21** |
+| WBS2-028 | P3 Kiosk / Complete | 주문번호·금액·대기 건수·홈 액션 렌더 | ASAK-Kiosk | 나연 / — | TODO | Completion evidence | SCR-008 · Target **2026-07-21** |
+| WBS2-029 | P3 Kiosk / Timeout | 30s, 20s 경고, 10s 카운트다운 구현 | ASAK-Kiosk | 나연 / — | TODO | Timer QA evidence | SCR-013 · Target **2026-07-21** |
+| WBS2-030 | P3 Kiosk / Timeout | 결제 PROCESSING 중 timeout 비활성화 | ASAK-Kiosk | 나연 / — | TODO | Payment-state evidence | SCR-013 · Target **2026-07-21** |
+| WBS2-031 | P3 Kiosk / States | 핵심 흐름에 loading/empty/error 상태 추가 | ASAK-Kiosk | 나연 / — | TODO | State QA evidence | Target **2026-07-22** |
+| WBS2-032 | P3 Kiosk / QA | 터치 타깃·반응형 검토 | ASAK-Kiosk | 나연 / 하진 | TODO | QA 실행 | 48px · Target **2026-07-22** |
+| WBS2-033 | P4 Admin / Route | route metadata를 Screen Registry와 정렬 | ASAK-Admin | 하진 / — | TODO | Registry 검토 | Target **2026-07-20** |
+| WBS2-034 | P4 Admin / Dashboard | Dashboard KPI·최근주문 (mock) | ASAK-Admin | 하진 / — | TODO | Route·state evidence | SCR-022 · Target **2026-07-20** |
+| WBS2-035 | P4 Admin / Live order | Live Order 목록·상태 전이 (TTS stub) | ASAK-Admin | 하진 / — | TODO | Route evidence | SCR-009 · Target **2026-07-20** |
+| WBS2-036 | P4 Admin / Orders | 주문 관리 목록 + **주문 상세** 연결 | ASAK-Admin | 하진 / — | TODO | Screen evidence | SCR-010 · `OrderDetailPage` · Target **2026-07-21** |
+| WBS2-037 | P4 Admin / Orders | 주문 상태 업데이트 UI·TTS 정책( stub ) | ASAK-Admin | 하진 / — | TODO | PATCH mock evidence | Target **2026-07-21** |
+| WBS2-038 | P4 Admin / Sold-out | 품절 draft·저장 상태 | ASAK-Admin | 하진 / — | TODO | UI state evidence | SCR-011 · Target **2026-07-21** |
+| WBS2-039 | P4 Admin / Menu | 메뉴 관리 + **메뉴 편집** 폼 mock 저장 | ASAK-Admin | 하진 / — | TODO | UI evidence | SCR-016 · `MenuEditPage` · Target **2026-07-22** |
+| WBS2-040 | P4 Admin / Payments | 결제수단 토글·저장 | ASAK-Admin | 하진 / — | TODO | UI evidence | SCR-018 · Target **2026-07-21** |
+| WBS2-041 | P4 Admin / Sales | 매출 요약 + **기간(날짜) 필터** | ASAK-Admin | 하진 / — | TODO | UI evidence | SCR-019 · Target **2026-07-21** |
+| WBS2-042 | P4 Admin / Sales | 월별 매출 + **월 선택** | ASAK-Admin | 하진 / — | TODO | UI evidence | SCR-020 · Target **2026-07-22** |
+| WBS2-043 | P4 Admin / Sales | 일별 매출 + **일자/기간 설정** | ASAK-Admin | 하진 / — | TODO | UI evidence | SCR-021 · Target **2026-07-22** |
+| WBS2-044 | P4 Admin / States | loading/empty/error/navbar 상태 추가 | ASAK-Admin | 하진 / — | TODO | State QA evidence | Target **2026-07-22** |
+| WBS2-045 | P4 Admin / QA | **날짜 필터·합계·활성 내비** 검증 | ASAK-Admin | 하진 / 나연 | TODO | QA 실행 | Sales 3화면 · Target **2026-07-22** |
 | WBS2-046 | P5 Backend / Baseline | persistence 구현 결정 기록 추가 | ASAK-back | 하진 / 나연 | TODO | 팀 결정 | DB audit |
 | WBS2-047 | P5 Backend / Schema | schema/migration/seed 접근 방식 선택 | ASAK-back | 하진 / 나연 | TODO | 검토 승인 | DB audit |
 | WBS2-048 | P5 Backend / Menu | Menu List controller/service/repository slice 구현 | ASAK-back | NEEDS_CONFIRMATION / 나연 | TODO | API 테스트 evidence | GET menuList |
