@@ -33,9 +33,17 @@
 
 현재 확정된 삭제 후보는 없다. 중복처럼 보이는 문서도 고유한 이력·작성자 맥락이 있을 수 있어 승인 전 삭제하지 않는다.
 
+## 2026-07-17 실행한 보관 이동 (삭제 아님)
+
+- `docs/design/_archive/**` — QA 원본 4종, 07-14 병합 프롬프트, 07-15 Agent 프롬프트, 구 DS/SCR, D1 짧은 WO·검수계획
+- `docs/_archive/team-audits-2026-07/` — team 날짜 감사 4종
+- `docs/_archive/screens-legacy/` — 구 Figma 요약 `screen-design-figma.md`
+- 중앙 허브·태그: `docs/README.md`, `docs/DOCUMENT_TAG_INDEX.md`, 폴더별 README
+
 ## 사람 확인 후에만 가능한 조치
 
 1. API 계약의 정본 경로와 DTO field 확정.
 2. 기존 Kiosk 내부 Admin 스캐폴드의 보관/이관 소유자 결정.
-3. 각 Notion export를 reference와 archive 중 어디에 분류할지 결정.
-4. 중앙 docs README를 추가하고 각 저장소 README에 링크할지 결정.
+3. Notion export 중 Needs Review 항목을 Bible intake로 올릴지 결정.
+4. Kiosk/Admin/back README에 중앙 `DOCUMENT_TAG_INDEX` 링크를 넣을지 결정.
+5. `_archive` 중 영구 삭제할 항목이 있으면 별도 승인 후 진행.
