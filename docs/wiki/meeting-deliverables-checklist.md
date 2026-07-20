@@ -1,7 +1,7 @@
 # ASAK 회의록 및 최종 배포 검증
 
 > **⚠️ HISTORICAL / 참고용 — 일일 실행에 쓰지 마세요.**  
-> → 대신 [**START_HERE**](../START_HERE.md) · [baseline](current-status-baseline.md) · [wbs-v2](wbs-v2.md) · [wbs-status-notes](wbs-status-notes.md)  
+> → 대신 [**START_HERE**](../START_HERE.md) · [구현 맵](../planning/CURRENT_IMPLEMENTATION_MAP.md) · [wbs-status-notes](wbs-status-notes.md)
 > 산출물 존재 ≠ 구현 evidence. (체크리스트의 `ASAK-front` 등은 구 명칭.)
 
 > Notion 10. 회의록 + 11. 최종 제출 체크리스트 (2026-07-06)
@@ -11,8 +11,8 @@
 | 회의 | Notion | 로컬 |
 |------|--------|------|
 | 2026-07-03 키오스크 컨셉 | (Notion 10) | 아래 § |
-| 화면 설계 초기 회의 · 사전 의견 | [Notion 인덱스](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac) | [Archive 회의 기록](../archive/project-history/design-meetings/README.md) |
-| **2026-07-06 화면 설계 초기 회의** | [Notion 취합본](https://app.notion.com/p/39551ef04f0b815f8dc6e788176186d7) | [회의록](../archive/project-history/design-meetings/screen-design-meeting-minutes-2026-07-06.md) · [변경 이력](../archive/project-history/design-meetings/screen-design-changes-2026-07-06.md) |
+| 화면 설계 초기 회의 · 사전 의견 | [Notion 인덱스](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac) | [Archive 회의 기록](../_archive/project-history/design-meetings/README.md) |
+| **2026-07-06 화면 설계 초기 회의** | [Notion 취합본](https://app.notion.com/p/39551ef04f0b815f8dc6e788176186d7) | [회의록](../_archive/project-history/design-meetings/screen-design-meeting-minutes-2026-07-06.md) · [변경 이력](../_archive/project-history/design-meetings/screen-design-changes-2026-07-06.md) |
 
 ## 회의록
 
@@ -38,7 +38,7 @@
 
 **MVP 고객 UI**: 홈·매장/포장 → 메뉴 → 옵션 → 장바구니·주문확인(팝업) → 결제 → 완료 (**6 UI 단계**, SCR-001~008 ID 유지)
 
-상세: [회의록](../archive/project-history/design-meetings/screen-design-meeting-minutes-2026-07-06.md) · [변경 이력](../archive/project-history/design-meetings/screen-design-changes-2026-07-06.md)
+상세: [회의록](../_archive/project-history/design-meetings/screen-design-meeting-minutes-2026-07-06.md) · [변경 이력](../_archive/project-history/design-meetings/screen-design-changes-2026-07-06.md)
 
 ---
 

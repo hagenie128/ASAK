@@ -1,8 +1,8 @@
 # ASAK Greens Kiosk — Design System (MASTER)
 
 > **파일**: `kiosk_design` · **Frame**: 834×1194 (태블릿 세로)  
-> **색상 후보**: [kiosk-design-system-index.md](./kiosk-design-system-index.md) (A~E · Trend-1~5 **병합 없음**)  
-> **CSS**: [`kiosk-tokens.css`](./kiosk-tokens.css) (viewer 기본) · 후보별 [`kiosk-tokens-candidate-*.css`](./kiosk-design-system-index.md#5-git-파일-목록)
+> **색상 후보**: [kiosk-design-system-index.md](../ds-tokens/kiosk-design-system-index.md) (A~E · Trend-1~5 **병합 없음**)
+> **CSS**: [`kiosk-tokens-candidate-B.css`](./kiosk-tokens-candidate-B.css) · 후보 목록은 [kiosk-design-system-index.md](../ds-tokens/kiosk-design-system-index.md#5-git-파일-목록)
 
 샐러드 키오스크(ASAK/Greens) UI의 **공통 구조** 토큰·컴포넌트 정의입니다.  
 **색상 팔레트는 팀이 A~E 중 1안을 확정할 때까지 후보별로 분리** 유지합니다. 아래 Color는 현재 `frontend/viewer` 구현 기본값이며, Trend·후보와 **병합하지 않습니다**.
@@ -44,7 +44,7 @@
 | Error Soft | `#FEE2E2` | 오류 배너 |
 | Warn Soft | `#FFF7ED` | 경고 배너 |
 
-> **DS 구조 (2026-07-06)**: 회의 채택안 **Candidate B / DS-02 Modern Minimal**의 현재 정본은 이 문서와 [kiosk-tokens.css](./kiosk-tokens.css)입니다. 선택 기록은 [Archive](../archive/design-migrations/kiosk-design-system-candidate-B.md)에 보존합니다. Trend 색상 참고: [color-swatches.html](./color-swatches.html).
+> **DS 구조 (2026-07-06)**: 회의 채택안 **Candidate B / DS-02 Modern Minimal**의 현재 정본은 이 문서와 [kiosk-tokens-candidate-B.css](./kiosk-tokens-candidate-B.css)입니다. 선택 기록은 [Archive](./kiosk-design-system-candidate-B.md)에 보존합니다. Trend 색상 참고: [color-swatches.html](../ds-tokens/color-swatches.html).
 
 ---
 
@@ -163,7 +163,7 @@ Figma에 Pretendard가 없으면 **Inter**로 대체 후, 한글 스타일은 Pr
 | 본문 대비 | WCAG AA 4.5:1 | Text `#1A2E1A` on Surface ✓ |
 | 대형 텍스트 | 3:1 | Title·Price ✓ |
 | 터치 | 48px | §4 참고 |
-| 큰 글자 모드 | +33% scale | `data-a11y-large-text` → [kiosk-tokens.css](./kiosk-tokens.css) |
+| 큰 글자 모드 | +33% scale | `data-a11y-large-text` → [kiosk-tokens-candidate-B.css](./kiosk-tokens-candidate-B.css) |
 | 고대비 모드 | 7:1 목표 | `data-a11y-high-contrast` → 검정/흰/진녹 |
 | 설정 화면 | — | **[SCR-014 접근성 설정](https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design)** |
 
@@ -177,15 +177,15 @@ Figma에 Pretendard가 없으면 **Inter**로 대체 후, 한글 스타일은 Pr
 | Variables | Collection `ASAK / Color` · modes: `asak-trend-*` |
 | SCR 적용 | `03. Kiosk Screens` 각 frame에 토큰 적용 |
 
-**플러그인**: [`figma-create-ds02-components-plugin`](./figma-create-ds02-components-plugin/README.md) — DS-02 컴포넌트·UI Kit 생성
+**플러그인**: [`figma-create-ds02-components-plugin`](../tools-plugins/figma-create-ds02-components-plugin/README.md) — DS-02 컴포넌트·UI Kit 생성
 
 ---
 
 ## 관련 문서
 
-- [kiosk-design-system-index.md](./kiosk-design-system-index.md) — A~E · Trend 매핑 (병합 없음)
-- [Archive 비교표](../archive/design-migrations/kiosk-design-system-comparison.md) — 팀 비교표 · 왜 다른가
+- [kiosk-design-system-index.md](../ds-tokens/kiosk-design-system-index.md) — A~E · Trend 매핑 (병합 없음)
+- [Archive 비교표](./kiosk-design-system-comparison.md) — 팀 비교표 · 왜 다른가
 - [Figma 태블릿 세로 Setup](https://app.notion.com/p/39451ef04f0b81c1b71accd381097699)
-- [color-swatches.html](./color-swatches.html)
-- [figma-links.template.json](./figma-links.template.json)
+- [color-swatches.html](../ds-tokens/color-swatches.html)
+- [figma-links.template.json](../tools-plugins/figma-links.template.json)
 - [SCR_FIGMA_CHECKLIST.md](./SCR_FIGMA_CHECKLIST.md)

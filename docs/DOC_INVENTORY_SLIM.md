@@ -32,7 +32,7 @@
 | `docs/planning/IMPLEMENTATION_PRIORITY.md` | 목표 순서 — 현실은 MAP/baseline |
 | `docs/governance/PRODUCT_BIBLE_INDEX.md` | 세부는 Pack README · 입구는 product_bible/README |
 | `docs/governance/REPOSITORY_CLEANUP_INVENTORY_2026-07-16.md` | 정리 이력 |
-| `docs/archive/**` | 실행 금지 |
+| `docs/_archive/**` · `docs/design/_archive/**` | 실행 금지 |
 | `docs/product_bible/_archive/**` | 구현 기준 제외 |
 | ASAK 루트 `README.md` (레거시 frontend/ 설명) | START_HERE · 워크스페이스 README |
 
@@ -46,8 +46,7 @@
 | `docs/wiki/legacy-wbs2-mapping-audit-2026-07-16.md` | 1회성 감사 |
 | `docs/wiki/meeting-deliverables-checklist.md` | 회의 체크리스트 — 중복 가능 |
 | `docs/governance/REPOSITORY_CLEANUP_INVENTORY_2026-07-16.md` | 정리 스냅샷 |
-| `docs/_archive/` (docs 직하) | `archive/`와 역할 겹침 여부 확인 필요 |
-| `docs/implementation/` | planning과 중복 여부 확인 필요 |
+| `docs/_archive/implementation-plans/` | 시점이 있는 계획 보관본 — planning과 중복 여부 정기 검토 |
 | Notion stub 다수 (`docs/design/*` 구버전) | Notion 정본이면 Git stub만 유지 |
 | `ASAK/README.md` 레거시 `frontend/`·`ASAK-front` 섹션 | 별도 Legacy README로 분리 검토 |
 

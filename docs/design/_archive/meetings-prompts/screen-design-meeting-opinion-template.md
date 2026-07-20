@@ -2,8 +2,8 @@
 
 > **ASAK 키오스크** · SCR-001~021  
 > **Notion**: [화면 설계 초기 회의 · 사전 의견](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac)  
-> **과거 개인 페이지**: [`docs/archive/project-history/design-meetings/README.md`](../archive/project-history/design-meetings/README.md)
-> **과거 취합본**: [`screen-design-meeting-opinion-consolidated.md`](../archive/project-history/design-meetings/screen-design-meeting-opinion-consolidated.md)
+> **과거 개인 페이지**: [`docs/_archive/project-history/design-meetings/README.md`](../../../_archive/project-history/design-meetings/README.md)
+> **과거 취합본**: [`screen-design-meeting-opinion-consolidated.md`](../../../_archive/project-history/design-meetings/screen-design-meeting-opinion-consolidated.md)
 
 ---
 
@@ -34,8 +34,8 @@
 |------|------|
 | 화면 설계 DB | [04. 화면 설계](https://app.notion.com/p/1c751ef04f0b825ea3aa8145f563bbc8) |
 | 와이어 가이드 | [SCR 화면별 가이드](https://app.notion.com/p/39451ef04f0b81109d07c01293d73c6d) |
-| Figma · DS | [02 User Flow](https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design) · 라이브러리 없으면 `Ctrl+/` → **Create DS-02 User Flow Components** ([플러그인 README](./figma-create-ds02-components-plugin/README.md)) |
-| DS 상세 | [kiosk-design-system-index.md](./kiosk-design-system-index.md) · [디자인 hub](https://app.notion.com/p/39451ef04f0b8163b1f9ebb477917efc) |
+| Figma · DS | [02 User Flow](https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design) · 라이브러리 없으면 `Ctrl+/` → **Create DS-02 User Flow Components** ([플러그인 README](../tools-plugins/figma-create-ds02-components-plugin/README.md)) |
+| DS 상세 | [kiosk-design-system-index.md](../ds-tokens/kiosk-design-system-index.md) · [디자인 hub](https://app.notion.com/p/39451ef04f0b8163b1f9ebb477917efc) |
 
 ### DS 한눈에 (Step 3·4 참고)
 
@@ -50,7 +50,7 @@
 | **DS-07** | B minimal + coral CTA |
 
 > 구 이름: A→01 · B→02 · D→03 · E→04 · Trend-1→05 · Trend-4→06 · Hybrid→07  
-> SCR-001 A/B = **DS-05 vs DS-06**. 상세 비교는 [DS 인덱스](./kiosk-design-system-index.md) 참고.
+> SCR-001 A/B = **DS-05 vs DS-06**. 상세 비교는 [DS 인덱스](../ds-tokens/kiosk-design-system-index.md) 참고.
 
 ---
 

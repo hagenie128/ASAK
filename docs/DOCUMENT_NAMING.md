@@ -30,7 +30,7 @@
 | `docs/wiki/` | kebab-case |
 | `docs/planning/` · `governance/` · `architecture/` | kebab-case 권장 (기존 UPPER는 유지) |
 | `docs/product_bible/` | Pack 안 규칙은 각 Pack README 따름 · 루트에 산발 파일 추가 금지 |
-| `docs/archive/` | 이동만 · 신규 작성 지양 |
+| `docs/_archive/` · `docs/design/_archive/` | 이동만 · 신규 작성 지양 |
 
 ## 제목(H1) vs 파일명
 

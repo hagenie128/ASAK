@@ -282,6 +282,6 @@
 
 ## 근거
 
-- [실제 화면·데이터 감사](./FIGMA_AGENT_DATA_CONTRACT_AUDIT_2026-07-15.md)
+- [실제 화면·데이터 감사](../audits/FIGMA_AGENT_DATA_CONTRACT_AUDIT_2026-07-15.md)
 - `ASAK-Kiosk/src/contracts/api-data-contract.md`
 - `ASAK/docs/wiki/rest-api-spec.md`, `db-table-definition.md`

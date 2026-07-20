@@ -25,7 +25,7 @@
 | 문서 그룹 | 아카이브된 이유 |
 |---|---|
 | `docs/product_bible/_archive/**` | 현재 구현 기준에서 명시적으로 제외됨 |
-| `docs/archive/notion-exports/**` | 과거 Notion 내보내기 |
+| `docs/_archive/notion-export/**` | 과거 Notion 내보내기 |
 | 종료된 회의, 날짜가 있는 일정, 완료된 WBS 기록 | 보존된 이력; 현재 요구사항이 아님 |
 
 ## 검토 필요(Needs Review)

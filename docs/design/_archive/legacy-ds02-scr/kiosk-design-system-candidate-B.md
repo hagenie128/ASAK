@@ -10,7 +10,7 @@
 
 > **컨셉**: 흑백 + 포인트 · 큰 타이포 · 미니멀  
 > **캔버스**: 834×1194 (태블릿 세로) · 터치 최소 **44×44px**  
-> **정본 참조**: [Notion — 브랜드 · Trend 컬러](https://app.notion.com/p/39451ef04f0b814a9447f6fbf171b3b7) · [디자인 & 화면 hub](https://app.notion.com/p/39451ef04f0b8163b1f9ebb477917efc) · [인덱스](./kiosk-design-system-index.md)
+> **정본 참조**: [Notion — 브랜드 · Trend 컬러](https://app.notion.com/p/39451ef04f0b814a9447f6fbf171b3b7) · [디자인 & 화면 hub](https://app.notion.com/p/39451ef04f0b8163b1f9ebb477917efc) · [인덱스](../ds-tokens/kiosk-design-system-index.md)
 
 ---
 
@@ -155,4 +155,4 @@
 
 - CSS 토큰: [kiosk-tokens-candidate-B.css](./kiosk-tokens-candidate-B.css)
 - 비교표: [kiosk-design-system-comparison.md](./kiosk-design-system-comparison.md)
-- Figma 플러그인: [Create DS-02 Components](./figma-create-ds02-components-plugin/README.md)
+- Figma 플러그인: [Create DS-02 Components](../tools-plugins/figma-create-ds02-components-plugin/README.md)

@@ -36,7 +36,7 @@
 
 | 항목 | 결정 |
 |------|------|
-| **최종 DS** | **DS-02 Modern Minimal** (charcoal + electric lime) — [candidate-B](../kiosk-design-system-candidate-B.md) |
+| **최종 DS** | **DS-02 Modern Minimal** (charcoal + electric lime) — [candidate-B](../../../design/_archive/legacy-ds02-scr/kiosk-design-system-candidate-B.md) |
 | **박유진 1순위** | **DS-04** (DS-01 vs DS-04 재투표, 안건 7) |
 | **미채택 참고안** | DS-02 기반 하이브리드 아이디어를 논의했으나 채택하지 않음. 후보 정리 후 문서는 보관하지 않음. |
 | **고객/관리자 DS** | **일단 통합**, 분리 톤은 추후 검토 |
@@ -70,7 +70,7 @@
 | 항목 | 담당 | 기한 | 비고 |
 |------|------|------|------|
 | SCR 목록·개수 Notion DB 반영 (001·002 병합, 장바구니 통합) | TBD | TBD | 로컬·Hub 반영 완료 — [변경 이력](./screen-design-changes-2026-07-06.md) · Notion 수동 |
-| Figma **DS-02** 프레임·SCR-001 적용 | 디자인 | TBD | [DS 인덱스](../kiosk-design-system-index.md) |
+| Figma **DS-02** 프레임·SCR-001 적용 | 디자인 | TBD | [DS 인덱스](../../../design/_archive/ds-tokens/kiosk-design-system-index.md) |
 | 장바구니+주문확인 통합 와이어·프로토 | 디자인 | TBD | 컨펌 팝업 패턴 포함 |
 | 홈 매장/포장 선택 UI | 디자인 | TBD | SCR-001·002 병합안 |
 | 고객/관리자 DS 분리 가이드 | TBD | 추후 | 회의에서 보류 |
@@ -112,8 +112,8 @@
 | 문서 | 경로 |
 |------|------|
 | 사전의견 취합 | [screen-design-meeting-opinion-consolidated.md](./screen-design-meeting-opinion-consolidated.md) |
-| DS-02 명세 | [kiosk-design-system-candidate-B.md](../kiosk-design-system-candidate-B.md) |
+| DS-02 명세 | [kiosk-design-system-candidate-B.md](../../../design/_archive/legacy-ds02-scr/kiosk-design-system-candidate-B.md) |
 | 미채택 참고안 | 후보 정리로 별도 명세 없음 |
-| DS 인덱스 | [kiosk-design-system-index.md](../kiosk-design-system-index.md) |
+| DS 인덱스 | [kiosk-design-system-index.md](../../../design/_archive/ds-tokens/kiosk-design-system-index.md) |
 | Notion 취합본 | https://app.notion.com/p/39551ef04f0b815f8dc6e788176186d7 |
 | 화면 설계 변경 이력 (2026-07-06) | [screen-design-changes-2026-07-06.md](./screen-design-changes-2026-07-06.md) |

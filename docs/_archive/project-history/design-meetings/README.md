@@ -17,9 +17,9 @@
 
 | 작성자 | Notion | 로컬 |
 |--------|--------|------|
-| **이하진** | [사전의견 · 이하진](https://app.notion.com/p/39551ef04f0b81b4a6d7cbbdb76fbd0e) | [opinion-이하진.md](opinion-%EC%9D%B4%ED%95%98%EC%A7%84.md) |
-| **김나연** | [사전의견 · 김나연](https://app.notion.com/p/39551ef04f0b810a887afddfc5dd383c) | [opinion-김나연.md](opinion-%EA%B9%80%EB%82%98%EC%97%B0.md) |
-| **박유진** | [사전의견 · 박유진](https://app.notion.com/p/39551ef04f0b81248c15d260e38c0042) | [opinion-박유진.md](opinion-%EB%B0%95%EC%9C%A0%EC%A7%84.md) |
-| **강민준** | [사전의견 · 강민준](https://app.notion.com/p/39551ef04f0b813aa1e5f2e21d305b22) | [opinion-강민준.md](opinion-%EA%B0%95%EB%AF%BC%EC%A4%80.md) |
+| **이하진** | [사전의견 · 이하진](https://app.notion.com/p/39551ef04f0b81b4a6d7cbbdb76fbd0e) | [opinion-이하진.md](./opinion-이하진.md) |
+| **김나연** | [사전의견 · 김나연](https://app.notion.com/p/39551ef04f0b810a887afddfc5dd383c) | [opinion-김나연.md](./opinion-김나연.md) |
+| **박유진** | [사전의견 · 박유진](https://app.notion.com/p/39551ef04f0b81248c15d260e38c0042) | [opinion-박유진.md](./opinion-박유진.md) |
+| **강민준** | [사전의견 · 강민준](https://app.notion.com/p/39551ef04f0b813aa1e5f2e21d305b22) | [opinion-강민준.md](./opinion-강민준.md) |
 
-DS 비교·Figma 링크는 [인덱스](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac) 또는 [템플릿 md](../screen-design-meeting-opinion-template.md)를 참고하세요.
+DS 비교·Figma 링크는 [인덱스](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac) 또는 [템플릿 md](../../../design/_archive/meetings-prompts/screen-design-meeting-opinion-template.md)를 참고하세요.

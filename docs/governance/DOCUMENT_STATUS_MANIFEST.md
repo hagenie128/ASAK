@@ -1,7 +1,7 @@
 # 문서 상태 매니페스트
 
 > 갱신: **2026-07-20** · 원본 보존 + 상태 헤더 정책.  
-> **입구:** [START_HERE](../START_HERE.md) · 구현 현실 정본: [wiki/current-status-baseline.md](../wiki/current-status-baseline.md)
+> **입구:** [START_HERE](../START_HERE.md) · 구현 현실 정본: [CURRENT_IMPLEMENTATION_MAP.md](../planning/CURRENT_IMPLEMENTATION_MAP.md)
 
 | 경로 규칙 | 상태 | 정본(Canonical) 참조 |
 |---|---|---|
@@ -10,8 +10,8 @@
 | `docs/DOC_INVENTORY_SLIM.md` | Current | KEEP / Historical / archive 후보 |
 | `docs/product_bible/README.md` | **Current (얇은 안내)** | Pack README 우선 |
 | `ASAK/PROJECT_HUB.md` | Current | START_HERE |
-| `docs/wiki/current-status-baseline.md` | **Current** | 코드 실측 |
-| `docs/wiki/wbs-v2.md`, `wbs-status-notes.md` | **Current** | 실행 WBS |
+| `docs/planning/CURRENT_IMPLEMENTATION_MAP.md` | **Current** | 코드 실측 |
+| `docs/wiki/wbs-status-notes.md` | **Current** | 실행 WBS 요약 |
 | `docs/wiki/devcopilot-sync-report.md` | **Current** | DevCopilot MCP 동기화 |
 | `docs/planning/CURRENT_IMPLEMENTATION_MAP.md` | **Current (2026-07-20 재작성)** | baseline |
 | `docs/architecture/DOCUMENT_CODE_GAP_REPORT.md` | **Current (2026-07-20 재작성)** | implementation map |
@@ -23,7 +23,7 @@
 | `docs/wiki/wbs-schedule.md`, `legacy-wbs2-*`, `snapshots/*-07-16*` | **Historical** | wbs-v2 / sync-report |
 | `docs/guides/**` | Reference / 비어 있을 수 있음 | Product Bible |
 | `docs/team/**` | 팀 조율 | Decision Log |
-| `docs/archive/**` | **Archived — 실행 금지** | 없음 |
+| `docs/_archive/**`, `docs/design/_archive/**` | **Archived — 실행 금지** | 없음 |
 | `docs/notion/**` | DevCopilot 스크립트 입력 | Wiki · Product Bible |
 | `docs/product_bible/**` | 정책 정본 | `_archive` 제외 · README 먼저 |
 | `ASAK-Kiosk\|Admin/IMPLEMENTATION_PLAN.md` | **Current** | 각 STRUCTURE_GUIDE |

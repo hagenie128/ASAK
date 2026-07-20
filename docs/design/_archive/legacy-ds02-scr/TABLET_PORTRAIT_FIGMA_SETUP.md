@@ -8,5 +8,5 @@
 
 ## Git에만 있는 도구
 
-- [color-swatches.html](./color-swatches.html) — Variables hex 참조
-- [figma-links.template.json](./figma-links.template.json) — SCR별 `node_id` / `figma_url`
+- [color-swatches.html](../ds-tokens/color-swatches.html) — Variables hex 참조
+- [figma-links.template.json](../tools-plugins/figma-links.template.json) — SCR별 `node_id` / `figma_url`

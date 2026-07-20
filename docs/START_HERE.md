@@ -9,8 +9,8 @@
 
 | # | 문서 | 한 줄 |
 |---|---|---|
-| 1 | [현재 상태 baseline](wiki/current-status-baseline.md) | **구현 현실 1순위** — 무엇이 되고/안 되는지 |
-| 2 | [구현 맵](planning/CURRENT_IMPLEMENTATION_MAP.md) | 화면·mock·API 상태표 |
+| 1 | [구현 맵](planning/CURRENT_IMPLEMENTATION_MAP.md) | **구현 현실 1순위** — 화면·mock·API 상태표 |
+| 2 | [WBS 상태 메모](wiki/wbs-status-notes.md) | 코드↔WBS 요약 · DevCopilot 한글 제목 |
 | 3 | [문서–코드 Gap](architecture/DOCUMENT_CODE_GAP_REPORT.md) | Canonical vs 코드 충돌 |
 
 **한 줄 요약:** Kiosk Home→Cart는 mock 동작 · Admin은 정적 UI + mock READY(미연결) · Backend는 health만.
@@ -23,8 +23,7 @@
 
 | # | 문서 | 한 줄 |
 |---|---|---|
-| 4 | [WBS 2.0](wiki/wbs-v2.md) | **실행 할 일 정본** (`WBS2-*`만) |
-| 5 | [WBS 상태 메모](wiki/wbs-status-notes.md) | 코드↔WBS 요약 · DevCopilot 한글 제목 |
+| 4 | [WBS 상태 메모](wiki/wbs-status-notes.md) | **실행 할 일 확인** — 코드↔WBS 요약 |
 
 레거시 `wbs-schedule.md`(WBS-001~)는 **실행에 쓰지 마세요.**
 
@@ -67,7 +66,7 @@
 
 | # | 문서 | 한 줄 |
 |---|---|---|
-| 12 | [Archive](archive/) | 실행 금지 · 이력 보존 |
+| 12 | [Archive](_archive/) | 실행 금지 · 이력 보존 |
 | 13 | [Legacy & Reference Index](governance/LEGACY_AND_REFERENCE_INDEX.md) | 비정본 분류 |
 | 14 | [문서 이름 규칙](DOCUMENT_NAMING.md) | **신규** 문서 네이밍 |
 | 15 | [문서 인벤토리(슬림)](DOC_INVENTORY_SLIM.md) | KEEP / 배너 / 아카이브 후보 |
@@ -76,9 +75,8 @@
 
 ## 매일 볼 문서 5개
 
-1. [baseline](wiki/current-status-baseline.md)  
-2. [wbs-v2](wiki/wbs-v2.md)  
-3. [wbs-status-notes](wiki/wbs-status-notes.md)  
+1. [구현 맵](planning/CURRENT_IMPLEMENTATION_MAP.md)
+2. [wbs-status-notes](wiki/wbs-status-notes.md)
 4. 담당 앱 `IMPLEMENTATION_PLAN.md`  
 5. [Canonical](governance/CANONICAL_CONTRACT_DECISIONS.md) (계약 건드릴 때)
 

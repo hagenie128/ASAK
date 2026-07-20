@@ -56,5 +56,5 @@ Figma **Y2K UI Kit** Android XML 섹션을 **ASAK Salady DS-02** (`#1A1C20` char
 
 ## 관련 문서
 
-- [figma-create-ds02-components-plugin README](./figma-create-ds02-components-plugin/README.md)
+- [figma-create-ds02-components-plugin README](../tools-plugins/figma-create-ds02-components-plugin/README.md)
 - [kiosk-design-system-candidate-B.md](./kiosk-design-system-candidate-B.md)

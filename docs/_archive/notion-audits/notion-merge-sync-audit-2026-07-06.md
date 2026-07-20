@@ -2,13 +2,13 @@
 > Archived Date: 2026-07-16
 > Reason: Completed Notion merge and synchronization audit.
 > Canonical Replacement: `docs/wiki/DEV_COPILOT_WBS2_2026-07-16.md`
-> Original Path: `docs/archive/design-audits/notion-merge-sync-audit-2026-07-06.md`
+> Original Path: `docs/_archive/notion-audits/notion-merge-sync-audit-2026-07-06.md`
 
 # Notion 병합·6단계·DS-02 반영 감사 — 2026-07-06
 
 > **감사일**: 2026-07-06  
 > **재감사 완료**: 2026-07-06 (후속 MCP + Git)  
-> **근거**: [screen-design-changes-2026-07-06.md](../design/meetings/screen-design-changes-2026-07-06.md) · `docs/screens/screens.json`  
+> **근거**: [screen-design-changes-2026-07-06.md](../project-history/design-meetings/screen-design-changes-2026-07-06.md) · `docs/screens/screens.json`
 > **결론**: Notion 시나리오·매트릭스·Git 체크리스트 반영 완료. **Figma frame 실작업만** 디자이너 수동.
 
 ## 회의 확정 사실 (정본)
@@ -36,7 +36,7 @@
 | **figma-rename-scr-plugin** | ✅ 수정 완료 | 병합됨/Archive 스킵 · 레거시 이름 매핑 |
 | **figma-merge-scr-guide.md** | ✅ 신규 | Figma 수동 병합 단계 |
 | **sync_figma_links.py** | ⏸️ 미실행 | `.env`에 FIGMA_TOKEN 없음 |
-| **Figma kiosk_design 파일** | ❌ 수동 필요 | frame 통합·DS-02 적용 — [가이드](../design/figma-merge-scr-guide.md) |
+| **Figma kiosk_design 파일** | ❌ 수동 필요 | frame 통합·DS-02 적용 — [가이드](../../design/_archive/legacy-ds02-scr/figma-merge-scr-guide.md) |
 | **DevCopilot Wiki** | ⏸️ 미실행 | `upload_screens_api.py` (repo는 반영됨) |
 
 ---
@@ -59,7 +59,7 @@
 4. **DS-02** 컴포넌트 인스턴스 적용 (`figma-create-ds02-components-plugin`)
 5. (선택) `FIGMA_TOKEN` 설정 후 `sync_figma_links.py --all`
 
-상세: [figma-merge-scr-guide.md](../design/figma-merge-scr-guide.md)
+상세: [figma-merge-scr-guide.md](../../design/_archive/legacy-ds02-scr/figma-merge-scr-guide.md)
 
 ---
 

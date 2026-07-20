@@ -11,7 +11,7 @@
 | Figma/SCR 병합 | `docs/product_bible/07_Screen_Bible/` | 2026-07-06 팀 기록 | 없음 | 해당 Screen 정비 항목 | SUPERSEDED_PLAN | 완료된 회의·프롬프트는 Archive, 현재 Screen Registry만 정본 |
 | 배포 준비 | `docs/wiki/wbs-v2.md` WBS2-065 | 해당 시점의 배포 증거 | 없음 | WBS2-065 | RELATED_NOT_DUPLICATE | 환경·release owner·RC가 확정될 때까지 BLOCKED 유지 |
 | 발표/Demo 준비 | `docs/wiki/wbs-v2.md` WBS2-066 | 리허설·발표 증거 | 없음 | WBS2-066 | NEEDS_CONFIRMATION | Primary Owner 확정 전에는 Team/NEEDS_CONFIRMATION 유지 |
-| 과거 Notion Export | Product Bible 및 Wiki | 과거 worklog evidence | 없음 | 없음 | HISTORY_ONLY | `docs/archive/notion-exports/` 보존, 정책 정본으로 사용하지 않음 |
+| 과거 Notion Export | Product Bible 및 Wiki | 과거 worklog evidence | 없음 | 없음 | HISTORY_ONLY | `docs/_archive/notion-export/` 보존, 정책 정본으로 사용하지 않음 |
 
 ## Worklog 분류
 

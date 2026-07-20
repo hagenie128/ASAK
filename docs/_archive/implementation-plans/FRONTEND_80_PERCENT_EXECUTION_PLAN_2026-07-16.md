@@ -402,7 +402,7 @@ Figma 파일 `JSrjOy668zhfkiLplCkreh`는 MCP에서 직접 확인되었고, `05-C
 
 | 시간 | 하진 (직접 작성) | 나연 (직접 작성) | 완료 확인 |
 |---|---|---|---|
-| 0:00–0:30 | `ASAK/docs/implementation/FRONTEND_80_PERCENT_EXECUTION_PLAN_2026-07-16.md`의 05-C Frame/Property 표를 팀 검토로 확정. Source는 수정하지 않음 | `ASAK-Kiosk/src/contracts/api-data-contract.md`를 기준으로 mock canonical DTO 표를 확인 | `rg -n 'JSrjOy|134:7721|134:7792' ASAK/docs/implementation/FRONTEND_80_PERCENT_EXECUTION_PLAN_2026-07-16.md` |
+| 0:00–0:30 | `ASAK/docs/_archive/implementation-plans/FRONTEND_80_PERCENT_EXECUTION_PLAN_2026-07-16.md`의 05-C Frame/Property 표를 팀 검토로 확정. Source는 수정하지 않음 | `ASAK-Kiosk/src/contracts/api-data-contract.md`를 기준으로 mock canonical DTO 표를 확인 | `rg -n 'JSrjOy|134:7721|134:7792' ASAK/docs/_archive/implementation-plans/FRONTEND_80_PERCENT_EXECUTION_PLAN_2026-07-16.md` |
 | 0:30–1:30 | `ASAK-Kiosk/src/apps/kiosk/KioskApp.jsx`의 Router/Page Skeleton 범위를 담당자가 작성: `/`, `/menu`, `/cart`, `/payment`, `/complete` | `ASAK-Kiosk/src/mocks/` 및 `src/api/`의 mock adapter를 담당자가 작성: envelope/DTO, mock↔Axios 경계 | `npm run lint`, `npm run build` in `ASAK-Kiosk` |
 | 1:30–3:00 | Admin은 수정하지 않고 05-C/07-C state checklist로 Kiosk skeleton review | `ASAK-Kiosk/src/store/orderSessionStore.js`의 cart 기본 action과 `HomePage.jsx`, `MenuListPage.jsx` 최소 렌더링을 담당자가 작성 | Home→Menu 이동, mock menu list render, cart action unit/manual QA |
 

@@ -1,6 +1,6 @@
 # SCR × Figma 작업 체크리스트 (태블릿 세로)
 
-> **kiosk_design** · 834×1194 portrait · [`figma-links.template.json`](./figma-links.template.json)  
+> **kiosk_design** · 834×1194 portrait · [`figma-links.template.json`](../tools-plugins/figma-links.template.json)
 > 팀 파일: [kiosk_design](https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design)  
 > 동기화: `python asak-data/scripts/sync_figma_links.py --all` (FIGMA_TOKEN → Git·Notion·DevCopilot)  
 > Notion 정본: [Figma 가이드 + SCR×Figma](https://app.notion.com/p/39451ef04f0b81849dc7d81f8106b5ad) · 화면 목록: [04. 화면 설계 SCR DB](https://app.notion.com/p/1c751ef04f0b825ea3aa8145f563bbc8)
@@ -13,7 +13,7 @@
 | SCR-002 | → SCR-001「홈 (매장·포장)」**병합됨** |
 | SCR-006 | → SCR-005「장바구니·주문확인」**병합됨** (컨펌 팝업) |
 | 고객 흐름 | 홈(매장·포장) → 메뉴 → 옵션 → 장바구니·확인(팝업) → 결제 → 완료 (**6 UI 단계**) |
-| Figma 수동 이력 | [Archive 병합 가이드](../archive/design-migrations/figma-merge-scr-guide.md) |
+| Figma 수동 이력 | [Archive 병합 가이드](./figma-merge-scr-guide.md) |
 | 플러그인 | `figma-rename-scr-plugin` — 병합됨/Archive 스킵 · `figma-create-ds02-components-plugin` |
 
 ---
@@ -64,6 +64,6 @@
 | SCR-005 | `CartLine`, `BottomBar` Confirm, `ModalConfirm`, `Stepper` |
 | SCR-007 | `LoadingOverlay`, `PaymentMethod` |
 
-플러그인: `docs/design/figma-create-ds02-components-plugin/` · 과거 상세: [Archive 병합 가이드](../archive/design-migrations/figma-merge-scr-guide.md)
+플러그인: `docs/design/figma-create-ds02-components-plugin/` · 과거 상세: [Archive 병합 가이드](./figma-merge-scr-guide.md)
 
 Frame 이름: `SCR-XXX 화면명` · wireframe: [Notion SCR 화면별 가이드](https://app.notion.com/p/39451ef04f0b81109d07c01293d73c6d)

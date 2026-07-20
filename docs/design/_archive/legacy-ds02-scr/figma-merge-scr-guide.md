@@ -6,7 +6,7 @@
 
 # Figma SCR 병합 가이드 — 002→001 · 006→005
 
-> **근거**: [screen-design-changes-2026-07-06.md](./meetings/screen-design-changes-2026-07-06.md)  
+> **근거**: [screen-design-changes-2026-07-06.md](../../../_archive/project-history/design-meetings/screen-design-changes-2026-07-06.md)
 > **파일**: [kiosk_design](https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design)  
 > **DS**: **DS-02 Modern Minimal** (`docs/design/figma-create-ds02-components-plugin/`)  
 > **사전 작업**: `figma-rename-scr-plugin` 실행 → 프레임 이름 `SCR-XXX` 형식 정리
@@ -132,6 +132,6 @@ python asak-data/scripts/sync_figma_links.py --all
 ## 관련 문서
 
 - [SCR_FIGMA_CHECKLIST.md](./SCR_FIGMA_CHECKLIST.md)
-- [figma-rename-scr-plugin](./figma-rename-scr-plugin/)
-- [figma-create-ds02-components-plugin](./figma-create-ds02-components-plugin/)
-- [notion-merge-sync-audit-2026-07-06.md](../archive/design-audits/notion-merge-sync-audit-2026-07-06.md)
+- [figma-rename-scr-plugin](../tools-plugins/figma-rename-scr-plugin/)
+- [figma-create-ds02-components-plugin](../tools-plugins/figma-create-ds02-components-plugin/)
+- [notion-merge-sync-audit-2026-07-06.md](../../../_archive/notion-audits/notion-merge-sync-audit-2026-07-06.md)

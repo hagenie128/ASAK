@@ -1,16 +1,16 @@
 # ASAK Documentation
 
 > **👉 처음이면 [START_HERE.md](START_HERE.md)만 보세요.** (단일 진입점)  
-> **2026-07-20:** 구현 현실은 `wiki/current-status-baseline.md` + `planning/CURRENT_IMPLEMENTATION_MAP.md`가 정본.  
+> **2026-07-20:** 구현 현실은 `planning/CURRENT_IMPLEMENTATION_MAP.md`가 정본이며, WBS 상태는 `wiki/wbs-status-notes.md`에서 확인합니다.
 > 07-16 cleanup 정책(정본/생성물/Archive 분리)은 유지. `docs/notion`은 DevCopilot 스크립트 입력용.
 
 ## 운영 원칙
 
 - **입구:** [START_HERE](START_HERE.md) · [PROJECT_HUB](../PROJECT_HUB.md)
 - **정책 정본:** `product_bible/` (먼저 [얇은 README](product_bible/README.md)) · **계약:** `governance/CANONICAL_CONTRACT_DECISIONS.md`
-- **구현 현실:** `wiki/`(baseline·WBS2) · `planning/CURRENT_IMPLEMENTATION_MAP.md`
+- **구현 현실:** `planning/CURRENT_IMPLEMENTATION_MAP.md` · `wiki/wbs-status-notes.md`
 - **앱 실행 문서:** 각 저장소 `IMPLEMENTATION_PLAN.md`, `src/STRUCTURE_GUIDE.md`
-- **Archive:** `archive/` — 삭제·정본 복귀 금지
+- **Archive:** `_archive/` — 삭제·정본 복귀 금지
 - **신규 파일명:** [DOCUMENT_NAMING.md](DOCUMENT_NAMING.md) · 인벤토리: [DOC_INVENTORY_SLIM.md](DOC_INVENTORY_SLIM.md)
 - **주의:** `docs/notion`, `worklog/daily` 경로는 스크립트가 읽음 — 무단 이동 금지
 
@@ -23,8 +23,8 @@ python worklog/scripts/build_calendar.py
 ## 문서 진입 순서
 
 1. **[START_HERE](START_HERE.md)** ← 여기부터
-2. [Wiki 색인](wiki/index.md) · [현재 상태 baseline](wiki/current-status-baseline.md)
-3. [WBS 2.0](wiki/wbs-v2.md) · [WBS 상태 메모](wiki/wbs-status-notes.md)
+2. [Wiki 색인](wiki/index.md) · [현재 구현 맵](planning/CURRENT_IMPLEMENTATION_MAP.md)
+3. [WBS 상태 메모](wiki/wbs-status-notes.md)
 4. [Canonical Contract Decisions](governance/CANONICAL_CONTRACT_DECISIONS.md)
 5. [Current Implementation Map](planning/CURRENT_IMPLEMENTATION_MAP.md)
 6. [Document–Code Gap Report](architecture/DOCUMENT_CODE_GAP_REPORT.md)
@@ -33,7 +33,7 @@ python worklog/scripts/build_calendar.py
 9. [Product Bible 얇은 안내](product_bible/README.md) · [Index](governance/PRODUCT_BIBLE_INDEX.md) · Pack README만
 10. [Design](design/) · [Screens](screens/)
 11. [Operations setup](operations/setup/)
-12. [Archive](archive/) — 한물간 문서, 실행에 쓰지 않음
+12. [Archive](_archive/) — 한물간 문서, 실행에 쓰지 않음
 
 ## 정본과 범위
 
@@ -58,7 +58,7 @@ python worklog/scripts/build_calendar.py
 | `team` | Team collaboration and role-related documents. |
 | `wiki` | Project knowledge and reference documents. |
 | `notion` | Current DevCopilot sync input snapshots only; not a product-policy source. |
-| `archive` | Concluded audits, prompts, plans, generated reports, Notion exports, and project history. |
+| `_archive` | Concluded audits, prompts, plans, generated reports, Notion exports, and project history. |
 
 ## Pack 1~12
 

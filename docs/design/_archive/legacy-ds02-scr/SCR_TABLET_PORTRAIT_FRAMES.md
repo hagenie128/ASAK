@@ -9,4 +9,4 @@
 ## Git에만 있는 도구
 
 - [SCR_FIGMA_CHECKLIST.md](./SCR_FIGMA_CHECKLIST.md) — 담당·REQ 작업 표 (짧은 체크리스트)
-- [figma-links.template.json](./figma-links.template.json)
+- [figma-links.template.json](../tools-plugins/figma-links.template.json)
