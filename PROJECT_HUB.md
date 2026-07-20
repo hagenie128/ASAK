@@ -9,7 +9,7 @@
 |---|---|
 | 문서 시작 | [docs/START_HERE.md](docs/START_HERE.md) |
 | 코드 현실 | [docs/wiki/current-status-baseline.md](docs/wiki/current-status-baseline.md) |
-| 할 일 (WBS) | [docs/wiki/wbs-v2.md](docs/wiki/wbs-v2.md) |
+| 할 일 (WBS) | [docs/wiki/wbs-v2-2026-07-16.md](docs/wiki/wbs-v2-2026-07-16.md) |
 | 문서 폴더 안내 | [docs/README.md](docs/README.md) |
 | Product Bible | [docs/product_bible/README.md](docs/product_bible/README.md) |
 | 온보딩(설치) | [docs/operations/setup/GETTING_STARTED.md](docs/operations/setup/GETTING_STARTED.md) |

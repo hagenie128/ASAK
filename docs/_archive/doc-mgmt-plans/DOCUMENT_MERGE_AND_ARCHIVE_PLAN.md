@@ -1,7 +1,7 @@
 > Status: ARCHIVED
 > Archived Date: 2026-07-16
 > Reason: Completed cleanup plan.
-> Canonical Replacement: `docs/governance/REPOSITORY_CLEANUP_INVENTORY_2026-07-16.md`
+> Canonical Replacement: `docs/governance/repository-cleanup-inventory-2026-07-16.md`
 > Original Path: `docs/documentation-management/DOCUMENT_MERGE_AND_ARCHIVE_PLAN.md`
 
 # Document Merge and Archive Plan

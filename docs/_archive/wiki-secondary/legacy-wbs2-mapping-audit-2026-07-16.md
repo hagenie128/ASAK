@@ -1,7 +1,7 @@
 # Legacy WBS to WBS2 Mapping Audit
 
 > **⚠️ HISTORICAL — 실행에 쓰지 마세요.**  
-> → 대신 [**START_HERE**](../START_HERE.md) · [**wbs-v2.md**](wbs-v2.md) · [**wbs-status-notes.md**](wbs-status-notes.md)  
+> → 대신 [**START_HERE**](../START_HERE.md) · [**wbs-v2-2026-07-16.md**](wbs-v2-2026-07-16.md) · [**wbs-status-notes.md**](wbs-status-notes.md)  
 > 감사일: 2026-07-16. 범위: Legacy WBS 37건 ↔ `WBS2-*` 매핑. 활성 WBS2는 66건. Internal ID는 DevCopilot 불변 숫자 ID.
 
 ## 방법 및 한계

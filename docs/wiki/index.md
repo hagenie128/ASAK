@@ -1,23 +1,23 @@
 # ASAK 위키 색인
 
 > 현재 운영 진입점 — **2026-07-20** (코드 실측 동기화).  
-> **전체 문서 입구:** [START_HERE](../START_HERE.md) · WBS 실행 정본은 **[wbs-v2.md](wbs-v2.md)** (+ [상태 메모](wbs-status-notes.md)).  
+> **전체 문서 입구:** [START_HERE](../START_HERE.md) · WBS 실행 정본은 **[wbs-v2-2026-07-16.md](wbs-v2-2026-07-16.md)** (+ [상태 메모](wbs-status-notes.md)).  
 > `wbs-schedule.md`는 Historical — 실행에 쓰지 말 것.
 
 ## 지금 상태 (먼저)
 
 - [현재 상태 baseline](current-status-baseline.md) ← **구현 현실 1순위**
-- [WBS 2.0](wbs-v2.md) ← **할 일 정본**
+- [WBS 2.0](wbs-v2-2026-07-16.md) ← **할 일 정본**
 - [WBS 상태 메모](wbs-status-notes.md) ← 코드↔WBS↔DevCopilot 요약
 - [DevCopilot 동기화 보고](devcopilot-sync-report.md)
-- [구현 맵](../planning/CURRENT_IMPLEMENTATION_MAP.md)
-- [문서–코드 Gap](../architecture/DOCUMENT_CODE_GAP_REPORT.md)
+- [구현 맵](../planning/current-implementation-map-2026-07-16.md)
+- [문서–코드 Gap](../architecture/document-code-gap-report-2026-07-16.md)
 
 ## 계획·스프린트
 
-- [프론트 3일 WBS](../planning/FRONTEND_WEDNESDAY_WBS_2026-07-20.md)
-- [구현 우선순위](../planning/IMPLEMENTATION_PRIORITY.md)
-- [Canonical 계약](../governance/CANONICAL_CONTRACT_DECISIONS.md)
+- [프론트 3일 WBS](../planning/frontend-wednesday-wbs-2026-07-20.md)
+- [구현 우선순위](../planning/implementation-priority-2026-07-16.md)
+- [Canonical 계약](../governance/canonical-contract-decisions-2026-07-16.md)
 
 ## 추적·범위
 

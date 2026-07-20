@@ -22,7 +22,7 @@
 ## 3. 직접 구현 영역
 
 - **문서 정본 구조:** `docs/START_HERE.md`, `PROJECT_HUB.md`, `docs/document-naming-guide-2026-07-20.md`, `docs/document-inventory-slim-2026-07-20.md`, `docs/product_bible/README.md` 신규 작성.
-- **코드 실태 반영 문서:** `docs/planning/CURRENT_IMPLEMENTATION_MAP.md`, `docs/architecture/DOCUMENT_CODE_GAP_REPORT.md`, `docs/wiki/wbs-status-notes.md`, `docs/wiki/current-status-baseline.md`, `docs/wiki/wbs-v2.md`, `docs/wiki/screens.json` 갱신.
+- **코드 실태 반영 문서:** `docs/planning/current-implementation-map-2026-07-16.md`, `docs/architecture/document-code-gap-report-2026-07-16.md`, `docs/wiki/wbs-status-notes.md`, `docs/wiki/current-status-baseline.md`, `docs/wiki/wbs-v2-2026-07-16.md`, `docs/wiki/screens.json` 갱신.
 - **앱별 구조 문서:** `ASAK-Kiosk/src/STRUCTURE_GUIDE.md`, `ASAK-Admin/src/STRUCTURE_GUIDE.md`, `ASAK-Kiosk/IMPLEMENTATION_PLAN.md`, `ASAK-Admin/IMPLEMENTATION_PLAN.md`, `ASAK-back/IMPLEMENTATION_PLAN.md` 갱신.
 - **루트 안내:** `README.md`, `ASAK/README.md`, `UI-INDEX.md` 상단에 `START_HERE` 링크·코드-정본 안내 배너 추가.
 - **DevCopilot MCP:** WBS2-001~066 제목 한글화, WBS2-017/022/023 상태 `DONE` 반영, LMIS 요구사항 8건 `IN_PROGRESS` 반영, SCR-020~024 정의 정리, Target API 4건 신규 create.
@@ -48,7 +48,7 @@
 - 이슈 1:
   - 증상: 문서(7/16 정리본) 기준으로는 여러 항목이 진행 중/완료로 보였으나, 코드를 직접 열어보니 Admin은 정적 UI만 연결되고 실제 데이터 연동이 0건이었다.
   - 원인: 문서가 마지막 갱신 시점의 스냅샷이라 이후 코드 변화(또는 애초에 정적 UI만 만든 상태)를 반영하지 못했다.
-  - 해결: `CURRENT_IMPLEMENTATION_MAP.md`·`DOCUMENT_CODE_GAP_REPORT.md`를 코드 재스캔 결과로 갱신하고, WBS2 상태도 코드 evidence 기준으로 재조정했다.
+  - 해결: `current-implementation-map-2026-07-16.md`·`document-code-gap-report-2026-07-16.md`를 코드 재스캔 결과로 갱신하고, WBS2 상태도 코드 evidence 기준으로 재조정했다.
 - 이슈 2:
   - 증상: DevCopilot 대시보드의 WBS 진행률(%)이 실제 활성 작업 대비 지나치게 낮게 보였다(예: 5.4%).
   - 원인: 대시보드 계산 공식의 분모에 `EXCLUDED`(중복·보류) 레코드 다수가 포함되어 있었다.
@@ -65,7 +65,7 @@
 - 실제 원인: `legacy-wbs2-mapping-audit-2026-07-16.md`에서 이미 확인된 것처럼, EXCLUDED(중복·보류) 레코드가 분모에 포함되는 시스템 계산 방식 때문이었다 — 우리 판정 오류가 아니었다.
 - 다시 같은 문제가 생기면 먼저 볼 파일/명령어:
   - `ASAK/docs/wiki/devcopilot-sync-report.md` (Dashboard 재계산, MCP_UNSUPPORTED 섹션)
-  - `ASAK/docs/wiki/wbs-v2.md` (실행 정본 표)
+  - `ASAK/docs/wiki/wbs-v2-2026-07-16.md` (실행 정본 표)
   - `ASAK/docs/wiki/wbs-status-notes.md` (코드 근거 요약)
 
 ## 8. 이번 작업에서 배운 점
@@ -97,8 +97,8 @@
 ## 12. 첨부하면 좋은 자료
 
 - [`docs/START_HERE.md`](../../../docs/START_HERE.md)
-- [`docs/planning/CURRENT_IMPLEMENTATION_MAP.md`](../../../docs/planning/CURRENT_IMPLEMENTATION_MAP.md)
-- [`docs/architecture/DOCUMENT_CODE_GAP_REPORT.md`](../../../docs/architecture/DOCUMENT_CODE_GAP_REPORT.md)
+- [`docs/planning/current-implementation-map-2026-07-16.md`](../../../docs/planning/current-implementation-map-2026-07-16.md)
+- [`docs/architecture/document-code-gap-report-2026-07-16.md`](../../../docs/architecture/document-code-gap-report-2026-07-16.md)
 - [`docs/wiki/devcopilot-sync-report.md`](../../../docs/wiki/devcopilot-sync-report.md)
-- [`docs/wiki/wbs-v2.md`](../../../docs/wiki/wbs-v2.md) · [`docs/wiki/wbs-status-notes.md`](../../../docs/wiki/wbs-status-notes.md)
+- [`docs/wiki/wbs-v2-2026-07-16.md`](../../../docs/wiki/wbs-v2-2026-07-16.md) · [`docs/wiki/wbs-status-notes.md`](../../../docs/wiki/wbs-status-notes.md)
 - 오늘 일일 워크로그: [`daily/이하진/2026-07-20.md`](../../daily/이하진/2026-07-20.md)

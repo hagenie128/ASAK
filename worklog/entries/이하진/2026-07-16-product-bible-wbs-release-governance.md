@@ -49,7 +49,7 @@
 - 확인한 로그/에러 메시지: 7월 16일 Git 기록에서 문서 구조화, WBS 감사, 릴리스/데모 분리, Notion 감사, 프론트엔드 계획 관련 커밋이 연속으로 확인됐다.
 - 의심했던 지점: 문서 추가가 실제 기능 구현으로 오해될 수 있는지, 아카이브가 정본 문서를 가리는지, WBS 수치가 중복 집계되는지.
 - 실제 원인: 문서 수명주기와 구현 근거의 구분이 문서 안에서 충분히 드러나지 않았다.
-- 다시 같은 문제가 생기면 먼저 볼 파일/명령어: `docs/governance/PRODUCT_BIBLE_INDEX.md`, `docs/planning/IMPLEMENTATION_PRIORITY.md`, `docs/planning/CURRENT_IMPLEMENTATION_MAP.md`, Git log의 변경 단위.
+- 다시 같은 문제가 생기면 먼저 볼 파일/명령어: `docs/governance/product-bible-index-2026-07-16.md`, `docs/planning/implementation-priority-2026-07-16.md`, `docs/planning/current-implementation-map-2026-07-16.md`, Git log의 변경 단위.
 
 ## 8. 이번 작업에서 배운 점
 
@@ -74,6 +74,6 @@
 
 ## 12. 첨부하면 좋은 자료
 
-- [현재 구현 맵](../../../docs/planning/CURRENT_IMPLEMENTATION_MAP.md)
-- [구현 우선순위](../../../docs/planning/IMPLEMENTATION_PRIORITY.md)
+- [현재 구현 맵](../../../docs/planning/current-implementation-map-2026-07-16.md)
+- [구현 우선순위](../../../docs/planning/implementation-priority-2026-07-16.md)
 - [구현 가이드 시작점](../../../docs/implementation_guide/00_START_HERE.md)

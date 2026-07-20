@@ -10,7 +10,7 @@
 로컬에서는 보통 `ASAK-workspace` + `ASAK.code-workspace`로 네 저장소를 함께 엽니다. ([워크스페이스 README](../README.md))
 
 **9주 (7/2~9/2)** · Week 5 MVP · 최종 발표 9/2(수).  
-할 일: [WBS 2.0](docs/wiki/wbs-v2.md) · 현실: [baseline](docs/wiki/current-status-baseline.md) · Notion [프로젝트 허브](https://app.notion.com/p/39151ef04f0b808f99f8ea068efb5790)
+할 일: [WBS 2.0](docs/wiki/wbs-v2-2026-07-16.md) · 현실: [baseline](docs/wiki/current-status-baseline.md) · Notion [프로젝트 허브](https://app.notion.com/p/39151ef04f0b808f99f8ea068efb5790)
 
 ## 저장소 역할 (2026-07-20)
 
@@ -87,8 +87,8 @@ Git 로컬 도구: [`color-swatches.html`](docs/design/color-swatches.html) · [
 
 | 순서 | Git | 내용 |
 |------|-----|------|
-| 01 | [`01-team-setup.md`](docs/guides/01-team-setup.md) | 클론·세팅·Git·9주 일정 |
-| 02 | [`02-github-issues-guide.md`](docs/guides/02-github-issues-guide.md) | Issue·라벨·WBS |
-| 03–06 | [`03`](docs/guides/03-work-log-template.md) · [`04`](docs/guides/04-sample-work-log-example.md) · [`05`](docs/guides/05-personal-portfolio-template.md) · [`06`](docs/guides/06-team-ai-prompt.md) | 작업 기록·포트폴리오·AI 프롬프트 |
+| 01 | [`01-team-setup.md`](docs/guides/01-team-setup-2026-07-16.md) | 클론·세팅·Git·9주 일정 |
+| 02 | [`02-github-issues-guide.md`](docs/guides/02-github-issues-guide-2026-07-16.md) | Issue·라벨·WBS |
+| 03–06 | [`03`](docs/guides/03-work-log-template-2026-07-02.md) · [`04`](docs/guides/04-sample-work-log-example-2026-07-02.md) · [`05`](docs/guides/05-personal-portfolio-template-2026-07-06.md) · [`06`](docs/guides/06-team-ai-prompt-2026-07-06.md) | 작업 기록·포트폴리오·AI 프롬프트 |
 
 - `worklog/` — 일일 워크로그 + [캘린더 뷰](worklog/calendar/index.html) · [README 확인 순서](worklog/README.md) · 개인 stub: [`guide-personal-worklog.md`](worklog/guide-personal-worklog.md) → Notion [팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95)

@@ -2,7 +2,7 @@
 
 > **MVP 스프린트에서는 Pack README만** 먼저 보세요.  
 > 세부 계약·ADR·장문 문서는 **필요할 때만** 엽니다.  
-> 문서 진입점: [START_HERE](../START_HERE.md) · Index: [PRODUCT_BIBLE_INDEX](../governance/PRODUCT_BIBLE_INDEX.md)
+> 문서 진입점: [START_HERE](../START_HERE.md) · Index: [PRODUCT_BIBLE_INDEX](../governance/product-bible-index-2026-07-16.md)
 
 ## 구현 vs 정책
 
@@ -44,7 +44,7 @@
 1. [START_HERE](../START_HERE.md) → baseline · WBS  
 2. 담당 앱 `IMPLEMENTATION_PLAN` / `STRUCTURE_GUIDE`  
 3. 관련 Pack **README만**  
-4. Canonical 충돌 시에만 해당 계약 파일 + [CANONICAL_CONTRACT_DECISIONS](../governance/CANONICAL_CONTRACT_DECISIONS.md)
+4. Canonical 충돌 시에만 해당 계약 파일 + [CANONICAL_CONTRACT_DECISIONS](../governance/canonical-contract-decisions-2026-07-16.md)
 
 ## Pack 1~12 빠른 링크
 

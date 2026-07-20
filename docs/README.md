@@ -1,14 +1,14 @@
 # ASAK Documentation
 
 > **👉 처음이면 [START_HERE.md](START_HERE.md)만 보세요.** (단일 진입점)  
-> **2026-07-20:** 구현 현실은 `planning/CURRENT_IMPLEMENTATION_MAP.md`, 실행 WBS 정본은 [`wiki/wbs-v2-2026-07-16.md`](wiki/wbs-v2-2026-07-16.md)입니다.
+> **2026-07-20:** 구현 현실은 `planning/current-implementation-map-2026-07-16.md`, 실행 WBS 정본은 [`wiki/wbs-v2-2026-07-16.md`](wiki/wbs-v2-2026-07-16.md)입니다.
 > 07-16 cleanup 정책(정본/생성물/Archive 분리)은 유지. `docs/notion`은 DevCopilot 스크립트 입력용.
 
 ## 운영 원칙
 
 - **입구:** [START_HERE](START_HERE.md) · [PROJECT_HUB](../PROJECT_HUB.md)
-- **정책 정본:** `product_bible/` (먼저 [얇은 README](product_bible/README.md)) · **계약:** `governance/CANONICAL_CONTRACT_DECISIONS.md`
-- **구현 현실:** `planning/CURRENT_IMPLEMENTATION_MAP.md` · **실행 WBS:** `wiki/wbs-v2-2026-07-16.md`
+- **정책 정본:** `product_bible/` (먼저 [얇은 README](product_bible/README.md)) · **계약:** `governance/canonical-contract-decisions-2026-07-16.md`
+- **구현 현실:** `planning/current-implementation-map-2026-07-16.md` · **실행 WBS:** `wiki/wbs-v2-2026-07-16.md`
 - **앱 실행 문서:** 각 저장소 `IMPLEMENTATION_PLAN.md`, `src/STRUCTURE_GUIDE.md`
 - **Archive:** `_archive/` — 삭제·정본 복귀 금지
 - **신규 파일명:** [document-naming-guide-2026-07-20.md](document-naming-guide-2026-07-20.md) · 인벤토리: [document-inventory-slim-2026-07-20.md](document-inventory-slim-2026-07-20.md)
@@ -23,14 +23,14 @@ python worklog/scripts/build_calendar.py
 ## 문서 진입 순서
 
 1. **[START_HERE](START_HERE.md)** ← 여기부터
-2. [Wiki 색인](wiki/index.md) · [현재 구현 맵](planning/CURRENT_IMPLEMENTATION_MAP.md)
+2. [Wiki 색인](wiki/index.md) · [현재 구현 맵](planning/current-implementation-map-2026-07-16.md)
 3. [WBS 2.0](wiki/wbs-v2-2026-07-16.md) · [WBS 상태 메모](wiki/wbs-status-notes.md)
-4. [Canonical Contract Decisions](governance/CANONICAL_CONTRACT_DECISIONS.md)
-5. [Current Implementation Map](planning/CURRENT_IMPLEMENTATION_MAP.md)
-6. [Document–Code Gap Report](architecture/DOCUMENT_CODE_GAP_REPORT.md)
-7. [Implementation Priority](planning/IMPLEMENTATION_PRIORITY.md) *(목표 순서 · 현실은 MAP)*
-8. [프론트 3일 WBS](planning/FRONTEND_WEDNESDAY_WBS_2026-07-20.md)
-9. [Product Bible 얇은 안내](product_bible/README.md) · [Index](governance/PRODUCT_BIBLE_INDEX.md) · Pack README만
+4. [Canonical Contract Decisions](governance/canonical-contract-decisions-2026-07-16.md)
+5. [Current Implementation Map](planning/current-implementation-map-2026-07-16.md)
+6. [Document–Code Gap Report](architecture/document-code-gap-report-2026-07-16.md)
+7. [Implementation Priority](planning/implementation-priority-2026-07-16.md) *(목표 순서 · 현실은 MAP)*
+8. [프론트 3일 WBS](planning/frontend-wednesday-wbs-2026-07-20.md)
+9. [Product Bible 얇은 안내](product_bible/README.md) · [Index](governance/product-bible-index-2026-07-16.md) · Pack README만
 10. [Design](design/) · [Screens](screens/)
 11. [Operations setup](operations/setup/)
 12. [Archive](_archive/) — 한물간 문서, 실행에 쓰지 않음
@@ -41,7 +41,7 @@ python worklog/scripts/build_calendar.py
 - `docs/product_bible/_archive`는 현재 구현의 기준에서 제외한다.
 - 기존 Notion export, 회의록, WBS는 고유 맥락을 보존하는 Reference 또는 Archive이며 Product Bible을 대체하지 않는다.
 - Product Bible 문서 수는 구현 범위를 뜻하지 않는다. 구현은 MVP와 `FUTURE_SCOPE`를 구분해 승인된 Vertical Slice만 진행한다.
-- 계약 결정은 [Canonical Contract Decisions](governance/CANONICAL_CONTRACT_DECISIONS.md), 과거 문서의 분류는 [Legacy and Reference Index](governance/LEGACY_AND_REFERENCE_INDEX.md)를 따른다.
+- 계약 결정은 [Canonical Contract Decisions](governance/canonical-contract-decisions-2026-07-16.md), 과거 문서의 분류는 [Legacy and Reference Index](governance/legacy-and-reference-index-2026-07-16.md)를 따른다.
 
 ## Folder purpose
 

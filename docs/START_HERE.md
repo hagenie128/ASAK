@@ -9,9 +9,9 @@
 
 | # | 문서 | 한 줄 |
 |---|---|---|
-| 1 | [구현 맵](planning/CURRENT_IMPLEMENTATION_MAP.md) | **구현 현실 1순위** — 화면·mock·API 상태표 |
+| 1 | [구현 맵](planning/current-implementation-map-2026-07-16.md) | **구현 현실 1순위** — 화면·mock·API 상태표 |
 | 2 | [WBS 상태 메모](wiki/wbs-status-notes.md) | 코드↔WBS 요약 · DevCopilot 한글 제목 |
-| 3 | [문서–코드 Gap](architecture/DOCUMENT_CODE_GAP_REPORT.md) | Canonical vs 코드 충돌 |
+| 3 | [문서–코드 Gap](architecture/document-code-gap-report-2026-07-16.md) | Canonical vs 코드 충돌 |
 
 **한 줄 요약:** Kiosk Home→Cart는 mock 동작 · Admin은 정적 UI + mock READY(미연결) · Backend는 health만.
 
@@ -46,7 +46,7 @@
 
 | # | 문서 | 한 줄 |
 |---|---|---|
-| 9 | [Canonical Contract Decisions](governance/CANONICAL_CONTRACT_DECISIONS.md) | API 경로·필드 결정 (코드 미반영 가능) |
+| 9 | [Canonical Contract Decisions](governance/canonical-contract-decisions-2026-07-16.md) | API 경로·필드 결정 (코드 미반영 가능) |
 
 충돌 시: **실행 코드 > baseline/맵 > Canonical(목표) > Product Bible**.
 
@@ -57,7 +57,7 @@
 | # | 문서 | 한 줄 |
 |---|---|---|
 | 10 | [Product Bible 안내](product_bible/README.md) | MVP에 필요한 팩 · FUTURE_SCOPE |
-| 11 | [Product Bible Index](governance/PRODUCT_BIBLE_INDEX.md) | Pack 1~12 표 (세부 문서는 필요할 때만) |
+| 11 | [Product Bible Index](governance/product-bible-index-2026-07-16.md) | Pack 1~12 표 (세부 문서는 필요할 때만) |
 
 세부 계약 문서는 **팩 README를 연 뒤** 필요한 파일만 읽으세요. `_archive`는 구현 기준 아님.
 
@@ -68,7 +68,7 @@
 | # | 문서 | 한 줄 |
 |---|---|---|
 | 12 | [Archive](_archive/) | 실행 금지 · 이력 보존 |
-| 13 | [Legacy & Reference Index](governance/LEGACY_AND_REFERENCE_INDEX.md) | 비정본 분류 |
+| 13 | [Legacy & Reference Index](governance/legacy-and-reference-index-2026-07-16.md) | 비정본 분류 |
 | 14 | [문서 이름 규칙](document-naming-guide-2026-07-20.md) | **신규** 문서 네이밍 |
 | 15 | [문서 인벤토리(슬림)](document-inventory-slim-2026-07-20.md) | KEEP / 배너 / 아카이브 후보 |
 
@@ -76,10 +76,10 @@
 
 ## 매일 볼 문서 5개
 
-1. [구현 맵](planning/CURRENT_IMPLEMENTATION_MAP.md)
+1. [구현 맵](planning/current-implementation-map-2026-07-16.md)
 2. [wbs-v2](wiki/wbs-v2-2026-07-16.md)
 3. [wbs-status-notes](wiki/wbs-status-notes.md)
 4. 담당 앱 `IMPLEMENTATION_PLAN.md`  
-5. [Canonical](governance/CANONICAL_CONTRACT_DECISIONS.md) (계약 건드릴 때)
+5. [Canonical](governance/canonical-contract-decisions-2026-07-16.md) (계약 건드릴 때)
 
 더 넓은 색인: [docs/README](README.md) · [wiki/index](wiki/index.md) · [PROJECT_HUB](../PROJECT_HUB.md)

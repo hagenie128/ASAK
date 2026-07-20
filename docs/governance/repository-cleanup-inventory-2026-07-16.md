@@ -1,7 +1,7 @@
 # 저장소 정리 인벤토리 — 2026-07-16
 
 > **⚠️ HISTORICAL — 실행에 쓰지 마세요.**  
-> → 대신 [**START_HERE**](../START_HERE.md) · [문서 인벤토리](../document-inventory-slim-2026-07-20.md) · [DOCUMENT_STATUS_MANIFEST](DOCUMENT_STATUS_MANIFEST.md)  
+> → 대신 [**START_HERE**](../START_HERE.md) · [문서 인벤토리](../document-inventory-slim-2026-07-20.md) · [DOCUMENT_STATUS_MANIFEST](document-status-manifest-2026-07-16.md)
 > 범위: `ASAK` 문서/데이터만. 앱 소스 이동 계획 없음. 파일 삭제 없음.
 >
 > 상태: 읽기 전용 인벤토리 완료 후 Batch A만 실행했습니다. 파일은 삭제하지 않았습니다. `docs/wiki/` 아래 현재 DevCopilot/WBS 미추적(untracked) 파일은 보호 대상이며 모든 이동에서 제외합니다.
@@ -56,7 +56,7 @@
 | `docs/product_bible/_archive/**` | 58 | 아카이브된 Product Bible Pack | 거버넌스 색인에서 명시적 제외 | MOVE_TO_ARCHIVE | 현재 `_archive` 유지; 참조 확인 후 중복 제거만 검토 | 34+ 정확 문서 중복 그룹은 삭제 대상이 아닌 이력 증거. |
 | `docs/notion/**` | 268 | 현재 DevCopilot 동기화 입력 및 연결 참조 그래프 | 실행 입력 전용; 정책 정본 아님 | ACTIVE_REFERENCE | Python 동기화 스크립트 및 Export 상대 링크가 이 경로를 읽으므로 유지 | 명시적 Archive/일일 내보내기는 `docs/_archive/notion-export/`로 이동. |
 | `worklog/daily/**`, `worklog/entries/**` | 23 비템플릿 기록 | 팀원 작업 이력 | 캘린더, README 및 동기화 도구가 현재 레이아웃에 의존 | KEEP_ACTIVE_TOOL | Batch A에서 이동하지 않음 | 이동 시 현재/아카이브 참여자 결정 및 코드/README 업데이트 필요. |
-| `docs/wiki/current-status-baseline.md`, `db-abbreviation-glossary.md`, `db-audit-plan.md`, `devcopilot-sync-report.md`, `future-scope.md`, `traceability-matrix.md`, `wbs-v2.md`, `snapshots/**` | 8 미추적 경로 | 진행 중 DevCopilot/WBS 작업 | 사용자 지시로 보호 | NEEDS_CONFIRMATION | 건드리지 않고 커밋하지 않음 | 현재 작업 파일은 이 정리 커밋에 덮어쓰거나 흡수하면 안 됨. |
+| `docs/wiki/current-status-baseline.md`, `db-abbreviation-glossary.md`, `db-audit-plan.md`, `devcopilot-sync-report.md`, `future-scope.md`, `traceability-matrix.md`, `wbs-v2-2026-07-16.md`, `snapshots/**` | 8 미추적 경로 | 진행 중 DevCopilot/WBS 작업 | 사용자 지시로 보호 | NEEDS_CONFIRMATION | 건드리지 않고 커밋하지 않음 | 현재 작업 파일은 이 정리 커밋에 덮어쓰거나 흡수하면 안 됨. |
 
 ## 중복 점검
 
@@ -134,7 +134,7 @@ worklog/scripts/__pycache__/
 
 ## 문서 및 worklog 구조 결정
 
-기존 거버넌스 문서는 이미 `docs/product_bible`을 Product Bible 정본 경로로 선언합니다. 따라서 이 정리는 두 번째 정본 매니페스트를 만들지 않고 `DOCUMENT_STATUS_MANIFEST.md`를 업데이트합니다.
+기존 거버넌스 문서는 이미 `docs/product_bible`을 Product Bible 정본 경로로 선언합니다. 따라서 이 정리는 두 번째 정본 매니페스트를 만들지 않고 `document-status-manifest-2026-07-16.md`를 업데이트합니다.
 
 ```text
 docs/

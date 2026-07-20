@@ -1,7 +1,7 @@
 # ASAK Current Status Baseline
 
 > 기준일: **2026-07-20** · 소스 코드(실제 구현)를 1차 정본으로 재감사했습니다.  
-> 문서 입구: [START_HERE](../START_HERE.md) · WBS: [wbs-v2](wbs-v2.md) · [상태 메모](wbs-status-notes.md)  
+> 문서 입구: [START_HERE](../START_HERE.md) · WBS: [wbs-v2](wbs-v2-2026-07-16.md) · [상태 메모](wbs-status-notes.md)  
 > 이전 07-16 문서는 과소평가되어 있었고, DevCopilot WBS/요구사항도 함께 코드 기준으로 맞췄습니다.  
 > 이 문서는 구현 baseline이며 **완료(DONE) 주장이 아닙니다.**
 

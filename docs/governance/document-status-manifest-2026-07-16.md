@@ -1,7 +1,7 @@
 # 문서 상태 매니페스트
 
 > 갱신: **2026-07-20** · 원본 보존 + 상태 헤더 정책.  
-> **입구:** [START_HERE](../START_HERE.md) · 구현 현실 정본: [CURRENT_IMPLEMENTATION_MAP.md](../planning/CURRENT_IMPLEMENTATION_MAP.md)
+> **입구:** [START_HERE](../START_HERE.md) · 구현 현실 정본: [current-implementation-map-2026-07-16.md](../planning/current-implementation-map-2026-07-16.md)
 
 | 경로 규칙 | 상태 | 정본(Canonical) 참조 |
 |---|---|---|
@@ -10,15 +10,15 @@
 | `docs/document-inventory-slim-2026-07-20.md` | Current | KEEP / Historical / archive 후보 |
 | `docs/product_bible/README.md` | **Current (얇은 안내)** | Pack README 우선 |
 | `ASAK/PROJECT_HUB.md` | Current | START_HERE |
-| `docs/planning/CURRENT_IMPLEMENTATION_MAP.md` | **Current** | 코드 실측 |
+| `docs/planning/current-implementation-map-2026-07-16.md` | **Current** | 코드 실측 |
 | `docs/wiki/wbs-v2-2026-07-16.md` | **Current (실행 WBS 정본)** | WBS2 작업 목록 |
 | `docs/wiki/wbs-status-notes.md` | **Current** | 실행 WBS 요약 |
 | `docs/wiki/devcopilot-sync-report.md` | **Current** | DevCopilot MCP 동기화 |
-| `docs/planning/CURRENT_IMPLEMENTATION_MAP.md` | **Current (2026-07-20 재작성)** | baseline |
-| `docs/architecture/DOCUMENT_CODE_GAP_REPORT.md` | **Current (2026-07-20 재작성)** | implementation map |
+| `docs/planning/current-implementation-map-2026-07-16.md` | **Current (2026-07-20 재작성)** | baseline |
+| `docs/architecture/document-code-gap-report-2026-07-16.md` | **Current (2026-07-20 재작성)** | implementation map |
 | `docs/planning/FRONTEND_WEDNESDAY_WBS_*.md` | Current | wbs-v2 |
-| `docs/planning/IMPLEMENTATION_PRIORITY.md` | Current (계획·목표) | MAP / baseline이 현실 |
-| `docs/governance/CANONICAL_CONTRACT_DECISIONS.md` | Current | 계약 (코드 미반영 가능) |
+| `docs/planning/implementation-priority-2026-07-16.md` | Current (계획·목표) | MAP / baseline이 현실 |
+| `docs/governance/canonical-contract-decisions-2026-07-16.md` | Current | 계약 (코드 미반영 가능) |
 | `docs/design/**` | Active (Figma 실행) | Product Bible 07/08 · 0718 |
 | `docs/screens/screens*.{md,json}` | 동기화 산출물 | Screen Registry · SCR-020~024 재정렬됨 |
 | `docs/wiki/wbs-schedule.md`, `legacy-wbs2-*`, `snapshots/*-07-16*` | **Historical** | wbs-v2 / sync-report |
@@ -32,4 +32,4 @@
 | `ASAK-back/IMPLEMENTATION_PLAN.md` | **Current** | health only |
 | 워크스페이스 `UI-INDEX.md` | Current (이력 섹션 주의) | baseline · FIGMA gap |
 
-근거: [레거시 및 참조 색인](LEGACY_AND_REFERENCE_INDEX.md), [저장소 정리 인벤토리](REPOSITORY_CLEANUP_INVENTORY_2026-07-16.md), [문서 인벤토리](../document-inventory-slim-2026-07-20.md).
+근거: [레거시 및 참조 색인](legacy-and-reference-index-2026-07-16.md), [저장소 정리 인벤토리](repository-cleanup-inventory-2026-07-16.md), [문서 인벤토리](../document-inventory-slim-2026-07-20.md).

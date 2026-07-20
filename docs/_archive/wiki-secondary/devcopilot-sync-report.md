@@ -11,7 +11,7 @@
 | LMIS 요구사항 8건 | UI shell 존재 → `IN_PROGRESS` (DONE 아님) |
 | 화면 SCR-020~024 | 월별/일별 매출·대시보드 / 영수증·멤버십은 향후 범위로 정리 |
 | Target API | MCP update 불가 → `[TARGET]` create: `/api/kiosk/*`, `/api/admin/soldOut`, sales summary/monthly |
-| 로컬 문서 | `current-status-baseline.md`, `wbs-v2.md`, `screens.json` 동시 갱신 |
+| 로컬 문서 | `current-status-baseline.md`, `wbs-v2-2026-07-16.md`, `screens.json` 동시 갱신 |
 
 **코드 현실 요약**
 

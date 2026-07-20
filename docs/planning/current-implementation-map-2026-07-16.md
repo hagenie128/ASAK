@@ -3,7 +3,7 @@
 > 기준일: **2026-07-20** · **코드 실측** 정본.  
 > 문서 입구: [START_HERE](../START_HERE.md)  
 > 이전 07-16 버전은 Cart/Admin을 MISSING으로 적어 **과소평가**되어 폐기 수준으로 대체됨.  
-> Canonical(미코드 반영): [CANONICAL_CONTRACT_DECISIONS.md](../governance/CANONICAL_CONTRACT_DECISIONS.md)  
+> Canonical(미코드 반영): [canonical-contract-decisions-2026-07-16.md](../governance/canonical-contract-decisions-2026-07-16.md)  
 > 일일 baseline: [current-status-baseline.md](../wiki/current-status-baseline.md)  
 > WBS: [wbs-v2-2026-07-16.md](../wiki/wbs-v2-2026-07-16.md) · [wbs-status-notes.md](../wiki/wbs-status-notes.md)
 

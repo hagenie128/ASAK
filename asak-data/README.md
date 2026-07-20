@@ -34,6 +34,6 @@ Default output:
 asak-data/asak_sample.db
 ```
 
-The loaded tables follow `docs/wiki/db-table-definition.md`. Current sample data
+The loaded tables follow `docs/wiki/db-table-definition-2026-07-06.md`. Current sample data
 covers the menu/catalog tables plus `payment_method_config`; order/payment tables
 are created empty for API prototyping.

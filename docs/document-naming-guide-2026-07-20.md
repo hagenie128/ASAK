@@ -19,7 +19,7 @@
 |---|---|
 | `README.md` | 폴더 기본 진입 |
 | `START_HERE.md` | 전역 진입 허브 (의도적 고정명) |
-| 이미 있는 `UPPER_SNAKE.md` | `CURRENT_IMPLEMENTATION_MAP.md` 등 — **이동안 함** |
+| 이미 있는 `UPPER_SNAKE.md` | `current-implementation-map-2026-07-16.md` 등 — **이동안 함** |
 
 날짜가 필요하면 접미사: `frontend-wednesday-wbs-2026-07-20.md` 형태.
 

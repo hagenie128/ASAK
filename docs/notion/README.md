@@ -5,4 +5,4 @@
 
 전체 export → [`../_archive/notion-export/`](../_archive/notion-export/)
 
-구현·계약은 [Product Bible](../product_bible/)과 [Canonical Contract](../governance/CANONICAL_CONTRACT_DECISIONS.md)만 보세요.
+구현·계약은 [Product Bible](../product_bible/)과 [Canonical Contract](../governance/canonical-contract-decisions-2026-07-16.md)만 보세요.

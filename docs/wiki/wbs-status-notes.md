@@ -2,7 +2,7 @@
 
 > 기준일: **2026-07-20**  
 > 문서 입구: [START_HERE](../START_HERE.md)  
-> 실행 정본 표: [wbs-v2.md](wbs-v2.md)  
+> 실행 정본 표: [wbs-v2-2026-07-16.md](wbs-v2-2026-07-16.md)  
 > DevCopilot: workspace 2 · WBS2 제목 **한글** 동기화 완료  
 > Legacy 표: [wbs-schedule.md](wbs-schedule.md) (실행에 쓰지 말 것)
 
@@ -10,14 +10,14 @@
 
 | 보고 싶은 것 | 문서 |
 |---|---|
-| 오늘 할 일 목록 | [wbs-v2.md](wbs-v2.md) 의 `WBS2-*` |
+| 오늘 할 일 목록 | [wbs-v2-2026-07-16.md](wbs-v2-2026-07-16.md) 의 `WBS2-*` |
 | 코드로 본 진행률 | **이 메모** |
 | 앱별 상세 순서 | Kiosk/Admin/back `IMPLEMENTATION_PLAN.md` |
 | 옛 WBS-001~ 표 | `wbs-schedule.md` (Historical) |
 
 ## 읽는 법
 
-1. **할 일**은 `wbs-v2.md`의 `WBS2-*`만 본다.  
+1. **할 일**은 `wbs-v2-2026-07-16.md`의 `WBS2-*`만 본다.  
 2. DevCopilot 대시보드 %는 EXCLUDED가 분모에 들어가 **운영용으로 쓰지 않는다**.  
 3. DONE은 **코드·mock evidence**가 있을 때만. 정적 UI만 있으면 IN_PROGRESS.
 

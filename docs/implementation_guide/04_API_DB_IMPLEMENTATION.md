@@ -49,7 +49,7 @@
 <details>
 <summary>원본 API 계약이 필요할 때만 열기</summary>
 
-- [Canonical Contract Decisions](../governance/CANONICAL_CONTRACT_DECISIONS.md)
+- [Canonical Contract Decisions](../governance/canonical-contract-decisions-2026-07-16.md)
 - [Kiosk Frontend Data Contract](../../../ASAK-Kiosk/src/contracts/api-data-contract.md)
 - [Menu API Contract](../product_bible/03_Menu_Inventory_SoldOut/docs/09-features/menu/MENU_API_CONTRACT.md)
 - [Order API Contract](../product_bible/02_Order_Cart_Payment/docs/09-features/order/ORDER_API_CONTRACT.md)

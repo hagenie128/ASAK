@@ -4,6 +4,6 @@
 
 | 파일 | 용도 |
 |---|---|
-| [DOCUMENT_CODE_GAP_REPORT.md](./DOCUMENT_CODE_GAP_REPORT.md) | 문서 약속 vs 실제 코드 갭 |
+| [document-code-gap-report-2026-07-16.md](./document-code-gap-report-2026-07-16.md) | 문서 약속 vs 실제 코드 갭 |
 
-구현 전 이 리포트와 [../planning/CURRENT_IMPLEMENTATION_MAP.md](../planning/CURRENT_IMPLEMENTATION_MAP.md)를 함께 봅니다.
+구현 전 이 리포트와 [../planning/current-implementation-map-2026-07-16.md](../planning/current-implementation-map-2026-07-16.md)를 함께 봅니다.

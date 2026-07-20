@@ -52,5 +52,5 @@
 
 - [Canonical Source](../product_bible/01_Foundation/docs/00-product-bible/CANONICAL_SOURCE.md)
 - [Screen Registry](../product_bible/07_Screen_Bible/docs/07-screens/SCREEN_REGISTRY.md)
-- [Product Bible Index](../governance/PRODUCT_BIBLE_INDEX.md)
+- [Product Bible Index](../governance/product-bible-index-2026-07-16.md)
 </details>

@@ -9,5 +9,5 @@
 | 일일 워크로그·회의록·과거 WBS | `#legacy` — 이력 |
 | 그 외 export | `#legacy` Needs Review — Bible에 없는 내용만 후보로 검토 |
 
-정책: [../governance/LEGACY_AND_REFERENCE_INDEX.md](../governance/LEGACY_AND_REFERENCE_INDEX.md)  
-감사 장부: [../governance/NOTION_WEB_AUDIT_LEDGER_2026-07-16.md](../governance/NOTION_WEB_AUDIT_LEDGER_2026-07-16.md)
+정책: [../governance/legacy-and-reference-index-2026-07-16.md](../governance/legacy-and-reference-index-2026-07-16.md)  
+감사 장부: [../governance/notion-web-audit-ledger-2026-07-16.md](../governance/notion-web-audit-ledger-2026-07-16.md)

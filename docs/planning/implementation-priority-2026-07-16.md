@@ -1,10 +1,10 @@
 # Implementation Priority
 
 > **목표 순서 문서** — 코드 현실과 혼동하지 마세요.  
-> → 현실: [**START_HERE**](../START_HERE.md) · [baseline](../wiki/current-status-baseline.md) · [CURRENT_IMPLEMENTATION_MAP](CURRENT_IMPLEMENTATION_MAP.md) · [wbs-v2](../wiki/wbs-v2-2026-07-16.md)
+> → 현실: [**START_HERE**](../START_HERE.md) · [baseline](../wiki/current-status-baseline.md) · [CURRENT_IMPLEMENTATION_MAP](current-implementation-map-2026-07-16.md) · [wbs-v2](../wiki/wbs-v2-2026-07-16.md)
 > 갱신 **2026-07-20:** Slice 1~3은 UI·mock 일부 있음. Slice 4(결제)·5(Admin)는 UI shell / 정적 UI.
 
-> `DECIDED_PENDING_CODE_CHANGE`: canonical은 [Canonical Contract Decisions](../governance/CANONICAL_CONTRACT_DECISIONS.md). 코드 path는 아직 legacy/kebab.
+> `DECIDED_PENDING_CODE_CHANGE`: canonical은 [Canonical Contract Decisions](../governance/canonical-contract-decisions-2026-07-16.md). 코드 path는 아직 legacy/kebab.
 
 ## 첫 번째 Vertical Slice 5개
 

@@ -39,17 +39,17 @@
 | 경로 | 설명 |
 |---|---|
 | [product_bible/](./product_bible/) Pack 01~12 | 제품·화면·컴포넌트·QA·구현 정본 |
-| [governance/CANONICAL_CONTRACT_DECISIONS.md](./governance/CANONICAL_CONTRACT_DECISIONS.md) | API·Admin 경로·필드 계약 |
-| [governance/PRODUCT_BIBLE_INDEX.md](./governance/PRODUCT_BIBLE_INDEX.md) | Bible 인덱스 |
+| [governance/canonical-contract-decisions-2026-07-16.md](./governance/canonical-contract-decisions-2026-07-16.md) | API·Admin 경로·필드 계약 |
+| [governance/product-bible-index-2026-07-16.md](./governance/product-bible-index-2026-07-16.md) | Bible 인덱스 |
 
 ### `#current` — 지금 구현·QA
 
 | 경로 | 설명 |
 |---|---|
 | [implementation_guide/00_START_HERE.md](./implementation_guide/00_START_HERE.md) | 구현 가이드 시작 |
-| [planning/CURRENT_IMPLEMENTATION_MAP.md](./planning/CURRENT_IMPLEMENTATION_MAP.md) | 현재 구현 지도 |
-| [planning/IMPLEMENTATION_PRIORITY.md](./planning/IMPLEMENTATION_PRIORITY.md) | 우선순위 |
-| [architecture/DOCUMENT_CODE_GAP_REPORT.md](./architecture/DOCUMENT_CODE_GAP_REPORT.md) | 문서↔코드 갭 |
+| [planning/current-implementation-map-2026-07-16.md](./planning/current-implementation-map-2026-07-16.md) | 현재 구현 지도 |
+| [planning/implementation-priority-2026-07-16.md](./planning/implementation-priority-2026-07-16.md) | 우선순위 |
+| [architecture/document-code-gap-report-2026-07-16.md](./architecture/document-code-gap-report-2026-07-16.md) | 문서↔코드 갭 |
 | [design/FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md](./design/FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md) | Figma QA 통합본 |
 | [design/ASAK_FIGMA_INTEGRATED_AUDIT.md](./design/ASAK_FIGMA_INTEGRATED_AUDIT.md) | 05-C/06-C 통합 감사 |
 | [operations/setup/](./operations/setup/) | 설치·온보딩·MCP |
@@ -69,8 +69,8 @@
 | [screens/](./screens/) | SCR 표·DevCopilot import |
 | [team/](./team/) | Notion hub 동기화 체크리스트 |
 | [documentation-management/](./documentation-management/) | 문서 구조·인벤토리 계획 |
-| [governance/LEGACY_AND_REFERENCE_INDEX.md](./governance/LEGACY_AND_REFERENCE_INDEX.md) | 레거시/참고 분류 |
-| [governance/DOCUMENT_STATUS_MANIFEST.md](./governance/DOCUMENT_STATUS_MANIFEST.md) | 폴더 상태 정책 |
+| [governance/legacy-and-reference-index-2026-07-16.md](./governance/legacy-and-reference-index-2026-07-16.md) | 레거시/참고 분류 |
+| [governance/document-status-manifest-2026-07-16.md](./governance/document-status-manifest-2026-07-16.md) | 폴더 상태 정책 |
 
 ### `#legacy` / `#archive`
 

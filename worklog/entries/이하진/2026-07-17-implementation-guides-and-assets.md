@@ -49,7 +49,7 @@
 - 확인한 로그/에러 메시지: 현재 구현 맵에서 Cart/Payment/Complete, 다수 Admin 화면, Backend business endpoint가 아직 MISSING/PARTIAL임을 확인했다.
 - 의심했던 지점: 가이드에 적힌 API나 화면이 이미 구현된 것으로 오해될 수 있는지, 확장 화면을 MVP 구현 범위로 오인할 수 있는지.
 - 실제 원인: 구현 계획 문서와 실제 코드 상태가 별도 문서에 있었기 때문.
-- 다시 같은 문제가 생기면 먼저 볼 파일/명령어: `00_START_HERE.md`, `FEATURE_LOOKUP.md`, `08_FEATURE_IMPLEMENTATION_MATRIX.md`, `09_FIGMA_STATE_CHECKLIST.md`, `CURRENT_IMPLEMENTATION_MAP.md`.
+- 다시 같은 문제가 생기면 먼저 볼 파일/명령어: `00_START_HERE.md`, `FEATURE_LOOKUP.md`, `08_FEATURE_IMPLEMENTATION_MATRIX.md`, `09_FIGMA_STATE_CHECKLIST.md`, `current-implementation-map-2026-07-16.md`.
 
 ## 8. 이번 작업에서 배운 점
 

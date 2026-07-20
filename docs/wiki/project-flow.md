@@ -2,7 +2,7 @@
 
 > 기준일: **2026-07-20** · 코드 실측 기준 (문서 주장이 아니라 실제 파일/라우트를 확인함).
 > 문서 입구: [START_HERE](../START_HERE.md)
-> 이 문서는 **그림으로 보는 요약**입니다. 상태 표로 자세히 보려면 [Current Implementation Map](../planning/CURRENT_IMPLEMENTATION_MAP.md), 코드-문서 충돌은 [Document–Code Gap Report](../architecture/DOCUMENT_CODE_GAP_REPORT.md), 할 일은 [WBS 2.0](wbs-v2.md)을 보세요.
+> 이 문서는 **그림으로 보는 요약**입니다. 상태 표로 자세히 보려면 [Current Implementation Map](../planning/current-implementation-map-2026-07-16.md), 코드-문서 충돌은 [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md), 할 일은 [WBS 2.0](wbs-v2-2026-07-16.md)을 보세요.
 
 ## 범례 (모든 그림 공통)
 
@@ -171,7 +171,7 @@ flowchart LR
 - 금액 필드: 문서는 `totalAmount`, `approvedAmount`를 쓰지만, 지금 `orderSessionStore`는 `totalPrice` 같은 이름을 씁니다. 나중에 adapter에서 이름만 맞출 계획입니다.
 - 백엔드: 위 API들은 전부 **목표**이고, 지금 실제로 동작하는 건 `GET /api/health` 하나뿐입니다.
 
-자세한 표: [Document–Code Gap Report](../architecture/DOCUMENT_CODE_GAP_REPORT.md) · [Canonical Contract Decisions](../governance/CANONICAL_CONTRACT_DECISIONS.md) · [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md)
+자세한 표: [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md) · [Canonical Contract Decisions](../governance/canonical-contract-decisions-2026-07-16.md) · [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md)
 
 ---
 
@@ -227,7 +227,7 @@ flowchart LR
 
 **지금 스프린트에서 하지 말 일:** CSS/시안 통째 교체, `priceCalculation`/`quantityLimits` 되돌리기, Admin 기능을 Kiosk 저장소에 새로 만들기, Backend 실연동 먼저 시작하기.
 
-관련 문서: [WBS 2.0 (정본)](wbs-v2.md) · [WBS 상태 메모](wbs-status-notes.md) · [프론트 3일 실행표](../planning/FRONTEND_WEDNESDAY_WBS_2026-07-20.md)
+관련 문서: [WBS 2.0 (정본)](wbs-v2-2026-07-16.md) · [WBS 상태 메모](wbs-status-notes.md) · [프론트 3일 실행표](../planning/frontend-wednesday-wbs-2026-07-20.md)
 
 ---
 
@@ -237,9 +237,9 @@ flowchart LR
 |---|---|
 | [START_HERE](../START_HERE.md) | 문서 전체 입구 |
 | [현재 상태 baseline](current-status-baseline.md) | 오늘 기준 구현 현실 1순위 |
-| [Current Implementation Map](../planning/CURRENT_IMPLEMENTATION_MAP.md) | 화면·mock·API 상태표 |
-| [Document–Code Gap Report](../architecture/DOCUMENT_CODE_GAP_REPORT.md) | Canonical vs 코드 충돌 상세 |
-| [WBS 2.0](wbs-v2.md) | 실행 할 일 정본 |
+| [Current Implementation Map](../planning/current-implementation-map-2026-07-16.md) | 화면·mock·API 상태표 |
+| [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md) | Canonical vs 코드 충돌 상세 |
+| [WBS 2.0](wbs-v2-2026-07-16.md) | 실행 할 일 정본 |
 | [Kiosk 구조 가이드](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) | Kiosk 코딩 시작점 |
 | [Admin 구조 가이드](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [구현 계획](../../ASAK-Admin/IMPLEMENTATION_PLAN.md) | Admin 코딩 시작점 |
 | [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md) | Backend 코딩 시작점 |
@@ -247,4 +247,4 @@ flowchart LR
 ## Documentation status
 
 - Status: **Current (2026-07-20)** — 코드 실측(`KioskApp.jsx`, `AdminApp.jsx`, `orderSessionStore.js`, `adminMockRepository.js`, `priceCalculation.js`, `quantityLimits.js`, `HealthController.java` 확인) 기준으로 작성.
-- 이 문서는 그림(흐름도) 전용 요약이며, 상태 판정의 정본은 [Current Implementation Map](../planning/CURRENT_IMPLEMENTATION_MAP.md)입니다. 표와 그림이 다르면 표를 따르세요.
+- 이 문서는 그림(흐름도) 전용 요약이며, 상태 판정의 정본은 [Current Implementation Map](../planning/current-implementation-map-2026-07-16.md)입니다. 표와 그림이 다르면 표를 따르세요.

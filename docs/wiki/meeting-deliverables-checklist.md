@@ -1,7 +1,7 @@
 # ASAK 회의록 및 최종 배포 검증
 
 > **⚠️ HISTORICAL / 참고용 — 일일 실행에 쓰지 마세요.**  
-> → 대신 [**START_HERE**](../START_HERE.md) · [구현 맵](../planning/CURRENT_IMPLEMENTATION_MAP.md) · [wbs-status-notes](wbs-status-notes.md)
+> → 대신 [**START_HERE**](../START_HERE.md) · [구현 맵](../planning/current-implementation-map-2026-07-16.md) · [wbs-status-notes](wbs-status-notes.md)
 > 산출물 존재 ≠ 구현 evidence. (체크리스트의 `ASAK-front` 등은 구 명칭.)
 
 > Notion 10. 회의록 + 11. 최종 제출 체크리스트 (2026-07-06)
