@@ -17,4 +17,4 @@
 | `screens-legacy/` | 구 Figma 요약과 screens-wiki |
 
 디자인 보관함은 [`../design/_archive/`](../design/_archive/README.md)에 별도 관리합니다.
-현재 사용하는 문서: [`../README.md`](../README.md) · [`../DOCUMENT_TAG_INDEX.md`](../DOCUMENT_TAG_INDEX.md)
+현재 사용하는 문서: [`../README.md`](../README.md) · [`../document-tag-index-2026-07-18.md`](../document-tag-index-2026-07-18.md)

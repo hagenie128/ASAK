@@ -1,6 +1,6 @@
 # 레거시(Legacy) 및 참조(Reference) 색인
 
-> 문서 입구: [START_HERE](../START_HERE.md) · 슬림 인벤토리: [DOC_INVENTORY_SLIM](../DOC_INVENTORY_SLIM.md)  
+> 문서 입구: [START_HERE](../START_HERE.md) · 슬림 인벤토리: [문서 인벤토리](../document-inventory-slim-2026-07-20.md)  
 > 이 색인은 고유 콘텐츠를 삭제·이동·재작성하지 않고 비정본(non-canonical) 문서를 분류합니다. 정본 제품 규칙은 [Product Bible 얇은 안내](../product_bible/README.md) · [Pack Index](PRODUCT_BIBLE_INDEX.md)에 있습니다.
 
 ## 참조(Reference)

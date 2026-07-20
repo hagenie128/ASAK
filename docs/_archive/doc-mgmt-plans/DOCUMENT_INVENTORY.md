@@ -7,7 +7,7 @@
 # Document Inventory
 
 > 갱신: 2026-07-17. 삭제는 하지 않고, 태그·보관 이동으로 정리했다.  
-> 실사용: [DOCUMENT_TAG_INDEX.md](../../DOCUMENT_TAG_INDEX.md) · [README.md](../../README.md)
+> 실사용: [문서 태그 인덱스](../../document-tag-index-2026-07-18.md) · [README.md](../../README.md)
 > 결정: [Canonical Contract](../../governance/CANONICAL_CONTRACT_DECISIONS.md) · [Status Manifest](../../governance/DOCUMENT_STATUS_MANIFEST.md)
 
 | 현재 위치 | 목적 | 태그 | 분류 | 조치 (2026-07-17) |

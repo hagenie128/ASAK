@@ -1,6 +1,6 @@
 # 프론트 3일 스프린트 WBS — 2026-07-20(월) ~ 07-22(수)
 
-> **정본 ID:** [`docs/wiki/wbs-v2.md`](../wiki/wbs-v2.md) 의 `WBS2-*`  
+> **정본 ID:** [`docs/wiki/wbs-v2-2026-07-16.md`](../wiki/wbs-v2-2026-07-16.md) 의 `WBS2-*`
 > **이 문서:** 학원 시간표에 꽂은 **실행·검증표** (UI 재이식 금지)  
 > **갭 기준:** [`docs/design/FIGMA_0718_PROJECT_GAP.md`](../design/FIGMA_0718_PROJECT_GAP.md) — UI ✅ / 로직·API 연결만
 

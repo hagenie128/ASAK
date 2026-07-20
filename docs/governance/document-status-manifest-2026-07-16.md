@@ -6,11 +6,12 @@
 | 경로 규칙 | 상태 | 정본(Canonical) 참조 |
 |---|---|---|
 | `docs/START_HERE.md` | **Current (진입)** | 전 문서 입구 |
-| `docs/DOCUMENT_NAMING.md` | Current | 신규 네이밍 |
-| `docs/DOC_INVENTORY_SLIM.md` | Current | KEEP / Historical / archive 후보 |
+| `docs/document-naming-guide-2026-07-20.md` | Current | 신규 네이밍 |
+| `docs/document-inventory-slim-2026-07-20.md` | Current | KEEP / Historical / archive 후보 |
 | `docs/product_bible/README.md` | **Current (얇은 안내)** | Pack README 우선 |
 | `ASAK/PROJECT_HUB.md` | Current | START_HERE |
 | `docs/planning/CURRENT_IMPLEMENTATION_MAP.md` | **Current** | 코드 실측 |
+| `docs/wiki/wbs-v2-2026-07-16.md` | **Current (실행 WBS 정본)** | WBS2 작업 목록 |
 | `docs/wiki/wbs-status-notes.md` | **Current** | 실행 WBS 요약 |
 | `docs/wiki/devcopilot-sync-report.md` | **Current** | DevCopilot MCP 동기화 |
 | `docs/planning/CURRENT_IMPLEMENTATION_MAP.md` | **Current (2026-07-20 재작성)** | baseline |
@@ -31,4 +32,4 @@
 | `ASAK-back/IMPLEMENTATION_PLAN.md` | **Current** | health only |
 | 워크스페이스 `UI-INDEX.md` | Current (이력 섹션 주의) | baseline · FIGMA gap |
 
-근거: [레거시 및 참조 색인](LEGACY_AND_REFERENCE_INDEX.md), [저장소 정리 인벤토리](REPOSITORY_CLEANUP_INVENTORY_2026-07-16.md), [DOC_INVENTORY_SLIM](../DOC_INVENTORY_SLIM.md).
+근거: [레거시 및 참조 색인](LEGACY_AND_REFERENCE_INDEX.md), [저장소 정리 인벤토리](REPOSITORY_CLEANUP_INVENTORY_2026-07-16.md), [문서 인벤토리](../document-inventory-slim-2026-07-20.md).

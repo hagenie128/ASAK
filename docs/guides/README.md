@@ -2,7 +2,7 @@
 
 > 태그: `#reference`  
 > 제품·API 정본은 [Product Bible](../product_bible/) / [Canonical Contract](../governance/CANONICAL_CONTRACT_DECISIONS.md).  
-> 전체 지도: [../DOCUMENT_TAG_INDEX.md](../DOCUMENT_TAG_INDEX.md)
+> 전체 지도: [문서 태그 인덱스](../document-tag-index-2026-07-18.md)
 
 > **00. 온보딩:** Notion [🚀 ASAK 처음 시작하기](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) · Git [`GETTING_STARTED.md`](../operations/setup/GETTING_STARTED.md)  
 > **Notion:** [📖 문서 읽는 순서](https://app.notion.com/p/39451ef04f0b81088a91d914f985fb11) · [📚 팀 문서 안내](https://app.notion.com/p/39551ef04f0b813b8765e64384f2dfd3)  

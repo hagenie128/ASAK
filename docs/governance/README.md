@@ -10,4 +10,4 @@
 | [LEGACY_AND_REFERENCE_INDEX.md](./LEGACY_AND_REFERENCE_INDEX.md) | `#reference` | 비정본 분류 |
 | [NOTION_WEB_AUDIT_LEDGER_2026-07-16.md](./NOTION_WEB_AUDIT_LEDGER_2026-07-16.md) | `#reference` | Notion 웹 감사 장부 |
 
-전체 지도: [../DOCUMENT_TAG_INDEX.md](../DOCUMENT_TAG_INDEX.md)
+전체 지도: [문서 태그 인덱스](../document-tag-index-2026-07-18.md)

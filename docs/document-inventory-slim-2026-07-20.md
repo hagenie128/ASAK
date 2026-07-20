@@ -9,7 +9,7 @@
 |---|---|
 | `docs/START_HERE.md` | 단일 진입 |
 | `docs/wiki/current-status-baseline.md` | 코드 현실 |
-| `docs/wiki/wbs-v2.md` | 할 일 정본 |
+| `docs/wiki/wbs-v2-2026-07-16.md` | 할 일 정본 |
 | `docs/wiki/wbs-status-notes.md` | WBS↔코드 요약 |
 | `docs/wiki/index.md` | 위키 색인 |
 | `docs/planning/CURRENT_IMPLEMENTATION_MAP.md` | 화면 상태표 |
@@ -26,8 +26,8 @@
 
 | 경로 | 대신 볼 것 |
 |---|---|
-| `docs/wiki/wbs-schedule.md` | `wbs-v2.md` |
-| `docs/wiki/legacy-wbs2-mapping-audit-2026-07-16.md` | `wbs-v2` · `wbs-status-notes` |
+| `docs/wiki/wbs-schedule.md` | `wbs-v2-2026-07-16.md` |
+| `docs/wiki/legacy-wbs2-mapping-audit-2026-07-16.md` | `wbs-v2-2026-07-16` · `wbs-status-notes` |
 | `docs/wiki/snapshots/*-07-16*` | `devcopilot-sync-report.md` |
 | `docs/planning/IMPLEMENTATION_PRIORITY.md` | 목표 순서 — 현실은 MAP/baseline |
 | `docs/governance/PRODUCT_BIBLE_INDEX.md` | 세부는 Pack README · 입구는 product_bible/README |

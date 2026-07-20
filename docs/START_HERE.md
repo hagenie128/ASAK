@@ -23,7 +23,8 @@
 
 | # | 문서 | 한 줄 |
 |---|---|---|
-| 4 | [WBS 상태 메모](wiki/wbs-status-notes.md) | **실행 할 일 확인** — 코드↔WBS 요약 |
+| 4 | [WBS 2.0](wiki/wbs-v2-2026-07-16.md) | **실행 할 일 정본** (`WBS2-*`) |
+| 5 | [WBS 상태 메모](wiki/wbs-status-notes.md) | 코드↔WBS 요약 |
 
 레거시 `wbs-schedule.md`(WBS-001~)는 **실행에 쓰지 마세요.**
 
@@ -68,15 +69,16 @@
 |---|---|---|
 | 12 | [Archive](_archive/) | 실행 금지 · 이력 보존 |
 | 13 | [Legacy & Reference Index](governance/LEGACY_AND_REFERENCE_INDEX.md) | 비정본 분류 |
-| 14 | [문서 이름 규칙](DOCUMENT_NAMING.md) | **신규** 문서 네이밍 |
-| 15 | [문서 인벤토리(슬림)](DOC_INVENTORY_SLIM.md) | KEEP / 배너 / 아카이브 후보 |
+| 14 | [문서 이름 규칙](document-naming-guide-2026-07-20.md) | **신규** 문서 네이밍 |
+| 15 | [문서 인벤토리(슬림)](document-inventory-slim-2026-07-20.md) | KEEP / 배너 / 아카이브 후보 |
 
 ---
 
 ## 매일 볼 문서 5개
 
 1. [구현 맵](planning/CURRENT_IMPLEMENTATION_MAP.md)
-2. [wbs-status-notes](wiki/wbs-status-notes.md)
+2. [wbs-v2](wiki/wbs-v2-2026-07-16.md)
+3. [wbs-status-notes](wiki/wbs-status-notes.md)
 4. 담당 앱 `IMPLEMENTATION_PLAN.md`  
 5. [Canonical](governance/CANONICAL_CONTRACT_DECISIONS.md) (계약 건드릴 때)
 

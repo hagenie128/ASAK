@@ -38,7 +38,7 @@
 - `docs/design/_archive/**` — QA 원본 4종, 07-14 병합 프롬프트, 07-15 Agent 프롬프트, 구 DS/SCR, D1 짧은 WO·검수계획
 - `docs/_archive/team-audits-2026-07/` — team 날짜 감사 4종
 - `docs/_archive/screens-legacy/` — 구 Figma 요약 `screen-design-figma.md`
-- 중앙 허브·태그: `docs/README.md`, `docs/DOCUMENT_TAG_INDEX.md`, 폴더별 README
+- 중앙 허브·태그: `docs/README.md`, `docs/document-tag-index-2026-07-18.md`, 폴더별 README
 
 ## 사람 확인 후에만 가능한 조치
 

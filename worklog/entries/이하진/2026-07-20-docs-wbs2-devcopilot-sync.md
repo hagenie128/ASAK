@@ -21,7 +21,7 @@
 
 ## 3. 직접 구현 영역
 
-- **문서 정본 구조:** `docs/START_HERE.md`, `PROJECT_HUB.md`, `docs/DOCUMENT_NAMING.md`, `docs/DOC_INVENTORY_SLIM.md`, `docs/product_bible/README.md` 신규 작성.
+- **문서 정본 구조:** `docs/START_HERE.md`, `PROJECT_HUB.md`, `docs/document-naming-guide-2026-07-20.md`, `docs/document-inventory-slim-2026-07-20.md`, `docs/product_bible/README.md` 신규 작성.
 - **코드 실태 반영 문서:** `docs/planning/CURRENT_IMPLEMENTATION_MAP.md`, `docs/architecture/DOCUMENT_CODE_GAP_REPORT.md`, `docs/wiki/wbs-status-notes.md`, `docs/wiki/current-status-baseline.md`, `docs/wiki/wbs-v2.md`, `docs/wiki/screens.json` 갱신.
 - **앱별 구조 문서:** `ASAK-Kiosk/src/STRUCTURE_GUIDE.md`, `ASAK-Admin/src/STRUCTURE_GUIDE.md`, `ASAK-Kiosk/IMPLEMENTATION_PLAN.md`, `ASAK-Admin/IMPLEMENTATION_PLAN.md`, `ASAK-back/IMPLEMENTATION_PLAN.md` 갱신.
 - **루트 안내:** `README.md`, `ASAK/README.md`, `UI-INDEX.md` 상단에 `START_HERE` 링크·코드-정본 안내 배너 추가.
