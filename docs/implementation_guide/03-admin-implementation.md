@@ -5,6 +5,9 @@
 
 **Figma 공통 링크:** [06-C Screens / Admin](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=134-10606)
 
+**Mock 필드·props 치트시트 (바인딩 시 여기부터):**  
+[`ASAK-Admin/public/mocks/README.md`](../../../ASAK-Admin/public/mocks/README.md) · 각 Page/컴포넌트 파일 상단 주석 · `adminMockRepository.js` 헤더
+
 ## SCR-015 · Login
 
 **Route:** `/login` · **목적:** 관리자가 인증된 상태로 Admin에 들어간다.
