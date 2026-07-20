@@ -1,7 +1,7 @@
 > Status: ARCHIVED
 > Archived Date: 2026-07-16
 > Reason: Completed Figma Agent instruction.
-> Canonical Replacement: `docs/design/FIGMA_GUIDE.md`
+> Canonical Replacement: `docs/design/figma-guide.md`
 > Original Path: `docs/design/ASAK_FIGMA_MERGE_AGENT_PROMPT_2026-07-14.md`
 
 # ASAK-1 + ASAK-2 병합·정리 Figma Agent 프롬프트

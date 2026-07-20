@@ -1,6 +1,7 @@
-# ASAK 화면 설계 및 Figma 연동
+> Status: **Historical — Notion export** (2026-07-20)  
+> → **SCR 정본:** [Pack 07 Screen Bible](../product_bible/07_Screen_Bible/README.md) · Figma: [figma-guide](../design/figma-guide.md)
 
-> **현재 Screen Registry override (2026-07-16):** Product Bible `07_Screen_Bible`를 현재 ID 소스로 사용: SCR-019 Sales Summary, SCR-020 Monthly Sales, SCR-021 Daily Sales, SCR-022 Admin Dashboard, SCR-023 Receipt Future Scope, SCR-024 Membership/Coupon Future Scope. 아래 구 SCR-020/021 정의는 Legacy Reference. 이번 감사에서 Figma 파일은 수정하지 않음.
+# ASAK 화면 설계 및 Figma 연동
 
 > Notion 04. 화면 설계 · SCR-001~021 · Figma 프로토타입 연동 예정 (2026-07-06)
 

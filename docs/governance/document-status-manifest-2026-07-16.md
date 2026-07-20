@@ -1,35 +1,26 @@
 # 문서 상태 매니페스트
 
 > 갱신: **2026-07-20** · 원본 보존 + 상태 헤더 정책.  
-> **입구:** [START_HERE](../START_HERE.md) · 구현 현실 정본: [current-implementation-map-2026-07-16.md](../planning/current-implementation-map-2026-07-16.md)
+> **입구:** [START_HERE](../START_HERE.md) · KEEP 목록: [document-inventory-slim](../document-inventory-slim-2026-07-20.md)
 
 | 경로 규칙 | 상태 | 정본(Canonical) 참조 |
 |---|---|---|
 | `docs/START_HERE.md` | **Current (진입)** | 전 문서 입구 |
-| `docs/document-naming-guide-2026-07-20.md` | Current | 신규 네이밍 |
-| `docs/document-inventory-slim-2026-07-20.md` | Current | KEEP / Historical / archive 후보 |
-| `docs/product_bible/README.md` | **Current (얇은 안내)** | Pack README 우선 |
-| `ASAK/PROJECT_HUB.md` | Current | START_HERE |
-| `docs/planning/current-implementation-map-2026-07-16.md` | **Current** | 코드 실측 |
-| `docs/wiki/wbs-v2-2026-07-16.md` | **Current (실행 WBS 정본)** | WBS2 작업 목록 |
-| `docs/wiki/wbs-status-notes.md` | **Current** | 실행 WBS 요약 |
-| `docs/wiki/devcopilot-sync-report.md` | **Current** | DevCopilot MCP 동기화 |
-| `docs/planning/current-implementation-map-2026-07-16.md` | **Current (2026-07-20 재작성)** | baseline |
-| `docs/architecture/document-code-gap-report-2026-07-16.md` | **Current (2026-07-20 재작성)** | implementation map |
-| `docs/planning/FRONTEND_WEDNESDAY_WBS_*.md` | Current | wbs-v2 |
-| `docs/planning/implementation-priority-2026-07-16.md` | Current (계획·목표) | MAP / baseline이 현실 |
-| `docs/governance/canonical-contract-decisions-2026-07-16.md` | Current | 계약 (코드 미반영 가능) |
-| `docs/design/**` | Active (Figma 실행) | Product Bible 07/08 · 0718 |
-| `docs/screens/screens*.{md,json}` | 동기화 산출물 | Screen Registry · SCR-020~024 재정렬됨 |
-| `docs/wiki/wbs-schedule.md`, `legacy-wbs2-*`, `snapshots/*-07-16*` | **Historical** | wbs-v2 / sync-report |
-| `docs/guides/**` | Reference / 비어 있을 수 있음 | Product Bible |
-| `docs/team/**` | 팀 조율 | Decision Log |
-| `docs/_archive/**`, `docs/design/_archive/**` | **Archived — 실행 금지** | 없음 |
-| `docs/notion/**` | DevCopilot 스크립트 입력 | Wiki · Product Bible |
-| `docs/product_bible/**` | 정책 정본 | `_archive` 제외 · README 먼저 |
-| `ASAK-Kiosk\|Admin/IMPLEMENTATION_PLAN.md` | **Current** | 각 STRUCTURE_GUIDE |
-| `ASAK-Kiosk\|Admin/src/STRUCTURE_GUIDE.md` | **Current** | IMPLEMENTATION_PLAN |
-| `ASAK-back/IMPLEMENTATION_PLAN.md` | **Current** | health only |
-| 워크스페이스 `UI-INDEX.md` | Current (이력 섹션 주의) | baseline · FIGMA gap |
+| `docs/wiki/current-status-baseline.md` | **Current** | 영역별 요약 |
+| `docs/planning/current-implementation-map-2026-07-16.md` | **Current** | SCR별 코드 실측 |
+| `docs/planning/app-implementation-hub.md` | **Current** | Bible / guide / PLAN 역할 |
+| `docs/document-tag-index-2026-07-20.md` | Current | 태그·KEEP |
+| `docs/document-inventory-slim-2026-07-20.md` | Current | KEEP / Historical |
+| `docs/wiki/wbs-v2-2026-07-16.md` | **Current (실행 WBS)** | WBS2 작업 목록 |
+| `docs/wiki/wbs-status-notes.md` | **Current** | WBS↔코드 요약 |
+| `docs/governance/canonical-contract-decisions-2026-07-16.md` | Current | 계약 |
+| `docs/design/README.md` + 실행 스택 | **Current** | 0718 Figma · CORRECTIVE 계획 |
+| `docs/design/_archive/figma-plans-2026-07-17/**` | **Archived** | CORRECTIVE 계획 |
+| `docs/implementation_guide/00-start-here.md` | **Current** | 구현 작업대 |
+| `docs/wiki/requirements-definition.md` 등 | **Historical** | Product Bible Pack |
+| `docs/_archive/wiki-secondary/**` | **Archived** | traceability, future-scope 등 |
+| `docs/product_bible/**` | 정책 정본 | `_archive` 제외 |
+| `ASAK-Kiosk\|Admin/IMPLEMENTATION_PLAN.md` | **Current** | STRUCTURE_GUIDE |
+| 워크스페이스 `ui-index.md` | Current | Figma↔코드 |
 
-근거: [레거시 및 참조 색인](legacy-and-reference-index-2026-07-16.md), [저장소 정리 인벤토리](repository-cleanup-inventory-2026-07-16.md), [문서 인벤토리](../document-inventory-slim-2026-07-20.md).
+근거: [legacy-and-reference-index](legacy-and-reference-index-2026-07-16.md) · [governance/README](README.md)

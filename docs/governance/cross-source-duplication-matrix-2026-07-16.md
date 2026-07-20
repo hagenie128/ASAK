@@ -1,3 +1,6 @@
+> Status: **Historical — 1회성 감사** (2026-07-20)  
+> → [document-inventory-slim-2026-07-20.md](../document-inventory-slim-2026-07-20.md)
+
 # Docs · Worklog · GitHub Issue · WBS2 교차 중복 Matrix
 
 > Audit Date: 2026-07-16

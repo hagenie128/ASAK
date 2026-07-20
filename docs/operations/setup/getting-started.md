@@ -1,7 +1,7 @@
 # ASAK 처음 시작하기 (초보자용)
 
 > **Notion (정본):** [🚀 ASAK 처음 시작하기 (팀 온보딩)](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) · **Git mirror:** 이 파일  
-> **Windows 설치 (클릭·폴더·PATH 상세):** 👉 [**INSTALL_WINDOWS.md**](INSTALL_WINDOWS.md) — Git·Python·Java·Node를 처음 깔 때 **여기부터** 따라 하세요.
+> **Windows 설치 (클릭·폴더·PATH 상세):** 👉 [**install-windows.md**](install-windows.md) — Git·Python·Java·Node를 처음 깔 때 **여기부터** 따라 하세요.
 
 > **한 줄 요약:** ASAK는 샐러디 키오스크를 만드는 풀스택 학습 프로젝트입니다. 화면(프론트)과 API(백엔드)를 **둘 다** 켜야 실제 주문 흐름을 볼 수 있습니다.
 
@@ -81,8 +81,8 @@ cd C:\ASAK
 더블클릭: `scripts\setup-windows.bat`
 
 - Git 사용자 이름/이메일은 **스크립트가 설정하지 않습니다** — `setup-git.ps1` 안내를 따라 직접 입력하세요.
-- 수동 설치·마법사 스크린샷: **[INSTALL_WINDOWS.md](INSTALL_WINDOWS.md)**
-- MCP: **[MCP_SETUP.md](MCP_SETUP.md)** · `.\scripts\setup-mcp.ps1`
+- 수동 설치·마법사 스크린샷: **[install-windows.md](install-windows.md)**
+- MCP: **[mcp-setup.md](mcp-setup.md)** · `.\scripts\setup-mcp.ps1`
 
 ---
 
@@ -90,7 +90,7 @@ cd C:\ASAK
 
 Windows(PowerShell) 기준입니다.
 
-> **처음 설치하시나요?** 자동은 위 **한 방에 셋팅**을, 클릭·PATH·실패 대처는 **[INSTALL_WINDOWS.md](INSTALL_WINDOWS.md)** (**유치원 선생님 모드**)를 보세요.
+> **처음 설치하시나요?** 자동은 위 **한 방에 셋팅**을, 클릭·PATH·실패 대처는 **[install-windows.md](install-windows.md)** (**유치원 선생님 모드**)를 보세요.
 
 ### 1. Git
 
@@ -306,8 +306,8 @@ python run_viewer.py --data-dir ..\data-pipeline\phase1\output
 
 | 문서 | 내용 |
 |------|------|
-| [INSTALL_WINDOWS.md](INSTALL_WINDOWS.md) | **Windows 설치** (자동 스크립트 + 수동 fallback) |
-| [MCP_SETUP.md](MCP_SETUP.md) | Cursor MCP·Notion·환경 변수 |
+| [install-windows.md](install-windows.md) | **Windows 설치** (자동 스크립트 + 수동 fallback) |
+| [mcp-setup.md](mcp-setup.md) | Cursor MCP·Notion·환경 변수 |
 | [guides/01-team-setup.md](../../guides/01-team-setup.md) | 팀 세팅·Git·9주 일정 (상세) |
 | [guides/README.md](../../guides/README.md) | 가이드 읽는 순서 |
 | [wiki/tech-stack-summary.md](../../wiki/tech-stack-summary.md) | Java, React, 라이브러리 정리 |
@@ -476,7 +476,7 @@ Notion [📅 일일 워크로그](https://app.notion.com/p/eeae4beb07ad4051928a8
 ### ❌ `create_worklog.py` 실패 예
 
 ```text
-NOTION_TOKEN not set. Set env var or see docs/operations/setup/GETTING_STARTED.md#part-2--워크로그-쓰기-유치원-선생님-모드
+NOTION_TOKEN not set. Set env var or see docs/operations/setup/getting-started.md#part-2--워크로그-쓰기-유치원-선생님-모드
 ```
 
 → 0단계 토큰 설정 후 다시 실행하세요.

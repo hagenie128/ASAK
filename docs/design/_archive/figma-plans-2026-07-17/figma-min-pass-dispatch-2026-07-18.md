@@ -1,3 +1,6 @@
+> Status: **Historical** (2026-07-20)  
+> → **정본:** [figma-unified-corrective-execution-plan-2026-07-17.md](../figma-unified-corrective-execution-plan-2026-07-17.md)
+
 # Figma 최소 패스 실행표 (100점 아님 · 코드 직전)
 
 **날짜:** 2026-07-18  

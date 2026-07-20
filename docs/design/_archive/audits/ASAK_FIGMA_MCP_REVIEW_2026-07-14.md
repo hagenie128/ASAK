@@ -1,7 +1,7 @@
 > Status: ARCHIVED
 > Archived Date: 2026-07-16
 > Reason: Dated MCP review evidence.
-> Canonical Replacement: `docs/design/FIGMA_GUIDE.md`
+> Canonical Replacement: `docs/design/figma-guide.md`
 > Original Path: `docs/design/ASAK_FIGMA_MCP_REVIEW_2026-07-14.md`
 
 # ASAK Figma MCP 점검 및 보완 목록

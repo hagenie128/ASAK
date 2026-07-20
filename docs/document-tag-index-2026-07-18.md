@@ -1,3 +1,6 @@
+> Status: **Historical** (2026-07-20)  
+> → **정본:** [document-tag-index-2026-07-20.md](document-tag-index-2026-07-20.md)
+
 # ASAK 문서 태그 인덱스
 
 > **목적:** 어떤 문서를 “정본/현재/참고/보관”으로 볼지 한눈에 찾기  
@@ -46,11 +49,11 @@
 
 | 경로 | 설명 |
 |---|---|
-| [implementation_guide/00_START_HERE.md](./implementation_guide/00_START_HERE.md) | 구현 가이드 시작 |
+| [implementation_guide/00-start-here.md](./implementation_guide/00-start-here.md) | 구현 가이드 시작 |
 | [planning/current-implementation-map-2026-07-16.md](./planning/current-implementation-map-2026-07-16.md) | 현재 구현 지도 |
 | [planning/implementation-priority-2026-07-16.md](./planning/implementation-priority-2026-07-16.md) | 우선순위 |
 | [architecture/document-code-gap-report-2026-07-16.md](./architecture/document-code-gap-report-2026-07-16.md) | 문서↔코드 갭 |
-| [design/FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md](./design/FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md) | Figma QA 통합본 |
+| [design/figma-qa-unified-complete-2026-07-17.md](./design/figma-qa-unified-complete-2026-07-17.md) | Figma QA 통합본 |
 | [design/ASAK_FIGMA_INTEGRATED_AUDIT.md](./design/ASAK_FIGMA_INTEGRATED_AUDIT.md) | 05-C/06-C 통합 감사 |
 | [operations/setup/](./operations/setup/) | 설치·온보딩·MCP |
 
@@ -58,7 +61,7 @@
 
 | 경로 | 설명 |
 |---|---|
-| [design/FIGMA_QA_IMPLEMENTATION_FINAL_cluade_2026-07-17.md](./design/FIGMA_QA_IMPLEMENTATION_FINAL_cluade_2026-07-17.md) | Claude 재실측본 (정리 중) |
+| [design/figma-qa-implementation-final-claude-2026-07-17.md](./design/figma-qa-implementation-final-claude-2026-07-17.md) | Claude 재실측본 (정리 중) |
 
 ### `#reference`
 

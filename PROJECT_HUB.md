@@ -12,7 +12,7 @@
 | 할 일 (WBS) | [docs/wiki/wbs-v2-2026-07-16.md](docs/wiki/wbs-v2-2026-07-16.md) |
 | 문서 폴더 안내 | [docs/README.md](docs/README.md) |
 | Product Bible | [docs/product_bible/README.md](docs/product_bible/README.md) |
-| 온보딩(설치) | [docs/operations/setup/GETTING_STARTED.md](docs/operations/setup/GETTING_STARTED.md) |
+| 온보딩(설치) | [docs/operations/setup/getting-started.md](docs/operations/setup/getting-started.md) |
 
 ## 구현 저장소 (실행 코드)
 

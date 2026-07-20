@@ -9,9 +9,10 @@
 
 | # | 문서 | 한 줄 |
 |---|---|---|
-| 1 | [구현 맵](planning/current-implementation-map-2026-07-16.md) | **구현 현실 1순위** — 화면·mock·API 상태표 |
-| 2 | [WBS 상태 메모](wiki/wbs-status-notes.md) | 코드↔WBS 요약 · DevCopilot 한글 제목 |
-| 3 | [문서–코드 Gap](architecture/document-code-gap-report-2026-07-16.md) | Canonical vs 코드 충돌 |
+| 1 | [구현 맵](planning/current-implementation-map-2026-07-16.md) | **SCR별 상세** — 화면·mock·API 상태표 |
+| 2 | [baseline 요약](wiki/current-status-baseline.md) | **영역별 요약** — Kiosk/Admin/Backend 한눈에 |
+| 3 | [WBS 상태 메모](wiki/wbs-status-notes.md) | 코드↔WBS 요약 · DevCopilot 한글 제목 |
+| 4 | [문서–코드 Gap](architecture/document-code-gap-report-2026-07-16.md) | Canonical vs 코드 충돌 |
 
 **한 줄 요약:** Kiosk Home→Cart는 mock 동작 · Admin은 정적 UI + mock READY(미연결) · Backend는 health만.
 
@@ -23,8 +24,8 @@
 
 | # | 문서 | 한 줄 |
 |---|---|---|
-| 4 | [WBS 2.0](wiki/wbs-v2-2026-07-16.md) | **실행 할 일 정본** (`WBS2-*`) |
-| 5 | [WBS 상태 메모](wiki/wbs-status-notes.md) | 코드↔WBS 요약 |
+| 5 | [WBS 2.0](wiki/wbs-v2-2026-07-16.md) | **실행 할 일 정본** (`WBS2-*`) |
+| 6 | [WBS 상태 메모](wiki/wbs-status-notes.md) | 코드↔WBS 요약 |
 
 레거시 `wbs-schedule.md`(WBS-001~)는 **실행에 쓰지 마세요.**
 
@@ -37,8 +38,9 @@
 | 6 | [Kiosk 구조](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) | P3 · WBS2-017~032 |
 | 7 | [Admin 구조](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [구현 계획](../../ASAK-Admin/IMPLEMENTATION_PLAN.md) | P4 · WBS2-033~045 |
 | 8 | [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md) | P5 · health only · WBS2-046~056 |
+| 9 | [앱 구현 허브](planning/app-implementation-hub.md) | Bible / guide / PLAN 역할 표 |
 
-워크스페이스에서 UI 찾을 때: 루트 [`UI-INDEX.md`](../../UI-INDEX.md).
+워크스페이스에서 UI 찾을 때: 루트 [`ui-index.md`](../../ui-index.md).
 
 ---
 
@@ -46,7 +48,7 @@
 
 | # | 문서 | 한 줄 |
 |---|---|---|
-| 9 | [Canonical Contract Decisions](governance/canonical-contract-decisions-2026-07-16.md) | API 경로·필드 결정 (코드 미반영 가능) |
+| 10 | [Canonical Contract Decisions](governance/canonical-contract-decisions-2026-07-16.md) | API 경로·필드 결정 (코드 미반영 가능) |
 
 충돌 시: **실행 코드 > baseline/맵 > Canonical(목표) > Product Bible**.
 
@@ -56,8 +58,8 @@
 
 | # | 문서 | 한 줄 |
 |---|---|---|
-| 10 | [Product Bible 안내](product_bible/README.md) | MVP에 필요한 팩 · FUTURE_SCOPE |
-| 11 | [Product Bible Index](governance/product-bible-index-2026-07-16.md) | Pack 1~12 표 (세부 문서는 필요할 때만) |
+| 10 | [Product Bible 허브](product_bible/product-bible-hub.md) | **역할별 한 페이지** · MVP 15링크 |
+| 11 | [Product Bible Pack README](product_bible/README.md) | Pack별 전체 목록 |
 
 세부 계약 문서는 **팩 README를 연 뒤** 필요한 파일만 읽으세요. `_archive`는 구현 기준 아님.
 
@@ -69,8 +71,10 @@
 |---|---|---|
 | 12 | [Archive](_archive/) | 실행 금지 · 이력 보존 |
 | 13 | [Legacy & Reference Index](governance/legacy-and-reference-index-2026-07-16.md) | 비정본 분류 |
-| 14 | [문서 이름 규칙](document-naming-guide-2026-07-20.md) | **신규** 문서 네이밍 |
-| 15 | [문서 인벤토리(슬림)](document-inventory-slim-2026-07-20.md) | KEEP / 배너 / 아카이브 후보 |
+| 14 | [문서 이름 규칙](document-naming-guide-2026-07-20.md) | **파일명 문법** · 폴더별 패턴 · 검사 스크립트 |
+| 15 | [문서 태그 인덱스](document-tag-index-2026-07-20.md) | KEEP / `#current` · `#archive` |
+| 16 | [design 실행 스택](design/README.md) | Figma QA·CORRECTIVE 계획 |
+| 17 | [문서 인벤토리(슬림)](document-inventory-slim-2026-07-20.md) | KEEP / archive 후보 |
 
 ---
 

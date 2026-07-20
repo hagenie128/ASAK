@@ -1,35 +1,21 @@
-# ASAK Product Bible Pack 9 — QA Bible
+# Pack 09 — QA Bible
 
-> Status: Current Draft
+> **허브:** [product-bible-hub.md](../product-bible-hub.md) · Default만 보고 완료 처리 금지
 
-## 목적
+## 전략
+| 문서 | 내용 |
+|---|---|
+| [QA Strategy](docs/10-qa/00-strategy/QA_STRATEGY.md) | 전략·우선순위 P0/P1/P2 |
+| [Test Case Template](docs/10-qa/00-strategy/TEST_CASE_TEMPLATE.md) | 케이스 템플릿 |
 
-ASAK의 품질 기준을 기능 완료 여부가 아니라 실제 사용 시나리오와 데이터 정합성 기준으로 검증한다.
+## Kiosk
+[Kiosk Smoke](docs/10-qa/01-kiosk/KIOSK_SMOKE_TEST.md) · [Order Flow](docs/10-qa/01-kiosk/KIOSK_ORDER_FLOW_TESTS.md) · [Cart](docs/10-qa/01-kiosk/CART_TESTS.md) · [Payment](docs/10-qa/01-kiosk/PAYMENT_TESTS.md) · [Timeout & Accessibility](docs/10-qa/01-kiosk/TIMEOUT_ACCESSIBILITY_TESTS.md)
 
-## 범위
+## Admin
+[Admin Smoke](docs/10-qa/02-admin/ADMIN_SMOKE_TEST.md) · [Dashboard](docs/10-qa/02-admin/DASHBOARD_TESTS.md) · [Kitchen & TTS](docs/10-qa/02-admin/KITCHEN_TTS_TESTS.md) · [Menu Mgmt](docs/10-qa/02-admin/MENU_MANAGEMENT_TESTS.md) · [Sold-out](docs/10-qa/02-admin/SOLD_OUT_TESTS.md) · [Sales](docs/10-qa/02-admin/SALES_TESTS.md)
 
-- Kiosk
-- Admin
-- API
-- Backend
-- Database
-- Accessibility
-- Regression
-- Demo
-- Release
+## API · Backend · Data
+[API Contract Tests](docs/10-qa/03-api-backend/API_CONTRACT_TESTS.md) · [Business Rule Tests](docs/10-qa/03-api-backend/BACKEND_BUSINESS_RULE_TESTS.md) · [Data Integrity](docs/10-qa/04-data/DATA_INTEGRITY_TESTS.md)
 
-## 우선순위
-
-```text
-P0 = 핵심 흐름이 막히거나 데이터가 틀리는 문제
-P1 = 주요 기능은 되지만 불편하거나 일부 기능이 깨지는 문제
-P2 = 표현·세부 UX·확장 기능 문제
-```
-
-## 가장 중요한 원칙
-
-1. Default 화면만 확인하고 완료 처리하지 않는다.
-2. Loading·Empty·Error·Disabled·Processing을 확인한다.
-3. Figma와 React가 같아도 API·DB 값이 다르면 실패다.
-4. Mock Data도 숫자 정합성을 지켜야 한다.
-5. 기존 팀원이 만든 프론트 코드를 살리되 회귀 테스트로 보호한다.
+## Accessibility · Regression · Release
+[Accessibility QA](docs/10-qa/05-accessibility/ACCESSIBILITY_QA.md) · [Regression Suite](docs/10-qa/06-regression/REGRESSION_SUITE.md) · [Figma Regression](docs/10-qa/06-regression/FIGMA_REGRESSION_CHECKLIST.md) · [Demo Scenario](docs/10-qa/07-demo-release/DEMO_SCENARIO.md) · [Release Checklist](docs/10-qa/07-demo-release/RELEASE_CHECKLIST.md) · [Known Limitations](docs/10-qa/07-demo-release/KNOWN_LIMITATIONS.md) · [Bug Report Template](docs/10-qa/07-demo-release/BUG_REPORT_TEMPLATE.md)

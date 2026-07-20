@@ -1,6 +1,6 @@
 # Cursor MCP 설정 (ASAK 팀)
 
-> **관련:** [worklog/guide-mcp-sync.md](../../../worklog/guide-mcp-sync.md) · [GETTING_STARTED.md](GETTING_STARTED.md)  
+> **관련:** [worklog/guide-mcp-sync.md](../../../worklog/guide-mcp-sync.md) · [getting-started.md](getting-started.md)  
 > **자동 설정:** `.\scripts\setup-mcp.ps1` (또는 `setup-windows.ps1` 에 포함)
 
 Cursor에서 Notion·기타 MCP를 쓰기 위한 팀 공통 안내입니다.
@@ -83,7 +83,7 @@ python asak-data/scripts/verify_notion_token.py
 
 **토큰은 Git에 커밋하지 마세요.**
 
-영구 환경 변수 설정: [INSTALL_WINDOWS.md §9](INSTALL_WINDOWS.md#9-환경-변수-notion_token-설정)
+영구 환경 변수 설정: [install-windows.md §9](install-windows.md#9-환경-변수-notion_token-설정)
 
 ---
 
@@ -115,4 +115,4 @@ Cursor Settings → MCP → **Add new MCP server**
 | `config/mcp.json.example` | 프로젝트 MCP 템플릿 |
 | `.env.example` | `NOTION_TOKEN`, `FIGMA_TOKEN` 플레이스홀더 |
 | `worklog/notion_config.json` | 워크로그 DB ID |
-| `docs/operations/setup/INSTALL_WINDOWS.md` | Windows 전체 설치 (수동 fallback) |
+| `docs/operations/setup/install-windows.md` | Windows 전체 설치 (수동 fallback) |

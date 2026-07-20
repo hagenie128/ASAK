@@ -1,23 +1,28 @@
-# ASAK Product Bible Pack 8 — Component Bible
+# Pack 08 — Component Bible
 
-> Status: Current Draft
+> **허브:** [product-bible-hub.md](../product-bible-hub.md) · Figma↔React **한 표부터**
 
-## 목적
+## 먼저 볼 것
 
-Figma 컴포넌트와 React 컴포넌트를 같은 기준으로 관리한다.
+| 문서 | 내용 |
+|---|---|
+| [FIGMA↔React Map](docs/08-components/04-maps/FIGMA_REACT_COMPONENT_MAP.md) | **컴포넌트 매핑 정본** |
+| [Component Ownership Matrix](docs/08-components/04-maps/COMPONENT_OWNERSHIP_MATRIX.md) | Kiosk/Admin 소유 |
+| [Screen Component Dependency](docs/08-components/04-maps/SCREEN_COMPONENT_DEPENDENCY.md) | SCR별 의존 |
+| [Implementation Checklist](docs/08-components/04-maps/COMPONENT_IMPLEMENTATION_CHECKLIST.md) | 구현 체크 |
 
-이 Pack은 다음 문제를 방지한다.
+## Foundation
+[Component System](docs/08-components/00-foundation/COMPONENT_SYSTEM.md) · [Creation Rules](docs/08-components/00-foundation/COMPONENT_CREATION_RULES.md) · [Token Connection](docs/08-components/00-foundation/TOKEN_CONNECTION_RULES.md)
 
-- 같은 역할의 컴포넌트 중복 생성
-- 화면마다 다른 spacing·radius·typography 사용
-- Figma variant와 React props 불일치
-- Kiosk/Admin 컴포넌트 책임 혼선
-- 기존 팀원이 구현한 컴포넌트를 무시한 재작성
+## Primitives
+[Button](docs/08-components/01-primitives/BUTTON.md) · [Form Controls](docs/08-components/01-primitives/FORM_CONTROLS.md) · [Badge & Chip](docs/08-components/01-primitives/BADGE_AND_CHIP.md) · [Spinner & Divider](docs/08-components/01-primitives/SPINNER_AND_DIVIDER.md)
 
-## 가장 중요한 원칙
+## Composites
+[Menu Card](docs/08-components/02-composites/MENU_CARD.md) · [Cart Item Card](docs/08-components/02-composites/CART_ITEM_CARD.md) · [Order Card](docs/08-components/02-composites/ORDER_CARD.md) · [Payment Method Card](docs/08-components/02-composites/PAYMENT_METHOD_CARD.md) · [Bottom CTA](docs/08-components/02-composites/BOTTOM_CTA.md) · [Confirm Dialog](docs/08-components/02-composites/CONFIRM_DIALOG.md) · [Toast](docs/08-components/02-composites/TOAST.md) · [Status Badge](docs/08-components/02-composites/STATUS_BADGE.md) · [Filter Dropdown](docs/08-components/02-composites/FILTER_DROPDOWN.md) · [Date Pickers](docs/08-components/02-composites/DATE_PICKERS.md) · [Ingredient Select Modal](docs/08-components/02-composites/INGREDIENT_SELECT_MODAL.md) · [Sales Metric Card](docs/08-components/02-composites/SALES_METRIC_CARD.md)
 
-1. 기존 React 컴포넌트를 우선 재사용한다.
-2. 기존 팀원이 작성한 코드는 삭제·대체하지 않는다.
-3. Figma 이름과 React 이름이 달라도 역할이 같으면 mapping으로 연결한다.
-4. 새 컴포넌트는 기존 컴포넌트로 표현할 수 없는 경우에만 만든다.
-5. 화면 구현보다 공통 컴포넌트 재사용을 먼저 검토한다.
+## Sections
+[Category Tabs](docs/08-components/03-sections/CATEGORY_TABS.md) · [Order Summary](docs/08-components/03-sections/ORDER_SUMMARY.md) · [Order Table](docs/08-components/03-sections/ORDER_TABLE.md) · [Dashboard Summary](docs/08-components/03-sections/DASHBOARD_SUMMARY.md)
+
+## 원칙
+
+기존 React 컴포넌트 **재사용 우선** · Figma 이름≠React 이름이면 Map으로 연결

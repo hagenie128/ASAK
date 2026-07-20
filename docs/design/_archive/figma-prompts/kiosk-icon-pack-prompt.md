@@ -1,7 +1,7 @@
 > Status: ARCHIVED
 > Archived Date: 2026-07-16
 > Reason: One-off icon generation prompt.
-> Canonical Replacement: `docs/design/FIGMA_GUIDE.md`
+> Canonical Replacement: `docs/design/figma-guide.md`
 > Original Path: `docs/design/prompts/kiosk-icon-pack-prompt.md`
 
 # ASAK Salady 키오스크 — 아이콘 팩 이미지 생성 프롬프트

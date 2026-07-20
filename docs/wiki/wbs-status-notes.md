@@ -60,7 +60,7 @@
 - 2026-07-20: WBS2-001~066 제목 한글화, P3/P4 상태 코드 반영  
 - LMIS 요구 8건 → IN_PROGRESS (UI shell)  
 - Target API create (`/api/kiosk/*`, `soldOut`, sales…) — MCP API update 불가  
-- 상세: [devcopilot-sync-report.md](devcopilot-sync-report.md)
+- 상세: [devcopilot-sync-report.md](../_archive/wiki-secondary/devcopilot-sync-report.md)
 
 ## 화면 ID와 WBS
 

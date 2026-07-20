@@ -4,7 +4,7 @@
 
 ## 0. 최초 1회 병합과 고정 파트너
 
-`FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md`를 A~E 원본 의견의 **동결된 근거 묶음**으로 쓴다. 즉, 원본 문서를 다시 서로 이어 붙이지 않는다. 아래 M0 순서로 근거를 이 변경 레지스터의 Change ID에 한 번만 배치한 뒤, 그 다음부터는 Change ID만 수정한다.
+`figma-qa-unified-complete-2026-07-17.md`를 A~E 원본 의견의 **동결된 근거 묶음**으로 쓴다. 즉, 원본 문서를 다시 서로 이어 붙이지 않는다. 아래 M0 순서로 근거를 이 변경 레지스터의 Change ID에 한 번만 배치한 뒤, 그 다음부터는 Change ID만 수정한다.
 
 | 순서 | 사용자와 함께할 파트너 | 담당 범위 | 산출물 | 참여 금지 범위 |
 |---|---|---|---|---|
@@ -46,7 +46,7 @@
 
 **쓰기 타깃:** `yHhvn5RKjBd91U8BJUQz7F` (0718)  
 **참고:** ASAK-1 · 0714(화면 시각) · 0715 **구분선 아래** 컴포넌트/화면 보관본  
-**정본 표:** [FIGMA_0718_COLOR_CANON_2026-07-18.md](./FIGMA_0718_COLOR_CANON_2026-07-18.md)
+**정본 표:** [figma-0718-color-canon-2026-07-18.md](./figma-0718-color-canon-2026-07-18.md)
 
 | Phase | 내용 | 결과 |
 |---|---|---|
@@ -58,7 +58,7 @@
 | — | 표 밖 unbound hex | 바꾸지 않음 · 캐논 문서에 목록만 |
 | 5 | 화면 조합 (잘 데려가기) | 맵 문서 · 키오스크/Admin Core·QA 섹션 · SCR-008/001/003 정리 · Archive Default ID 확정 |
 
-**조합 맵:** [FIGMA_0718_SCREEN_COMBINE_MAP_2026-07-18.md](./FIGMA_0718_SCREEN_COMBINE_MAP_2026-07-18.md)
+**조합 맵:** [figma-0718-screen-combine-map-2026-07-18.md](./figma-0718-screen-combine-map-2026-07-18.md)
 
 ### 지금 할 일
 

@@ -76,4 +76,4 @@
 
 - [현재 구현 맵](../../../docs/planning/current-implementation-map-2026-07-16.md)
 - [구현 우선순위](../../../docs/planning/implementation-priority-2026-07-16.md)
-- [구현 가이드 시작점](../../../docs/implementation_guide/00_START_HERE.md)
+- [구현 가이드 시작점](../../../docs/implementation_guide/00-start-here.md)

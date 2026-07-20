@@ -1,7 +1,10 @@
+> Status: **Historical** (2026-07-20)  
+> → **정본:** [figma-unified-corrective-execution-plan-2026-07-17.md](../figma-unified-corrective-execution-plan-2026-07-17.md)
+
 # ASAK Figma 종합 수정 실행 계획 — 사람 vs AI 역할 분담
 
 **작성일**: 2026-07-17
-**근거 문서**: [FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md](FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md)(출처 A~E 통합) + [ASAK_FIGMA_DESIGN_FEEDBACK_COMPONENT_SCREEN_2026-07-17.md](ASAK_FIGMA_DESIGN_FEEDBACK_COMPONENT_SCREEN_2026-07-17.md)(출처 C)
+**근거 문서**: [figma-qa-unified-complete-2026-07-17.md](figma-qa-unified-complete-2026-07-17.md)(출처 A~E 통합) + [ASAK_FIGMA_DESIGN_FEEDBACK_COMPONENT_SCREEN_2026-07-17.md](ASAK_FIGMA_DESIGN_FEEDBACK_COMPONENT_SCREEN_2026-07-17.md)(출처 C)
 **목적**: "AI로만 전체 계획 돌리니까 제자리걸음"이라는 문제를 해결 — 사람이 직접 하면 빠른 것과 AI가 해야 정확한 것을 분리해서, 판단이 필요한 곳에서 AI가 왕복하며 멈추는 일을 없앤다.
 
 ---
@@ -201,4 +204,4 @@
 
 ---
 
-*이 계획은 [FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md](FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md)의 22개 교차 항목 + 부록 A/C/D/E를 기준으로 분류했다. 새로운 실측값을 만들지 않았고, 기존 5개 출처(A~E)가 이미 제시한 값·우선순위만 재배치했다.*
+*이 계획은 [figma-qa-unified-complete-2026-07-17.md](figma-qa-unified-complete-2026-07-17.md)의 22개 교차 항목 + 부록 A/C/D/E를 기준으로 분류했다. 새로운 실측값을 만들지 않았고, 기존 5개 출처(A~E)가 이미 제시한 값·우선순위만 재배치했다.*

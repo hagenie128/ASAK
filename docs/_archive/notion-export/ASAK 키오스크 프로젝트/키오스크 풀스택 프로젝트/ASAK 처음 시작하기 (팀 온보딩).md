@@ -1,9 +1,9 @@
-﻿# ASAK 처음 시작하기 (팀 온보딩)
+# ASAK 처음 시작하기 (팀 온보딩)
 
 <aside>
 📌
 
-**Notion 정본:** [ASAK 처음 시작하기 (팀 온보딩)](ASAK%20%EC%B2%98%EC%9D%8C%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0%20(%ED%8C%80%20%EC%98%A8%EB%B3%B4%EB%94%A9).md) · Git mirror: [`docs/GETTING_STARTED.md`](https://github.com/hagenie128/ASAK/blob/main/docs/GETTING_STARTED.md)
+**Notion 정본:** [ASAK 처음 시작하기 (팀 온보딩)](ASAK%20%EC%B2%98%EC%9D%8C%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0%20(%ED%8C%80%20%EC%98%A8%EB%B3%B4%EB%94%A9).md) · Git mirror: [`docs/getting-started.md`](https://github.com/hagenie128/ASAK/blob/main/docs/getting-started.md)
 
 </aside>
 
@@ -106,7 +106,7 @@ npm run dev
 - [ ]  3개 저장소 클론 완료
 - [ ]  백엔드 + 프론트 기동 → 메뉴 표시 🎉
 
-> **상세 명령·에러 해결·5단계 뷰어**는 Git 정본 [`docs/GETTING_STARTED.md`](https://github.com/hagenie128/ASAK/blob/main/docs/GETTING_STARTED.md) Part 1 참고.
+> **상세 명령·에러 해결·5단계 뷰어**는 Git 정본 [`docs/getting-started.md`](https://github.com/hagenie128/ASAK/blob/main/docs/getting-started.md) Part 1 참고.
 >
 
 ---
@@ -133,7 +133,7 @@ python worklog/scripts/sync_daily_to_notion.py --date today
 python asak-data/scripts/create_worklog.py --date today --author 이하진 --task "작업 요약"
 ```
 
-> **Part 2 전체(토큰 검증·중복 정리·명령표)**는 Git [`docs/GETTING_STARTED.md` Part 2](https://github.com/hagenie128/ASAK/blob/main/docs/GETTING_STARTED.md#part-2--워크로그-쓰기-유치원-선생님-모드) 또는 위 팀 가이드 정본을 보세요.
+> **Part 2 전체(토큰 검증·중복 정리·명령표)**는 Git [`docs/getting-started.md` Part 2](https://github.com/hagenie128/ASAK/blob/main/docs/getting-started.md#part-2--워크로그-쓰기-유치원-선생님-모드) 또는 위 팀 가이드 정본을 보세요.
 >
 
 ---

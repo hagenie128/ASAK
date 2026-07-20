@@ -1,6 +1,7 @@
-# ASAK 요구사항 정의서
+> Status: **Historical — Notion export** (2026-07-20)  
+> → **정본:** [Product Bible Pack 02](../product_bible/02_Order_Cart_Payment/README.md) · API: [Canonical](../governance/canonical-contract-decisions-2026-07-16.md) · 현실: [baseline](current-status-baseline.md)
 
-> **구현 상태 override (2026-07-16):** requirement status는 evidence 기반입니다. Figma만으로는 DONE 아님; backend 명세/model 존재만으로 implementation evidence 아님; receipt, membership, QR/barcode, device, CMS 범위는 EXCLUDED/Future Scope로 보존. [baseline](current-status-baseline.md)과 [future scope](future-scope.md) 참고.
+# ASAK 요구사항 정의서
 
 > Notion 02. 요구사항 정의 · `notion_data.json` (2026-07-05)
 

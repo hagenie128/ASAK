@@ -1,7 +1,11 @@
+> Status: **Historical** (2026-07-20)  
+> → **정본:** [figma-unified-corrective-execution-plan-2026-07-17.md](../figma-unified-corrective-execution-plan-2026-07-17.md)  
+> Reason: 07-17~18 실행계획 통합 · Figma 편집은 **0718**
+
 # ASAK Figma 종합 수정 계획 — 사람 중심 + AI 보조
 
 **작성일:** 2026-07-17 (출처 역할 §1 추가: 2026-07-18)  
-**근거:** [FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md](./FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md)  
+**근거:** [figma-qa-unified-complete-2026-07-17.md](./figma-qa-unified-complete-2026-07-17.md)  
 **파일:** `JSrjOy668zhfkiLplCkreh`  
 **목표:** AI만으로 전체를 돌리지 않는다. **사람이 결정·손을 대는 일**과 **AI가 측정·일괄·검증하는 일**을 나눠, 제자리걸음을 끊는다.  
 **출처 규칙:** 진행 = **C+B+A** / 검증 = **A+D+E** / 병기 = **§3 잠금만** (출처 재투표 금지)
@@ -566,8 +570,8 @@
 
 | 문서 | 역할 |
 |---|---|
-| [FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md](./FIGMA_QA_UNIFIED_COMPLETE_2026-07-17.md) | 문제 근거 (읽기 전용 기준) |
-| [FIGMA_QA_IMPLEMENTATION_FINAL_cluade_2026-07-17.md](./FIGMA_QA_IMPLEMENTATION_FINAL_cluade_2026-07-17.md) | Claude 재실측 원본 |
+| [figma-qa-unified-complete-2026-07-17.md](./figma-qa-unified-complete-2026-07-17.md) | 문제 근거 (읽기 전용 기준) |
+| [figma-qa-implementation-final-claude-2026-07-17.md](./figma-qa-implementation-final-claude-2026-07-17.md) | Claude 재실측 원본 |
 | **이 문서** | **누가·무슨 순서로·멈추는 선** |
 
 ---

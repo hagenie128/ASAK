@@ -7,11 +7,11 @@
 ## 운영 원칙
 
 - **입구:** [START_HERE](START_HERE.md) · [PROJECT_HUB](../PROJECT_HUB.md)
-- **정책 정본:** `product_bible/` (먼저 [얇은 README](product_bible/README.md)) · **계약:** `governance/canonical-contract-decisions-2026-07-16.md`
-- **구현 현실:** `planning/current-implementation-map-2026-07-16.md` · **실행 WBS:** `wiki/wbs-v2-2026-07-16.md`
+- **정책 정본:** `product_bible/` (먼저 [읽기 허브](product_bible/product-bible-hub.md)) · **계약:** `governance/canonical-contract-decisions-2026-07-16.md`
+- **구현 현실:** [baseline](wiki/current-status-baseline.md) · [구현 맵](planning/current-implementation-map-2026-07-16.md) · **앱 허브:** [app-implementation-hub](planning/app-implementation-hub.md)
 - **앱 실행 문서:** 각 저장소 `IMPLEMENTATION_PLAN.md`, `src/STRUCTURE_GUIDE.md`
 - **Archive:** `_archive/` — 삭제·정본 복귀 금지
-- **신규 파일명:** [document-naming-guide-2026-07-20.md](document-naming-guide-2026-07-20.md) · 인벤토리: [document-inventory-slim-2026-07-20.md](document-inventory-slim-2026-07-20.md)
+- **파일명 규칙:** [document-naming-guide-2026-07-20.md](document-naming-guide-2026-07-20.md) · 검사: `pwsh asak-data/scripts/check-filename-convention.ps1` · 인벤토리: [document-inventory-slim-2026-07-20.md](document-inventory-slim-2026-07-20.md)
 - **주의:** `docs/notion`, `worklog/daily` 경로는 스크립트가 읽음 — 무단 이동 금지
 
 ```powershell
@@ -23,14 +23,14 @@ python worklog/scripts/build_calendar.py
 ## 문서 진입 순서
 
 1. **[START_HERE](START_HERE.md)** ← 여기부터
-2. [Wiki 색인](wiki/index.md) · [현재 구현 맵](planning/current-implementation-map-2026-07-16.md)
-3. [WBS 2.0](wiki/wbs-v2-2026-07-16.md) · [WBS 상태 메모](wiki/wbs-status-notes.md)
+2. [Wiki 색인](wiki/index.md) · [baseline](wiki/current-status-baseline.md) · [구현 맵](planning/current-implementation-map-2026-07-16.md)
+3. [앱 구현 허브](planning/app-implementation-hub.md) · [WBS 2.0](wiki/wbs-v2-2026-07-16.md)
 4. [Canonical Contract Decisions](governance/canonical-contract-decisions-2026-07-16.md)
 5. [Current Implementation Map](planning/current-implementation-map-2026-07-16.md)
 6. [Document–Code Gap Report](architecture/document-code-gap-report-2026-07-16.md)
 7. [Implementation Priority](planning/implementation-priority-2026-07-16.md) *(목표 순서 · 현실은 MAP)*
 8. [프론트 3일 WBS](planning/frontend-wednesday-wbs-2026-07-20.md)
-9. [Product Bible 얇은 안내](product_bible/README.md) · [Index](governance/product-bible-index-2026-07-16.md) · Pack README만
+9. [Product Bible 허브](product_bible/product-bible-hub.md) · [Pack README](product_bible/README.md) · [Index](governance/product-bible-index-2026-07-16.md)
 10. [Design](design/) · [Screens](screens/)
 11. [Operations setup](operations/setup/)
 12. [Archive](_archive/) — 한물간 문서, 실행에 쓰지 않음
@@ -62,7 +62,7 @@ python worklog/scripts/build_calendar.py
 
 ## Pack 1~12
 
-먼저 [product_bible/README.md](product_bible/README.md). 세부 문서는 Pack README 이후.
+먼저 [product-bible-hub.md](product_bible/product-bible-hub.md). Pack별 파일 목록은 각 Pack README.
 
 | Pack | 링크 |
 |---|---|

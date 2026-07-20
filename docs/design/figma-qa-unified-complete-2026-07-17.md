@@ -1,3 +1,5 @@
+> **QA 이력 (0715 파일 `JSrjOy668zhfkiLplCkreh`)** — 편집·실행 정본은 **0718** · [figma-unified-corrective-execution-plan](./figma-unified-corrective-execution-plan-2026-07-17.md)
+
 # ASAK Figma QA 의견 통합본 (출처별 + 종합)
 
 **작성일:** 2026-07-17 · **파일:** `JSrjOy668zhfkiLplCkreh` · **쓰기:** 0회  

@@ -29,5 +29,5 @@ fileKey: `yHhvn5RKjBd91U8BJUQz7F`
 - QA Gap Matrix: https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/?node-id=190-2  
 - User Flows: https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/?node-id=3183-13  
 - Handoff Specs: https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/?node-id=3184-2  
-- 전수 Gap 문서: [`FIGMA_0718_PROJECT_GAP.md`](./FIGMA_0718_PROJECT_GAP.md)  
-- 화면 인덱스(코드): [`UI-INDEX.md`](../../../UI-INDEX.md)
+- 전수 Gap 문서: [`figma-0718-project-gap.md`](./figma-0718-project-gap.md)  
+- 화면 인덱스(코드): [`ui-index.md`](../../../ui-index.md)

@@ -6,7 +6,7 @@
 .DESCRIPTION
   - config/mcp.json.example → .cursor/mcp.json 복사 (없을 때만)
   - 필요한 환경 변수 안내
-  - 상세 문서: docs/MCP_SETUP.md
+  - 상세 문서: docs/mcp-setup.md
 
 .PARAMETER RootPath
   ASAK 통합 저장소 경로 (기본: 자동 탐지 또는 C:\ASAK)
@@ -55,7 +55,7 @@ elseif (Test-Path $templatePath) {
 }
 else {
     Write-SetupWarn "템플릿 없음: $templatePath"
-    Write-SetupInfo 'docs/MCP_SETUP.md 에서 수동으로 MCP 를 설정하세요.'
+    Write-SetupInfo 'docs/mcp-setup.md 에서 수동으로 MCP 를 설정하세요.'
 }
 
 # 사용자 전역 MCP 안내
@@ -104,7 +104,7 @@ Write-SetupBanner 'MCP 요약'
 $checks = @(
     @{ Label = '프로젝트 .cursor/mcp.json'; Ok = (Test-Path $targetPath) },
     @{ Label = 'config/mcp.json.example'; Ok = (Test-Path $templatePath) },
-    @{ Label = 'docs/MCP_SETUP.md'; Ok = (Test-Path (Join-Path $RepoRoot 'docs\MCP_SETUP.md')) },
+    @{ Label = 'docs/mcp-setup.md'; Ok = (Test-Path (Join-Path $RepoRoot 'docs\mcp-setup.md')) },
     @{ Label = '.env.example'; Ok = (Test-Path (Join-Path $RepoRoot '.env.example')) }
 )
 foreach ($c in $checks) {
@@ -112,4 +112,4 @@ foreach ($c in $checks) {
 }
 
 Write-Host ""
-Write-SetupInfo '상세 문서: docs/MCP_SETUP.md'
+Write-SetupInfo '상세 문서: docs/mcp-setup.md'

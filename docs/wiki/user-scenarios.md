@@ -1,6 +1,7 @@
-# ASAK 사용자 시나리오 명세
+> Status: **Historical — Notion export** (2026-07-20)  
+> → **정본:** Pack 02·07 · [future-scope](../_archive/wiki-secondary/future-scope.md)
 
-> **시나리오 status override (2026-07-16):** 가져온 시나리오는 requirement, screen, API contract, QA evidence가 확인될 때까지 기획 draft입니다. Future Scope 시나리오는 보존되나 MVP 완료 evidence가 아닙니다.
+# ASAK 사용자 시나리오 명세
 
 > Notion 03. 사용자 시나리오 · SC-001~024 (2026-07-06)
 

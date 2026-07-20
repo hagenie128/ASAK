@@ -1,6 +1,6 @@
 # API·DB 공통 규칙
 
-> 화면별 URL·request·response는 이미 [Kiosk 기능 가이드](02_KIOSK_IMPLEMENTATION.md), [Admin 기능 가이드](03_ADMIN_IMPLEMENTATION.md)에 붙어 있다.  
+> 화면별 URL·request·response는 이미 [Kiosk 기능 가이드](02-kiosk-implementation.md), [Admin 기능 가이드](03-admin-implementation.md)에 붙어 있다.  
 > 이 문서는 **여러 화면에서 공통으로 쓰는 처리 규칙만** 찾는 곳이다.
 
 ## 현재 연결 상태

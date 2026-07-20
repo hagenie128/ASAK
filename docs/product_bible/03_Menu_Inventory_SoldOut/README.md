@@ -1,37 +1,33 @@
-# ASAK Product Bible Pack 3
+# Pack 03 — Menu / Inventory / Sold-out
 
-## Scope
+> **허브:** [product-bible-hub.md](../product-bible-hub.md)
 
-이 Pack은 ASAK 메뉴 도메인의 핵심 4개 영역을 다룬다.
+## 문서 목록
 
-1. Menu
-2. Inventory
-3. Sold-out
-4. Menu Management
+### Menu (키오스크)
+| 문서 | 내용 |
+|---|---|
+| [Menu Architecture](docs/09-features/menu/MENU_ARCHITECTURE.md) | 구조 |
+| [Menu Detail Flow](docs/09-features/menu/MENU_DETAIL_FLOW_AND_VALIDATION.md) | 상세·옵션 검증 |
+| [Menu API Contract](docs/09-features/menu/MENU_API_CONTRACT.md) | API |
+| [Menu Edge Cases & QA](docs/09-features/menu/MENU_EDGE_CASE_AND_QA.md) | 예외·QA |
 
-## Why These Features Belong Together
+### Sold-out · Inventory
+| 문서 | 내용 |
+|---|---|
+| [Sold-out Management](docs/09-features/sold-out/SOLD_OUT_MANAGEMENT.md) | **품절 정책** |
+| [Sold-out Why](docs/09-features/sold-out/SOLD_OUT_WHY.md) | 설계 이유 |
+| [Inventory Policy](docs/09-features/inventory/INVENTORY_POLICY.md) | 재고 정책 |
+| [Inventory Architecture](docs/09-features/inventory/INVENTORY_ARCHITECTURE.md) | 구조 |
+| [Inventory Edge Cases](docs/09-features/inventory/INVENTORY_EDGE_CASE_AND_QA.md) | 예외·QA |
 
-메뉴는 독립된 상품이 아니라 다음 구조의 결과다.
+### Menu Management (관리자)
+| 문서 | 내용 |
+|---|---|
+| [Menu Mgmt Architecture](docs/09-features/menu-management/MENU_MANAGEMENT_ARCHITECTURE.md) | 구조 |
+| [Menu Mgmt API](docs/09-features/menu-management/MENU_MANAGEMENT_API_CONTRACT.md) | API |
+| [Menu Mgmt Edge Cases](docs/09-features/menu-management/MENU_MANAGEMENT_EDGE_CASE_AND_QA.md) | 예외·QA |
 
-```text
-Menu
-├─ Category
-├─ Ingredient
-├─ Ingredient Role
-├─ Option Group
-├─ Option Item
-├─ Nutrition
-├─ Allergen
-├─ Tag
-└─ Sold-out Policy
-```
+## 연결 화면
 
-따라서 메뉴 관리와 품절 관리는 같은 데이터 구조를 공유해야 한다.
-
-## Canonical Principle
-
-- 메뉴 상태는 단순 boolean 하나로 끝나지 않는다.
-- 품절은 메뉴·재료·옵션에 따라 전파될 수 있다.
-- 핵심 재료와 베이스 품절은 메뉴 판매 가능성에 영향을 준다.
-- 일반 재료 품절은 항상 메뉴 전체 품절을 의미하지 않는다.
-- Figma와 DB가 같은 역할명과 상태값을 사용해야 한다.
+[SCR-003 Menu List](../07_Screen_Bible/docs/07-screens/SCR-003-KIOSK-MENU-LIST.md) · [SCR-004 Detail](../07_Screen_Bible/docs/07-screens/SCR-004-KIOSK-MENU-DETAIL.md) · [SCR-011 Sold-out Admin](../07_Screen_Bible/docs/07-screens/SCR-011-ADMIN-SOLD-OUT-MANAGEMENT.md)

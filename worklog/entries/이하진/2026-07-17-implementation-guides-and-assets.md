@@ -49,7 +49,7 @@
 - 확인한 로그/에러 메시지: 현재 구현 맵에서 Cart/Payment/Complete, 다수 Admin 화면, Backend business endpoint가 아직 MISSING/PARTIAL임을 확인했다.
 - 의심했던 지점: 가이드에 적힌 API나 화면이 이미 구현된 것으로 오해될 수 있는지, 확장 화면을 MVP 구현 범위로 오인할 수 있는지.
 - 실제 원인: 구현 계획 문서와 실제 코드 상태가 별도 문서에 있었기 때문.
-- 다시 같은 문제가 생기면 먼저 볼 파일/명령어: `00_START_HERE.md`, `FEATURE_LOOKUP.md`, `08_FEATURE_IMPLEMENTATION_MATRIX.md`, `09_FIGMA_STATE_CHECKLIST.md`, `current-implementation-map-2026-07-16.md`.
+- 다시 같은 문제가 생기면 먼저 볼 파일/명령어: `00-start-here.md`, `feature-lookup.md`, `08-feature-implementation-matrix.md`, `09-figma-state-checklist.md`, `current-implementation-map-2026-07-16.md`.
 
 ## 8. 이번 작업에서 배운 점
 
@@ -74,7 +74,7 @@ Product Bible과 Figma 설계를 실제 개발자가 바로 실행할 수 있도
 
 ## 12. 첨부하면 좋은 자료
 
-- [구현 가이드 시작점](../../../docs/implementation_guide/00_START_HERE.md)
-- [전체 기능 찾기](../../../docs/implementation_guide/FEATURE_LOOKUP.md)
-- [기능 구현 매트릭스](../../../docs/implementation_guide/08_FEATURE_IMPLEMENTATION_MATRIX.md)
-- [Figma 상태 체크리스트](../../../docs/implementation_guide/09_FIGMA_STATE_CHECKLIST.md)
+- [구현 가이드 시작점](../../../docs/implementation_guide/00-start-here.md)
+- [전체 기능 찾기](../../../docs/implementation_guide/feature-lookup.md)
+- [기능 구현 매트릭스](../../../docs/implementation_guide/08-feature-implementation-matrix.md)
+- [Figma 상태 체크리스트](../../../docs/implementation_guide/09-figma-state-checklist.md)

@@ -41,7 +41,7 @@ cd C:\ASAK
 |----------|---------|
 | `scripts/setup-windows.ps1` | 메인 — 버전 확인, winget/choco 설치 시도, 폴더, venv, `.env`, MCP |
 | `scripts/setup-git.ps1` | Git clone 3개 + `develop` 안내 (**git config 는 변경 안 함**) |
-| `scripts/setup-mcp.ps1` | `.cursor/mcp.json` 템플릿 복사 — 상세 [MCP_SETUP.md](MCP_SETUP.md) |
+| `scripts/setup-mcp.ps1` | `.cursor/mcp.json` 템플릿 복사 — 상세 [mcp-setup.md](mcp-setup.md) |
 
 **이미 설치된 도구는 건너뜁니다** (Git 2.40+, Python 3.13+, Java 25+, Node 24+, npm 11+).
 
@@ -181,7 +181,7 @@ Python **본체**는 설치 프로그램이 `C:\Users\...\AppData\Local\Programs
 C:\ASAK\data-pipeline\phase1\.venv
 ```
 
-(8단계 [저장소 클론](#8-저장소-클론하기) 후 [`GETTING_STARTED.md`](GETTING_STARTED.md) 2단계 참고)
+(8단계 [저장소 클론](#8-저장소-클론하기) 후 [`getting-started.md`](getting-started.md) 2단계 참고)
 
 ### 4-4. 설치 확인
 
@@ -481,7 +481,7 @@ Test-Path C:\ASAK-back\.git
 | `'git' / 'python' / 'node' is not recognized` | PATH 미설치 또는 터미널 재시작 안 함 | 프로그램 재설치(PATH 옵션) + **PowerShell 완전히 새로 열기** |
 | `Access is denied` / `EPERM` npm·venv | `Program Files` 아래에서 작업 | 프로젝트를 `C:\ASAK` 등으로 이동 |
 | Python `Add to PATH` 안 함 | 설치 시 체크 누락 | Python **Modify** 재설치 또는 `py -3.13` 사용 |
-| `Activate.ps1` 실행 거부 | PowerShell 실행 정책 | 활성화 없이 `.\.venv\Scripts\python.exe` 직접 사용 ([`GETTING_STARTED.md`](GETTING_STARTED.md) 참고) |
+| `Activate.ps1` 실행 거부 | PowerShell 실행 정책 | 활성화 없이 `.\.venv\Scripts\python.exe` 직접 사용 ([`getting-started.md`](getting-started.md) 참고) |
 | Java 버전 17/21만 보임 | 예전 JDK가 PATH 앞에 있음 | `where java` 로 경로 확인 → Temurin 25 PATH 순서 조정 |
 | Node 26 설치됨 | Current 버전 클릭 | **24 LTS** 로 재설치 |
 | NOTION 401 | 토큰 오류 | 팀 리더에게 새 토큰, 환경 변수 다시 설정 |
@@ -492,8 +492,8 @@ Test-Path C:\ASAK-back\.git
 
 설치가 끝났으면:
 
-1. [`GETTING_STARTED.md`](GETTING_STARTED.md) — 백엔드·프론트 실행, 워크로그
-2. [`MCP_SETUP.md`](MCP_SETUP.md) — Cursor Notion MCP
+1. [`getting-started.md`](getting-started.md) — 백엔드·프론트 실행, 워크로그
+2. [`mcp-setup.md`](mcp-setup.md) — Cursor Notion MCP
 3. [`guides/01-team-setup.md`](../../guides/01-team-setup.md) — Git 브랜치·9주 일정
 3. [Notion 🚀 팀 온보딩](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b)
 

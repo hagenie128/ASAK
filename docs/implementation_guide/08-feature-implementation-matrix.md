@@ -28,6 +28,6 @@
 ## 구현 순서가 막힐 때
 
 1. 이 표의 기능 행을 고른다.
-2. 연결 Screen ID 링크는 [전체 화면·기능 찾기](FEATURE_LOOKUP.md#화면-누락-확인표)에서 연다.
+2. 연결 Screen ID 링크는 [전체 화면·기능 찾기](feature-lookup.md#화면-누락-확인표)에서 연다.
 3. API가 `미확정`이면 화면용 가짜 endpoint를 만들지 말고 mock으로 표시한 뒤 계약 확정 항목으로 남긴다.
 4. 기능의 모든 상태는 05-C/06-C와 [07-C QA](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=190-2)에서 비교한다.

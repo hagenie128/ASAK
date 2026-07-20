@@ -1,3 +1,5 @@
+> **Historical — 1회성 Notion 감사** (2026-07-20) · Product 정본은 Product Bible.
+
 # Notion Web Audit Ledger — 2026-07-16
 
 > **PARTIAL AUDIT — RESUME REQUIRED**

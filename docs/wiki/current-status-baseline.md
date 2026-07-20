@@ -1,18 +1,15 @@
-> Status: **Historical — superseded** (2026-07-20)  
-> → **정본:** [wiki/current-status-baseline.md](../../wiki/current-status-baseline.md) · [구현 맵](../../planning/current-implementation-map-2026-07-16.md)
-
 # ASAK Current Status Baseline
 
 > 기준일: **2026-07-20** · 소스 코드(실제 구현)를 1차 정본으로 재감사했습니다.  
+> **화면별 상세:** [구현 맵](../planning/current-implementation-map-2026-07-16.md) ← SCR 상태표  
 > 문서 입구: [START_HERE](../START_HERE.md) · WBS: [wbs-v2](wbs-v2-2026-07-16.md) · [상태 메모](wbs-status-notes.md)  
-> 이전 07-16 문서는 과소평가되어 있었고, DevCopilot WBS/요구사항도 함께 코드 기준으로 맞췄습니다.  
-> 이 문서는 구현 baseline이며 **완료(DONE) 주장이 아닙니다.**
+> 이 문서는 **요약 baseline**이며 **완료(DONE) 주장이 아닙니다.**
 
 ## Evidence 기반 상태
 
 | 영역 | 검증된 상태 | Status |
 |---|---|---|
-| Figma foundation/shared/component structure | 사용자 제공 Figma evidence; Figma MCP 미사용 | DESIGN_DONE only |
+| Figma foundation/shared/component structure | 0718 파일 기준 UI 이식; design QA는 별도 트랙 | DESIGN_DONE only |
 | Kiosk | 라우트 10개 연결. Home→메뉴→상세→장바구니까지 mock 동작. 가격(`priceCalculation`)·수량한도(`quantityLimits` 9/30) 적용. 결제/완료/타임아웃은 UI shell만 | **IN_PROGRESS** |
 | Admin | Figma 정적 화면 10+ 라우트 연결. mock JSON·`adminMockRepository`는 준비됐으나 **Page 연동 0**. api/hook/adapter는 placeholder | **IN_PROGRESS** (UI shell) |
 | Backend | Spring Boot skeleton + `GET /api/health`만 | business API **TODO** |
@@ -57,7 +54,7 @@
 
 - Design/정적 UI 완료는 코드·mock 연동·QA evidence 없이 implementation DONE이 되지 않습니다.
 - DevCopilot에 문서화된 API·DB model은 backend evidence가 있을 때까지 명세입니다.
-- **정본 우선순위:** 코드 증거 → Product Bible / Canonical 계약 → DevCopilot → 구 문서.
+- **정본 우선순위:** 코드 증거 → 구현 맵/baseline → Product Bible / Canonical → DevCopilot → 구 문서.
 - Kiosk 저장소 마이그레이션은 `NEEDS_CONFIRMATION`; pull, remote rewrite, reset, rebase는 허용되지 않습니다.
 
 ## 2026-07-20 동기화 메모

@@ -57,7 +57,7 @@
 - 확인한 로그/에러 메시지: Component Property를 읽을 수 없게 하는 중복 Variant와 속성명 불일치, Clone 시 단독 Component가 Instance로 복제되는 현상을 확인했다.
 - 의심했던 지점: `StatusBadge`와 `Badge`가 역할이 다른지, `Toast`와 `AddResultToast`가 중복인지, Cart 품절 상태가 CTA·버튼 속성과 실제로 일치하는지 점검했다.
 - 실제 원인: 디자인 페이지의 단독 Component/Instance 혼재와 Legacy/Final 병행, 그리고 정책 문서와 화면 Variant의 연결 부족이었다.
-- 다시 같은 문제가 생기면 먼저 볼 파일/명령어: Figma의 Component Set/Variant Property, 05-C·06-C 인스턴스 사용 위치, `docs/implementation_guide/09_FIGMA_STATE_CHECKLIST.md`, Cart·Sold-out Product Bible, 해당 Frame의 BottomCTA Set/Variant.
+- 다시 같은 문제가 생기면 먼저 볼 파일/명령어: Figma의 Component Set/Variant Property, 05-C·06-C 인스턴스 사용 위치, `docs/implementation_guide/09-figma-state-checklist.md`, Cart·Sold-out Product Bible, 해당 Frame의 BottomCTA Set/Variant.
 
 ## 8. 이번 작업에서 배운 점
 
@@ -90,6 +90,6 @@ ASAK Figma C 버전을 실제 구현 정본으로 관리하기 위해 Kiosk/Admi
 ## 12. 첨부하면 좋은 자료
 
 - [2026-07-15 Figma Admin 검토 기록](2026-07-15-figma-admin-review.md)
-- [Figma 상태 체크리스트](../../../docs/implementation_guide/09_FIGMA_STATE_CHECKLIST.md)
-- [기능 구현 매트릭스](../../../docs/implementation_guide/08_FEATURE_IMPLEMENTATION_MATRIX.md)
+- [Figma 상태 체크리스트](../../../docs/implementation_guide/09-figma-state-checklist.md)
+- [기능 구현 매트릭스](../../../docs/implementation_guide/08-feature-implementation-matrix.md)
 - ChatGPT 공유 대화: `피그마 MCP 활용법`, `ASAK 프로젝트 검토` (워크로그 작성 근거)

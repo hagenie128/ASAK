@@ -1,6 +1,7 @@
-# ASAK QA 테스트 케이스
+> Status: **Historical — Notion export** (2026-07-20)  
+> → **정본:** [Pack 09 QA](../product_bible/09_QA_Bible/README.md)
 
-> **실행 status override (2026-07-16):** 실행 evidence가 없어 DevCopilot QA case는 모두 TODO/NOT_RUN입니다. design, mock data, frontend 빌드 성공만으로 PASS 표시 금지. Future Scope 테스트는 보존되나 MVP 완료에 영향 없음.
+# ASAK QA 테스트 케이스
 
 > Notion 09. 테스트/오류 관리 · TC-001~016 (2026-07-06)
 

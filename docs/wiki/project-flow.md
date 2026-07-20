@@ -236,7 +236,8 @@ flowchart LR
 | 문서 | 용도 |
 |---|---|
 | [START_HERE](../START_HERE.md) | 문서 전체 입구 |
-| [현재 상태 baseline](current-status-baseline.md) | 오늘 기준 구현 현실 1순위 |
+| [현재 상태 baseline](current-status-baseline.md) | 영역별 요약 |
+| [구현 맵](../planning/current-implementation-map-2026-07-16.md) | SCR별 상세 |
 | [Current Implementation Map](../planning/current-implementation-map-2026-07-16.md) | 화면·mock·API 상태표 |
 | [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md) | Canonical vs 코드 충돌 상세 |
 | [WBS 2.0](wbs-v2-2026-07-16.md) | 실행 할 일 정본 |

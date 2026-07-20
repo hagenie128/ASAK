@@ -1,7 +1,7 @@
 # ASAK DevCopilot Wiki
 
 > 태그: `#reference` (학원 산출물) · 구현 정본 아님  
-> 정본: [Product Bible](../product_bible/) · 지도: [문서 태그 인덱스](../document-tag-index-2026-07-18.md)
+> 정본: [Product Bible](../product_bible/) · 태그: [document-tag-index-2026-07-20.md](../document-tag-index-2026-07-20.md)
 
 ## 산출물 (유지)
 

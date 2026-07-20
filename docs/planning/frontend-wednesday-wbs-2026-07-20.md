@@ -2,7 +2,7 @@
 
 > **정본 ID:** [`docs/wiki/wbs-v2-2026-07-16.md`](../wiki/wbs-v2-2026-07-16.md) 의 `WBS2-*`
 > **이 문서:** 학원 시간표에 꽂은 **실행·검증표** (UI 재이식 금지)  
-> **갭 기준:** [`docs/design/FIGMA_0718_PROJECT_GAP.md`](../design/FIGMA_0718_PROJECT_GAP.md) — UI ✅ / 로직·API 연결만
+> **갭 기준:** [`docs/design/figma-0718-project-gap.md`](../design/figma-0718-project-gap.md) — UI ✅ / 로직·API 연결만
 
 | 항목 | 내용 |
 |------|------|

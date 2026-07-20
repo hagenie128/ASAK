@@ -1,3 +1,6 @@
+> Status: **Historical** (2026-07-20)  
+> → **정본:** [figma-qa-unified-complete-2026-07-17.md](../figma-qa-unified-complete-2026-07-17.md) (통합됨)
+
 # ASAK Figma 디자인 피드백 — 컴포넌트·스크린 전수 재실측 (v2, 처음부터 재작성)
 
 **작성일**: 2026-07-17 (v2 — 기존 문서 전면 폐기 후 처음부터 재실측)

@@ -304,10 +304,10 @@ Write-Host @"
   2. .env 에 NOTION_TOKEN, FIGMA_TOKEN 입력
   3. 저장소 clone 안 했다면: .\scripts\setup-git.ps1
   4. develop 브랜치 checkout 후 feature/... 작업 시작
-  5. docs/GETTING_STARTED.md — 백엔드·프론트 실행
+  5. docs/getting-started.md — 백엔드·프론트 실행
 
-  수동 설치 상세: docs/INSTALL_WINDOWS.md
-  MCP 상세: docs/MCP_SETUP.md
+  수동 설치 상세: docs/install-windows.md
+  MCP 상세: docs/mcp-setup.md
 
 "@ -ForegroundColor White
 

@@ -1555,7 +1555,7 @@ FIGMA AGENT — Legacy Instance → Final Component Swap (구분선 위만)
 > **관련 문서:**  
 > - Part A(위) — 시각·컴포넌트 복구  
 > - Part B(위) — 쓰인 컴포넌트 정본  
-> - [`../implementation_guide/00_START_HERE.md`](../implementation_guide/00_START_HERE.md)
+> - [`../implementation_guide/00-start-here.md`](../implementation_guide/00-start-here.md)
 > - Part D(아래) — Admin 데이터 위젯 제안
 
 ---
@@ -1921,7 +1921,7 @@ Premium 제안:
 - 06-C Screens/Admin Premium
 ```
 
-같은 문서 §6 "Conflict Resolution Order"의 1순위는 "승인된 Decision/ADR", 2순위가 "Canonical Registry"다. **CANONICAL_SOURCE 자체의 규칙에 따르면, 이 문서가 갱신되지 않는 한 지금은 B가 C보다 공식적으로 우선한다.** 반면 `implementation_guide/05_UI_COMPONENT_GUIDE.md`는 "Screen Registry와 승인된 05-C/06-C가 화면 기준"이라고 명시해 **정반대로 말한다.** 이건 단순 누락이 아니라 **Bible 최상위 문서 두 개가 서로 다른 화면을 정본이라고 주장하는 실제 충돌**이다. 권장(C2)과 동일: CANONICAL_SOURCE §3을 05-C/06-C 기준으로 갱신하는 게 최우선이다 — 이게 안 되면 이 문서 전체("C가 정본")의 전제 자체가 상위 문서와 충돌한 채로 진행되는 셈이다.
+같은 문서 §6 "Conflict Resolution Order"의 1순위는 "승인된 Decision/ADR", 2순위가 "Canonical Registry"다. **CANONICAL_SOURCE 자체의 규칙에 따르면, 이 문서가 갱신되지 않는 한 지금은 B가 C보다 공식적으로 우선한다.** 반면 `implementation_guide/05-ui-component-guide.md`는 "Screen Registry와 승인된 05-C/06-C가 화면 기준"이라고 명시해 **정반대로 말한다.** 이건 단순 누락이 아니라 **Bible 최상위 문서 두 개가 서로 다른 화면을 정본이라고 주장하는 실제 충돌**이다. 권장(C2)과 동일: CANONICAL_SOURCE §3을 05-C/06-C 기준으로 갱신하는 게 최우선이다 — 이게 안 되면 이 문서 전체("C가 정본")의 전제 자체가 상위 문서와 충돌한 채로 진행되는 셈이다.
 
 ### 11-3. ASAK-Admin 실제 구조 — 예상보다 더 심각
 

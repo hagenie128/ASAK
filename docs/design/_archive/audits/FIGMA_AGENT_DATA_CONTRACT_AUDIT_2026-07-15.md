@@ -1,7 +1,7 @@
 > Status: ARCHIVED
 > Archived Date: 2026-07-16
 > Reason: Completed data-contract audit.
-> Canonical Replacement: `docs/design/FIGMA_GUIDE.md`
+> Canonical Replacement: `docs/design/figma-guide.md`
 > Original Path: `docs/design/FIGMA_AGENT_DATA_CONTRACT_AUDIT_2026-07-15.md`
 
 # ASAK Figma Agent 작업 지시문 — 실제 화면·데이터 계약 감사
