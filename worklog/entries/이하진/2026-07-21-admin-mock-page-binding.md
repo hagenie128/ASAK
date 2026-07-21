@@ -81,6 +81,23 @@ Page → hooks (useOrdersQuery / useSoldOutDraft / usePagination)
 - Admin #1 TC-A01~A06 체크리스트 실행.
 - 저장 실패·롤백 fixture 추가.
 
+## 9-1. 집에서 이어서 할 때 메모
+
+- 오늘 기준 Admin 쪽 1차 바인딩은 주문 목록/상세, 품절 draft 저장, 결제수단 토글·저장, 공통 pagination 유틸까지 정리했다.
+- 다음 세션에서는 이 entry만 보지 말고 **프로젝트 전체 기준**으로 상태를 다시 잡아야 한다.
+  - Kiosk: Home → Cart mock 동작, Payment / Complete / Error / Timeout 미연결
+  - Admin: 7/21 진척이 공용 문서에 아직 충분히 반영되지 않았을 수 있음
+  - Backend: `GET /api/health` 외 business API evidence 없음
+- 이번 세션에서 의도적으로 미룬 범위:
+  - 매출 3화면 getter 연결(WBS2-041~043)
+  - Admin #1 TC-A01~A06 전체 회귀 점검
+- 집에서 먼저 확인할 문서:
+  - `ASAK/docs/planning/current-implementation-map-2026-07-16.md`
+  - `ASAK/docs/wiki/current-status-baseline.md`
+  - `ASAK/docs/wiki/wbs-status-notes.md`
+  - `ASAK/docs/wiki/wbs-v2-2026-07-16.md`
+- DevCopilot은 7/20 기준 동기화 기록은 남아 있지만, 7/21 진척 반영 여부는 이번 세션에서 원격 확인을 끝내지 못했다. 토큰 URL 직접 호출은 차단/타임아웃 이슈가 있었다.
+
 ## 10. 검증 내용
 
 - 실행: `npm run dev` (ASAK-Admin)
