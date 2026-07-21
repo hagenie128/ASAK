@@ -39,7 +39,26 @@ Page → hooks (useOrdersQuery / useSoldOutDraft / usePagination)
 
 ## 5. AI 도움 영역
 
-- Cursor가 mock README 필드 계약과 Figma SCR 주석을 대조하며 hook·페이지 연결 초안을 보조했다.
+- 이번 기록에서는 "AI가 해줬다" 수준이 아니라, **내가 무엇을 요청했고 무엇을 다시 고치게 했는지**까지 남긴다.
+- 주문 관리:
+  - 첫 요청: `OrderManagementPreview`를 mock repository 경계 안으로 옮기고 JSON 직접 import를 없애는 연결 초안을 보라고 시켰다.
+  - 1차 초안 문제: 목록은 보였지만 page 전환 시 상세 패널 초기화, 표시용 라벨/포맷 분리, 액션 성공/실패 흐름 설명이 약했다.
+  - 수정 지시: `getAdminOrders`는 전체 목록만 주고, `useOrdersQuery`는 상태만 들고, slice는 `usePagination`에 맡기도록 역할을 다시 쪼개라고 했다.
+  - 추가 피드백: 환불/영수증 버튼은 "보이기만 하는 UI"가 아니라 `adminOrderApi` stub의 조건 분기와 toast 메시지까지 이어지게 하라고 요구했다.
+- 품절 관리:
+  - 첫 요청: 좌우 이동형 품절 화면을 mock catalog 기준 draft 패턴으로 재구성해 보라고 시켰다.
+  - 1차 초안 문제: selected 상태와 saved 상태가 섞여 dirtyCount 설명이 불명확했고, 저장 후 기준선이 바로 갱신되지 않는 구조였다.
+  - 수정 지시: `available`, `soldOut`, `selectedAvailable`, `selectedSoldOut`, `baselineSoldOutKeys`를 분리해서 "지금 선택", "현재 draft", "저장된 기준"이 코드에서 읽히게 다시 작성하라고 했다.
+  - 디버깅 피드백: dev 서버에서 `onClick={}` JSX parse error가 나왔을 때, 단순 문법 수정이 아니라 어떤 핸들러가 빠졌는지까지 추적해서 다시 설명 가능한 형태로 고치게 했다.
+- 결제수단:
+  - 첫 요청: 품절 draft 패턴을 그대로 복사하지 말고, 토글 중심 설정 화면에 맞게 더 가볍게 적용하라고 했다.
+  - 1차 초안 문제: 로딩과 저장은 있었지만 어떤 변경이 저장 대상인지 즉시 읽기 어렵고, save bar 조건이 흐릿했다.
+  - 수정 지시: `getPaymentMethods` 조회, draft 변경 감지, `AdminSaveBar` 노출 기준을 분리하고 "사용자 기준에서 변경 사항이 보이는가"를 중심으로 다시 정리하라고 했다.
+- 공통화 판단:
+  - Cursor가 반복 코드를 광범위하게 후보로 제안했지만 그대로 받지 않았다.
+  - `usePagination`, `currency`, `date`, `confirm`, `toast`처럼 **여러 화면에서 재사용 가치가 분명한 것만** 남기고, 페이지 문맥에 강하게 묶인 로직은 각 화면 안에 두도록 정리했다.
+- 정리 기준:
+  - AI 초안은 빠른 탐색용으로 쓰고, 최종 반영은 "역할이 분리되어 설명 가능한가", "mock 계약을 어기지 않는가", "화면에서 검증 가능한가" 기준으로 직접 걸렀다.
 
 ## 6. 발생 이슈
 
@@ -49,10 +68,12 @@ Page → hooks (useOrdersQuery / useSoldOutDraft / usePagination)
 ## 7. 디버깅 기록
 
 - Vite HMR 오류: `onClick={}` 빈 expression → `handleToggleAll` 등 핸들러 연결 후 해소.
+- AI가 준 초안에서 상태 책임이 섞여 있던 부분은 바로 반영하지 않고, dev 서버에서 실제로 깨지는 지점과 화면 동작을 먼저 본 뒤 구조를 다시 나눴다.
 
 ## 8. 이번 작업에서 배운 점
 
 - draft baseline을 state로 두어야 저장 후 dirtyCount가 즉시 0으로 재계산된다 (useRef만 쓰면 리렌더가 없음).
+- AI를 많이 쓸수록 "무엇을 시켰는지"보다 "무엇이 마음에 안 들어서 어떻게 다시 시켰는지"를 남겨야 다음 작업에서 같은 시행착오를 줄일 수 있다.
 
 ## 9. 개선사항 / TODO
 
