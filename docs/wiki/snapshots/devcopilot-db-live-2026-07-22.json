@@ -1,0 +1,2250 @@
+[
+  {
+    "table_name": "menu_option_override",
+    "description": "메뉴별 옵션 예외 설정. 공통 정책과 다르게 적용할 값만 저장한다.",
+    "columns": [
+      {
+        "id": 427,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 68,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "예외 ID"
+      },
+      {
+        "id": 428,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "menu_id",
+        "table_id": 68,
+        "is_pk": false,
+        "fk_target": "menu.id",
+        "description": "메뉴 ID"
+      },
+      {
+        "id": 429,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "option_item_id",
+        "table_id": 68,
+        "is_pk": false,
+        "fk_target": "option_item.id",
+        "description": "옵션 항목 ID"
+      },
+      {
+        "id": 430,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "is_recommended",
+        "table_id": 68,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "추천 여부 override"
+      },
+      {
+        "id": 431,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "is_default",
+        "table_id": 68,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "기본 선택 여부 override"
+      },
+      {
+        "id": 432,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "sort_order",
+        "table_id": 68,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "정렬 override"
+      },
+      {
+        "id": 433,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "is_active",
+        "table_id": 68,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "노출 여부 override"
+      },
+      {
+        "id": 434,
+        "data_type": "VARCHAR(255)",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "note",
+        "table_id": 68,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "예외 사유"
+      }
+    ]
+  },
+  {
+    "table_name": "menu_option_group_legacy_20260710",
+    "description": "기존 menu_option_group 원본 백업 테이블. 정규 운영 조회에서는 사용하지 않고 복구/검증 용도로만 보관한다.",
+    "columns": [
+      {
+        "id": 435,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 69,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "백업된 연결 ID"
+      },
+      {
+        "id": 436,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "menu_id",
+        "table_id": 69,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "백업된 메뉴 ID"
+      },
+      {
+        "id": 437,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "option_group_id",
+        "table_id": 69,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "백업된 옵션 그룹 ID"
+      },
+      {
+        "id": 438,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sort_order",
+        "table_id": 69,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "백업된 표시 순서"
+      },
+      {
+        "id": 439,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_required",
+        "table_id": 69,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "백업된 필수 여부"
+      }
+    ]
+  },
+  {
+    "table_name": "ingredient",
+    "description": "재료 마스터. 채소, 단백질, 드레싱, 베이스, 사이드, 음료 재료를 관리한다.",
+    "columns": [
+      {
+        "id": 286,
+        "data_type": "VARCHAR(100)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "name",
+        "table_id": 48,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "재료명"
+      },
+      {
+        "id": 287,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "type_id",
+        "table_id": 48,
+        "is_pk": false,
+        "fk_target": "common_code.id",
+        "description": "재료 유형 코드 ID"
+      },
+      {
+        "id": 288,
+        "data_type": "DECIMAL(8,2)",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "kcal",
+        "table_id": 48,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "기준 칼로리"
+      },
+      {
+        "id": 290,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_sold_out",
+        "table_id": 48,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "재료 품절 여부"
+      },
+      {
+        "id": 285,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 48,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "재료 ID"
+      },
+      {
+        "id": 289,
+        "data_type": "DECIMAL(8,2)",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "protein_g",
+        "table_id": 48,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "기준 단백질 g"
+      }
+    ]
+  },
+  {
+    "table_name": "allergen",
+    "description": "알레르기 마스터.",
+    "columns": [
+      {
+        "id": 291,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 49,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "알레르기 ID"
+      },
+      {
+        "id": 292,
+        "data_type": "VARCHAR(50)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "name",
+        "table_id": 49,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "알레르기명"
+      }
+    ]
+  },
+  {
+    "table_name": "ingredient_allergen",
+    "description": "재료와 알레르기의 N:M 연결 테이블.",
+    "columns": [
+      {
+        "id": 293,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 50,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "연결 ID"
+      },
+      {
+        "id": 294,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "ingredient_id",
+        "table_id": 50,
+        "is_pk": false,
+        "fk_target": "ingredient.id",
+        "description": "재료 ID"
+      },
+      {
+        "id": 295,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "allergen_id",
+        "table_id": 50,
+        "is_pk": false,
+        "fk_target": "allergen.id",
+        "description": "알레르기 ID"
+      }
+    ]
+  },
+  {
+    "table_name": "menu_ingredient",
+    "description": "메뉴 기본 재료 연결. 기본 포함, 제외 가능 여부, 역할과 표시 순서를 관리한다.",
+    "columns": [
+      {
+        "id": 301,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": true,
+        "name": "unit_id",
+        "table_id": 51,
+        "is_pk": false,
+        "fk_target": "common_code.id",
+        "description": "단위 코드 ID"
+      },
+      {
+        "id": 302,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_default",
+        "table_id": 51,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "기본 포함 여부"
+      },
+      {
+        "id": 296,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 51,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "연결 ID"
+      },
+      {
+        "id": 297,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "menu_id",
+        "table_id": 51,
+        "is_pk": false,
+        "fk_target": "menu.id",
+        "description": "메뉴 ID"
+      },
+      {
+        "id": 299,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "role_id",
+        "table_id": 51,
+        "is_pk": false,
+        "fk_target": "common_code.id",
+        "description": "재료 역할 코드 ID"
+      },
+      {
+        "id": 304,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sort_order",
+        "table_id": 51,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "표시 순서"
+      },
+      {
+        "id": 298,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "ingredient_id",
+        "table_id": 51,
+        "is_pk": false,
+        "fk_target": "ingredient.id",
+        "description": "재료 ID"
+      },
+      {
+        "id": 300,
+        "data_type": "DECIMAL(8,2)",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "quantity",
+        "table_id": 51,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "기본 제공량"
+      },
+      {
+        "id": 303,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "can_remove",
+        "table_id": 51,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "고객 제외 가능 여부"
+      }
+    ]
+  },
+  {
+    "table_name": "option_group",
+    "description": "옵션 그룹 마스터. 드레싱 선택, 토핑 추가, 베이스 선택 등.",
+    "columns": [
+      {
+        "id": 305,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 52,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "옵션 그룹 ID"
+      },
+      {
+        "id": 307,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "group_type_id",
+        "table_id": 52,
+        "is_pk": false,
+        "fk_target": "common_code.id",
+        "description": "옵션 그룹 유형 코드 ID"
+      },
+      {
+        "id": 309,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "max_select",
+        "table_id": 52,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "최대 선택 수"
+      },
+      {
+        "id": 306,
+        "data_type": "VARCHAR(100)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "name",
+        "table_id": 52,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "옵션 그룹명"
+      },
+      {
+        "id": 308,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "min_select",
+        "table_id": 52,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "최소 선택 수"
+      }
+    ]
+  },
+  {
+    "table_name": "menu_option_legacy_20260710",
+    "description": "기존 menu_option 원본 백업 테이블. 정규 운영 조회에서는 사용하지 않고 복구/검증 용도로만 보관한다.",
+    "columns": [
+      {
+        "id": 440,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 70,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "백업된 설정 ID"
+      },
+      {
+        "id": 441,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "menu_id",
+        "table_id": 70,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "백업된 메뉴 ID"
+      },
+      {
+        "id": 442,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "option_item_id",
+        "table_id": 70,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "백업된 옵션 항목 ID"
+      },
+      {
+        "id": 443,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_recommended",
+        "table_id": 70,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "백업된 추천 옵션 여부"
+      },
+      {
+        "id": 444,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_default",
+        "table_id": 70,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "백업된 기본 선택 여부"
+      },
+      {
+        "id": 445,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sort_order",
+        "table_id": 70,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "백업된 표시 순서"
+      },
+      {
+        "id": 446,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_active",
+        "table_id": 70,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "백업된 노출 여부"
+      }
+    ]
+  },
+  {
+    "table_name": "vw_sales_daily",
+    "description": "관리자 일별 매출 조회 View. 승인 결제, 주문 취소, 결제 취소/환불을 반영해 일자별 매출을 집계한다.",
+    "columns": [
+      {
+        "id": 447,
+        "data_type": "DATE",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sales_date",
+        "table_id": 71,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "매출 일자"
+      },
+      {
+        "id": 448,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "order_count",
+        "table_id": 71,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "승인 주문 수"
+      },
+      {
+        "id": 449,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "customer_count",
+        "table_id": 71,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "고객 수. MVP 기준 주문 수와 동일"
+      },
+      {
+        "id": 450,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "canceled_order_count",
+        "table_id": 71,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "취소/환불 주문 수"
+      },
+      {
+        "id": 451,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "gross_sales_amount",
+        "table_id": 71,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "승인 결제 금액"
+      },
+      {
+        "id": 452,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "canceled_amount",
+        "table_id": 71,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "취소/환불 금액"
+      },
+      {
+        "id": 453,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "net_sales_amount",
+        "table_id": 71,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "순매출. 승인 결제 금액에서 취소/환불 금액을 차감"
+      }
+    ]
+  },
+  {
+    "table_name": "vw_sales_hourly",
+    "description": "관리자 시간대별 매출 조회 View. 승인 결제, 주문 취소, 결제 취소/환불을 반영해 일자/시간대별 매출을 집계한다.",
+    "columns": [
+      {
+        "id": 459,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "gross_sales_amount",
+        "table_id": 72,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "승인 결제 금액"
+      },
+      {
+        "id": 460,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "canceled_amount",
+        "table_id": 72,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "취소/환불 금액"
+      },
+      {
+        "id": 461,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "net_sales_amount",
+        "table_id": 72,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "순매출. 승인 결제 금액에서 취소/환불 금액을 차감"
+      },
+      {
+        "id": 454,
+        "data_type": "DATE",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sales_date",
+        "table_id": 72,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "매출 일자"
+      },
+      {
+        "id": 455,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sales_hour",
+        "table_id": 72,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "매출 시간대. 0~23"
+      },
+      {
+        "id": 456,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "order_count",
+        "table_id": 72,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "승인 주문 수"
+      },
+      {
+        "id": 457,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "customer_count",
+        "table_id": 72,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "고객 수. MVP 기준 주문 수와 동일"
+      },
+      {
+        "id": 458,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "canceled_order_count",
+        "table_id": 72,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "취소/환불 주문 수"
+      }
+    ]
+  },
+  {
+    "table_name": "vw_top_menu_daily",
+    "description": "관리자 일별 인기 메뉴 조회 View. 승인 결제 주문만 대상으로 메뉴별 판매 수량과 매출을 집계한다.",
+    "columns": [
+      {
+        "id": 462,
+        "data_type": "DATE",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sales_date",
+        "table_id": 73,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "매출 일자"
+      },
+      {
+        "id": 463,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "menu_id",
+        "table_id": 73,
+        "is_pk": false,
+        "fk_target": "menu.id",
+        "description": "메뉴 ID"
+      },
+      {
+        "id": 464,
+        "data_type": "VARCHAR(100)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "menu_name",
+        "table_id": 73,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "메뉴명"
+      },
+      {
+        "id": 465,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "quantity",
+        "table_id": 73,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "판매 수량"
+      },
+      {
+        "id": 466,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "order_count",
+        "table_id": 73,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "해당 메뉴가 포함된 주문 수"
+      },
+      {
+        "id": 467,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sales_amount",
+        "table_id": 73,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "메뉴 판매 금액"
+      }
+    ]
+  },
+  {
+    "table_name": "vw_top_menu_hourly",
+    "description": "관리자 시간대별 인기 메뉴 조회 View. 승인 결제 주문만 대상으로 시간대/메뉴별 판매 수량과 매출을 집계한다.",
+    "columns": [
+      {
+        "id": 468,
+        "data_type": "DATE",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sales_date",
+        "table_id": 74,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "매출 일자"
+      },
+      {
+        "id": 469,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sales_hour",
+        "table_id": 74,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "매출 시간대. 0~23"
+      },
+      {
+        "id": 470,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "menu_id",
+        "table_id": 74,
+        "is_pk": false,
+        "fk_target": "menu.id",
+        "description": "메뉴 ID"
+      },
+      {
+        "id": 471,
+        "data_type": "VARCHAR(100)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "menu_name",
+        "table_id": 74,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "메뉴명"
+      },
+      {
+        "id": 472,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "quantity",
+        "table_id": 74,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "판매 수량"
+      },
+      {
+        "id": 473,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "order_count",
+        "table_id": 74,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "해당 메뉴가 포함된 주문 수"
+      },
+      {
+        "id": 474,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sales_amount",
+        "table_id": 74,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "메뉴 판매 금액"
+      }
+    ]
+  },
+  {
+    "table_name": "option_item",
+    "description": "옵션 선택 항목 마스터. 가격, 수량, 재료 연결, 품절 상태를 가진다.",
+    "columns": [
+      {
+        "id": 333,
+        "data_type": "TIMESTAMP",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "created_at",
+        "table_id": 55,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "생성일시"
+      },
+      {
+        "id": 326,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "extra_price",
+        "table_id": 55,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "추가 금액. 단위 KRW"
+      },
+      {
+        "id": 328,
+        "data_type": "DECIMAL(8,2)",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "amount",
+        "table_id": 55,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "제공량"
+      },
+      {
+        "id": 329,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": true,
+        "name": "unit_id",
+        "table_id": 55,
+        "is_pk": false,
+        "fk_target": "common_code.id",
+        "description": "단위 코드 ID"
+      },
+      {
+        "id": 322,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 55,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "옵션 항목 ID"
+      },
+      {
+        "id": 331,
+        "data_type": "VARCHAR(20)",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "color_hex",
+        "table_id": 55,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "표시 색상 HEX"
+      },
+      {
+        "id": 332,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_sold_out",
+        "table_id": 55,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "옵션 항목 품절 여부"
+      },
+      {
+        "id": 323,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "option_group_id",
+        "table_id": 55,
+        "is_pk": false,
+        "fk_target": "option_group.id",
+        "description": "옵션 그룹 ID"
+      },
+      {
+        "id": 334,
+        "data_type": "TIMESTAMP",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "updated_at",
+        "table_id": 55,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "수정일시"
+      },
+      {
+        "id": 324,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": true,
+        "name": "ingredient_id",
+        "table_id": 55,
+        "is_pk": false,
+        "fk_target": "ingredient.id",
+        "description": "재료 기반 옵션일 때 재료 ID"
+      },
+      {
+        "id": 325,
+        "data_type": "VARCHAR(100)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "name",
+        "table_id": 55,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "옵션 항목명"
+      },
+      {
+        "id": 327,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "original_price",
+        "table_id": 55,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "할인 전 금액"
+      },
+      {
+        "id": 330,
+        "data_type": "TEXT",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "icon_url",
+        "table_id": 55,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "아이콘 URL"
+      }
+    ]
+  },
+  {
+    "table_name": "category",
+    "description": "메뉴 카테고리 마스터. 메뉴 목록의 상위 분류와 노출 순서를 관리한다.",
+    "columns": [
+      {
+        "id": 247,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 41,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "카테고리 ID"
+      },
+      {
+        "id": 249,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sort_order",
+        "table_id": 41,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "노출 순서. 작을수록 먼저 표시"
+      },
+      {
+        "id": 250,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_active",
+        "table_id": 41,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "카테고리 사용 여부"
+      },
+      {
+        "id": 248,
+        "data_type": "VARCHAR(50)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "name",
+        "table_id": 41,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "카테고리명. 신메뉴, 샐러디·볼, 랩, 샌드위치 등"
+      }
+    ]
+  },
+  {
+    "table_name": "code_group",
+    "description": "공통 코드 그룹. 주문 상태, 결제 상태, 옵션 유형처럼 확장 가능한 코드 묶음.",
+    "columns": [
+      {
+        "id": 251,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 42,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "코드 그룹 ID"
+      },
+      {
+        "id": 253,
+        "data_type": "VARCHAR(50)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "name",
+        "table_id": 42,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "코드 그룹 표시명"
+      },
+      {
+        "id": 252,
+        "data_type": "VARCHAR(50)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "group_code",
+        "table_id": 42,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "코드 그룹 코드. 예: ORDER_STATUS, PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "table_name": "common_code",
+    "description": "공통 코드 상세. 상태, 유형, 단위, 결제수단 등의 실제 코드값.",
+    "columns": [
+      {
+        "id": 254,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 43,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "코드 ID"
+      },
+      {
+        "id": 257,
+        "data_type": "VARCHAR(50)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "name",
+        "table_id": 43,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "코드 표시명"
+      },
+      {
+        "id": 258,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sort_order",
+        "table_id": 43,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "정렬 순서"
+      },
+      {
+        "id": 256,
+        "data_type": "VARCHAR(50)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "code",
+        "table_id": 43,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "API와 화면에서 사용하는 코드값"
+      },
+      {
+        "id": 255,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "code_group_id",
+        "table_id": 43,
+        "is_pk": false,
+        "fk_target": "code_group.id",
+        "description": "소속 코드 그룹 ID"
+      },
+      {
+        "id": 259,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_active",
+        "table_id": 43,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "코드 사용 여부"
+      }
+    ]
+  },
+  {
+    "table_name": "tag",
+    "description": "메뉴 태그 마스터. BEST, NEW, LOW_SUGAR 같은 메뉴 배지.",
+    "columns": [
+      {
+        "id": 260,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 44,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "태그 ID"
+      },
+      {
+        "id": 261,
+        "data_type": "VARCHAR(50)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "code",
+        "table_id": 44,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "태그 코드"
+      },
+      {
+        "id": 263,
+        "data_type": "VARCHAR(20)",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "color_hex",
+        "table_id": 44,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "태그 색상 HEX"
+      },
+      {
+        "id": 262,
+        "data_type": "VARCHAR(50)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "name",
+        "table_id": 44,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "태그 표시명"
+      },
+      {
+        "id": 264,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_active",
+        "table_id": 44,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "태그 사용 여부"
+      }
+    ]
+  },
+  {
+    "table_name": "menu",
+    "description": "판매 메뉴 마스터. 카테고리, 가격, 이미지, 설명, 품절 상태를 가진다.",
+    "columns": [
+      {
+        "id": 265,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 45,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "메뉴 ID"
+      },
+      {
+        "id": 268,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "price",
+        "table_id": 45,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "기본 판매가. 단위 KRW"
+      },
+      {
+        "id": 270,
+        "data_type": "TEXT",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "description",
+        "table_id": 45,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "메뉴 설명"
+      },
+      {
+        "id": 272,
+        "data_type": "TIMESTAMP",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "created_at",
+        "table_id": 45,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "생성일시"
+      },
+      {
+        "id": 372,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "category.id",
+        "table_id": 45,
+        "is_pk": false,
+        "fk_target": "category.id",
+        "description": "소속 카테고리 FK. category.id 참조. 1:N (FWD-MENU-001)"
+      },
+      {
+        "id": 267,
+        "data_type": "VARCHAR(100)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "name",
+        "table_id": 45,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "메뉴명"
+      },
+      {
+        "id": 269,
+        "data_type": "TEXT",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "image_url",
+        "table_id": 45,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "메뉴 이미지 URL"
+      },
+      {
+        "id": 271,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_sold_out",
+        "table_id": 45,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "메뉴 품절 여부"
+      },
+      {
+        "id": 273,
+        "data_type": "TIMESTAMP",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "updated_at",
+        "table_id": 45,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "수정일시"
+      },
+      {
+        "id": 400,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "category_id",
+        "table_id": 45,
+        "is_pk": false,
+        "fk_target": "category.id",
+        "description": "메뉴 카테고리 ID"
+      }
+    ]
+  },
+  {
+    "table_name": "menu_tag",
+    "description": "메뉴와 태그의 N:M 연결 테이블.",
+    "columns": [
+      {
+        "id": 274,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 46,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "연결 ID"
+      },
+      {
+        "id": 275,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "menu_id",
+        "table_id": 46,
+        "is_pk": false,
+        "fk_target": "menu.id",
+        "description": "메뉴 ID"
+      },
+      {
+        "id": 276,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "tag_id",
+        "table_id": 46,
+        "is_pk": false,
+        "fk_target": "tag.id",
+        "description": "태그 ID"
+      }
+    ]
+  },
+  {
+    "table_name": "menu_nutrition",
+    "description": "메뉴별 영양 정보 요약. 칼로리와 주요 영양성분을 저장한다.",
+    "columns": [
+      {
+        "id": 277,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 47,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "영양 정보 ID"
+      },
+      {
+        "id": 280,
+        "data_type": "DECIMAL(8,2)",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "protein_g",
+        "table_id": 47,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "단백질 g"
+      },
+      {
+        "id": 282,
+        "data_type": "DECIMAL(8,2)",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "fat_g",
+        "table_id": 47,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "지방 g"
+      },
+      {
+        "id": 284,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": true,
+        "name": "source_id",
+        "table_id": 47,
+        "is_pk": false,
+        "fk_target": "common_code.id",
+        "description": "데이터 출처 코드 ID"
+      },
+      {
+        "id": 278,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "menu_id",
+        "table_id": 47,
+        "is_pk": false,
+        "fk_target": "menu.id",
+        "description": "메뉴 ID"
+      },
+      {
+        "id": 279,
+        "data_type": "DECIMAL(8,2)",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "kcal",
+        "table_id": 47,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "칼로리"
+      },
+      {
+        "id": 281,
+        "data_type": "DECIMAL(8,2)",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "carb_g",
+        "table_id": 47,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "탄수화물 g"
+      },
+      {
+        "id": 283,
+        "data_type": "DECIMAL(8,2)",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "sodium_mg",
+        "table_id": 47,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "나트륨 mg"
+      }
+    ]
+  },
+  {
+    "table_name": "option_item_component",
+    "description": "세트/복합 옵션 구성 테이블.",
+    "columns": [
+      {
+        "id": 335,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 56,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "구성 ID"
+      },
+      {
+        "id": 339,
+        "data_type": "DECIMAL(8,2)",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "quantity",
+        "table_id": 56,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "구성 수량"
+      },
+      {
+        "id": 341,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sort_order",
+        "table_id": 56,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "표시 순서"
+      },
+      {
+        "id": 336,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "option_item_id",
+        "table_id": 56,
+        "is_pk": false,
+        "fk_target": "option_item.id",
+        "description": "상위 옵션 항목 ID"
+      },
+      {
+        "id": 337,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": true,
+        "name": "ingredient_id",
+        "table_id": 56,
+        "is_pk": false,
+        "fk_target": "ingredient.id",
+        "description": "구성 재료 ID"
+      },
+      {
+        "id": 338,
+        "data_type": "VARCHAR(100)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "name",
+        "table_id": 56,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "구성명"
+      },
+      {
+        "id": 340,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": true,
+        "name": "unit_id",
+        "table_id": 56,
+        "is_pk": false,
+        "fk_target": "common_code.id",
+        "description": "단위 코드 ID"
+      }
+    ]
+  },
+  {
+    "table_name": "payment_method_config",
+    "description": "결제 수단 노출 설정.",
+    "columns": [
+      {
+        "id": 342,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 57,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "설정 ID"
+      },
+      {
+        "id": 344,
+        "data_type": "VARCHAR(50)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "name",
+        "table_id": 57,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "표시명"
+      },
+      {
+        "id": 346,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sort_order",
+        "table_id": 57,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "노출 순서"
+      },
+      {
+        "id": 343,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "method_id",
+        "table_id": 57,
+        "is_pk": false,
+        "fk_target": "common_code.id",
+        "description": "결제수단 코드 ID"
+      },
+      {
+        "id": 345,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_active",
+        "table_id": 57,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "노출 여부"
+      }
+    ]
+  },
+  {
+    "table_name": "orders",
+    "description": "주문 헤더. 주문 번호, 주문 유형, 상태, 총액을 가진다.",
+    "columns": [
+      {
+        "id": 347,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 58,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "주문 ID"
+      },
+      {
+        "id": 350,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "status_id",
+        "table_id": 58,
+        "is_pk": false,
+        "fk_target": "common_code.id",
+        "description": "주문 상태 코드 ID"
+      },
+      {
+        "id": 351,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "total_price",
+        "table_id": 58,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "주문 총액. 단위 KRW"
+      },
+      {
+        "id": 348,
+        "data_type": "VARCHAR(50)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "order_no",
+        "table_id": 58,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "주문 번호"
+      },
+      {
+        "id": 349,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "order_type_id",
+        "table_id": 58,
+        "is_pk": false,
+        "fk_target": "common_code.id",
+        "description": "주문 유형 코드 ID"
+      },
+      {
+        "id": 352,
+        "data_type": "TIMESTAMP",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "created_at",
+        "table_id": 58,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "주문 생성일시"
+      }
+    ]
+  },
+  {
+    "table_name": "order_item",
+    "description": "주문 메뉴 단위. 주문 시점의 메뉴, 수량, 단가를 저장한다.",
+    "columns": [
+      {
+        "id": 353,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 59,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "주문 상세 ID"
+      },
+      {
+        "id": 354,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "order_id",
+        "table_id": 59,
+        "is_pk": false,
+        "fk_target": "orders.id",
+        "description": "주문 ID"
+      },
+      {
+        "id": 356,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "quantity",
+        "table_id": 59,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "메뉴 수량"
+      },
+      {
+        "id": 355,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "menu_id",
+        "table_id": 59,
+        "is_pk": false,
+        "fk_target": "menu.id",
+        "description": "메뉴 ID"
+      },
+      {
+        "id": 357,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "price",
+        "table_id": 59,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "주문 시점 메뉴 단가. 단위 KRW"
+      }
+    ]
+  },
+  {
+    "table_name": "order_item_option",
+    "description": "주문 메뉴별 선택 옵션. 주문 시점의 옵션, 수량, 단가를 저장한다.",
+    "columns": [
+      {
+        "id": 358,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 60,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "주문 옵션 ID"
+      },
+      {
+        "id": 359,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "order_item_id",
+        "table_id": 60,
+        "is_pk": false,
+        "fk_target": "order_item.id",
+        "description": "주문 상세 ID"
+      },
+      {
+        "id": 361,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "quantity",
+        "table_id": 60,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "옵션 수량"
+      },
+      {
+        "id": 362,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "price",
+        "table_id": 60,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "주문 시점 옵션 단가. 단위 KRW"
+      },
+      {
+        "id": 360,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "option_item_id",
+        "table_id": 60,
+        "is_pk": false,
+        "fk_target": "option_item.id",
+        "description": "옵션 항목 ID"
+      }
+    ]
+  },
+  {
+    "table_name": "item_exclusion",
+    "description": "주문 메뉴에서 제외한 기본 재료.",
+    "columns": [
+      {
+        "id": 363,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 61,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "제외 ID"
+      },
+      {
+        "id": 364,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "order_item_id",
+        "table_id": 61,
+        "is_pk": false,
+        "fk_target": "order_item.id",
+        "description": "주문 상세 ID"
+      },
+      {
+        "id": 365,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "ingredient_id",
+        "table_id": 61,
+        "is_pk": false,
+        "fk_target": "ingredient.id",
+        "description": "제외한 재료 ID"
+      }
+    ]
+  },
+  {
+    "table_name": "payment",
+    "description": "결제 내역. 주문별 결제수단, 상태, 금액, 승인 시각을 저장한다.",
+    "columns": [
+      {
+        "id": 366,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 62,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "결제 ID"
+      },
+      {
+        "id": 367,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "order_id",
+        "table_id": 62,
+        "is_pk": false,
+        "fk_target": "orders.id",
+        "description": "주문 ID"
+      },
+      {
+        "id": 369,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "status_id",
+        "table_id": 62,
+        "is_pk": false,
+        "fk_target": "common_code.id",
+        "description": "결제 상태 코드 ID"
+      },
+      {
+        "id": 371,
+        "data_type": "TIMESTAMP",
+        "is_fk": false,
+        "is_nullable": true,
+        "name": "paid_at",
+        "table_id": 62,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "결제 승인 시각"
+      },
+      {
+        "id": 368,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "method_id",
+        "table_id": 62,
+        "is_pk": false,
+        "fk_target": "common_code.id",
+        "description": "결제수단 코드 ID"
+      },
+      {
+        "id": 370,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "amount",
+        "table_id": 62,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "결제 금액. 단위 KRW"
+      }
+    ]
+  },
+  {
+    "table_name": "option_policy",
+    "description": "재사용 가능한 옵션 정책 마스터. 옵션 그룹 단위로 공통 옵션 노출/기본/추천 정책을 정의한다.",
+    "columns": [
+      {
+        "id": 401,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 65,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "정책 ID"
+      },
+      {
+        "id": 402,
+        "data_type": "CHAR(64)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "policy_key",
+        "table_id": 65,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "정책 구성 해시. 동일 정책 중복 생성을 방지한다."
+      },
+      {
+        "id": 403,
+        "data_type": "VARCHAR(120)",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "name",
+        "table_id": 65,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "정책명"
+      },
+      {
+        "id": 404,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "option_group_id",
+        "table_id": 65,
+        "is_pk": false,
+        "fk_target": "option_group.id",
+        "description": "옵션 그룹 ID"
+      },
+      {
+        "id": 405,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sort_order",
+        "table_id": 65,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "정책 표시 순서"
+      },
+      {
+        "id": 406,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_required",
+        "table_id": 65,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "필수 선택 여부"
+      },
+      {
+        "id": 407,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "min_select",
+        "table_id": 65,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "최소 선택 수"
+      },
+      {
+        "id": 408,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "max_select",
+        "table_id": 65,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "최대 선택 수"
+      },
+      {
+        "id": 409,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "item_count",
+        "table_id": 65,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "정책에 포함된 옵션 항목 수"
+      },
+      {
+        "id": 410,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "menu_count",
+        "table_id": 65,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "이 정책을 사용하는 메뉴 수"
+      },
+      {
+        "id": 411,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_active",
+        "table_id": 65,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "정책 사용 여부"
+      },
+      {
+        "id": 412,
+        "data_type": "TIMESTAMP",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "created_at",
+        "table_id": 65,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "생성일시"
+      },
+      {
+        "id": 413,
+        "data_type": "TIMESTAMP",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "updated_at",
+        "table_id": 65,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "수정일시"
+      }
+    ]
+  },
+  {
+    "table_name": "option_policy_item",
+    "description": "옵션 정책 안의 옵션 항목 설정. 추천/기본/정렬/노출 값을 정책 단위로 저장한다.",
+    "columns": [
+      {
+        "id": 414,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 66,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "정책 항목 ID"
+      },
+      {
+        "id": 415,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "policy_id",
+        "table_id": 66,
+        "is_pk": false,
+        "fk_target": "option_policy.id",
+        "description": "옵션 정책 ID"
+      },
+      {
+        "id": 416,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "option_item_id",
+        "table_id": 66,
+        "is_pk": false,
+        "fk_target": "option_item.id",
+        "description": "옵션 항목 ID"
+      },
+      {
+        "id": 417,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_recommended",
+        "table_id": 66,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "추천 옵션 여부"
+      },
+      {
+        "id": 418,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_default",
+        "table_id": 66,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "기본 선택 여부"
+      },
+      {
+        "id": 419,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sort_order",
+        "table_id": 66,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "표시 순서"
+      },
+      {
+        "id": 420,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_active",
+        "table_id": 66,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "노출 여부"
+      }
+    ]
+  },
+  {
+    "table_name": "menu_option_policy",
+    "description": "메뉴와 옵션 정책의 연결 테이블. 메뉴가 재사용 옵션 정책을 사용하도록 연결한다.",
+    "columns": [
+      {
+        "id": 421,
+        "data_type": "BIGINT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "id",
+        "table_id": 67,
+        "is_pk": true,
+        "fk_target": null,
+        "description": "연결 ID"
+      },
+      {
+        "id": 422,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "menu_id",
+        "table_id": 67,
+        "is_pk": false,
+        "fk_target": "menu.id",
+        "description": "메뉴 ID"
+      },
+      {
+        "id": 423,
+        "data_type": "BIGINT",
+        "is_fk": true,
+        "is_nullable": false,
+        "name": "policy_id",
+        "table_id": 67,
+        "is_pk": false,
+        "fk_target": "option_policy.id",
+        "description": "옵션 정책 ID"
+      },
+      {
+        "id": 424,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "sort_order",
+        "table_id": 67,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "메뉴 내 정책 표시 순서"
+      },
+      {
+        "id": 425,
+        "data_type": "BOOLEAN",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "is_required",
+        "table_id": 67,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "해당 메뉴에서 필수 여부"
+      },
+      {
+        "id": 426,
+        "data_type": "INT",
+        "is_fk": false,
+        "is_nullable": false,
+        "name": "priority",
+        "table_id": 67,
+        "is_pk": false,
+        "fk_target": null,
+        "description": "정책 적용 우선순위"
+      }
+    ]
+  }
+]

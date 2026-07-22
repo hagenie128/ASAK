@@ -1,5 +1,36 @@
 # DevCopilot Sync Report
 
+## 원격 Status 재확인 (2026-07-22)
+
+MCP workspace `2`에 연결해 `get_wbs_tasks`로 P4를 재조회했습니다.
+
+| 항목 | 결과 |
+|---|---|
+| 연결 | `initialize` + `tools/list` 성공 (도구 24개) |
+| P4 active Status | 로컬 `wbs-v2` / `wbs-status-notes`와 **일치** |
+| 034~036, 038~043 | `IN_PROGRESS` (변경 호출 없음) |
+| 037, 044~045 | `TODO` |
+| Evidence | MCP `update_wbs_task`에 evidence 필드 **없음** → 로컬 Evidence만 정본 |
+| 스냅샷 | `docs/wiki/snapshots/devcopilot-wbs-live-2026-07-22.json` |
+
+7/21 Admin mock 1차 연결은 Status를 DONE으로 올리지 않습니다. 메뉴·매출은 mock 연결됨. 필터 고도화·실패 fixture·QA evidence가 남아 있습니다.
+
+## 전체 엔티티 감사 (2026-07-22)
+
+WBS만 본 것이 아니라 Requirements / Scenarios / Screens / APIs / DB / Tests / Bugs를 모두 조회했다.  
+상세: [devcopilot-full-audit-2026-07-22.md](../wiki/snapshots/devcopilot-full-audit-2026-07-22.md)
+
+| 엔티티 | 결과 |
+|---|---|
+| Requirements | Admin LMIS는 `IN_PROGRESS` 유지가 맞음 (mock 1차 ≠ DONE) |
+| Screens | 전부 `WIREFRAME` — mock 연결/정적 구분은 원격에 안 보임 → 로컬 맵 정본 |
+| Scenarios | DRAFT 유지 OK |
+| APIs / DB | 명세만 · Backend 미구현 |
+| Tests | 16건 전부 TODO (실행 evidence 없음) |
+| Bugs | 0 |
+
+원격 Status 대량 변경은 하지 않았다.
+
 ## 코드 기준 재동기화 (2026-07-20)
 
 문서(07-16)만 믿지 않고 **실제 코드**를 1차 정본으로 재감사했습니다.
@@ -140,3 +171,17 @@ MCP는 API create/read만 노출하고 update/archive는 없습니다. 해당 ca
 - 소스 코드, Figma, kiosk remote, pull/reset/rebase, 파괴적 delete는 범위 밖.
 - Legacy duplicate WBS는 status/title 메모로만 표시·보존.
 - DevCopilot의 API/DB 명세 존재만으로 implementation evidence로 쓰지 않음.
+
+---
+
+## 2026-07-23 — Admin P4 Status 원격 동기화 (비교 후 최소 변경)
+
+- **방식:** get_wbs_tasks(workspace_id=2)로 원격 조회 → 로컬 wbs-v2 / wbs-status-notes와 비교 → 불일치만 update_wbs_task
+- **정책:** mock-only DoD 미충족 항목은 DONE 금지. 대량 갱신 없음.
+- **결과:**
+  - WBS2-034~036, 038~043: 원격 이미 IN_PROGRESS → **이미 일치** (no-op)
+  - WBS2-037, 045: 원격 이미 TODO → **이미 일치** (no-op)
+  - **WBS2-044** (	ask_pk=162): 원격 TODO → **IN_PROGRESS** (근거: Shared AdminAsyncState/AdminConfirmDialog가 주문·품절·메뉴·결제·매출·대시보드 등에 적용. State QA evidence 없어 DONE 아님)
+- **스냅샷:** ASAK/docs/wiki/snapshots/devcopilot-wbs-live-2026-07-23.json (토큰/시크릿 미포함)
+- **로컬 baseline:** 메뉴·매출 "정적" 잔존 문구는 이전 정리로 mock 연결 표기. sync-report 상단의 구형 "매출 정적" 문구만 이 세션에서 정정.
+

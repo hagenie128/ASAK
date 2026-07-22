@@ -3,7 +3,7 @@
 ## 1단계 — 프로젝트 기반 확인
 
 - Java 25
-- Spring Boot 4.1.0
+- Spring Boot 4.0.7
 - Gradle
 - package root
 - application profile

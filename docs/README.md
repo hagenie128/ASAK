@@ -1,7 +1,7 @@
 # ASAK Documentation
 
 > **👉 처음이면 [START_HERE.md](START_HERE.md)만 보세요.** (단일 진입점)  
-> **2026-07-20:** 구현 현실은 `planning/current-implementation-map-2026-07-16.md`, 실행 WBS 정본은 [`wiki/wbs-v2-2026-07-16.md`](wiki/wbs-v2-2026-07-16.md)입니다.
+> **2026-07-23:** 구현 현실은 `planning/current-implementation-map-2026-07-16.md` · [baseline](wiki/current-status-baseline.md), 실행 WBS 정본은 [`wiki/wbs-v2-2026-07-16.md`](wiki/wbs-v2-2026-07-16.md)입니다.  
 > 07-16 cleanup 정책(정본/생성물/Archive 분리)은 유지. `docs/notion`은 DevCopilot 스크립트 입력용.
 
 ## 운영 원칙
@@ -9,7 +9,7 @@
 - **입구:** [START_HERE](START_HERE.md) · [PROJECT_HUB](../PROJECT_HUB.md)
 - **정책 정본:** `product_bible/` (먼저 [읽기 허브](product_bible/product-bible-hub.md)) · **계약:** `governance/canonical-contract-decisions-2026-07-16.md`
 - **구현 현실:** [baseline](wiki/current-status-baseline.md) · [구현 맵](planning/current-implementation-map-2026-07-16.md) · **앱 허브:** [app-implementation-hub](planning/app-implementation-hub.md)
-- **앱 실행 문서:** 각 저장소 `IMPLEMENTATION_PLAN.md`, `src/STRUCTURE_GUIDE.md`
+- **앱 실행 문서:** `src/STRUCTURE_GUIDE.md` · Kiosk/back는 `IMPLEMENTATION_PLAN.md` · **Admin PLAN은 삭제** → Mock 사전·중앙 WBS/맵
 - **Archive:** `_archive/` — 삭제·정본 복귀 금지
 - **파일명 규칙:** [document-naming-guide-2026-07-20.md](document-naming-guide-2026-07-20.md) · 검사: `pwsh asak-data/scripts/check-filename-convention.ps1` · 인벤토리: [document-inventory-slim-2026-07-20.md](document-inventory-slim-2026-07-20.md)
 - **주의:** `docs/notion`, `worklog/daily` 경로는 스크립트가 읽음 — 무단 이동 금지

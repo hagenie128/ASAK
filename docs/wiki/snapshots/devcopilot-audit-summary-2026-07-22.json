@@ -1,0 +1,131 @@
+{
+  "requirements": {
+    "count": 57,
+    "status_counts": {
+      "TODO": 25,
+      "IN_PROGRESS": 19,
+      "EXCLUDED": 13
+    },
+    "sample_keys": [
+      "category",
+      "description",
+      "id",
+      "priority",
+      "status",
+      "title",
+      "workspace_id"
+    ],
+    "file": "c:\\ASAK-workspace\\ASAK\\docs\\wiki\\snapshots\\devcopilot-requirements-live-2026-07-22.json"
+  },
+  "scenarios": {
+    "count": 24,
+    "status_counts": {
+      "DRAFT": 21,
+      "ARCHIVED": 3
+    },
+    "sample_keys": [
+      "alternative_flow",
+      "id",
+      "mermaid_script",
+      "normal_flow",
+      "post_condition",
+      "pre_condition",
+      "status",
+      "title",
+      "workspace_id"
+    ],
+    "file": "c:\\ASAK-workspace\\ASAK\\docs\\wiki\\snapshots\\devcopilot-scenarios-live-2026-07-22.json"
+  },
+  "screens": {
+    "count": 24,
+    "status_counts": {
+      "WIREFRAME": 20,
+      "ARCHIVED": 4
+    },
+    "sample_keys": [
+      "figma_url",
+      "id",
+      "inputs",
+      "name",
+      "outputs",
+      "status",
+      "workspace_id"
+    ],
+    "file": "c:\\ASAK-workspace\\ASAK\\docs\\wiki\\snapshots\\devcopilot-screens-live-2026-07-22.json"
+  },
+  "wbs": {
+    "count": 170,
+    "status_counts": {
+      "EXCLUDED": 98,
+      "TODO": 28,
+      "IN_PROGRESS": 26,
+      "DONE": 11,
+      "BLOCKED": 7
+    },
+    "sample_keys": [
+      "assignee_name",
+      "end_date",
+      "id",
+      "start_date",
+      "status",
+      "task_id",
+      "title",
+      "workspace_id"
+    ],
+    "file": "c:\\ASAK-workspace\\ASAK\\docs\\wiki\\snapshots\\devcopilot-wbs-live-2026-07-22.json"
+  },
+  "apis": {
+    "count": 46,
+    "status_counts": {
+      "?": 46
+    },
+    "sample_keys": [
+      "description",
+      "endpoint",
+      "id",
+      "method",
+      "request_body",
+      "request_params",
+      "response_error",
+      "response_success",
+      "title",
+      "workspace_id"
+    ],
+    "file": "c:\\ASAK-workspace\\ASAK\\docs\\wiki\\snapshots\\devcopilot-apis-live-2026-07-22.json"
+  },
+  "db": {
+    "count": 30,
+    "status_counts": {
+      "?": 30
+    },
+    "sample_keys": [
+      "columns",
+      "description",
+      "table_name"
+    ],
+    "file": "c:\\ASAK-workspace\\ASAK\\docs\\wiki\\snapshots\\devcopilot-db-live-2026-07-22.json"
+  },
+  "tests": {
+    "count": 16,
+    "status_counts": {
+      "TODO": 16
+    },
+    "sample_keys": [
+      "expected_result",
+      "id",
+      "pre_condition",
+      "purpose",
+      "status",
+      "steps",
+      "title",
+      "workspace_id"
+    ],
+    "file": "c:\\ASAK-workspace\\ASAK\\docs\\wiki\\snapshots\\devcopilot-tests-live-2026-07-22.json"
+  },
+  "bugs": {
+    "count": 0,
+    "status_counts": {},
+    "sample_keys": [],
+    "file": "c:\\ASAK-workspace\\ASAK\\docs\\wiki\\snapshots\\devcopilot-bugs-live-2026-07-22.json"
+  }
+}
