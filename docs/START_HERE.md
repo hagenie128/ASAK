@@ -1,6 +1,6 @@
 # ASAK 문서 — 여기부터 시작
 
-> 초보자용 **단일 진입점** (2026-07-20).  
+> 초보자용 **단일 진입점** (2026-07-23).  
 > 문서가 많아도 **아래 링크만** 따라가면 됩니다. 세부 바이블·아카이브는 필요할 때만.
 
 ---
@@ -14,7 +14,7 @@
 | 3 | [WBS 상태 메모](wiki/wbs-status-notes.md) | 코드↔WBS 요약 · DevCopilot 한글 제목 |
 | 4 | [문서–코드 Gap](architecture/document-code-gap-report-2026-07-16.md) | Canonical vs 코드 충돌 |
 
-**한 줄 요약:** Kiosk Home→Cart는 mock 동작 · Admin은 정적 UI + mock READY(미연결) · Backend는 health만.
+**한 줄 요약:** Kiosk Home→Cart는 mock 동작 · Admin은 **전 화면 mock 1차 연결**(1차 ≠ DONE) · Backend는 health만 (business API BLOCKED).
 
 **그림으로 보기:** [전체 흐름도 (Mermaid)](wiki/project-flow.md) — 저장소 구조·키오스크 주문 흐름·관리자 운영 흐름·데이터/API 목표 흐름·가격·수량 흐름·이번 스프린트 WBS 흐름을 그림 6개로 정리.
 
@@ -36,7 +36,7 @@
 | # | 문서 | 한 줄 |
 |---|---|---|
 | 6 | [Kiosk 구조](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) | P3 · WBS2-017~032 |
-| 7 | [Admin 구조](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [구현 계획](../../ASAK-Admin/IMPLEMENTATION_PLAN.md) | P4 · WBS2-033~045 |
+| 7 | [Admin 구조](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [Mock 사전](../../ASAK-Admin/public/mocks/README.md) | P4 · WBS2-033~045 · (`IMPLEMENTATION_PLAN` 삭제됨) |
 | 8 | [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md) | P5 · health only · WBS2-046~056 |
 | 9 | [앱 구현 허브](planning/app-implementation-hub.md) | Bible / guide / PLAN 역할 표 |
 
@@ -83,7 +83,7 @@
 1. [구현 맵](planning/current-implementation-map-2026-07-16.md)
 2. [wbs-v2](wiki/wbs-v2-2026-07-16.md)
 3. [wbs-status-notes](wiki/wbs-status-notes.md)
-4. 담당 앱 `IMPLEMENTATION_PLAN.md`  
+4. 담당 앱 `STRUCTURE_GUIDE` / Mock 사전 (Admin `IMPLEMENTATION_PLAN`은 삭제됨)  
 5. [Canonical](governance/canonical-contract-decisions-2026-07-16.md) (계약 건드릴 때)
 
 더 넓은 색인: [docs/README](README.md) · [wiki/index](wiki/index.md) · [PROJECT_HUB](../PROJECT_HUB.md)

@@ -1,0 +1,1702 @@
+[
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-010",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-11",
+    "title": "[SUPERSEDED] [DEV-PAY-001][FWD-ORDER-002][FWD-PAY-001][FWD-PAY-002] 프론트: 결제 화면 구현",
+    "id": 11,
+    "start_date": "2026-07-08",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-018",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-07",
+    "title": "[SUPERSEDED] [DEV-SYS-002][FWD-UI-001] 성능 · UX 개선",
+    "id": 46,
+    "start_date": "2026-07-17",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-021",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-17",
+    "title": "[SUPERSEDED] [FWD-SYS-001] 프론트: 타임아웃 정책/카운트다운 기준 확정",
+    "id": 12,
+    "start_date": "2026-07-14",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-002",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-04",
+    "title": "[SUPERSEDED] [FWD-UI-001][LMIS-ORDER-001] 화면 흐름도 · 기능 정의서",
+    "id": 14,
+    "start_date": "2026-07-03",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-022",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-07",
+    "title": "[SUPERSEDED] [FWD-UI-001][FWD-UI-005] 프론트: 접근성 UI 적용(글자크기/대비)",
+    "id": 25,
+    "start_date": "2026-07-21",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-028",
+    "assignee_name": "",
+    "end_date": "2026-07-17",
+    "title": "[SUPERSEDED] [FWD-SYS-001] 프론트: 타임아웃 안내/자동 초기화 구현",
+    "id": 31,
+    "start_date": "2026-07-14",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-005",
+    "assignee_name": "이하진, 김나연",
+    "end_date": "2026-07-06",
+    "title": "[SUPERSEDED] [FWD-UI-001][FWD-UI-002][FWD-UI-003][FWD-UI-005] 와이어프레임 · 컴포넌트 구조",
+    "id": 17,
+    "start_date": "2026-07-03",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-004",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-05",
+    "title": "[KSD-ARCH-001][LMIS-ORDER-001] ERD · API 명세서 작성",
+    "id": 16,
+    "start_date": "2026-07-03",
+    "status": "DONE"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-008",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-09",
+    "title": "[SUPERSEDED] [FWD-MENU-002][FWD-MENU-003][FWD-MENU-009][FWD-MENU-010][FWD-MENU-014] 프론트: 옵션선택 화면 구현",
+    "id": 18,
+    "start_date": "2026-07-06",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-003",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-03",
+    "title": "[DEV-SYS-001] 기술스택 확정 · 역할분담",
+    "id": 15,
+    "start_date": "2026-07-03",
+    "status": "DONE"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-010",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-07-23",
+    "title": "[ARCHIVED DUPLICATE] 주문 목록 화면(SCR-009) 구현: 관리자 주문 리스트, 상태/금액/일시 표시",
+    "id": 69,
+    "start_date": "2026-07-20",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-004",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-07-16",
+    "title": "[ARCHIVED DUPLICATE] 장바구니·주문확인 화면(SCR-005) 구현: 수량/옵션 수정, 총액 계산, 주문 생성 전 컨펌 팝업 연동",
+    "id": 63,
+    "start_date": "2026-07-13",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-011",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-08",
+    "title": "[SUPERSEDED] [FWD-MENU-001][FWD-MENU-003][FWD-MENU-006] 백엔드: 메뉴/옵션 API",
+    "id": 19,
+    "start_date": "2026-07-05",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-027",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-12",
+    "title": "[SUPERSEDED] [DEV-PAY-002][DEV-SYS-001][FWD-PAY-002][KSD-PAY-001] 프론트: 결제 실패/재시도 화면 구현",
+    "id": 30,
+    "start_date": "2026-07-09",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-013",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-15",
+    "title": "[SUPERSEDED] [LMIS-MENU-001][LMIS-MENU-002] 백엔드: 판매 항목 품절 상태 변경 API",
+    "id": 21,
+    "start_date": "2026-07-10",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-012",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-10",
+    "title": "[SUPERSEDED] [DEV-ORDER-001][FWD-ORDER-001][LMIS-ORDER-001] 백엔드: 주문 생성 API",
+    "id": 20,
+    "start_date": "2026-07-07",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-015",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-13",
+    "title": "[SUPERSEDED] [DEV-SYS-001][FWD-MENU-001] 프론트-백엔드 연동 테스트",
+    "id": 22,
+    "start_date": "2026-07-10",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-002",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-07-11",
+    "title": "[ARCHIVED DUPLICATE] 메뉴 선택 화면(SCR-003) 구현: 카테고리/메뉴 목록, 품절 뱃지, 주문 가능 여부 표시",
+    "id": 61,
+    "start_date": "2026-07-08",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-016",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-16",
+    "title": "[SUPERSEDED] [DEV-PAY-001][DEV-SYS-001][FWD-PAY-002][FWD-SYS-001] 키오스크 예외처리(결제/터치/타임아웃)",
+    "id": 23,
+    "start_date": "2026-07-11",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-035",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-24",
+    "title": "실시간 주문 현황 목록·상태 표시",
+    "id": 153,
+    "start_date": "2026-07-23",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-025",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-11",
+    "title": "[SUPERSEDED] [FWD-CART-001] 백엔드: 장바구니 검증 API",
+    "id": 28,
+    "start_date": "2026-07-08",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-026",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-09",
+    "title": "[SUPERSEDED] [FWD-MENU-004][FWD-MENU-015] 백엔드: 추천 드레싱 menu_option 반영",
+    "id": 29,
+    "start_date": "2026-07-06",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-029",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-31",
+    "title": "[SUPERSEDED] [LMIS-MENU-004][LMIS-MENU-005][LMIS-MENU-006] 관리자: 메뉴 관리 화면/API 설계",
+    "id": 32,
+    "start_date": "2026-07-20",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-030",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-07",
+    "title": "[SUPERSEDED] [LMIS-PAY-001] 관리자: 결제수단 설정 화면/API 설계",
+    "id": 33,
+    "start_date": "2026-07-27",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-043",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-06",
+    "title": "일별 매출·일자/기간 설정",
+    "id": 161,
+    "start_date": "2026-08-05",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-017",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-17",
+    "title": "[SUPERSEDED] [DEV-SYS-002] 시나리오 기반 QA",
+    "id": 45,
+    "start_date": "2026-07-11",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-032",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-07",
+    "title": "[SUPERSEDED] [FWD-UI-001][FWD-UI-003] 프론트: 접근성 설정 화면 초안",
+    "id": 35,
+    "start_date": "2026-07-21",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-034",
+    "assignee_name": "",
+    "end_date": "2026-08-15",
+    "title": "[FUTURE_SCOPE] [RTOS-DEVICE-001][RTOS-DEVICE-002][RTOS-DEVICE-003] 장치: 영수증 출력 모의 구현 (RTOS-DEVICE-001)",
+    "id": 36,
+    "start_date": "2026-08-12",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-007",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-08",
+    "title": "[SUPERSEDED] [FWD-MENU-001][FWD-MENU-006][LMIS-MENU-002] 프론트: 메뉴선택 화면 구현",
+    "id": 42,
+    "start_date": "2026-07-05",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-035",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-11",
+    "title": "[SUPERSEDED] [LMIS-ORDER-001][LMIS-ORDER-002][LMIS-ORDER-003] 백엔드: 관리자 주문 목록/상태변경 API (API-007/008)",
+    "id": 37,
+    "start_date": "2026-07-09",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-EXT-001",
+    "assignee_name": "",
+    "end_date": "2026-07-18",
+    "title": "[SUPERSEDED] [FWD-CART-001] [삭제요망] 장바구니 서버 검증",
+    "id": 39,
+    "start_date": "2026-07-15",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-EXT-002",
+    "assignee_name": "",
+    "end_date": "2026-08-08",
+    "title": "[SUPERSEDED] [LMIS-PAY-001] [삭제요망] 관리자 결제수단 설정",
+    "id": 40,
+    "start_date": "2026-08-05",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-023",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-07",
+    "title": "[KSD-ARCH-001] DB: schema.sql 제약조건 반영",
+    "id": 26,
+    "start_date": "2026-07-04",
+    "status": "DONE"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-006",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-04",
+    "title": "[SUPERSEDED] [DEV-SYS-001] Git 전략 · 백로그 티켓화",
+    "id": 41,
+    "start_date": "2026-07-03",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-009",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-10",
+    "title": "[SUPERSEDED] [FWD-CART-001][FWD-CART-002][FWD-ORDER-001] 프론트: 장바구니 화면 구현",
+    "id": 43,
+    "start_date": "2026-07-07",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-020",
+    "assignee_name": "",
+    "end_date": "2026-08-28",
+    "title": "[SUPERSEDED] [DEV-SYS-002] 최종 리허설",
+    "id": 47,
+    "start_date": "2026-08-27",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-014",
+    "assignee_name": "",
+    "end_date": "2026-08-21",
+    "title": "[DEV-SYS-001] 주간 데모 & 회고",
+    "id": 44,
+    "start_date": "2026-07-10",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-024",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-09",
+    "title": "[FWD-MENU-001][LMIS-MENU-003] DB: ASAK 샘플 메뉴/재료/옵션 데이터 구성",
+    "id": 27,
+    "start_date": "2026-07-05",
+    "status": "DONE"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-003",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-07-14",
+    "title": "[ARCHIVED DUPLICATE] 메뉴 상세/옵션 선택 화면(SCR-004) 구현: 기본 재료 제외, 옵션 선택, 알레르기·칼로리 표시",
+    "id": 62,
+    "start_date": "2026-07-10",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-009",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-07-20",
+    "title": "[ARCHIVED DUPLICATE] 결제 실패/재시도 오버레이(SCR-012) 구현: 팝업·토스트, 장바구니 복귀 동작",
+    "id": 68,
+    "start_date": "2026-07-17",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-006",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-07-18",
+    "title": "[ARCHIVED DUPLICATE] 가상 결제 화면(SCR-007) 구현: 결제수단 선택, 승인 대기 로딩, 결제 상태 처리",
+    "id": 65,
+    "start_date": "2026-07-15",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-005",
+    "assignee_name": "백엔드 개발자",
+    "end_date": "2026-07-17",
+    "title": "[ARCHIVED DUPLICATE] 주문 생성 API 연동(API-005) 및 주문번호/주문상태 처리 로직 구현",
+    "id": 64,
+    "start_date": "2026-07-13",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-007",
+    "assignee_name": "백엔드 개발자",
+    "end_date": "2026-07-18",
+    "title": "[ARCHIVED DUPLICATE] 결제 API 연동(API-006) 및 결제 성공/실패/재시도 상태 처리",
+    "id": 66,
+    "start_date": "2026-07-15",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-008",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-07-19",
+    "title": "[ARCHIVED DUPLICATE] 주문 완료 화면(SCR-008) 구현: 주문번호, 결제 완료, 접수 상태 표시",
+    "id": 67,
+    "start_date": "2026-07-17",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-011",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-07-25",
+    "title": "[ARCHIVED DUPLICATE] 주문 상세 및 상태 변경 화면(SCR-010) 구현: 주문 상세 조회 및 주문 상태 업데이트",
+    "id": 70,
+    "start_date": "2026-07-22",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-001",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-07-09",
+    "title": "[ARCHIVED DUPLICATE] 키오스크 홈 화면(SCR-001) 구현: 매장/포장 선택 및 orderType 상태 유지",
+    "id": 60,
+    "start_date": "2026-07-07",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-021",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-08-12",
+    "title": "[ARCHIVED DUPLICATE] 결제수단 설정 화면(SCR-018) 구현: 활성 여부 및 정렬 순서 관리",
+    "id": 80,
+    "start_date": "2026-08-10",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-019",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-08-10",
+    "title": "[ARCHIVED DUPLICATE] 관리자 메뉴 등록/수정 화면(SCR-017) 구현: 기본정보, 재료, 옵션그룹, 태그 저장",
+    "id": 78,
+    "start_date": "2026-08-06",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-012",
+    "assignee_name": "백엔드 개발자",
+    "end_date": "2026-07-25",
+    "title": "[ARCHIVED DUPLICATE] 관리자 주문 API 연동(API-007, API-008) 및 목록/상세/상태변경 처리",
+    "id": 71,
+    "start_date": "2026-07-20",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-020",
+    "assignee_name": "백엔드 개발자",
+    "end_date": "2026-08-10",
+    "title": "[ARCHIVED DUPLICATE] 메뉴 관리 API 연동(API-010, API-011, API-012) 및 메뉴 저장/수정 처리",
+    "id": 79,
+    "start_date": "2026-08-05",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-013",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-07-28",
+    "title": "[ARCHIVED DUPLICATE] 판매 항목 품절 관리 화면(SCR-011) 구현: 메뉴/재료 품절 변경 및 영향 범위 표시",
+    "id": 72,
+    "start_date": "2026-07-24",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-014",
+    "assignee_name": "백엔드 개발자",
+    "end_date": "2026-07-29",
+    "title": "[ARCHIVED DUPLICATE] 품절 관리 API 연동(API-002, API-003, API-004, API-009) 및 품절 목록 뷰 처리",
+    "id": 73,
+    "start_date": "2026-07-24",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-031",
+    "assignee_name": "전원",
+    "end_date": "2026-07-17",
+    "title": "[SUPERSEDED] [DEV-SYS-002] [RTOS-SYS-001 (EXCLUDED)] 테스트: 요구사항-시나리오-화면-API 추적성 점검",
+    "id": 34,
+    "start_date": "2026-07-10",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-036",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-12",
+    "title": "[SUPERSEDED] [LMIS-ORDER-001][LMIS-ORDER-002][LMIS-ORDER-003][LMIS-ORDER-006] 프론트: 관리자 주문 관리/상세 화면 구현",
+    "id": 38,
+    "start_date": "2026-07-10",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-019",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-27",
+    "title": "[SUPERSEDED] [DEV-SYS-002][PRESENT-001] 배포 · 발표자료 · 시연 시나리오 (Replaced by WBS2-065/WBS2-066)",
+    "id": 24,
+    "start_date": "2026-08-17",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-002",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-16",
+    "title": "저장소 실제/목표 구조 기준선 작성",
+    "id": 120,
+    "start_date": "2026-07-16",
+    "status": "DONE"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-001",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-04",
+    "title": "[KSD-ARCH-001][LMIS-MENU-003] 메뉴 구조 · 옵션 트리 설계",
+    "id": 10,
+    "start_date": "2026-07-03",
+    "status": "DONE"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-003",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-18",
+    "title": "키오스크 정본 저장소 결정 (ASAK-front vs ASAK-Kiosk)",
+    "id": 121,
+    "start_date": "2026-07-16",
+    "status": "BLOCKED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-004",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-18",
+    "title": "마이그레이션 전 브랜치·미커밋 작업 확인",
+    "id": 122,
+    "start_date": "2026-07-16",
+    "status": "BLOCKED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-005",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-17",
+    "title": "요구사항·시나리오·화면 ID 충돌 감사",
+    "id": 123,
+    "start_date": "2026-07-16",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-006",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-17",
+    "title": "MVP와 향후 범위 분리",
+    "id": 124,
+    "start_date": "2026-07-16",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-007",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-18",
+    "title": "레거시→목표 API 갭 표 작성",
+    "id": 125,
+    "start_date": "2026-07-16",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-008",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-18",
+    "title": "비파괴 DB 감사 계획 준비",
+    "id": 126,
+    "start_date": "2026-07-16",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-009",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-16",
+    "title": "디자인 시스템(Foundation) 증거 검토",
+    "id": 127,
+    "start_date": "2026-07-16",
+    "status": "DONE"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-010",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-18",
+    "title": "공유 컴포넌트 문서 QA",
+    "id": 128,
+    "start_date": "2026-07-16",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-011",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-18",
+    "title": "키오스크 컴포넌트 매핑 기록",
+    "id": 129,
+    "start_date": "2026-07-16",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-012",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-18",
+    "title": "관리자 컴포넌트 매핑 기록",
+    "id": 130,
+    "start_date": "2026-07-16",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-014",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-18",
+    "title": "관리자 Figma 작업 중 충돌 경계 기록",
+    "id": 132,
+    "start_date": "2026-07-16",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-015",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-21",
+    "title": "고대비 디자인 QA 체크리스트",
+    "id": 133,
+    "start_date": "2026-07-18",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-016",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-22",
+    "title": "프로토타입·instance swap 증거 기록",
+    "id": 134,
+    "start_date": "2026-07-21",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-017",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-17",
+    "title": "키오스크 전체 라우트 연결·흐름 점검",
+    "id": 135,
+    "start_date": "2026-07-16",
+    "status": "DONE"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-018",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-18",
+    "title": "메뉴 목록 mock→화면 어댑터 연결",
+    "id": 136,
+    "start_date": "2026-07-16",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-019",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-18",
+    "title": "메뉴 상세 mock·옵션 UI·담기 검증",
+    "id": 137,
+    "start_date": "2026-07-16",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-020",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-18",
+    "title": "필수/선택 옵션 검증·담기 버튼 제어",
+    "id": 138,
+    "start_date": "2026-07-17",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-021",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-21",
+    "title": "알레르기 아코디언 조건부 노출",
+    "id": 139,
+    "start_date": "2026-07-18",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-022",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-21",
+    "title": "동일 메뉴 최대 수량 9 적용",
+    "id": 140,
+    "start_date": "2026-07-18",
+    "status": "DONE"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-023",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-22",
+    "title": "장바구니 총 최대 수량 30 적용",
+    "id": 141,
+    "start_date": "2026-07-21",
+    "status": "DONE"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-024",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-22",
+    "title": "수량 한도 초과 시 4초 토스트 UX",
+    "id": 142,
+    "start_date": "2026-07-21",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-025",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-24",
+    "title": "장바구니 수량·삭제·비우기 연동",
+    "id": 143,
+    "start_date": "2026-07-22",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-027",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-28",
+    "title": "결제 실패·장바구니 유지 처리",
+    "id": 145,
+    "start_date": "2026-07-25",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-028",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-29",
+    "title": "주문 완료 화면(번호·금액·대기) 데이터 연결",
+    "id": 146,
+    "start_date": "2026-07-28",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-029",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-30",
+    "title": "무조작 타임아웃 경고·카운트다운",
+    "id": 147,
+    "start_date": "2026-07-29",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-026",
+    "assignee_name": "백엔드 개발자",
+    "end_date": "2026-08-28",
+    "title": "[ARCHIVED DUPLICATE] 영수증 출력 API/장치 연동(API-019) 처리 및 출력 결과 상태 반영",
+    "id": 85,
+    "start_date": "2026-08-24",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-016",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-08-05",
+    "title": "[ARCHIVED DUPLICATE] 접근성 설정 화면(SCR-014) 구현: 글자 크기, 고대비 등 UI 설정 적용",
+    "id": 75,
+    "start_date": "2026-08-03",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-022",
+    "assignee_name": "백엔드 개발자",
+    "end_date": "2026-08-13",
+    "title": "[ARCHIVED DUPLICATE] 결제수단 설정 API 연동(API-013, API-014) 및 common_code/payment_method_config 반영",
+    "id": 81,
+    "start_date": "2026-08-10",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-023",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-08-20",
+    "title": "[ARCHIVED DUPLICATE] 주문/매출 요약 화면(SCR-019) 구현: 일별 매출, 평균, 시간대별/상품 통계",
+    "id": 82,
+    "start_date": "2026-08-17",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-018",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-08-08",
+    "title": "[ARCHIVED DUPLICATE] 관리자 메뉴 관리 화면(SCR-016) 구현: 메뉴 목록, 가격, 태그, 품절 상태 관리",
+    "id": 77,
+    "start_date": "2026-08-05",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-015",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-07-29",
+    "title": "[ARCHIVED DUPLICATE] 타임아웃 안내/자동 초기화(SCR-013) 구현: 카운트다운, 주문 유지/초기화 분기",
+    "id": 74,
+    "start_date": "2026-07-27",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-024",
+    "assignee_name": "백엔드 개발자",
+    "end_date": "2026-08-21",
+    "title": "[ARCHIVED DUPLICATE] 매출 요약 API 연동(API-015) 및 조회 기간 필터 처리",
+    "id": 83,
+    "start_date": "2026-08-17",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-028",
+    "assignee_name": "백엔드 개발자",
+    "end_date": "2026-08-29",
+    "title": "[ARCHIVED DUPLICATE] 포인트·쿠폰 적립 API 연동(API-018, API-020) 및 최종 결제 금액 계산",
+    "id": 87,
+    "start_date": "2026-08-24",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-030",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-31",
+    "title": "결제 처리 중 타임아웃 비활성화",
+    "id": 148,
+    "start_date": "2026-07-30",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-031",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-03",
+    "title": "키오스크 loading/empty/error 상태",
+    "id": 149,
+    "start_date": "2026-07-31",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-032",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-04",
+    "title": "키오스크 터치·반응형 QA",
+    "id": 150,
+    "start_date": "2026-08-03",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-033",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-22",
+    "title": "관리자 라우트를 Screen Registry와 정렬",
+    "id": 151,
+    "start_date": "2026-07-21",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-034",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-23",
+    "title": "관리자 대시보드 KPI·최근주문 mock 연결",
+    "id": 152,
+    "start_date": "2026-07-22",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-036",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-27",
+    "title": "주문 관리 목록·상세 연결",
+    "id": 154,
+    "start_date": "2026-07-24",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-037",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-28",
+    "title": "주문 상태 변경 UI·TTS 정책(stub)",
+    "id": 155,
+    "start_date": "2026-07-27",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-038",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-29",
+    "title": "품절 draft·저장 상태 관리",
+    "id": 156,
+    "start_date": "2026-07-28",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-039",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-30",
+    "title": "메뉴 관리·편집 폼 mock 저장",
+    "id": 157,
+    "start_date": "2026-07-29",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-040",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-31",
+    "title": "결제수단 토글·저장",
+    "id": 158,
+    "start_date": "2026-07-30",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-041",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-04",
+    "title": "매출 요약·기간(날짜) 필터",
+    "id": 159,
+    "start_date": "2026-08-03",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-042",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-05",
+    "title": "월별 매출·월 선택",
+    "id": 160,
+    "start_date": "2026-08-04",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-026",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-25",
+    "title": "[ARCHIVED DUPLICATE] Kiosk payment-method route/display",
+    "id": 170,
+    "start_date": "2026-07-24",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-031",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-03",
+    "title": "[ARCHIVED DUPLICATE] Kiosk loading empty error states",
+    "id": 180,
+    "start_date": "2026-07-31",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-037",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-28",
+    "title": "[ARCHIVED DUPLICATE] Admin order status and TTS policy",
+    "id": 193,
+    "start_date": "2026-07-27",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-039",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-30",
+    "title": "[ARCHIVED DUPLICATE] Admin menu-management screen",
+    "id": 196,
+    "start_date": "2026-07-29",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-040",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-31",
+    "title": "[ARCHIVED DUPLICATE] Admin payment-method screen",
+    "id": 197,
+    "start_date": "2026-07-30",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-041",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-04",
+    "title": "[ARCHIVED DUPLICATE] Admin sales-summary screen",
+    "id": 198,
+    "start_date": "2026-08-03",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-042",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-05",
+    "title": "[ARCHIVED DUPLICATE] Admin monthly-sales screen",
+    "id": 199,
+    "start_date": "2026-08-04",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-043",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-06",
+    "title": "[ARCHIVED DUPLICATE] Admin daily-sales screen",
+    "id": 200,
+    "start_date": "2026-08-05",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-046",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-07-22",
+    "title": "[ARCHIVED DUPLICATE] Backend persistence implementation decision",
+    "id": 203,
+    "start_date": "2026-07-21",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-047",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-07-23",
+    "title": "[ARCHIVED DUPLICATE] Backend schema migration seed decision",
+    "id": 204,
+    "start_date": "2026-07-22",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-048",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-07-24",
+    "title": "[ARCHIVED DUPLICATE] Backend menu-list vertical slice",
+    "id": 205,
+    "start_date": "2026-07-23",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-049",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-07-27",
+    "title": "[ARCHIVED DUPLICATE] Backend menu-detail vertical slice",
+    "id": 206,
+    "start_date": "2026-07-24",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-050",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-07-28",
+    "title": "[ARCHIVED DUPLICATE] Backend order validation transaction slice",
+    "id": 207,
+    "start_date": "2026-07-27",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-051",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-07-29",
+    "title": "[ARCHIVED DUPLICATE] Backend payment approval/failure slice",
+    "id": 208,
+    "start_date": "2026-07-28",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-052",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-07-30",
+    "title": "[ARCHIVED DUPLICATE] Backend sold-out vertical slice",
+    "id": 209,
+    "start_date": "2026-07-29",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-044",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-07",
+    "title": "관리자 loading/empty/error·내비 상태",
+    "id": 162,
+    "start_date": "2026-08-06",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-045",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-10",
+    "title": "날짜 필터·합계·활성 내비 QA",
+    "id": 163,
+    "start_date": "2026-08-07",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-046",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-07-22",
+    "title": "백엔드 persistence 구현 방식 결정",
+    "id": 164,
+    "start_date": "2026-07-21",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-047",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-07-23",
+    "title": "스키마·마이그레이션·시드 접근 방식 선택",
+    "id": 165,
+    "start_date": "2026-07-22",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-048",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-07-24",
+    "title": "메뉴 목록 API 세로 슬라이스 구현",
+    "id": 166,
+    "start_date": "2026-07-23",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-049",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-07-27",
+    "title": "메뉴 상세 API 세로 슬라이스 구현",
+    "id": 167,
+    "start_date": "2026-07-24",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-050",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-07-28",
+    "title": "주문 검증·트랜잭션 슬라이스 구현",
+    "id": 168,
+    "start_date": "2026-07-27",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-051",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-07-29",
+    "title": "결제 승인/실패 슬라이스 구현",
+    "id": 169,
+    "start_date": "2026-07-28",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-053",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-07-31",
+    "title": "관리자 주문 조회/상태 슬라이스 구현",
+    "id": 173,
+    "start_date": "2026-07-30",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-054",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-08-04",
+    "title": "매출 집계 소스 정의·구현",
+    "id": 175,
+    "start_date": "2026-08-03",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-055",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-08-05",
+    "title": "에러 envelope·검증 테스트 추가",
+    "id": 176,
+    "start_date": "2026-08-04",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-056",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-06",
+    "title": "Modeler와 백엔드 DB 감사 비교",
+    "id": 178,
+    "start_date": "2026-08-05",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-058",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-10",
+    "title": "키오스크↔백엔드 연동",
+    "id": 183,
+    "start_date": "2026-08-07",
+    "status": "BLOCKED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-059",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-10",
+    "title": "관리자↔백엔드 연동",
+    "id": 185,
+    "start_date": "2026-08-07",
+    "status": "BLOCKED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-060",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-11",
+    "title": "매출 합계 연동 검증",
+    "id": 187,
+    "start_date": "2026-08-10",
+    "status": "BLOCKED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-061",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-12",
+    "title": "요구사항 기반 QA 실행·결과 기록",
+    "id": 189,
+    "start_date": "2026-08-11",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-062",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-13",
+    "title": "접근성 QA 실행",
+    "id": 191,
+    "start_date": "2026-08-12",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-064",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-14",
+    "title": "문서·추적성·데모 인수인계 동기화",
+    "id": 194,
+    "start_date": "2026-08-14",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-065",
+    "assignee_name": "하진 (Support: 나연)",
+    "end_date": "2026-08-27",
+    "title": "배포 준비: 브랜치·PR·빌드·환경·체크리스트·RC",
+    "id": 222,
+    "start_date": "2026-08-17",
+    "status": "BLOCKED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-066",
+    "assignee_name": "NEEDS_CONFIRMATION (Team)",
+    "end_date": "2026-08-28",
+    "title": "발표·데모 준비(슬라이드·시나리오·리허설)",
+    "id": 223,
+    "start_date": "2026-08-17",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-034",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-23",
+    "title": "[ARCHIVED DUPLICATE] Admin Dashboard screen shell",
+    "id": 186,
+    "start_date": "2026-07-22",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-017",
+    "assignee_name": "풀스택 개발자",
+    "end_date": "2026-08-06",
+    "title": "[ARCHIVED DUPLICATE] 관리자 로그인 화면(SCR-015) 및 세션/토큰 인증 흐름 구현",
+    "id": 76,
+    "start_date": "2026-08-03",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-027",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-08-28",
+    "title": "[ARCHIVED DUPLICATE] 포인트·쿠폰 적립 패널(SCR-021) 구현: 결제 화면 내 멤버십/쿠폰 QR 처리",
+    "id": 86,
+    "start_date": "2026-08-24",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS-025",
+    "assignee_name": "프론트엔드 개발자",
+    "end_date": "2026-08-27",
+    "title": "[ARCHIVED DUPLICATE] 영수증 출력 선택 화면(SCR-020) 및 장치 연동 분기 구현",
+    "id": 84,
+    "start_date": "2026-08-24",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-035",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-24",
+    "title": "[ARCHIVED DUPLICATE] Admin Live Order screen shell",
+    "id": 188,
+    "start_date": "2026-07-23",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-027",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-28",
+    "title": "[ARCHIVED DUPLICATE] Kiosk payment error and cart retention",
+    "id": 172,
+    "start_date": "2026-07-25",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-028",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-29",
+    "title": "[ARCHIVED DUPLICATE] Kiosk complete-screen canonical fields",
+    "id": 174,
+    "start_date": "2026-07-28",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-029",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-30",
+    "title": "[ARCHIVED DUPLICATE] Kiosk timeout warning and countdown",
+    "id": 177,
+    "start_date": "2026-07-29",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-030",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-31",
+    "title": "[ARCHIVED DUPLICATE] Kiosk processing timeout disable",
+    "id": 179,
+    "start_date": "2026-07-30",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-032",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-04",
+    "title": "[ARCHIVED DUPLICATE] Kiosk responsive and touch QA",
+    "id": 182,
+    "start_date": "2026-08-03",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-033",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-22",
+    "title": "[ARCHIVED DUPLICATE] Admin route metadata alignment",
+    "id": 184,
+    "start_date": "2026-07-21",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-036",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-27",
+    "title": "[ARCHIVED DUPLICATE] Admin order-management screen shell",
+    "id": 190,
+    "start_date": "2026-07-24",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-038",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-29",
+    "title": "[ARCHIVED DUPLICATE] Admin sold-out management screen",
+    "id": 195,
+    "start_date": "2026-07-28",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-044",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-07",
+    "title": "[ARCHIVED DUPLICATE] Admin common loading empty error navbar states",
+    "id": 201,
+    "start_date": "2026-08-06",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-045",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-10",
+    "title": "[ARCHIVED DUPLICATE] Admin date filter totals navigation QA",
+    "id": 202,
+    "start_date": "2026-08-07",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-053",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-07-31",
+    "title": "[ARCHIVED DUPLICATE] Backend admin order/status slice",
+    "id": 210,
+    "start_date": "2026-07-30",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-054",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-08-04",
+    "title": "[ARCHIVED DUPLICATE] Backend sales aggregation source",
+    "id": 211,
+    "start_date": "2026-08-03",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-055",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-08-05",
+    "title": "[ARCHIVED DUPLICATE] Backend error envelope and validation tests",
+    "id": 212,
+    "start_date": "2026-08-04",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-056",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-06",
+    "title": "[ARCHIVED DUPLICATE] Modeler versus backend DB audit",
+    "id": 213,
+    "start_date": "2026-08-05",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-058",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-10",
+    "title": "[ARCHIVED DUPLICATE] Kiosk backend integration",
+    "id": 215,
+    "start_date": "2026-08-07",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-059",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-10",
+    "title": "[ARCHIVED DUPLICATE] Admin backend integration",
+    "id": 216,
+    "start_date": "2026-08-07",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-060",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-11",
+    "title": "[ARCHIVED DUPLICATE] Sales total integration validation",
+    "id": 217,
+    "start_date": "2026-08-10",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-061",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-12",
+    "title": "[ARCHIVED DUPLICATE] Requirement-based QA execution",
+    "id": 218,
+    "start_date": "2026-08-11",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-062",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-13",
+    "title": "[ARCHIVED DUPLICATE] Accessibility QA execution",
+    "id": 219,
+    "start_date": "2026-08-12",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-064",
+    "assignee_name": "이하진",
+    "end_date": "2026-08-14",
+    "title": "[ARCHIVED DUPLICATE] Documentation traceability demo handoff",
+    "id": 221,
+    "start_date": "2026-08-14",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-057",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-07",
+    "title": "[ARCHIVED DUPLICATE] Canonical field adapter mapping",
+    "id": 214,
+    "start_date": "2026-08-06",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-063",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-14",
+    "title": "[ARCHIVED DUPLICATE] Kiosk Admin regression execution",
+    "id": 220,
+    "start_date": "2026-08-13",
+    "status": "EXCLUDED"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-001",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-16",
+    "title": "MCP 기준선 스냅샷 및 대시보드 지표 보존",
+    "id": 119,
+    "start_date": "2026-07-16",
+    "status": "DONE"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-013",
+    "assignee_name": "이하진",
+    "end_date": "2026-07-21",
+    "title": "키오스크 화면 instance-apply 갭 기록",
+    "id": 131,
+    "start_date": "2026-07-17",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-026",
+    "assignee_name": "김나연",
+    "end_date": "2026-07-25",
+    "title": "결제 화면 수단 표시·선택 연동",
+    "id": 144,
+    "start_date": "2026-07-24",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-052",
+    "assignee_name": "NEEDS_CONFIRMATION",
+    "end_date": "2026-07-30",
+    "title": "품절 API 세로 슬라이스 구현",
+    "id": 171,
+    "start_date": "2026-07-29",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-057",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-07",
+    "title": "정본 필드용 어댑터 매핑 정의",
+    "id": 181,
+    "start_date": "2026-08-06",
+    "status": "TODO"
+  },
+  {
+    "workspace_id": 2,
+    "task_id": "WBS2-063",
+    "assignee_name": "김나연",
+    "end_date": "2026-08-14",
+    "title": "키오스크·관리자 통합 회귀 테스트",
+    "id": 192,
+    "start_date": "2026-08-13",
+    "status": "BLOCKED"
+  }
+]

@@ -1,7 +1,8 @@
 # ASAK 전체 흐름도 (Mermaid)
 
-> 기준일: **2026-07-20** · 코드 실측 기준 (문서 주장이 아니라 실제 파일/라우트를 확인함).
-> 문서 입구: [START_HERE](../START_HERE.md)
+> 기준일: **2026-07-23** · 코드 실측 기준 (문서 주장이 아니라 실제 파일/라우트를 확인함).  
+> Admin mock 전 화면 1차 연결 반영 (상세: [baseline](current-status-baseline.md)).  
+> 문서 입구: [START_HERE](../START_HERE.md)  
 > 이 문서는 **그림으로 보는 요약**입니다. 상태 표로 자세히 보려면 [Current Implementation Map](../planning/current-implementation-map-2026-07-16.md), 코드-문서 충돌은 [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md), 할 일은 [WBS 2.0](wbs-v2-2026-07-16.md)을 보세요.
 
 ## 범례 (모든 그림 공통)
@@ -33,7 +34,7 @@ flowchart TB
     ASAK --> ASAK_DOC["docs/wiki, planning, governance,<br/>architecture, product_bible 등"]
 
     KIOSK --> KIOSK_DOC["📄 src/STRUCTURE_GUIDE.md<br/>📄 IMPLEMENTATION_PLAN.md"]
-    ADMIN --> ADMIN_DOC["📄 src/STRUCTURE_GUIDE.md<br/>📄 IMPLEMENTATION_PLAN.md"]
+    ADMIN --> ADMIN_DOC["📄 src/STRUCTURE_GUIDE.md<br/>📄 public/mocks/README.md"]
     BACK --> BACK_DOC["📄 README.md<br/>📄 IMPLEMENTATION_PLAN.md"]
 
     KIOSK_DOC -. 연결됨 .-> KIOSK_CODE["✅ Home→Menu→Detail→Cart<br/>mock 동작"]
@@ -46,7 +47,8 @@ flowchart TB
 - `ASAK-Kiosk` / `ASAK-Admin`: 실제 화면 코드(React)가 있는 곳입니다.
 - `ASAK-back`: Spring Boot 서버 코드가 있는 곳인데, 지금은 헬스체크(`/api/health`)만 동작합니다.
 
-관련 문서: [Kiosk 구조 가이드](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [Kiosk 구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) · [Admin 구조 가이드](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [Admin 구현 계획](../../ASAK-Admin/IMPLEMENTATION_PLAN.md) · [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md)
+관련 문서: [Kiosk 구조 가이드](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [Kiosk 구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) · [Admin 구조 가이드](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [Admin Mock 사전](../../ASAK-Admin/public/mocks/README.md) · [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md)  
+> Admin 루트 `IMPLEMENTATION_PLAN.md`는 **삭제됨** — 구조 지도·Mock 사전·중앙 WBS/맵을 본다.
 
 ---
 
@@ -85,26 +87,25 @@ flowchart LR
 
 ## 3. 관리자 운영 흐름
 
-`ASAK-Admin/src/apps/AdminApp.jsx`가 URL을 화면에 연결합니다. 전부 Figma 정적 화면이며, `adminMockRepository.js`는 준비돼 있지만 **어느 화면도 아직 이걸 쓰지 않습니다** (연동 0건).
+`ASAK-Admin/src/apps/AdminApp.jsx`가 URL을 화면에 연결합니다. **전 화면이 `adminMockRepository`로 1차 연결**되어 있습니다 (1차 mock ≠ DONE). 실 Backend API는 **BLOCKED**.
 
 ```mermaid
 flowchart TB
-    Login["⚠️ /login<br/>LoginPage"]
-    Live["⚠️ /<br/>OrderListPage (Live) · SCR-009"]
-    Dashboard["⚠️ /dashboard<br/>DashboardPage · SCR-022"]
-    Orders["⚠️ /orders<br/>OrderManagementPreview · SCR-010"]
-    OrderDetail["❌ OrderDetailPage<br/>import는 있지만 라우트 미연결"]
-    SoldOut["⚠️ /sold-out<br/>SoldOutManagePage · SCR-011"]
-    Menus["⚠️ /menus<br/>MenuManagePage · SCR-016"]
-    MenuEdit["❌ /menus/new, /menus/edit<br/>MenuEditPage (placeholder)"]
-    Payments["⚠️ /payment-methods<br/>PaymentMethodPage · SCR-018 (disabled)"]
-    Sales["⚠️ /sales<br/>SalesSummaryPage · SCR-019"]
-    Monthly["⚠️ /sales/monthly<br/>MonthlySalesPage · SCR-020"]
-    Daily["⚠️ /sales/daily<br/>DailySalesPage · SCR-021"]
+    Login["⚠️ /login<br/>LoginPage · mock 세션"]
+    Live["✅ /<br/>OrderListPage (Live) · SCR-009"]
+    Dashboard["✅ /dashboard<br/>DashboardPage · SCR-022"]
+    Orders["✅ /orders<br/>OrderManagementPreview · SCR-010"]
+    SoldOut["✅ /sold-out<br/>SoldOutManagePage · SCR-011"]
+    Menus["✅ /menus<br/>MenuManagePage 조립 · SCR-016"]
+    MenuEdit["✅ /menus/new|/edit<br/>우측 Edit 패널 wrapper"]
+    Payments["✅ /payment-methods<br/>PaymentMethodPage · 4종 · SCR-018"]
+    Sales["✅ /sales<br/>SalesSummaryPage · SCR-019"]
+    Monthly["✅ /sales/monthly<br/>MonthlySalesPage · SCR-020"]
+    Daily["✅ /sales/daily<br/>DailySalesPage · SCR-021"]
 
     Login --> Live
     Live --> Dashboard
-    Live --> Orders --> OrderDetail
+    Live --> Orders
     Live --> SoldOut
     Live --> Menus --> MenuEdit
     Live --> Payments
@@ -112,18 +113,20 @@ flowchart TB
     Sales --> Monthly
     Sales --> Daily
 
-    Mock["✅ mocks/adminMockRepository.js<br/>READY · Page 사용처 0건"]
-    Mock -->|다음 스프린트 목표 여기로 연결| Live
-    Mock -.-> Dashboard
-    Mock -.-> Orders
-    Mock -.-> SoldOut
-    Mock -.-> Payments
-    Mock -.-> Sales
+    Mock["✅ mocks/adminMockRepository.js<br/>Page → Hook → repository"]
+    Mock --> Live
+    Mock --> Dashboard
+    Mock --> Orders
+    Mock --> SoldOut
+    Mock --> Menus
+    Mock --> Payments
+    Mock --> Sales
 ```
 
 **핵심 근거 파일**
 - 라우트 정의: `ASAK-Admin/src/apps/AdminApp.jsx`
-- mock 유일한 입구: `ASAK-Admin/src/mocks/adminMockRepository.js` (화면은 이 파일이 아니라 하드코딩 값을 아직 씀)
+- mock 유일한 입구: `ASAK-Admin/src/mocks/adminMockRepository.js` (Page에서 JSON 직접 import 금지)
+- 셸: 1920×1080 캔버스 + viewport scale · Shared AsyncState/Confirm
 
 관련 WBS: `WBS2-033~045` (P4 관리자) · 자세한 라우트 표는 [Admin 구조 가이드](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) 참고.
 
@@ -131,7 +134,7 @@ flowchart TB
 
 ## 4. 데이터/API 목표 흐름 (Kiosk·Admin → API → DB)
 
-지금은 화면 → API → DB로 이어지는 실제 연결이 **거의 없습니다.** Kiosk/Admin은 둘 다 화면이 mock JSON 파일을 직접 읽고, 백엔드는 헬스체크만 동작합니다. 아래 그림은 "지금 코드가 쓰는 경로(legacy)"와 "문서가 정한 목표 경로(Canonical)"를 함께 보여줍니다.
+지금은 화면 → API → DB로 이어지는 실제 연결이 **거의 없습니다.** Kiosk는 mock JSON을 직접 import하고, Admin은 Page→Hook→`adminMockRepository`→JSON 경로로 **1차 mock 연결**만 되어 있습니다. 백엔드는 헬스체크만 동작합니다. 아래 그림은 "지금 코드가 쓰는 경로"와 "문서가 정한 목표 경로(Canonical)"를 함께 보여줍니다.
 
 ```mermaid
 flowchart LR
@@ -142,10 +145,10 @@ flowchart LR
     end
 
     subgraph AD["ASAK-Admin"]
-        A1["pages/admin/*.jsx<br/>(지금은 하드코딩 값)"]
-        A2["mocks/adminMockRepository.js<br/>(✅ READY, 연동 0)"]
+        A1["pages/admin/*.jsx<br/>✅ Hook으로 mock 1차 연결"]
+        A2["mocks/adminMockRepository.js"]
         A3["public/mocks/asak-admin-data.json"]
-        A1 -. 아직 연결 안 함 .-> A2 --> A3
+        A1 --> A2 --> A3
     end
 
     subgraph B["ASAK-back (Spring Boot)"]
@@ -242,7 +245,7 @@ flowchart LR
 | [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md) | Canonical vs 코드 충돌 상세 |
 | [WBS 2.0](wbs-v2-2026-07-16.md) | 실행 할 일 정본 |
 | [Kiosk 구조 가이드](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) | Kiosk 코딩 시작점 |
-| [Admin 구조 가이드](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [구현 계획](../../ASAK-Admin/IMPLEMENTATION_PLAN.md) | Admin 코딩 시작점 |
+| [Admin 구조 가이드](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [Mock 사전](../../ASAK-Admin/public/mocks/README.md) | Admin 코딩 시작점 (`IMPLEMENTATION_PLAN` 삭제됨) |
 | [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md) | Backend 코딩 시작점 |
 
 ## Documentation status
