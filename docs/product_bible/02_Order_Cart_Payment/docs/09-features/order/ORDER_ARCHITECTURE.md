@@ -88,10 +88,11 @@ COMPLETED
 추가 검토 상태:
 
 ```text
-CANCELLED
+CANCELED
 ```
 
-`CANCELLED`는 실제 취소 기능을 구현할 때만 공식 enum에 추가한다.
+`CANCELED`는 실제 취소 기능을 구현할 때 공식 enum으로 추가한다. 영국식 표기
+`CANCELLED`는 legacy mock 외의 API 계약과 신규 구현에 사용하지 않는다.
 
 ### PaymentStatus
 
