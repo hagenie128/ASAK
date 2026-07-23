@@ -17,13 +17,13 @@ VIEWS = {
 CREATE OR REPLACE VIEW vw_sales_daily AS
 SELECT
   DATE(COALESCE(p.paid_at, o.created_at)) AS sales_date,
-  COUNT(DISTINCT CASE WHEN ps.code = 'APPROVED' AND os.code <> 'CANCELED' THEN o.id END) AS order_count,
-  COUNT(DISTINCT CASE WHEN ps.code = 'APPROVED' AND os.code <> 'CANCELED' THEN o.id END) AS customer_count,
+  COUNT(DISTINCT CASE WHEN p.paid_at IS NOT NULL AND os.code <> 'CANCELED' AND ps.code NOT IN ('CANCELED', 'REFUNDED') THEN o.id END) AS order_count,
+  COUNT(DISTINCT CASE WHEN p.paid_at IS NOT NULL AND os.code <> 'CANCELED' AND ps.code NOT IN ('CANCELED', 'REFUNDED') THEN o.id END) AS customer_count,
   COUNT(DISTINCT CASE WHEN os.code = 'CANCELED' OR ps.code IN ('CANCELED', 'REFUNDED') THEN o.id END) AS canceled_order_count,
-  COALESCE(SUM(CASE WHEN ps.code = 'APPROVED' AND os.code <> 'CANCELED' THEN p.amount ELSE 0 END), 0) AS gross_sales_amount,
-  COALESCE(SUM(CASE WHEN os.code = 'CANCELED' OR ps.code IN ('CANCELED', 'REFUNDED') THEN p.amount ELSE 0 END), 0) AS canceled_amount,
-  COALESCE(SUM(CASE WHEN ps.code = 'APPROVED' AND os.code <> 'CANCELED' THEN p.amount ELSE 0 END), 0)
-    - COALESCE(SUM(CASE WHEN os.code = 'CANCELED' OR ps.code IN ('CANCELED', 'REFUNDED') THEN p.amount ELSE 0 END), 0) AS net_sales_amount
+  COALESCE(SUM(CASE WHEN p.paid_at IS NOT NULL THEN p.amount ELSE 0 END), 0) AS gross_sales_amount,
+  COALESCE(SUM(CASE WHEN p.paid_at IS NOT NULL AND (os.code = 'CANCELED' OR ps.code IN ('CANCELED', 'REFUNDED')) THEN p.amount ELSE 0 END), 0) AS canceled_amount,
+  COALESCE(SUM(CASE WHEN p.paid_at IS NOT NULL THEN p.amount ELSE 0 END), 0)
+    - COALESCE(SUM(CASE WHEN p.paid_at IS NOT NULL AND (os.code = 'CANCELED' OR ps.code IN ('CANCELED', 'REFUNDED')) THEN p.amount ELSE 0 END), 0) AS net_sales_amount
 FROM orders o
 LEFT JOIN payment p ON p.order_id = o.id
 LEFT JOIN common_code ps ON ps.id = p.status_id
@@ -35,13 +35,13 @@ CREATE OR REPLACE VIEW vw_sales_hourly AS
 SELECT
   DATE(COALESCE(p.paid_at, o.created_at)) AS sales_date,
   HOUR(COALESCE(p.paid_at, o.created_at)) AS sales_hour,
-  COUNT(DISTINCT CASE WHEN ps.code = 'APPROVED' AND os.code <> 'CANCELED' THEN o.id END) AS order_count,
-  COUNT(DISTINCT CASE WHEN ps.code = 'APPROVED' AND os.code <> 'CANCELED' THEN o.id END) AS customer_count,
+  COUNT(DISTINCT CASE WHEN p.paid_at IS NOT NULL AND os.code <> 'CANCELED' AND ps.code NOT IN ('CANCELED', 'REFUNDED') THEN o.id END) AS order_count,
+  COUNT(DISTINCT CASE WHEN p.paid_at IS NOT NULL AND os.code <> 'CANCELED' AND ps.code NOT IN ('CANCELED', 'REFUNDED') THEN o.id END) AS customer_count,
   COUNT(DISTINCT CASE WHEN os.code = 'CANCELED' OR ps.code IN ('CANCELED', 'REFUNDED') THEN o.id END) AS canceled_order_count,
-  COALESCE(SUM(CASE WHEN ps.code = 'APPROVED' AND os.code <> 'CANCELED' THEN p.amount ELSE 0 END), 0) AS gross_sales_amount,
-  COALESCE(SUM(CASE WHEN os.code = 'CANCELED' OR ps.code IN ('CANCELED', 'REFUNDED') THEN p.amount ELSE 0 END), 0) AS canceled_amount,
-  COALESCE(SUM(CASE WHEN ps.code = 'APPROVED' AND os.code <> 'CANCELED' THEN p.amount ELSE 0 END), 0)
-    - COALESCE(SUM(CASE WHEN os.code = 'CANCELED' OR ps.code IN ('CANCELED', 'REFUNDED') THEN p.amount ELSE 0 END), 0) AS net_sales_amount
+  COALESCE(SUM(CASE WHEN p.paid_at IS NOT NULL THEN p.amount ELSE 0 END), 0) AS gross_sales_amount,
+  COALESCE(SUM(CASE WHEN p.paid_at IS NOT NULL AND (os.code = 'CANCELED' OR ps.code IN ('CANCELED', 'REFUNDED')) THEN p.amount ELSE 0 END), 0) AS canceled_amount,
+  COALESCE(SUM(CASE WHEN p.paid_at IS NOT NULL THEN p.amount ELSE 0 END), 0)
+    - COALESCE(SUM(CASE WHEN p.paid_at IS NOT NULL AND (os.code = 'CANCELED' OR ps.code IN ('CANCELED', 'REFUNDED')) THEN p.amount ELSE 0 END), 0) AS net_sales_amount
 FROM orders o
 LEFT JOIN payment p ON p.order_id = o.id
 LEFT JOIN common_code ps ON ps.id = p.status_id
@@ -65,8 +65,9 @@ JOIN menu m ON m.id = oi.menu_id
 LEFT JOIN payment p ON p.order_id = o.id
 LEFT JOIN common_code ps ON ps.id = p.status_id
 LEFT JOIN common_code os ON os.id = o.status_id
-WHERE ps.code = 'APPROVED'
+WHERE p.paid_at IS NOT NULL
   AND os.code <> 'CANCELED'
+  AND ps.code NOT IN ('CANCELED', 'REFUNDED')
 GROUP BY
   DATE(COALESCE(p.paid_at, o.created_at)),
   m.id,
@@ -88,8 +89,9 @@ JOIN menu m ON m.id = oi.menu_id
 LEFT JOIN payment p ON p.order_id = o.id
 LEFT JOIN common_code ps ON ps.id = p.status_id
 LEFT JOIN common_code os ON os.id = o.status_id
-WHERE ps.code = 'APPROVED'
+WHERE p.paid_at IS NOT NULL
   AND os.code <> 'CANCELED'
+  AND ps.code NOT IN ('CANCELED', 'REFUNDED')
 GROUP BY
   DATE(COALESCE(p.paid_at, o.created_at)),
   HOUR(COALESCE(p.paid_at, o.created_at)),
