@@ -55,7 +55,7 @@ POST /api/kiosk/payments
 ## 2. Active Payment Methods
 
 ```http
-GET /api/kiosk/paymentMethods
+GET /api/kiosk/payment-methods
 ```
 
 ### Response
@@ -63,16 +63,36 @@ GET /api/kiosk/paymentMethods
 ```json
 {
   "success": true,
-  "data": [
-    {
-      "paymentMethodCode": "CARD",
-      "displayName": "신용카드",
-      "status": "ENABLED",
-      "sortOrder": 1
-    }
-  ]
+  "status": 200,
+  "code": "KIOSK_PAYMENT_METHOD_LIST_SUCCESS",
+  "message": "결제수단 목록 조회 성공",
+  "data": {
+    "methods": [
+      {
+        "methodCode": "CARD",
+        "methodName": "카드·삼성페이",
+        "isEnabled": true,
+        "sortOrder": 1
+      },
+      {
+        "methodCode": "KAKAO_PAY",
+        "methodName": "카카오페이",
+        "isEnabled": false,
+        "sortOrder": 2
+      },
+      {
+        "methodCode": "NAVER_PAY",
+        "methodName": "네이버페이",
+        "isEnabled": false,
+        "sortOrder": 3
+      }
+    ]
+  }
 }
 ```
+
+`CARD`는 카드 단말 결제이며 삼성페이를 포함한다. `KAKAO_PAY`, `NAVER_PAY`는 현재
+비활성 상태여도 화면에는 표시하고 선택만 막는다.
 
 ---
 
