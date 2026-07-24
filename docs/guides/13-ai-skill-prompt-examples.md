@@ -134,9 +134,25 @@ API 성공·실패와 권한 오류도 포함하고 코드 수정은 하지 마.
 
 ### 요구사항을 더 꼼꼼히 질문받기 — `grill-with-docs`
 
+> 사전 설치: `grill-with-docs` + `grilling` + `domain-modeling` (셋 다 필요). 설치는 [14-team-ai-tools-setup.md](14-team-ai-tools-setup.md).
+
 ```text
 grill-with-docs 방식으로 [SCR / 기능] 구현 전에 빠진 요구사항만 질문해줘.
 Product Bible, Screen Bible, Figma, 기존 코드를 근거로 하고 코드·문서 파일은 만들거나 수정하지 마.
+```
+
+### 질문만 받기 — `grilling`
+
+```text
+grilling 방식으로 [계획 / 결정]을 한 질문씩만 물어봐줘.
+권장 답도 같이 제시하고, 코드·문서 파일은 만들지 마.
+```
+
+### 용어·결정만 채팅에 정리 — `domain-modeling`
+
+```text
+domain-modeling 방식으로 [기능]의 용어와 되돌리기 어려운 결정만 채팅에 정리해줘.
+CONTEXT.md나 docs/adr 파일은 만들지 마.
 ```
 
 ### 관련 파일부터 찾기 — `code-review-graph`

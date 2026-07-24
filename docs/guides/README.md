@@ -36,8 +36,8 @@
 
 | 순서 | 문서 | 내용 |
 |------|------|------|
-| 12 | [`12-ai-agent-tools-guide.md`](12-ai-agent-tools-guide.md) | AI 스킬·코드 그래프 사용 시점과 안전 규칙 (Codex·Claude·Cursor·Antigravity) |
-| 13 | [`13-ai-skill-prompt-examples.md`](13-ai-skill-prompt-examples.md) | 기존 ASAK 스킬별 복사·붙여넣기 요청 예시 |
-| 14 | [`14-team-ai-tools-setup.md`](14-team-ai-tools-setup.md) | 팀원 PC별 스킬·코드 그래프 설치와 공유 설정 템플릿 |
+| 12 | [`12-ai-agent-tools-guide.md`](12-ai-agent-tools-guide.md) | AI 스킬·코드 그래프 사용 시점과 안전 규칙 (`grill-with-docs` 의존 스킬 포함) |
+| 13 | [`13-ai-skill-prompt-examples.md`](13-ai-skill-prompt-examples.md) | 기존 ASAK 스킬·외부 공학 스킬 복사·붙여넣기 요청 예시 |
+| 14 | [`14-team-ai-tools-setup.md`](14-team-ai-tools-setup.md) | 팀원 PC별 스킬·코드 그래프 설치 (`grilling`·`domain-modeling` 포함) |
 
 **일일 워크로그**는 별도 흐름입니다 → [`worklog/README.md`](../../worklog/README.md) 확인 순서 · Notion [📅 일일 워크로그 — 팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95) · [📅 일일 워크로그 DB](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9)

@@ -23,15 +23,27 @@ Python 3.10 이상이 필요하다. `npx.cmd`가 없으면 Node.js를 먼저 설
 
 ## 3. 공통 스킬 설치
 
-아래 명령은 `grill-with-docs`, `diagnosing-bugs`, `handoff`만 설치한다. 구현·TDD·자동 리팩터링 스킬은 설치하지 않는다.
+아래 명령은 공통 공학 스킬 3개와, `grill-with-docs`가 필요로 하는 의존 스킬 2개만 설치한다. 구현·TDD·자동 리팩터링 스킬은 설치하지 않는다.
+
+| 스킬 | 역할 |
+|---|---|
+| `grill-with-docs` | 구현 전 요구사항·용어 질문 (본체) |
+| `grilling` | `grill-with-docs` 의존 — 질문 인터뷰 엔진 |
+| `domain-modeling` | `grill-with-docs` 의존 — 용어·ADR 정리 규칙 |
+| `diagnosing-bugs` | 오류·실패 원인 추적 |
+| `handoff` | 세션·작업 인수인계 |
 
 ```powershell
-npx.cmd skills@latest add mattpocock/skills --global --agent codex claude-code cursor antigravity --skill grill-with-docs diagnosing-bugs handoff --yes --copy
+npx.cmd skills@latest add mattpocock/skills --global --agent codex claude-code cursor antigravity --skill grill-with-docs grilling domain-modeling diagnosing-bugs handoff --yes --copy
 ```
 
 설치 후 Codex·Claude Code·Cursor·Antigravity를 재시작한다.
 
+> **의존성:** `grill-with-docs`만 설치하면 `/grilling`, `/domain-modeling`이 없어 바로 동작하지 않는다. 위 명령처럼 세 개를 함께 설치한다.
+>
 > `diagnosing-bugs`는 진단 전용이다. 요청에 `자동 수정·파일 생성·Git 명령은 하지 마`를 반드시 넣는다.
+>
+> `grill-with-docs` / `domain-modeling`은 기본값이 `CONTEXT.md`·ADR 파일 작성이라, ASAK에서는 요청에 `코드·문서 파일은 수정하거나 만들지 마`를 붙인다.
 
 ## 4. 코드 그래프 설치
 

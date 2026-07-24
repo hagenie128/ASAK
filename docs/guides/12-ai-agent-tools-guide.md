@@ -18,10 +18,16 @@
 | 스킬 | 설치 대상 | 사용할 때 | ASAK 안전 요청 |
 |---|---|---|---|
 | `grill-with-docs` | Codex, Claude Code, Cursor, Antigravity | 구현 전 요구사항·용어·예외 확정 | `질문과 체크리스트만 작성해. 코드·문서 파일은 수정하거나 만들지 마.` |
+| `grilling` | Codex, Claude Code, Cursor, Antigravity | `grill-with-docs` 의존 / 질문만 필요할 때 | `한 번에 질문 하나씩. 코드·문서 파일은 만들지 마.` |
+| `domain-modeling` | Codex, Claude Code, Cursor, Antigravity | `grill-with-docs` 의존 / 용어·결정 정리 | `채팅에만 용어·결정을 정리해. CONTEXT.md·ADR 파일은 만들지 마.` |
 | `diagnosing-bugs` | Codex, Claude Code, Cursor, Antigravity | 오류·실패·성능 저하 원인 추적 | `재현·근거·원인 후보만 정리해. 명령 실행이나 코드 수정은 하지 마.` |
 | `handoff` | Codex, Claude Code, Cursor, Antigravity | 세션·작업 인수인계 | `채팅에만 확인됨·미확인·다음 파일을 정리해. handoff 파일은 만들지 마.` |
 
+`grill-with-docs`는 내부적으로 `grilling` + `domain-modeling`을 호출한다. **세 개를 함께 설치**해야 한다. 의존 스킬 없이 `grill-with-docs`만 있으면 동작하지 않는다. 설치 명령은 [14-team-ai-tools-setup.md](14-team-ai-tools-setup.md)를 따른다.
+
 `diagnosing-bugs`는 설치 도구의 외부 보안 평가에서 High Risk 표시가 있었다. 이 스킬은 **진단 전용**으로 사용하며, 자동 수정·파일 생성·명령 실행을 허용하지 않는다.
+
+`handoff` / `grill-with-docs`는 수동 호출용(`disable-model-invocation`)이라 에이전트가 자동으로 고르지 않는다. 필요할 때 `/grill-with-docs`, `/handoff`로 직접 호출하거나, 요청문에 스킬 이름을 적는다.
 
 ## 3. 코드 그래프
 
