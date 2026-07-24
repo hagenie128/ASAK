@@ -34,6 +34,7 @@
 
 - [DB 테이블](db-table-definition.md)
 - [DB 뷰](db-view-definition.md) ← **메뉴/주문/품절/매출 View**
+- [DevCopilot 허브 점검 2026-07-24](devcopilot-hub-audit-2026-07-24.md)
 - [DB 약어](../_archive/wiki-secondary/db-abbreviation-glossary.md)
 - [DB 감사 계획](../_archive/wiki-secondary/db-audit-plan.md)
 - [REST API 명세](rest-api-spec.md) *(legacy path 보존)*

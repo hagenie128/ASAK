@@ -289,6 +289,19 @@ VIEWS: list[dict[str, Any]] = [
         ],
     },
     {
+        "name": "vw_payment_result",
+        "description": "[View] 결제 승인 응답. PAYMENT_API_CONTRACT: paymentId/orderId/orderNo/paymentStatus/approvedAmount/approvedAt/waitingOrderCount. waiting은 조회 시점 RECEIVED+PREPARING 건수. 2026-07-24.",
+        "columns": [
+            col("payment_id", "BIGINT", "결제 ID", is_fk=True, fk_target="payment.id", is_nullable=False),
+            col("order_id", "BIGINT", "주문 ID", is_fk=True, fk_target="orders.id", is_nullable=False),
+            col("order_no", "VARCHAR(50)", "주문번호", is_nullable=False),
+            col("payment_status", "VARCHAR(50)", "결제 상태 코드", is_nullable=False),
+            col("approved_amount", "INT", "승인 금액", is_nullable=False),
+            col("approved_at", "TIMESTAMP", "승인 시각(paid_at)", is_nullable=True),
+            col("waiting_order_count", "BIGINT", "조회 시점 대기 주문 수(RECEIVED/PREPARING)", is_nullable=False),
+        ],
+    },
+    {
         "name": "vw_sales_daily",
         "description": "[View] 관리자 일별 매출. 승인/취소·환불을 반영한 일자별 집계.",
         "columns": [
