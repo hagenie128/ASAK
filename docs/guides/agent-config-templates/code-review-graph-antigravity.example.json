@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "code-review-graph-admin": {
+      "command": "python",
+      "args": ["-m", "code_review_graph", "serve"],
+      "cwd": "<WORKSPACE>\\ASAK-Admin"
+    },
+    "code-review-graph-kiosk": {
+      "command": "python",
+      "args": ["-m", "code_review_graph", "serve"],
+      "cwd": "<WORKSPACE>\\ASAK-Kiosk"
+    },
+    "code-review-graph-back": {
+      "command": "python",
+      "args": ["-m", "code_review_graph", "serve"],
+      "cwd": "<WORKSPACE>\\ASAK-back"
+    }
+  }
+}

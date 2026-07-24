@@ -9,6 +9,7 @@
 - **입구:** [START_HERE](START_HERE.md) · [PROJECT_HUB](../PROJECT_HUB.md)
 - **정책 정본:** `product_bible/` (먼저 [읽기 허브](product_bible/product-bible-hub.md)) · **계약:** `governance/canonical-contract-decisions-2026-07-16.md`
 - **구현 현실:** [baseline](wiki/current-status-baseline.md) · [구현 맵](planning/current-implementation-map-2026-07-16.md) · **앱 허브:** [app-implementation-hub](planning/app-implementation-hub.md)
+- **AI 도구 사용:** [AI 스킬 및 코드 그래프 사용 가이드](guides/07-ai-agent-tools-guide.md) · Codex·Claude·Cursor·Antigravity 공통 사용 규칙
 - **앱 실행 문서:** `src/STRUCTURE_GUIDE.md` · Kiosk/back는 `IMPLEMENTATION_PLAN.md` · **Admin PLAN은 삭제** → Mock 사전·중앙 WBS/맵
 - **Archive:** `_archive/` — 삭제·정본 복귀 금지
 - **파일명 규칙:** [document-naming-guide-2026-07-20.md](document-naming-guide-2026-07-20.md) · 검사: `pwsh asak-data/scripts/check-filename-convention.ps1` · 인벤토리: [document-inventory-slim-2026-07-20.md](document-inventory-slim-2026-07-20.md)

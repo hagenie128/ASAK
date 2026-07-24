@@ -1,6 +1,8 @@
 # ASAK 처음 시작하기 (초보자용)
 
-> **Notion (정본):** [🚀 ASAK 처음 시작하기 (팀 온보딩)](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) · **Git mirror:** 이 파일  
+> **AI 도구를 쓴다면:** 프로젝트 구조를 확인한 뒤 [AI 스킬 및 코드 그래프 사용 가이드](../../guides/07-ai-agent-tools-guide.md)를 읽는다. 구현 전에는 질문·분석만 요청하고, 실제 코드는 팀원이 직접 수정한다.
+
+> **Notion (정본):** [🚀 ASAK 처음 시작하기 (팀 온보딩)](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) · **Git mirror:** 이 파일
 > **Windows 설치 (클릭·폴더·PATH 상세):** 👉 [**install-windows.md**](install-windows.md) — Git·Python·Java·Node를 처음 깔 때 **여기부터** 따라 하세요.
 
 > **한 줄 요약:** ASAK는 샐러디 키오스크를 만드는 풀스택 학습 프로젝트입니다. 화면(프론트)과 API(백엔드)를 **둘 다** 켜야 실제 주문 흐름을 볼 수 있습니다.
