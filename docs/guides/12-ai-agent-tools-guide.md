@@ -3,8 +3,8 @@
 > 상태: **Current** · 갱신: 2026-07-24
 > 제품·API·화면의 정본은 [Product Bible](../product_bible/product-bible-hub.md)과 Screen Bible이다. 이 문서는 AI 도구를 언제 어떤 범위에서 사용할지 정한다.
 
-> **바로 쓰는 요청문:** 기존 ASAK 스킬별 짧은 복사·붙여넣기 예시는 [08-ai-skill-prompt-examples.md](08-ai-skill-prompt-examples.md)를 본다.
-> **팀원 설치:** 다른 PC에서 스킬·코드 그래프를 설치할 때는 [09-team-ai-tools-setup.md](09-team-ai-tools-setup.md)를 따른다.
+> **바로 쓰는 요청문:** 기존 ASAK 스킬별 짧은 복사·붙여넣기 예시는 [13-ai-skill-prompt-examples.md](13-ai-skill-prompt-examples.md)를 본다.
+> **팀원 설치:** 다른 PC에서 스킬·코드 그래프를 설치할 때는 [14-team-ai-tools-setup.md](14-team-ai-tools-setup.md)를 따른다.
 
 ## 1. 기본 원칙
 

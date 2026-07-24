@@ -1,7 +1,7 @@
 # ASAK 팀 AI 도구 설치 가이드
 
 > 상태: **Current** · 갱신: 2026-07-24
-> 이 문서는 팀원 각자의 Windows PC에서 스킬과 `code-review-graph`를 설치하는 방법이다. 사용 방법은 [07-ai-agent-tools-guide.md](07-ai-agent-tools-guide.md), 바로 쓰는 요청문은 [08-ai-skill-prompt-examples.md](08-ai-skill-prompt-examples.md)를 본다.
+> 이 문서는 팀원 각자의 Windows PC에서 스킬과 `code-review-graph`를 설치하는 방법이다. 사용 방법은 [12-ai-agent-tools-guide.md](12-ai-agent-tools-guide.md), 바로 쓰는 요청문은 [13-ai-skill-prompt-examples.md](13-ai-skill-prompt-examples.md)를 본다.
 
 ## 1. 먼저 알아둘 점
 

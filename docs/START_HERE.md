@@ -33,7 +33,7 @@
 
 ## 3. 앱 가이드 (코딩할 때)
 
-> **AI 도구 사용:** [AI 스킬 및 코드 그래프 사용 가이드](guides/07-ai-agent-tools-guide.md)에서 Codex·Claude·Cursor·Antigravity의 스킬과 코드 그래프를 확인한다. 바로 복사해 쓸 요청문은 [AI 스킬 명령어 예시](guides/08-ai-skill-prompt-examples.md)에 있다.
+> **AI 도구 사용:** [AI 스킬 및 코드 그래프 사용 가이드](guides/12-ai-agent-tools-guide.md)에서 Codex·Claude·Cursor·Antigravity의 스킬과 코드 그래프를 확인한다. 바로 복사해 쓸 요청문은 [AI 스킬 명령어 예시](guides/13-ai-skill-prompt-examples.md)에 있다.
 
 | # | 문서 | 한 줄 |
 |---|---|---|

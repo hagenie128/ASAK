@@ -21,9 +21,6 @@
 | 04 | [`04-sample-work-log-example.md`](04-sample-work-log-example.md) | 상세 기록 예시 (SCR-003 · 이하진) · daily 연결은 [`worklog/guide-team-daily.md`](../../worklog/guide-team-daily.md) |
 | 05 | [`05-personal-portfolio-template.md`](05-personal-portfolio-template.md) | 프로젝트 종료 후 포트폴리오 정리 |
 | 06 | [`06-team-ai-prompt.md`](06-team-ai-prompt.md) | 팀 공통 AI 프롬프트 (Cursor·ChatGPT 등) |
-| 07 | [`07-ai-agent-tools-guide.md`](07-ai-agent-tools-guide.md) | AI 스킬·코드 그래프 사용 시점과 안전 규칙 (Codex·Claude·Cursor·Antigravity) |
-| 08 | [`08-ai-skill-prompt-examples.md`](08-ai-skill-prompt-examples.md) | 기존 ASAK 스킬별 복사·붙여넣기 요청 예시 |
-| 09 | [`09-team-ai-tools-setup.md`](09-team-ai-tools-setup.md) | 팀원 PC별 스킬·코드 그래프 설치와 공유 설정 템플릿 |
 
 ### 구현 가이드 (07~11은 여기로 통합)
 
@@ -34,5 +31,13 @@
 | 07 프론트 | [stub](07-frontend-development-guide.md) → [00_START_HERE](../implementation_guide/00-start-here.md) |
 | 08 백엔드 | [stub](08-backend-development-guide.md) → [04 API·DB](../implementation_guide/04-api-db-implementation.md) |
 | 09~11 흐름·순서 | [09-11-moved](09-11-moved.md) |
+
+### AI 활용 가이드 (12~14)
+
+| 순서 | 문서 | 내용 |
+|------|------|------|
+| 12 | [`12-ai-agent-tools-guide.md`](12-ai-agent-tools-guide.md) | AI 스킬·코드 그래프 사용 시점과 안전 규칙 (Codex·Claude·Cursor·Antigravity) |
+| 13 | [`13-ai-skill-prompt-examples.md`](13-ai-skill-prompt-examples.md) | 기존 ASAK 스킬별 복사·붙여넣기 요청 예시 |
+| 14 | [`14-team-ai-tools-setup.md`](14-team-ai-tools-setup.md) | 팀원 PC별 스킬·코드 그래프 설치와 공유 설정 템플릿 |
 
 **일일 워크로그**는 별도 흐름입니다 → [`worklog/README.md`](../../worklog/README.md) 확인 순서 · Notion [📅 일일 워크로그 — 팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95) · [📅 일일 워크로그 DB](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9)

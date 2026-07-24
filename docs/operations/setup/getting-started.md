@@ -1,6 +1,6 @@
 # ASAK 처음 시작하기 (초보자용)
 
-> **AI 도구를 쓴다면:** 프로젝트 구조를 확인한 뒤 [AI 스킬 및 코드 그래프 사용 가이드](../../guides/07-ai-agent-tools-guide.md)를 읽는다. 구현 전에는 질문·분석만 요청하고, 실제 코드는 팀원이 직접 수정한다.
+> **AI 도구를 쓴다면:** 프로젝트 구조를 확인한 뒤 [AI 스킬 및 코드 그래프 사용 가이드](../../guides/12-ai-agent-tools-guide.md)를 읽는다. 구현 전에는 질문·분석만 요청하고, 실제 코드는 팀원이 직접 수정한다.
 
 > **Notion (정본):** [🚀 ASAK 처음 시작하기 (팀 온보딩)](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) · **Git mirror:** 이 파일
 > **Windows 설치 (클릭·폴더·PATH 상세):** 👉 [**install-windows.md**](install-windows.md) — Git·Python·Java·Node를 처음 깔 때 **여기부터** 따라 하세요.

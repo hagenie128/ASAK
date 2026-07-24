@@ -1,7 +1,7 @@
 # ASAK AI 스킬 명령어 예시
 
 > 상태: **Current** · 갱신: 2026-07-24
-> 상세 원칙과 도구 설치 상태는 [07-ai-agent-tools-guide.md](07-ai-agent-tools-guide.md)를 먼저 확인한다.
+> 상세 원칙과 도구 설치 상태는 [12-ai-agent-tools-guide.md](12-ai-agent-tools-guide.md)를 먼저 확인한다.
 
 ## 사용 방법
 
