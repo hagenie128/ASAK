@@ -1,9 +1,9 @@
 # WBS 상태 메모 (코드 기준)
 
-> 기준일: **2026-07-23**  
+> 기준일: **2026-07-24**  
 > 문서 입구: [START_HERE](../START_HERE.md)  
 > 실행 정본 표: [wbs-v2-2026-07-16.md](wbs-v2-2026-07-16.md)  
-> DevCopilot: workspace 2 · WBS2 제목 **한글** 동기화 완료 (7/20). **7/23 원격 Status 동기화 성공** — P4 중 WBS2-044만 TODO→IN_PROGRESS(그 외 이미 일치). Evidence 필드는 MCP 미지원이라 로컬 wbs-v2 Evidence만 상세 유지 (**원격 Evidence는 미반영**).
+> DevCopilot: workspace 2 · WBS2 제목 **한글** 동기화 완료 (7/20). **7/24** P5 중 코드/계약 증거가 있는 **048~051·053~055 → IN_PROGRESS** (DONE 아님). 매출 API-017/018/019·대시보드 API-020 예시 보강. Evidence 필드는 MCP 미지원 → 로컬 wbs-v2만 상세.
 > Legacy 표: [wbs-schedule.md](wbs-schedule.md) (실행에 쓰지 말 것)
 
 ## WBS 안내 (초보)
@@ -58,7 +58,8 @@
 
 | 구간 | ID | 상태 |
 |---|---|---|
-| Backend | 046~056 | TODO (health only) |
+| Backend | 046~047·052·056 | TODO |
+| Backend | 048~051·053~055 | IN_PROGRESS (골격·계약·뷰; DoD/테스트 남음) |
 | 연동 | 058~060 | BLOCKED |
 | QA | 061~063 | TODO / BLOCKED |
 | 문서·배포·발표 | 064~066 | IN_PROGRESS / BLOCKED / TODO |
@@ -71,6 +72,7 @@
 - 상세: [devcopilot-sync-report.md](../_archive/wiki-secondary/devcopilot-sync-report.md)
 - 2026-07-22: 로컬 baseline/맵/이 메모를 7/21 Admin 진척에 맞춤. DevCopilot MCP로 workspace 2 WBS **원격 Status 재확인** → P4(033~045) active 행이 로컬과 일치(034~036·038~043 IN_PROGRESS, 037·044~045 TODO). Evidence는 MCP 미지원이라 로컬 문서만 상세 갱신.
 - 2026-07-23: 매출·메뉴·Shared·결제 4종·셸 scale을 로컬 Evidence/이 메모에 반영. **MCP 원격 Status 동기화 성공** — 비교 후 **WBS2-044(pk=162)만 TODO→IN_PROGRESS**(AdminAsyncState/Confirm 적용). 034~036·038~043·037·045는 이미 일치(no-op). DoD 미충족 → DONE 아님. Evidence는 MCP 미지원 → 로컬만. 스냅샷: wiki/snapshots/devcopilot-wbs-live-2026-07-23.json.
+- 2026-07-24: 허브 매출 API-017/018/019·대시보드 API-020 응답 예시를 `SALES_API_CONTRACT` 필드(`netSales` 등)로 보강. WBS2-048~051·053~055 → **IN_PROGRESS**(코드/계약 증거). 046·047·052·DONE 처리 없음. 058~060 BLOCKED 유지.
 
 ## 화면 ID와 WBS
 

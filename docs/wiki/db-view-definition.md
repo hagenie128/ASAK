@@ -2,6 +2,8 @@
 
 > 기준일: 2026-07-24 · 실DB `asak_db` · DDL/주석 원본: [`ASAK-back/docs/view.sql`](https://github.com/nayeon0828/ASAK-backend/blob/main/docs/view.sql)  
 > DevCopilot ERD(워크스페이스 2)와 동기화. 매출 4종은 `asak-data/scripts/create_sales_views_mysql.py` 원본.
+>
+> 2026-07-24 확인: 저장소 안 로컬 스냅샷(`devcopilot-db-live-2026-07-22.json`)은 short-name 마이그레이션 이전 기록이라 오래됐지만, 실제 DevCopilot 허브(workspace 2)는 이미 short-name·`canceled_at`/`refunded_at` 전부 최신 상태로 확인됨. 로컬 스냅샷 파일만 오래된 것이고 허브 자체는 문제없음.
 
 뷰는 **읽기 전용 읽기 모델(read model)** 이다. 앱/API는 조인·집계·품절 판정을 뷰에 맡기고, 쓰기(INSERT/UPDATE)는 베이스 테이블만 사용한다.
 
