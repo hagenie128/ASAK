@@ -93,3 +93,63 @@ docs: TTS 중복 호출 정책 문서화
 - API client
 
 수정 전에 담당자와 범위를 확인한다.
+
+---
+
+## 7. 일상 워크플로 (main에 반영하기)
+
+`main`에 직접 커밋하지 않는다. **브랜치에서 작업 → push → main에 merge** 순서를 지킨다.
+
+### 7.1 작업 시작
+
+```powershell
+git checkout main
+git pull origin main
+git checkout -b docs/작업내용-요약   # 또는 feat/..., fix/...
+# 코드 수정
+git add .
+git commit -m "docs: 무엇을 왜 바꿨는지"
+git push -u origin HEAD
+```
+
+### 7.2 main에 넣기 (권장: PR)
+
+```powershell
+git checkout main
+git pull origin main
+
+git checkout docs/작업내용-요약
+git merge main          # main 최신을 작업 브랜치에 먼저 반영
+# 충돌 있으면 해결 → git add . → git commit
+git push
+
+gh pr create --base main --head docs/작업내용-요약
+# GitHub에서 Merge
+```
+
+### 7.3 PR 없이 바로 넣을 때
+
+```powershell
+git checkout docs/작업내용-요약
+git merge main
+git push
+
+git checkout main
+git pull origin main
+git merge docs/작업내용-요약
+git push origin main
+```
+
+작업 브랜치와 `main`이 갈라져 있으면, **먼저 작업 브랜치에 `main`을 merge한 뒤** `main`으로 합친다.
+
+### 7.4 자주 막히는 경우
+
+| 메시지 | 의미 | 할 일 |
+|--------|------|--------|
+| `non-fast-forward` / behind | 원격이 더 앞섬 | `git pull` 후 다시 `push` |
+| `Everything up-to-date` | 올릴 새 커밋 없음 | 보통 정상 (이미 같음) |
+| merge 충돌 | 같은 파일 양쪽 수정 | 파일 고치고 `add` → `commit` |
+
+**요약:** main 최신 받기 → 브랜치에서 작업 → push → (PR로) main에 merge → push
+
+`git push --force`는 원격 커밋을 덮어쓰므로, 단순 behind 상황에서는 쓰지 않는다.
