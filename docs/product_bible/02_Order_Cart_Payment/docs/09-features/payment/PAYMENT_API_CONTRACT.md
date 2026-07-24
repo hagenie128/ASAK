@@ -99,18 +99,17 @@ GET /api/kiosk/payment-methods
 ## 3. Admin Settings
 
 ```http
-GET /api/admin/paymentMethods
-PATCH /api/admin/paymentMethods/{paymentMethodId}
+GET /api/admin/payment-methods
+PATCH /api/admin/payment-methods/{methodId}
 ```
 
 ### Fields
 
 ```text
-status
+isEnabled
 sortOrder
-displayName
+methodName
 receiptMessage
-failureRetentionMinutes
 ```
 
 ---

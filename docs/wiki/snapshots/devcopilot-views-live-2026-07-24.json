@@ -1,0 +1,261 @@
+{
+  "date": "2026-07-24",
+  "workspace_id": 2,
+  "view_count": 21,
+  "views": {
+    "vw_menu_availability": {
+      "table_id": 134,
+      "columns": [
+        "base_ing_exhausted",
+        "base_opt_exhausted",
+        "direct_sold_out",
+        "has_blocking_standard",
+        "has_core_sold_out",
+        "has_exhausted_required_group",
+        "menu_id"
+      ],
+      "description": "[View] 메뉴 주문가능/품절 판정 플래그. CORE·BASE·DEFAULT·필수옵션그룹 규칙을 각각 계산."
+    },
+    "vw_menu_ing_detail": {
+      "table_id": 132,
+      "columns": [
+        "allergen_id",
+        "allergen_name",
+        "can_remove",
+        "ing_id",
+        "ing_name",
+        "ing_sold_out",
+        "is_default",
+        "menu_id",
+        "quantity",
+        "role_id",
+        "sort_no",
+        "unit_id"
+      ],
+      "description": "[View] 메뉴 재료 상세 + 알레르기. 알레르기 N개면 재료 행이 N줄로 늘어날 수 있음."
+    },
+    "vw_menu_ing_json": {
+      "table_id": 133,
+      "columns": [
+        "allergens",
+        "can_remove",
+        "ing_name",
+        "ing_sold_out",
+        "ingredient_id",
+        "is_default",
+        "menu_id",
+        "quantity",
+        "role",
+        "sort_no",
+        "unit"
+      ],
+      "description": "[View] 메뉴 재료당 1행. allergens JSON. 프론트 필드명 맞춤(ingredient_id, role/unit 문자 코드). 2026-07-24."
+    },
+    "vw_menu_list": {
+      "table_id": 135,
+      "columns": [
+        "base_kcal",
+        "category_id",
+        "has_sold_out_ingredient",
+        "image_url",
+        "is_orderable",
+        "is_sold_out",
+        "menu_id",
+        "name",
+        "price"
+      ],
+      "description": "[View] 메뉴 목록용. is_orderable / has_sold_out_ingredient. category_id(API categoryId). 2026-07-24."
+    },
+    "vw_menu_opt_policy_json": {
+      "table_id": 131,
+      "columns": [
+        "group_type",
+        "is_required",
+        "items",
+        "max_select",
+        "menu_id",
+        "min_select",
+        "name",
+        "option_group_id",
+        "select_type",
+        "sort_order"
+      ],
+      "description": "[View] 옵션 정책당 1행. items JSON(JSON_ARRAYAGG). 키오스크 optionGroups 필드명 맞춤(option_group_id/extraPrice/servingUnit 등). 2026-07-24."
+    },
+    "vw_menu_opt_resolved": {
+      "table_id": 130,
+      "columns": [
+        "active",
+        "add_price",
+        "is_default",
+        "max_select",
+        "menu_id",
+        "min_select",
+        "opt_item_id",
+        "opt_item_name",
+        "opt_item_sold_out",
+        "policy_id",
+        "policy_name",
+        "policy_required",
+        "recommended",
+        "sort_no"
+      ],
+      "description": "[View] 메뉴–옵션정책–옵션항목을 행 단위로 펼침. menu_opt_override가 있으면 정책 기본값보다 메뉴 오버라이드 우선(COALESCE)."
+    },
+    "vw_order_item_base_dressing": {
+      "table_id": 142,
+      "columns": [
+        "base_name",
+        "dressing_name",
+        "order_item_id"
+      ],
+      "description": "[View] 주문 라인의 BASE/DRESSING 옵션을 컬럼으로 pivot."
+    },
+    "vw_order_item_detail": {
+      "table_id": 137,
+      "columns": [
+        "menu_id",
+        "menu_name",
+        "order_id",
+        "order_item_id",
+        "order_no",
+        "price",
+        "quantity"
+      ],
+      "description": "[View] 주문 라인 기본 상세. 주문번호 + 메뉴명 + 수량/가격."
+    },
+    "vw_order_item_exclusion": {
+      "table_id": 139,
+      "columns": [
+        "ing_id",
+        "ing_name",
+        "order_item_id"
+      ],
+      "description": "[View] 주문 라인에서 제외한 재료 목록."
+    },
+    "vw_order_item_full": {
+      "table_id": 141,
+      "columns": [],
+      "description": "[View] 주문 라인 1행 + option_items/excluded_ingredients JSON. Admin/API-007 필드명 맞춤. order_item_id 없음. 2026-07-24."
+    },
+    "vw_order_item_option": {
+      "table_id": 138,
+      "columns": [
+        "opt_item_id",
+        "opt_item_name",
+        "order_item_id",
+        "price",
+        "quantity"
+      ],
+      "description": "[View] 주문 라인에 선택된 옵션(정규화 행)."
+    },
+    "vw_order_item_tag": {
+      "table_id": 143,
+      "columns": [
+        "label",
+        "order_item_id",
+        "tone"
+      ],
+      "description": "[View] BASE/DRESSING 제외 옵션 + 제외재료. tone=side|drink|plus|exclude (UI 태그)."
+    },
+    "vw_order_list_summary": {
+      "table_id": 147,
+      "columns": [],
+      "description": "[View] 주문 목록 한 줄 요약. menu_summary는 '메뉴명' 또는 '메뉴명 외 N'."
+    },
+    "vw_order_live": {
+      "table_id": 149,
+      "columns": [],
+      "description": "[View] 실시간 주문 보드. elapsed_sec=생성 후 경과 초."
+    },
+    "vw_order_status_summary": {
+      "table_id": 151,
+      "columns": [],
+      "description": "[View] 일자×주문유형×상태별 주문 건수 집계."
+    },
+    "vw_order_summary": {
+      "table_id": 144,
+      "columns": [
+        "created_at",
+        "order_id",
+        "order_no",
+        "order_type_code",
+        "order_type_name",
+        "paid_amount",
+        "paid_at",
+        "payment_id",
+        "payment_method_name",
+        "payment_status_code",
+        "payment_status_name",
+        "status_code",
+        "status_name",
+        "total_price"
+      ],
+      "description": "[View] 주문 요약. 유형/상태/결제상태/결제수단을 코드명으로 해석."
+    },
+    "vw_sales_daily": {
+      "table_id": 71,
+      "columns": [
+        "canceled_amount",
+        "canceled_order_count",
+        "customer_count",
+        "gross_sales_amount",
+        "net_sales_amount",
+        "order_count",
+        "sales_date"
+      ],
+      "description": "[View] 관리자 일별 매출. 승인/취소·환불을 반영한 일자별 집계."
+    },
+    "vw_sales_hourly": {
+      "table_id": 72,
+      "columns": [
+        "canceled_amount",
+        "canceled_order_count",
+        "customer_count",
+        "gross_sales_amount",
+        "net_sales_amount",
+        "order_count",
+        "sales_date",
+        "sales_hour"
+      ],
+      "description": "[View] 관리자 시간대별 매출. 일자/시간대별 집계."
+    },
+    "vw_soldout_catalog": {
+      "table_id": 136,
+      "columns": [
+        "category",
+        "is_sold_out",
+        "name",
+        "price",
+        "target_id",
+        "target_type"
+      ],
+      "description": "[View] 품절 관리 카탈로그. 메뉴/재료/옵션아이템 UNION (target_type=MENU|INGREDIENT|OPTION_ITEM)."
+    },
+    "vw_top_menu_daily": {
+      "table_id": 73,
+      "columns": [
+        "menu_id",
+        "menu_name",
+        "order_count",
+        "quantity",
+        "sales_amount",
+        "sales_date"
+      ],
+      "description": "[View] 일별 인기 메뉴. 승인 결제 주문 기준 수량·매출."
+    },
+    "vw_top_menu_hourly": {
+      "table_id": 74,
+      "columns": [
+        "menu_id",
+        "menu_name",
+        "order_count",
+        "quantity",
+        "sales_amount",
+        "sales_date",
+        "sales_hour"
+      ],
+      "description": "[View] 시간대별 인기 메뉴. 승인 결제 주문 기준."
+    }
+  }
+}

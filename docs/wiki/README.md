@@ -11,6 +11,7 @@
 | [user-scenarios.md](./user-scenarios.md) | wiki/10 |
 | [screen-design-figma.md](./screen-design-figma.md) | wiki/5 |
 | [db-table-definition.md](./db-table-definition.md) | wiki/11 |
+| [db-view-definition.md](./db-view-definition.md) | ERD View (2026-07-24 sync) |
 | [rest-api-spec.md](./rest-api-spec.md) | wiki/12 |
 | [wbs-schedule.md](./wbs-schedule.md) | wiki/13 |
 | [qa-test-cases.md](./qa-test-cases.md) | wiki/14 |

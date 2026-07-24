@@ -72,3 +72,8 @@ erDiagram
 **확장 5**: tag, menu_tag, menu_nutrition, option_item_component, payment_method_config
 
 상세 컬럼·제약조건은 Notion 05. DB 설계 및 DevCopilot ERD 참고.
+
+## DB 뷰 (읽기 모델)
+
+운영·API용 VIEW 목록·컬럼·품절/JSON 규칙은 **[db-view-definition.md](./db-view-definition.md)** 참고.  
+DDL/주석 원본: `ASAK-back/docs/view.sql` · DevCopilot 동기화: `asak-data/scripts/sync_devcopilot_views.py`.

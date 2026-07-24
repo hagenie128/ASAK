@@ -33,6 +33,7 @@
 > 정본: [Product Bible 허브](../product_bible/product-bible-hub.md) · API 계약: [Canonical](../governance/canonical-contract-decisions-2026-07-16.md)
 
 - [DB 테이블](db-table-definition.md)
+- [DB 뷰](db-view-definition.md) ← **메뉴/주문/품절/매출 View**
 - [DB 약어](../_archive/wiki-secondary/db-abbreviation-glossary.md)
 - [DB 감사 계획](../_archive/wiki-secondary/db-audit-plan.md)
 - [REST API 명세](rest-api-spec.md) *(legacy path 보존)*
