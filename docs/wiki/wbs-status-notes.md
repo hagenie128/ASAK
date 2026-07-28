@@ -51,7 +51,7 @@
 | 044 | 상태 UI (Async/Confirm) | Shared P1 주요 화면 적용 · State QA evidence 남음 | IN_PROGRESS |
 | 045 | 날짜·합계·내비 QA | 미실행 | TODO |
 
-**공통:** `adminMockRepository` **전 화면 1차 연동**. 7/28에는 API 모듈 명명과 계약 용어를 정렬하고 주문 상세에 기본 단가·옵션 추가금·제외 재료·메뉴 합계 표시를 보강했다. Kiosk와 Admin production build는 통과했다.
+**공통:** `adminMockRepository` **전 화면 1차 연동**. 7/28에는 API 모듈 명명과 계약 용어를 정렬하고 주문 상세에 기본 단가·옵션 추가금·제외 재료·메뉴 합계 표시를 보강했다. 후속으로 legacy `REQUEST` 옵션은 옵션 표시에서 제외하고, 제외 재료는 `item_exclusion`만 정본으로 하며 Admin 패널에는 인라인 텍스트로 표시하도록 정리했다. Kiosk와 Admin production build는 통과했다.
 **다음 묶음** = 실패 fixture · 품절↔menus sync · 실제 API 응답/환경변수 연결 확인 · 브라우저 QA evidence. Backend와의 **실연동은 API·DB·Bruno 실행 증거 전까지 BLOCKED**.
 
 ## P5~P8 (요약)
@@ -75,6 +75,7 @@
 - 2026-07-24: 허브 매출 API-017/018/019·대시보드 API-020 응답 예시를 `SALES_API_CONTRACT` 필드(`netSales` 등)로 보강. WBS2-048~051·053~055 → **IN_PROGRESS**(코드/계약 증거). 046·047·052·DONE 처리 없음. 058~060 BLOCKED 유지.
 - 2026-07-28: 독립 저장소의 `main...origin/main`과 최근 커밋을 재확인했다. Kiosk 계약 정규화, Admin API 연결 환경·주문 상세 금액 표시, Backend 관리자 주문 조회·판매 뷰·Bruno 요청의 계약 용어 정렬을 반영했다. `npm.cmd run build`(Kiosk/Admin), `gradlew.bat compileJava --no-daemon`(Backend)는 통과했다. 실DB·Bruno·브라우저 상호작용 검증은 미실행이므로 DONE 승격·P6 BLOCKED 해제는 하지 않았다.
 - 2026-07-28 (중간점검): 실제 원격 `nayeon0828/ASAK-backend`, Spring context, 외부 MySQL(기본 테이블 25·View 22·FK 39), 읽기 API 9개를 재확인했다. 조회 경로는 실제 DB `200` 근거가 생겼으나, 주문 저장·결제·상태변경/취소·품절·매출은 미완성 또는 미구현이다. 상세 위험과 다음 순서는 [Backend·DB 중간점검](backend-db-midpoint-audit-2026-07-28.md)을 따른다.
+- 2026-07-28 (후속 표시 정합): `e9543ce`에서 View 정의의 legacy `REQUEST` 옵션을 `optionItems`·옵션 표시 View에서 제외하고 제외 재료는 `item_exclusion`만 사용하도록 정리했다. `d2a900f`에서 Admin 상세 패널의 제외 재료를 인라인 텍스트로 표시했다. DB View 적용·실주문 API·브라우저 검증 전이므로 WBS 상태는 바꾸지 않았다.
 
 ## 화면 ID와 WBS
 
