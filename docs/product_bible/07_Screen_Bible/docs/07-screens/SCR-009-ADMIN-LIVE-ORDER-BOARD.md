@@ -11,7 +11,7 @@
 
 ## 2. Figma Reference
 
-Default 39:7345 / Loading 39:8191 / Empty 39:8193 / Error 39:8195
+0718 정본 — Default `134:10607` / Loading `134:11447` / Empty `134:11452` / Error `134:11468`
 
 ## 3. Main Data
 

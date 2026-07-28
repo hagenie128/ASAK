@@ -13,8 +13,9 @@
 | 2 | [baseline 요약](wiki/current-status-baseline.md) | **영역별 요약** — Kiosk/Admin/Backend 한눈에 |
 | 3 | [WBS 상태 메모](wiki/wbs-status-notes.md) | 코드↔WBS 요약 · DevCopilot 한글 제목 |
 | 4 | [문서–코드 Gap](architecture/document-code-gap-report-2026-07-16.md) | Canonical vs 코드 충돌 |
+| 5 | [Backend·DB 중간점검](wiki/backend-db-midpoint-audit-2026-07-28.md) | 실제 원격·Spring context·실DB·읽기 API 점검 결과 |
 
-**한 줄 요약:** Kiosk Home→Cart는 mock 동작 · Admin은 **전 화면 mock 1차 연결**(1차 ≠ DONE) · Backend는 health만 (business API BLOCKED).
+**한 줄 요약:** Kiosk Home→Cart는 mock 동작 · Admin은 **전 화면 mock 1차 연결**(1차 ≠ DONE) · Backend는 실제 원격 `nayeon0828/ASAK-backend`에서 주문 조회·판매 뷰·계약을 정렬했으며, 실API·DB·Bruno 검증은 남아 있습니다.
 
 **그림으로 보기:** [전체 흐름도 (Mermaid)](wiki/project-flow.md) — 저장소 구조·키오스크 주문 흐름·관리자 운영 흐름·데이터/API 목표 흐름·가격·수량 흐름·이번 스프린트 WBS 흐름을 그림 6개로 정리.
 
@@ -39,7 +40,7 @@
 |---|---|---|
 | 6 | [Kiosk 구조](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) | P3 · WBS2-017~032 |
 | 7 | [Admin 구조](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [Mock 사전](../../ASAK-Admin/public/mocks/README.md) | P4 · WBS2-033~045 · (`IMPLEMENTATION_PLAN` 삭제됨) |
-| 8 | [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md) | P5 · health only · WBS2-046~056 |
+| 8 | [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md) | P5 · 실제 원격 `nayeon0828/ASAK-backend` · WBS2-046~056 |
 | 9 | [앱 구현 허브](planning/app-implementation-hub.md) | Bible / guide / PLAN 역할 표 |
 
 워크스페이스에서 UI 찾을 때: 루트 [`ui-index.md`](../../ui-index.md).

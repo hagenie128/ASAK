@@ -1,6 +1,6 @@
 # ASAK Current Status Baseline
 
-> 기준일: **2026-07-23** · 소스 코드(실제 구현)를 재감사했습니다.  
+> 기준일: **2026-07-28** · 독립 저장소의 실제 원격과 최근 소스 변경을 재확인했습니다.
 > **화면별 상세:** [구현 맵](../planning/current-implementation-map-2026-07-16.md) ← SCR 상태표  
 > 문서 입구: [START_HERE](../START_HERE.md) · WBS: [wbs-v2](wbs-v2-2026-07-16.md) · [상태 메모](wbs-status-notes.md)  
 > 이 문서는 **요약 baseline**이며 **완료(DONE) 주장이 아닙니다.**  
@@ -13,8 +13,8 @@
 | Figma foundation/shared/component structure | 0718 파일 기준 UI 이식; design QA는 별도 트랙 | DESIGN_DONE only |
 | Kiosk | 라우트 10개 연결. Home→메뉴→상세→장바구니까지 mock 동작. 가격(`priceCalculation`)·수량한도(`quantityLimits` 9/30) 적용. 결제/완료/타임아웃은 UI shell만 | **IN_PROGRESS** |
 | Admin | Figma 라우트 + **전 화면 Page↔mock 1차 바인딩** (Live·주문·품절·메뉴·결제·매출 3·대시보드). Shared `AdminAsyncState`/`AdminConfirmDialog` P1. 셸 1920×1080+scale. **실 business API·실패 fixture·P2 polish·QA evidence 미완** | **IN_PROGRESS** (mock 1차 연결) |
-| Backend | Spring Boot skeleton + `GET /api/health`만 | business API **BLOCKED** / TODO |
-| DB | DevCopilot model 26 tables·4 views; backend schema/entity/repository 없음 | **TODO** |
+| Backend | 실제 원격 `nayeon0828/ASAK-backend`에서 Kiosk 메뉴/카테고리 조회·장바구니 검증, Admin 메뉴·주문 목록/상세/활성 주문 조회의 Controller→Service→MyBatis 경로 확인. 주문 저장·결제·상태변경/취소·품절·매출은 미완성 또는 미구현 | **IN_PROGRESS** |
+| DB | 외부 MySQL에 기본 테이블 25개·View 22개·FK 39개와 메뉴/주문/결제 데이터 존재. Mapper 기반 조회가 실제 DB를 읽음 | **IN_PROGRESS** — 변경 API·view 성능·timezone·재현 절차 검증 남음 |
 | QA | 테스트 케이스 16건, 실행 evidence 없음 | **TODO** |
 
 ## 저장소 baseline
@@ -24,7 +24,19 @@
 | `ASAK` | `hagenie128/ASAK` | 정본 docs/data/Product Bible | 현재 정본 문서 소스 |
 | `ASAK-Kiosk` | `hagenie128/ASAK-front` | 고객 React 앱 | BLOCKED — 로컬 remote와 목표 `ASAK-Kiosk` 불일치; 자동 변경 금지 |
 | `ASAK-Admin` | `hagenie128/ASAK_Admin` | 관리자 React 앱 | 현재 정본 admin 구현 대상 · 작업 브랜치 `feature/admin-mock-figma-parity` (main 미머지) |
-| `ASAK-back` | `hagenie128/ASAK-back` | Spring Boot API | Skeleton only |
+| `ASAK-back` | `nayeon0828/ASAK-backend` | Spring Boot API | 로컬 폴더명은 유지 · API/DB 통합 검증 전 **IN_PROGRESS** |
+
+## Backend 코드 baseline (2026-07-28)
+
+| 구분 | 코드상 확인된 범위 | 검증/제한 |
+|---|---|---|
+| Kiosk 조회 | `GET /api/kiosk/categories`, `/menuList`, `/menuDetail/{menuId}` → `UserMenuController`·`UserMenuService`·`UserMenuMapper` | MyBatis SQL은 존재하나 실DB 응답 미검증 |
+| Kiosk 장바구니 | `POST /api/kiosk/cart/validate` → 메뉴 존재·품절·옵션·제외 재료를 조회하고 서버에서 `totalAmount` 재계산 | Bruno/실DB 미검증 |
+| Kiosk 주문·결제 | `POST /api/kiosk/orders` mapping은 있으나 `createOrder()`가 검증 뒤 `null` 반환. `UserPayController`는 mapping 없음 | **미완성** — 저장·결제 성공 응답으로 사용 금지 |
+| Admin 조회 | `GET /api/admin/menus`, `/{menuId}`, `/api/admin/orders`, `/{orderId}`, `/active` → Service·Mapper XML 조회 경로 존재 | 목록·상세·빈 결과·필터의 실API/DB 검증 미실행 |
+| Admin 변경/통계 | 주문 상태 변경·취소, 품절, 결제수단, 매출/대시보드 Controller mapping 없음. `AdminStatsController`는 빈 클래스 | **미구현** |
+| DB 읽기 모델 | `docs/view.sql`에 메뉴·주문·실시간 주문·판매 집계 뷰 정의 | 실제 DB 적용/합계 대조 미검증 |
+| 컴파일 | `gradlew.bat compileJava --no-daemon` | **2026-07-28 BUILD SUCCESSFUL**; Spring context/Mapper XML/DB 연결 검증은 별도 |
 
 ## 코드 기준 프론트 진척 (2026-07-23)
 
@@ -74,7 +86,7 @@
 
 | 항목 | 상태 |
 |---|---|
-| Backend business API | **BLOCKED** — 저장/환불 등은 stub |
+| Backend business API | 조회·장바구니 검증은 코드 경로 존재, 저장·결제·상태변경/취소·품절·매출은 미완성 또는 미구현 |
 | Admin↔Kiosk 결제수단 개수 | Admin **4** vs Kiosk **8** 가능 → 계약 재확인 |
 | 품절 저장 stub | `menus.isSoldOut` 미동기화 |
 | P2 polish | 결제 정책 화면 · Login Unauthorized · 메뉴 이미지 폴백 등 |

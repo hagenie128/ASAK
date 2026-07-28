@@ -32,7 +32,7 @@ c:\ASAK-back     -> ASAK-back
 |---|---|---|
 | `c:\ASAK` | [ASAK](https://github.com/hagenie128/ASAK) | 통합 문서, 파이프라인, 팀 가이드 |
 | `c:\ASAK-front` | [ASAK-front](https://github.com/hagenie128/ASAK-front) | 프론트 실제 개발 |
-| `c:\ASAK-back` | [ASAK-back](https://github.com/hagenie128/ASAK-back) | 백엔드 실제 개발 |
+| `c:\ASAK-back` | [ASAK-backend](https://github.com/nayeon0828/ASAK-backend) | 백엔드 실제 개발 (로컬 폴더명 `ASAK-back`) |
 
 각 저장소는 `main`, `develop` 브랜치가 있으며, 기능 작업은 `feature/...`, 버그 수정은 `fix/...` 브랜치를 사용합니다.
 
@@ -71,7 +71,7 @@ PowerShell에서:
 ```powershell
 git clone https://github.com/hagenie128/ASAK.git c:\ASAK
 git clone https://github.com/hagenie128/ASAK-front.git c:\ASAK-front
-git clone https://github.com/hagenie128/ASAK-back.git c:\ASAK-back
+git clone https://github.com/nayeon0828/ASAK-backend.git c:\ASAK-back
 ```
 
 ## 4. 필수 프로그램

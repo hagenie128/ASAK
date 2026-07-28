@@ -11,7 +11,7 @@
 
 ## 2. Figma Reference
 
-Default 39:8851 / Detail Add 39:9082 / Detail Edit 39:9576
+0718 정본 — Default `134:12137` / Detail Add `134:12328` / Detail Edit `134:12668` / Saving `241:17178` / Error `241:17719`
 
 ## 3. Main Data
 

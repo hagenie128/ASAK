@@ -1,6 +1,6 @@
 # 앱 구현 문서 허브
 
-> Status: **Current** (2026-07-20)  
+> Status: **Current** (2026-07-28)
 > Product Bible(정책) · implementation_guide(작업 카드) · 저장소 PLAN(진행) 역할을 한 표로 정리합니다.
 
 ## 어디를 보나
@@ -22,7 +22,7 @@
 | `product_bible/12_Frontend_Implementation/` | 프론트 **라우트·상태·통합** 정책 |
 | `ASAK-Kiosk/IMPLEMENTATION_PLAN.md` | 키오스크 **이번 스프린트** 진행·WBS2 매핑 |
 | `ASAK-Admin/IMPLEMENTATION_PLAN.md` | 관리자 **이번 스프린트** 진행 |
-| `ASAK-back/IMPLEMENTATION_PLAN.md` | 백엔드 **이번 스프린트** (health only) |
+| `ASAK-back/IMPLEMENTATION_PLAN.md` | 실제 원격 `nayeon0828/ASAK-backend`의 백엔드 **이번 스프린트** — 조회/장바구니 검증 경로 존재, 저장·결제·변경 API는 미완성 |
 
 본문을 합치지 않습니다. Pack은 목표, PLAN은 저장소 실행 맥락입니다.
 

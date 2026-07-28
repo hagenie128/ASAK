@@ -348,7 +348,7 @@ PowerShell에서 **한 줄씩** Enter:
 ```powershell
 git clone https://github.com/hagenie128/ASAK.git C:\ASAK
 git clone https://github.com/hagenie128/ASAK-front.git C:\ASAK-front
-git clone https://github.com/hagenie128/ASAK-back.git C:\ASAK-back
+git clone https://github.com/nayeon0828/ASAK-backend.git C:\ASAK-back
 ```
 
 **✅ 성공 확인:**

@@ -7,7 +7,8 @@
 
 | 사실 | 구현할 때의 처리 |
 | --- | --- |
-| Backend는 `GET /api/health`만 구현됨 | 아래 계약을 실제로 호출 가능한 API로 착각하지 않는다. mock/미구현 표시를 유지한다. |
+| Backend 실제 원격은 `nayeon0828/ASAK-backend`이며, Kiosk 메뉴/카테고리 조회·장바구니 검증과 Admin 메뉴/주문 조회는 코드 경로가 있다 | 각 endpoint는 Controller→Service→MyBatis Mapper까지 존재하지만, 실DB·Bruno 응답은 별도 검증 전이다. |
+| 주문 생성은 validation 뒤 `null`을 반환하고, 결제·상태변경/취소·품절·결제수단·매출/대시보드 mapping은 없다 | Front는 이를 완료 API로 연결하지 않는다. 저장·응답 DTO·오류 응답·Bruno 검증까지 같은 세로 슬라이스에서 끝낸다. |
 | API 계약은 `SPEC_ONLY`/Draft가 포함됨 | Backend 구현 시 원본 계약을 확정하고 Front adapter를 연결한다. |
 | 기존 frontend mock 필드가 다름 | 기존 store를 한꺼번에 바꾸지 않고 API 경계에서 변환한다. |
 

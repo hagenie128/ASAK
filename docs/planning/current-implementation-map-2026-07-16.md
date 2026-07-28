@@ -91,9 +91,15 @@
 
 | 계층 | 상태 |
 |---|---|
+| 실제 원격 | `nayeon0828/ASAK-backend` (로컬 폴더명 `ASAK-back`) |
 | `GET /api/health` | `IMPLEMENTED` |
-| 도메인 Controller/Service/Entity | `MISSING` |
-| JPA / migration | `MISSING` |
+| Kiosk 조회 | `GET /api/kiosk/categories`, `/menuList`, `/menuDetail/{menuId}` → Controller·Service·MyBatis Mapper `IMPLEMENTED` (실DB 미검증) |
+| Kiosk 장바구니 검증 | `POST /api/kiosk/cart/validate` → 메뉴/품절/옵션/제외 재료 검증, `totalAmount` 재계산 `IMPLEMENTED` (Bruno·실DB 미검증) |
+| Kiosk 주문·결제 | `POST /api/kiosk/orders`는 검증 뒤 `null` 반환, 결제 Controller mapping 없음 → `PARTIAL` / `MISSING` |
+| Admin 조회 | 메뉴 목록·상세, 주문 목록·상세·활성 주문의 Controller·Service·MyBatis Mapper `IMPLEMENTED` (실API·DB 미검증) |
+| Admin 변경·통계 | 주문 상태 변경/취소, 품절, 결제수단, 매출/대시보드 `MISSING`; `AdminStatsController` 빈 클래스 |
+| DB views | `docs/view.sql`에 메뉴·주문·실시간 주문·판매 집계 view 정의, 실제 DB 적용은 `UNVERIFIED` |
+| JPA / migration | JPA dependency는 있으나 migration 기반 운영은 `MISSING` |
 | 프론트 실연동 | `BLOCKED` (WBS2-058~060) |
 
 ---
@@ -115,7 +121,7 @@
 1. Kiosk: 결제 mock 연결 · 한도 toast · 타임아웃 (WBS2-024, 026~030) · **결제수단 개수(8 vs Admin 4) 계약 재확인**  
 2. Admin: 실패 fixture · 품절↔`menus.isSoldOut` 동기화 · 주문 필터 고도화 · Live 페이징 · P2 polish · State/QA evidence (`WBS2-044~045`)  
 3. Canonical path/상수 정렬 (DECIDED_PENDING)  
-4. Backend P5 세로 슬라이스 (WBS2-046+) — **실연동 BLOCKED**
+4. Backend P5: 조회 경로는 실DB·Bruno 검증, 주문 저장·결제·상태변경/취소·품절·매출은 기능별 세로 슬라이스 완성 후 **실연동 BLOCKED** 해제 검토
 
 ### Admin 실행 순서 메모 (2026-07-21 ~ 2026-07-23 진척 반영)
 

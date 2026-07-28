@@ -38,7 +38,7 @@
 |------------------|--------|---------|
 | `c:\ASAK` | [ASAK](https://github.com/hagenie128/ASAK) | 문서, 데이터 파이프라인, 팀 가이드 |
 | `c:\ASAK-front` | [ASAK-front](https://github.com/hagenie128/ASAK-front) | **실제** 키오스크 화면 (React) |
-| `c:\ASAK-back` | [ASAK-back](https://github.com/hagenie128/ASAK-back) | **실제** API 서버 (Spring Boot) |
+| `c:\ASAK-back` | [ASAK-backend](https://github.com/nayeon0828/ASAK-backend) | **실제** API 서버 (Spring Boot, 로컬 폴더명 `ASAK-back`) |
 
 `ASAK` 통합 저장소 안의 `frontend/`, `backend/` 폴더는 **구조 참고용**에 가깝습니다.  
 실제 키오스크 개발은 `ASAK-front`와 `ASAK-back`에서 합니다.
@@ -159,7 +159,7 @@ PowerShell을 열고:
 ```powershell
 git clone https://github.com/hagenie128/ASAK.git c:\ASAK
 git clone https://github.com/hagenie128/ASAK-front.git c:\ASAK-front
-git clone https://github.com/hagenie128/ASAK-back.git c:\ASAK-back
+git clone https://github.com/nayeon0828/ASAK-backend.git c:\ASAK-back
 ```
 
 **성공 확인:** 각 폴더에 `.git` 폴더가 있고, `git status` 가 에러 없이 나옵니다.

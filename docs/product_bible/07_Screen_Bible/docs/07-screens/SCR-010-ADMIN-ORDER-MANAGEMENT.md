@@ -11,7 +11,7 @@
 
 ## 2. Figma Reference
 
-Figma node 39:7363
+0718 정본 — Default `134:10630` / Loading `235:15447` / Empty `235:15866` / Error `235:16269`
 
 ## 3. Main Data
 

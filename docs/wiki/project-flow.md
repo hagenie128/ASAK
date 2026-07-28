@@ -39,13 +39,13 @@ flowchart TB
 
     KIOSK_DOC -. 연결됨 .-> KIOSK_CODE["✅ Home→Menu→Detail→Cart<br/>mock 동작"]
     ADMIN_DOC -. 연결됨 .-> ADMIN_CODE["⚠️ Figma 정적 UI<br/>mock repository 준비"]
-    BACK_DOC -. 연결됨 .-> BACK_CODE["✅ GET /api/health만<br/>❌ 업무 API 없음"]
+    BACK_DOC -. 연결됨 .-> BACK_CODE["✅ 조회 API·실DB 연결 확인<br/>⚠️ 저장/결제/변경·통계 API 미완성"]
 ```
 
 **어디서 뭘 하나?**
 - `ASAK` (문서 저장소): 기획, WBS, Canonical 계약, Product Bible을 관리합니다. 앱 코드는 없습니다.
 - `ASAK-Kiosk` / `ASAK-Admin`: 실제 화면 코드(React)가 있는 곳입니다.
-- `ASAK-back`: Spring Boot 서버 코드가 있는 곳인데, 지금은 헬스체크(`/api/health`)만 동작합니다.
+- `ASAK-back`: 로컬 폴더명은 유지하지만 실제 원격은 `nayeon0828/ASAK-backend`입니다. Kiosk 메뉴/카테고리 조회·장바구니 검증, Admin 메뉴·주문 조회 경로가 있고, 주문 저장·결제·상태변경/취소·품절·매출은 아직 미완성 또는 미구현입니다.
 
 관련 문서: [Kiosk 구조 가이드](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [Kiosk 구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) · [Admin 구조 가이드](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [Admin Mock 사전](../../ASAK-Admin/public/mocks/README.md) · [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md)  
 > Admin 루트 `IMPLEMENTATION_PLAN.md`는 **삭제됨** — 구조 지도·Mock 사전·중앙 WBS/맵을 본다.
@@ -151,9 +151,9 @@ flowchart LR
         A1 --> A2 --> A3
     end
 
-    subgraph B["ASAK-back (Spring Boot)"]
-        B1["✅ GET /api/health<br/>HealthController.java"]
-        B2["❌ 메뉴/주문/결제/품절/매출 API<br/>Controller·Service·Repository 없음"]
+    subgraph B["ASAK-backend (Spring Boot, local: ASAK-back)"]
+        B1["✅ Health · Kiosk 메뉴/카테고리 조회<br/>cart validate · Admin 메뉴/주문 조회"]
+        B2["⚠️ 주문 저장은 미완성<br/>결제·상태변경/취소·품절·매출 API 없음"]
     end
 
     subgraph DB["DB"]
@@ -172,7 +172,7 @@ flowchart LR
 **꼭 알아야 할 충돌 (Canonical vs 코드)**
 - API 경로: 문서(Canonical)는 `/api/kiosk/menuList`처럼 앞에 `kiosk`/`admin`을 붙이지만, 코드 상수는 아직 `/api/menus`처럼 짧은 legacy 경로입니다.
 - 금액 필드: 문서는 `totalAmount`, `approvedAmount`를 쓰지만, 지금 `orderSessionStore`는 `totalPrice` 같은 이름을 씁니다. 나중에 adapter에서 이름만 맞출 계획입니다.
-- 백엔드: 위 API들은 전부 **목표**이고, 지금 실제로 동작하는 건 `GET /api/health` 하나뿐입니다.
+- 백엔드: 메뉴·카테고리·관리자 조회와 장바구니 검증은 코드 경로가 있으나, 실DB·Bruno 실행은 아직 확인하지 않았습니다. 주문 저장은 미완성이고 결제·상태변경/취소·품절·매출은 목표 API입니다.
 
 자세한 표: [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md) · [Canonical Contract Decisions](../governance/canonical-contract-decisions-2026-07-16.md) · [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md)
 

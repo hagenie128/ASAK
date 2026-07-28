@@ -19,7 +19,7 @@
 | `ASAK` → `hagenie128/ASAK` | docs, Product Bible, asak-data, worklog |
 | `ASAK-Kiosk` → `hagenie128/ASAK-Kiosk` (로컬 remote가 `ASAK-front`일 수 있음) | 고객 키오스크 React |
 | `ASAK-Admin` → `hagenie128/ASAK_Admin` | 관리자 React **정본** |
-| `ASAK-back` → `hagenie128/ASAK-back` | Spring Boot (현재 health only) |
+| `ASAK-back` → `nayeon0828/ASAK-backend` | Spring Boot API (로컬 폴더명은 `ASAK-back`) |
 
 > `frontend/` · `ASAK-front` 단독 클론 안내는 **Legacy**. 신규 작업은 위 표만 따르세요.
 
