@@ -71,6 +71,8 @@ foreach ($target in $targets) {
 
 Codex는 각자 `%USERPROFILE%\.codex\skills\`에 같은 세 폴더를 복사한다. 복사 후 도구를 재시작하고 `/asak-signoff`, `/asak-git-publish`, `/asak-study`가 보이는지 확인한다. 도구별 이름 규칙 차이 때문에 팀 공통 슬래시 호출은 영문 이름을 사용하며, 자연어로 `퇴근 정리`, `깃반영`, `공부`라고 요청해도 된다.
 
+`/asak-git-publish`로 만드는 브랜치는 AI 도구 이름을 드러내는 `agent/` 접두어를 쓰지 않는다. `feat/`, `fix/`, `docs/`, `chore/` 중 작업 성격에 맞는 접두어를 사용한다.
+
 ## 4. 코드 그래프 설치
 
 ### 4-1. 패키지 설치

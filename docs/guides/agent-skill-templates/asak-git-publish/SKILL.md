@@ -9,6 +9,8 @@ ASAK의 독립 저장소별 변경을 안전하게 원격 main까지 반영한�
 
 `/asak-git-publish` 호출만으로 원격 상태를 바꾸지 않는다. 대상 저장소, 포함 파일/전체 작업 트리 허용 여부, 브랜치 이름, 한글 커밋 제목, 푸시·main 병합·로컬/원격 브랜치 삭제 여부를 확인해 승인된 단계만 수행한다.
 
+브랜치 이름에는 `agent/` 접두어를 사용하지 않는다. 작업 성격에 따라 `feat/`, `fix/`, `docs/`, `chore/` 중 하나를 쓰고, 뒤에는 소문자와 하이픈으로 작업 내용을 적는다. 예: `fix/kiosk-category-mock-contract`.
+
 1. `AGENTS.md`, `git status --short --branch`, 현재 브랜치·추적 원격·`origin/main`·최근 커밋·원격 URL을 확인한다.
 2. 승인된 파일만 `git diff`, `git diff --check`로 검토하고, 관련 없는 변경은 stage하지 않는다. 프로젝트에 맞는 빌드/테스트 결과도 확인한다.
 3. 브랜치 생성은 승인됐을 때만 한다. stage 결과를 재확인하고 실제 변경을 설명하는 한글 제목으로 승인 파일만 commit한다.
