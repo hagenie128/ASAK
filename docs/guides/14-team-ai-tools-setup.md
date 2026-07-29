@@ -73,6 +73,8 @@ Codex는 각자 `%USERPROFILE%\.codex\skills\`에 같은 세 폴더를 복사한
 
 `/asak-git-publish`로 만드는 브랜치는 AI 도구 이름을 드러내는 `agent/` 접두어를 쓰지 않는다. `feat/`, `fix/`, `docs/`, `chore/` 중 작업 성격에 맞는 접두어를 사용한다.
 
+`/asak-study`는 학습이 끝나면 대상 저장소의 `docs/ai-reports/YYYY-MM-DD/`에 학습 결과 Markdown을 남긴다. 이 파일은 작업 근거를 보존하는 문서이며, 생성만으로 자동 commit·push하지 않는다.
+
 ## 4. 코드 그래프 설치
 
 ### 4-1. 패키지 설치
