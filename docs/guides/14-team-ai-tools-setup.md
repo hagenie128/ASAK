@@ -45,6 +45,32 @@ npx.cmd skills@latest add mattpocock/skills --global --agent codex claude-code c
 >
 > `grill-with-docs` / `domain-modeling`은 기본값이 `CONTEXT.md`·ADR 파일 작성이라, ASAK에서는 요청에 `코드·문서 파일은 수정하거나 만들지 마`를 붙인다.
 
+## 3-1. ASAK 공용 스킬 설치
+
+`asak-signoff`(퇴근 기록), `asak-git-publish`(승인된 Git 반영), `asak-study`(구현 코드 복습)의 원본은 `docs/guides/agent-skill-templates/`다. 팀 규칙이므로 복사 전 내용을 읽고, 개인 API 키·MCP 설정·절대경로는 추가하지 않는다.
+
+| 도구 | 프로젝트별 설치 경로 |
+|---|---|
+| Claude Code | `.claude/skills/` |
+| Cursor | `.cursor/skills/` (탐색 문제 시 우선 사용) |
+| Antigravity | `.agents/skills/` |
+| Codex | 사용자 전역 `%USERPROFILE%\.codex\skills\` |
+
+Claude Code·Cursor·Antigravity는 프로젝트 루트에서 필요한 폴더를 복사한다.
+
+```powershell
+$source = 'docs\guides\agent-skill-templates'
+$targets = '.claude\skills', '.cursor\skills', '.agents\skills'
+New-Item -ItemType Directory -Force -Path $targets
+foreach ($target in $targets) {
+  Copy-Item "$source\asak-signoff" $target -Recurse -Force
+  Copy-Item "$source\asak-git-publish" $target -Recurse -Force
+  Copy-Item "$source\asak-study" $target -Recurse -Force
+}
+```
+
+Codex는 각자 `%USERPROFILE%\.codex\skills\`에 같은 세 폴더를 복사한다. 복사 후 도구를 재시작하고 `/asak-signoff`, `/asak-git-publish`, `/asak-study`가 보이는지 확인한다. 도구별 이름 규칙 차이 때문에 팀 공통 슬래시 호출은 영문 이름을 사용하며, 자연어로 `퇴근 정리`, `깃반영`, `공부`라고 요청해도 된다.
+
 ## 4. 코드 그래프 설치
 
 ### 4-1. 패키지 설치

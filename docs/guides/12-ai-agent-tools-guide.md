@@ -74,6 +74,7 @@
 | 테스트·QA | `asak-test-plan` | `Default·Loading·Empty·Error 테스트 항목만 작성해줘.` |
 | 설명·학습 | `asak-explain` | `이 코드의 데이터 흐름을 초보자용으로 설명해줘.` |
 | 오늘 작업·이어가기 | `asak-today`, `asak-continue`, `handoff` | `오늘 확인한 것과 다음 파일을 채팅에만 정리해줘.` |
+| 작업 마감·Git 반영·복습 | `asak-signoff`, `asak-git-publish`, `asak-study` | `퇴근 기록 정리`, `승인 범위만 깃반영`, `구현 코드 복습` |
 
 ## 6. 바로 쓰는 프롬프트
 

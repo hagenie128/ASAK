@@ -11,7 +11,7 @@
 - 작업 일자: 2026-07-28
 - 담당자: 이하진
 - 저장소: ASAK-Admin / ASAK-back
-- 반영 이력: `aecf6f8`(API 모듈 명명 통일), `96352d9`(주문 상세 금액 내역), `05d6351`(주문 조회·판매 뷰 정비), `c5538f9`(Bruno 계약 용어 정렬)
+- 반영 이력: `aecf6f8`(API 모듈 명명 통일), `96352d9`(주문 상세 금액 내역), `05d6351`(주문 조회·판매 뷰 정비), `c5538f9`(Bruno 계약 용어 정렬), `d2a900f`(제외 재료 인라인 표시), `e9543ce`(legacy REQUEST 옵션 제외)
 - 관련 화면/계약: SCR-010, API-007 `GET /api/admin/orders`, `GET /api/admin/orders/{orderId}`, `GET /api/admin/orders/active`
 - 작업 유형: `feature` / `refactor` / `docs`
 - 완료 판정: 정적 검사와 Java 컴파일은 완료. Spring 기동, Bruno, 실제 DB·브라우저 통합 검증은 미완료이므로 기능 전체 완료로 판정하지 않는다.
@@ -39,13 +39,13 @@
 - `src/api/`의 `admin.js`, `client.js`, `menus.js`, `orders.js`, `paymentMethods.js`, `sales.js`, `soldOut.js`를 각각 `*Api.js` 이름으로 변경하고, `useOrdersQuery.js`와 `OrderManagementPreview.jsx`의 import를 갱신했다. 경로는 `ordersApi.listOrders`, `ordersApi.getOrder`, `ordersApi.listActiveOrders`로 유지했다.
 - `OrderDetailPanel.jsx`에 `getPositiveQuantity`, `getOptionLineAmount`, `getItemTotalAmount`를 추가했다. 수량이 숫자가 아니거나 0 이하이면 표시/계산상 1개로 보정한다.
 - 옵션 행은 `option.price × item.quantity × option.quantity`로 계산하고, 메뉴 합계는 `item.unitPrice × item.quantity + 옵션 행 합계`로 계산한다. 취소/환불 상태에서는 기존 `formatItemPrice`의 음수 표시 규칙을 그대로 사용한다.
-- 옵션과 제외 재료를 단일 문자열로 합치지 않고 별도 섹션으로 렌더링했다. 각 항목이 없으면 해당 섹션에 `없음`을 표시한다. CSS에는 행 정렬, 메뉴 합계 구분선, 긴 이름 대응을 위한 flex/min-width 규칙을 추가했다.
+- 옵션과 제외 재료를 별도 섹션으로 렌더링한다. 옵션은 이름·수량·추가금을 행 단위로 유지하고, 제외 재료는 이름을 쉼표로 연결한 한 줄 텍스트로 표시한다. 각 항목이 없으면 해당 섹션에 `없음`을 표시한다. CSS에는 행 정렬, 메뉴 합계 구분선, 긴 이름 대응을 위한 flex/min-width 규칙을 추가했다.
 
 ### ASAK-back
 
 - `/api/admin/orders/active`의 Controller·Service·Mapper 반환 타입을 `LiveOrderListResponse`에서 `OrderListResponse`로 통일했다. 현재 응답 행은 `orderId`, `orderNo`, `orderType`, `orderStatus`, `paymentStatus`, `totalAmount`, `createdAt`, `itemCount`, `menuSummary`를 가진다.
 - 주문 목록 행 조회는 `vw_order_list_summary`를 유지하고, 개수 집계는 `orders`·`payment`·`common_code` 및 메뉴명 검색용 `order_item`·`menu` 조건을 사용하도록 바꿨다. 필터는 주문 상태, 결제 상태, 주문 유형, 날짜 범위, 주문번호/메뉴명 키워드다.
-- `docs/view.sql`에 주문 옵션·제외 재료와 일/시간별 판매·상위 메뉴 집계 뷰 정의를 반영했다. 이 문서 변경만으로 DB에 뷰가 적용됐다는 뜻은 아니다.
+- `docs/view.sql`에 주문 옵션·제외 재료와 일/시간별 판매·상위 메뉴 집계 뷰 정의를 반영했다. 후속으로 legacy `REQUEST` 옵션 그룹은 `optionItems`와 옵션 표시 View에서 제외하고, 제외 재료는 `item_exclusion`만 정본으로 사용하게 했다. 이 문서 변경만으로 DB에 뷰가 적용됐다는 뜻은 아니다.
 
 ## 5. 구현 로직 / 적용한 방식
 
@@ -55,6 +55,8 @@
 2. 백엔드 `GET /api/admin/orders/{orderId}`는 `OrderDetailResponse`를 반환하고, 없으면 `ORDER_NOT_FOUND`를 반환하도록 되어 있다.
 3. 상세 응답의 `items[]` 각 행은 `menuName`, `quantity`, `unitPrice`, `optionItems`, `excludedIngredients`를 가진다.
 4. 패널은 기본 단가를 먼저 표시한 뒤 옵션·제외 목록과 메뉴 합계를 렌더링하고, 주문 전체 금액은 서버의 `totalAmount`를 별도로 표시한다.
+
+`REQUEST`는 과거 “빼기” 요청을 옵션으로 저장한 legacy 그룹이다. 현재 상세 계약에서는 유료/선택 옵션만 `optionItems`로 보여 주고, 실제 제외 재료는 `item_exclusion`에서 만든 `excludedIngredients`만 사용한다. 그래서 같은 제외 내용이 옵션과 제외 섹션에 중복 노출되지 않는다.
 
 서버 전체 금액을 클라이언트에서 다시 합산한 메뉴 합계로 대체하지 않은 이유는 결제 확정 금액의 정본을 임의로 바꾸지 않기 위해서다. 화면 계산값은 항목별 설명용이며, 서버 `totalAmount`와 불일치할 때는 데이터 계약 또는 표시 정책을 별도로 확인해야 한다.
 
@@ -99,6 +101,12 @@
 - 영향: SCR-009 프론트가 기대하는 카드 데이터와 API가 맞지 않을 수 있다.
 - 필요한 해결: Live 보드용 DTO/API를 유지할지, 목록 DTO에 adapter를 둘지 팀 기준을 확정하고 Bruno·브라우저로 확인한다.
 
+### 이슈 5 — View 정의와 실제 DB 적용의 차이
+
+- 변경: `e9543ce`는 `docs/view.sql`의 `REQUEST` 필터를 보강했고, `d2a900f`는 Admin 상세 패널의 제외 재료 표시를 인라인으로 바꿨다.
+- 확인된 범위: 두 커밋의 변경 파일과 원격 Admin 브랜치 반영은 확인했다.
+- 남은 확인: 외부 MySQL에 해당 View 정의가 적용됐는지, `REQUEST`와 `item_exclusion`이 함께 있는 실제 주문에서 옵션/제외가 한 번씩만 보이는지, 쉼표로 연결된 긴 제외 재료가 브라우저에서 읽기 좋은지 확인해야 한다.
+
 ## 8. 디버깅 기록
 
 - 확인한 결과: `gh auth status`에서 GitHub CLI 토큰 만료 상태를 확인했다. GitHub CLI 인증은 HTTPS Git push 인증과 별도라서 Git 원격 push 자체는 가능했다.
@@ -124,10 +132,12 @@
 | Git 형식 | 기능별 staged diff check 및 main 동기화 확인 | 기록상 통과 | PR 리뷰/CI |
 | Back compile | `gradlew.bat -p C:\ASAK-workspace\ASAK-back compileJava --no-daemon` | `BUILD SUCCESSFUL` | Mapper XML 파싱, Spring context, DB 쿼리 |
 | API/DB | 코드·DTO·SQL 변경 파일 대조 | 요청 경로와 필드 변경을 확인 | Bruno, 실DB 정상/빈/필터/오류 응답 |
+| 제외 재료 중복 방지 | `d2a900f`, `e9543ce` 변경 파일 및 원격 Admin 브랜치 대조 | legacy `REQUEST`는 옵션에서 제외하고 제외 재료는 인라인 표시하도록 반영 | 실제 DB View 적용, REQUEST+제외 재료 주문의 API/브라우저 확인 |
 
 ## 11. 다음 작업 / 검증 체크리스트
 
 - [ ] 실제 주문 4종(옵션 없음, 옵션 0원, 옵션 수량 2 이상, 제외 재료만 있음)으로 메뉴 행과 서버 `totalAmount`를 대조한다.
+- [ ] `REQUEST` 옵션과 `item_exclusion`이 함께 있는 주문에서 옵션/제외가 중복 없이 한 번씩만 보이는지 확인한다.
 - [ ] SCR-010의 목록 `loading/empty/error`와 상세 선택 없음/상세 요청 실패 상태를 브라우저에서 확인한다.
 - [ ] 환불·영수증 버튼의 노출 정책을 정하고, 연결 전에는 클릭 불가능 상태인지 확인한다.
 - [ ] Spring context와 Bruno로 `/api/admin/orders`, `/{orderId}`, `/active`의 정상·빈 결과·없는 주문·각 필터 조합을 확인한다.
@@ -136,7 +146,7 @@
 
 ## 12. 포트폴리오용 요약
 
-- 관리자 주문 상세에 기본 단가, 옵션별 추가금, 제외 재료, 메뉴 합계를 분리해 표시하고, 서버 확정 주문 금액(`totalAmount`)과 항목별 설명 금액을 구분했다.
+- 관리자 주문 상세에 기본 단가, 옵션별 추가금, 제외 재료, 메뉴 합계를 분리해 표시하고, legacy REQUEST 옵션은 제외 재료와 중복 표시되지 않게 정리했다. 서버 확정 주문 금액(`totalAmount`)과 항목별 설명 금액은 구분했다.
 - API 모듈 import를 정리하고 주문 조회·판매 뷰의 DTO/집계 조건을 보강했다. 다만 실제 API·DB·브라우저 통합 검증 및 영수증 기능은 다음 작업으로 남겼다.
 
 ## 13. 첨부 / 참고 자료
