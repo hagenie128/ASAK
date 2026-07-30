@@ -47,7 +47,7 @@ npx.cmd skills@latest add mattpocock/skills --global --agent codex claude-code c
 
 ## 3-1. ASAK 공용 스킬 설치
 
-`asak-signoff`(퇴근 기록), `asak-git-publish`(승인된 Git 반영), `asak-study`(구현 코드 복습)의 원본은 `docs/guides/agent-skill-templates/`다. 팀 규칙이므로 복사 전 내용을 읽고, 개인 API 키·MCP 설정·절대경로는 추가하지 않는다.
+`asak-signoff`(퇴근 기록), `asak-git-publish`(승인된 Git 반영), `asak-study`(구현 코드 복습 레포트), `asak-doc-sync`(현재 코드 기준 문서 동기화), `asak-devcopilot-sync`(DevCopilot 전 항목 점검·안전한 동기화)의 원본은 `docs/guides/agent-skill-templates/`다. 팀 규칙이므로 복사 전 내용을 읽고, 개인 API 키·MCP 설정·절대경로는 추가하지 않는다.
 
 | 도구 | 프로젝트별 설치 경로 |
 |---|---|
@@ -66,14 +66,20 @@ foreach ($target in $targets) {
   Copy-Item "$source\asak-signoff" $target -Recurse -Force
   Copy-Item "$source\asak-git-publish" $target -Recurse -Force
   Copy-Item "$source\asak-study" $target -Recurse -Force
+  Copy-Item "$source\asak-doc-sync" $target -Recurse -Force
+  Copy-Item "$source\asak-devcopilot-sync" $target -Recurse -Force
 }
 ```
 
-Codex는 각자 `%USERPROFILE%\.codex\skills\`에 같은 세 폴더를 복사한다. 복사 후 도구를 재시작하고 `/asak-signoff`, `/asak-git-publish`, `/asak-study`가 보이는지 확인한다. 도구별 이름 규칙 차이 때문에 팀 공통 슬래시 호출은 영문 이름을 사용하며, 자연어로 `퇴근 정리`, `깃반영`, `공부`라고 요청해도 된다.
+Codex는 각자 `%USERPROFILE%\.codex\skills\`에 같은 다섯 폴더를 복사한다. 복사 후 도구를 재시작하고 `/asak-signoff`, `/asak-git-publish`, `/asak-study`, `/asak-doc-sync`, `/asak-devcopilot-sync`가 보이는지 확인한다. 도구별 이름 규칙 차이 때문에 팀 공통 슬래시 호출은 영문 이름을 사용하며, 자연어로 `퇴근 정리`, `깃반영`, `공부`, `문서 동기화`, `DevCopilot 동기화`라고 요청해도 된다.
 
 `/asak-git-publish`로 만드는 브랜치는 AI 도구 이름을 드러내는 `agent/` 접두어를 쓰지 않는다. `feat/`, `fix/`, `docs/`, `chore/` 중 작업 성격에 맞는 접두어를 사용한다.
 
-`/asak-study`는 학습이 끝나면 대상 저장소의 `docs/ai-reports/YYYY-MM-DD/`에 학습 결과 Markdown을 남긴다. 이 파일은 작업 근거를 보존하는 문서이며, 생성만으로 자동 commit·push하지 않는다.
+팀 공통 Git 반영 순서는 템플릿의 1→10을 따른다: `main` 최신화 → 기능/레포별 브랜치 → 명시 stage·검증 → 한글 커밋 → 원격 브랜치 푸시 → `main` 최신화·병합·원격 푸시 → 로컬 브랜치 삭제 → 원격 브랜치 삭제. 템플릿을 갱신하면 각 도구의 개인 설치본에도 다시 복사한다.
+
+`/asak-study`는 시작 전에 팀 공용 정본 `docs/ai-reports/ASAK_STUDY_EXAMPLE_CANONICAL.md`의 설명 깊이와 목차를 읽는다. 정본의 예시 데이터를 현재 구현 사실로 복사하지 않으며, 사용자가 다른 정본을 지정하면 그 파일을 우선한다. 학습이 끝나면 대상 저장소의 `docs/ai-reports/YYYY-MM-DD/asak-study-<짧은-주제>.md`에 결과 Markdown을 남기고, 채팅에는 파일 링크와 완료 사실만 전달한다. 이 파일은 작업 근거를 보존하는 문서이며, 생성만으로 자동 commit·push하지 않는다.
+
+`/asak-doc-sync`는 현재 코드·검증 결과와 문서·Figma를 먼저 비교한 뒤, 승인된 문서만 갱신한다. 코드와 Product/Screen Bible이 충돌하면 정본을 자동으로 덮어쓰지 않고 `결정 필요`로 남긴다. 갱신 근거와 남은 불일치는 `docs/ai-reports/YYYY-MM-DD/asak-doc-sync-<짧은-주제>.md`에 기록하며, 자동 commit·push하지 않는다.
 
 ## 4. 코드 그래프 설치
 

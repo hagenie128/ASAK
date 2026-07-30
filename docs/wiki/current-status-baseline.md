@@ -17,6 +17,13 @@
 | DB | 외부 MySQL에 기본 테이블 25개·View 22개·FK 39개와 메뉴/주문/결제 데이터 존재. Mapper 기반 조회가 실제 DB를 읽음 | **IN_PROGRESS** — 변경 API·view 성능·timezone·재현 절차 검증 남음 |
 | QA | 테스트 케이스 16건, 실행 evidence 없음 | **TODO** |
 
+## DevCopilot 전수 점검 (2026-07-30)
+
+- MCP로 요구사항 56건, 시나리오 25건, 화면 24건, WBS 170건, API 24건, DB 테이블/뷰 39건, QA 16건, 버그 0건을 재조회했다.
+- 실행 정본 `WBS2-001`~`066`의 원격 상태는 로컬 `wbs-v2`와 **66건 모두 일치**한다. 별도 39건은 `[ARCHIVED DUPLICATE]` 보존 레코드이므로 현재 작업 상태로 집계하거나 수정하지 않는다.
+- MCP에는 Wiki 도구가 없으므로 이 페이지의 원격 반영은 정확한 Wiki ID를 사용한 REST fallback으로 처리한다. WBS Evidence와 항목 간 관계(link mutation)는 MCP 미지원이며 로컬 정본 문서에 유지한다.
+- API·DB는 원격 상세가 로컬 요약보다 많고, 요구사항·시나리오·QA·화면은 코드/Figma/실행 증거의 추가 확인 없이는 상태를 추정 갱신하지 않았다.
+
 ## 저장소 baseline
 
 | Local folder | Current remote | Intended role | Decision |
