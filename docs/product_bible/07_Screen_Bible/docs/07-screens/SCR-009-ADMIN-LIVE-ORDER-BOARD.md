@@ -43,7 +43,7 @@ activeOrders, statusCounts
 ## 7. API Contract
 
 - `GET /api/admin/orders/live`
-- `PATCH /api/admin/orders/{orderId}/status`
+- `PATCH /api/admin/orders/{orderId}/{status}`
 
 ## 8. User Actions
 

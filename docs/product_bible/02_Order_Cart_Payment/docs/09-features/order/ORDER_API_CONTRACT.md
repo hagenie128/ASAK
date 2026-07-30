@@ -82,29 +82,24 @@ GET /api/admin/orders/{orderId}
 ## 3. Change Order Status
 
 ```http
-PATCH /api/admin/orders/{orderId}/status
+PATCH /api/admin/orders/{orderId}/{status}
 ```
 
 ### Request
 
-```json
-{
-  "status": "COMPLETED"
-}
-```
+Path parameters: `orderId`, `status` (`PREPARING` 또는 `COMPLETED`)
+
+Request body는 없다.
 
 ### Response
 
 ```json
 {
   "success": true,
-  "data": {
-    "orderId": 128,
-    "orderNo": "1225",
-    "previousStatus": "PREPARING",
-    "status": "COMPLETED",
-    "updatedAt": "2026-07-16T03:25:00"
-  }
+  "status": 200,
+  "code": "ADMIN_ORDER_STATUS_CHANGE_SUCCESS",
+  "message": "관리자 주문 상태 변경 성공",
+  "data": null
 }
 ```
 

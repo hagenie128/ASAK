@@ -3,7 +3,7 @@
 ## Endpoint
 
 ```http
-PATCH /api/admin/orders/{orderId}/status
+PATCH /api/admin/orders/{orderId}/{status}
 ```
 
 ## 허용 전이
@@ -30,10 +30,10 @@ Frontend는 상태 변경 성공 응답 후 TTS를 실행한다.
 
 ```json
 {
-  "orderId": 128,
-  "orderNo": "1225",
-  "previousStatus": "PREPARING",
-  "status": "COMPLETED",
-  "updatedAt": "..."
+  "success": true,
+  "status": 200,
+  "code": "ADMIN_ORDER_STATUS_CHANGE_SUCCESS",
+  "message": "관리자 주문 상태 변경 성공",
+  "data": null
 }
 ```

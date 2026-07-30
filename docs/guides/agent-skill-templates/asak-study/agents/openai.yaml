@@ -1,7 +1,7 @@
 interface:
   display_name: "공부"
-  short_description: "날짜·기능·파일 기준의 구현 코드 복습"
-  default_prompt: "Use $asak-study to explain this implemented ASAK feature step by step without modifying files."
+  short_description: "ASAK 코드 흐름 분석과 정본 기준 학습 레포트 작성"
+  default_prompt: "Use $asak-study to study this ASAK feature and leave a canonical-depth report in the target repository."
 
 policy:
   allow_implicit_invocation: true

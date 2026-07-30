@@ -44,7 +44,7 @@
 | 호출 | 보낼 값 | 화면에서 쓸 `data` |
 | --- | --- | --- |
 | 주문 상세 `GET /api/admin/orders/{orderId}` | path `orderId` | `orderId`, `orderNo`, `orderType`, `orderStatus`, `paymentStatus`, `totalAmount`, `createdAt`, `items` |
-| 상태 변경 `PATCH /api/admin/orders/{orderId}/status` | `{"status":"COMPLETED"}` | `previousStatus`, `status`, `updatedAt` |
+| 상태 변경 `PATCH /api/admin/orders/{orderId}/{status}` | path `orderId`, `status` (`PREPARING` 또는 `COMPLETED`), body 없음 | `data: null` (성공 `code`, `message` 확인) |
 
 | 상태/행동 | 처리 |
 | --- | --- |

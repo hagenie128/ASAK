@@ -138,8 +138,14 @@ API 성공·실패와 권한 오류도 포함하고 코드 수정은 하지 마.
 
 ```text
 공부 - [날짜 / 기능 / 파일]
-구현된 코드의 화면→상태/Hook→API 또는 Repository→DB 또는 Mock 흐름을 초보자용으로 설명해줘.
-파일별 읽는 이유, 실제 검증 상태, 직접 해볼 확인 항목과 연습문제를 포함하고 파일은 수정하지 마.
+팀 공용 정본 `docs/ai-reports/ASAK_STUDY_EXAMPLE_CANONICAL.md`을 먼저 읽고, 구현된 코드의 화면→상태/Hook→API 또는 Repository→DB 또는 Mock 흐름을 초보자용으로 설명해줘.
+설명 전체는 채팅에 붙이지 말고 대상 저장소의 `docs/ai-reports/YYYY-MM-DD/`에 레포트로 남겨줘. 파일별 읽는 이유, 실제 검증 상태, 직접 해볼 확인 항목과 연습문제를 포함해. 소스코드·DB·Git은 수정하지 마.
+```
+
+```text
+문서 동기화 - [기능 / 대상 문서 경로]
+현재 Git 코드·실행 또는 테스트 근거와 Product Bible·Screen Bible·Figma를 비교해줘.
+구현 사실과 기획 의도가 충돌하면 정본을 자동으로 덮어쓰지 말고 결정 필요 항목으로 남겨줘. 승인한 문서만 최소 범위로 갱신하고, 근거와 검증 결과는 `docs/ai-reports/YYYY-MM-DD/`에 기록해줘. 소스코드·DB·Git은 수정하지 마.
 ```
 
 ### 발표 준비 — `asak-presentation`

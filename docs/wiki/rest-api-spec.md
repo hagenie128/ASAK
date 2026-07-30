@@ -250,7 +250,7 @@
 | ID | Method | Endpoint | Request | Success (전체 envelope, data=payload) | 설명 |
 |----|--------|----------|---------|---------------------------------------|------|
 | API-007 | GET | `/api/admin/orders` | status=PAID | `{"success":true,"status":200,"code":"ADMIN_ORDER_LIST_SUCCESS","message":"관리자 주문 목록 조회 성공","data":{"content":[{"orderId":1,"orderNo":"ASAK-20260703-001","orderType":"TAKE_OUT","totalPrice":8900,"orderStatus":"RECEIVED","paymentStatus":"PAID","createdAt":"2026-07-03T13:00:00","items":[{"menuId":364,"menuName":"스파이시 쉬림프 샌드위치","quantity":1,"unitPrice":8900,"optionItems":[{"optionItemId":269,"name":"크리미칠리","quantity":1}],"excludedIngredients":[{"ingredientId":169,"name":"양파"}]}]}],"totalElements":1}}` | 관리자용 주문 목록과 상세 조회. `optionItems`에는 legacy `REQUEST`(빼기) 그룹을 넣지 않고, 실제 제외 재료는 `excludedIngredients`만 사용한다. |
-| API-008 | PATCH | `/api/admin/orders/{orderId}/status` | {"orderStatus":"PREPARING"} | `{"success":true,"status":200,"code":"ORDER_STATUS_UPDATE_SUCCESS","message":"주문 상태 변경 성공","data":{"orderId":1,"orderNo":"ASAK-20260703-001","orderStatus":"PREPARING"}}` | 관리자가 주문 상태를 변경한다. |
+| API-008 | PATCH | `/api/admin/orders/{orderId}/{status}` | path: `orderId`, `status` (`PREPARING` 또는 `COMPLETED`), body 없음 | `{"success":true,"status":200,"code":"ADMIN_ORDER_STATUS_CHANGE_SUCCESS","message":"관리자 주문 상태 변경 성공","data":null}` | 관리자가 주문 상태를 변경한다. |
 | API-009 | PATCH | `/api/admin/sold-out-items` | {"targetType":"MENU","targetId":364,"isSoldOut":true} | `{"success":true,"status":200,"code":"SOLD_OUT_UPDATE_SUCCESS","message":"판매 항목 품절 상태 변경 성공","data":{"targetType":"INGREDIENT","targetId":155,"name":"케이준쉬림프","isSoldOut":true}}` | 메뉴/재료/옵션 품절 상태 변경 |
 
 ## Part 3 — Week 7~8 확장 (API-010~020)

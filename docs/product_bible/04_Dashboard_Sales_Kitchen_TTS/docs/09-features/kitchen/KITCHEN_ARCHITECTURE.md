@@ -108,5 +108,5 @@ FilterBar
 GET /api/admin/orders/live
 GET /api/admin/orders
 GET /api/admin/orders/{orderId}
-PATCH /api/admin/orders/{orderId}/status
+PATCH /api/admin/orders/{orderId}/{status}
 ```
