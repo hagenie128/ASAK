@@ -3,7 +3,7 @@
 > `05-C Kiosk`의 **9개 Screen ID**를 구현할 때 바로 쓰는 문서다.  
 > 각 카드에는 화면 행동, 필요한 데이터/API, 상태, 완료 확인만 둔다.
 
-**Figma 공통 링크:** [05-C Screens / Kiosk](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=134-7720)
+**Figma 공통 링크:** [05-C Screens / Kiosk](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=134-7720)
 
 ## SCR-001 · Home
 

@@ -48,7 +48,7 @@ Figma와 코드 모두 수정하지 마.
 ### 백엔드/Spring — `asak-backend-review`
 
 ```text
-백엔드 점검 - [GET /api/admin/orders/active]
+백엔드 점검 - [GET /api/admin/orders/live]
 Controller → Service → Mapper → XML → DB 순서로 현재 구현 여부와 빠진 파일만 정리해줘.
 DTO와 SQL의 필드 매핑도 설명하되 코드는 수정하지 마.
 ```

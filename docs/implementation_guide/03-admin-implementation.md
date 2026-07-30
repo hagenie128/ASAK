@@ -3,7 +3,7 @@
 > `06-C Admin`의 **10개 Screen ID**를 구현할 때 바로 쓰는 문서다.  
 > 각 카드에는 화면 행동, 필요한 데이터/API, 상태, 완료 확인만 둔다.
 
-**Figma 공통 링크:** [06-C Screens / Admin](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=134-10606)
+**Figma 공통 링크:** [06-C Screens / Admin](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=134-10606)
 
 **Mock 필드·props 치트시트 (바인딩 시 여기부터):**  
 [`ASAK-Admin/public/mocks/README.md`](../../../ASAK-Admin/public/mocks/README.md) · 각 Page/컴포넌트 파일 상단 주석 · `adminMockRepository.js` 헤더

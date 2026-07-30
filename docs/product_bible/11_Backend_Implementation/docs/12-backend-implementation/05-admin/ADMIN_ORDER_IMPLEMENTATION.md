@@ -1,9 +1,9 @@
 # Admin Order Implementation
 
-## Active Orders
+## Live Orders
 
 ```http
-GET /api/admin/orders/active
+GET /api/admin/orders/live
 ```
 
 조건:

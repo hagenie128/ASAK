@@ -3,7 +3,7 @@
 > **빠짐 확인용 목록**이다. `화면 하나` 또는 `상태 하나`를 구현할 때 해당 작업 카드로 이동한다.  
 > Screen Registry는 21개 화면을 정의하고, 05-C/06-C는 그 화면 안의 Loading·Empty·Error·Saving 등 세부 상태까지 보여 준다.
 
-화면 상태·레이아웃은 승인된 [00-C 파일 맵](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=174-8727), [05-C 키오스크](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=134-7720), [06-C 관리자](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=134-10606), [07-C 상태 매트릭스](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=190-2)를 함께 본다.
+화면 상태·레이아웃은 승인된 [00-C 파일 맵](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=174-8727), [05-C 키오스크](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=134-7720), [06-C 관리자](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=134-10606), [07-C 상태 매트릭스](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=190-2)를 함께 본다.
 
 | 작업 | 구현 가이드 | 화면 | 우선 확인할 원본 문서 |
 | --- | --- | --- | --- |
@@ -18,7 +18,7 @@
 | 결제 수단·매출 | [Admin](03-admin-implementation.md) | SCR-018, 019, 020, 021 | [Sales](../product_bible/04_Dashboard_Sales_Kitchen_TTS/docs/09-features/sales/SALES_ARCHITECTURE.md), Payment feature docs |
 | API·DTO·DB | [API·DB](04-api-db-implementation.md) | 전체 | [Order API Contract](../product_bible/02_Order_Cart_Payment/docs/09-features/order/ORDER_API_CONTRACT.md), [API Design](../product_bible/06_Engineering_Bible/docs/05-api/API_DESIGN_RULES.md), [Database Rules](../product_bible/06_Engineering_Bible/docs/04-database/DATABASE_ENGINEERING_RULES.md) |
 | Figma와 React 컴포넌트 | [UI·컴포넌트](05-ui-component-guide.md) | 전체 | [Component System](../product_bible/08_Component_Bible/docs/08-components/00-foundation/COMPONENT_SYSTEM.md), [Frontend Architecture](../product_bible/06_Engineering_Bible/docs/02-frontend/FRONTEND_ARCHITECTURE.md) |
-| Figma 상태를 하나씩 구현 확인 | [상태 체크리스트](09-figma-state-checklist.md) | SCR-001~022 | [07-C QA / Screen State Matrix](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=190-2) |
+| Figma 상태를 하나씩 구현 확인 | [상태 체크리스트](09-figma-state-checklist.md) | SCR-001~022 | [07-C QA / Screen State Matrix](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=190-2) |
 | 테스트·시연·릴리스 | [QA](06-qa-release-guide.md) | 전체 | [QA Strategy](../product_bible/09_QA_Bible/docs/10-qa/00-strategy/QA_STRATEGY.md), [Regression Suite](../product_bible/09_QA_Bible/docs/10-qa/06-regression/REGRESSION_SUITE.md), [Release Checklist](../product_bible/09_QA_Bible/docs/10-qa/07-demo-release/RELEASE_CHECKLIST.md) |
 | 영수증 출력 | [Extension](07-extension-implementation.md#scr-023--receipt-output) | SCR-023 | [Receipt Screen](../product_bible/07_Screen_Bible/docs/07-screens/SCR-023-RECEIPT-OUTPUT.md) |
 | 멤버십·쿠폰 | [Extension](07-extension-implementation.md#scr-024--membership--coupon) | SCR-024 | [Membership Screen](../product_bible/07_Screen_Bible/docs/07-screens/SCR-024-MEMBERSHIP---COUPON.md) |

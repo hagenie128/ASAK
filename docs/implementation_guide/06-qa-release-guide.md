@@ -27,7 +27,7 @@
 
 ## 07-C 상태 대조 방법
 
-1. [07-C QA / Screen State Matrix](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=190-2)에서 해당 Screen ID의 모든 상태를 찾는다.
+1. [07-C QA / Screen State Matrix](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=190-2)에서 해당 Screen ID의 모든 상태를 찾는다.
 2. `Loading`, `Empty`, `Error`, `Saving`, `Success`, `Changed`, `Disabled`, `Sold-out`, `Retry`가 어떤 프론트 state/API 결과인지 표로 연결한다.
 3. Prototype 연결률과 화면 존재 여부를 혼동하지 않는다. 연결되지 않은 Loading/Error/Annotation Frame은 의도적으로 Flow에 미연결일 수 있다.
 4. `Mock settings`·`__manual-check` 항목은 API/DB 완료 전 실데이터 통과 조건으로 쓰지 않는다.

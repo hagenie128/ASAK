@@ -35,7 +35,7 @@ ASAK는 샐러드 키오스크와 관리자 운영 시스템이다.
 
 ## Figma
 
-- File: JSrjOy668zhfkiLplCkreh
+- File: yHhvn5RKjBd91U8BJUQz7F
 - Latest Kiosk: 05-B `39:6828`
 - Latest Admin: 06-B `39:7344`
 - PrototypeMap v2: `107:7720`

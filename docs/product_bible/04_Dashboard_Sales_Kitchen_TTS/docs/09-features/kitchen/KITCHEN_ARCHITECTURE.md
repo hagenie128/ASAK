@@ -105,7 +105,7 @@ FilterBar
 ## 10. API
 
 ```http
-GET /api/admin/orders/active
+GET /api/admin/orders/live
 GET /api/admin/orders
 GET /api/admin/orders/{orderId}
 PATCH /api/admin/orders/{orderId}/status

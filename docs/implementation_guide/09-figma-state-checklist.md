@@ -5,7 +5,7 @@
 
 ## Kiosk · 05-C
 
-**Figma:** [05-C Screens / Kiosk](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=134-7720)
+**Figma:** [05-C Screens / Kiosk](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=134-7720)
 
 | Screen | 확인할 상태 |
 | --- | --- |
@@ -21,7 +21,7 @@
 
 ## Admin · 06-C
 
-**Figma:** [06-C Screens / Admin](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=134-10606)
+**Figma:** [06-C Screens / Admin](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=134-10606)
 
 | Screen | 확인할 상태 |
 | --- | --- |
@@ -47,4 +47,4 @@
 | Saving/Processing | 같은 요청을 중복으로 보내지 않는다. |
 | Success | 서버 성공 응답 뒤에만 UI를 확정한다. |
 
-**QA 기준:** [07-C QA / Screen State Matrix](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=190-2)
+**QA 기준:** [07-C QA / Screen State Matrix](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=190-2)

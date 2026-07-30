@@ -33,7 +33,7 @@
 | Kiosk 조회 | `GET /api/kiosk/categories`, `/menuList`, `/menuDetail/{menuId}` → `UserMenuController`·`UserMenuService`·`UserMenuMapper` | MyBatis SQL은 존재하나 실DB 응답 미검증 |
 | Kiosk 장바구니 | `POST /api/kiosk/cart/validate` → 메뉴 존재·품절·옵션·제외 재료를 조회하고 서버에서 `totalAmount` 재계산 | Bruno/실DB 미검증 |
 | Kiosk 주문·결제 | `POST /api/kiosk/orders` mapping은 있으나 `createOrder()`가 검증 뒤 `null` 반환. `UserPayController`는 mapping 없음 | **미완성** — 저장·결제 성공 응답으로 사용 금지 |
-| Admin 조회 | `GET /api/admin/menus`, `/{menuId}`, `/api/admin/orders`, `/{orderId}`, `/active` → Service·Mapper XML 조회 경로 존재 | 목록·상세·빈 결과·필터의 실API/DB 검증 미실행 |
+| Admin 조회 | `GET /api/admin/menus`, `/{menuId}`, `/api/admin/orders`, `/{orderId}`, `/live` → Service·Mapper XML 조회 경로 존재 | 목록·상세·빈 결과·필터의 실API/DB 검증 미실행 |
 | Admin 변경/통계 | 주문 상태 변경·취소, 품절, 결제수단, 매출/대시보드 Controller mapping 없음. `AdminStatsController`는 빈 클래스 | **미구현** |
 | DB 읽기 모델 | `docs/view.sql`에 메뉴·주문·실시간 주문·판매 집계 뷰 정의 | 실제 DB 적용/합계 대조 미검증 |
 | 컴파일 | `gradlew.bat compileJava --no-daemon` | **2026-07-28 BUILD SUCCESSFUL**; Spring context/Mapper XML/DB 연결 검증은 별도 |
