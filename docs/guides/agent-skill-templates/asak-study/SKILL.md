@@ -1,6 +1,6 @@
 ---
 name: asak-study
-description: "Use to study implemented ASAK code by date, feature, file, screen, or API flow without editing source files, and leave a canonical-depth study report in the target repository."
+description: "ASAK 코드 공부·복습 레포트. Use when the user says 공부, 코드 공부, 복습, study, or asks to study ASAK code by date/feature/file/screen/API without editing sources."
 ---
 
 # ASAK 공부

@@ -1,6 +1,6 @@
 ---
 name: asak-git-publish
-description: "Use for approved ASAK branch creation, Korean commits, remote branch push, origin/main merge and push, remote verification, and merged branch cleanup."
+description: "ASAK 깃반영. Use when the user says 깃반영, 깃 반영, 커밋·푸시·머지, git publish, or asks for approved branch creation, Korean commits, remote push, origin/main merge, and branch cleanup."
 ---
 
 # 깃반영

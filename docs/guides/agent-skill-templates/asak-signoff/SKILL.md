@@ -1,6 +1,6 @@
 ---
 name: asak-signoff
-description: "Use for ASAK end-of-day worklogs, documentation, Notion records, and Figma evidence."
+description: "ASAK 퇴근·작업마감 기록. Use when the user says 퇴근, 퇴근 정리, 작업 마감, signoff, or asks for end-of-day worklogs, Notion records, and Figma evidence."
 ---
 
 # 퇴근
