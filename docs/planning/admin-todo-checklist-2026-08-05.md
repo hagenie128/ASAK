@@ -9,11 +9,11 @@
 
 | 상태 | 번호 |
 |---|---|
-| 완료 | **001~007**, **009** |
-| 부분 | **008**, **011**, **012**, **013** |
-| 미착수 | **010**, **014~076** |
+| 완료 | **001~007**, **009**, **011**, **014** |
+| 부분 | **008**, **012**, **013** |
+| 미착수 | **010**, **013a~013d**, **015~076** |
 
-다음 권장: `ttsService.js` + import로 **013** 마무리 → **011** (`err.status`/`err.code`) → **008·010**
+다음 권장: TTS 명세 마무리 **013a~013d** (중복 방지·Queue·Mute·localStorage) → **012** Empty/Error UI → **008·010**
 
 | # | 상태 | 위치 | 할 일 |
 |---|---|---|---|
@@ -27,10 +27,14 @@
 | **008** | 🟡 부분 | `AdminOrderService.cancelOrder` | 검사 일부만. APPROVED 시 환불 연동 미완(현재 0 반환) |
 | **009** | ✅ 완료 | `AdminOrderMapper` + XML | `cancelOrder`로 이름 수정됨 (주석만 잔여 가능) |
 | **010** | ⬜ 미착수 | `AdminOrderMapper.xml` cancel | `status_id=43` → 코드테이블/상수 |
-| **011** | 🟡 부분 | `LiveOrderPreview.jsx` catch | 409 분기 있음. `err.response` → `err.status`/`err.code` 로 맞출 것 |
-| **012** | 🟡 부분 | `useOrdersQuery.js` | empty/error state 추가 중 · UI 연결·정합 확인 |
-| **013** | 🟡 부분 | `LiveOrderPreview.jsx` | 호출 골격·메시지 OK. **`speak`/`ttsService.js` 없음** |
-| **014** | ⬜ 미착수 | `LiveOrderPreview.jsx` | fixture·`console.log` 제거/분리 |
+| **011** | ✅ 완료 | `LiveOrderPreview.jsx` catch | `err.status`/`err.code` 로 409 분기(`ORDER_STATUS_CONFLICT`/`INVALID_ORDER_STATUS_TRANSITION`) + 그 외 toast 처리됨 |
+| **012** | 🟡 부분 | `useOrdersQuery.js` | empty/error state 존재. 보드 UI(`LiveOrderPreview`)의 Empty vs Error 구분·필터 정합 확인 필요 |
+| **013** | 🟡 부분 | `LiveOrderPreview.jsx` + `utils/ttsMessages.js` | `speak`/`isTtsSupported`/`createOrderCompletedMessage` **구현됨**(커밋 `5cbf861`). 성공 후 호출·실패 격리 OK. 아래 명세 항목 013a~013d 미구현 |
+| **013a** | ⬜ 미착수 | `utils/ttsMessages.js` 또는 tts 서비스 | **중복 방지**: 동일 orderNo 10초 이내 재발화 금지(recent order map) |
+| **013b** | ⬜ 미착수 | 동상 | **Queue**: 연속 완료 시 cancel 없이 SpeechSynthesis 큐 순서 발화 |
+| **013c** | ⬜ 미착수 | `components/admin/TtsControl.jsx` | **Mute 토글**: enabled/muted/speaking/unsupported 상태 · 상단 "주문 호출 [켜짐/꺼짐]" |
+| **013d** | ⬜ 미착수 | tts 설정 저장 | **localStorage 설정**: enabled/rate/pitch/volume/lang 저장·복원 |
+| **014** | ✅ 완료 | `LiveOrderPreview.jsx` | `asak_live_fixture`·`console.log` 제거, 에러 UI 일반 문구로 정리됨 |
 | **015** | ⬜ 미착수 | `SoldOutPatchRequest.java` | DTO 필드 |
 | **016** | ⬜ 미착수 | `AdminSoldOutMapper` + XML | 카탈로그 SELECT |
 | **017** | ⬜ 미착수 | 동상 | `is_sold_out` UPDATE |
@@ -99,7 +103,7 @@
 | 구간 | 주제 | 진행 |
 |---|---|---|
 | 001–010 | 주문 상태·취소 BE | 001~007·009 완료 · 008 부분 · 010 미착수 |
-| 011–014, 023 | Live FE | 011~013 부분 · 014·023 미착수 |
+| 011–014, 023 | Live FE | 011·014 완료 · 012·013 부분 · 013a~013d(TTS 명세)·023 미착수 |
 | 015–022 | 품절 | 미착수 |
 | 024–031 | 결제수단 | 미착수 |
 | 032–048 | 메뉴 CRUD | 미착수 |
