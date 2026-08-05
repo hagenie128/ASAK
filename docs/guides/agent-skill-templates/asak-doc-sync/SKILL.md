@@ -1,6 +1,6 @@
 ---
 name: asak-doc-sync
-description: "Use when updating ASAK Product Bible, Screen Bible, API specs, implementation guides, test documents, or README files from current code. Compare evidence first, update only approved documentation, and record unresolved code-to-spec conflicts."
+description: "ASAK 문서 동기화. Use when the user says 문서 동기화, 문서 갱신, doc sync, or asks to update Product/Screen Bible, API specs, guides, tests, or README from current code after comparing evidence."
 ---
 
 # ASAK 현재 코드 기준 문서 동기화

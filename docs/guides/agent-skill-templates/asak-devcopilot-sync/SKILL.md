@@ -1,6 +1,6 @@
 ---
 name: asak-devcopilot-sync
-description: ASAK DevCopilot workspace 2의 Wiki, 요구사항, WBS, API, 시나리오, QA, 화면, DB를 전수 점검하고, 정본 근거가 있는 항목만 안전하게 동기화하며 MCP 미지원 항목을 보고한다. "DevCopilot 업데이트", "DevCopilot 동기화", "허브 점검", "MCP 미지원 정리" 요청에 사용한다.
+description: "ASAK DevCopilot 동기화. Use when the user says DevCopilot 업데이트, DevCopilot 동기화, 허브 점검, MCP 미지원 정리. Wiki·요구사항·WBS·API·시나리오·QA·화면·DB를 점검하고 정본 근거가 있는 항목만 안전하게 동기화한다."
 ---
 
 # ASAK DevCopilot Sync
