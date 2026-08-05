@@ -2,103 +2,114 @@
 
 > 인라인 주석 태그: `TODO-NNN`  
 > 순서대로 구현하면 된다. 파일 상단에 모아 두지 않고, **해당 코드 위치**에만 달아 두었다.  
-> 검색: `TODO-00` / `TODO-0` / `TODO-`
+> 검색: `TODO-00` / `TODO-0` / `TODO-` 
+> 진행 갱신: 2026-08-05 (코드 실측 기준)
 
-| # | 위치 | 할 일 |
-|---|---|---|
-| **001** | `ASAK-back/.../AdminOrderController.java` `changeOrderStatus` | `response == null` → `ORDER_NOT_FOUND` (NPE 방지) |
-| **002** | 동상 `changeOrderStatus` | 상태변경 거절 시 `ORDER_CANCEL_NOT_ALLOWED` 대신 전이 불가 ErrorCode 분리 |
-| **003** | `AdminOrderService.changeOrderStatus` | `RECEIVED→PREPARING→COMPLETED` 허용 전이만 통과 |
-| **004** | 동상 | `statusId` 12/13 하드코딩 → enum/코드테이블 조회 |
-| **005** | `AdminOrderMapper.xml` `changeOrderStatus` (+ Service map) | optimistic concurrency (`expectedStatusId`) |
-| **006** | `AdminOrderController.changeOrderStatus` | update 0건 → 전이 불가 vs 409 충돌 구분 |
-| **007** | `AdminOrderController.cancelOrder` | `response == null` → `ORDER_NOT_FOUND` |
-| **008** | `AdminOrderService.cancelOrder` | 취소 가능 상태 + APPROVED 환불 정책 연동 |
-| **009** | `AdminOrderMapper` + XML | `cancleOrder` → `cancelOrder` 오타 수정 |
-| **010** | `AdminOrderMapper.xml` cancel | `status_id=43` 매직넘버 → 코드테이블/상수 |
-| **011** | `LiveOrderPreview.jsx` `runOrderAction` catch | 409·envelope code별 메시지, 목록 재조회 |
-| **012** | `useOrdersQuery.js` | Empty(0건) vs Error UI·필터 쿼리 정합 |
-| **013** | `LiveOrderPreview.jsx` 성공 직후 | TTS 호출 (실패해도 주문 상태 유지) |
-| **014** | `LiveOrderPreview.jsx` fixture/`console.log` | QA 후 fixture·로그 제거 또는 개발 전용 |
-| **015** | `SoldOutPatchRequest.java` | DTO 필드: `targetType`, `targetId`, `isSoldOut` |
-| **016** | `AdminSoldOutMapper` + XML | 품절 카탈로그 SELECT |
-| **017** | 동상 | `is_sold_out` UPDATE |
-| **018** | `AdminSoldOutService.java` | 조회·변경·롤백 서비스 |
-| **019** | `AdminSoldOutController.java` | `GET` / `PATCH /api/admin/soldOut` |
-| **020** | `soldOutApi.js` | `listSoldOutCatalog` |
-| **021** | `soldOutApi.js` | `patchSoldOut` |
-| **022** | `useSoldOutDraft.js` | mock → `soldOutApi` 교체 |
-| **023** | `LiveOrderPreview.jsx` 보드 | `livePage` 제거 → `scrollBy` 가로 스크롤 |
-| **024** | `PatchPaymentMethodRequest.java` | DTO 필드 채우기 |
-| **025** | `AdminPaymentMethodMapper` + XML | `selectPaymentMethods` |
-| **026** | 동상 | `updatePaymentMethod` |
-| **027** | `AdminPaymentMethodService.java` | 목록·PATCH 서비스 |
-| **028** | `AdminPaymentMethodController.java` | `GET /`, `PATCH /{id}` |
-| **029** | `paymentMethodsApi.js` | `listPaymentMethods` |
-| **030** | `paymentMethodsApi.js` | `patchPaymentMethod` |
-| **031** | `usePaymentMethodDraft.js` | mock → `paymentMethodsApi` 교체 |
-| **032** | `CreateMenuRequest.java` (+ Service) | 등록 DTO 필드 채우기 |
-| **033** | `AdminMenuMapper.java` | `insertMenu` |
-| **034** | `AdminMenuService.createMenu` | image + INSERT 트랜잭션 |
-| **035** | `AdminMenuController` | `@PostMapping` 등록 |
-| **036** | `AdminMenuMapper.java` | `updateMenu` |
-| **037** | `AdminMenuService` | `updateMenu(...)` |
-| **038** | `AdminMenuController` | `@PatchMapping("/{menuId}")` |
-| **039** | `AdminMenuMapper.java` | `deleteMenu` / soft delete |
-| **040** | `AdminMenuService` | `deleteMenu(...)` |
-| **041** | `AdminMenuController` | `@DeleteMapping("/{menuId}")` |
-| **042** | `AdminMenuMapper` + Controller | 재료 목록 `GET /ingredients` |
-| **043** | `menusApi.js` | `createMenu` |
-| **044** | `menusApi.js` | `updateMenu` |
-| **045** | `menusApi.js` | `deleteMenu` |
-| **046** | `useMenusQuery.js` | mock → `menusApi.listMenus`/`getMenu` |
-| **047** | `MenuManagePage.jsx` `handleSaveEdit` | create/update API 호출 후 refetch |
-| **048** | `MenuManagePage.jsx` `handleDeleteConfirm` | `deleteMenu` 후 목록 갱신 |
-| **049** | `AdminStatsController` | `GET /sales/summary` |
-| **050** | 동상 | `GET /sales/monthly` |
-| **051** | 동상 | `GET /sales/daily` |
-| **052** | `AdminStatsService` + `AdminStatsMapper`(+XML) | 집계 쿼리/서비스 |
-| **053** | `salesApi.js` | `getSummary` |
-| **054** | `salesApi.js` | `getMonthly` |
-| **055** | `salesApi.js` | `getDaily` |
-| **056** | `useSalesQuery.js` | mock → `salesApi` 교체 |
-| **057** | `AdminStatsController` | `GET /dashboard` |
-| **058** | `adminApi.js` | `getDashboard` |
-| **059** | `useDashboard.js` | mock → `adminApi.getDashboard` |
-| **060** | `AdminAuthController` (+ SecurityConfig 연동) | `POST /login` |
-| **061** | `JwtTokenProvider.java` | create/validate/getClaims |
-| **062** | `JwtAuthenticationFilter.java` | Bearer 검증, `/api/admin/**` 보호 |
-| **063** | `SecurityConfig.java` | filter 등록 + authorize 규칙 |
-| **064** | `adminApi.js` | `login` |
-| **065** | `adminSession.js` (+ store 연동) | token 저장·만료 판정 |
-| **066** | `apiClient.js` | Bearer interceptor + 401 리다이렉트 |
-| **067** | `LoginPage.jsx` `handleSubmit` | `adminApi.login` 실연동 |
-| **068** | `useAdminAuth.js` | JWT 세션 + 보호 라우트 401 |
-| **069** | `AdminApp.jsx` `staticPages` | Canonical vs kebab 경로 정렬 |
-| **070** | `apiClient.js` | 403 등 공통 ErrorCode 매핑 |
-| **071** | `AdminOrderController` | Future: `PATCH /{id}/refund` |
-| **072** | `AdminOrderMapper.xml` | Future: payments 환불 UPDATE 분리 |
-| **073** | `ordersApi.js` | Future: `refundOrder` |
-| **074** | `ordersApi.js` | Future: `printReceipt` |
-| **075** | `OrderManagementPreview.jsx` | Future: 환불 ConfirmDialog 연결 |
-| **076** | `OrderManagementPreview.jsx` | Future: 영수증 ConfirmDialog 연결 |
+## 진행 요약
+
+| 상태 | 번호 |
+|---|---|
+| 완료 | **001~007**, **009** |
+| 부분 | **008**, **011**, **012**, **013** |
+| 미착수 | **010**, **014~076** |
+
+다음 권장: `ttsService.js` + import로 **013** 마무리 → **011** (`err.status`/`err.code`) → **008·010**
+
+| # | 상태 | 위치 | 할 일 |
+|---|---|---|---|
+| **001** | ✅ 완료 | `AdminOrderController.changeOrderStatus` | `response == null` → `ORDER_NOT_FOUND` |
+| **002** | ✅ 완료 | 동상 | 거절 시 `INVALID_ORDER_STATUS_TRANSITION` 사용 |
+| **003** | ✅ 완료 | `AdminOrderService.changeOrderStatus` | `RECEIVED→PREPARING→COMPLETED`만 허용 |
+| **004** | ✅ 완료 | 동상 | `findOrderStatusId` 코드테이블 조회 |
+| **005** | ✅ 완료 | `AdminOrderMapper.xml` | `expectedStatusId` optimistic update |
+| **006** | ✅ 완료 | `AdminOrderController` | `INVALID_TRANSITION` vs `ORDER_STATUS_CONFLICT` |
+| **007** | ✅ 완료 | `AdminOrderController.cancelOrder` | `response == null` → `ORDER_NOT_FOUND` |
+| **008** | 🟡 부분 | `AdminOrderService.cancelOrder` | 검사 일부만. APPROVED 시 환불 연동 미완(현재 0 반환) |
+| **009** | ✅ 완료 | `AdminOrderMapper` + XML | `cancelOrder`로 이름 수정됨 (주석만 잔여 가능) |
+| **010** | ⬜ 미착수 | `AdminOrderMapper.xml` cancel | `status_id=43` → 코드테이블/상수 |
+| **011** | 🟡 부분 | `LiveOrderPreview.jsx` catch | 409 분기 있음. `err.response` → `err.status`/`err.code` 로 맞출 것 |
+| **012** | 🟡 부분 | `useOrdersQuery.js` | empty/error state 추가 중 · UI 연결·정합 확인 |
+| **013** | 🟡 부분 | `LiveOrderPreview.jsx` | 호출 골격·메시지 OK. **`speak`/`ttsService.js` 없음** |
+| **014** | ⬜ 미착수 | `LiveOrderPreview.jsx` | fixture·`console.log` 제거/분리 |
+| **015** | ⬜ 미착수 | `SoldOutPatchRequest.java` | DTO 필드 |
+| **016** | ⬜ 미착수 | `AdminSoldOutMapper` + XML | 카탈로그 SELECT |
+| **017** | ⬜ 미착수 | 동상 | `is_sold_out` UPDATE |
+| **018** | ⬜ 미착수 | `AdminSoldOutService.java` | 조회·변경·롤백 |
+| **019** | ⬜ 미착수 | `AdminSoldOutController.java` | GET/PATCH |
+| **020** | ⬜ 미착수 | `soldOutApi.js` | `listSoldOutCatalog` |
+| **021** | ⬜ 미착수 | `soldOutApi.js` | `patchSoldOut` |
+| **022** | ⬜ 미착수 | `useSoldOutDraft.js` | mock → API |
+| **023** | ⬜ 미착수 | `LiveOrderPreview.jsx` 보드 | 가로 스크롤 |
+| **024** | ⬜ 미착수 | `PatchPaymentMethodRequest.java` | DTO 필드 |
+| **025** | ⬜ 미착수 | `AdminPaymentMethodMapper` + XML | SELECT |
+| **026** | ⬜ 미착수 | 동상 | UPDATE |
+| **027** | ⬜ 미착수 | `AdminPaymentMethodService.java` | 서비스 |
+| **028** | ⬜ 미착수 | `AdminPaymentMethodController.java` | GET/PATCH |
+| **029** | ⬜ 미착수 | `paymentMethodsApi.js` | list |
+| **030** | ⬜ 미착수 | `paymentMethodsApi.js` | patch |
+| **031** | ⬜ 미착수 | `usePaymentMethodDraft.js` | mock → API |
+| **032** | ⬜ 미착수 | `CreateMenuRequest.java` | DTO 필드 |
+| **033** | ⬜ 미착수 | `AdminMenuMapper.java` | insertMenu |
+| **034** | ⬜ 미착수 | `AdminMenuService.createMenu` | INSERT 트랜잭션 |
+| **035** | ⬜ 미착수 | `AdminMenuController` | POST |
+| **036** | ⬜ 미착수 | `AdminMenuMapper.java` | updateMenu |
+| **037** | ⬜ 미착수 | `AdminMenuService` | updateMenu |
+| **038** | ⬜ 미착수 | `AdminMenuController` | PATCH |
+| **039** | ⬜ 미착수 | `AdminMenuMapper.java` | deleteMenu |
+| **040** | ⬜ 미착수 | `AdminMenuService` | deleteMenu |
+| **041** | ⬜ 미착수 | `AdminMenuController` | DELETE |
+| **042** | ⬜ 미착수 | Mapper + Controller | ingredients |
+| **043** | ⬜ 미착수 | `menusApi.js` | createMenu |
+| **044** | ⬜ 미착수 | `menusApi.js` | updateMenu |
+| **045** | ⬜ 미착수 | `menusApi.js` | deleteMenu |
+| **046** | ⬜ 미착수 | `useMenusQuery.js` | mock → API |
+| **047** | ⬜ 미착수 | `MenuManagePage.jsx` | save → API |
+| **048** | ⬜ 미착수 | `MenuManagePage.jsx` | delete → API |
+| **049** | ⬜ 미착수 | `AdminStatsController` | sales/summary |
+| **050** | ⬜ 미착수 | 동상 | sales/monthly |
+| **051** | ⬜ 미착수 | 동상 | sales/daily |
+| **052** | ⬜ 미착수 | Stats Service/Mapper | 집계 |
+| **053** | ⬜ 미착수 | `salesApi.js` | getSummary |
+| **054** | ⬜ 미착수 | `salesApi.js` | getMonthly |
+| **055** | ⬜ 미착수 | `salesApi.js` | getDaily |
+| **056** | ⬜ 미착수 | `useSalesQuery.js` | mock → API |
+| **057** | ⬜ 미착수 | `AdminStatsController` | dashboard |
+| **058** | ⬜ 미착수 | `adminApi.js` | getDashboard |
+| **059** | ⬜ 미착수 | `useDashboard.js` | mock → API |
+| **060** | ⬜ 미착수 | `AdminAuthController` | POST /login |
+| **061** | ⬜ 미착수 | `JwtTokenProvider.java` | JWT |
+| **062** | ⬜ 미착수 | `JwtAuthenticationFilter.java` | 필터 |
+| **063** | ⬜ 미착수 | `SecurityConfig.java` | authorize |
+| **064** | ⬜ 미착수 | `adminApi.js` | login |
+| **065** | ⬜ 미착수 | `adminSession.js` | token |
+| **066** | ⬜ 미착수 | `apiClient.js` | Bearer + 401 |
+| **067** | ⬜ 미착수 | `LoginPage.jsx` | 실로그인 |
+| **068** | ⬜ 미착수 | `useAdminAuth.js` | 401 가드 |
+| **069** | ⬜ 미착수 | `AdminApp.jsx` | Canonical 경로 |
+| **070** | ⬜ 미착수 | `apiClient.js` | 403 매핑 |
+| **071** | ⬜ Future | `AdminOrderController` | refund |
+| **072** | ⬜ Future | `AdminOrderMapper.xml` | payments 환불 |
+| **073** | ⬜ Future | `ordersApi.js` | refundOrder |
+| **074** | ⬜ Future | `ordersApi.js` | printReceipt |
+| **075** | ⬜ Future | `OrderManagementPreview.jsx` | 환불 UI |
+| **076** | ⬜ Future | `OrderManagementPreview.jsx` | 영수증 UI |
 
 ## 구간 요약
 
-| 구간 | 주제 |
-|---|---|
-| 001–010 | 주문 상태·취소 BE |
-| 011–014, 023 | Live FE (에러·TTS·정리·스크롤) |
-| 015–022 | 품절 BE→FE |
-| 024–031 | 결제수단 BE→FE |
-| 032–048 | 메뉴 CRUD BE→FE |
-| 049–059 | 매출·대시보드 BE→FE |
-| 060–068 | 로그인·JWT BE→FE |
-| 069–070 | 라우트·공통 에러 |
-| 071–076 | Future 환불·영수증 |
+| 구간 | 주제 | 진행 |
+|---|---|---|
+| 001–010 | 주문 상태·취소 BE | 001~007·009 완료 · 008 부분 · 010 미착수 |
+| 011–014, 023 | Live FE | 011~013 부분 · 014·023 미착수 |
+| 015–022 | 품절 | 미착수 |
+| 024–031 | 결제수단 | 미착수 |
+| 032–048 | 메뉴 CRUD | 미착수 |
+| 049–059 | 매출·대시보드 | 미착수 |
+| 060–068 | 로그인·JWT | 미착수 |
+| 069–070 | 라우트·공통 에러 | 미착수 |
+| 071–076 | Future 환불·영수증 | 미착수 |
 
 ## 사용법
 
 1. `TODO-001`부터 구현한다.
-2. 완료한 항목은 인라인 주석을 지우거나 `DONE-NNN`으로 바꾼다.
+2. 완료한 항목은 인라인 주석을 지우고, 이 표 상태를 ✅로 갱신한다.
 3. 이 표와 코드 주석이 어긋나면 **코드 인라인을 정본**으로 맞춘다.
