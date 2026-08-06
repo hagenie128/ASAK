@@ -40,7 +40,7 @@ MCP get_* 도구는 pagination 파라미터가 없고, 각 1회 호출로 목록
 |---|---|---|
 | 주문 목록/상세/live/상태변경/cancel | `AdminOrderController` — `GET/`, `GET/{id}`, `GET/live`, `PATCH/{id}/{status}`, `PATCH/{id}/cancel` | **구현됨** (통합 검증은 미검증) |
 | 메뉴 GET 목록·상세 | `AdminMenuController` GET 구현. POST/PATCH/DELETE는 TODO 주석 | **부분 구현** |
-| 품절 | `AdminSoldOutController` 빈 클래스 + TODO-036. DTO도 TODO-032 | **미구현(스텁)** |
+| 품절 | `AdminSoldOutController` 빈 클래스 + TODO-040 | **미구현(스텁)** |
 | 결제수단 | `AdminPaymentMethodController` 빈 클래스 + TODO-044. path=`/api/admin/paymentMethods` | **미구현(스텁)** |
 | 매출·대시보드 | `AdminStatsController` TODO-048~056만 | **미구현(스텁)** |
 
