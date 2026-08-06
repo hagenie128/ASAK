@@ -1,8 +1,9 @@
 # ASAK 전체 흐름도 (Mermaid)
 
-> 기준일: **2026-07-23** · 코드 실측 기준 (문서 주장이 아니라 실제 파일/라우트를 확인함).  
-> Admin mock 전 화면 1차 연결 반영 (상세: [baseline](current-status-baseline.md)).  
-> 문서 입구: [START_HERE](../START_HERE.md)  
+> 기준일: **2026-08-06** · 코드 실측 기준 (문서 주장이 아니라 실제 파일/라우트를 확인함).
+> Admin: 주문(Live·목록·상태·취소) API 연동 **구현됨·미검증**, 메뉴/품절/결제/매출/대시보드는 mock 또는 BE 스텁.
+> 상세: [admin-todo-checklist](../planning/admin-todo-checklist-2026-08-05.md) · [검증 투두](../planning/admin-feature-verify-todos-2026-08-06.md) · [동기화 보고서](../ai-reports/2026-08-06/asak-doc-sync-admin-devcopilot.md)
+> 문서 입구: [START_HERE](../START_HERE.md)
 > 이 문서는 **그림으로 보는 요약**입니다. 상태 표로 자세히 보려면 [Current Implementation Map](../planning/current-implementation-map-2026-07-16.md), 코드-문서 충돌은 [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md), 할 일은 [WBS 2.0](wbs-v2-2026-07-16.md)을 보세요.
 
 ## 범례 (모든 그림 공통)
@@ -87,21 +88,21 @@ flowchart LR
 
 ## 3. 관리자 운영 흐름
 
-`ASAK-Admin/src/apps/AdminApp.jsx`가 URL을 화면에 연결합니다. **전 화면이 `adminMockRepository`로 1차 연결**되어 있습니다 (1차 mock ≠ DONE). 실 Backend API는 **BLOCKED**.
+`ASAK-Admin/src/apps/AdminApp.jsx`가 URL을 화면에 연결합니다. **주문(Live·목록·상태·취소)은 `ordersApi` → BE**, 그 외(메뉴·품절·결제·매출·대시보드·로그인)는 아직 mock/스텁입니다 (mock ≠ DONE).
 
 ```mermaid
 flowchart TB
     Login["⚠️ /login<br/>LoginPage · mock 세션"]
-    Live["✅ /<br/>OrderListPage (Live) · SCR-009"]
-    Dashboard["✅ /dashboard<br/>DashboardPage · SCR-022"]
-    Orders["✅ /orders<br/>OrderManagementPreview · SCR-010"]
-    SoldOut["✅ /sold-out<br/>SoldOutManagePage · SCR-011"]
-    Menus["✅ /menus<br/>MenuManagePage 조립 · SCR-016"]
-    MenuEdit["✅ /menus/new|/edit<br/>우측 Edit 패널 wrapper"]
-    Payments["✅ /payment-methods<br/>PaymentMethodPage · 4종 · SCR-018"]
-    Sales["✅ /sales<br/>SalesSummaryPage · SCR-019"]
-    Monthly["✅ /sales/monthly<br/>MonthlySalesPage · SCR-020"]
-    Daily["✅ /sales/daily<br/>DailySalesPage · SCR-021"]
+    Live["✅ /<br/>LiveOrderPreview · SCR-009 · API 연동·미검증"]
+    Dashboard["✅ /dashboard<br/>DashboardPage · SCR-022 · mock"]
+    Orders["✅ /orders<br/>OrderManagement · SCR-010 · API 연동·미검증"]
+    SoldOut["✅ /sold-out<br/>SoldOutManagePage · SCR-011 · mock"]
+    Menus["✅ /menus<br/>MenuManagePage · SCR-016 · mock"]
+    MenuEdit["✅ /menus/new|/edit<br/>Edit 패널 · mock"]
+    Payments["✅ /payment-methods<br/>PaymentMethodPage · SCR-018 · mock"]
+    Sales["✅ /sales<br/>SalesSummaryPage · SCR-019 · mock"]
+    Monthly["✅ /sales/monthly<br/>MonthlySalesPage · SCR-020 · mock"]
+    Daily["✅ /sales/daily<br/>DailySalesPage · SCR-021 · mock"]
 
     Login --> Live
     Live --> Dashboard
@@ -113,10 +114,11 @@ flowchart TB
     Sales --> Monthly
     Sales --> Daily
 
-    Mock["✅ mocks/adminMockRepository.js<br/>Page → Hook → repository"]
-    Mock --> Live
+    ApiOrders["✅ ordersApi.js<br/>GET live·목록·상세 / PATCH status·cancel"]
+    ApiOrders --> Live
+    ApiOrders --> Orders
+    Mock["⚠️ mocks/adminMockRepository.js<br/>메뉴·품절·결제·매출·대시보드"]
     Mock --> Dashboard
-    Mock --> Orders
     Mock --> SoldOut
     Mock --> Menus
     Mock --> Payments
@@ -125,7 +127,8 @@ flowchart TB
 
 **핵심 근거 파일**
 - 라우트 정의: `ASAK-Admin/src/apps/AdminApp.jsx`
-- mock 유일한 입구: `ASAK-Admin/src/mocks/adminMockRepository.js` (Page에서 JSON 직접 import 금지)
+- 주문 API: `ASAK-Admin/src/api/ordersApi.js` · `useOrdersQuery.js` · `LiveOrderPreview.jsx`
+- 나머지 mock 입구: `ASAK-Admin/src/mocks/adminMockRepository.js` (Page에서 JSON 직접 import 금지)
 - 셸: 1920×1080 캔버스 + viewport scale · Shared AsyncState/Confirm
 
 관련 WBS: `WBS2-033~045` (P4 관리자) · 자세한 라우트 표는 [Admin 구조 가이드](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) 참고.
@@ -134,7 +137,7 @@ flowchart TB
 
 ## 4. 데이터/API 목표 흐름 (Kiosk·Admin → API → DB)
 
-지금은 화면 → API → DB로 이어지는 실제 연결이 **거의 없습니다.** Kiosk는 mock JSON을 직접 import하고, Admin은 Page→Hook→`adminMockRepository`→JSON 경로로 **1차 mock 연결**만 되어 있습니다. 백엔드는 헬스체크만 동작합니다. 아래 그림은 "지금 코드가 쓰는 경로"와 "문서가 정한 목표 경로(Canonical)"를 함께 보여줍니다.
+Kiosk는 여전히 mock JSON 비중이 큽니다. Admin은 **주문 API만 실연동(미검증)** 이고, 메뉴·품절·결제·매출·대시보드는 mock입니다. 백엔드는 Admin 주문(Live·목록·상세·상태·취소)과 메뉴 GET이 있고, 품절·결제수단·매출·대시보드는 Controller 스텁입니다.
 
 ```mermaid
 flowchart LR
@@ -145,34 +148,34 @@ flowchart LR
     end
 
     subgraph AD["ASAK-Admin"]
-        A1["pages/admin/*.jsx<br/>✅ Hook으로 mock 1차 연결"]
-        A2["mocks/adminMockRepository.js"]
+        A1["주문 화면<br/>✅ ordersApi 실연동·미검증"]
+        A2["메뉴·품절·결제·매출·대시보드<br/>⚠️ adminMockRepository"]
         A3["public/mocks/asak-admin-data.json"]
-        A1 --> A2 --> A3
+        A1 --> B1
+        A2 --> A3
     end
 
-    subgraph B["ASAK-backend (Spring Boot, local: ASAK-back)"]
-        B1["✅ Health · Kiosk 메뉴/카테고리 조회<br/>cart validate · Admin 메뉴/주문 조회"]
-        B2["⚠️ 주문 저장은 미완성<br/>결제·상태변경/취소·품절·매출 API 없음"]
+    subgraph B["ASAK-back (Spring Boot)"]
+        B1["✅ Admin 주문 live/list/detail/status/cancel<br/>✅ Admin 메뉴 GET 목록·상세"]
+        B2["⚠️ 품절·결제수단·매출·대시보드 Controller 스텁<br/>⚠️ 메뉴 POST/PATCH/DELETE 미구현"]
     end
 
     subgraph DB["DB"]
-        D1["❌ Entity / JPA / migration 없음<br/>DevCopilot 설계(26 tables·4 views)는 문서만 존재"]
+        D1["⚠️ MyBatis 매퍼 사용 · 실DB 통합 검증은 미검증"]
     end
 
     K2 -. 목표 API 경로로 연결 예정 .-> B2
-    A3 -. 목표 API 경로로 연결 예정 .-> B2
+    B1 --> D1
     B2 -. 구현되면 저장 .-> D1
 
-    Canon["📄 Canonical 목표 경로 (문서, 코드 미반영)<br/>GET /api/kiosk/menuList, menuDetail/id<br/>POST /api/kiosk/orders, payments<br/>PATCH /api/admin/soldOut<br/>GET /api/admin/orders, sales/summary·monthly·daily"]
-    LegacyCode["⚠️ 코드가 실제로 쓰는 경로 legacy, 상수만 존재<br/>/api/menus, /api/orders, /api/payments 등"]
-    Canon -. CONFLICT 문서와 코드가 다름 .-> LegacyCode
+    CodePaths["✅ 코드 기준 Admin 경로 (2026-08-06)<br/>GET /api/admin/orders/live<br/>GET|PATCH /api/admin/orders...<br/>GET /api/admin/menus<br/>/api/admin/soldOut · /api/admin/paymentMethods"]
 ```
 
 **꼭 알아야 할 충돌 (Canonical vs 코드)**
-- API 경로: 문서(Canonical)는 `/api/kiosk/menuList`처럼 앞에 `kiosk`/`admin`을 붙이지만, 코드 상수는 아직 `/api/menus`처럼 짧은 legacy 경로입니다.
-- 금액 필드: 문서는 `totalAmount`, `approvedAmount`를 쓰지만, 지금 `orderSessionStore`는 `totalPrice` 같은 이름을 씁니다. 나중에 adapter에서 이름만 맞출 계획입니다.
-- 백엔드: 메뉴·카테고리·관리자 조회와 장바구니 검증은 코드 경로가 있으나, 실DB·Bruno 실행은 아직 확인하지 않았습니다. 주문 저장은 미완성이고 결제·상태변경/취소·품절·매출은 목표 API입니다.
+- Admin 결제수단 path: 코드·Engineering Bible는 `/api/admin/paymentMethods`(camelCase). 일부 문서/구 DevCopilot은 `payment-methods`(kebab) — **2026-08-06 동기화는 코드 기준**.
+- Live 주문: 코드 `GET /api/admin/orders/live` (구 DevCopilot `orders/active`는 코드에 맞춤 갱신).
+- 품절 PATCH: 코드/TODO는 `{targetType,targetId,isSoldOut}` (구 DevCopilot `{menuId}`는 코드에 맞춤 갱신).
+- 금액 필드: 문서는 `totalAmount`, `approvedAmount`를 쓰지만, 키오스크 `orderSessionStore`는 `totalPrice` 등 — adapter에서 맞춤.
 
 자세한 표: [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md) · [Canonical Contract Decisions](../governance/canonical-contract-decisions-2026-07-16.md) · [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md)
 

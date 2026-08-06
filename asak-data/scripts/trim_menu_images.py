@@ -13,6 +13,29 @@ PAD_RATIO = 0.04
 MIN_PAD = 4
 
 
+def is_background_pixel(r: int, g: int, b: int, a: int) -> bool:
+    if a < ALPHA:
+        return True
+    if r >= WHITE and g >= WHITE and b >= WHITE:
+        return True
+    if min(r, g, b) >= 240 and (max(r, g, b) - min(r, g, b)) <= 8:
+        return True
+    return False
+
+
+def knockout_white(im: Image.Image) -> Image.Image:
+    """Crop 이후에도 남는 스튜디오 흰 배경을 alpha=0으로 치환."""
+    im = im.convert("RGBA")
+    px = im.load()
+    w, h = im.size
+    for y in range(h):
+        for x in range(w):
+            r, g, b, a = px[x, y]
+            if is_background_pixel(r, g, b, a):
+                px[x, y] = (r, g, b, 0)
+    return im
+
+
 def trim(im: Image.Image) -> tuple[Image.Image, bool]:
     im = im.convert("RGBA")
     w, h = im.size
@@ -22,11 +45,7 @@ def trim(im: Image.Image) -> tuple[Image.Image, bool]:
     for y in range(h):
         for x in range(w):
             r, g, b, a = px[x, y]
-            if a < ALPHA:
-                continue
-            if r >= WHITE and g >= WHITE and b >= WHITE:
-                continue
-            if min(r, g, b) >= 240 and (max(r, g, b) - min(r, g, b)) <= 8:
+            if is_background_pixel(r, g, b, a):
                 continue
             minx = min(minx, x)
             miny = min(miny, y)
@@ -34,7 +53,7 @@ def trim(im: Image.Image) -> tuple[Image.Image, bool]:
             maxy = max(maxy, y)
 
     if maxx < 0:
-        return im, False
+        return knockout_white(im), False
 
     cw, ch = maxx - minx + 1, maxy - miny + 1
     pad = max(MIN_PAD, int(max(cw, ch) * PAD_RATIO))
@@ -43,7 +62,7 @@ def trim(im: Image.Image) -> tuple[Image.Image, bool]:
     maxx = min(w - 1, maxx + pad)
     maxy = min(h - 1, maxy + pad)
     cropped = im.crop((minx, miny, maxx + 1, maxy + 1))
-    return cropped, cropped.size != (w, h)
+    return knockout_white(cropped), cropped.size != (w, h)
 
 
 def main() -> None:
@@ -52,7 +71,7 @@ def main() -> None:
     for path in sorted(SRC.glob("*.png")):
         im = Image.open(path)
         out, did = trim(im)
-        out.save(DST / path.name, "PNG", optimize=True)
+        out.save(DST / path.name, "PNG")
         count += 1
         changed += int(did)
         print(f"{path.name}: {im.size[0]}x{im.size[1]} -> {out.size[0]}x{out.size[1]}")

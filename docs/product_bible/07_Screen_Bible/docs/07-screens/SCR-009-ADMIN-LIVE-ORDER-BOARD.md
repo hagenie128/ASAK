@@ -1,7 +1,7 @@
 # SCR-009: Admin Live Order Board
 
-> Status: Current Draft  
-> Route: `/orders/live`  
+> Status: Current Draft
+> Route: `/` (운영 홈) · Canonical alias `/orders/live` → `/`
 > Purpose: 실시간 주문 처리
 
 
@@ -34,7 +34,7 @@ activeOrders, statusCounts
 
 ## 6. React Component Map
 
-- `LiveOrderBoardPage`
+- `LiveOrderPreview` (페이지 셸에서 사용)
 - `OrderCard`
 - `OrderStatusAction`
 - `ElapsedTimeBadge`
@@ -44,6 +44,7 @@ activeOrders, statusCounts
 
 - `GET /api/admin/orders/live`
 - `PATCH /api/admin/orders/{orderId}/{status}`
+- `PATCH /api/admin/orders/{orderId}/cancel`
 
 ## 8. User Actions
 

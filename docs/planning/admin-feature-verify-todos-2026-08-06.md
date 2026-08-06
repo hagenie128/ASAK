@@ -1,116 +1,105 @@
 # Admin 기능별 화면–API–DB 검증 투두 (2026-08-06)
 
-> 교사 지시: **기능별로 화면–API–DB 결과를 함께 확인**하며 진행
-> 우선순위: 주문 통합테스트 → 메뉴 → 품절 → 결제수단 → 매출 → 대시보드
-> 인라인 코드 태그: `TODO-NNN` — **번호순 = 위 우선순위** (`admin-todo-checklist-2026-08-05.md`)
-> 완료 조건: 아래 각 항목의 **화면 · API · DB** 세 칸을 모두 통과해야 해당 기능 완료
+> 작업 원칙: **기능별로 화면–API–DB 결과를 함께 확인**하며 진행
+> 인라인 코드 태그: `TODO-NNN` (`admin-todo-checklist-2026-08-05.md`)
+> 완료 조건: 각 ID의 **화면 · API · DB** 세 칸 모두 통과
+
+## 오늘(2026-08-06) 작업 순서
+
+교사 8/5(주문→메뉴→품절→결제…) + 8/6(메뉴 CRUD·FE / 품절·결제 C→S→M)을 합친 **오늘 실행 순**:
+
+| 순위 | ID | 할 일 | 비고 |
+|---|---|---|---|
+| **1** | T-1 ~ T-2 | **메뉴 목록·상세 조회** FE mock 제거 + 화면–API–DB 검증 | BE GET은 있음. 등록보다 **조회 먼저** |
+| **2** | T-3 ~ T-6 | **메뉴 등록·수정** BE → FE 연결 + 검증 | 기본 필드만 (계약 MVP) |
+| **3** | T-7 | **메뉴 삭제** BE → FE (가능 범위) | soft-delete 컬럼 없으면 범위 확인 후 |
+| **4** | T-8 | **품절** Controller → Service → Mapper (+ 가능하면 FE) | 8/6 |
+| **5** | T-9 | **결제수단** Controller → Service → Mapper (+ 가능하면 FE) | 8/6 |
+| 병행/여유 | O-* | 주문 통합 테스트 잔여 | 8/5 P1. 메뉴 조회 한 줄기 후·사이사이 |
+| 후순위 | S-* / D-* | 매출 → 대시보드 | 8/5 P4 후반. 오늘 필수 아님 |
+| 키오스크·문서 | — | 결제수단·장바구니 / 위키 | 관리자 메뉴 조회+등록 줄기 이후 또는 분담 |
 
 ---
 
 ## 검증 공통 규칙
 
-1. 한 기능(행)을 끝낸 뒤에만 다음 기능으로 넘어간다.
-2. 확인 순서: **API(네트워크/Swagger) → DB(조회) → 화면(Admin UI)** 또는 역순이어도 세 결과가 같아야 한다.
-3. 불일치 시 원인 층을 기록한다. (`FE 매핑` / `API 계약` / `Service` / `SQL` / `시드 데이터`)
-4. mock이 남아 있으면 해당 기능은 미완료다.
+1. 한 기능(행)을 끝낸 뒤에만 다음으로 넘어간다.
+2. **API → DB → 화면** (또는 역순) 결과가 같아야 한다.
+3. mock이 남아 있으면 해당 기능은 미완료.
+4. 목록 0건은 **ErrorCode가 아니라 200 + 빈 content** (Empty ≠ NOT_FOUND).
 
 ---
 
-## P1 · 주문 (통합 테스트) — SCR-009 / SCR-010
+## T · 오늘 메뉴 (우선) — SCR-016
 
-| ID | 기능 | 화면 확인 | API 확인 | DB 확인 | 관련 TODO | 상태 |
+| ID | 기능 | 화면 | API | DB | TODO | 상태 |
 |---|---|---|---|---|---|---|
-| **P1-1** | 주문 목록 조회 | `/orders`(SCR-010)에 주문 행·필터·페이징 표시. mock/fixture 문구 없음 | `GET /api/admin/orders` 200, `content[]`에 `orderId/orderNo/orderStatus/paymentStatus` | `orders` 최신 N건과 목록 건수·상태 코드 일치 | 구현됨 · 검증 | ⬜ |
-| **P1-2** | 주문 상세 조회 | 목록에서 주문 선택 시 상세 패널: 메뉴·옵션·제외재료·금액 | `GET /api/admin/orders/{orderId}` 200, 항목/옵션/제외재료 필드 존재 | `order_items`·옵션·제외재료 조인 결과와 상세 동일 | 구현됨 · 검증 | ⬜ |
-| **P1-3** | Live 보드 조회 | `/`(SCR-009)에 RECEIVED/PREPARING 카드 표시, 폴링/새로고침 반영 | `GET /api/admin/orders/live` 200 | live 대상 상태(`RECEIVED`,`PREPARING`) 주문만 노출되는지 `orders.status_id`로 대조 | 014 완료 · 검증 | ⬜ |
-| **P1-4** | 상태 변경 RECEIVED→PREPARING | Live에서 "접수/조리" 등 액션 → 카드 컬럼 이동, toast 성공 | `PATCH /api/admin/orders/{id}/PREPARING` 200 `ADMIN_ORDER_STATUS_CHANGE_SUCCESS` | 해당 `orders.status_id`가 PREPARING 코드로 변경 | 001~006·011 · 검증 | ⬜ |
-| **P1-5** | 상태 변경 PREPARING→COMPLETED | Live "완료 처리" → 보드에서 사라짐/완료 처리, toast 성공 | `PATCH .../COMPLETED` 200 | `status_id` COMPLETED 코드로 변경 | 001~006·011 · 검증 | ⬜ |
-| **P1-6** | 잘못된 전이 거부 | COMPLETED→PREPARING 등 시도 시 오류 toast (409 메시지) | 409 `INVALID_ORDER_STATUS_TRANSITION` 또는 `ORDER_STATUS_CONFLICT` | DB 상태 **변경되지 않음** | 002·003·006·011 · 검증 | ⬜ |
-| **P1-7** | 주문 취소 | Live/주문관리에서 취소 → 목록·보드 반영, toast | `PATCH /api/admin/orders/{id}/cancel` 200 | `orders.status_id`=CANCELED, `canceled_at` 설정 | 검증 / **008·010** 잔여 | ⬜ |
-| **P1-8** | 취소 잔여 정리 | APPROVED 결제 취소 시 정책대로 동작(환불 stub 여부 문서화) | cancel 응답 코드가 정책과 일치 | `status_id` 하드코딩 `43` 제거(**010**), APPROVED 분기(**008**) | **008·010** | ⬜ |
-| **P1-9** | Empty vs Error UI | 주문 0건 Empty / 서버 다운 Error 화면이 구분됨 | 200 empty vs 5xx/네트워크 실패 | (데이터 없을 때) 테이블 0건 = Empty | **012** | ⬜ |
+| **T-1** | 메뉴 목록 조회 연동 | `/menus`가 mock이 아닌 실데이터 | `GET /api/admin/menus` **200** (0건도 200+빈목록; `MENU_NOT_FOUND` 쓰지 않음) | `menu`와 건수·이름·가격 일치 | **015·016** | 🟡 구현 완료 · 화면/API/DB 미검증 |
+| **T-2** | 메뉴 상세 조회 연동 | 선택/편집 화면에 상세 표시 | `GET /api/admin/menus/{menuId}` 200 / 없으면 404 | 상세 row·관계 일치 | **015** | 🟡 구현 완료 · 화면/API/DB 미검증 |
+| **T-3** | 메뉴 등록 BE | — | `POST /api/admin/menus` (categoryId,name,price,imageUrl,description) | `menu` INSERT | **017~019** | ⬜ Mapper 선언 → Service 저장 → Controller POST |
+| **T-4** | 메뉴 등록 FE | `/menus/new` 저장 → 목록 반영 | 네트워크 POST | INSERT row = 화면 | **023·025** | ⬜ api 함수 추가 → save handler 연결 |
+| **T-5** | 메뉴 수정 BE | — | `PATCH /api/admin/menus/{menuId}` | row UPDATE | **020~022** | ⬜ Mapper UPDATE → Service 존재여부 기준 → Controller PATCH |
+| **T-6** | 메뉴 수정 FE | `/menus/edit` 저장 → 목록·상세 갱신 | 네트워크 PATCH | DB = 화면 | **024·025** | ⬜ api 함수 추가 → save handler 연결 |
+| **T-7** | 메뉴 삭제 | 삭제 후 목록에서 사라짐(또는 비활성) | `DELETE` 또는 정책에 맞는 API | DB 반영 | **026~028·030·031** | ⬜ 삭제 정책 확정 → API 함수 → confirm handler 연결 |
 
-**P1 완료 기준:** P1-1~P1-9 전부 통과. (TTS 013a~d·보드 가로스크롤 023은 보류)
+**T 완료 기준:** T-1~T-2 필수 통과 후 T-3~T-6. T-7은 스키마 제약 확인 후.
 
 ---
 
-## P2 · 메뉴 (목록·상세·등록·수정) — SCR-016
+## T · 오늘 품절·결제수단 BE (메뉴 CRUD 다음)
 
-| ID | 기능 | 화면 확인 | API 확인 | DB 확인 | 관련 TODO | 상태 |
+| ID | 기능 | 화면 | API | DB | TODO | 상태 |
 |---|---|---|---|---|---|---|
-| **P2-1** | 메뉴 목록 조회 연동 | `/menus` 목록이 mock이 아닌 실데이터. 카테고리/검색 동작 | `GET /api/admin/menus` 200 | `menu` 테이블 active 목록과 건수·이름·가격 일치 | **024** | ⬜ |
-| **P2-2** | 메뉴 상세 조회 연동 | 선택/수정 화면(`/menus/edit`)에 상세·옵션·재료 표시 | `GET /api/admin/menus/{menuId}` 200 | `menu` + 옵션/재료 관계 테이블과 동일 | **024** | ⬜ |
-| **P2-3** | 메뉴 등록 BE | (API/Swagger로) 신규 메뉴 POST 성공 | `POST /api/admin/menus` 201/200, id 반환 | `menu` INSERT + 연결 테이블 트랜잭션 커밋 | **015~018** | ⬜ |
-| **P2-4** | 메뉴 등록 FE | `/menus/new` 저장 → 목록에 즉시 반영, mock 경로 없음 | 네트워크에 `POST /api/admin/menus` | 방금 INSERT된 row가 화면에 보임 | **022·025** | ⬜ |
-| **P2-5** | 메뉴 수정 BE | PATCH로 이름/가격 등 변경 성공 | `PATCH /api/admin/menus/{menuId}` 200 | 해당 row 컬럼 갱신 확인 | **019~021** | ⬜ |
-| **P2-6** | 메뉴 수정 FE | `/menus/edit` 저장 → 목록·상세 갱신 | 네트워크에 `PATCH .../menus/{id}` | DB 변경값 = 화면 표시값 | **023·025** | ⬜ |
-
-**P2 후순위(이번 사이클 제외):** 삭제 **026~028·030·031**, ingredients **029**
-
-**P2 완료 기준:** P2-1~P2-6 전부 통과(목록·상세·등록·수정이 화면·API·DB 일치).
+| **T-8** | 품절 C→S→M | (가능하면 `/sold-out` mock 제거까지) | `GET`/`PATCH /api/admin/soldOut` | `is_sold_out` | **032~039** | ⬜ |
+| **T-9** | 결제수단 C→S→M | (가능하면 `/payment-methods`까지) | `GET`/`PATCH paymentMethods` | 마스터 UPDATE | **040~047** | ⬜ |
 
 ---
 
-## P3 · 품절 — SCR-011
+## O · 주문 통합 테스트 (8/5 · 병행/여유) — SCR-009 / SCR-010
 
-| ID | 기능 | 화면 확인 | API 확인 | DB 확인 | 관련 TODO | 상태 |
-|---|---|---|---|---|---|---|
-| **P3-1** | 품절 카탈로그 조회 | `/sold-out`(또는 동등 경로)에 메뉴·재료·옵션 목록, mock 제거 | `GET /api/admin/soldOut` 200 | 대상 테이블 `is_sold_out` 현황과 카탈로그 일치 | **032~033·035~037·039** | ⬜ |
-| **P3-2** | 품절 ON | 토글/저장 → 화면 품절 표시 | `PATCH /api/admin/soldOut` `{targetType,targetId,isSoldOut:true}` 200 | 해당 대상 `is_sold_out=1` | **032·034~036·038·039** | ⬜ |
-| **P3-3** | 품절 OFF | 해제 → 화면 정상 판매 표시 | PATCH `isSoldOut:false` 200 | `is_sold_out=0` | 동상 | ⬜ |
-| **P3-4** | 실패 롤백 | 잘못된 target 등 오류 시 화면 롤백·에러 toast | 4xx + ErrorCode | DB 값 **원복/미변경** | **035** | ⬜ |
-
-**P3 완료 기준:** P3-1~P3-4 통과. (키오스크 반영은 가능하면 스모크로 추가 확인)
-
----
-
-## P4-1 · 결제수단 — SCR-018
-
-| ID | 기능 | 화면 확인 | API 확인 | DB 확인 | 관련 TODO | 상태 |
-|---|---|---|---|---|---|---|
-| **P4A-1** | 결제수단 목록 | `/payment-methods`에 실데이터, mock 제거 | `GET /api/admin/paymentMethods` 200 | 결제수단 마스터 테이블과 일치 | **040~041·043~045·047** | ⬜ |
-| **P4A-2** | 결제수단 변경 | 활성/정렬/영수증문구 저장 반영 | `PATCH /api/admin/paymentMethods/{id}` 200 | 해당 row UPDATE 확인 | **040·042~044·046·047** | ⬜ |
-
-**P4A 완료 기준:** P4A-1~P4A-2 통과 후 P4-2로 이동.
+| ID | 기능 | 화면 | API | DB | 상태 |
+|---|---|---|---|---|---|
+| **O-1** | 주문 목록 | `/orders` | `GET /admin/orders` | orders 일치 | ⬜ |
+| **O-2** | 주문 상세 | 상세 패널 | `GET /orders/{id}` | items 일치 | ⬜ |
+| **O-3** | Live 보드 | `/` | `GET /orders/live` 200+빈목록 가능 | RECEIVED/PREPARING | ⬜ |
+| **O-4** | →PREPARING | Live 이동 | PATCH .../PREPARING | status_id | ⬜ |
+| **O-5** | →COMPLETED | Live 완료 | PATCH .../COMPLETED | status_id | ⬜ |
+| **O-6** | 잘못된 전이 | 409 toast | 409 ErrorCode | DB 미변경 | ⬜ |
+| **O-7** | 취소 | 화면 반영 | PATCH .../cancel | CANCELED + canceled_at | ⬜ |
+| **O-8** | 취소 잔여 | — | 정책 코드 | **008** 환불 stub / **010** 코드테이블(진행중·확인) | 🟡 |
+| **O-9** | Empty vs Error | 목록 구분 UI | 200 empty vs fail | — | ✅ hook 수정 · 화면 확인 ⬜ |
 
 ---
 
-## P4-2 · 매출 — SCR-019 / SCR-020 / SCR-021
+## 후순위 · 매출 → 대시보드 (8/5 P4 후반)
 
-| ID | 기능 | 화면 확인 | API 확인 | DB 확인 | 관련 TODO | 상태 |
-|---|---|---|---|---|---|---|
-| **P4B-1** | 매출 요약 | `/sales` 기간 요약 숫자 표시, mock 제거 | `GET /api/admin/sales/summary` 200 | 기간 내 결제완료 주문 합계와 일치 | **048·051·052·055** | ⬜ |
-| **P4B-2** | 월별 매출 | `/sales/monthly` 월 단위 표시 | `GET /api/admin/sales/monthly` 200 | 월별 집계 SQL/뷰와 일치 | **049·051·053·055** | ⬜ |
-| **P4B-3** | 일별 매출 | `/sales/daily` 일자 표시 | `GET /api/admin/sales/daily` 200 | 해당일 주문·결제 합계와 일치 | **050·051·054·055** | ⬜ |
-
-**P4B 완료 기준:** P4B-1~P4B-3 통과 후 P4-3으로 이동.
+| ID | 기능 | TODO | 상태 |
+|---|---|---|---|
+| **S-1~3** | 매출 요약·월·일 mock 제거 | **048~055** | ⬜ |
+| **D-1** | 대시보드 mock 제거 | **056~058** | ⬜ |
 
 ---
 
-## P4-3 · 대시보드 — SCR-022
+## 보류
 
-| ID | 기능 | 화면 확인 | API 확인 | DB 확인 | 관련 TODO | 상태 |
-|---|---|---|---|---|---|---|
-| **P4C-1** | 대시보드 조회 | `/dashboard` 실지표 표시, mock 제거 | `GET /api/admin/dashboard` 200 | 대시보드 집계(오늘 주문·매출·대기 등)와 일치 | **056~058** | ⬜ |
-
-**P4C 완료 기준:** P4C-1 통과.
-
----
-
-## 보류 (P1~P4 이후)
-
-| ID | 내용 | 관련 TODO |
+| ID | 내용 | TODO |
 |---|---|---|
-| HOLD-TTS | TTS 중복방지·Queue·Mute·localStorage | 013a~013d |
-| HOLD-LIVE | Live 보드 가로 스크롤 | **059** (구 023) |
-| HOLD-AUTH | 로그인·JWT·가드 | 060~068 |
-| HOLD-ROUTE | Canonical 경로·403 | 069~070 |
+| HOLD-TTS | TTS 명세 고도화 | 013a~d |
+| HOLD-LIVE | Live 가로 스크롤 | 059 |
+| HOLD-AUTH | 로그인·JWT | 060~068 |
+| HOLD-ROUTE | Canonical·403 | 069~070 |
 | HOLD-FUTURE | 환불·영수증 | 071~076 |
+| HOLD-KIOSK | 결제수단 조회·승인 / 장바구니 검증 | 8/6 키오스크 |
+| HOLD-DOCS | 회의록·위키 최신화 | 8/6 문서 |
 
 ---
 
-## 진행 로그 (작업 시 기입)
+## 진행 로그
 
 | 날짜 | ID | 화면 | API | DB | 메모 |
 |---|---|---|---|---|---|
+| 2026-08-06 | T-1 | ⬜ | ✅ | ⬜ | `useMenusQuery`가 `PageResult` 기준 목록·필터·페이지네이션 실연동 |
+| 2026-08-06 | T-2 | ⬜ | ✅ | ⬜ | `selectedMenuId` 기준 `getMenu(menuId)` 상세 조회 연결 |
+| 2026-08-06 | — | — | — | — | 인라인 메뉴 TODO를 **015 조회 → 017~ 등록·수정 → 026~ 삭제** 순으로 재번호 |
+| 2026-08-06 | O-9 | — | — | — | useOrdersQuery Empty/Error 분리 · Live 빈목록 200 |
 | | | ✅/❌ | ✅/❌ | ✅/❌ | |
