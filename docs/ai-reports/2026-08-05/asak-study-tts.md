@@ -114,7 +114,6 @@ export const speak = (text, options = {}) =>
 
 ```279:290:ASAK-Admin/src/components/admin/LiveOrderPreview.jsx
       toast.success(SUCCESS_MESSAGE[status]);
-      // TODO-013: COMPLETED 등 성공 후 TTS 호출. TTS 실패 시 toast만, 주문 상태는 유지
       if (status === "COMPLETED") {
         try {
           const order = orders.find((o) => o.orderId === orderId);

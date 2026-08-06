@@ -4,19 +4,22 @@
 > **번호 순 = 교사 우선순위** (주문 → 메뉴 → 품절 → 결제수단 → 매출 → 대시보드)
 > 파일 상단에 모아 두지 않고, **해당 코드 위치**에만 달아 두었다.
 > 검색: `TODO-00` / `TODO-0` / `TODO-`
-> 진행 갱신: 2026-08-06 (인라인 번호 교사순 재매핑)
+> 진행 갱신: 2026-08-06 (오늘 작업 순서 재정렬: 메뉴 조회 먼저)
 > 작업 원칙: **기능별로 화면–API–DB 결과를 함께 확인**하며 진행한다.
 > 상세 검증: [`admin-feature-verify-todos-2026-08-06.md`](./admin-feature-verify-todos-2026-08-06.md)
 
-## 작업 우선순위 (교사 지시 2026-08-05)
+## 오늘 작업 우선순위 (8/5 + 8/6 합본)
 
 | 순위 | 작업 | 인라인 TODO | 비고 |
 |---|---|---|---|
-| **P1** | 주문 목록·상세·Live·상태 변경·취소 **API 통합 테스트** | **008·010·012** (+ 완료분 001~007·009·011·014 검증) | TTS 기본 호출은 구현됨. **013a~d·059**(보드 스크롤) 보류 |
-| **P2** | 메뉴 목록·상세·등록·수정 **API 연동** | **015~025** (삭제 **026~031** 후순위) | 구 032~048 |
-| **P3** | 품절 관리 **API 연동** | **032~039** | 구 015~022 |
-| **P4** | 결제수단 → 매출 → 대시보드 | **040~047** → **048~055** → **056~058** | 구 024~031 → 049~059 |
-| 보류 | Live 스크롤·TTS 명세·로그인·Future | **059**, **013a~d**, **060~076** | P1~P4 이후 |
+| **1** | 메뉴 **목록·상세 조회** FE 실연동 + 검증 | **015·016** | BE GET 있음. 목록 0건=`MENU_NOT_FOUND` 제거. **등록보다 조회 먼저** |
+| **2** | 메뉴 **등록·수정** BE → FE | **017~025** | 기본 필드만. Create/Update Request 정리됨 |
+| **3** | 메뉴 **삭제** BE → FE | **026~028·030·031** | 8/6. 스키마 제약 확인 |
+| **4** | 품절 C→S→M | **032~039** | 8/6 |
+| **5** | 결제수단 C→S→M | **040~047** | 8/6 |
+| 병행 | 주문 통합 테스트 | **008·010·012** + 검증 | 8/5. 메뉴 조회 줄기 후·여유 시 |
+| 후순위 | 매출 → 대시보드 | **048~058** | 오늘 필수 아님 |
+| 보류 | TTS·Live스크롤·로그인·키오스크·문서 | **059**, 013a~d, 060~ | 8/6 키오스크·문서는 관리자 메뉴 줄기 이후 |
 
 ## 번호 재매핑 (2026-08-06)
 
@@ -36,10 +39,20 @@
 | 상태 | 번호 |
 |---|---|
 | 완료(주석 제거) | **001~007**, **009**, **011**, **013**(기본 TTS), **014** |
-| 부분/잔여 | **008**, **010**, **012** |
-| 미착수 | **015~076** (059·060~는 보류/후순위 포함) |
+| 완료 | **015**, **016** |
+| 부분/잔여 | **008**, **010**(코드테이블화 진행), **012**(hook 수정·화면확인) |
+| 진행 중 | **017~025** (메뉴 등록·수정 설계/연결), **032~039**, **040~047** |
+| 미착수 | **026~031**, **048~076** |
 
-다음 착수: **P1 주문 API 통합 테스트** → **P2 메뉴(015~)** → **P3 품절(032~)** → **P4 결제(040~)→매출(048~)→대시보드(056~)**
+다음 착수: **① 메뉴 등록·수정(T-3~T-6)** → **② 메뉴 삭제(T-7)** → **③ 품절·결제수단 C→S→M** → (여유) 주문 검증 · 매출·대시보드
+
+### 진행 로그
+
+| 날짜 | 내용 |
+|---|---|
+| 2026-08-06 | 오늘 순서를 메뉴 **조회 먼저**로 재정렬. Request DTO MVP 정리. Empty/Error·Live 빈목록 수정. |
+| 2026-08-06 | 메뉴 조회 실연동 반영: `useMenusQuery`가 `PageResult` 기준으로 목록/필터/페이지네이션 연동, `AdminMenuController.getMenus`는 빈 목록도 200으로 응답. |
+| 2026-08-06 | 문서·DevCopilot 동기화(코드 기준). 주문 BE/FE 연동은 구현됨·**미검증**. 메뉴 POST/PATCH/DELETE는 미구현. |
 
 ---
 
@@ -47,48 +60,50 @@
 
 | # | 상태 | 위치 | 할 일 |
 |---|---|---|---|
-| **008** | 🟡 부분 | `AdminOrderService.cancelOrder` | APPROVED 시 환불 연동 미완(현재 0 반환) |
-| **010** | ⬜ 미착수 | `AdminOrderMapper.xml` cancel | `status_id=43` → 코드테이블/상수 |
-| **012** | 🟡 부분 | `useOrdersQuery.js` | Empty vs Error UI·필터 정합 확인 |
+| **008** | 🟡 부분 | `AdminOrderService.cancelOrder` | ① APPROVED 취소 정책 확정 ② 환불 흐름 분리 여부 결정 ③ Controller/ErrorCode 기준 정리 |
+| **010** | ✅ 완료 | `AdminOrderMapper.xml` cancel | `status_id=43` 제거, `findOrderStatusId("CANCELED")` 사용 |
+| **012** | 🟡 부분 | `useOrdersQuery.js` | ① Empty/Error 분리 반영 ② 필터 쿼리 정합 확인 ③ OrderManagement 화면 수동 검증 |
 
 상세 검증 ID: `P1-1`~`P1-9` → 검증 투두 문서
 
-### P2 · 메뉴 (015~031) — SCR-016
+### P2 · 메뉴 (015~031) — SCR-016 · 조회→등록·수정→삭제
 
 | # | 상태 | 위치 | 할 일 |
 |---|---|---|---|
-| **015** | ⬜ | `CreateMenuRequest.java` | DTO 필드 |
-| **016** | ⬜ | `AdminMenuMapper.java` | insertMenu |
-| **017** | ⬜ | `AdminMenuService.createMenu` | INSERT 트랜잭션 |
-| **018** | ⬜ | `AdminMenuController` | POST |
-| **019** | ⬜ | `AdminMenuMapper.java` | updateMenu |
-| **020** | ⬜ | `AdminMenuService` | updateMenu |
-| **021** | ⬜ | `AdminMenuController` | PATCH |
-| **022** | ⬜ | `menusApi.js` | createMenu |
-| **023** | ⬜ | `menusApi.js` | updateMenu |
-| **024** | ⬜ | `useMenusQuery.js` | mock → API |
-| **025** | ⬜ | `MenuManagePage.jsx` | save → API |
-| **026** | ⬜ 후순위 | `AdminMenuMapper.java` | deleteMenu |
-| **027** | ⬜ 후순위 | `AdminMenuService` | deleteMenu |
-| **028** | ⬜ 후순위 | `AdminMenuController` | DELETE |
+| **015** | ✅ 완료 | `useMenusQuery.js` | mock 제거, `menusApi.listMenus` / `getMenu` + `PageResult` 페이지네이션 연동 |
+| **016** | ✅ 완료 | `AdminMenuController.getMenus` | 목록 0건 → 200+빈 `PageResult` (`MENU_NOT_FOUND` 제거) |
+| **017** | ⬜ 진행 중 | `AdminMenuMapper.java` | `insertMenu` 선언 → XML INSERT → generated key 반환 |
+| **018** | ⬜ 진행 중 | `AdminMenuService.createMenu` | 이미지 저장 → request + imageUrl로 INSERT → 요약 응답 연결 |
+| **019** | ⬜ 진행 중 | `AdminMenuController` | POST 바인딩 방식 결정(JSON/multipart) → service 호출 → 성공 응답 |
+| **020** | ⬜ 진행 중 | `AdminMenuMapper.java` | `updateMenu` 선언 → XML UPDATE → 수정 건수 반환 |
+| **021** | ⬜ 진행 중 | `AdminMenuService` | menuId 기준 update 호출 → 존재하지 않음/성공 기준 정리 |
+| **022** | ⬜ 진행 중 | `AdminMenuController` | PATCH 바인딩 → service 호출 → `MENU_NOT_FOUND`/성공 응답 |
+| **023** | ⬜ 진행 중 | `menusApi.js` | `createMenu(payload)` 추가 → 백엔드 POST 규격 연결 |
+| **024** | ⬜ 진행 중 | `menusApi.js` | `updateMenu(menuId, payload)` 추가 → 백엔드 PATCH 규격 연결 |
+| **025** | ⬜ 진행 중 | `MenuManagePage.jsx` | create/edit 분기 호출 → 성공 refetch/optimistic update → 실패 toast 처리 |
+| **026** | ⬜ 오늘③ | `AdminMenuMapper.java` | 삭제 정책 확정 후 `deleteMenu`/`updateMenuActive` 선언·XML 구현 |
+| **027** | ⬜ 오늘③ | `AdminMenuService` | 삭제 service 구현 → 정책(soft/hard) 반영 |
+| **028** | ⬜ 오늘③ | `AdminMenuController` | DELETE endpoint → 성공/실패 응답 규격 정리 |
 | **029** | ⬜ 후순위 | Mapper + Controller | ingredients |
-| **030** | ⬜ 후순위 | `menusApi.js` | deleteMenu |
-| **031** | ⬜ 후순위 | `MenuManagePage.jsx` | delete → API |
+| **030** | ⬜ 오늘③ | `menusApi.js` | `deleteMenu(menuId)` 추가 |
+| **031** | ⬜ 오늘③ | `MenuManagePage.jsx` | 삭제 확인 → API 호출 → refetch/선택 메뉴 이동/view 복귀 |
 
-상세 검증: `P2-1`~`P2-6`
+> CreateMenuRequest / UpdateMenuRequest 기본 필드 DTO는 정리 완료(별도 TODO 번호 없음).
+
+상세 검증: `T-1`~`T-7` ([검증 투두](./admin-feature-verify-todos-2026-08-06.md))
 
 ### P3 · 품절 (032~039) — SCR-011
 
 | # | 상태 | 위치 | 할 일 |
 |---|---|---|---|
-| **032** | ⬜ | `SoldOutPatchRequest.java` | DTO 필드 |
-| **033** | ⬜ | `AdminSoldOutMapper` + XML | 카탈로그 SELECT |
-| **034** | ⬜ | 동상 | `is_sold_out` UPDATE |
-| **035** | ⬜ | `AdminSoldOutService.java` | 조회·변경·롤백 |
-| **036** | ⬜ | `AdminSoldOutController.java` | GET/PATCH |
-| **037** | ⬜ | `soldOutApi.js` | `listSoldOutCatalog` |
-| **038** | ⬜ | `soldOutApi.js` | `patchSoldOut` |
-| **039** | ⬜ | `useSoldOutDraft.js` | mock → API |
+| **032** | ✅ 완료 | `SoldOutPatchRequest.java` | DTO 필드(`targetType`, `targetId`, `isSoldOut`) |
+| **033** | ⬜ | `AdminSoldOutMapper` + XML | ① 대상별 SELECT ② 공통 row shape 정리 ③ XML 추가 |
+| **034** | ⬜ | 동상 | ① targetType 분기 ② `is_sold_out` 토글 UPDATE ③ 변경 건수 반환 |
+| **035** | ⬜ | `AdminSoldOutService.java` | ① 조회 메서드 ② patch 메서드 ③ 실패/롤백 기준 정리 |
+| **036** | ⬜ | `AdminSoldOutController.java` | ① GET 응답 ② PATCH 바인딩 ③ ErrorCode 규격 정리 |
+| **037** | ⬜ | `soldOutApi.js` | ① `listSoldOutCatalog()` 추가 ② 초기 load 연결 |
+| **038** | ⬜ | `soldOutApi.js` | ① `patchSoldOut(body)` 추가 ② body 규격 정리 |
+| **039** | ⬜ | `useSoldOutDraft.js` | ① mock load 교체 ② mock save 교체 ③ baseline 롤백 유지 |
 
 상세 검증: `P3-1`~`P3-4`
 
@@ -96,14 +111,14 @@
 
 | # | 상태 | 위치 | 할 일 |
 |---|---|---|---|
-| **040** | ⬜ | `PatchPaymentMethodRequest.java` | DTO 필드 |
-| **041** | ⬜ | `AdminPaymentMethodMapper` + XML | SELECT |
-| **042** | ⬜ | 동상 | UPDATE |
-| **043** | ⬜ | `AdminPaymentMethodService.java` | 서비스 |
-| **044** | ⬜ | `AdminPaymentMethodController.java` | GET/PATCH |
-| **045** | ⬜ | `paymentMethodsApi.js` | list |
-| **046** | ⬜ | `paymentMethodsApi.js` | patch |
-| **047** | ⬜ | `usePaymentMethodDraft.js` | mock → API |
+| **040** | ✅ 완료 | `PatchPaymentMethodRequest.java` | DTO 필드(`status`, `sortOrder`, `receiptMessage`) |
+| **041** | ⬜ | `AdminPaymentMethodMapper` + XML | ① 목록 SELECT ② row shape 정리 ③ XML 추가 |
+| **042** | ⬜ | 동상 | ① methodId 기준 UPDATE ② 변경 건수 반환 |
+| **043** | ⬜ | `AdminPaymentMethodService.java` | ① 목록 메서드 ② patch 메서드 ③ 0건 처리 기준 정리 |
+| **044** | ⬜ | `AdminPaymentMethodController.java` | ① GET 목록 ② PATCH 바인딩 ③ 응답/ErrorCode 규격 |
+| **045** | ⬜ | `paymentMethodsApi.js` | ① `listPaymentMethods()` 추가 ② 초기 load 연결 |
+| **046** | ⬜ | `paymentMethodsApi.js` | ① `patchPaymentMethod()` 추가 ② 저장 방식(순차/일괄) 확정 |
+| **047** | ⬜ | `usePaymentMethodDraft.js` | ① mock load 교체 ② mock save 교체 ③ baseline 롤백 유지 |
 
 상세 검증: `P4A-1`~`P4A-2`
 

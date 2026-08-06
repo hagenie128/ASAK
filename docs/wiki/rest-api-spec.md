@@ -245,23 +245,25 @@
 | API-005 | POST | `/api/orders` | {"orderType":"EAT_IN","items":[{"menuId":364,"quantity":1,"o | `{"success":true,"status":201,"code":"ORDER_CREATE_SUCCESS","message":"주문 생성 성공","data":{"orderId":1,"orderNo":"ASAK-20260703-001","orderType":"TAKE_OUT","totalPrice":8900,"orderStatus":"RECEIVED","paymentStatus":"READY"}}` | 장바구니 내용을 기준으로 주문을 생성한다. SCR-005 컨펌 팝업 확인 후 호출. |
 | API-006 | POST | `/api/payments` | {"orderId":1,"paymentMethod":"CARD","amount":8900} | `{"success":true,"status":200,"code":"PAYMENT_APPROVED","message":"가상 결제가 승인되었습니다.","data":{"paymentId":1,"orderId":1,"orderNo":"ASAK-20260703-001","amount":8900,"paymentStatus":"APPROVED","paidAt":"2026-07-03T13:30:00"}}` | 결제 승인 처리 및 결제 정보 저장 |
 
+> **2026-08-06 코드 동기화(Admin):** path는 현재 BE 기준. 품절=`/api/admin/soldOut`, 결제수단=`/api/admin/paymentMethods`, Live=`GET /api/admin/orders/live`. (구 `sold-out-items`·`payment-methods`·`orders/active` 폐기)
+
 ## Part 2 — 관리자 (Week 6)
 
 | ID | Method | Endpoint | Request | Success (전체 envelope, data=payload) | 설명 |
 |----|--------|----------|---------|---------------------------------------|------|
-| API-007 | GET | `/api/admin/orders` | status=PAID | `{"success":true,"status":200,"code":"ADMIN_ORDER_LIST_SUCCESS","message":"관리자 주문 목록 조회 성공","data":{"content":[{"orderId":1,"orderNo":"ASAK-20260703-001","orderType":"TAKE_OUT","totalPrice":8900,"orderStatus":"RECEIVED","paymentStatus":"PAID","createdAt":"2026-07-03T13:00:00","items":[{"menuId":364,"menuName":"스파이시 쉬림프 샌드위치","quantity":1,"unitPrice":8900,"optionItems":[{"optionItemId":269,"name":"크리미칠리","quantity":1}],"excludedIngredients":[{"ingredientId":169,"name":"양파"}]}]}],"totalElements":1}}` | 관리자용 주문 목록과 상세 조회. `optionItems`에는 legacy `REQUEST`(빼기) 그룹을 넣지 않고, 실제 제외 재료는 `excludedIngredients`만 사용한다. |
+| API-007 | GET | `/api/admin/orders` | status=PAID | `{"success":true,"status":200,"code":"ADMIN_ORDER_LIST_SUCCESS","message":"관리자 주문 목록 조회 성공","data":{"content":[{"orderId":1,"orderNo":"ASAK-20260703-001","orderType":"TAKE_OUT","totalPrice":8900,"orderStatus":"RECEIVED","paymentStatus":"PAID","createdAt":"2026-07-03T13:00:00","items":[{"menuId":364,"menuName":"스파이시 쉬림프 샌드위치","quantity":1,"unitPrice":8900,"optionItems":[{"optionItemId":269,"name":"크리미칠리","quantity":1}],"excludedIngredients":[{"ingredientId":169,"name":"양파"}]}]}],"totalElements":1}}` | 관리자용 주문 목록과 상세 조회. `optionItems`에는 legacy `REQUEST`(빼기) 그룹을 넣지 않고, 실제 제외 재료는 `excludedIngredients`만 사용한다. Live 보드는 `GET /api/admin/orders/live`. 취소는 `PATCH /api/admin/orders/{orderId}/cancel`. |
 | API-008 | PATCH | `/api/admin/orders/{orderId}/{status}` | path: `orderId`, `status` (`PREPARING` 또는 `COMPLETED`), body 없음 | `{"success":true,"status":200,"code":"ADMIN_ORDER_STATUS_CHANGE_SUCCESS","message":"관리자 주문 상태 변경 성공","data":null}` | 관리자가 주문 상태를 변경한다. |
-| API-009 | PATCH | `/api/admin/sold-out-items` | {"targetType":"MENU","targetId":364,"isSoldOut":true} | `{"success":true,"status":200,"code":"SOLD_OUT_UPDATE_SUCCESS","message":"판매 항목 품절 상태 변경 성공","data":{"targetType":"INGREDIENT","targetId":155,"name":"케이준쉬림프","isSoldOut":true}}` | 메뉴/재료/옵션 품절 상태 변경 |
+| API-009 | PATCH | `/api/admin/soldOut` | {"targetType":"MENU","targetId":364,"isSoldOut":true} | `{"success":true,"status":200,"code":"SOLD_OUT_UPDATE_SUCCESS","message":"판매 항목 품절 상태 변경 성공","data":{"targetType":"MENU","targetId":364,"isSoldOut":true}}` | 메뉴/재료/옵션 품절 상태 변경 (BE Controller 스텁·미구현) |
 
 ## Part 3 — Week 7~8 확장 (API-010~020)
 
 | ID | Method | Endpoint | REQ | 설명 |
 |----|--------|----------|-----|------|
-| API-010 | GET | `/api/admin/sold-out-items` | targetType=MENU&keyword= | 품절 처리 대상 목록 조회 |
+| API-010 | GET | `/api/admin/soldOut` | targetType=MENU&keyword= | 품절 처리 대상 목록 조회 (BE 스텁) |
 | API-011 | GET | `/api/admin/menus` | categoryId=1&keyword=&isSoldOut=false | 관리자 메뉴 목록 조회 |
 | API-012 | POST | `/api/admin/menus` | {"categoryId":1,"name":"새 메뉴","price":8900,"imageU | 관리자 메뉴 등록/수정 |
-| API-013 | GET | `/api/payment-methods` | — | 키오스크 결제수단 목록 조회 |
-| API-014 | PATCH | `/api/admin/payment-methods/{methodId}` | {"isActive":true,"sortOrder":1} | 결제수단 노출/정렬 변경 |
+| API-013 | GET | `/api/kiosk/payment-methods` | — | 키오스크 결제수단 목록 조회 |
+| API-014 | PATCH | `/api/admin/paymentMethods/{methodId}` | {"isEnabled":true,"sortOrder":1} | 관리자 결제수단 노출/정렬 변경 (BE 스텁) |
 | API-015 | GET | `/api/admin/sales/daily` | from=2026-07-01&to=2026-07-31 | 일자별 주문수와 결제금액 조회 |
 | API-016 | POST | `/api/cart/validate` | {"items":[{"menuId":364,"quantity":1,"optionItems" | 장바구니 주문 가능 여부 검증 |
 | API-017 | GET | `/api/ui/accessibility-options` | — | 접근성 옵션 목록 조회 |

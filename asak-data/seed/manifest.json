@@ -21,16 +21,16 @@
     "code_group": 10,
     "common_code": 32,
     "tag": 3,
-    "menu": 84,
-    "menu_tag": 21,
-    "menu_nutrition": 84,
+    "menu": 50,
+    "menu_tag": 8,
+    "menu_nutrition": 50,
     "ingredient": 90,
     "allergen": 14,
     "ingredient_allergen": 108,
-    "menu_ingredient": 578,
+    "menu_ingredient": 347,
     "option_group": 7,
-    "menu_option_group": 467,
-    "menu_option": 9166,
+    "menu_option_group": 279,
+    "menu_option": 5449,
     "option_item": 157,
     "option_item_component": 0,
     "payment_method_config": 1
@@ -53,5 +53,7 @@
     "option_item": "seed/option_item.json",
     "option_item_component": "seed/option_item_component.json",
     "payment_method_config": "seed/payment_method_config.json"
-  }
+  },
+  "deduped_at": "2026-08-06T07:26:04.754604+00:00",
+  "deduped_removed": 34
 }

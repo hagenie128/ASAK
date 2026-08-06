@@ -14,12 +14,12 @@
 | SCR-013 | Kiosk | Kiosk Timeout | `state/overlay` | Current Draft |
 | SCR-014 | Kiosk | Kiosk Accessibility | `/accessibility` | Current Draft |
 | SCR-015 | Admin | Admin Login | `/login` | Current Draft |
-| SCR-022 | Admin | Admin Dashboard | `/` | Current Draft |
-| SCR-009 | Admin | Admin Live Order Board | `/orders/live` | Current Draft |
+| SCR-009 | Admin | Admin Live Order Board | `/` (alias `/orders/live`) | Current Draft |
+| SCR-022 | Admin | Admin Dashboard | `/dashboard` | Current Draft |
 | SCR-010 | Admin | Admin Order Management | `/orders` | Current Draft |
-| SCR-011 | Admin | Admin Sold-out Management | `/soldOut` | Current Draft |
+| SCR-011 | Admin | Admin Sold-out Management | `/sold-out` (Canonical 문서 `/soldOut`) | Current Draft |
 | SCR-016 | Admin | Admin Menu Management | `/menus` | Current Draft |
-| SCR-018 | Admin | Admin Payment Method Settings | `/paymentMethods` | Current Draft |
+| SCR-018 | Admin | Admin Payment Method Settings | `/payment-methods` (Canonical 문서 `/paymentMethods`) | Current Draft |
 | SCR-019 | Admin | Admin Sales Summary | `/sales` | Current Draft |
 | SCR-020 | Admin | Admin Monthly Sales | `/sales/monthly` | Current Draft |
 | SCR-021 | Admin | Admin Daily Sales | `/sales/daily` | Current Draft |
