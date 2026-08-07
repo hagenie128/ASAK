@@ -11,7 +11,7 @@ fileKey: `yHhvn5RKjBd91U8BJUQz7F`
 | 1. 토큰 | [`ASAK-Admin/src/styles/app-shell.css`](../../../ASAK-Admin/src/styles/app-shell.css) `:root` | Kiosk와 동일 Semantic 규칙 (`#b5e30f`, Pretendard, Admin text 스케일) |
 | 연결 | `commonStyle.css` MenuCard·BottomCTA disabled | 새 토큰 변수 참조 |
 
-**건드리지 않음:** Zustand, 가격/수량 로직, Axios, mock JSON, 나연이 담기 흐름(OrderList 등).
+**건드리지 않음:** Zustand, 가격/수량 로직, Axios, mock JSON, 나연 담기 흐름(OrderList 등).
 
 ---
 

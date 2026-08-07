@@ -1,5 +1,5 @@
 > Status: **Historical — Notion export** (2026-07-20)  
-> → **정본:** [Product Bible Pack 02](../product_bible/02_Order_Cart_Payment/README.md) · API: [Canonical](../governance/canonical-contract-decisions-2026-07-16.md) · 현실: [baseline](current-status-baseline.md)
+> → **정본:** [Product Bible Pack 02](../product_bible/02_Order_Cart_Payment/README.md) · API: [정본](../governance/canonical-contract-decisions-2026-07-16.md) · 현실: [baseline](current-status-baseline.md)
 
 # ASAK 요구사항 정의서
 

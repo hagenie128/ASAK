@@ -7,7 +7,7 @@
 > 이 문서는 **요약 baseline**이며 **완료(DONE) 주장이 아닙니다.**
 > 원칙: **1차 mock 연결 ≠ DONE** · **코드 있음 ≠ 통합 검증 완료**.
 
-## Evidence 기반 상태
+## 근거 기반 상태
 
 | 영역     | 검증된 상태                                                                                                                                   | Status             |
 | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
@@ -16,14 +16,14 @@
 | Admin    | 주문 Live·목록·상세·상태·취소: BE **구현·미검증**. 메뉴 GET 부분. CRUD·품절·결제수단·매출·대시보드: **mock/스텁** → mock 제거가 선생님님 순서 | **IN_PROGRESS**    |
 | Backend  | 주문 조회·Live·상태/취소 경로 존재. 메뉴 POST/PATCH/DELETE·품절·결제수단·매출 Controller는 스텁 또는 미완. Kiosk 주문 저장·결제 연동 우선     | **IN_PROGRESS**    |
 | DB       | 외부 MySQL·View 존재. 변경 API·실주문 E2E·뷰 재검증 남음                                                                                      | **IN_PROGRESS**    |
-| QA       | TC 다수 TODO · 실행 evidence 없음 → PASS 승격 금지                                                                                            | **TODO**           |
+| QA       | TC 다수 TODO · 실행 기록 없음 → PASS로 올리지 말 것                                                                                            | **TODO**           |
 | Hub 문서 | 회의록 wiki/78·체크리스트 wiki/15·API wiki/12·흐름도 wiki/79 갱신(8/6~8/7). 로컬 WBS 정본은 [wbs.md](wbs.md). req/wbs/qa %는 운영 지표 아님   | **REFERENCE**      |
 
 ## DevCopilot 전수 점검 (2026-07-30)
 
 - MCP로 요구사항 56건, 시나리오 25건, 화면 24건, WBS 170건, API 24건, DB 테이블/뷰 39건, QA 16건, 버그 0건을 재조회했다.
 - **현재 로컬 WBS 정본은 [wbs.md](wbs.md) (`WBS-001`~`085`).** 아래 7/30 원격 점검 문단은 당시 스냅샷이다.
-- MCP에는 Wiki 도구가 없으므로 이 페이지의 원격 반영은 정확한 Wiki ID를 사용한 REST fallback으로 처리한다. WBS Evidence와 항목 간 관계(link mutation)는 MCP 미지원이며 로컬 정본 문서에 유지한다.
+- MCP에는 Wiki 도구가 없으므로 이 페이지의 원격 반영은 정확한 Wiki ID를 사용한 REST fallback으로 처리한다. WBS 근거와 항목 간 관계(link mutation)는 MCP 미지원이며 로컬 정본 문서에 유지한다.
 - API·DB는 원격 상세가 로컬 요약보다 많고, 요구사항·시나리오·QA·화면은 코드/Figma/실행 증거의 추가 확인 없이는 상태를 추정 갱신하지 않았다.
 
 ## 저장소 baseline
@@ -66,9 +66,9 @@
 | `/`                                        | 주문 현황(Live) | **mock 연결** (`getLiveOrders` · 완료/취소 stub · AsyncState/Confirm). 페이징 UI 등 잔여                                                                          |
 | `/dashboard`                               | 대시보드        | **mock 연결** (`useDashboard`). 최근 주문 ← `getDashboard().recentOrders`. 전주 대비 등 일부 정적                                                                 |
 | `/orders`                                  | 주문 관리       | **mock 연결** (`useOrdersQuery` · 목록 표시/필터 · 상세 · 환불/영수증 Confirm). **목록에 상태 변경 UI 없음**(시안 범위). 필터 고도화 잔여                         |
-| `/sold-out`                                | 품절 관리       | **mock 연결** (`useSoldOutDraft` · draft/저장 stub · Confirm). 카드 **2줄 clamp**·카테고리 배지 정합. 저장이 `menus.isSoldOut` 미갱신 · 검색/탭·실패 fixture TODO |
+| `/sold-out`                                | 품절 관리       | **mock 연결** (`useSoldOutDraft` · draft/저장 stub · Confirm). 카드 **2줄 clamp**·카테고리 배지 정합. 저장이 `menus.isSoldOut` 미갱신 · 검색/탭·실패용 테스트 데이터 TODO |
 | `/menus`, `/menus/new\|edit`               | 메뉴 관리/편집  | **mock 연결** (`useMenusQuery`). Page=조립(`MenuListPanel`+Detail/Edit) · `IngredientSelectModal`. 저장 stub toast                                                |
-| `/payment-methods`                         | 결제수단        | **mock 연결** (`usePaymentMethodDraft`). Figma SCR-018 **4종** (`card`→`kakao`→`naver`→`zero`). 실패 fixture·점검 뱃지 TODO                                       |
+| `/payment-methods`                         | 결제수단        | **mock 연결** (`usePaymentMethodDraft`). Figma SCR-018 **4종** (`card`→`kakao`→`naver`→`zero`). 실패용 테스트 데이터·점검 뱃지 TODO                                       |
 | `/sales`, `/sales/monthly`, `/sales/daily` | 매출 3화면      | **mock 연결** (`useSalesQuery` · `AdminDatePicker` single/range). SCR-019~021                                                                                     |
 
 **공통 인프라 (2026-07-23)**
@@ -76,20 +76,20 @@
 | 항목        | 상태                                                                                                            |
 | ----------- | --------------------------------------------------------------------------------------------------------------- |
 | 셸          | Figma **1920×1080** 캔버스 + viewport `scale` (`AdminLayout`)                                                   |
-| Shared      | `AdminAsyncState` · `AdminConfirmDialog` — 주요 화면 P1 적용 (State QA evidence는 별도)                         |
+| Shared      | `AdminAsyncState` · `AdminConfirmDialog` — 주요 화면 P1 적용 (State QA 실행 기록는 별도)                         |
 | 데이터 흐름 | Page → Hook → `adminMockRepository` → `asak-admin-data.json`                                                    |
 | 실행 문서   | 루트 `IMPLEMENTATION_PLAN.md` 등은 **삭제됨** → `STRUCTURE_GUIDE` · `public/mocks/README.md` · 중앙 WBS/맵 참고 |
 
-> Canonical 문서 경로(`/orders/live`, `/soldOut`, `/paymentMethods`)와 **코드 kebab-case가 불일치** (WBS2-033).
+> 정본 문서 경로(`/orders/live`, `/soldOut`, `/paymentMethods`)와 **코드 kebab-case가 불일치** (WBS2-033).
 > ~~전부 하드코딩 / Page 연동 0~~ → **전 화면 1차 mock 연동**. 상세 필드 대조: `ASAK-Admin/public/mocks/README.md`.
 
 ## 적용 규칙
 
-- Design/정적 UI 완료는 코드·mock 연동·QA evidence 없이 implementation DONE이 되지 않습니다.
-- **mock 1차 연결만으로 DONE이 되지 않습니다.** 실패 fixture·실 API·계약 정렬·QA 실행 evidence가 남으면 IN_PROGRESS.
-- DevCopilot에 문서화된 API·DB model은 backend evidence가 있을 때까지 명세입니다.
-- **정본 우선순위:** 코드 증거 → 구현 맵/baseline → Product Bible / Canonical → DevCopilot → 구 문서.
-- Kiosk 저장소 마이그레이션은 `NEEDS_CONFIRMATION`; pull, remote rewrite, reset, rebase는 허용되지 않습니다.
+- Design/정적 UI 완료는 코드·mock 연동·QA 실행 기록 없이 implementation DONE이 되지 않습니다.
+- **mock 1차 연결만으로 DONE이 되지 않습니다.** 실패용 테스트 데이터·실 API·계약 정렬·QA 실행 기록이 남으면 IN_PROGRESS.
+- DevCopilot에 문서화된 API·DB model은 백엔드 근거가 있을 때까지 명세입니다.
+- **정본 우선순위:** 코드 증거 → 구현 맵/baseline → Product Bible / 정본 → DevCopilot → 구 문서.
+- Kiosk 저장소 마이그레이션은 `확인 필요`; pull, remote rewrite, reset, rebase는 허용되지 않습니다.
 
 ## 남은 위험 · 다음 묶음 (Admin)
 
@@ -99,8 +99,8 @@
 | Admin↔Kiosk 결제수단 개수       | Admin **4** vs Kiosk **8** 가능 → 계약 재확인                                               |
 | 품절 저장 stub                  | `menus.isSoldOut` 미동기화                                                                  |
 | P2 polish                       | 결제 정책 화면 · Login Unauthorized · 메뉴 이미지 폴백 등                                   |
-| Evidence 원격                   | DevCopilot Evidence 필드는 MCP 미지원 → 로컬 `wbs-v2` Evidence만 상세                       |
-| Live 페이징 · 실패 fixture · QA | 미완                                                                                        |
+| 근거 원격                   | DevCopilot 근거 필드는 MCP 미지원 → 로컬 `wbs-v2` 근거만 상세                       |
+| Live 페이징 · 실패용 테스트 데이터 · QA | 미완                                                                                        |
 
 ## 동기화 메모
 
@@ -113,11 +113,11 @@
 
 - 7/21 Admin mock 페이지 바인딩(주문·품절·결제수단·공통 pagination)과 대시보드/Live 연결을 **문서에 반영**.
 - baseline의 「Page 연동 0」 문구를 폐기하고, 화면별 mock 연결/잔여 TODO를 분리 표기.
-- DevCopilot 원격 상태 재동기화: **2026-07-22 MCP로 Status 재확인 완료** (P4 일치). Evidence 상세는 MCP 미지원 → 로컬 `wbs-v2` Evidence 열 참고.
+- DevCopilot 원격 상태 재동기화: **2026-07-22 MCP로 Status 재확인 완료** (P4 일치). 근거 상세는 MCP 미지원 → 로컬 `wbs-v2` 근거 열 참고.
 
 ### 2026-07-23
 
-- Admin **매출 3화면·메뉴** mock 연결, DatePicker, Page=조립, Shared Async/Confirm, 결제수단 4종, 셸 1920×1080+scale, 품절 카드 2줄/배지를 baseline·맵·WBS Evidence에 반영.
+- Admin **매출 3화면·메뉴** mock 연결, DatePicker, Page=조립, Shared Async/Confirm, 결제수단 4종, 셸 1920×1080+scale, 품절 카드 2줄/배지를 baseline·맵·WBS 근거에 반영.
 - 작업 브랜치: `ASAK-Admin` → `feature/admin-mock-figma-parity` (main 미머지).
 - Status는 DoD 미충족으로 **전부 IN_PROGRESS 유지** (1차 mock ≠ DONE).
 - 상세 작업 기록: `ASAK/worklog/entries/이하진/2026-07-23-admin-mock-figma-parity.md`.

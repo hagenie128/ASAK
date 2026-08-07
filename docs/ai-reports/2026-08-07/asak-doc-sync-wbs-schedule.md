@@ -10,7 +10,7 @@
 
 - Hub MCP `get_wbs_tasks` — 활성 WBS2 종료일 < 8/7 = **0건** (rebase 후)
 - Hub `update_wbs_task` — TODO/BLOCKED→IN_PROGRESS 6건(008·027·045·056·057·059), 일정 57건
-- 로컬 Evidence: Admin 주문 API 구현·미검증, Pay/SoldOut 스텁, Kiosk 결제 실패 cart 유지 코드
+- 로컬 근거: Admin 주문 API 구현·미검증, Pay/SoldOut 스텁, Kiosk 결제 실패 cart 유지 코드
 
 ## 갱신한 문서
 
@@ -32,7 +32,7 @@
 
 ## 남은 불일치·결정 필요
 
-- Hub `WBS2-018~020`은 원격 DONE인데 로컬 wbs-v2는 과거 IN_PROGRESS 잔여 가능 → **사람 확인**(이번 sync에서 DONE 승격 안 함)
+- Hub `WBS2-018~020`은 원격 DONE인데 로컬 wbs-v2는 과거 IN_PROGRESS 잔여 가능 → **팀 확인**(이번 sync에서 DONE으로 올리기 안 함)
 - Notion MCP/토큰 미연결 시 Notion 페이지는 별도 조치 필요
 - Product/Screen Bible 본문: 이번 범위 밖(WBS·운영 문서만)
 

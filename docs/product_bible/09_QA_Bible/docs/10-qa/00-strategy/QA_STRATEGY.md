@@ -14,7 +14,7 @@
 
 Kiosk → API → DB → Admin.
 
-### Regression
+### 회귀 점검
 
 기존 기능이 수정 후에도 유지되는지 확인.
 
@@ -67,7 +67,7 @@ Build
 → Feature
 → Integration
 → Data Integrity
-→ Regression
+→ 회귀 점검
 → Accessibility
 → Demo
 → Release

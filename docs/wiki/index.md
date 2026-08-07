@@ -16,7 +16,7 @@
 
 - [프론트 3일 WBS](../planning/frontend-wednesday-wbs-2026-07-20.md)
 - [구현 우선순위](../planning/implementation-priority-2026-07-16.md) *(목표 순서 — 현실은 구현 맵)*
-- [Canonical 계약](../governance/canonical-contract-decisions-2026-07-16.md)
+- [정본 계약](../governance/canonical-contract-decisions-2026-07-16.md)
 - [전체 흐름도 (Mermaid)](project-flow.md)
 
 ## 추적·범위 (Historical — `_archive/wiki-secondary`)
@@ -29,7 +29,7 @@
 
 ## DB·API·QA (Notion export — Historical)
 
-> 정본: [Product Bible 허브](../product_bible/product-bible-hub.md) · API 계약: [Canonical](../governance/canonical-contract-decisions-2026-07-16.md)
+> 정본: [Product Bible 허브](../product_bible/product-bible-hub.md) · API 계약: [정본](../governance/canonical-contract-decisions-2026-07-16.md)
 
 - [DB 테이블](db-table-definition.md)
 - [DB 뷰](db-view-definition.md) ← **메뉴/주문/품절/매출 View**

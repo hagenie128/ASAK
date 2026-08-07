@@ -162,7 +162,7 @@
 | **066** | ⬜ | `apiClient.js` | Bearer + 401 |
 | **067** | ⬜ | `LoginPage.jsx` | 실로그인 |
 | **068** | ⬜ | `useAdminAuth.js` | 401 가드 |
-| **069** | ⬜ | `AdminApp.jsx` | Canonical 경로 |
+| **069** | ⬜ | `AdminApp.jsx` | 정본 경로 |
 | **070** | ⬜ | `apiClient.js` | 403 매핑 |
 | **071** | ⬜ Future | `AdminOrderController` | refund |
 | **072** | ⬜ Future | `AdminOrderMapper.xml` | payments 환불 |

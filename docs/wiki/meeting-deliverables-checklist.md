@@ -1,8 +1,8 @@
 # ASAK 회의록 및 최종 배포 검증
 
 > **⚠️ HISTORICAL / 참고용 — 일일 실행에 쓰지 마세요.**
-> → 대신 [**START_HERE**](https://github.com/hagenie128/ASAK/blob/main/docs/START_HERE.md) · [구현 맵](https://github.com/hagenie128/ASAK/blob/main/docs/planning/current-implementation-map-2026-07-16.md) · [wbs-status-notes](https://github.com/hagenie128/ASAK/blob/main/docs/wiki/wbs-status-notes.md)
-> 산출물 존재 ≠ 구현 evidence. (체크리스트의 `ASAK-front` 등은 구 명칭.)
+> → 대신 [**START_HERE**](https://github.com/hagenie128/ASAK/blob/main/docs/START_HERE.md) · [**wbs.md**](https://github.com/hagenie128/ASAK/blob/main/docs/wiki/wbs.md) · [구현 맵](https://github.com/hagenie128/ASAK/blob/main/docs/planning/current-implementation-map-2026-07-16.md) · [wbs-status-notes](https://github.com/hagenie128/ASAK/blob/main/docs/wiki/wbs-status-notes.md) · [baseline](https://github.com/hagenie128/ASAK/blob/main/docs/wiki/current-status-baseline.md) · [주차별 회의록](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md)
+> 산출물 존재 ≠ 구현 근거. (체크리스트의 `ASAK-front` 등은 구 명칭.)
 
 > Notion 10. 회의록 + 11. 최종 제출 체크리스트 (2026-07-06)
 
@@ -28,7 +28,7 @@
 
 Hub 전체본: [meeting-minutes-weekly.md](https://github.com/hagenie128/ASAK/blob/main/docs/wiki/meeting-minutes-weekly.md) · 로컬 정본 폴더: [`docs/operations/meeting-minutes/`](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md)
 
-### 2026-08-07 스냅샷 (선생님님 우선순위)
+### 2026-08-07 스냅샷 (선생님 우선순위)
 
 | 순서 | 작업                                                          | 상태                                                                                                                                                                                                                            |
 | ---- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -41,6 +41,7 @@ Hub 전체본: [meeting-minutes-weekly.md](https://github.com/hagenie128/ASAK/bl
 
 계약 필드 정본: `totalAmount` / `approvedAmount` / `approvedAt` / `APPROVED` / `CANCELED` / `EAT_IN`·`TAKE_OUT`
 Hub API 명세서: [wiki/12](https://github.com/hagenie128/ASAK/blob/main/docs/wiki/rest-api-spec.md) · 흐름도: [project-flow.md](https://github.com/hagenie128/ASAK/blob/main/docs/wiki/project-flow.md)
+참고 문서 표: [회의록 README §참고 문서](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md#참고-문서-2026-08-07) · DONE/PASS: [asak-done-pass-audit](https://github.com/hagenie128/ASAK/blob/main/docs/ai-reports/2026-08-07/asak-done-pass-audit.md)
 
 ## 회의록
 

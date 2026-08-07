@@ -45,7 +45,7 @@ flowchart TB
 ```
 
 **어디서 뭘 하나?**
-- `ASAK` (문서 저장소): 기획, WBS, Canonical 계약, Product Bible을 관리합니다. 앱 코드는 없습니다.
+- `ASAK` (문서 저장소): 기획, WBS, 정본 계약, Product Bible을 관리합니다. 앱 코드는 없습니다.
 - `ASAK-Kiosk` / `ASAK-Admin`: 실제 화면 코드(React)가 있는 곳입니다.
 - `ASAK-back`: 로컬 폴더명은 유지하지만 실제 원격은 `nayeon0828/ASAK-backend`입니다. Kiosk 메뉴/카테고리 조회·장바구니 검증, Admin 메뉴·주문 조회 경로가 있고, 주문 저장·결제·상태변경/취소·품절·매출은 아직 미완성 또는 미구현입니다.
 
@@ -172,13 +172,13 @@ flowchart LR
     CodePaths["✅ 코드 기준 Admin 경로 (2026-08-06)<br/>GET /api/admin/orders/live<br/>GET|PATCH /api/admin/orders...<br/>GET /api/admin/menus<br/>/api/admin/soldOut · /api/admin/paymentMethods"]
 ```
 
-**꼭 알아야 할 충돌 (Canonical vs 코드)**
+**꼭 알아야 할 충돌 (정본 vs 코드)**
 - Admin 결제수단 path: 코드·Engineering Bible는 `/api/admin/paymentMethods`(camelCase). 일부 문서/구 DevCopilot은 `payment-methods`(kebab) — **2026-08-06 동기화는 코드 기준**.
 - Live 주문: 코드 `GET /api/admin/orders/live` (구 DevCopilot `orders/active`는 코드에 맞춤 갱신).
 - 품절 PATCH: 코드/TODO는 `{targetType,targetId,isSoldOut}` (구 DevCopilot `{menuId}`는 코드에 맞춤 갱신).
 - 금액 필드: 문서는 `totalAmount`, `approvedAmount`를 쓰지만, 키오스크 `orderSessionStore`는 `totalPrice` 등 — adapter에서 맞춤.
 
-자세한 표: [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md) · [Canonical Contract Decisions](../governance/canonical-contract-decisions-2026-07-16.md) · [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md)
+자세한 표: [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md) · [정본 계약 결정](../governance/canonical-contract-decisions-2026-07-16.md) · [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md)
 
 ---
 
@@ -246,7 +246,7 @@ flowchart LR
 | [현재 상태 baseline](current-status-baseline.md) | 영역별 요약 |
 | [구현 맵](../planning/current-implementation-map-2026-07-16.md) | SCR별 상세 |
 | [Current Implementation Map](../planning/current-implementation-map-2026-07-16.md) | 화면·mock·API 상태표 |
-| [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md) | Canonical vs 코드 충돌 상세 |
+| [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md) | 정본 vs 코드 충돌 상세 |
 | [WBS 2.0](wbs-v2-2026-07-16.md) | 실행 할 일 정본 |
 | [Kiosk 구조 가이드](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) | Kiosk 코딩 시작점 |
 | [Admin 구조 가이드](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [Mock 사전](../../ASAK-Admin/public/mocks/README.md) | Admin 코딩 시작점 (`IMPLEMENTATION_PLAN` 삭제됨) |

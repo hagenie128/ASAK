@@ -24,7 +24,7 @@
 
 ## Actual
 
-## Evidence
+## 근거
 
 - Screenshot
 - Console

@@ -20,7 +20,7 @@
 | WBS2-001 | MCP baseline | **DONE 유지** | 기획/문서 산출 |
 | WBS2-002 | 저장소 역할/목표 | **DONE 유지** | 산출 완료 |
 | WBS2-009 | Foundation 산출 | **DONE 유지** | 산출 완료 |
-| WBS2-017 | 키오스크 라우트·흐름 | **DONE 유지** | 라우트 연결 evidence |
+| WBS2-017 | 키오스크 라우트·흐름 | **DONE 유지** | 라우트 연결 근거 |
 | WBS2-022 | 메뉴 수량 max 9 | **DONE 유지** | quantityLimits |
 | WBS2-023 | 장바구니 max 30 | **DONE 유지** | quantityLimits |
 | 레거시 WBS-001~024 일부 DONE | ERD/스키마 등 | **보존** | SUPERSEDED/일반 DONE 혼재 — 일괄 변경 금지 |
@@ -68,13 +68,13 @@
 
 1. **즉시 하지 않음:** 어떤 WBS/요구도 DONE, 어떤 QA도 PASS
 2. **승인 시 안전 갱신만:** DEV-CART-001·DEV-ORDER-002를 TODO→IN_PROGRESS (및 선택적 WBS2-037 / DEV-PAY-001 조정)
-3. **PASS/DONE 승격:** 스모크 실행 체크리스트에 날짜·담당·결과 URL/로그를 남긴 뒤에만 개별 ID로 처리
+3. **PASS/DONE으로 올리기:** 스모크 실행 체크리스트에 날짜·담당·결과 URL/로그를 남긴 뒤에만 개별 ID로 처리
 
 ## 7. 결론
 
 - Hub의 **기존 DONE 6건(WBS2)은 타당**하다.
 - **새로 DONE·PASS 할 항목은 0건**이다.
-- 진행 중으로 보이는 주문/메뉴 조회는 **IN_PROGRESS가 정답**이며, 선생님 요청의 통합 테스트·실DB 검증이 끝나기 전 DONE 승격은 허위 완료가 된다.
+- 진행 중으로 보이는 주문/메뉴 조회는 **IN_PROGRESS가 정답**이며, 선생님 요청의 통합 테스트·실DB 검증이 끝나기 전 DONE으로 올리기은 허위 완료가 된다.
 
 ## 8. Hub 반영 (승인 후)
 

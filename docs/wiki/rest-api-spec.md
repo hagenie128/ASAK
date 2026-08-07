@@ -1,5 +1,5 @@
 > Status: **Historical — Notion export** (2026-07-20)
-> → **정본:** Pack 06·11 API Contract · [Canonical](../governance/canonical-contract-decisions-2026-07-16.md)
+> → **정본:** Pack 06·11 API Contract · [정본](../governance/canonical-contract-decisions-2026-07-16.md)
 
 # ASAK REST API 명세서
 

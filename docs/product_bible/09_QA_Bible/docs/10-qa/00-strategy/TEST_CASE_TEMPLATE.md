@@ -28,7 +28,7 @@ Order / Cart / Payment / Menu / Admin / Sales / ...
 ### Result
 PASS / FAIL / BLOCKED
 
-### Evidence
+### 근거
 - Screenshot
 - Console
 - Network
