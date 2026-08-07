@@ -1,4 +1,4 @@
-> Status: **Historical — Notion export** (2026-07-20)  
+> Status: **Historical — Notion export** (2026-07-20)
 > → **정본:** Pack 06·11 API Contract · [Canonical](../governance/canonical-contract-decisions-2026-07-16.md)
 
 # ASAK REST API 명세서
@@ -113,7 +113,7 @@
     "orderId": 1,
     "orderNo": "ASAK-20260703-001",
     "orderType": "TAKE_OUT",
-    "totalPrice": 8900,
+    "totalAmount": 8900,
     "orderStatus": "RECEIVED",
     "paymentStatus": "READY"
   }
@@ -146,9 +146,9 @@
     "paymentId": 1,
     "orderId": 1,
     "orderNo": "ASAK-20260703-001",
-    "amount": 8900,
+    "approvedAmount": 8900,
     "paymentStatus": "APPROVED",
-    "paidAt": "2026-07-03T13:30:00"
+    "approvedAt": "2026-07-03T13:30:00"
   }
 }
 ```
@@ -181,9 +181,9 @@
         "orderId": 1,
         "orderNo": "ASAK-20260703-001",
         "orderType": "TAKE_OUT",
-        "totalPrice": 8900,
+        "totalAmount": 8900,
         "orderStatus": "RECEIVED",
-        "paymentStatus": "PAID",
+        "paymentStatus": "APPROVED",
         "createdAt": "2026-07-03T13:00:00",
         "items": [
           {
@@ -242,16 +242,17 @@
 | API-002 | GET | `/api/menus` | categoryId=1 | `{"success":true,"status":200,"code":"MENU_LIST_SUCCESS","message":"메뉴 목록 조회 성공","data":[{"menuId":364,"categoryId":231,"name":"스파이시 쉬림프 샌드위치","price":8900,"imageUrl":"/assets/menu/364.png","baseKcal":464,"isSoldOut":false,"hasSoldOutIngredient":false,"soldOutReason":null,"soldOutBadges":[]}]}` | 카테고리 조건에 따라 ASAK 메뉴 목록을 조회한다. |
 | API-003 | GET | `/api/menus/{menuId}` | menuId=364 | `{"success":true,"status":200,"code":"MENU_DETAIL_SUCCESS","message":"메뉴 상세 조회 성공","data":{"menuId":364,"categoryId":231,"name":"스파이시 쉬림프 샌드위치","price":8900,"imageUrl":"/assets/menu/364.png","description":"케이준 쉬림프, 할라피뇨, 토마토, 슈레드치즈, 화이트치즈 · 기본 드레싱: 크리미칠리","baseKcal":464,"ingredients":[{"ingredientId":155,"name":"케이준쉬림프","canRemove":false,"isSoldOut":false},{"ingredientId":105,"name":"크리미칠리","canRemove":true,"isSoldOut":false},{"ingredientId":377,"name":"화이트치즈","canRemove":true,"isSoldOut":false}],"allergens":[],"allergyText":"","isSoldOut":false,"hasSoldOutIngredient":false,"isOrderable":true,"soldOutReason":null,"soldOutBadges":[]}}` | menuId로 메뉴 조회 |
 | API-004 | GET | `/api/menus/{menuId}/options` | menuId=364 | `{"success":true,"status":200,"code":"MENU_OPTIONS_SUCCESS","message":"메뉴 옵션 조회 성공","data":[{"optionGroupId":240,"name":"드레싱 선택","groupType":"DRESSING","selectType":"SINGLE","minSelect":1,"maxSelect":1,"sortOrder":1,"isRequired":true,"items":[{"optionItemId":269,"ingredientId":105,"name":"크리미칠리","extraPrice":0,"originalPrice":null,"extraKcal":235,"servingAmount":50,"servingUnit":"g","proteinG":0,"iconUrl":null,"colorHex":null,"isRecommended":true,"isDefault":true,"isSoldOut":false},{"optionItemId":247,"ingredientId":219,"name":"(저당) 들기름소이","extraPrice":0,"originalPrice":null,"extraKcal":null,"servingAmount":50,"servingUnit":"g","isRecommended":false,"isDefault":false,"isSoldOut":false}]}]}` | 베이스/드레싱/토핑/세트 옵션 목록 조회 |
-| API-005 | POST | `/api/orders` | {"orderType":"EAT_IN","items":[{"menuId":364,"quantity":1,"o | `{"success":true,"status":201,"code":"ORDER_CREATE_SUCCESS","message":"주문 생성 성공","data":{"orderId":1,"orderNo":"ASAK-20260703-001","orderType":"TAKE_OUT","totalPrice":8900,"orderStatus":"RECEIVED","paymentStatus":"READY"}}` | 장바구니 내용을 기준으로 주문을 생성한다. SCR-005 컨펌 팝업 확인 후 호출. |
-| API-006 | POST | `/api/payments` | {"orderId":1,"paymentMethod":"CARD","amount":8900} | `{"success":true,"status":200,"code":"PAYMENT_APPROVED","message":"가상 결제가 승인되었습니다.","data":{"paymentId":1,"orderId":1,"orderNo":"ASAK-20260703-001","amount":8900,"paymentStatus":"APPROVED","paidAt":"2026-07-03T13:30:00"}}` | 결제 승인 처리 및 결제 정보 저장 |
+| API-005 | POST | `/api/orders` | {"orderType":"EAT_IN","items":[{"menuId":364,"quantity":1,"o | `{"success":true,"status":201,"code":"ORDER_CREATE_SUCCESS","message":"주문 생성 성공","data":{"orderId":1,"orderNo":"ASAK-20260703-001","orderType":"TAKE_OUT","totalAmount":8900,"orderStatus":"RECEIVED","paymentStatus":"READY"}}` | 장바구니 내용을 기준으로 주문을 생성한다. SCR-005 컨펌 팝업 확인 후 호출. |
+| API-006 | POST | `/api/payments` | {"orderId":1,"paymentMethodCode":"CARD","idempotencyKey":"uuid"} | `{"success":true,"status":200,"code":"PAYMENT_APPROVED","message":"가상 결제가 승인되었습니다.","data":{"paymentId":1,"orderId":1,"orderNo":"ASAK-20260703-001","approvedAmount":8900,"paymentStatus":"APPROVED","approvedAt":"2026-07-03T13:30:00"}}` | 결제 승인 처리 및 결제 정보 저장 |
 
 > **2026-08-06 코드 동기화(Admin):** path는 현재 BE 기준. 품절=`/api/admin/soldOut`, 결제수단=`/api/admin/paymentMethods`, Live=`GET /api/admin/orders/live`. (구 `sold-out-items`·`payment-methods`·`orders/active` 폐기)
+> **2026-08-07 필드 정본:** `totalAmount` · `approvedAmount` · `approvedAt` · `paymentStatus=APPROVED` · `orderType=EAT_IN|TAKE_OUT` · `CANCELED`. (구 `totalPrice`/`PAID`/`paidAt`/`DINE_IN` 예시 폐기)
 
 ## Part 2 — 관리자 (Week 6)
 
 | ID | Method | Endpoint | Request | Success (전체 envelope, data=payload) | 설명 |
 |----|--------|----------|---------|---------------------------------------|------|
-| API-007 | GET | `/api/admin/orders` | status=PAID | `{"success":true,"status":200,"code":"ADMIN_ORDER_LIST_SUCCESS","message":"관리자 주문 목록 조회 성공","data":{"content":[{"orderId":1,"orderNo":"ASAK-20260703-001","orderType":"TAKE_OUT","totalPrice":8900,"orderStatus":"RECEIVED","paymentStatus":"PAID","createdAt":"2026-07-03T13:00:00","items":[{"menuId":364,"menuName":"스파이시 쉬림프 샌드위치","quantity":1,"unitPrice":8900,"optionItems":[{"optionItemId":269,"name":"크리미칠리","quantity":1}],"excludedIngredients":[{"ingredientId":169,"name":"양파"}]}]}],"totalElements":1}}` | 관리자용 주문 목록과 상세 조회. `optionItems`에는 legacy `REQUEST`(빼기) 그룹을 넣지 않고, 실제 제외 재료는 `excludedIngredients`만 사용한다. Live 보드는 `GET /api/admin/orders/live`. 취소는 `PATCH /api/admin/orders/{orderId}/cancel`. |
+| API-007 | GET | `/api/admin/orders` | status=APPROVED | `{"success":true,"status":200,"code":"ADMIN_ORDER_LIST_SUCCESS","message":"관리자 주문 목록 조회 성공","data":{"content":[{"orderId":1,"orderNo":"ASAK-20260703-001","orderType":"TAKE_OUT","totalAmount":8900,"orderStatus":"RECEIVED","paymentStatus":"APPROVED","createdAt":"2026-07-03T13:00:00","items":[{"menuId":364,"menuName":"스파이시 쉬림프 샌드위치","quantity":1,"unitPrice":8900,"optionItems":[{"optionItemId":269,"name":"크리미칠리","quantity":1}],"excludedIngredients":[{"ingredientId":169,"name":"양파"}]}]}],"totalElements":1}}` | 관리자용 주문 목록과 상세 조회. `optionItems`에는 legacy `REQUEST`(빼기) 그룹을 넣지 않고, 실제 제외 재료는 `excludedIngredients`만 사용한다. Live 보드는 `GET /api/admin/orders/live`. 취소는 `PATCH /api/admin/orders/{orderId}/cancel`. |
 | API-008 | PATCH | `/api/admin/orders/{orderId}/{status}` | path: `orderId`, `status` (`PREPARING` 또는 `COMPLETED`), body 없음 | `{"success":true,"status":200,"code":"ADMIN_ORDER_STATUS_CHANGE_SUCCESS","message":"관리자 주문 상태 변경 성공","data":null}` | 관리자가 주문 상태를 변경한다. |
 | API-009 | PATCH | `/api/admin/soldOut` | {"targetType":"MENU","targetId":364,"isSoldOut":true} | `{"success":true,"status":200,"code":"SOLD_OUT_UPDATE_SUCCESS","message":"판매 항목 품절 상태 변경 성공","data":{"targetType":"MENU","targetId":364,"isSoldOut":true}}` | 메뉴/재료/옵션 품절 상태 변경 (BE Controller 스텁·미구현) |
 
