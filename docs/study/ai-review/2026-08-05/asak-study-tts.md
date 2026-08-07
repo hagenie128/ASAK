@@ -8,7 +8,7 @@
 | 대상 화면 | `SCR-009` (관리자 실시간 주문 보드) |
 | 확인 기준일 | 2026-08-05 |
 | 확인한 범위 | Frontend 코드 / TTS Bible(명세) / Git 이력 · (Backend는 TTS 자체가 아닌 상태변경 경로만) |
-| 정본 형식 기준 | `ASAK/docs/ai-reports/ASAK_STUDY_EXAMPLE_CANONICAL.md` |
+| 정본 형식 기준 | `ASAK/docs/study/ai-review/ASAK_STUDY_EXAMPLE_CANONICAL.md` |
 
 ### 한 줄 결론
 

@@ -138,7 +138,7 @@ API 성공·실패와 권한 오류도 포함하고 코드 수정은 하지 마.
 
 ```text
 공부 - [날짜 / 기능 / 파일]
-팀 공용 정본 `docs/ai-reports/ASAK_STUDY_EXAMPLE_CANONICAL.md`을 먼저 읽고, 구현된 코드의 화면→상태/Hook→API 또는 Repository→DB 또는 Mock 흐름을 초보자용으로 설명해줘.
+팀 공용 정본 `docs/study/ai-review/ASAK_STUDY_EXAMPLE_CANONICAL.md`을 먼저 읽고, 구현된 코드의 화면→상태/Hook→API 또는 Repository→DB 또는 Mock 흐름을 초보자용으로 설명해줘.
 설명 전체는 채팅에 붙이지 말고 대상 저장소의 `docs/ai-reports/YYYY-MM-DD/`에 레포트로 남겨줘. 파일별 읽는 이유, 실제 검증 상태, 직접 해볼 확인 항목과 연습문제를 포함해. 소스코드·DB·Git은 수정하지 마.
 ```
 
