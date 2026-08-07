@@ -16,7 +16,7 @@
 | 5 | [Backend·DB 중간점검](wiki/backend-db-midpoint-audit-2026-07-28.md) | 실제 원격·Spring context·실DB·읽기 API 점검 결과 |
 | 6 | [주차별 회의록](operations/meeting-minutes/README.md) | 2조 공식 회의록 · [Hub wiki/78](https://devcopilot.ai.kr/workspace/2/wiki/78) |
 
-**한 줄 요약 (2026-08-07):** Admin 주문(Live·목록·상태·취소)은 BE 연동 **구현·미검증**. 메뉴 GET 부분, 메뉴 CRUD·품절·결제수단·매출/대시보드는 **스텁 또는 mock**. Kiosk는 장바구니→주문 생성→결제(토스 예제) **실연동**이 이번 주 우선. Hub 대시보드 %는 운영 지표로 쓰지 않음. Hub WBS2 일정은 강사 우선순위로 **8/7~8/28 rebase** 완료(종료일 지난 활성 0건).
+**한 줄 요약 (2026-08-07):** Admin 주문(Live·목록·상태·취소)은 BE 연동 **구현·미검증**. 메뉴 GET 부분, 메뉴 CRUD·품절·결제수단·매출/대시보드는 **스텁 또는 mock**. Kiosk는 장바구니→주문 생성→결제(토스 예제) **실연동**이 이번 주 우선. Hub 대시보드 %는 운영 지표로 쓰지 않음. WBS 정본: **[wbs.md](wiki/wbs.md)** (`WBS-001`~`085`).
 
 **이번 주 작업 순서 (강사):** ① Kiosk 장바구니·주문·결제 DB 검증 → ② Admin 주문 통합 테스트 → ③ 메뉴 CRUD → 품절 → 결제수단 → 매출·대시보드.
 
@@ -30,10 +30,10 @@
 
 | # | 문서 | 한 줄 |
 |---|---|---|
-| 5 | [WBS 2.0](wiki/wbs-v2-2026-07-16.md) | **실행 할 일 정본** (`WBS2-*`) |
+| 5 | [WBS 통합본](wiki/wbs.md) | **정본** — `WBS-001`~`085` (기획→발표) |
 | 6 | [WBS 상태 메모](wiki/wbs-status-notes.md) | 코드↔WBS 요약 |
 
-레거시 `wbs-schedule.md`(WBS-001~)는 **실행에 쓰지 마세요.**
+`wbs-v2` / `wbs-schedule`는 리다이렉트(정본은 `wbs.md`).
 
 ---
 
@@ -43,9 +43,9 @@
 
 | # | 문서 | 한 줄 |
 |---|---|---|
-| 6 | [Kiosk 구조](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) | P3 · WBS2-017~032 |
-| 7 | [Admin 구조](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [Mock 사전](../../ASAK-Admin/public/mocks/README.md) | P4 · WBS2-033~045 · (`IMPLEMENTATION_PLAN` 삭제됨) |
-| 8 | [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md) | P5 · 실제 원격 `nayeon0828/ASAK-backend` · WBS2-046~056 |
+| 6 | [Kiosk 구조](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) | 키오스크 WBS-023~038 |
+| 7 | [Admin 구조](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [Mock 사전](../../ASAK-Admin/public/mocks/README.md) | 관리자 WBS-039~051 |
+| 8 | [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md) | 백엔드 WBS-052~066 |
 | 9 | [앱 구현 허브](planning/app-implementation-hub.md) | Bible / guide / PLAN 역할 표 |
 
 워크스페이스에서 UI 찾을 때: 루트 [`ui-index.md`](../../ui-index.md).
@@ -89,7 +89,7 @@
 ## 매일 볼 문서 5개
 
 1. [구현 맵](planning/current-implementation-map-2026-07-16.md)
-2. [wbs-v2](wiki/wbs-v2-2026-07-16.md)
+2. [wbs.md](wiki/wbs.md)
 3. [wbs-status-notes](wiki/wbs-status-notes.md)
 4. 담당 앱 `STRUCTURE_GUIDE` / Mock 사전 (Admin `IMPLEMENTATION_PLAN`은 삭제됨)
 5. [Canonical](governance/canonical-contract-decisions-2026-07-16.md) (계약 건드릴 때)

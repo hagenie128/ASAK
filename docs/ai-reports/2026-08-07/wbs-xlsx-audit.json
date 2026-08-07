@@ -1,0 +1,29 @@
+{
+  "file": "C:\\Users\\Administrator\\Downloads\\wbs.xlsx",
+  "exported_at_meta": "2026-08-07 07:02",
+  "total_data_rows": 170,
+  "merged_ranges": [
+    "B3:H3",
+    "B2:H2",
+    "B4:H4",
+    "A1:H1"
+  ],
+  "status_counts": {
+    "완료": 14,
+    "EXCLUDED": 98,
+    "할 일": 14,
+    "BLOCKED": 5,
+    "진행 중": 37,
+    "지연": 1,
+    "검토 중": 1
+  },
+  "family_counts": {
+    "WBS-legacy": 65,
+    "WBS2": 105
+  },
+  "exact_duplicate_id_groups": 64,
+  "archived_title_rows": 67,
+  "excluded_rows": 98,
+  "recommended_clean_wbs2_rows": 66,
+  "active_overdue_not_done": 0
+}

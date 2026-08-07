@@ -1,102 +1,54 @@
 # WBS 상태 메모 (코드 기준)
 
-> 기준일: **2026-08-07** (상세 표 본문은 7/28 실측 · 아래 **8/7 가속 메모**가 우선)
-> 문서 입구: [START_HERE](../START_HERE.md)
-> 실행 정본 표: [wbs-v2-2026-07-16.md](wbs-v2-2026-07-16.md)
-> DevCopilot: workspace 2 · Hub `wbs_rate` 6.5%는 EXCLUDED 포함 → **운영 지표로 쓰지 않음**. Evidence MCP 미지원 → 로컬 wbs-v2만 상세.
-> Legacy 표: [wbs-schedule.md](wbs-schedule.md) (실행에 쓰지 말 것)
+> 기준일: **2026-08-07**
+> **WBS 정본:** [wbs.md](wbs.md) — ID **`WBS-001`~`085`**
+> Hub 상태만: TODO · IN_PROGRESS · IN_REVIEW · DONE · DELAYED
+> **팀:** 김나연 · 이하진
 
-## 8/7 가속 메모 (강사 우선순위 · DONE 승격 없음)
+## 영역 구간
 
-| 묶음 | 대상 WBS 감각 | 코드/지시 | Hub 상태 권고 |
-|---|---|---|---|
-| Kiosk 주문·결제 | P3 025~028 · P5 주문/결제 | 장바구니 검증→주문 생성→결제수단·승인·DB 확인 | **IN_PROGRESS** 유지 (실연동 전 DONE 금지) |
-| Admin 주문 | P4 035~037 · P5 주문 API | Live·목록·상태·취소 **구현·미검증** | **IN_PROGRESS** |
-| Admin 메뉴 | P4 039 | GET 부분 · CRUD 스텁 → 추가/수정/삭제+FE | **IN_PROGRESS** / TODO |
-| 품절·결제수단·매출 | P4 038·040~043 · P5 통계 | Controller 스텁 → 강사 순서대로 수직 구현 | TODO~IN_PROGRESS |
-| 연동·QA | P6~P7 | 브라우저·Bruno·실DB 증거 전 BLOCKED/TODO | **DONE/PASS 금지** |
+| 영역 | ID | 건수 |
+|---|---|---|
+| 기획 | WBS-001~013 | 13 |
+| 디자인 | WBS-014~022 | 9 |
+| 키오스크 | WBS-023~038 | 16 |
+| 관리자 | WBS-039~051 | 13 |
+| 백엔드 | WBS-052~066 | 15 |
+| 연동 | WBS-067~071 | 5 |
+| QA | WBS-072~079 | 8 |
+| 운영 | WBS-080 | 1 |
+| 발표 | WBS-081~085 | 5 |
 
-계약 필드 정본(팀 합의·Hub API 예시 정렬): `totalAmount`, `approvedAmount`, `approvedAt`, `CANCELED`, `APPROVED`, `EAT_IN`/`TAKE_OUT`, Live=`/orders/live`, 결제수단 Admin=`/paymentMethods`.
+> WBS는 **백엔드만이 아님.** 키오스크·관리자·디자인·QA·발표가 같은 `WBS-*` 체계.
 
-## WBS 안내 (초보)
+## 8/7 가속 (DONE 승격 없음)
 
-| 보고 싶은 것 | 문서 |
-|---|---|
-| 오늘 할 일 목록 | [wbs-v2-2026-07-16.md](wbs-v2-2026-07-16.md) 의 `WBS2-*` |
-| 코드로 본 진행률 | **이 메모** |
-| 앱별 상세 순서 | Admin: `STRUCTURE_GUIDE` · mocks README (루트 `IMPLEMENTATION_PLAN`은 **삭제됨**) |
-| 옛 WBS-001~ 표 | `wbs-schedule.md` (Historical) |
+| 묶음 | ID 감각 | Hub 권고 |
+|---|---|---|
+| Kiosk 주문·결제 | 키오스크 후반 · 연동 | IN_PROGRESS (실연동 전 DONE 금지) |
+| Admin 주문 | 관리자 주문 구간 | IN_PROGRESS |
+| Admin 메뉴·품절·결제·매출 | 관리자 중후반 | IN_PROGRESS / TODO |
+| Backend 슬라이스 | 백엔드 052~066 | 화면과 같이 수직으로 |
+| QA·발표 | 072~085 | evidence 전 DONE/PASS 금지 |
+
+계약: `totalAmount`, `APPROVED`, `EAT_IN`/`TAKE_OUT`, Live=`/orders/live`, `/paymentMethods`.
 
 ## 읽는 법
 
-1. **할 일**은 `wbs-v2-2026-07-16.md`의 `WBS2-*`만 본다.
-2. DevCopilot 대시보드 %는 EXCLUDED가 분모에 들어가 **운영용으로 쓰지 않는다**.
-3. DONE은 **코드·mock evidence**가 있을 때만. 정적 UI만 있으면 IN_PROGRESS.
-4. mock **1차 연결**만으로는 DONE이 아니다. 필터 고도화·실패 fixture·실 API·QA evidence가 남으면 IN_PROGRESS.
+1. 할 일·로드맵·제외 = [wbs.md](wbs.md)만.
+2. mock 1차만으로 DONE 금지.
 
-## P3 키오스크 (WBS2-017 ~ 032)
+## 코드 감각
 
-| ID | 한글 제목 (DevCopilot) | 코드 근거 | 상태 |
-|---|---|---|---|
-| 017 | 키오스크 전체 라우트 연결·흐름 점검 | 10 routes | DONE |
-| 018~021 | 메뉴 목록/상세/옵션/알레르기 | mock 동작 | IN_PROGRESS |
-| 022~023 | 수량 9 / 장바구니 30 | quantityLimits | DONE |
-| 024 | 4초 토스트 | 미완 | TODO |
-| 025 | 장바구니 수량·삭제 | CartPage | IN_PROGRESS |
-| 026~028 | 결제·완료 | UI shell | IN_PROGRESS / 027 TODO |
-| 029~030 | 타임아웃 | stub | TODO |
-| 031~032 | 상태 UI·QA | 부분 | IN_PROGRESS / TODO |
-
-## P4 관리자 (WBS2-033 ~ 045)
-
-| ID | 한글 제목 | 코드 근거 (2026-07-23) | 상태 |
-|---|---|---|---|
-| 033 | 라우트 Registry 정렬 | kebab vs Canonical | IN_PROGRESS |
-| 034 | Dashboard | `useDashboard` · 최근주문=`getDashboard().recentOrders` | IN_PROGRESS |
-| 035 | Live 주문 현황 | `getLiveOrders` · 완료/취소 stub · Async/Confirm | IN_PROGRESS |
-| 036 | 주문 목록/상세 | 표시/필터 · 환불/영수증 Confirm · **목록 상태변경 UI 없음** · 필터 고도화 잔여 | IN_PROGRESS |
-| 037 | 주문 상태·TTS stub | Live 완료/취소만 · 목록 PATCH 의도적 미구현 · TTS 미완 | IN_PROGRESS |
-| 038 | 품절 draft·저장 | `useSoldOutDraft` · 2줄 카드·배지 · **`menus.isSoldOut` 미동기화** · 실패 fixture TODO | IN_PROGRESS |
-| 039 | 메뉴 관리/편집 | `useMenusQuery` · Page=조립 · 재료 모달 · 저장 stub | IN_PROGRESS |
-| 040 | 결제수단 토글·저장 | Figma **4종** · 토글/저장 · 실패 fixture TODO | IN_PROGRESS |
-| 041~043 | 매출 3화면 | `useSalesQuery` · `AdminDatePicker` mock 연결 | IN_PROGRESS |
-| 044 | 상태 UI (Async/Confirm) | Shared P1 주요 화면 적용 · State QA evidence 남음 | IN_PROGRESS |
-| 045 | 날짜·합계·내비 QA | 미실행 | TODO |
-
-**공통:** `adminMockRepository` **전 화면 1차 연동**. 7/28에는 API 모듈 명명과 계약 용어를 정렬하고 주문 상세에 기본 단가·옵션 추가금·제외 재료·메뉴 합계 표시를 보강했다. 후속으로 legacy `REQUEST` 옵션은 옵션 표시에서 제외하고, 제외 재료는 `item_exclusion`만 정본으로 하며 Admin 패널에는 인라인 텍스트로 표시하도록 정리했다. Kiosk와 Admin production build는 통과했다.
-**다음 묶음** = 실패 fixture · 품절↔menus sync · 실제 API 응답/환경변수 연결 확인 · 브라우저 QA evidence. Backend와의 **실연동은 API·DB·Bruno 실행 증거 전까지 BLOCKED**.
-
-## P5~P8 (요약)
-
-| 구간 | ID | 상태 |
+| 영역 | ID | 상태 감각 |
 |---|---|---|
-| Backend | 046~047·052·056 | TODO |
-| Backend | 048~051·053~055 | IN_PROGRESS (주문 조회·판매 뷰·Bruno 계약 정렬, `compileJava` 통과; DoD/실API·DB 테스트 남음) |
-| 연동 | 058~060 | BLOCKED |
-| QA | 061~063 | TODO / BLOCKED |
-| 문서·배포·발표 | 064~066 | IN_PROGRESS / BLOCKED / TODO |
+| 키오스크 | 023~038 | 라우트 DONE · 메뉴/결제 IN_PROGRESS · 토스트/타임아웃 TODO |
+| 관리자 | 039~051 | 대부분 IN_PROGRESS · QA 잔여 |
+| 백엔드 | 052~066 | 조회 IN_PROGRESS · 일부 TODO |
+| 연동~발표 | 067~085 | DELAYED/TODO 혼재 |
 
-## DevCopilot 동기화 기록
+상세 Evidence는 [wbs.md](wbs.md) 행을 본다.
 
-- 2026-07-20: WBS2-001~066 제목 한글화, P3/P4 상태 코드 반영
-- LMIS 요구 8건 → IN_PROGRESS (UI shell)
-- Target API create (`/api/kiosk/*`, `soldOut`, sales…) — MCP API update 불가
-- 상세: [devcopilot-sync-report.md](../_archive/wiki-secondary/devcopilot-sync-report.md)
-- 2026-07-22: 로컬 baseline/맵/이 메모를 7/21 Admin 진척에 맞춤. DevCopilot MCP로 workspace 2 WBS **원격 Status 재확인** → P4(033~045) active 행이 로컬과 일치(034~036·038~043 IN_PROGRESS, 037·044~045 TODO). Evidence는 MCP 미지원이라 로컬 문서만 상세 갱신.
-- 2026-07-23: 매출·메뉴·Shared·결제 4종·셸 scale을 로컬 Evidence/이 메모에 반영. **MCP 원격 Status 동기화 성공** — 비교 후 **WBS2-044(pk=162)만 TODO→IN_PROGRESS**(AdminAsyncState/Confirm 적용). 034~036·038~043·037·045는 이미 일치(no-op). DoD 미충족 → DONE 아님. Evidence는 MCP 미지원 → 로컬만. 스냅샷: wiki/snapshots/devcopilot-wbs-live-2026-07-23.json.
-- 2026-07-24: 허브 매출 API-017/018/019·대시보드 API-020 응답 예시를 `SALES_API_CONTRACT` 필드(`netSales` 등)로 보강. WBS2-048~051·053~055 → **IN_PROGRESS**(코드/계약 증거). 046·047·052·DONE 처리 없음. 058~060 BLOCKED 유지.
-- 2026-07-28: 독립 저장소의 `main...origin/main`과 최근 커밋을 재확인했다. Kiosk 계약 정규화, Admin API 연결 환경·주문 상세 금액 표시, Backend 관리자 주문 조회·판매 뷰·Bruno 요청의 계약 용어 정렬을 반영했다. `npm.cmd run build`(Kiosk/Admin), `gradlew.bat compileJava --no-daemon`(Backend)는 통과했다. 실DB·Bruno·브라우저 상호작용 검증은 미실행이므로 DONE 승격·P6 BLOCKED 해제는 하지 않았다.
-- 2026-07-28 (중간점검): 실제 원격 `nayeon0828/ASAK-backend`, Spring context, 외부 MySQL(기본 테이블 25·View 22·FK 39), 읽기 API 9개를 재확인했다. 조회 경로는 실제 DB `200` 근거가 생겼으나, 주문 저장·결제·상태변경/취소·품절·매출은 미완성 또는 미구현이다. 상세 위험과 다음 순서는 [Backend·DB 중간점검](backend-db-midpoint-audit-2026-07-28.md)을 따른다.
-- 2026-07-28 (후속 표시 정합): `e9543ce`에서 View 정의의 legacy `REQUEST` 옵션을 `optionItems`·옵션 표시 View에서 제외하고 제외 재료는 `item_exclusion`만 사용하도록 정리했다. `d2a900f`에서 Admin 상세 패널의 제외 재료를 인라인 텍스트로 표시했다. DB View 적용·실주문 API·브라우저 검증 전이므로 WBS 상태는 바꾸지 않았다.
-- 2026-08-07: DONE·PASS 점검 후 **DEV-CART-001·DEV-ORDER-002만 TODO→IN_PROGRESS**(코드 있음·통합 미검증). WBS DONE·QA PASS 승격 없음. Hub API 예시 필드(`totalAmount`/`APPROVED`/`EAT_IN` 등) 정렬. 상세: [asak-done-pass-audit](../ai-reports/2026-08-07/asak-done-pass-audit.md).
-- 2026-08-07 (후속): 진행 중인데 Hub가 예정(TODO)/BLOCKED로 남은 WBS만 **작업중(IN_PROGRESS)** 로 맞춤 — 008·027·045·056·057·059 (037은 이미 Hub IN_PROGRESS). 토스트·타임아웃·미실행 QA·품절 API 빈 껍데기는 TODO 유지. DONE/PASS 없음.
-- 2026-08-07 (일정 rebase): 강사 우선순위로 Hub WBS2 **시작·종료일만** 재배치. DONE/EXCLUDED 미변경. P0 주문·결제·Admin연동 `8/7~8/11` · P1 메뉴·품절 `8/11~8/14` · P2 매출·결제수단 `8/14~8/18` · QA `8/18~8/21` · 문서/발표 `8/14~8/28`. 계획: [wbs-date-rebase-plan.json](../ai-reports/2026-08-07/wbs-date-rebase-plan.json).
+## 동기화 메모
 
-## 화면 ID와 WBS
-
-| SCR | 의미 | 관련 WBS |
-|---|---|---|
-| 020 | 월별 매출 | 042 |
-| 021 | 일별 매출 | 043 |
-| 022 | 대시보드 | 034 |
-| 023/024 | 영수증·멤버십 Future | — |
+- **2026-08-07:** 로컬 WBS 통합본 `wbs.md` (85건) + Notion형 상세 필드. Hub 재등록은 로컬 확정 후.
