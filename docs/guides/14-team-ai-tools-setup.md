@@ -77,7 +77,7 @@ Codex는 각자 `%USERPROFILE%\.codex\skills\`에 같은 다섯 폴더를 복사
 
 팀 공통 Git 반영 순서는 템플릿의 1→10을 따른다: `main` 최신화 → 기능/레포별 브랜치 → 명시 stage·검증 → 한글 커밋 → 원격 브랜치 푸시 → `main` 최신화·병합·원격 푸시 → 로컬 브랜치 삭제 → 원격 브랜치 삭제. 템플릿을 갱신하면 각 도구의 개인 설치본에도 다시 복사한다.
 
-`/asak-study`는 시작 전에 팀 공용 정본 `docs/ai-reports/ASAK_STUDY_EXAMPLE_CANONICAL.md`의 설명 깊이와 목차를 읽는다. 정본의 예시 데이터를 현재 구현 사실로 복사하지 않으며, 사용자가 다른 정본을 지정하면 그 파일을 우선한다. 학습이 끝나면 대상 저장소의 `docs/ai-reports/YYYY-MM-DD/asak-study-<짧은-주제>.md`에 결과 Markdown을 남기고, 채팅에는 파일 링크와 완료 사실만 전달한다. 이 파일은 작업 근거를 보존하는 문서이며, 생성만으로 자동 commit·push하지 않는다.
+`/asak-study`는 시작 전에 팀 공용 정본 `docs/study/ai-review/ASAK_STUDY_EXAMPLE_CANONICAL.md`의 설명 깊이와 목차를 읽는다. 정본의 예시 데이터를 현재 구현 사실로 복사하지 않으며, 사용자가 다른 정본을 지정하면 그 파일을 우선한다. 학습이 끝나면 대상 저장소의 `docs/study/ai-review/YYYY-MM-DD/asak-study-<짧은-주제>.md`에 결과 Markdown을 남기고, 채팅에는 파일 링크와 완료 사실만 전달한다. 이 파일은 작업 근거를 보존하는 문서이며, 생성만으로 자동 commit·push하지 않는다.
 
 `/asak-doc-sync`는 현재 코드·검증 결과와 문서·Figma를 먼저 비교한 뒤, 승인된 문서만 갱신한다. 코드와 Product/Screen Bible이 충돌하면 정본을 자동으로 덮어쓰지 않고 `결정 필요`로 남긴다. 갱신 근거와 남은 불일치는 `docs/ai-reports/YYYY-MM-DD/asak-doc-sync-<짧은-주제>.md`에 기록하며, 자동 commit·push하지 않는다.
 
