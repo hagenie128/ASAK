@@ -19,6 +19,7 @@
 | [qa-test-cases.md](./qa-test-cases.md) | wiki/14 |
 | [meeting-deliverables-checklist.md](./meeting-deliverables-checklist.md) | [wiki/15](https://devcopilot.ai.kr/workspace/2/wiki/15) |
 | [meeting-minutes-weekly.md](./meeting-minutes-weekly.md) | [wiki/78](https://devcopilot.ai.kr/workspace/2/wiki/78) |
+| [worklog-index.md](./worklog-index.md) | [wiki/83](https://devcopilot.ai.kr/workspace/2/wiki/83) |
 | [project-flow.md](./project-flow.md) | [wiki/79](https://devcopilot.ai.kr/workspace/2/wiki/79) |
 | [wbs-status-notes.md](./wbs-status-notes.md) | (Hub WBS Status · 통합본 기준) |
 | [index.md](./index.md) | 운영 인덱스 |

@@ -247,25 +247,23 @@
 
 ## 관련 워크로그
 
-> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(`-to-`)는 겹치는 주차에 중복 표기. 커밋 backfill·stub(근거 없음)도 파일 존재 기준으로 포함한다.
+> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(-to-)는 겹치는 주차에 중복 표기. 작업 없는 날(파일 없음)은 나열하지 않는다.
 
 ### 이하진
 
 - **daily**
-  - `worklog/daily/이하진/2026-07-02.md`
-  - `worklog/daily/이하진/2026-07-03.md`
-  - `worklog/daily/이하진/2026-07-04.md`
-  - `worklog/daily/이하진/2026-07-05.md`
+  - worklog/daily/이하진/2026-07-02.md
+  - worklog/daily/이하진/2026-07-03.md
+  - worklog/daily/이하진/2026-07-05.md
 - **entries**
-  - `worklog/entries/이하진/2026-07-02-to-03-project-bootstrap.md`
-  - `worklog/entries/이하진/2026-07-05-notion-docs-cleanup.md`
+  - worklog/entries/이하진/2026-07-02-to-03-project-bootstrap.md
+  - worklog/entries/이하진/2026-07-05-notion-docs-cleanup.md
 
 ### 김나연
 
 - **daily:** (해당 기간 파일 없음)
 - **entries:** (해당 기간 파일 없음)
 
-- 참고 문서: [회의록 README §참고 문서](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md#참고-문서-2026-08-07)
 # 회의록 2026-W28 — 디자인 방향·관리자 UI 골격
 
 | 항목 | 내용 |
@@ -304,35 +302,31 @@
 
 ## 관련 워크로그
 
-> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(`-to-`)는 겹치는 주차에 중복 표기. 커밋 backfill·stub(근거 없음)도 파일 존재 기준으로 포함한다.
+> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(-to-)는 겹치는 주차에 중복 표기. 작업 없는 날(파일 없음)은 나열하지 않는다.
 
 ### 이하진
 
 - **daily**
-  - `worklog/daily/이하진/2026-07-06.md`
-  - `worklog/daily/이하진/2026-07-07.md`
-  - `worklog/daily/이하진/2026-07-08.md`
-  - `worklog/daily/이하진/2026-07-09.md`
-  - `worklog/daily/이하진/2026-07-10.md`
-  - `worklog/daily/이하진/2026-07-11.md`
-  - `worklog/daily/이하진/2026-07-12.md`
+  - worklog/daily/이하진/2026-07-06.md
+  - worklog/daily/이하진/2026-07-09.md
+  - worklog/daily/이하진/2026-07-10.md
 - **entries**
-  - `worklog/entries/이하진/2026-07-06-worklog-onboarding.md`
-  - `worklog/entries/이하진/2026-07-09-to-14-figma-design.md`
-  - `worklog/entries/이하진/2026-07-10-frontend-mock-bootstrap.md`
+  - worklog/entries/이하진/2026-07-06-worklog-onboarding.md
+  - worklog/entries/이하진/2026-07-09-to-14-figma-design.md
+  - worklog/entries/이하진/2026-07-10-frontend-mock-bootstrap.md
 
 ### 김나연
 
 - **daily**
-  - `worklog/daily/김나연/2026-07-07.md`
-  - `worklog/daily/김나연/2026-07-08.md`
-  - `worklog/daily/김나연/2026-07-09.md`
-  - `worklog/daily/김나연/2026-07-11.md`
+  - worklog/daily/김나연/2026-07-07.md
+  - worklog/daily/김나연/2026-07-08.md
+  - worklog/daily/김나연/2026-07-09.md
+  - worklog/daily/김나연/2026-07-11.md
 - **entries**
-  - `worklog/entries/김나연/2026-07-07-업무-정리.md`
-  - `worklog/entries/김나연/2026-07-08-업무-정리.md`
-  - `worklog/entries/김나연/2026-07-09-team-config.md`
-  - `worklog/entries/김나연/2026-07-11-team-config.md`
+  - worklog/entries/김나연/2026-07-07-업무-정리.md
+  - worklog/entries/김나연/2026-07-08-업무-정리.md
+  - worklog/entries/김나연/2026-07-09-team-config.md
+  - worklog/entries/김나연/2026-07-11-team-config.md
 
 ### 주간 워크로그
 
@@ -396,45 +390,44 @@
 
 ## 관련 워크로그
 
-> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(`-to-`)는 겹치는 주차에 중복 표기. 커밋 backfill·stub(근거 없음)도 파일 존재 기준으로 포함한다.
+> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(-to-)는 겹치는 주차에 중복 표기. 작업 없는 날(파일 없음)은 나열하지 않는다.
 
 ### 이하진
 
 - **daily**
-  - `worklog/daily/이하진/2026-07-13.md`
-  - `worklog/daily/이하진/2026-07-14.md`
-  - `worklog/daily/이하진/2026-07-15.md`
-  - `worklog/daily/이하진/2026-07-16.md`
-  - `worklog/daily/이하진/2026-07-17.md`
-  - `worklog/daily/이하진/2026-07-18.md`
-  - `worklog/daily/이하진/2026-07-19.md`
+  - worklog/daily/이하진/2026-07-13.md
+  - worklog/daily/이하진/2026-07-14.md
+  - worklog/daily/이하진/2026-07-15.md
+  - worklog/daily/이하진/2026-07-16.md
+  - worklog/daily/이하진/2026-07-17.md
+  - worklog/daily/이하진/2026-07-18.md
+  - worklog/daily/이하진/2026-07-19.md
 - **entries**
-  - `worklog/entries/이하진/2026-07-09-to-14-figma-design.md`
-  - `worklog/entries/이하진/2026-07-15-figma-admin-review.md`
-  - `worklog/entries/이하진/2026-07-16-figma-final-component-state-audit.md`
-  - `worklog/entries/이하진/2026-07-16-notion-api-dto-db-audit.md`
-  - `worklog/entries/이하진/2026-07-16-product-bible-wbs-release-governance.md`
-  - `worklog/entries/이하진/2026-07-16-to-17-frontend-contract-handoff.md`
-  - `worklog/entries/이하진/2026-07-17-asak-agent-kit-install-and-release.md`
-  - `worklog/entries/이하진/2026-07-17-implementation-guides-and-assets.md`
-  - `worklog/entries/이하진/2026-07-18-to-19-figma-static-ui.md`
+  - worklog/entries/이하진/2026-07-15-figma-admin-review.md
+  - worklog/entries/이하진/2026-07-16-figma-final-component-state-audit.md
+  - worklog/entries/이하진/2026-07-16-notion-api-dto-db-audit.md
+  - worklog/entries/이하진/2026-07-16-product-bible-wbs-release-governance.md
+  - worklog/entries/이하진/2026-07-16-to-17-frontend-contract-handoff.md
+  - worklog/entries/이하진/2026-07-17-asak-agent-kit-install-and-release.md
+  - worklog/entries/이하진/2026-07-17-implementation-guides-and-assets.md
+  - worklog/entries/이하진/2026-07-18-to-19-figma-static-ui.md
 
 ### 김나연
 
 - **daily**
-  - `worklog/daily/김나연/2026-07-13.md`
-  - `worklog/daily/김나연/2026-07-14.md`
-  - `worklog/daily/김나연/2026-07-15.md`
-  - `worklog/daily/김나연/2026-07-16.md`
-  - `worklog/daily/김나연/2026-07-17.md`
-  - `worklog/daily/김나연/2026-07-18.md`
+  - worklog/daily/김나연/2026-07-13.md
+  - worklog/daily/김나연/2026-07-14.md
+  - worklog/daily/김나연/2026-07-15.md
+  - worklog/daily/김나연/2026-07-16.md
+  - worklog/daily/김나연/2026-07-17.md
+  - worklog/daily/김나연/2026-07-18.md
 - **entries**
-  - `worklog/entries/김나연/2026-07-13-docs.md`
-  - `worklog/entries/김나연/2026-07-14-kiosk-frontend.md`
-  - `worklog/entries/김나연/2026-07-15-kiosk-frontend.md`
-  - `worklog/entries/김나연/2026-07-16-kiosk-frontend.md`
-  - `worklog/entries/김나연/2026-07-17-kiosk-frontend.md`
-  - `worklog/entries/김나연/2026-07-18-kiosk-frontend.md`
+  - worklog/entries/김나연/2026-07-13-docs.md
+  - worklog/entries/김나연/2026-07-14-kiosk-frontend.md
+  - worklog/entries/김나연/2026-07-15-kiosk-frontend.md
+  - worklog/entries/김나연/2026-07-16-kiosk-frontend.md
+  - worklog/entries/김나연/2026-07-17-kiosk-frontend.md
+  - worklog/entries/김나연/2026-07-18-kiosk-frontend.md
 
 ### 주간 워크로그
 
@@ -497,38 +490,38 @@
 
 ## 관련 워크로그
 
-> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(`-to-`)는 겹치는 주차에 중복 표기. 커밋 backfill·stub(근거 없음)도 파일 존재 기준으로 포함한다.
+> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(-to-)는 겹치는 주차에 중복 표기. 작업 없는 날(파일 없음)은 나열하지 않는다.
 
 ### 이하진
 
 - **daily**
-  - `worklog/daily/이하진/2026-07-20.md`
-  - `worklog/daily/이하진/2026-07-21.md`
-  - `worklog/daily/이하진/2026-07-22.md`
-  - `worklog/daily/이하진/2026-07-23.md`
-  - `worklog/daily/이하진/2026-07-24.md`
+  - worklog/daily/이하진/2026-07-20.md
+  - worklog/daily/이하진/2026-07-21.md
+  - worklog/daily/이하진/2026-07-22.md
+  - worklog/daily/이하진/2026-07-23.md
+  - worklog/daily/이하진/2026-07-24.md
 - **entries**
-  - `worklog/entries/이하진/2026-07-20-docs-wbs2-devcopilot-sync.md`
-  - `worklog/entries/이하진/2026-07-20-mock-state-sprint.md`
-  - `worklog/entries/이하진/2026-07-21-admin-mock-page-binding.md`
-  - `worklog/entries/이하진/2026-07-23-admin-mock-figma-parity.md`
-  - `worklog/entries/이하진/2026-07-23-api-contract-backend-foundation.md`
-  - `worklog/entries/이하진/2026-07-24-db-contract-admin-order-foundation.md`
+  - worklog/entries/이하진/2026-07-20-docs-wbs2-devcopilot-sync.md
+  - worklog/entries/이하진/2026-07-20-mock-state-sprint.md
+  - worklog/entries/이하진/2026-07-21-admin-mock-page-binding.md
+  - worklog/entries/이하진/2026-07-23-admin-mock-figma-parity.md
+  - worklog/entries/이하진/2026-07-23-api-contract-backend-foundation.md
+  - worklog/entries/이하진/2026-07-24-db-contract-admin-order-foundation.md
 
 ### 김나연
 
 - **daily**
-  - `worklog/daily/김나연/2026-07-20.md`
-  - `worklog/daily/김나연/2026-07-21.md`
-  - `worklog/daily/김나연/2026-07-22.md`
-  - `worklog/daily/김나연/2026-07-23.md`
-  - `worklog/daily/김나연/2026-07-24.md`
+  - worklog/daily/김나연/2026-07-20.md
+  - worklog/daily/김나연/2026-07-21.md
+  - worklog/daily/김나연/2026-07-22.md
+  - worklog/daily/김나연/2026-07-23.md
+  - worklog/daily/김나연/2026-07-24.md
 - **entries**
-  - `worklog/entries/김나연/2026-07-20-kiosk-frontend.md`
-  - `worklog/entries/김나연/2026-07-21-kiosk-frontend.md`
-  - `worklog/entries/김나연/2026-07-22-kiosk-frontend.md`
-  - `worklog/entries/김나연/2026-07-23-kiosk-frontend.md`
-  - `worklog/entries/김나연/2026-07-24-backend-api.md`
+  - worklog/entries/김나연/2026-07-20-kiosk-frontend.md
+  - worklog/entries/김나연/2026-07-21-kiosk-frontend.md
+  - worklog/entries/김나연/2026-07-22-kiosk-frontend.md
+  - worklog/entries/김나연/2026-07-23-kiosk-frontend.md
+  - worklog/entries/김나연/2026-07-24-backend-api.md
 
 ### 주간 워크로그
 
@@ -598,37 +591,37 @@
 
 ## 관련 워크로그
 
-> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(`-to-`)는 겹치는 주차에 중복 표기. 커밋 backfill·stub(근거 없음)도 파일 존재 기준으로 포함한다.
+> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(-to-)는 겹치는 주차에 중복 표기. 작업 없는 날(파일 없음)은 나열하지 않는다.
 
 ### 이하진
 
 - **daily**
-  - `worklog/daily/이하진/2026-07-27.md`
-  - `worklog/daily/이하진/2026-07-28.md`
-  - `worklog/daily/이하진/2026-07-29.md`
-  - `worklog/daily/이하진/2026-07-30.md`
-  - `worklog/daily/이하진/2026-07-31.md`
+  - worklog/daily/이하진/2026-07-27.md
+  - worklog/daily/이하진/2026-07-28.md
+  - worklog/daily/이하진/2026-07-29.md
+  - worklog/daily/이하진/2026-07-30.md
+  - worklog/daily/이하진/2026-07-31.md
 - **entries**
-  - `worklog/entries/이하진/2026-07-27-admin-live-menu-order-api.md`
-  - `worklog/entries/이하진/2026-07-28-admin-order-detail-receipt-api-modules.md`
-  - `worklog/entries/이하진/2026-07-29-admin-live-order-and-menu-option-catalog.md`
-  - `worklog/entries/이하진/2026-07-30-figma-token-live-order-contract.md`
-  - `worklog/entries/이하진/2026-07-31-backend-api.md`
+  - worklog/entries/이하진/2026-07-27-admin-live-menu-order-api.md
+  - worklog/entries/이하진/2026-07-28-admin-order-detail-receipt-api-modules.md
+  - worklog/entries/이하진/2026-07-29-admin-live-order-and-menu-option-catalog.md
+  - worklog/entries/이하진/2026-07-30-figma-token-live-order-contract.md
+  - worklog/entries/이하진/2026-07-31-backend-api.md
 
 ### 김나연
 
 - **daily**
-  - `worklog/daily/김나연/2026-07-27.md`
-  - `worklog/daily/김나연/2026-07-28.md`
-  - `worklog/daily/김나연/2026-07-29.md`
-  - `worklog/daily/김나연/2026-07-30.md`
-  - `worklog/daily/김나연/2026-07-31.md`
+  - worklog/daily/김나연/2026-07-27.md
+  - worklog/daily/김나연/2026-07-28.md
+  - worklog/daily/김나연/2026-07-29.md
+  - worklog/daily/김나연/2026-07-30.md
+  - worklog/daily/김나연/2026-07-31.md
 - **entries**
-  - `worklog/entries/김나연/2026-07-27-backend-api.md`
-  - `worklog/entries/김나연/2026-07-28-backend-api.md`
-  - `worklog/entries/김나연/2026-07-29-backend-api.md`
-  - `worklog/entries/김나연/2026-07-30-backend-api.md`
-  - `worklog/entries/김나연/2026-07-31-backend-api.md`
+  - worklog/entries/김나연/2026-07-27-backend-api.md
+  - worklog/entries/김나연/2026-07-28-backend-api.md
+  - worklog/entries/김나연/2026-07-29-backend-api.md
+  - worklog/entries/김나연/2026-07-30-backend-api.md
+  - worklog/entries/김나연/2026-07-31-backend-api.md
 
 ### 주간 워크로그
 
@@ -729,30 +722,32 @@
 
 ## 관련 워크로그
 
-> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(`-to-`)는 겹치는 주차에 중복 표기. 커밋 backfill·stub(근거 없음)도 파일 존재 기준으로 포함한다.
+> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(-to-)는 겹치는 주차에 중복 표기. 작업 없는 날(파일 없음)은 나열하지 않는다.
 
 ### 이하진
 
 - **daily**
-  - `worklog/daily/이하진/2026-08-05.md`
-  - `worklog/daily/이하진/2026-08-06.md`
-  - `worklog/daily/이하진/2026-08-07.md`
+  - worklog/daily/이하진/2026-08-05.md
+  - worklog/daily/이하진/2026-08-06.md
+  - worklog/daily/이하진/2026-08-07.md
 - **entries**
-  - `worklog/entries/이하진/2026-08-05-admin.md`
-  - `worklog/entries/이하진/2026-08-06-admin-menu-search-and-detail-contract.md`
-  - `worklog/entries/이하진/2026-08-07-mysql-schema-cors.md`
-  - `worklog/entries/이하진/2026-08-07-wbs-study-rtos-docs.md`
+  - worklog/entries/이하진/2026-08-05-admin.md
+  - worklog/entries/이하진/2026-08-06-admin-menu-search-and-detail-contract.md
+  - worklog/entries/이하진/2026-08-07-mysql-schema-cors.md
+  - worklog/entries/이하진/2026-08-07-wbs-study-rtos-docs.md
 
 ### 김나연
 
 - **daily**
-  - `worklog/daily/김나연/2026-08-04.md`
-  - `worklog/daily/김나연/2026-08-05.md`
-  - `worklog/daily/김나연/2026-08-06.md`
+  - worklog/daily/김나연/2026-08-04.md
+  - worklog/daily/김나연/2026-08-05.md
+  - worklog/daily/김나연/2026-08-06.md
+  - worklog/daily/김나연/2026-08-07.md
 - **entries**
-  - `worklog/entries/김나연/2026-08-04-kiosk-frontend.md`
-  - `worklog/entries/김나연/2026-08-05-backend-api.md`
-  - `worklog/entries/김나연/2026-08-06-kiosk-frontend.md`
+  - worklog/entries/김나연/2026-08-04-kiosk-frontend.md
+  - worklog/entries/김나연/2026-08-05-backend-api.md
+  - worklog/entries/김나연/2026-08-06-kiosk-frontend.md
+  - worklog/entries/김나연/2026-08-07-kiosk-cart-api.md
 
 ### 주간 워크로그
 

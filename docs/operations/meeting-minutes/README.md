@@ -192,9 +192,10 @@
 |---|---|
 | 주차별 정본 | 이 폴더 [`README`](./README.md) · [W27](./2026-W27.md)~[W32](./2026-W32.md) |
 | Hub 업로드본 | [`wiki/meeting-minutes-weekly.md`](../../wiki/meeting-minutes-weekly.md) |
+| 워크로그 Hub 인덱스 | [`wiki/worklog-index.md`](../../wiki/worklog-index.md) (daily · entries · weekly 링크) |
 | 구 통합본 | [`meeting-minutes-2026-07-01-to-08-07.md`](../meeting-minutes-2026-07-01-to-08-07.md) — **리다이렉트 스텁** (본문 이관 완료, 갱신 안 함) |
 | 산출물 체크리스트 | [`wiki/meeting-deliverables-checklist.md`](../../wiki/meeting-deliverables-checklist.md) |
-| 주간 워크로그 | [W28](../../../worklog/weekly/2026-W28.md) · [W29](../../../worklog/weekly/2026-W29.md) (W30+는 daily/entries) |
+| 주간 워크로그 | [W28](../../../worklog/weekly/2026-W28.md) · [W29](../../../worklog/weekly/2026-W29.md) · [W30](../../../worklog/weekly/2026-W30.md) · [W31](../../../worklog/weekly/2026-W31.md) · [W32](../../../worklog/weekly/2026-W32.md) |
 | daily / entries | `worklog/daily/{김나연\|이하진}/` · `worklog/entries/{김나연\|이하진}/` |
 
 ### 미리보기·학습
