@@ -17,7 +17,7 @@
 | Backend | 주문 조회·Live·상태/취소 경로 존재. 메뉴 POST/PATCH/DELETE·품절·결제수단·매출 Controller는 스텁 또는 미완. Kiosk 주문 저장·결제 연동 우선 | **IN_PROGRESS** |
 | DB | 외부 MySQL·View 존재. 변경 API·실주문 E2E·뷰 재검증 남음 | **IN_PROGRESS** |
 | QA | TC 다수 TODO · 실행 evidence 없음 → PASS 승격 금지 | **TODO** |
-| Hub 문서 | 회의록 wiki/78·체크리스트 wiki/15·API wiki/12 갱신(8/6~8/7). req/wbs/qa %는 운영 지표 아님 | **REFERENCE** |
+| Hub 문서 | 회의록 wiki/78·체크리스트 wiki/15·API wiki/12·흐름도 wiki/79 갱신(8/6~8/7). WBS2 **상태(작업중)** + **일정 rebase(8/7)** 반영. req/wbs/qa %는 운영 지표 아님 | **REFERENCE** |
 
 ## DevCopilot 전수 점검 (2026-07-30)
 

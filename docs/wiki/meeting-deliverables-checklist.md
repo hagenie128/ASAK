@@ -36,6 +36,7 @@ Hub 전체본: [meeting-minutes-weekly.md](./meeting-minutes-weekly.md) · 로�
 | 2 | Admin 주문 Live·목록·상태·취소 통합 테스트 | 구현·미검증 |
 | 3 | Admin 메뉴 CRUD → 품절 → 결제수단 → 매출·대시보드 (mock 제거) | 대기/스텁 |
 | — | 회의록·위키 최신화 | Hub wiki/78·15 반영 |
+| — | WBS 상태·일정 | TODO→작업중(008·027·045·056·057·059) · 일정 rebase 8/7 (P0~발표) · [Notion](https://www.notion.so/3b551ef04f0b814f913afedb7b353ad3) · Hub [wiki/81](https://devcopilot.ai.kr/workspace/2/wiki/81) |
 | — | Figma | 추가 디자인 중지 · 구독 종료 전 백업본 팀 공유 |
 
 계약 필드 정본: `totalAmount` / `approvedAmount` / `approvedAt` / `APPROVED` / `CANCELED` / `EAT_IN`·`TAKE_OUT`

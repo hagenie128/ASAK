@@ -18,6 +18,7 @@
 | [meeting-deliverables-checklist.md](./meeting-deliverables-checklist.md) | [wiki/15](https://devcopilot.ai.kr/workspace/2/wiki/15) |
 | [meeting-minutes-weekly.md](./meeting-minutes-weekly.md) | [wiki/78](https://devcopilot.ai.kr/workspace/2/wiki/78) |
 | [project-flow.md](./project-flow.md) | [wiki/79](https://devcopilot.ai.kr/workspace/2/wiki/79) |
+| [wbs-status-notes.md](./wbs-status-notes.md) | (Hub WBS Status · 8/7 일정 rebase) |
 | [index.md](./index.md) | 운영 인덱스 |
 
 부가 요약·감사·스냅샷 → [`../_archive/wiki-secondary/`](../_archive/wiki-secondary/)

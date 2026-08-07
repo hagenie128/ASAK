@@ -55,7 +55,7 @@
 | 034 | Dashboard | `useDashboard` · 최근주문=`getDashboard().recentOrders` | IN_PROGRESS |
 | 035 | Live 주문 현황 | `getLiveOrders` · 완료/취소 stub · Async/Confirm | IN_PROGRESS |
 | 036 | 주문 목록/상세 | 표시/필터 · 환불/영수증 Confirm · **목록 상태변경 UI 없음** · 필터 고도화 잔여 | IN_PROGRESS |
-| 037 | 주문 상태·TTS stub | Live 완료/취소만 · 목록 PATCH 의도적 미구현 · TTS 미완 | TODO |
+| 037 | 주문 상태·TTS stub | Live 완료/취소만 · 목록 PATCH 의도적 미구현 · TTS 미완 | IN_PROGRESS |
 | 038 | 품절 draft·저장 | `useSoldOutDraft` · 2줄 카드·배지 · **`menus.isSoldOut` 미동기화** · 실패 fixture TODO | IN_PROGRESS |
 | 039 | 메뉴 관리/편집 | `useMenusQuery` · Page=조립 · 재료 모달 · 저장 stub | IN_PROGRESS |
 | 040 | 결제수단 토글·저장 | Figma **4종** · 토글/저장 · 실패 fixture TODO | IN_PROGRESS |
@@ -89,6 +89,8 @@
 - 2026-07-28 (중간점검): 실제 원격 `nayeon0828/ASAK-backend`, Spring context, 외부 MySQL(기본 테이블 25·View 22·FK 39), 읽기 API 9개를 재확인했다. 조회 경로는 실제 DB `200` 근거가 생겼으나, 주문 저장·결제·상태변경/취소·품절·매출은 미완성 또는 미구현이다. 상세 위험과 다음 순서는 [Backend·DB 중간점검](backend-db-midpoint-audit-2026-07-28.md)을 따른다.
 - 2026-07-28 (후속 표시 정합): `e9543ce`에서 View 정의의 legacy `REQUEST` 옵션을 `optionItems`·옵션 표시 View에서 제외하고 제외 재료는 `item_exclusion`만 사용하도록 정리했다. `d2a900f`에서 Admin 상세 패널의 제외 재료를 인라인 텍스트로 표시했다. DB View 적용·실주문 API·브라우저 검증 전이므로 WBS 상태는 바꾸지 않았다.
 - 2026-08-07: DONE·PASS 점검 후 **DEV-CART-001·DEV-ORDER-002만 TODO→IN_PROGRESS**(코드 있음·통합 미검증). WBS DONE·QA PASS 승격 없음. Hub API 예시 필드(`totalAmount`/`APPROVED`/`EAT_IN` 등) 정렬. 상세: [asak-done-pass-audit](../ai-reports/2026-08-07/asak-done-pass-audit.md).
+- 2026-08-07 (후속): 진행 중인데 Hub가 예정(TODO)/BLOCKED로 남은 WBS만 **작업중(IN_PROGRESS)** 로 맞춤 — 008·027·045·056·057·059 (037은 이미 Hub IN_PROGRESS). 토스트·타임아웃·미실행 QA·품절 API 빈 껍데기는 TODO 유지. DONE/PASS 없음.
+- 2026-08-07 (일정 rebase): 강사 우선순위로 Hub WBS2 **시작·종료일만** 재배치. DONE/EXCLUDED 미변경. P0 주문·결제·Admin연동 `8/7~8/11` · P1 메뉴·품절 `8/11~8/14` · P2 매출·결제수단 `8/14~8/18` · QA `8/18~8/21` · 문서/발표 `8/14~8/28`. 계획: [wbs-date-rebase-plan.json](../ai-reports/2026-08-07/wbs-date-rebase-plan.json).
 
 ## 화면 ID와 WBS
 
