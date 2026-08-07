@@ -1,10 +1,22 @@
 # WBS 상태 메모 (코드 기준)
 
-> 기준일: **2026-07-28**
-> 문서 입구: [START_HERE](../START_HERE.md)  
-> 실행 정본 표: [wbs-v2-2026-07-16.md](wbs-v2-2026-07-16.md)  
-> DevCopilot: workspace 2 · WBS2 제목 **한글** 동기화 완료 (7/20). **7/28**에는 Kiosk/Admin 계약 용어 정렬, Admin 주문 상세 금액 표시·API 연결 환경, Backend 주문 조회·판매 뷰·Bruno 계약 정렬을 코드와 최근 커밋으로 재확인했다. Kiosk/Admin Vite production build와 Backend `compileJava`는 통과했지만, 브라우저·실DB·Bruno 실행 증거는 아직 없으므로 관련 항목은 **IN_PROGRESS**를 유지한다. Evidence 필드는 MCP 미지원 → 로컬 wbs-v2만 상세.
+> 기준일: **2026-08-07** (상세 표 본문은 7/28 실측 · 아래 **8/7 가속 메모**가 우선)
+> 문서 입구: [START_HERE](../START_HERE.md)
+> 실행 정본 표: [wbs-v2-2026-07-16.md](wbs-v2-2026-07-16.md)
+> DevCopilot: workspace 2 · Hub `wbs_rate` 6.5%는 EXCLUDED 포함 → **운영 지표로 쓰지 않음**. Evidence MCP 미지원 → 로컬 wbs-v2만 상세.
 > Legacy 표: [wbs-schedule.md](wbs-schedule.md) (실행에 쓰지 말 것)
+
+## 8/7 가속 메모 (강사 우선순위 · DONE 승격 없음)
+
+| 묶음 | 대상 WBS 감각 | 코드/지시 | Hub 상태 권고 |
+|---|---|---|---|
+| Kiosk 주문·결제 | P3 025~028 · P5 주문/결제 | 장바구니 검증→주문 생성→결제수단·승인·DB 확인 | **IN_PROGRESS** 유지 (실연동 전 DONE 금지) |
+| Admin 주문 | P4 035~037 · P5 주문 API | Live·목록·상태·취소 **구현·미검증** | **IN_PROGRESS** |
+| Admin 메뉴 | P4 039 | GET 부분 · CRUD 스텁 → 추가/수정/삭제+FE | **IN_PROGRESS** / TODO |
+| 품절·결제수단·매출 | P4 038·040~043 · P5 통계 | Controller 스텁 → 강사 순서대로 수직 구현 | TODO~IN_PROGRESS |
+| 연동·QA | P6~P7 | 브라우저·Bruno·실DB 증거 전 BLOCKED/TODO | **DONE/PASS 금지** |
+
+계약 필드 정본(팀 합의·Hub API 예시 정렬): `totalAmount`, `approvedAmount`, `approvedAt`, `CANCELED`, `APPROVED`, `EAT_IN`/`TAKE_OUT`, Live=`/orders/live`, 결제수단 Admin=`/paymentMethods`.
 
 ## WBS 안내 (초보)
 
@@ -17,9 +29,9 @@
 
 ## 읽는 법
 
-1. **할 일**은 `wbs-v2-2026-07-16.md`의 `WBS2-*`만 본다.  
-2. DevCopilot 대시보드 %는 EXCLUDED가 분모에 들어가 **운영용으로 쓰지 않는다**.  
-3. DONE은 **코드·mock evidence**가 있을 때만. 정적 UI만 있으면 IN_PROGRESS.  
+1. **할 일**은 `wbs-v2-2026-07-16.md`의 `WBS2-*`만 본다.
+2. DevCopilot 대시보드 %는 EXCLUDED가 분모에 들어가 **운영용으로 쓰지 않는다**.
+3. DONE은 **코드·mock evidence**가 있을 때만. 정적 UI만 있으면 IN_PROGRESS.
 4. mock **1차 연결**만으로는 DONE이 아니다. 필터 고도화·실패 fixture·실 API·QA evidence가 남으면 IN_PROGRESS.
 
 ## P3 키오스크 (WBS2-017 ~ 032)
@@ -66,9 +78,9 @@
 
 ## DevCopilot 동기화 기록
 
-- 2026-07-20: WBS2-001~066 제목 한글화, P3/P4 상태 코드 반영  
-- LMIS 요구 8건 → IN_PROGRESS (UI shell)  
-- Target API create (`/api/kiosk/*`, `soldOut`, sales…) — MCP API update 불가  
+- 2026-07-20: WBS2-001~066 제목 한글화, P3/P4 상태 코드 반영
+- LMIS 요구 8건 → IN_PROGRESS (UI shell)
+- Target API create (`/api/kiosk/*`, `soldOut`, sales…) — MCP API update 불가
 - 상세: [devcopilot-sync-report.md](../_archive/wiki-secondary/devcopilot-sync-report.md)
 - 2026-07-22: 로컬 baseline/맵/이 메모를 7/21 Admin 진척에 맞춤. DevCopilot MCP로 workspace 2 WBS **원격 Status 재확인** → P4(033~045) active 행이 로컬과 일치(034~036·038~043 IN_PROGRESS, 037·044~045 TODO). Evidence는 MCP 미지원이라 로컬 문서만 상세 갱신.
 - 2026-07-23: 매출·메뉴·Shared·결제 4종·셸 scale을 로컬 Evidence/이 메모에 반영. **MCP 원격 Status 동기화 성공** — 비교 후 **WBS2-044(pk=162)만 TODO→IN_PROGRESS**(AdminAsyncState/Confirm 적용). 034~036·038~043·037·045는 이미 일치(no-op). DoD 미충족 → DONE 아님. Evidence는 MCP 미지원 → 로컬만. 스냅샷: wiki/snapshots/devcopilot-wbs-live-2026-07-23.json.
@@ -76,6 +88,7 @@
 - 2026-07-28: 독립 저장소의 `main...origin/main`과 최근 커밋을 재확인했다. Kiosk 계약 정규화, Admin API 연결 환경·주문 상세 금액 표시, Backend 관리자 주문 조회·판매 뷰·Bruno 요청의 계약 용어 정렬을 반영했다. `npm.cmd run build`(Kiosk/Admin), `gradlew.bat compileJava --no-daemon`(Backend)는 통과했다. 실DB·Bruno·브라우저 상호작용 검증은 미실행이므로 DONE 승격·P6 BLOCKED 해제는 하지 않았다.
 - 2026-07-28 (중간점검): 실제 원격 `nayeon0828/ASAK-backend`, Spring context, 외부 MySQL(기본 테이블 25·View 22·FK 39), 읽기 API 9개를 재확인했다. 조회 경로는 실제 DB `200` 근거가 생겼으나, 주문 저장·결제·상태변경/취소·품절·매출은 미완성 또는 미구현이다. 상세 위험과 다음 순서는 [Backend·DB 중간점검](backend-db-midpoint-audit-2026-07-28.md)을 따른다.
 - 2026-07-28 (후속 표시 정합): `e9543ce`에서 View 정의의 legacy `REQUEST` 옵션을 `optionItems`·옵션 표시 View에서 제외하고 제외 재료는 `item_exclusion`만 사용하도록 정리했다. `d2a900f`에서 Admin 상세 패널의 제외 재료를 인라인 텍스트로 표시했다. DB View 적용·실주문 API·브라우저 검증 전이므로 WBS 상태는 바꾸지 않았다.
+- 2026-08-07: DONE·PASS 점검 후 **DEV-CART-001·DEV-ORDER-002만 TODO→IN_PROGRESS**(코드 있음·통합 미검증). WBS DONE·QA PASS 승격 없음. Hub API 예시 필드(`totalAmount`/`APPROVED`/`EAT_IN` 등) 정렬. 상세: [asak-done-pass-audit](../ai-reports/2026-08-07/asak-done-pass-audit.md).
 
 ## 화면 ID와 WBS
 

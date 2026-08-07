@@ -1,8 +1,9 @@
 # ASAK 전체 흐름도 (Mermaid)
 
-> 기준일: **2026-08-06** · 코드 실측 기준 (문서 주장이 아니라 실제 파일/라우트를 확인함).
+> 기준일: **2026-08-07** · 코드 실측 기준 (문서 주장이 아니라 실제 파일/라우트를 확인함).
 > Admin: 주문(Live·목록·상태·취소) API 연동 **구현됨·미검증**, 메뉴/품절/결제/매출/대시보드는 mock 또는 BE 스텁.
-> 상세: [admin-todo-checklist](../planning/admin-todo-checklist-2026-08-05.md) · [검증 투두](../planning/admin-feature-verify-todos-2026-08-06.md) · [동기화 보고서](../ai-reports/2026-08-06/asak-doc-sync-admin-devcopilot.md)
+> **이번 주:** Kiosk 장바구니→주문→결제 실연동 · Admin 메뉴 CRUD→품절→결제수단→매출 순.
+> 상세: [admin-todo-checklist](../planning/admin-todo-checklist-2026-08-05.md) · [검증 투두](../planning/admin-feature-verify-todos-2026-08-06.md) · [회의록](../operations/meeting-minutes/README.md) · [동기화 보고서](../ai-reports/2026-08-06/asak-doc-sync-admin-devcopilot.md)
 > 문서 입구: [START_HERE](../START_HERE.md)
 > 이 문서는 **그림으로 보는 요약**입니다. 상태 표로 자세히 보려면 [Current Implementation Map](../planning/current-implementation-map-2026-07-16.md), 코드-문서 충돌은 [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md), 할 일은 [WBS 2.0](wbs-v2-2026-07-16.md)을 보세요.
 
@@ -48,7 +49,7 @@ flowchart TB
 - `ASAK-Kiosk` / `ASAK-Admin`: 실제 화면 코드(React)가 있는 곳입니다.
 - `ASAK-back`: 로컬 폴더명은 유지하지만 실제 원격은 `nayeon0828/ASAK-backend`입니다. Kiosk 메뉴/카테고리 조회·장바구니 검증, Admin 메뉴·주문 조회 경로가 있고, 주문 저장·결제·상태변경/취소·품절·매출은 아직 미완성 또는 미구현입니다.
 
-관련 문서: [Kiosk 구조 가이드](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [Kiosk 구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) · [Admin 구조 가이드](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [Admin Mock 사전](../../ASAK-Admin/public/mocks/README.md) · [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md)  
+관련 문서: [Kiosk 구조 가이드](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [Kiosk 구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) · [Admin 구조 가이드](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [Admin Mock 사전](../../ASAK-Admin/public/mocks/README.md) · [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md)
 > Admin 루트 `IMPLEMENTATION_PLAN.md`는 **삭제됨** — 구조 지도·Mock 사전·중앙 WBS/맵을 본다.
 
 ---

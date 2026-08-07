@@ -1,21 +1,23 @@
 # ASAK Current Status Baseline
 
-> 기준일: **2026-07-28** · 독립 저장소의 실제 원격과 최근 소스 변경을 재확인했습니다.
-> **화면별 상세:** [구현 맵](../planning/current-implementation-map-2026-07-16.md) ← SCR 상태표  
-> 문서 입구: [START_HERE](../START_HERE.md) · WBS: [wbs-v2](wbs-v2-2026-07-16.md) · [상태 메모](wbs-status-notes.md)  
-> 이 문서는 **요약 baseline**이며 **완료(DONE) 주장이 아닙니다.**  
-> 원칙: **1차 mock 연결 ≠ DONE** (필터 고도화·실패 fixture·실 API·QA evidence 남으면 IN_PROGRESS).
+> 기준일: **2026-08-07** (7/28 baseline 위에 실연동 우선순위·Admin 주문 API 진척을 덮어씀).
+> **화면별 상세:** [구현 맵](../planning/current-implementation-map-2026-07-16.md) ← SCR 상태표
+> 문서 입구: [START_HERE](../START_HERE.md) · WBS: [wbs-v2](wbs-v2-2026-07-16.md) · [상태 메모](wbs-status-notes.md)
+> 회의록: [operations/meeting-minutes](../operations/meeting-minutes/README.md) · [Hub wiki/78](https://devcopilot.ai.kr/workspace/2/wiki/78)
+> 이 문서는 **요약 baseline**이며 **완료(DONE) 주장이 아닙니다.**
+> 원칙: **1차 mock 연결 ≠ DONE** · **코드 있음 ≠ 통합 검증 완료**.
 
 ## Evidence 기반 상태
 
 | 영역 | 검증된 상태 | Status |
 |---|---|---|
-| Figma foundation/shared/component structure | 0718 파일 기준 UI 이식; design QA는 별도 트랙 | DESIGN_DONE only |
-| Kiosk | 라우트 10개 연결. Home→메뉴→상세→장바구니까지 mock 동작. 가격(`priceCalculation`)·수량한도(`quantityLimits` 9/30) 적용. 결제/완료/타임아웃은 UI shell만 | **IN_PROGRESS** |
-| Admin | Figma 라우트 + **전 화면 Page↔mock 1차 바인딩** (Live·주문·품절·메뉴·결제·매출 3·대시보드). Shared `AdminAsyncState`/`AdminConfirmDialog` P1. 셸 1920×1080+scale. **실 business API·실패 fixture·P2 polish·QA evidence 미완** | **IN_PROGRESS** (mock 1차 연결) |
-| Backend | 실제 원격 `nayeon0828/ASAK-backend`에서 Kiosk 메뉴/카테고리 조회·장바구니 검증, Admin 메뉴·주문 목록/상세/활성 주문 조회의 Controller→Service→MyBatis 경로 확인. 주문 저장·결제·상태변경/취소·품절·매출은 미완성 또는 미구현 | **IN_PROGRESS** |
-| DB | 외부 MySQL에 기본 테이블 25개·View 22개·FK 39개와 메뉴/주문/결제 데이터 존재. Mapper 기반 조회가 실제 DB를 읽음 | **IN_PROGRESS** — 변경 API·view 성능·timezone·재현 절차 검증 남음 |
-| QA | 테스트 케이스 16건, 실행 evidence 없음 | **TODO** |
+| Figma | 0718 UI 이식 · **7/20 이후 추가 디자인 중지** · 구독 종료 전 백업 공유 | DESIGN_DONE (동결) |
+| Kiosk | Home→Cart mock 동작. **우선:** 장바구니 검증→주문 생성→결제수단·승인 실연동(DB 확인). 결제/완료/타임아웃 일부 shell | **IN_PROGRESS** |
+| Admin | 주문 Live·목록·상세·상태·취소: BE **구현·미검증**. 메뉴 GET 부분. CRUD·품절·결제수단·매출·대시보드: **mock/스텁** → mock 제거가 강사 순서 | **IN_PROGRESS** |
+| Backend | 주문 조회·Live·상태/취소 경로 존재. 메뉴 POST/PATCH/DELETE·품절·결제수단·매출 Controller는 스텁 또는 미완. Kiosk 주문 저장·결제 연동 우선 | **IN_PROGRESS** |
+| DB | 외부 MySQL·View 존재. 변경 API·실주문 E2E·뷰 재검증 남음 | **IN_PROGRESS** |
+| QA | TC 다수 TODO · 실행 evidence 없음 → PASS 승격 금지 | **TODO** |
+| Hub 문서 | 회의록 wiki/78·체크리스트 wiki/15·API wiki/12 갱신(8/6~8/7). req/wbs/qa %는 운영 지표 아님 | **REFERENCE** |
 
 ## DevCopilot 전수 점검 (2026-07-30)
 
@@ -78,7 +80,7 @@
 | 데이터 흐름 | Page → Hook → `adminMockRepository` → `asak-admin-data.json` |
 | 실행 문서 | 루트 `IMPLEMENTATION_PLAN.md` 등은 **삭제됨** → `STRUCTURE_GUIDE` · `public/mocks/README.md` · 중앙 WBS/맵 참고 |
 
-> Canonical 문서 경로(`/orders/live`, `/soldOut`, `/paymentMethods`)와 **코드 kebab-case가 불일치** (WBS2-033).  
+> Canonical 문서 경로(`/orders/live`, `/soldOut`, `/paymentMethods`)와 **코드 kebab-case가 불일치** (WBS2-033).
 > ~~전부 하드코딩 / Page 연동 0~~ → **전 화면 1차 mock 연동**. 상세 필드 대조: `ASAK-Admin/public/mocks/README.md`.
 
 ## 적용 규칙
