@@ -21,7 +21,7 @@
 
 > WBS는 **백엔드만이 아님.** 키오스크·관리자·디자인·QA·발표가 같은 `WBS-*` 체계.
 
-## 8/7 가속 (DONE 승격 없음)
+## 8/7 가속 (DONE으로 올리기 없음)
 
 | 묶음 | ID 감각 | Hub 권고 |
 |---|---|---|
@@ -29,7 +29,7 @@
 | Admin 주문 | 관리자 주문 구간 | IN_PROGRESS |
 | Admin 메뉴·품절·결제·매출 | 관리자 중후반 | IN_PROGRESS / TODO |
 | Backend 슬라이스 | 백엔드 052~066 | 화면과 같이 수직으로 |
-| QA·발표 | 072~085 | evidence 전 DONE/PASS 금지 |
+| QA·발표 | 072~085 | 근거 없이 DONE/PASS 금지 |
 
 계약: `totalAmount`, `APPROVED`, `EAT_IN`/`TAKE_OUT`, Live=`/orders/live`, `/paymentMethods`.
 
@@ -47,7 +47,7 @@
 | 백엔드 | 052~066 | 조회 IN_PROGRESS · 일부 TODO |
 | 연동~발표 | 067~085 | DELAYED/TODO 혼재 |
 
-상세 Evidence는 [wbs.md](wbs.md) 행을 본다.
+상세 근거는 [wbs.md](wbs.md) 행을 본다.
 
 ## 동기화 메모
 

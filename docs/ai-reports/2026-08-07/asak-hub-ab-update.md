@@ -9,8 +9,8 @@
 | 파일                                          | 변경                                                   |
 | --------------------------------------------- | ------------------------------------------------------ |
 | `docs/START_HERE.md`                          | 8/7 한 줄 요약·선생님님 우선순위·회의록 링크           |
-| `docs/wiki/current-status-baseline.md`        | Evidence 표 8/7 실연동 기준                            |
-| `docs/wiki/wbs-status-notes.md`               | 8/7 가속 메모 · DONE 승격 금지                         |
+| `docs/wiki/current-status-baseline.md`        | 근거 표 8/7 실연동 기준                            |
+| `docs/wiki/wbs-status-notes.md`               | 8/7 가속 메모 · DONE으로 올리지 말 것                         |
 | `docs/wiki/project-flow.md`                   | 기준일 8/7 · 이번 주 순서                              |
 | `docs/wiki/meeting-deliverables-checklist.md` | 8/7 스냅샷·계약 필드·Figma 동결                        |
 | `docs/wiki/rest-api-spec.md`                  | `totalAmount`/`APPROVED`/`approvedAt`/`approvedAmount` |
@@ -37,7 +37,7 @@
 
 ## 하지 않은 것
 
-- WBS/요구/QA DONE·PASS 승격
+- WBS/요구/QA DONE·PASS로 올리기
 - DB ERD 덮어쓰기
 - Product Bible 본문 대량 수정
 - 소스코드 변경

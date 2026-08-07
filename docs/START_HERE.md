@@ -12,13 +12,13 @@
 | 1   | [구현 맵](planning/current-implementation-map-2026-07-16.md)         | **SCR별 상세** — 화면·mock·API 상태표                                         |
 | 2   | [baseline 요약](wiki/current-status-baseline.md)                     | **영역별 요약** — Kiosk/Admin/Backend 한눈에                                  |
 | 3   | [WBS 상태 메모](wiki/wbs-status-notes.md)                            | 코드↔WBS 요약 · DevCopilot 한글 제목                                          |
-| 4   | [문서–코드 Gap](architecture/document-code-gap-report-2026-07-16.md) | Canonical vs 코드 충돌                                                        |
+| 4   | [문서–코드 Gap](architecture/document-code-gap-report-2026-07-16.md) | 정본 vs 코드 충돌                                                        |
 | 5   | [Backend·DB 중간점검](wiki/backend-db-midpoint-audit-2026-07-28.md)  | 실제 원격·Spring context·실DB·읽기 API 점검 결과                              |
 | 6   | [주차별 회의록](operations/meeting-minutes/README.md)                | 2조 공식 회의록 · [Hub wiki/78](https://devcopilot.ai.kr/workspace/2/wiki/78) |
 
 **한 줄 요약 (2026-08-07):** Admin 주문(Live·목록·상태·취소)은 BE 연동 **구현·미검증**. 메뉴 GET 부분, 메뉴 CRUD·품절·결제수단·매출/대시보드는 **스텁 또는 mock**. Kiosk는 장바구니→주문 생성→결제(토스 예제) **실연동**이 이번 주 우선. Hub 대시보드 %는 운영 지표로 쓰지 않음. WBS 정본: **[wbs.md](wiki/wbs.md)** (`WBS-001`~`085`).
 
-**이번 주 작업 순서 (선생님님):** ① Kiosk 장바구니·주문·결제 DB 검증 → ② Admin 주문 통합 테스트 → ③ 메뉴 CRUD → 품절 → 결제수단 → 매출·대시보드.
+**이번 주 작업 순서 (선생님):** ① Kiosk 장바구니·주문·결제 DB 검증 → ② Admin 주문 통합 테스트 → ③ 메뉴 CRUD → 품절 → 결제수단 → 매출·대시보드.
 
 **Hub WBS 일정 (8/7 rebase):** P0 주문·연동 `8/7~8/11` · P1 메뉴·품절 `8/11~8/14` · P2 매출·결제수단 `8/14~8/18` · QA `8/18~8/21` · 문서·발표 `~8/28`. 상세: [asak-wbs-date-rebase](ai-reports/2026-08-07/asak-wbs-date-rebase.md).
 
@@ -52,13 +52,13 @@
 
 ---
 
-## 4. 계약 (Canonical)
+## 4. 계약 (정본)
 
 | #   | 문서                                                                                  | 한 줄                                 |
 | --- | ------------------------------------------------------------------------------------- | ------------------------------------- |
-| 10  | [Canonical Contract Decisions](governance/canonical-contract-decisions-2026-07-16.md) | API 경로·필드 결정 (코드 미반영 가능) |
+| 10  | [정본 계약 Decisions](governance/정본-contract-decisions-2026-07-16.md) | API 경로·필드 결정 (코드 미반영 가능) |
 
-충돌 시: **실행 코드 > baseline/맵 > Canonical(목표) > Product Bible**.
+충돌 시: **실행 코드 > baseline/맵 > 정본(목표) > Product Bible**.
 
 ---
 
@@ -92,6 +92,6 @@
 2. [wbs.md](wiki/wbs.md)
 3. [wbs-status-notes](wiki/wbs-status-notes.md)
 4. 담당 앱 `STRUCTURE_GUIDE` / Mock 사전 (Admin `IMPLEMENTATION_PLAN`은 삭제됨)
-5. [Canonical](governance/canonical-contract-decisions-2026-07-16.md) (계약 건드릴 때)
+5. [정본](governance/정본-contract-decisions-2026-07-16.md) (계약 건드릴 때)
 
 더 넓은 색인: [docs/README](README.md) · [wiki/index](wiki/index.md) · [PROJECT_HUB](../PROJECT_HUB.md)

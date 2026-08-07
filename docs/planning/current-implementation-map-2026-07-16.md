@@ -24,9 +24,9 @@
 | `CONFLICT` | 문서 Canonical과 코드 불일치 |
 | `FUTURE` | MVP 밖 |
 
-## Decision overlay (Canonical vs 코드)
+## Decision overlay (정본 vs 코드)
 
-| 항목 | 상태 | 코드 현실 | Canonical 목표 |
+| 항목 | 상태 | 코드 현실 | 정본 목표 |
 |---|---|---|---|
 | Kiosk API path | `CONFLICT` / DECIDED_PENDING | `/api/menus`, `/api/orders`… | `/api/kiosk/menuList` 등 |
 | Admin routes | `CONFLICT` / DECIDED_PENDING | `/`, `/sold-out`, `/payment-methods` | `/orders/live`, `/soldOut`, `/paymentMethods` |
@@ -67,10 +67,10 @@
 | SCR-009 Live | `/` | `MOCK_WIRED` | `getLiveOrders` · 완료/취소 stub · AsyncState/Confirm · 페이징 UI 잔여 · WBS2-035 |
 | SCR-022 Dashboard | `/dashboard` | `MOCK_WIRED` | `useDashboard` · 최근주문 ← `getDashboard().recentOrders` · 전주 대비 일부 정적 · WBS2-034 |
 | SCR-010 Orders | `/orders` | `MOCK_WIRED` | `useOrdersQuery` · 목록 표시/필터 · 환불/영수증 Confirm · **목록 상태변경 UI 없음** · 필터 고도화 잔여 · WBS2-036 |
-| SCR-011 Sold-out | `/sold-out` | `MOCK_WIRED` | `useSoldOutDraft` · draft/저장 stub · 카드 2줄·카테고리 배지 · `menus.isSoldOut` 미동기화 · 검색/탭·실패 fixture TODO · WBS2-038 · Canonical `/soldOut` CONFLICT |
+| SCR-011 Sold-out | `/sold-out` | `MOCK_WIRED` | `useSoldOutDraft` · draft/저장 stub · 카드 2줄·카테고리 배지 · `menus.isSoldOut` 미동기화 · 검색/탭·실패용 테스트 데이터 TODO · WBS2-038 · Canonical `/soldOut` CONFLICT |
 | SCR-016 Menus | `/menus` | `MOCK_WIRED` | `useMenusQuery` · Page=조립(`MenuListPanel`+Detail/Edit) · `IngredientSelectModal` · 저장 stub · WBS2-039 |
 | SCR-017 Menu edit | `/menus/new\|edit` | `MOCK_WIRED` | Edit는 우측 패널 모드 wrapper (별도 빈 페이지 아님) |
-| SCR-018 Payments | `/payment-methods` | `MOCK_WIRED` | Figma **4종** card/kakao/naver/zero · 토글/저장 · 실패 fixture·점검 뱃지 TODO · WBS2-040 |
+| SCR-018 Payments | `/payment-methods` | `MOCK_WIRED` | Figma **4종** card/kakao/naver/zero · 토글/저장 · 실패용 테스트 데이터·점검 뱃지 TODO · WBS2-040 |
 | SCR-019 Sales | `/sales` | `MOCK_WIRED` | `useSalesQuery` · 기간 탭 · `AdminDatePicker` range · WBS2-041 |
 | SCR-020 Monthly | `/sales/monthly` | `MOCK_WIRED` | `useSalesQuery` · 월 네비 · DatePicker · WBS2-042 |
 | SCR-021 Daily | `/sales/daily` | `MOCK_WIRED` | `useSalesQuery` · `AdminDatePicker` single · WBS2-043 |
@@ -81,9 +81,9 @@
 | `AdminLayout` / `AdminSidebar` | `IMPLEMENTED` | **1920×1080 캔버스 + viewport scale** |
 | `adminMockRepository.js` | `MOCK_WIRED` | Live·주문·품절·메뉴·결제·매출·대시보드 Page 사용 |
 | `asak-admin-data.json` | `MOCK_WIRED` | 결제수단 4종 계약 반영 |
-| `hooks/*` (orders/soldOut/payment/dashboard/menus/sales/pagination) | `MOCK_WIRED` / `PARTIAL` | 실패 fixture·실 API 미연결 |
+| `hooks/*` (orders/soldOut/payment/dashboard/menus/sales/pagination) | `MOCK_WIRED` / `PARTIAL` | 실패용 테스트 데이터·실 API 미연결 |
 | `api/*`, `adapters/*` | `PLACEHOLDER` / `PARTIAL` | Backend **BLOCKED** |
-| Shared | `PARTIAL` | `AdminAsyncState` · `AdminConfirmDialog` P1 · State QA evidence TODO (WBS2-044) |
+| Shared | `PARTIAL` | `AdminAsyncState` · `AdminConfirmDialog` P1 · 상태 QA 실행 기록 TODO (WBS2-044) |
 
 ---
 
@@ -119,14 +119,14 @@
 ## 다음 작업 (문서 → 코드)
 
 1. Kiosk: 결제 mock 연결 · 한도 toast · 타임아웃 (WBS2-024, 026~030) · **결제수단 개수(8 vs Admin 4) 계약 재확인**  
-2. Admin: 실패 fixture · 품절↔`menus.isSoldOut` 동기화 · 주문 필터 고도화 · Live 페이징 · P2 polish · State/QA evidence (`WBS2-044~045`)  
-3. Canonical path/상수 정렬 (DECIDED_PENDING)  
+2. Admin: 실패용 테스트 데이터 · 품절↔`menus.isSoldOut` 동기화 · 주문 필터 고도화 · Live 페이징 · P2 polish · 상태/QA 실행 기록 (`WBS2-044~045`)  
+3. 정본 경로/상수 정렬 (DECIDED_PENDING)  
 4. Backend P5: 조회 경로는 실DB·Bruno 검증, 주문 저장·결제·상태변경/취소·품절·매출은 기능별 세로 슬라이스 완성 후 **실연동 BLOCKED** 해제 검토
 
 ### Admin 실행 순서 메모 (2026-07-21 ~ 2026-07-23 진척 반영)
 
 - ~~주문 운영(`WBS2-035~036`)~~ → Live·주문 목록 **1차 연결**. 목록 **상태변경 UI는 의도적으로 없음**. `037` PATCH/TTS·필터 고도화 잔여.
-- ~~운영 설정(`WBS2-038~040`)~~ → 품절·결제수단(4종)·메뉴 **1차 연결**. 실패 fixture·실 저장 API 잔여.
+- ~~운영 설정(`WBS2-038~040`)~~ → 품절·결제수단(4종)·메뉴 **1차 연결**. 실패용 테스트 데이터·실 저장 API 잔여.
 - ~~조회성(`034`, `041~043`)~~ → Dashboard·매출 3화면 **1차 연결** (DatePicker 포함).
-- `WBS2-044` Shared Async/Confirm **P1 적용** → State QA evidence·`045` QA 실행은 남음.
+- `WBS2-044` Shared Async/Confirm **P1 적용** → 상태 QA 실행 기록·`045` QA 실행은 남음.
 - 브랜치: `feature/admin-mock-figma-parity` (main 미머지). **1차 mock ≠ DONE.**

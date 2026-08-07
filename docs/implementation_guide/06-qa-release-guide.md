@@ -4,7 +4,7 @@
 
 ## 테스트 순서
 
-`Build → Smoke → Feature → Integration → Data Integrity → Regression → Accessibility → Demo → Release`
+`Build → Smoke → Feature → Integration → Data Integrity → 회귀 점검 → Accessibility → Demo → Release`
 
 | 우선순위 | 대표 실패 |
 | --- | --- |
@@ -52,7 +52,7 @@
 ## 정본 링크
 
 - [QA Strategy](../product_bible/09_QA_Bible/docs/10-qa/00-strategy/QA_STRATEGY.md)
-- [Regression Suite](../product_bible/09_QA_Bible/docs/10-qa/06-regression/REGRESSION_SUITE.md)
+- [회귀 점검 Suite](../product_bible/09_QA_Bible/docs/10-qa/06-regression/REGRESSION_SUITE.md)
 - [Release Checklist](../product_bible/09_QA_Bible/docs/10-qa/07-demo-release/RELEASE_CHECKLIST.md)
 - [Order Edge Case and QA](../product_bible/02_Order_Cart_Payment/docs/09-features/order/ORDER_EDGE_CASE_AND_QA.md)
 - [Error Recovery Architecture](../product_bible/05_Accessibility_Timeout_Error/docs/09-features/error-recovery/ERROR_RECOVERY_ARCHITECTURE.md)

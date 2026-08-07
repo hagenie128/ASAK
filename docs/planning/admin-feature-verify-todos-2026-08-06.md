@@ -87,7 +87,7 @@
 | HOLD-TTS | TTS 명세 고도화 | 013a~d |
 | HOLD-LIVE | Live 가로 스크롤 | 059 |
 | HOLD-AUTH | 로그인·JWT | 060~068 |
-| HOLD-ROUTE | Canonical·403 | 069~070 |
+| HOLD-ROUTE | 정본·403 | 069~070 |
 | HOLD-FUTURE | 환불·영수증 | 071~076 |
 | HOLD-KIOSK | 결제수단 조회·승인 / 장바구니 검증 | 8/6 키오스크 |
 | HOLD-DOCS | 회의록·위키 최신화 | 8/6 문서 |

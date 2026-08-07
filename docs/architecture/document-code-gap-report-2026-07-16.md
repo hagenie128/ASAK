@@ -5,9 +5,9 @@
 > 「없다」와 「연결 안 됨」을 구분한다. UI가 있어도 mock/API 미연결이면 gap이다.  
 > 정본 맵: [current-implementation-map-2026-07-16.md](../planning/current-implementation-map-2026-07-16.md)
 
-## 핵심 충돌 (Canonical 결정됨 · 코드 미반영)
+## 핵심 충돌 (정본 결정됨 · 코드 미반영)
 
-| ID | 문서(Canonical) | 실제 코드 | 분류 | 조치 |
+| ID | 문서(정본) | 실제 코드 | 분류 | 조치 |
 |---|---|---|---|---|
 | API-01 | `POST /api/kiosk/orders|payments` | `/api/orders`, `/api/payments` | CONFLICT | adapter/상수 정렬 (PENDING) |
 | API-02 | `/api/kiosk/menuList`, `menuDetail/{id}` | `/api/menus…` | CONFLICT | 동일 |
@@ -26,7 +26,7 @@
 | 영역 | 있음 | 없는 것 |
 |---|---|---|
 | Kiosk Cart/Payment/Complete/Error/Timeout | 라우트 + 페이지 UI | 결제 flow, 타이머, complete 데이터 |
-| Kiosk Menu/Detail/Cart | mock 동작 | adapter 계층, Canonical path |
+| Kiosk Menu/Detail/Cart | mock 동작 | adapter 계층, 정본 경로 |
 | Admin 전 화면 | Figma 정적 UI + 라우트 | `adminMockRepository` 바인딩, 상태 변경, 필터 |
 | Admin mock | JSON + repository | Page/Hook 사용처 0 |
 
@@ -54,7 +54,7 @@
 | 할 일 | 하지 말 일 |
 |---|---|
 | Kiosk 결제·toast·timeout 연결 | UI 통째 재이식 |
-| Admin mock → Page 바인딩 | Canonical 미확정 대규모 rename |
+| Admin mock → Page 바인딩 | 정본 미확정 대규모 rename |
 | gap을 “연결 작업”으로 추적 | “화면 파일이 없다”고 재작성 |
 | Backend P5 슬라이스 | 문서만으로 DONE 주장 |
 
