@@ -56,7 +56,7 @@
 
 | #   | 문서                                                                                  | 한 줄                                 |
 | --- | ------------------------------------------------------------------------------------- | ------------------------------------- |
-| 10  | [정본 계약 Decisions](governance/정본-contract-decisions-2026-07-16.md) | API 경로·필드 결정 (코드 미반영 가능) |
+| 10  | [정본 계약 결정](governance/canonical-contract-decisions-2026-07-16.md) | API 경로·필드 결정 (코드 미반영 가능) |
 
 충돌 시: **실행 코드 > baseline/맵 > 정본(목표) > Product Bible**.
 
@@ -92,6 +92,6 @@
 2. [wbs.md](wiki/wbs.md)
 3. [wbs-status-notes](wiki/wbs-status-notes.md)
 4. 담당 앱 `STRUCTURE_GUIDE` / Mock 사전 (Admin `IMPLEMENTATION_PLAN`은 삭제됨)
-5. [정본](governance/정본-contract-decisions-2026-07-16.md) (계약 건드릴 때)
+5. [정본 계약 결정](governance/canonical-contract-decisions-2026-07-16.md) (계약 건드릴 때)
 
 더 넓은 색인: [docs/README](README.md) · [wiki/index](wiki/index.md) · [PROJECT_HUB](../PROJECT_HUB.md)
