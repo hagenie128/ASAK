@@ -1,6 +1,6 @@
 # ASAK 회의록 및 최종 배포 검증
 
-> **⚠️ HISTORICAL / 참고용 — 일일 실행에 쓰지 마세요.**  
+> **⚠️ HISTORICAL / 참고용 — 일일 실행에 쓰지 마세요.**
 > → 대신 [**START_HERE**](../START_HERE.md) · [구현 맵](../planning/current-implementation-map-2026-07-16.md) · [wbs-status-notes](wbs-status-notes.md)
 > 산출물 존재 ≠ 구현 evidence. (체크리스트의 `ASAK-front` 등은 구 명칭.)
 
@@ -27,6 +27,19 @@
 | W32 | 08-03~08-07 | 실연동·관리자 CRUD·문서화 | [2026-W32](../operations/meeting-minutes/2026-W32.md) |
 
 Hub 전체본: [meeting-minutes-weekly.md](./meeting-minutes-weekly.md) · 로컬 정본 폴더: [`docs/operations/meeting-minutes/`](../operations/meeting-minutes/README.md)
+
+### 2026-08-07 스냅샷 (강사 우선순위)
+
+| 순서 | 작업 | 상태 |
+|------|------|------|
+| 1 | Kiosk 장바구니 검증 → 주문 생성 → 결제수단·승인 (실 DB) | 진행 |
+| 2 | Admin 주문 Live·목록·상태·취소 통합 테스트 | 구현·미검증 |
+| 3 | Admin 메뉴 CRUD → 품절 → 결제수단 → 매출·대시보드 (mock 제거) | 대기/스텁 |
+| — | 회의록·위키 최신화 | Hub wiki/78·15 반영 |
+| — | Figma | 추가 디자인 중지 · 구독 종료 전 백업본 팀 공유 |
+
+계약 필드 정본: `totalAmount` / `approvedAmount` / `approvedAt` / `APPROVED` / `CANCELED` / `EAT_IN`·`TAKE_OUT`
+Hub API 명세서: [wiki/12](https://devcopilot.ai.kr/workspace/2/wiki/12) · 흐름도: [project-flow.md](./project-flow.md)
 
 ## 회의록
 
