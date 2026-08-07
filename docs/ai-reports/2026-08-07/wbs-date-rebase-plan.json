@@ -1,0 +1,560 @@
+[
+  {
+    "task_pk": 153,
+    "task_id": "WBS2-035",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-23~2026-07-24",
+    "start_date": "2026-08-07",
+    "end_date": "2026-08-11",
+    "bucket": "p0_order",
+    "title": "실시간 주문 현황 목록·상태 표시"
+  },
+  {
+    "task_pk": 161,
+    "task_id": "WBS2-043",
+    "status": "IN_PROGRESS",
+    "old": "2026-08-05~2026-08-06",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-18",
+    "bucket": "p2_sales",
+    "title": "일별 매출·일자/기간 설정"
+  },
+  {
+    "task_pk": 121,
+    "task_id": "WBS2-003",
+    "status": "BLOCKED",
+    "old": "2026-07-16~2026-07-18",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-20",
+    "bucket": "backlog_be",
+    "title": "키오스크 정본 저장소 결정 (ASAK-front vs ASAK-Kiosk"
+  },
+  {
+    "task_pk": 122,
+    "task_id": "WBS2-004",
+    "status": "BLOCKED",
+    "old": "2026-07-16~2026-07-18",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-20",
+    "bucket": "backlog_be",
+    "title": "마이그레이션 전 브랜치·미커밋 작업 확인"
+  },
+  {
+    "task_pk": 123,
+    "task_id": "WBS2-005",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-16~2026-07-17",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-21",
+    "bucket": "p4_docs",
+    "title": "요구사항·시나리오·화면 ID 충돌 감사"
+  },
+  {
+    "task_pk": 124,
+    "task_id": "WBS2-006",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-16~2026-07-17",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-21",
+    "bucket": "p4_docs",
+    "title": "MVP와 향후 범위 분리"
+  },
+  {
+    "task_pk": 125,
+    "task_id": "WBS2-007",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-16~2026-07-18",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-21",
+    "bucket": "p4_docs",
+    "title": "레거시→목표 API 갭 표 작성"
+  },
+  {
+    "task_pk": 129,
+    "task_id": "WBS2-011",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-16~2026-07-18",
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-25",
+    "bucket": "backlog_design",
+    "title": "키오스크 컴포넌트 매핑 기록"
+  },
+  {
+    "task_pk": 130,
+    "task_id": "WBS2-012",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-16~2026-07-18",
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-25",
+    "bucket": "backlog_design",
+    "title": "관리자 컴포넌트 매핑 기록"
+  },
+  {
+    "task_pk": 132,
+    "task_id": "WBS2-014",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-16~2026-07-18",
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-25",
+    "bucket": "backlog_design",
+    "title": "관리자 Figma 작업 중 충돌 경계 기록"
+  },
+  {
+    "task_pk": 133,
+    "task_id": "WBS2-015",
+    "status": "TODO",
+    "old": "2026-07-18~2026-07-21",
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-25",
+    "bucket": "backlog_design",
+    "title": "고대비 디자인 QA 체크리스트"
+  },
+  {
+    "task_pk": 134,
+    "task_id": "WBS2-016",
+    "status": "TODO",
+    "old": "2026-07-21~2026-07-22",
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-25",
+    "bucket": "backlog_design",
+    "title": "프로토타입·instance swap 증거 기록"
+  },
+  {
+    "task_pk": 139,
+    "task_id": "WBS2-021",
+    "status": "IN_REVIEW",
+    "old": "2026-07-18~2026-07-21",
+    "start_date": "2026-08-07",
+    "end_date": "2026-08-11",
+    "bucket": "p0_order",
+    "title": "알레르기 아코디언 조건부 노출"
+  },
+  {
+    "task_pk": 145,
+    "task_id": "WBS2-027",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-25~2026-07-28",
+    "start_date": "2026-08-07",
+    "end_date": "2026-08-11",
+    "bucket": "p0_order",
+    "title": "결제 실패·장바구니 유지 처리"
+  },
+  {
+    "task_pk": 142,
+    "task_id": "WBS2-024",
+    "status": "TODO",
+    "old": "2026-07-21~2026-07-22",
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-21",
+    "bucket": "p3_qa",
+    "title": "수량 한도 초과 시 4초 토스트 UX"
+  },
+  {
+    "task_pk": 143,
+    "task_id": "WBS2-025",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-22~2026-07-24",
+    "start_date": "2026-08-07",
+    "end_date": "2026-08-11",
+    "bucket": "p0_order",
+    "title": "장바구니 수량·삭제·비우기 연동"
+  },
+  {
+    "task_pk": 126,
+    "task_id": "WBS2-008",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-16~2026-07-18",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-21",
+    "bucket": "p4_docs",
+    "title": "비파괴 DB 감사 계획 준비"
+  },
+  {
+    "task_pk": 146,
+    "task_id": "WBS2-028",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-28~2026-07-29",
+    "start_date": "2026-08-07",
+    "end_date": "2026-08-11",
+    "bucket": "p0_order",
+    "title": "주문 완료 화면(번호·금액·대기) 데이터 연결"
+  },
+  {
+    "task_pk": 147,
+    "task_id": "WBS2-029",
+    "status": "TODO",
+    "old": "2026-07-29~2026-07-30",
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-21",
+    "bucket": "p3_qa",
+    "title": "무조작 타임아웃 경고·카운트다운"
+  },
+  {
+    "task_pk": 148,
+    "task_id": "WBS2-030",
+    "status": "TODO",
+    "old": "2026-07-30~2026-07-31",
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-21",
+    "bucket": "p3_qa",
+    "title": "결제 처리 중 타임아웃 비활성화"
+  },
+  {
+    "task_pk": 149,
+    "task_id": "WBS2-031",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-31~2026-08-03",
+    "start_date": "2026-08-07",
+    "end_date": "2026-08-11",
+    "bucket": "p0_order",
+    "title": "키오스크 loading/empty/error 상태"
+  },
+  {
+    "task_pk": 150,
+    "task_id": "WBS2-032",
+    "status": "TODO",
+    "old": "2026-08-03~2026-08-04",
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-21",
+    "bucket": "p3_qa",
+    "title": "키오스크 터치·반응형 QA"
+  },
+  {
+    "task_pk": 151,
+    "task_id": "WBS2-033",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-21~2026-07-22",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-18",
+    "bucket": "p2_sales",
+    "title": "관리자 라우트를 Screen Registry와 정렬"
+  },
+  {
+    "task_pk": 152,
+    "task_id": "WBS2-034",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-22~2026-07-23",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-18",
+    "bucket": "p2_sales",
+    "title": "관리자 대시보드 KPI·최근주문 mock 연결"
+  },
+  {
+    "task_pk": 154,
+    "task_id": "WBS2-036",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-24~2026-07-27",
+    "start_date": "2026-08-07",
+    "end_date": "2026-08-11",
+    "bucket": "p0_order",
+    "title": "주문 관리 목록·상세 연결"
+  },
+  {
+    "task_pk": 156,
+    "task_id": "WBS2-038",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-28~2026-07-29",
+    "start_date": "2026-08-11",
+    "end_date": "2026-08-14",
+    "bucket": "p1_menu",
+    "title": "품절 draft·저장 상태 관리"
+  },
+  {
+    "task_pk": 128,
+    "task_id": "WBS2-010",
+    "status": "DELAYED",
+    "old": "2026-07-16~2026-07-18",
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-25",
+    "bucket": "backlog_design",
+    "title": "공유 컴포넌트 문서 QA"
+  },
+  {
+    "task_pk": 158,
+    "task_id": "WBS2-040",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-30~2026-07-31",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-18",
+    "bucket": "p2_sales",
+    "title": "결제수단 토글·저장"
+  },
+  {
+    "task_pk": 159,
+    "task_id": "WBS2-041",
+    "status": "IN_PROGRESS",
+    "old": "2026-08-03~2026-08-04",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-18",
+    "bucket": "p2_sales",
+    "title": "매출 요약·기간(날짜) 필터"
+  },
+  {
+    "task_pk": 160,
+    "task_id": "WBS2-042",
+    "status": "IN_PROGRESS",
+    "old": "2026-08-04~2026-08-05",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-18",
+    "bucket": "p2_sales",
+    "title": "월별 매출·월 선택"
+  },
+  {
+    "task_pk": 164,
+    "task_id": "WBS2-046",
+    "status": "TODO",
+    "old": "2026-07-21~2026-07-22",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-20",
+    "bucket": "backlog_be",
+    "title": "백엔드 persistence 구현 방식 결정"
+  },
+  {
+    "task_pk": 165,
+    "task_id": "WBS2-047",
+    "status": "TODO",
+    "old": "2026-07-22~2026-07-23",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-20",
+    "bucket": "backlog_be",
+    "title": "스키마·마이그레이션·시드 접근 방식 선택"
+  },
+  {
+    "task_pk": 163,
+    "task_id": "WBS2-045",
+    "status": "IN_PROGRESS",
+    "old": "2026-08-07~2026-08-10",
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-21",
+    "bucket": "p3_qa",
+    "title": "날짜 필터·합계·활성 내비 QA"
+  },
+  {
+    "task_pk": 185,
+    "task_id": "WBS2-059",
+    "status": "IN_PROGRESS",
+    "old": "2026-08-07~2026-08-10",
+    "start_date": "2026-08-07",
+    "end_date": "2026-08-11",
+    "bucket": "p0_order",
+    "title": "관리자↔백엔드 연동"
+  },
+  {
+    "task_pk": 187,
+    "task_id": "WBS2-060",
+    "status": "BLOCKED",
+    "old": "2026-08-10~2026-08-11",
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-21",
+    "bucket": "p3_qa",
+    "title": "매출 합계 연동 검증"
+  },
+  {
+    "task_pk": 189,
+    "task_id": "WBS2-061",
+    "status": "TODO",
+    "old": "2026-08-11~2026-08-12",
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-21",
+    "bucket": "p3_qa",
+    "title": "요구사항 기반 QA 실행·결과 기록"
+  },
+  {
+    "task_pk": 191,
+    "task_id": "WBS2-062",
+    "status": "TODO",
+    "old": "2026-08-12~2026-08-13",
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-21",
+    "bucket": "p3_qa",
+    "title": "접근성 QA 실행"
+  },
+  {
+    "task_pk": 194,
+    "task_id": "WBS2-064",
+    "status": "IN_PROGRESS",
+    "old": "2026-08-14~2026-08-14",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-21",
+    "bucket": "p4_docs",
+    "title": "문서·추적성·데모 인수인계 동기화"
+  },
+  {
+    "task_pk": 222,
+    "task_id": "WBS2-065",
+    "status": "BLOCKED",
+    "old": "2026-08-17~2026-08-27",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-28",
+    "bucket": "p4_docs",
+    "title": "배포 준비: 브랜치·PR·빌드·환경·체크리스트·RC"
+  },
+  {
+    "task_pk": 223,
+    "task_id": "WBS2-066",
+    "status": "TODO",
+    "old": "2026-08-17~2026-08-28",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-28",
+    "bucket": "p4_docs",
+    "title": "발표·데모 준비(슬라이드·시나리오·리허설)"
+  },
+  {
+    "task_pk": 162,
+    "task_id": "WBS2-044",
+    "status": "IN_PROGRESS",
+    "old": "2026-08-06~2026-08-07",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-18",
+    "bucket": "p2_sales",
+    "title": "관리자 loading/empty/error·내비 상태"
+  },
+  {
+    "task_pk": 166,
+    "task_id": "WBS2-048",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-23~2026-07-24",
+    "start_date": "2026-08-11",
+    "end_date": "2026-08-14",
+    "bucket": "p1_menu",
+    "title": "메뉴 목록 API 세로 슬라이스 구현"
+  },
+  {
+    "task_pk": 167,
+    "task_id": "WBS2-049",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-24~2026-07-27",
+    "start_date": "2026-08-11",
+    "end_date": "2026-08-14",
+    "bucket": "p1_menu",
+    "title": "메뉴 상세 API 세로 슬라이스 구현"
+  },
+  {
+    "task_pk": 169,
+    "task_id": "WBS2-051",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-28~2026-07-29",
+    "start_date": "2026-08-07",
+    "end_date": "2026-08-11",
+    "bucket": "p0_order",
+    "title": "결제 승인/실패 슬라이스 구현"
+  },
+  {
+    "task_pk": 173,
+    "task_id": "WBS2-053",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-30~2026-07-31",
+    "start_date": "2026-08-07",
+    "end_date": "2026-08-11",
+    "bucket": "p0_order",
+    "title": "관리자 주문 조회/상태 슬라이스 구현"
+  },
+  {
+    "task_pk": 175,
+    "task_id": "WBS2-054",
+    "status": "IN_PROGRESS",
+    "old": "2026-08-03~2026-08-04",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-18",
+    "bucket": "p2_sales",
+    "title": "매출 집계 소스 정의·구현"
+  },
+  {
+    "task_pk": 176,
+    "task_id": "WBS2-055",
+    "status": "IN_PROGRESS",
+    "old": "2026-08-04~2026-08-05",
+    "start_date": "2026-08-07",
+    "end_date": "2026-08-11",
+    "bucket": "p0_order",
+    "title": "에러 envelope·검증 테스트 추가"
+  },
+  {
+    "task_pk": 183,
+    "task_id": "WBS2-058",
+    "status": "IN_PROGRESS",
+    "old": "2026-08-07~2026-08-10",
+    "start_date": "2026-08-07",
+    "end_date": "2026-08-11",
+    "bucket": "p0_order",
+    "title": "키오스크↔백엔드 연동"
+  },
+  {
+    "task_pk": 131,
+    "task_id": "WBS2-013",
+    "status": "TODO",
+    "old": "2026-07-17~2026-07-21",
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-25",
+    "bucket": "backlog_design",
+    "title": "키오스크 화면 instance-apply 갭 기록"
+  },
+  {
+    "task_pk": 144,
+    "task_id": "WBS2-026",
+    "status": "IN_PROGRESS",
+    "old": "2026-07-24~2026-07-25",
+    "start_date": "2026-08-07",
+    "end_date": "2026-08-11",
+    "bucket": "p0_order",
+    "title": "결제 화면 수단 표시·선택 연동"
+  },
+  {
+    "task_pk": 171,
+    "task_id": "WBS2-052",
+    "status": "TODO",
+    "old": "2026-07-29~2026-07-30",
+    "start_date": "2026-08-11",
+    "end_date": "2026-08-14",
+    "bucket": "p1_menu",
+    "title": "품절 API 세로 슬라이스 구현"
+  },
+  {
+    "task_pk": 192,
+    "task_id": "WBS2-063",
+    "status": "BLOCKED",
+    "old": "2026-08-13~2026-08-14",
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-21",
+    "bucket": "p3_qa",
+    "title": "키오스크·관리자 통합 회귀 테스트"
+  },
+  {
+    "task_pk": 181,
+    "task_id": "WBS2-057",
+    "status": "IN_PROGRESS",
+    "old": "2026-08-06~2026-08-07",
+    "start_date": "2026-08-07",
+    "end_date": "2026-08-11",
+    "bucket": "p0_order",
+    "title": "정본 필드용 어댑터 매핑 정의"
+  },
+  {
+    "task_pk": 178,
+    "task_id": "WBS2-056",
+    "status": "IN_PROGRESS",
+    "old": "2026-08-05~2026-08-06",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-21",
+    "bucket": "p4_docs",
+    "title": "Modeler와 백엔드 DB 감사 비교"
+  },
+  {
+    "task_pk": 155,
+    "task_id": "WBS2-037",
+    "start_date": "2026-08-07",
+    "end_date": "2026-08-11"
+  },
+  {
+    "task_pk": 157,
+    "task_id": "WBS2-039",
+    "start_date": "2026-08-11",
+    "end_date": "2026-08-14"
+  },
+  {
+    "task_pk": 168,
+    "task_id": "WBS2-050",
+    "start_date": "2026-08-07",
+    "end_date": "2026-08-11"
+  }
+]
