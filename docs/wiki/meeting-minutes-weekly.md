@@ -20,6 +20,24 @@
 
 ---
 
+## 현재 상태 스냅샷 (2026-08-07)
+
+| 영역 | 상태 | 근거 한 줄 |
+|---|---|---|
+| Figma | `동결` | 0718 UI 이식 · 7/20 이후 추가 디자인 중지 · 구독 종료 전 백업 공유 |
+| Kiosk | `진행` | Home→Cart mock 동작 · 주문 생성·결제 실연동 미완 |
+| Admin | `진행` | 주문 Live·목록·상세·상태·취소 BE 구현(미검증) · CRUD·품절·결제수단·매출은 mock |
+| Backend | `진행` | 조회 경로 존재 · `createOrder()` 저장 미완 · 변경/통계 Controller 스텁 |
+| DB | `진행` | 외부 MySQL·View 존재 · 실주문 E2E·뷰 합계 대조 미검증 |
+| QA | `미착수` | TC 다수 TODO · 실행 기록 없음 → PASS로 올리지 말 것 |
+
+> **읽는 법** — 위 표는 **주요 기능 구현 기준**이며 완료(DONE) 주장이 아니다.
+> **1차 mock 연결 ≠ DONE** · **코드 있음 ≠ 통합 검증 완료**.
+> 진행률 백분율(%)은 운영 지표로 쓰지 않는다.
+> 근거 정본: [`current-status-baseline.md`](./current-status-baseline.md)
+
+---
+
 ## 주차별 회의록
 
 | 주차 | 기간 | 주제 | 파일 |
@@ -43,12 +61,17 @@
 | 2026-07-02 | 프로젝트명 후보 논의 → 선생님 의견 반영, **아삭(ASAK)** 방향 | 확정 |
 | 2026-07-13 | 채널에서 일부 구성원 제외 → **김나연·이하진** 2인 체제 | 확정 |
 
-### 역할
+### 역할 (도메인 오너십)
 
-| 담당 | 주 영역 |
-|---|---|
-| 김나연 | 키오스크 화면·주문 세션 로직, 백엔드 Spring/MyBatis 골격·고객(API) 수직 구현 |
-| 이하진 | 디자인 시스템·Figma, Admin mock/실연동, API·DB 계약, 문서·에이전트 도구, 배포 미리보기 |
+> **백엔드는 두 사람이 도메인을 나눠 담당한다.** 프론트 담당과 백엔드 담당이 다르지 않다.
+
+| 담당 | 프론트 | 백엔드 도메인 | 공통·운영 |
+|---|---|---|---|
+| 김나연 | 키오스크 화면·주문 세션 로직 | **고객(`user`)** — 메뉴 조회(API-003), 주문 생성(API-005), `UserOrderMapper`·`UserMenuMapper` | Spring/MyBatis 골격, API 명세 반영 |
+| 이하진 | 디자인 시스템·Figma, **Admin 전담** | **관리자(`admin`)** — 주문 Live·목록·상세·상태전이·취소, 메뉴 CRUD, 품절·결제수단, `AdminOrderMapper`, MySQL 스키마·CORS | API·DB 계약, 문서·에이전트 도구, 배포 미리보기 |
+
+> **근거** — `ASAK-back` 커밋 기준 이하진 72건 / 김나연 59건.
+> `ASAK-Admin`은 이하진 87건(단독), `ASAK-Kiosk`는 이하진 124건 / 김나연 68건.
 
 ### 산출물
 
@@ -82,13 +105,102 @@
 
 ---
 
+## ⚠️ 확인 필요 사항 (결정 ↔ 구현 갭)
+
+> **이 섹션의 목적** — "회의에서 정했는데 코드가 따라왔는지 아무도 확인하지 않은" 항목만 모은다.
+> 아직 **정하지 못한** 것은 아래 계약 미결에 둔다. 둘을 섞지 않는다.
+
+| # | 결정 | 결정 시점 | 코드 실측 (2026-08-07) | 판정 |
+|---|---|---|---|---|
+| 1 | 필드명 정본 변환은 **adapter 경계에서만** 수행 | W31 | `ASAK-Kiosk/src/adapters/orderAdapter.js:20`이 `return payload` — TODO 주석만 있고 변환 **미구현** | ❌ 미반영 |
+| 2 | `orderType` = `EAT_IN` / `TAKE_OUT` (`STORE`·`TAKEOUT` 폐기) | W30·W31 | BE `OrderType.java` 준수 ✅ / kiosk mock `student-project-data.json:75`에 `"orderType": "STORE"` 잔존 | ⚠️ mock만 미정리 |
+| 3 | 취소 철자 `CANCELED` | W31 | BE `OrderStatus.java`·`PaymentStatus.java` 준수 ✅ / `scripts/expand-mocks.js:520,549,652`가 `CANCELLED` 생성 | ⚠️ mock 생성기 미정리 |
+| 4 | 옵션 추가금 필드 `extraPrice` | W31 | BE `add_price AS extraPrice` 준수 ✅ / kiosk mock JSON 전반 `priceDelta` | ⚠️ mock만 미정리 |
+| 5 | 결제수단 정본 **3종** `CARD`·`KAKAO_PAY`·`NAVER_PAY` | W30 | kiosk mock **8종**(`card`,`kakao`,`naver`,`toss`,`payco`,`apple`,`cash`,`zero`) / Admin Figma SCR-018 **4종** / DB 정본 **3종**. kiosk `methodId`는 소문자 슬러그로 `paymentMethodCode` enum과 **형식도 불일치** | ❌ 3중 불일치 |
+| 6 | DB 컬럼명 유지 + API만 `totalAmount` 매핑 | W31 | `AdminOrderMapper.xml:12` `total_price → totalAmount` 준수 ✅ | ✅ 반영됨 |
+
+**해석** — 백엔드는 정본을 잘 지키고 있고, 갭은 **프론트 mock/adapter 계층에 몰려 있다.**
+1번(adapter no-op)이 나머지를 실연동 시점에 한꺼번에 터뜨릴 수 있는 지점이므로 우선순위가 가장 높다.
+
+---
+
 ## 현재 미결·후속 (2026-08-07)
 
-1. **키오스크**: 장바구니 검증(실 DB) → 주문 생성 → 결제수단 조회·승인 연동
-2. **관리자**: 메뉴 CRUD 완성·연동 → 품절·결제수단 → 매출·대시보드 mock 제거
-3. **계약 미결**: 옵션 요청 형식, 메뉴 단가 필드명, 상태변경 path/응답 필드, API 케이스(camel/snake)
-4. **품질**: 상세메뉴 API 오류 재발 여부, `UserOrderService` 등 컴파일·런타임 안정성
-5. **문서**: Screen ID·WBS ID·위키와 코드 정합 유지
+### 👤 김나연 — 키오스크·고객 백엔드
+
+1. 장바구니 검증(실 DB) → 주문 생성 실연동
+2. `createOrder()` 저장 완성 (현재 검증 후 `null` 반환)
+3. `UserOrderService` 컴파일·런타임 안정성 확인
+4. 상세메뉴 API 오류 재발 여부 점검
+
+### 👤 이하진 — 관리자·계약·문서
+
+1. Admin 메뉴 CRUD 완성·연동 → 품절 → 결제수단 → 매출·대시보드 순 mock 제거
+2. 결제수단 조회·승인 API (키오스크 결제 연결의 선행)
+3. 위 확인 필요 사항 1·5번 정리
+4. Screen ID·WBS ID·위키와 코드 정합 유지
+
+### 👥 공통
+
+1. 메뉴 선택 → 장바구니 → 주문 → 결제 → 완료 통합 QA 1사이클
+2. 아래 계약 미결 확정 후 양쪽 반영
+3. QA TC 실행 기록 남기기 (현재 전부 TODO)
+
+### 계약 미결 (2026-08-07)
+
+| 항목 | 내용 | 담당 |
+|---|---|---|
+| 주문 옵션 요청 | Bible `selectedOptionItemIds[]` vs DTO `optionItems[{ optionItemId, quantity }]` | 공통 협의 |
+| 메뉴 기본가 이름 | `price` / `unitPrice` / `basePrice` / `baseAmount` 혼용 | 공통 협의 |
+| 상태변경 응답 | `previousStatus`/`status` vs `previousOrderStatus`/`orderStatus` | 이하진 |
+| 상태변경 path | `/{orderId}/{status}` vs `/{orderId}/status` | 이하진 |
+| API 명명 케이스 | camelCase vs snake_case 최종 통일 (7/14 선생님 지적, 미해결 지속) | 공통 협의 |
+
+---
+
+## 참고 문서 (2026-08-07)
+
+> 정본 폴더: [operations/meeting-minutes](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md#참고-문서-2026-08-07). `wbs-v2`/`wbs-schedule` 대신 [wbs.md](./wbs.md).
+
+### 입구·상태
+
+| 종류 | 링크 |
+|---|---|
+| 문서 입구 | [START_HERE](https://github.com/hagenie128/ASAK/blob/main/docs/START_HERE.md) |
+| 영역별 현황 | [current-status-baseline](./current-status-baseline.md) |
+| 구현 맵 | [current-implementation-map](https://github.com/hagenie128/ASAK/blob/main/docs/planning/current-implementation-map-2026-07-16.md) |
+| 전체 흐름도 | [project-flow](./project-flow.md) |
+
+### 계획·WBS
+
+| 종류 | 링크 |
+|---|---|
+| WBS 정본 | [wbs.md](./wbs.md) (`WBS-001`~`085`) |
+| WBS 상태 메모 | [wbs-status-notes](./wbs-status-notes.md) |
+| DONE·PASS 점검 | [asak-done-pass-audit](https://github.com/hagenie128/ASAK/blob/main/docs/ai-reports/2026-08-07/asak-done-pass-audit.md) |
+| WBS 일정 rebase | [asak-wbs-date-rebase](https://github.com/hagenie128/ASAK/blob/main/docs/ai-reports/2026-08-07/asak-wbs-date-rebase.md) |
+
+### 계약·DB·API
+
+| 종류 | 링크 |
+|---|---|
+| 정본 계약 | [canonical-contract-decisions](https://github.com/hagenie128/ASAK/blob/main/docs/governance/canonical-contract-decisions-2026-07-16.md) |
+| REST API 명세 | [rest-api-spec](./rest-api-spec.md) |
+| DB 테이블 | [db-table-definition](./db-table-definition.md) |
+| DB 뷰 | [db-view-definition](./db-view-definition.md) |
+| MySQL 스키마 DDL | `ASAK-back/docs/아삭_mysql.sql` · `view.sql` (파일 반영 · 실DB 적용 미검증) |
+
+### 회의록·워크로그·미리보기
+
+| 종류 | 링크 |
+|---|---|
+| 주차별 정본 | [meeting-minutes README](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md) |
+| 구 통합본 | [2026-07-01~08-07](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes-2026-07-01-to-08-07.md) — **리다이렉트 스텁** (본문 이관 완료, 갱신 안 함) |
+| 산출물 체크리스트 | [meeting-deliverables-checklist](./meeting-deliverables-checklist.md) |
+| 주간 워크로그 | [W28](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-W28.md) · [W29](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-W29.md) |
+| daily/entries | `worklog/daily/{김나연\|이하진}/` · `worklog/entries/...` |
+| Kiosk / Admin | https://asak-kiosk.vercel.app/ · https://asak-admin.vercel.app/ |
+| RTOS 공부 노트 | [study/RTOS](https://github.com/hagenie128/ASAK/blob/main/docs/study/RTOS/RTOS.md) |
 
 ---
 
@@ -98,6 +210,8 @@
 |---|---|
 | 2026-08-07 | 초안(통합본). 2조 채널·팀 협의·워크로그 통합. |
 | 2026-08-07 | 주차별 파일 분리 (`meeting-minutes/2026-W*.md`). |
+| 2026-08-07 | 상태 스냅샷·`⚠️ 확인 필요 사항`(결정↔구현 갭) 신설, Action Items 담당자 배정, 역할표에 백엔드 도메인 분담 반영. 회의록 `_TEMPLATE.md` 추가. |
+| 2026-08-07 | 참고 문서를 `wbs.md`·START_HERE·baseline·API/DB·DONE/PASS 등 현재 정본으로 갱신. |
 
 
 ---
@@ -133,12 +247,25 @@
 
 ## 관련 워크로그
 
-- `worklog/entries/이하진/2026-07-02-to-03-project-bootstrap.md`
-- `worklog/daily/이하진/2026-07-02.md` · `2026-07-03.md`
+> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(`-to-`)는 겹치는 주차에 중복 표기. 커밋 backfill·stub(근거 없음)도 파일 존재 기준으로 포함한다.
 
+### 이하진
 
----
+- **daily**
+  - `worklog/daily/이하진/2026-07-02.md`
+  - `worklog/daily/이하진/2026-07-03.md`
+  - `worklog/daily/이하진/2026-07-04.md`
+  - `worklog/daily/이하진/2026-07-05.md`
+- **entries**
+  - `worklog/entries/이하진/2026-07-02-to-03-project-bootstrap.md`
+  - `worklog/entries/이하진/2026-07-05-notion-docs-cleanup.md`
 
+### 김나연
+
+- **daily:** (해당 기간 파일 없음)
+- **entries:** (해당 기간 파일 없음)
+
+- 참고 문서: [회의록 README §참고 문서](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md#참고-문서-2026-08-07)
 # 회의록 2026-W28 — 디자인 방향·관리자 UI 골격
 
 | 항목 | 내용 |
@@ -177,14 +304,41 @@
 
 ## 관련 워크로그
 
-- `worklog/daily/김나연/2026-07-07.md` · `2026-07-08.md`
-- `worklog/entries/김나연/2026-07-07-업무-정리.md` · `2026-07-08-업무-정리.md`
-- `worklog/daily/이하진/2026-07-09.md` · `2026-07-10.md`
-- `worklog/entries/이하진/2026-07-10-frontend-mock-bootstrap.md`
+> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(`-to-`)는 겹치는 주차에 중복 표기. 커밋 backfill·stub(근거 없음)도 파일 존재 기준으로 포함한다.
 
+### 이하진
 
----
+- **daily**
+  - `worklog/daily/이하진/2026-07-06.md`
+  - `worklog/daily/이하진/2026-07-07.md`
+  - `worklog/daily/이하진/2026-07-08.md`
+  - `worklog/daily/이하진/2026-07-09.md`
+  - `worklog/daily/이하진/2026-07-10.md`
+  - `worklog/daily/이하진/2026-07-11.md`
+  - `worklog/daily/이하진/2026-07-12.md`
+- **entries**
+  - `worklog/entries/이하진/2026-07-06-worklog-onboarding.md`
+  - `worklog/entries/이하진/2026-07-09-to-14-figma-design.md`
+  - `worklog/entries/이하진/2026-07-10-frontend-mock-bootstrap.md`
 
+### 김나연
+
+- **daily**
+  - `worklog/daily/김나연/2026-07-07.md`
+  - `worklog/daily/김나연/2026-07-08.md`
+  - `worklog/daily/김나연/2026-07-09.md`
+  - `worklog/daily/김나연/2026-07-11.md`
+- **entries**
+  - `worklog/entries/김나연/2026-07-07-업무-정리.md`
+  - `worklog/entries/김나연/2026-07-08-업무-정리.md`
+  - `worklog/entries/김나연/2026-07-09-team-config.md`
+  - `worklog/entries/김나연/2026-07-11-team-config.md`
+
+### 주간 워크로그
+
+- `worklog/weekly/2026-W28.md`
+
+- 참고 문서: [회의록 README §참고 문서](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md#참고-문서-2026-08-07)
 # 회의록 2026-W29 — 저장소 분리·Figma→코드·구현 경계
 
 | 항목 | 내용 |
@@ -242,14 +396,51 @@
 
 ## 관련 워크로그
 
-- `worklog/daily/이하진/2026-07-13.md` ~ `2026-07-19.md`
-- `worklog/entries/이하진/2026-07-09-to-14-figma-design.md`
-- `worklog/entries/이하진/2026-07-15-figma-admin-review.md`
-- `worklog/entries/이하진/2026-07-18-to-19-figma-static-ui.md`
+> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(`-to-`)는 겹치는 주차에 중복 표기. 커밋 backfill·stub(근거 없음)도 파일 존재 기준으로 포함한다.
 
+### 이하진
 
----
+- **daily**
+  - `worklog/daily/이하진/2026-07-13.md`
+  - `worklog/daily/이하진/2026-07-14.md`
+  - `worklog/daily/이하진/2026-07-15.md`
+  - `worklog/daily/이하진/2026-07-16.md`
+  - `worklog/daily/이하진/2026-07-17.md`
+  - `worklog/daily/이하진/2026-07-18.md`
+  - `worklog/daily/이하진/2026-07-19.md`
+- **entries**
+  - `worklog/entries/이하진/2026-07-09-to-14-figma-design.md`
+  - `worklog/entries/이하진/2026-07-15-figma-admin-review.md`
+  - `worklog/entries/이하진/2026-07-16-figma-final-component-state-audit.md`
+  - `worklog/entries/이하진/2026-07-16-notion-api-dto-db-audit.md`
+  - `worklog/entries/이하진/2026-07-16-product-bible-wbs-release-governance.md`
+  - `worklog/entries/이하진/2026-07-16-to-17-frontend-contract-handoff.md`
+  - `worklog/entries/이하진/2026-07-17-asak-agent-kit-install-and-release.md`
+  - `worklog/entries/이하진/2026-07-17-implementation-guides-and-assets.md`
+  - `worklog/entries/이하진/2026-07-18-to-19-figma-static-ui.md`
 
+### 김나연
+
+- **daily**
+  - `worklog/daily/김나연/2026-07-13.md`
+  - `worklog/daily/김나연/2026-07-14.md`
+  - `worklog/daily/김나연/2026-07-15.md`
+  - `worklog/daily/김나연/2026-07-16.md`
+  - `worklog/daily/김나연/2026-07-17.md`
+  - `worklog/daily/김나연/2026-07-18.md`
+- **entries**
+  - `worklog/entries/김나연/2026-07-13-docs.md`
+  - `worklog/entries/김나연/2026-07-14-kiosk-frontend.md`
+  - `worklog/entries/김나연/2026-07-15-kiosk-frontend.md`
+  - `worklog/entries/김나연/2026-07-16-kiosk-frontend.md`
+  - `worklog/entries/김나연/2026-07-17-kiosk-frontend.md`
+  - `worklog/entries/김나연/2026-07-18-kiosk-frontend.md`
+
+### 주간 워크로그
+
+- `worklog/weekly/2026-W29.md`
+
+- 참고 문서: [회의록 README §참고 문서](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md#참고-문서-2026-08-07)
 # 회의록 2026-W30 — mock 완성·백엔드 골격·제출
 
 | 항목 | 내용 |
@@ -306,15 +497,44 @@
 
 ## 관련 워크로그
 
-- `worklog/daily/이하진/2026-07-20.md` ~ `2026-07-24.md`
-- `worklog/entries/이하진/2026-07-20-mock-state-sprint.md`
-- `worklog/entries/이하진/2026-07-21-admin-mock-page-binding.md`
-- `worklog/entries/이하진/2026-07-23-api-contract-backend-foundation.md`
-- `worklog/entries/이하진/2026-07-24-db-contract-admin-order-foundation.md`
+> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(`-to-`)는 겹치는 주차에 중복 표기. 커밋 backfill·stub(근거 없음)도 파일 존재 기준으로 포함한다.
 
+### 이하진
 
----
+- **daily**
+  - `worklog/daily/이하진/2026-07-20.md`
+  - `worklog/daily/이하진/2026-07-21.md`
+  - `worklog/daily/이하진/2026-07-22.md`
+  - `worklog/daily/이하진/2026-07-23.md`
+  - `worklog/daily/이하진/2026-07-24.md`
+- **entries**
+  - `worklog/entries/이하진/2026-07-20-docs-wbs2-devcopilot-sync.md`
+  - `worklog/entries/이하진/2026-07-20-mock-state-sprint.md`
+  - `worklog/entries/이하진/2026-07-21-admin-mock-page-binding.md`
+  - `worklog/entries/이하진/2026-07-23-admin-mock-figma-parity.md`
+  - `worklog/entries/이하진/2026-07-23-api-contract-backend-foundation.md`
+  - `worklog/entries/이하진/2026-07-24-db-contract-admin-order-foundation.md`
 
+### 김나연
+
+- **daily**
+  - `worklog/daily/김나연/2026-07-20.md`
+  - `worklog/daily/김나연/2026-07-21.md`
+  - `worklog/daily/김나연/2026-07-22.md`
+  - `worklog/daily/김나연/2026-07-23.md`
+  - `worklog/daily/김나연/2026-07-24.md`
+- **entries**
+  - `worklog/entries/김나연/2026-07-20-kiosk-frontend.md`
+  - `worklog/entries/김나연/2026-07-21-kiosk-frontend.md`
+  - `worklog/entries/김나연/2026-07-22-kiosk-frontend.md`
+  - `worklog/entries/김나연/2026-07-23-kiosk-frontend.md`
+  - `worklog/entries/김나연/2026-07-24-backend-api.md`
+
+### 주간 워크로그
+
+- `worklog/weekly/2026-W30.md`
+
+- 참고 문서: [회의록 README §참고 문서](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md#참고-문서-2026-08-07)
 # 회의록 2026-W31 — Admin API·계약 통일·연동 시작
 
 | 항목 | 내용 |
@@ -378,15 +598,43 @@
 
 ## 관련 워크로그
 
-- `worklog/daily/이하진/2026-07-27.md` ~ `2026-07-30.md`
-- `worklog/entries/이하진/2026-07-27-admin-live-menu-order-api.md`
-- `worklog/entries/이하진/2026-07-28-admin-order-detail-receipt-api-modules.md`
-- `worklog/entries/이하진/2026-07-29-admin-live-order-and-menu-option-catalog.md`
-- `worklog/entries/이하진/2026-07-30-figma-token-live-order-contract.md`
+> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(`-to-`)는 겹치는 주차에 중복 표기. 커밋 backfill·stub(근거 없음)도 파일 존재 기준으로 포함한다.
 
+### 이하진
 
----
+- **daily**
+  - `worklog/daily/이하진/2026-07-27.md`
+  - `worklog/daily/이하진/2026-07-28.md`
+  - `worklog/daily/이하진/2026-07-29.md`
+  - `worklog/daily/이하진/2026-07-30.md`
+  - `worklog/daily/이하진/2026-07-31.md`
+- **entries**
+  - `worklog/entries/이하진/2026-07-27-admin-live-menu-order-api.md`
+  - `worklog/entries/이하진/2026-07-28-admin-order-detail-receipt-api-modules.md`
+  - `worklog/entries/이하진/2026-07-29-admin-live-order-and-menu-option-catalog.md`
+  - `worklog/entries/이하진/2026-07-30-figma-token-live-order-contract.md`
+  - `worklog/entries/이하진/2026-07-31-backend-api.md`
 
+### 김나연
+
+- **daily**
+  - `worklog/daily/김나연/2026-07-27.md`
+  - `worklog/daily/김나연/2026-07-28.md`
+  - `worklog/daily/김나연/2026-07-29.md`
+  - `worklog/daily/김나연/2026-07-30.md`
+  - `worklog/daily/김나연/2026-07-31.md`
+- **entries**
+  - `worklog/entries/김나연/2026-07-27-backend-api.md`
+  - `worklog/entries/김나연/2026-07-28-backend-api.md`
+  - `worklog/entries/김나연/2026-07-29-backend-api.md`
+  - `worklog/entries/김나연/2026-07-30-backend-api.md`
+  - `worklog/entries/김나연/2026-07-31-backend-api.md`
+
+### 주간 워크로그
+
+- `worklog/weekly/2026-W31.md`
+
+- 참고 문서: [회의록 README §참고 문서](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md#참고-문서-2026-08-07)
 # 회의록 2026-W32 — 실연동·관리자 CRUD·문서화
 
 | 항목 | 내용 |
@@ -434,16 +682,80 @@
 
 ## 진척 (워크로그)
 
-- **이하진**: 관리자 메뉴 검색 draft/submit·상세 응답 shape, `bootRun` 확인 (저장/삭제·HTTP 실호출·브라우저 회귀는 미검증 구간 존재)
-- **김나연**: (채널·협의) 백엔드·키오스크 연동 작업 지속
+- **이하진**: 관리자 메뉴 검색 draft/submit·상세 응답 shape, 메뉴 등록·결제수단·품절 API 요청 계약, MySQL 스키마 DDL·CORS 정리, `bootRun` 확인 (저장/삭제·HTTP 실호출·브라우저 회귀는 미검증 구간 존재)
+- **김나연**: API-003 명세 변경 반영(옵션 그룹 REQUEST 제외, 제외 재료·칼로리·description), 백엔드·키오스크 연동 작업 지속
 
-## 주말 시점 후속 (→ [목록의 미결](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md#현재-미결후속-2026-08-07))
+## 🗄️ DB 변경 사항
 
-1. 키오스크 장바구니 → 주문·결제 실연동
-2. Admin 메뉴 CRUD → 품절·결제수단 → 매출·대시보드
-3. 계약 미결(옵션 요청·단가 필드·상태변경 path 등) 정리
+- MySQL 스키마 DDL 정리 및 CORS 허용 범위 조정 (8/07, `chore/mysql-schema-cors`)
+- 그 외 별도 테이블 추가·삭제 없음
+- **미검증** — 실제 DB 반영 결과와 뷰 합계 대조는 실행하지 않음
+
+## 🧪 QA / 안정화
+
+- 관리자 메뉴 상세 응답 shape·TODO 순서 정리, 주문 상태 전이·취소 가드 구현
+- `bootRun` 기동 확인
+- **미실행** — HTTP 실호출 회귀, 브라우저 회귀, 통합 QA 1사이클, QA 테스트 실행 기록
+
+## ⚠️ 확인 필요 사항
+
+이번 주 신규로 확인된 **결정↔구현 갭** (전체 표는 이 문서 상단 참조)
+
+1. `ASAK-Kiosk/src/adapters/orderAdapter.js:20`이 `return payload` — W31에서 정한 필드명 변환이 **경계에 자리만 있고 미구현**. 실연동 시 `orderNumber`/`totalPrice`/`waitingCount`가 그대로 흘러감
+2. 결제수단이 kiosk mock **8종** / Admin Figma **4종** / DB 정본 **3종**으로 갈림. kiosk `methodId`는 소문자 슬러그라 `paymentMethodCode` enum과 형식도 다름
+3. `STORE`·`CANCELLED`·`priceDelta` 등 폐기 표기가 kiosk mock과 `scripts/expand-mocks.js`에 잔존
+
+## 📌 Action Items
+
+### 👤 김나연
+
+- 키오스크 장바구니 검증(실 DB) → 주문 생성 실연동
+- `createOrder()` 저장 완성 (현재 검증 후 `null` 반환)
+- `UserOrderService` 컴파일·런타임 안정성 확인
+- 상세메뉴 API 오류 재발 여부 점검
+
+### 👤 이하진
+
+- Admin 메뉴 CRUD 완성·연동 → 품절 → 결제수단 → 매출·대시보드 mock 제거
+- 결제수단 조회·승인 API 완성 (키오스크 결제 연결의 선행)
+- `orderAdapter` 변환 구현 또는 mock 정본화 중 택일
+- 결제수단 3종/4종/8종 불일치 정리
+
+### 👥 공통
+
+- 메뉴 선택 → 장바구니 → 주문 → 결제 → 완료 통합 QA 1사이클
+- 계약 미결(옵션 요청·단가 필드·상태변경 path·API 케이스) 확정 후 양쪽 반영
+- QA TC 실행 기록 남기기
 
 ## 관련 워크로그
 
-- `worklog/daily/이하진/2026-08-06.md`
-- `worklog/entries/이하진/2026-08-06-admin-menu-search-and-detail-contract.md`
+> 해당 주차 기간에 존재하는 daily/entries 전체. 기간이 걸친 entries(`-to-`)는 겹치는 주차에 중복 표기. 커밋 backfill·stub(근거 없음)도 파일 존재 기준으로 포함한다.
+
+### 이하진
+
+- **daily**
+  - `worklog/daily/이하진/2026-08-05.md`
+  - `worklog/daily/이하진/2026-08-06.md`
+  - `worklog/daily/이하진/2026-08-07.md`
+- **entries**
+  - `worklog/entries/이하진/2026-08-05-admin.md`
+  - `worklog/entries/이하진/2026-08-06-admin-menu-search-and-detail-contract.md`
+  - `worklog/entries/이하진/2026-08-07-mysql-schema-cors.md`
+  - `worklog/entries/이하진/2026-08-07-wbs-study-rtos-docs.md`
+
+### 김나연
+
+- **daily**
+  - `worklog/daily/김나연/2026-08-04.md`
+  - `worklog/daily/김나연/2026-08-05.md`
+  - `worklog/daily/김나연/2026-08-06.md`
+- **entries**
+  - `worklog/entries/김나연/2026-08-04-kiosk-frontend.md`
+  - `worklog/entries/김나연/2026-08-05-backend-api.md`
+  - `worklog/entries/김나연/2026-08-06-kiosk-frontend.md`
+
+### 주간 워크로그
+
+- `worklog/weekly/2026-W32.md`
+
+- 참고 문서: [회의록 README §참고 문서](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md#참고-문서-2026-08-07)
