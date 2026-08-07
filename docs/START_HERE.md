@@ -16,9 +16,11 @@
 | 5 | [Backend·DB 중간점검](wiki/backend-db-midpoint-audit-2026-07-28.md) | 실제 원격·Spring context·실DB·읽기 API 점검 결과 |
 | 6 | [주차별 회의록](operations/meeting-minutes/README.md) | 2조 공식 회의록 · [Hub wiki/78](https://devcopilot.ai.kr/workspace/2/wiki/78) |
 
-**한 줄 요약 (2026-08-07):** Admin 주문(Live·목록·상태·취소)은 BE 연동 **구현·미검증**. 메뉴 GET 부분, 메뉴 CRUD·품절·결제수단·매출/대시보드는 **스텁 또는 mock**. Kiosk는 장바구니→주문 생성→결제(토스 예제) **실연동**이 이번 주 우선. Hub 대시보드 %는 운영 지표로 쓰지 않음.
+**한 줄 요약 (2026-08-07):** Admin 주문(Live·목록·상태·취소)은 BE 연동 **구현·미검증**. 메뉴 GET 부분, 메뉴 CRUD·품절·결제수단·매출/대시보드는 **스텁 또는 mock**. Kiosk는 장바구니→주문 생성→결제(토스 예제) **실연동**이 이번 주 우선. Hub 대시보드 %는 운영 지표로 쓰지 않음. Hub WBS2 일정은 강사 우선순위로 **8/7~8/28 rebase** 완료(종료일 지난 활성 0건).
 
 **이번 주 작업 순서 (강사):** ① Kiosk 장바구니·주문·결제 DB 검증 → ② Admin 주문 통합 테스트 → ③ 메뉴 CRUD → 품절 → 결제수단 → 매출·대시보드.
+
+**Hub WBS 일정 (8/7 rebase):** P0 주문·연동 `8/7~8/11` · P1 메뉴·품절 `8/11~8/14` · P2 매출·결제수단 `8/14~8/18` · QA `8/18~8/21` · 문서·발표 `~8/28`. 상세: [asak-wbs-date-rebase](ai-reports/2026-08-07/asak-wbs-date-rebase.md).
 
 **그림으로 보기:** [전체 흐름도 (Mermaid)](wiki/project-flow.md) — 저장소 구조·키오스크 주문 흐름·관리자 운영 흐름·데이터/API 목표 흐름·가격·수량 흐름·이번 스프린트 WBS 흐름을 그림 6개로 정리.
 
