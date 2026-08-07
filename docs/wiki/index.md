@@ -6,6 +6,8 @@
 ## 지금 상태 (먼저)
 
 - [현재 상태 baseline](current-status-baseline.md) ← **요약 1순위**
+- [워크로그 인덱스 (Hub)](worklog-index.md) ← daily · entries · weekly 링크
+- [주차별 회의록 (Hub)](meeting-minutes-weekly.md)
 - [구현 맵](../planning/current-implementation-map-2026-07-16.md) ← **SCR별 상세**
 - [WBS 통합본](wbs.md) ← **할 일 정본** (기획→키오스크→관리자→BE→QA→발표)
 - [WBS 상태 메모](wbs-status-notes.md) ← 코드↔WBS 요약
