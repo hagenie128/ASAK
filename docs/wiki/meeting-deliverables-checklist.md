@@ -8,11 +8,25 @@
 
 ## 회의록 인덱스
 
-| 회의 | Notion | 로컬 |
+| 회의 | Hub / Notion | 로컬 |
 |------|--------|------|
+| **주차별 공식 회의록 (2026-07-01~08-07)** | [Hub wiki/78](https://devcopilot.ai.kr/workspace/2/wiki/78) | [목록](../operations/meeting-minutes/README.md) · W27~W32 |
 | 2026-07-03 키오스크 컨셉 | (Notion 10) | 아래 § |
 | 화면 설계 초기 회의 · 사전 의견 | [Notion 인덱스](https://app.notion.com/p/39551ef04f0b8190b76ae4b48b8497ac) | [Archive 회의 기록](../_archive/project-history/design-meetings/README.md) |
 | **2026-07-06 화면 설계 초기 회의** | [Notion 취합본](https://app.notion.com/p/39551ef04f0b815f8dc6e788176186d7) | [회의록](../_archive/project-history/design-meetings/screen-design-meeting-minutes-2026-07-06.md) · [변경 이력](../_archive/project-history/design-meetings/screen-design-changes-2026-07-06.md) |
+
+### 주차별 공식 회의록 (김나연·이하진)
+
+| 주차 | 기간 | 주제 | 로컬 |
+|------|------|------|------|
+| W27 | 06-29~07-05 | 킥오프·기획 정비 | [2026-W27](../operations/meeting-minutes/2026-W27.md) |
+| W28 | 07-06~07-12 | 디자인 방향·관리자 UI 골격 | [2026-W28](../operations/meeting-minutes/2026-W28.md) |
+| W29 | 07-13~07-19 | 저장소 분리·Figma→코드·구현 경계 | [2026-W29](../operations/meeting-minutes/2026-W29.md) |
+| W30 | 07-20~07-26 | mock 완성·백엔드 골격·제출 | [2026-W30](../operations/meeting-minutes/2026-W30.md) |
+| W31 | 07-27~08-02 | Admin API·계약 통일·연동 시작 | [2026-W31](../operations/meeting-minutes/2026-W31.md) |
+| W32 | 08-03~08-07 | 실연동·관리자 CRUD·문서화 | [2026-W32](../operations/meeting-minutes/2026-W32.md) |
+
+Hub 전체본: [meeting-minutes-weekly.md](./meeting-minutes-weekly.md) · 로컬 정본 폴더: [`docs/operations/meeting-minutes/`](../operations/meeting-minutes/README.md)
 
 ## 회의록
 
