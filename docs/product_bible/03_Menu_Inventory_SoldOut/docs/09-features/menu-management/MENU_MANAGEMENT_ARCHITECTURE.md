@@ -174,11 +174,12 @@ price >= 0
 
 삭제는 ConfirmDialog.
 
-실제 DB 정책:
+실제 DB 정책 (2026-08-11 코드):
 
-- soft delete 권장
-- 기존 order history 보존
-- 화면에서는 삭제/숨김 구분
+- soft delete 구현: `menu.deleted_at`
+- 기존 order history 보존 (`order_item.menu_id` FK)
+- 목록/상세에서는 삭제 메뉴 미노출
+- 자식 테이블은 soft delete 시 유지
 
 ---
 
