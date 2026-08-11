@@ -1,0 +1,13 @@
+{
+  "name": "00_ppt",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "capture": "node capture_screens.mjs",
+    "inject": "python inject_screens_to_ppt.py"
+  },
+  "dependencies": {
+    "playwright": "^1.62.1"
+  }
+}
