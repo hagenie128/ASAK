@@ -20,7 +20,8 @@ updatedAt/version 비교.
 
 ### 메뉴 삭제 후 주문 이력
 
-history 유지.
+soft delete(`menu.deleted_at`)로 행 유지 → `order_item.menu_id` FK·history 유지.
+목록/상세에서는 삭제 메뉴 미노출. (2026-08-11 코드 반영)
 
 ### 이미지 upload 실패
 
@@ -59,5 +60,5 @@ form draft 유지.
 - [ ] duplicate validation
 - [ ] relation save order
 - [ ] orphan handling
-- [ ] soft delete
-- [ ] history preservation
+- [x] soft delete (`deleted_at` — 코드 구현됨, 자동 테스트는 미검증)
+- [x] history preservation (FK 유지 설계 — 주문 연동 E2E는 미검증)

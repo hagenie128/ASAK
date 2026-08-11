@@ -36,8 +36,11 @@ Expected:
 
 Expected:
 - ConfirmDialog
-- soft delete
-- 과거 주문 보존
+- soft delete (`menu.deleted_at` 설정, 행 물리 삭제 없음)
+- 과거 주문 보존 (`order_item.menu_id` FK 유지)
+- 삭제 후 관리/키오스크 목록·상세에서 미노출
+
+상태: Backend soft delete **구현됨** (2026-08-11). Admin UI ConfirmDialog·E2E는 **미검증**.
 
 ## MENU-ADM-008 — Modal
 

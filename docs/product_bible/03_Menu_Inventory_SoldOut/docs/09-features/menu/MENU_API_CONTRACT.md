@@ -123,10 +123,11 @@ The create/update response is intentionally a summary object, not the list shape
 }
 ```
 
-## 6. Deferred operations
+## 6. Deferred operations / Admin write notes
 
-- Tag, ingredient, nutrition, and option-policy writes are separate transactional slices.
-- `DELETE /api/admin/menus/{menuId}` is deferred: the live `menu` table has no soft-delete column.
+- Tag, ingredient, nutrition, and option-policy **writes** are handled in admin create/update (`CreateMenuRequest` children), not in this kiosk read contract.
+- `DELETE /api/admin/menus/{menuId}` is **implemented as soft delete** (`menu.deleted_at`). See `MENU_MANAGEMENT_API_CONTRACT.md`.
+- Kiosk/admin list·detail exclude rows where `deleted_at IS NOT NULL`.
 
 ## 7. Error codes
 
