@@ -7,7 +7,10 @@
     "carb_g": 55.4,
     "fat_g": 18.5,
     "sodium_mg": 1176.4,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 504,
@@ -17,7 +20,10 @@
     "carb_g": 61.3,
     "fat_g": 28.9,
     "sodium_mg": 899.0,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 640,
@@ -27,7 +33,10 @@
     "carb_g": 60.8,
     "fat_g": 17.8,
     "sodium_mg": 733.8,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 770,
@@ -37,7 +46,10 @@
     "carb_g": 62.5,
     "fat_g": 14.0,
     "sodium_mg": 577.1,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 910,
@@ -47,7 +59,10 @@
     "carb_g": 75.5,
     "fat_g": 37.6,
     "sodium_mg": 1067.1,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 1038,
@@ -57,7 +72,10 @@
     "carb_g": 52.5,
     "fat_g": 35.1,
     "sodium_mg": 931.2,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 1169,
@@ -67,7 +85,10 @@
     "carb_g": 61.7,
     "fat_g": 18.0,
     "sodium_mg": 268.1,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 1303,
@@ -77,7 +98,10 @@
     "carb_g": 34.7,
     "fat_g": 14.8,
     "sodium_mg": 569.8,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 1439,
@@ -87,7 +111,10 @@
     "carb_g": 7.8,
     "fat_g": 14.4,
     "sodium_mg": 505.0,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 1570,
@@ -97,7 +124,10 @@
     "carb_g": 36.1,
     "fat_g": 21.2,
     "sodium_mg": 350.3,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 1702,
@@ -107,7 +137,10 @@
     "carb_g": 59.4,
     "fat_g": 22.4,
     "sodium_mg": 1123.1,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 1835,
@@ -117,7 +150,10 @@
     "carb_g": 98.3,
     "fat_g": 36.3,
     "sodium_mg": 998.1,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 1979,
@@ -127,7 +163,10 @@
     "carb_g": 34.3,
     "fat_g": 13.1,
     "sodium_mg": 225.3,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 2115,
@@ -137,7 +176,10 @@
     "carb_g": 6.8,
     "fat_g": 7.3,
     "sodium_mg": 457.5,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 2255,
@@ -147,7 +189,10 @@
     "carb_g": 28.1,
     "fat_g": 8.4,
     "sodium_mg": 214.9,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 295,
+    "sugar_g": 12.4,
+    "saturated_fat_g": 1.1
   },
   {
     "id": 2394,
@@ -157,7 +202,10 @@
     "carb_g": 11.6,
     "fat_g": 9.2,
     "sodium_mg": 572.6,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 2535,
@@ -167,7 +215,10 @@
     "carb_g": 65.0,
     "fat_g": 26.1,
     "sodium_mg": 215.3,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 307,
+    "sugar_g": 4.6,
+    "saturated_fat_g": 7.7
   },
   {
     "id": 2679,
@@ -177,7 +228,10 @@
     "carb_g": 68.0,
     "fat_g": 29.8,
     "sodium_mg": 226.0,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 2821,
@@ -187,7 +241,10 @@
     "carb_g": 68.9,
     "fat_g": 19.3,
     "sodium_mg": 207.8,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 2963,
@@ -197,7 +254,10 @@
     "carb_g": 72.5,
     "fat_g": 17.7,
     "sodium_mg": 586.2,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 3106,
@@ -207,7 +267,10 @@
     "carb_g": 98.9,
     "fat_g": 37.0,
     "sodium_mg": 877.1,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 3250,
@@ -217,7 +280,10 @@
     "carb_g": 33.3,
     "fat_g": 14.4,
     "sodium_mg": 609.9,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 279,
+    "sugar_g": 3.6,
+    "saturated_fat_g": 2.1
   },
   {
     "id": 3389,
@@ -227,7 +293,10 @@
     "carb_g": 30.0,
     "fat_g": 6.6,
     "sodium_mg": 294.3,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 246,
+    "sugar_g": 2.2,
+    "saturated_fat_g": 1.8
   },
   {
     "id": 3524,
@@ -237,7 +306,10 @@
     "carb_g": 42.8,
     "fat_g": 24.0,
     "sodium_mg": 369.0,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 3665,
@@ -247,7 +319,10 @@
     "carb_g": 96.6,
     "fat_g": 22.3,
     "sodium_mg": 885.9,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 3795,
@@ -257,7 +332,10 @@
     "carb_g": 66.2,
     "fat_g": 23.7,
     "sodium_mg": 697.0,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 3926,
@@ -267,7 +345,10 @@
     "carb_g": 87.6,
     "fat_g": 43.7,
     "sodium_mg": 565.4,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 4057,
@@ -277,7 +358,10 @@
     "carb_g": 52.5,
     "fat_g": 29.7,
     "sodium_mg": 874.4,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 4186,
@@ -287,7 +371,10 @@
     "carb_g": 53.9,
     "fat_g": 21.6,
     "sodium_mg": 1133.9,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 241,
+    "sugar_g": 8.4,
+    "saturated_fat_g": 5.2
   },
   {
     "id": 4318,
@@ -297,7 +384,10 @@
     "carb_g": 64.9,
     "fat_g": 38.6,
     "sodium_mg": 1047.3,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 4451,
@@ -307,7 +397,10 @@
     "carb_g": 70.7,
     "fat_g": 22.6,
     "sodium_mg": 1021.5,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 289,
+    "sugar_g": 16.9,
+    "saturated_fat_g": 4.0
   },
   {
     "id": 4582,
@@ -317,7 +410,10 @@
     "carb_g": 79.1,
     "fat_g": 32.5,
     "sodium_mg": 1089.8,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 4712,
@@ -327,7 +423,10 @@
     "carb_g": 76.8,
     "fat_g": 34.0,
     "sodium_mg": 1288.1,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 340,
+    "sugar_g": 13.5,
+    "saturated_fat_g": 9.7
   },
   {
     "id": 4843,
@@ -337,7 +436,10 @@
     "carb_g": 40.0,
     "fat_g": 27.6,
     "sodium_mg": 1014.2,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 4970,
@@ -347,7 +449,10 @@
     "carb_g": 46.2,
     "fat_g": 25.7,
     "sodium_mg": 877.4,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 5094,
@@ -357,7 +462,10 @@
     "carb_g": 46.3,
     "fat_g": 31.9,
     "sodium_mg": 1206.3,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 5225,
@@ -367,7 +475,10 @@
     "carb_g": 49.7,
     "fat_g": 42.8,
     "sodium_mg": 1054.3,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 5353,
@@ -377,7 +488,10 @@
     "carb_g": 44.7,
     "fat_g": 26.8,
     "sodium_mg": 932.4,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 229,
+    "sugar_g": 12.6,
+    "saturated_fat_g": 6.8
   },
   {
     "id": 5479,
@@ -387,7 +501,10 @@
     "carb_g": 1.4,
     "fat_g": 0.2,
     "sodium_mg": 7.9,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 5540,
@@ -397,7 +514,10 @@
     "carb_g": 50.6,
     "fat_g": 4.2,
     "sodium_mg": 53.0,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 5604,
@@ -407,7 +527,10 @@
     "carb_g": 25.8,
     "fat_g": 1.9,
     "sodium_mg": 182.8,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 5665,
@@ -417,7 +540,10 @@
     "carb_g": 28.0,
     "fat_g": 2.8,
     "sodium_mg": 6.3,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 5727,
@@ -427,7 +553,10 @@
     "carb_g": 36.1,
     "fat_g": 21.2,
     "sodium_mg": 350.3,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 259,
+    "sugar_g": 5.0,
+    "saturated_fat_g": 6.1
   },
   {
     "id": 5857,
@@ -437,7 +566,10 @@
     "carb_g": 34.7,
     "fat_g": 14.8,
     "sodium_mg": 569.8,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 290,
+    "sugar_g": 14.4,
+    "saturated_fat_g": 4.8
   },
   {
     "id": 6000,
@@ -447,7 +579,10 @@
     "carb_g": 62.5,
     "fat_g": 14.0,
     "sodium_mg": 577.1,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 302,
+    "sugar_g": 4.4,
+    "saturated_fat_g": 3.1
   },
   {
     "id": 6135,
@@ -457,7 +592,10 @@
     "carb_g": 11.6,
     "fat_g": 9.2,
     "sodium_mg": 572.6,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 230,
+    "sugar_g": 2.9,
+    "saturated_fat_g": 3.0
   },
   {
     "id": 6277,
@@ -467,7 +605,10 @@
     "carb_g": 98.3,
     "fat_g": 36.3,
     "sodium_mg": 998.1,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 401,
+    "sugar_g": 11.1,
+    "saturated_fat_g": 7.1
   },
   {
     "id": 6424,
@@ -477,7 +618,10 @@
     "carb_g": 52.5,
     "fat_g": 35.1,
     "sodium_mg": 931.2,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 234,
+    "sugar_g": 10.9,
+    "saturated_fat_g": 9.9
   },
   {
     "id": 6552,
@@ -487,7 +631,10 @@
     "carb_g": 59.4,
     "fat_g": 22.4,
     "sodium_mg": 1123.1,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 289,
+    "sugar_g": 15.5,
+    "saturated_fat_g": 6.0
   },
   {
     "id": 6685,
@@ -497,7 +644,10 @@
     "carb_g": 75.5,
     "fat_g": 37.6,
     "sodium_mg": 1067.1,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 305,
+    "sugar_g": 12.9,
+    "saturated_fat_g": 10.9
   },
   {
     "id": 6812,
@@ -507,7 +657,10 @@
     "carb_g": 52.7,
     "fat_g": 36.9,
     "sodium_mg": 1154.9,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 250,
+    "sugar_g": 5.6,
+    "saturated_fat_g": 14.4
   },
   {
     "id": 6919,
@@ -517,7 +670,10 @@
     "carb_g": 61.3,
     "fat_g": 28.9,
     "sodium_mg": 899.0,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 254,
+    "sugar_g": 14.1,
+    "saturated_fat_g": 8.1
   },
   {
     "id": 7054,
@@ -527,7 +683,10 @@
     "carb_g": 70.7,
     "fat_g": 22.6,
     "sodium_mg": 1021.5,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 289,
+    "sugar_g": 16.9,
+    "saturated_fat_g": 4.0
   },
   {
     "id": 7161,
@@ -537,7 +696,10 @@
     "carb_g": 54.4,
     "fat_g": 29.6,
     "sodium_mg": 1346.7,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 240,
+    "sugar_g": 8.1,
+    "saturated_fat_g": 11.6
   },
   {
     "id": 7265,
@@ -547,7 +709,10 @@
     "carb_g": 60.8,
     "fat_g": 17.8,
     "sodium_mg": 733.8,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 214,
+    "sugar_g": 13.3,
+    "saturated_fat_g": 3.4
   },
   {
     "id": 7395,
@@ -557,7 +722,10 @@
     "carb_g": 72.7,
     "fat_g": 18.8,
     "sodium_mg": 1015.3,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 254,
+    "sugar_g": 23.7,
+    "saturated_fat_g": 5.8
   },
   {
     "id": 7505,
@@ -567,7 +735,10 @@
     "carb_g": 64.9,
     "fat_g": 38.6,
     "sodium_mg": 1047.3,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 275,
+    "sugar_g": 15.1,
+    "saturated_fat_g": 11.2
   },
   {
     "id": 7637,
@@ -577,7 +748,10 @@
     "carb_g": 51.8,
     "fat_g": 23.4,
     "sodium_mg": 817.9,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 209,
+    "sugar_g": 6.6,
+    "saturated_fat_g": 8.5
   },
   {
     "id": 7744,
@@ -587,7 +761,10 @@
     "carb_g": 53.9,
     "fat_g": 21.6,
     "sodium_mg": 1133.9,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 241,
+    "sugar_g": 8.4,
+    "saturated_fat_g": 5.2
   },
   {
     "id": 7852,
@@ -597,7 +774,10 @@
     "carb_g": 60.3,
     "fat_g": 42.3,
     "sodium_mg": 1187.0,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 290,
+    "sugar_g": 9.3,
+    "saturated_fat_g": 9.0
   },
   {
     "id": 7959,
@@ -607,7 +787,10 @@
     "carb_g": 58.0,
     "fat_g": 31.8,
     "sodium_mg": 1266.8,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 245,
+    "sugar_g": 9.4,
+    "saturated_fat_g": 9.9
   },
   {
     "id": 8066,
@@ -617,7 +800,10 @@
     "carb_g": 52.5,
     "fat_g": 29.7,
     "sodium_mg": 874.4,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 254,
+    "sugar_g": 6.3,
+    "saturated_fat_g": 8.2
   },
   {
     "id": 8197,
@@ -627,7 +813,10 @@
     "carb_g": 55.4,
     "fat_g": 18.5,
     "sodium_mg": 1176.4,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 254,
+    "sugar_g": 8.7,
+    "saturated_fat_g": 4.4
   },
   {
     "id": 8329,
@@ -637,7 +826,10 @@
     "carb_g": 34.3,
     "fat_g": 13.1,
     "sodium_mg": 225.3,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 225,
+    "sugar_g": 17.6,
+    "saturated_fat_g": 2.0
   },
   {
     "id": 8464,
@@ -647,7 +839,10 @@
     "carb_g": 6.8,
     "fat_g": 7.3,
     "sodium_mg": 457.5,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 217,
+    "sugar_g": 2.3,
+    "saturated_fat_g": 2.0
   },
   {
     "id": 8602,
@@ -657,7 +852,10 @@
     "carb_g": 7.8,
     "fat_g": 14.4,
     "sodium_mg": 505.0,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 235,
+    "sugar_g": 5.1,
+    "saturated_fat_g": 2.7
   },
   {
     "id": 8738,
@@ -667,7 +865,10 @@
     "carb_g": 42.8,
     "fat_g": 24.0,
     "sodium_mg": 369.0,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 296,
+    "sugar_g": 2.8,
+    "saturated_fat_g": 5.9
   },
   {
     "id": 8871,
@@ -677,7 +878,10 @@
     "carb_g": 61.7,
     "fat_g": 18.0,
     "sodium_mg": 268.1,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 297,
+    "sugar_g": 4.5,
+    "saturated_fat_g": 5.9
   },
   {
     "id": 9004,
@@ -687,7 +891,10 @@
     "carb_g": 72.5,
     "fat_g": 17.7,
     "sodium_mg": 586.2,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 347,
+    "sugar_g": 8.2,
+    "saturated_fat_g": 5.9
   },
   {
     "id": 9139,
@@ -697,7 +904,10 @@
     "carb_g": 68.0,
     "fat_g": 29.8,
     "sodium_mg": 226.0,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 307,
+    "sugar_g": 6.2,
+    "saturated_fat_g": 8.6
   },
   {
     "id": 9274,
@@ -707,7 +917,10 @@
     "carb_g": 68.9,
     "fat_g": 19.3,
     "sodium_mg": 207.8,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 360,
+    "sugar_g": 4.8,
+    "saturated_fat_g": 2.5
   },
   {
     "id": 9409,
@@ -717,7 +930,10 @@
     "carb_g": 98.9,
     "fat_g": 37.0,
     "sodium_mg": 877.1,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 381,
+    "sugar_g": 11.5,
+    "saturated_fat_g": 8.3
   },
   {
     "id": 9550,
@@ -727,7 +943,10 @@
     "carb_g": 96.6,
     "fat_g": 22.3,
     "sodium_mg": 885.9,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 449,
+    "sugar_g": 7.7,
+    "saturated_fat_g": 7.4
   },
   {
     "id": 9678,
@@ -737,7 +956,10 @@
     "carb_g": 66.2,
     "fat_g": 23.7,
     "sodium_mg": 697.0,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 464,
+    "sugar_g": 6.1,
+    "saturated_fat_g": 6.0
   },
   {
     "id": 9807,
@@ -747,7 +969,10 @@
     "carb_g": 87.6,
     "fat_g": 43.7,
     "sodium_mg": 565.4,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 419,
+    "sugar_g": 11.5,
+    "saturated_fat_g": 16.3
   },
   {
     "id": 9942,
@@ -757,7 +982,10 @@
     "carb_g": 49.7,
     "fat_g": 42.8,
     "sodium_mg": 1054.3,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 225,
+    "sugar_g": 5.3,
+    "saturated_fat_g": 9.8
   },
   {
     "id": 10070,
@@ -767,7 +995,10 @@
     "carb_g": 46.2,
     "fat_g": 25.7,
     "sodium_mg": 877.4,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 229,
+    "sugar_g": 12.4,
+    "saturated_fat_g": 6.3
   },
   {
     "id": 10194,
@@ -777,7 +1008,10 @@
     "carb_g": 46.3,
     "fat_g": 31.9,
     "sodium_mg": 1206.3,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 294,
+    "sugar_g": 10.3,
+    "saturated_fat_g": 9.2
   },
   {
     "id": 10325,
@@ -787,7 +1021,10 @@
     "carb_g": 40.0,
     "fat_g": 27.6,
     "sodium_mg": 1014.2,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 244,
+    "sugar_g": 8.9,
+    "saturated_fat_g": 6.1
   },
   {
     "id": 10452,
@@ -797,7 +1034,10 @@
     "carb_g": 79.1,
     "fat_g": 32.5,
     "sodium_mg": 1089.8,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": 305,
+    "sugar_g": 6.5,
+    "saturated_fat_g": 9.3
   },
   {
     "id": 10582,
@@ -807,7 +1047,10 @@
     "carb_g": 1.4,
     "fat_g": 0.2,
     "sodium_mg": 7.9,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 10643,
@@ -817,7 +1060,10 @@
     "carb_g": 50.6,
     "fat_g": 4.2,
     "sodium_mg": 53.0,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 10707,
@@ -827,7 +1073,10 @@
     "carb_g": 25.8,
     "fat_g": 1.9,
     "sodium_mg": 182.8,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   },
   {
     "id": 10768,
@@ -837,6 +1086,9 @@
     "carb_g": 28.0,
     "fat_g": 2.8,
     "sodium_mg": 6.3,
-    "source_id": 41
+    "source_id": 41,
+    "serving_g": null,
+    "sugar_g": null,
+    "saturated_fat_g": null
   }
 ]

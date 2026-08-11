@@ -37,7 +37,8 @@
     "opt_policy": 82,
     "opt_policy_item": 734,
     "menu_opt_policy": 467,
-    "menu_opt_override": 0
+    "menu_opt_override": 0,
+    "ing_nutr": 66
   },
   "paths": {
     "category": "seed-v3/category.json",
@@ -60,6 +61,7 @@
     "opt_policy": "seed-v3/opt_policy.json",
     "opt_policy_item": "seed-v3/opt_policy_item.json",
     "menu_opt_policy": "seed-v3/menu_opt_policy.json",
-    "menu_opt_override": "seed-v3/menu_opt_override.json"
+    "menu_opt_override": "seed-v3/menu_opt_override.json",
+    "ing_nutr": "seed-v3/ing_nutr.json"
   }
 }

@@ -27,6 +27,7 @@ SEED_TABLE_ORDER = [
     "menu",
     "menu_nutrition",
     "ingredient",
+    "ingredient_nutrition",
     "allergen",
     "ingredient_allergen",
     "menu_ingredient",
@@ -54,6 +55,7 @@ REPLACE_DELETE_ORDER = [
     "menu_ingredient",
     "ingredient_allergen",
     "allergen",
+    "ingredient_nutrition",
     "ingredient",
     "menu_nutrition",
     "menu_tag",
@@ -133,10 +135,13 @@ DDL = [
     CREATE TABLE IF NOT EXISTS menu_nutrition (
         id BIGINT PRIMARY KEY AUTO_INCREMENT,
         menu_id BIGINT NOT NULL UNIQUE,
+        serving_g DECIMAL(8,2),
         kcal DECIMAL(8,2),
         protein_g DECIMAL(8,2),
         carb_g DECIMAL(8,2),
+        sugar_g DECIMAL(8,2),
         fat_g DECIMAL(8,2),
+        saturated_fat_g DECIMAL(8,2),
         sodium_mg DECIMAL(8,2),
         source_id BIGINT,
         CONSTRAINT fk_menu_nutrition_menu
@@ -150,11 +155,28 @@ DDL = [
         id BIGINT PRIMARY KEY AUTO_INCREMENT,
         name VARCHAR(100) NOT NULL UNIQUE,
         type_id BIGINT NOT NULL,
-        kcal DECIMAL(8,2),
-        protein_g DECIMAL(8,2),
         is_sold_out BOOLEAN NOT NULL DEFAULT FALSE,
         CONSTRAINT fk_ingredient_type
             FOREIGN KEY (type_id) REFERENCES common_code(id)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS ingredient_nutrition (
+        id BIGINT PRIMARY KEY AUTO_INCREMENT,
+        ingredient_id BIGINT NOT NULL UNIQUE,
+        serving_g DECIMAL(8,2),
+        kcal DECIMAL(8,2),
+        protein_g DECIMAL(8,2),
+        carb_g DECIMAL(8,2),
+        sugar_g DECIMAL(8,2),
+        fat_g DECIMAL(8,2),
+        saturated_fat_g DECIMAL(8,2),
+        sodium_mg DECIMAL(8,2),
+        source_id BIGINT,
+        CONSTRAINT fk_ingredient_nutrition_ingredient
+            FOREIGN KEY (ingredient_id) REFERENCES ingredient(id),
+        CONSTRAINT fk_ingredient_nutrition_source
+            FOREIGN KEY (source_id) REFERENCES common_code(id)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     """,
     """
