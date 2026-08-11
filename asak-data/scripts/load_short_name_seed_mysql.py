@@ -10,7 +10,7 @@ import pymysql
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_SEED = ROOT / "asak-data" / "seed-v3"
-ORDER = ["category", "code_group", "common_code", "tag", "menu", "menu_nutr", "ing", "allergen", "ing_allergen", "menu_ing", "opt_group", "opt_item", "opt_item_comp", "menu_opt_grp_legacy_20260710", "menu_opt_legacy_20260710", "menu_tag", "pay_method_cfg", "opt_policy", "opt_policy_item", "menu_opt_policy", "menu_opt_override"]
+ORDER = ["category", "code_group", "common_code", "tag", "menu", "menu_nutr", "ing", "ing_nutr", "allergen", "ing_allergen", "menu_ing", "opt_group", "opt_item", "opt_item_comp", "menu_opt_grp_legacy_20260710", "menu_opt_legacy_20260710", "menu_tag", "pay_method_cfg", "opt_policy", "opt_policy_item", "menu_opt_policy", "menu_opt_override"]
 
 def parse() -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__)
