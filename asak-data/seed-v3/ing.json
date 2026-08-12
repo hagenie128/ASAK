@@ -538,5 +538,17 @@
     "name": "곡물밥x1.5",
     "type_id": 26,
     "sold_out": false
+  },
+  {
+    "id": 9816,
+    "name": "고추장제육",
+    "type_id": 27,
+    "sold_out": false
+  },
+  {
+    "id": 9817,
+    "name": "청양간장 드레싱",
+    "type_id": 28,
+    "sold_out": false
   }
 ]

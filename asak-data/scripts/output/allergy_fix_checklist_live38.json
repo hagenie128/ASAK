@@ -1,0 +1,4452 @@
+{
+  "source_of_truth": "allergy_260715.csv (적용범위=SALADY 우선)",
+  "live_mismatch_count": 36,
+  "items": [
+    {
+      "menu_id": 8065,
+      "menu_name": "BELT 시저 샌드위치",
+      "csv_allergens": [
+        "달걀",
+        "대두",
+        "돼지 고기",
+        "밀",
+        "아황산류 (10mg/kg 이상함유)",
+        "우유",
+        "토마토"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "돼지 고기",
+        "아황산류 (10mg/kg 이상함유)",
+        "우유",
+        "토마토"
+      ],
+      "missing_vs_csv": [
+        "밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "reason": "재료명에 '밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 143,
+          "ing_name": "베이컨",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "돼지 고기"
+          ]
+        },
+        {
+          "ing_id": 149,
+          "ing_name": "에그",
+          "is_default": true,
+          "allergens": [
+            "달걀"
+          ]
+        },
+        {
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 223,
+          "ing_name": "시저",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두",
+            "아황산류 (10mg/kg 이상함유)",
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "allergens": [
+            "토마토"
+          ]
+        },
+        {
+          "ing_id": 189,
+          "ing_name": "슈레드치즈",
+          "is_default": true,
+          "allergens": [
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 377,
+          "ing_name": "화이트치즈",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 6927,
+          "ing_name": "채소믹스",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 3523,
+      "menu_name": "고소삼겹 들기름파스타 누들볼",
+      "csv_allergens": [
+        "대두",
+        "돼지 고기",
+        "밀"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "돼지 고기",
+        "밀",
+        "소고기",
+        "조개류 (굴, 전복, 홍합포함)"
+      ],
+      "missing_vs_csv": [],
+      "extra_vs_csv": [
+        "달걀",
+        "소고기",
+        "조개류 (굴, 전복, 홍합포함)"
+      ],
+      "fix_add_allergen_to_ing": [],
+      "fix_remove_or_review_extra": [
+        {
+          "action": "REMOVE_ALLERGEN_FROM_ING_OR_REVIEW_MENU_ING",
+          "allergen": "달걀",
+          "ing_id": 89,
+          "ing_name": "오리엔탈",
+          "is_default": true,
+          "reason": "공식표에 없는 '달걀'가 이 재료에서 파생됨"
+        },
+        {
+          "action": "REMOVE_ALLERGEN_FROM_ING_OR_REVIEW_MENU_ING",
+          "allergen": "소고기",
+          "ing_id": 89,
+          "ing_name": "오리엔탈",
+          "is_default": true,
+          "reason": "공식표에 없는 '소고기'가 이 재료에서 파생됨"
+        },
+        {
+          "action": "REMOVE_ALLERGEN_FROM_ING_OR_REVIEW_MENU_ING",
+          "allergen": "조개류 (굴, 전복, 홍합포함)",
+          "ing_id": 89,
+          "ing_name": "오리엔탈",
+          "is_default": true,
+          "reason": "공식표에 없는 '조개류 (굴, 전복, 홍합포함)'가 이 재료에서 파생됨"
+        }
+      ],
+      "menu_ingredients": [
+        {
+          "ing_id": 3251,
+          "ing_name": "파스타면, 채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 89,
+          "ing_name": "오리엔탈",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두",
+            "밀",
+            "소고기",
+            "조개류 (굴, 전복, 홍합포함)"
+          ]
+        },
+        {
+          "ing_id": 146,
+          "ing_name": "로스트삼겹",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "돼지 고기"
+          ]
+        },
+        {
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 174,
+          "ing_name": "적채",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 166,
+          "ing_name": "머쉬룸",
+          "is_default": true,
+          "allergens": [
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 179,
+          "ing_name": "후리가케",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "밀"
+          ]
+        },
+        {
+          "ing_id": 219,
+          "ing_name": "(저당) 들기름소이",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "밀"
+          ]
+        }
+      ]
+    },
+    {
+      "menu_id": 10451,
+      "menu_name": "고소우삼겹 곡물랩",
+      "csv_allergens": [
+        "대두",
+        "밀",
+        "소고기",
+        "우유",
+        "조개류 (굴, 전복, 홍합포함)",
+        "호두"
+      ],
+      "derived_allergens": [
+        "대두",
+        "밀",
+        "소고기",
+        "조개류 (굴, 전복, 홍합포함)",
+        "호두"
+      ],
+      "missing_vs_csv": [
+        "우유"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 771,
+          "ing_name": "곡물, 채소",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 219,
+          "ing_name": "(저당) 들기름소이",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 138,
+          "ing_name": "우삼겹",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 182,
+          "ing_name": "견과류",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 174,
+          "ing_name": "적채",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 771,
+          "ing_name": "곡물, 채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 219,
+          "ing_name": "(저당) 들기름소이",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "밀"
+          ]
+        },
+        {
+          "ing_id": 138,
+          "ing_name": "우삼겹",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "밀",
+            "소고기",
+            "조개류 (굴, 전복, 홍합포함)"
+          ]
+        },
+        {
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 182,
+          "ing_name": "견과류",
+          "is_default": true,
+          "allergens": [
+            "호두"
+          ]
+        },
+        {
+          "ing_id": 174,
+          "ing_name": "적채",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 10324,
+      "menu_name": "그라브락스 연어 랩",
+      "csv_allergens": [
+        "대두",
+        "밀",
+        "우유",
+        "토마토"
+      ],
+      "derived_allergens": [
+        "대두",
+        "토마토"
+      ],
+      "missing_vs_csv": [
+        "밀",
+        "우유"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 108,
+          "ing_name": "크리미할라피뇨",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 127,
+          "ing_name": "그라브락스연어",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 108,
+          "ing_name": "크리미할라피뇨",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 127,
+          "ing_name": "그라브락스연어",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 108,
+          "ing_name": "크리미할라피뇨",
+          "is_default": true,
+          "allergens": [
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 127,
+          "ing_name": "그라브락스연어",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "allergens": [
+            "토마토"
+          ]
+        }
+      ]
+    },
+    {
+      "menu_id": 3249,
+      "menu_name": "그라브락스 연어 파스타 누들볼",
+      "csv_allergens": [
+        "대두",
+        "밀",
+        "우유"
+      ],
+      "derived_allergens": [
+        "우유"
+      ],
+      "missing_vs_csv": [
+        "대두",
+        "밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "대두",
+          "allergen_id": 43,
+          "ing_id": 3251,
+          "ing_name": "파스타면, 채소",
+          "is_default": true,
+          "reason": "공식표에 '대두' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "대두",
+          "allergen_id": 43,
+          "ing_id": 95,
+          "ing_name": "(저당) 발사믹",
+          "is_default": true,
+          "reason": "공식표에 '대두' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "대두",
+          "allergen_id": 43,
+          "ing_id": 127,
+          "ing_name": "그라브락스연어",
+          "is_default": true,
+          "reason": "공식표에 '대두' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "대두",
+          "allergen_id": 43,
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "reason": "공식표에 '대두' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "대두",
+          "allergen_id": 43,
+          "ing_id": 164,
+          "ing_name": "올리브",
+          "is_default": true,
+          "reason": "공식표에 '대두' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "대두",
+          "allergen_id": 43,
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "reason": "공식표에 '대두' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "대두",
+          "allergen_id": 43,
+          "ing_id": 208,
+          "ing_name": "바질페스토",
+          "is_default": true,
+          "reason": "공식표에 '대두' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 3251,
+          "ing_name": "파스타면, 채소",
+          "is_default": true,
+          "reason": "재료명에 '밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 3251,
+          "ing_name": "파스타면, 채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 95,
+          "ing_name": "(저당) 발사믹",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 127,
+          "ing_name": "그라브락스연어",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 164,
+          "ing_name": "올리브",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 208,
+          "ing_name": "바질페스토",
+          "is_default": true,
+          "allergens": [
+            "우유"
+          ]
+        }
+      ]
+    },
+    {
+      "menu_id": 768,
+      "menu_name": "그라브락스 연어 포케볼",
+      "csv_allergens": [
+        "대두",
+        "밀"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "밀"
+      ],
+      "missing_vs_csv": [],
+      "extra_vs_csv": [
+        "달걀"
+      ],
+      "fix_add_allergen_to_ing": [],
+      "fix_remove_or_review_extra": [
+        {
+          "action": "REMOVE_ALLERGEN_FROM_ING_OR_REVIEW_MENU_ING",
+          "allergen": "달걀",
+          "ing_id": 111,
+          "ing_name": "(저당) 참깨소이",
+          "is_default": true,
+          "reason": "공식표에 없는 '달걀'가 이 재료에서 파생됨"
+        }
+      ],
+      "menu_ingredients": [
+        {
+          "ing_id": 771,
+          "ing_name": "곡물, 채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 111,
+          "ing_name": "(저당) 참깨소이",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두",
+            "밀"
+          ]
+        },
+        {
+          "ing_id": 127,
+          "ing_name": "그라브락스연어",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 186,
+          "ing_name": "양파플레이크",
+          "is_default": true,
+          "allergens": [
+            "밀"
+          ]
+        },
+        {
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 174,
+          "ing_name": "적채",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 179,
+          "ing_name": "후리가케",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "밀"
+          ]
+        },
+        {
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 164,
+          "ing_name": "올리브",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 3664,
+      "menu_name": "닭다리살 MAX 프로틴 박스",
+      "csv_allergens": [
+        "닭고기",
+        "대두",
+        "밀",
+        "소고기",
+        "우유"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "우유"
+      ],
+      "missing_vs_csv": [
+        "닭고기",
+        "밀",
+        "소고기"
+      ],
+      "extra_vs_csv": [
+        "달걀"
+      ],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "닭고기",
+          "allergen_id": 50,
+          "ing_id": 3669,
+          "ing_name": "로스트닭다리살x3",
+          "is_default": true,
+          "reason": "재료명에 '닭고기' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        },
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 3666,
+          "ing_name": "곡물(1.5배), 채소",
+          "is_default": true,
+          "reason": "재료명에 '밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "소고기",
+          "allergen_id": 53,
+          "ing_id": 3666,
+          "ing_name": "곡물(1.5배), 채소",
+          "is_default": true,
+          "reason": "공식표에 '소고기' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "소고기",
+          "allergen_id": 53,
+          "ing_id": 96,
+          "ing_name": "(저당) 랜치",
+          "is_default": true,
+          "reason": "공식표에 '소고기' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "소고기",
+          "allergen_id": 53,
+          "ing_id": 3669,
+          "ing_name": "로스트닭다리살x3",
+          "is_default": true,
+          "reason": "공식표에 '소고기' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "소고기",
+          "allergen_id": 53,
+          "ing_id": 172,
+          "ing_name": "당근라페",
+          "is_default": true,
+          "reason": "공식표에 '소고기' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "소고기",
+          "allergen_id": 53,
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "reason": "공식표에 '소고기' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "소고기",
+          "allergen_id": 53,
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "reason": "공식표에 '소고기' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        }
+      ],
+      "fix_remove_or_review_extra": [
+        {
+          "action": "REMOVE_ALLERGEN_FROM_ING_OR_REVIEW_MENU_ING",
+          "allergen": "달걀",
+          "ing_id": 96,
+          "ing_name": "(저당) 랜치",
+          "is_default": true,
+          "reason": "공식표에 없는 '달걀'가 이 재료에서 파생됨"
+        }
+      ],
+      "menu_ingredients": [
+        {
+          "ing_id": 3666,
+          "ing_name": "곡물(1.5배), 채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 96,
+          "ing_name": "(저당) 랜치",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두",
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 3669,
+          "ing_name": "로스트닭다리살x3",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 172,
+          "ing_name": "당근라페",
+          "is_default": true,
+          "allergens": [
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 7851,
+      "menu_name": "더블 에그마요 샌드위치",
+      "csv_allergens": [
+        "달걀",
+        "대두",
+        "밀",
+        "우유",
+        "조개류 (굴, 전복, 홍합포함)"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "우유",
+        "조개류 (굴, 전복, 홍합포함)"
+      ],
+      "missing_vs_csv": [
+        "밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "reason": "재료명에 '밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 108,
+          "ing_name": "크리미할라피뇨",
+          "is_default": true,
+          "allergens": [
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 189,
+          "ing_name": "슈레드치즈",
+          "is_default": true,
+          "allergens": [
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 195,
+          "ing_name": "에그마요",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두",
+            "조개류 (굴, 전복, 홍합포함)"
+          ]
+        },
+        {
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 172,
+          "ing_name": "당근라페",
+          "is_default": true,
+          "allergens": [
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 164,
+          "ing_name": "올리브",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 6821,
+          "ing_name": "화이트치즈 (*채소믹스 미포함)",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 2114,
+      "menu_name": "랜치 콥 샐러디",
+      "csv_allergens": [
+        "달걀",
+        "닭고기",
+        "돼지 고기",
+        "토마토"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "닭고기",
+        "대두",
+        "우유",
+        "토마토"
+      ],
+      "missing_vs_csv": [
+        "돼지 고기"
+      ],
+      "extra_vs_csv": [
+        "대두",
+        "우유"
+      ],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "돼지 고기",
+          "allergen_id": 52,
+          "ing_id": 2118,
+          "ing_name": "잠봉",
+          "is_default": true,
+          "reason": "재료명에 '돼지 고기' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        }
+      ],
+      "fix_remove_or_review_extra": [
+        {
+          "action": "REMOVE_ALLERGEN_FROM_ING_OR_REVIEW_MENU_ING",
+          "allergen": "대두",
+          "ing_id": 96,
+          "ing_name": "(저당) 랜치",
+          "is_default": true,
+          "reason": "공식표에 없는 '대두'가 이 재료에서 파생됨"
+        },
+        {
+          "action": "REMOVE_ALLERGEN_FROM_ING_OR_REVIEW_MENU_ING",
+          "allergen": "우유",
+          "ing_id": 96,
+          "ing_name": "(저당) 랜치",
+          "is_default": true,
+          "reason": "공식표에 없는 '우유'가 이 재료에서 파생됨"
+        }
+      ],
+      "menu_ingredients": [
+        {
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 96,
+          "ing_name": "(저당) 랜치",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두",
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 2118,
+          "ing_name": "잠봉",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 125,
+          "ing_name": "닭가슴살",
+          "is_default": true,
+          "allergens": [
+            "닭고기"
+          ]
+        },
+        {
+          "ing_id": 149,
+          "ing_name": "에그",
+          "is_default": true,
+          "allergens": [
+            "달걀"
+          ]
+        },
+        {
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 164,
+          "ing_name": "올리브",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "allergens": [
+            "토마토"
+          ]
+        }
+      ]
+    },
+    {
+      "menu_id": 5855,
+      "menu_name": "로스트닭다리살 샐러디",
+      "csv_allergens": [
+        "닭고기",
+        "대두",
+        "밀",
+        "소고기",
+        "우유",
+        "토마토"
+      ],
+      "derived_allergens": [
+        "고등어",
+        "달걀",
+        "닭고기",
+        "대두",
+        "밀",
+        "소고기",
+        "우유",
+        "토마토"
+      ],
+      "missing_vs_csv": [],
+      "extra_vs_csv": [
+        "고등어",
+        "달걀"
+      ],
+      "fix_add_allergen_to_ing": [],
+      "fix_remove_or_review_extra": [
+        {
+          "action": "REMOVE_ALLERGEN_FROM_ING_OR_REVIEW_MENU_ING",
+          "allergen": "고등어",
+          "ing_id": 199,
+          "ing_name": "스윗포테이토",
+          "is_default": true,
+          "reason": "공식표에 없는 '고등어'가 이 재료에서 파생됨"
+        },
+        {
+          "action": "REMOVE_ALLERGEN_FROM_ING_OR_REVIEW_MENU_ING",
+          "allergen": "달걀",
+          "ing_id": 199,
+          "ing_name": "스윗포테이토",
+          "is_default": true,
+          "reason": "공식표에 없는 '달걀'가 이 재료에서 파생됨"
+        }
+      ],
+      "menu_ingredients": [
+        {
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 108,
+          "ing_name": "크리미할라피뇨",
+          "is_default": true,
+          "allergens": [
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 128,
+          "ing_name": "로스트닭다리살",
+          "is_default": true,
+          "allergens": [
+            "닭고기",
+            "대두",
+            "밀",
+            "소고기",
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 199,
+          "ing_name": "스윗포테이토",
+          "is_default": true,
+          "allergens": [
+            "고등어",
+            "달걀",
+            "대두",
+            "밀"
+          ]
+        },
+        {
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 165,
+          "ing_name": "할라피뇨",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "allergens": [
+            "토마토"
+          ]
+        },
+        {
+          "ing_id": 186,
+          "ing_name": "양파플레이크",
+          "is_default": true,
+          "allergens": [
+            "밀"
+          ]
+        }
+      ]
+    },
+    {
+      "menu_id": 2534,
+      "menu_name": "로스트삼겹 포케볼",
+      "csv_allergens": [
+        "대두",
+        "돼지 고기",
+        "밀"
+      ],
+      "derived_allergens": [
+        "대두",
+        "돼지 고기",
+        "밀",
+        "소고기",
+        "조개류 (굴, 전복, 홍합포함)"
+      ],
+      "missing_vs_csv": [],
+      "extra_vs_csv": [
+        "소고기",
+        "조개류 (굴, 전복, 홍합포함)"
+      ],
+      "fix_add_allergen_to_ing": [],
+      "fix_remove_or_review_extra": [
+        {
+          "action": "REMOVE_ALLERGEN_FROM_ING_OR_REVIEW_MENU_ING",
+          "allergen": "소고기",
+          "ing_id": 100,
+          "ing_name": "고추장비빔",
+          "is_default": true,
+          "reason": "공식표에 없는 '소고기'가 이 재료에서 파생됨"
+        },
+        {
+          "action": "REMOVE_ALLERGEN_FROM_ING_OR_REVIEW_MENU_ING",
+          "allergen": "조개류 (굴, 전복, 홍합포함)",
+          "ing_id": 100,
+          "ing_name": "고추장비빔",
+          "is_default": true,
+          "reason": "공식표에 없는 '조개류 (굴, 전복, 홍합포함)'가 이 재료에서 파생됨"
+        }
+      ],
+      "menu_ingredients": [
+        {
+          "ing_id": 771,
+          "ing_name": "곡물, 채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 100,
+          "ing_name": "고추장비빔",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "밀",
+            "소고기",
+            "조개류 (굴, 전복, 홍합포함)"
+          ]
+        },
+        {
+          "ing_id": 146,
+          "ing_name": "로스트삼겹",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "돼지 고기"
+          ]
+        },
+        {
+          "ing_id": 166,
+          "ing_name": "머쉬룸",
+          "is_default": true,
+          "allergens": [
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 186,
+          "ing_name": "양파플레이크",
+          "is_default": true,
+          "allergens": [
+            "밀"
+          ]
+        },
+        {
+          "ing_id": 179,
+          "ing_name": "후리가케",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "밀"
+          ]
+        },
+        {
+          "ing_id": 174,
+          "ing_name": "적채",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 5603,
+      "menu_name": "메밀면볼",
+      "csv_allergens": [
+        "달걀",
+        "대두",
+        "메밀",
+        "밀"
+      ],
+      "derived_allergens": [],
+      "missing_vs_csv": [
+        "달걀",
+        "대두",
+        "메밀",
+        "밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 1571,
+          "ing_name": "메밀면, 채소",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "대두",
+          "allergen_id": 43,
+          "ing_id": 1571,
+          "ing_name": "메밀면, 채소",
+          "is_default": true,
+          "reason": "공식표에 '대두' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "메밀",
+          "allergen_id": 46,
+          "ing_id": 1571,
+          "ing_name": "메밀면, 채소",
+          "is_default": true,
+          "reason": "재료명에 '메밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        },
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 1571,
+          "ing_name": "메밀면, 채소",
+          "is_default": true,
+          "reason": "재료명에 '밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 1571,
+          "ing_name": "메밀면, 채소",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 6422,
+      "menu_name": "멕시칸 랩",
+      "csv_allergens": [
+        "달걀",
+        "대두",
+        "돼지 고기",
+        "밀",
+        "소고기",
+        "우유"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "돼지 고기",
+        "소고기",
+        "우유"
+      ],
+      "missing_vs_csv": [
+        "밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 105,
+          "ing_name": "크리미칠리",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 134,
+          "ing_name": "그라운드비프",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 184,
+          "ing_name": "나쵸칩",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 205,
+          "ing_name": "사워크림",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 105,
+          "ing_name": "크리미칠리",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 134,
+          "ing_name": "그라운드비프",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "돼지 고기",
+            "소고기"
+          ]
+        },
+        {
+          "ing_id": 184,
+          "ing_name": "나쵸칩",
+          "is_default": true,
+          "allergens": [
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 205,
+          "ing_name": "사워크림",
+          "is_default": true,
+          "allergens": [
+            "소고기",
+            "우유"
+          ]
+        }
+      ]
+    },
+    {
+      "menu_id": 6811,
+      "menu_name": "멜팅치즈 치킨 샌드위치",
+      "csv_allergens": [
+        "달걀",
+        "닭고기",
+        "대두",
+        "돼지 고기",
+        "밀",
+        "아황산류 (10mg/kg 이상함유)",
+        "우유"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "닭고기",
+        "대두",
+        "돼지 고기",
+        "아황산류 (10mg/kg 이상함유)",
+        "우유"
+      ],
+      "missing_vs_csv": [
+        "밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "reason": "재료명에 '밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 223,
+          "ing_name": "시저",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두",
+            "아황산류 (10mg/kg 이상함유)",
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 125,
+          "ing_name": "닭가슴살",
+          "is_default": true,
+          "allergens": [
+            "닭고기"
+          ]
+        },
+        {
+          "ing_id": 193,
+          "ing_name": "몬테레이치즈",
+          "is_default": true,
+          "allergens": [
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 143,
+          "ing_name": "베이컨",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "돼지 고기"
+          ]
+        },
+        {
+          "ing_id": 189,
+          "ing_name": "슈레드치즈",
+          "is_default": true,
+          "allergens": [
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 6821,
+          "ing_name": "화이트치즈 (*채소믹스 미포함)",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 7160,
+      "menu_name": "멜팅치즈 핫쉬림프 샌드위치",
+      "csv_allergens": [
+        "달걀",
+        "대두",
+        "밀",
+        "새우",
+        "소고기",
+        "우유"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "새우",
+        "소고기",
+        "우유"
+      ],
+      "missing_vs_csv": [
+        "밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "reason": "재료명에 '밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 105,
+          "ing_name": "크리미칠리",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 155,
+          "ing_name": "케이준쉬림프",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "새우",
+            "소고기"
+          ]
+        },
+        {
+          "ing_id": 193,
+          "ing_name": "몬테레이치즈",
+          "is_default": true,
+          "allergens": [
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 165,
+          "ing_name": "할라피뇨",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 189,
+          "ing_name": "슈레드치즈",
+          "is_default": true,
+          "allergens": [
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 6821,
+          "ing_name": "화이트치즈 (*채소믹스 미포함)",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 4711,
+      "menu_name": "바베큐닭다리살 곡물랩",
+      "csv_allergens": [
+        "달걀",
+        "닭고기",
+        "대두",
+        "밀",
+        "소고기",
+        "우유",
+        "토마토"
+      ],
+      "derived_allergens": [
+        "닭고기",
+        "대두",
+        "밀",
+        "소고기",
+        "우유",
+        "토마토"
+      ],
+      "missing_vs_csv": [
+        "달걀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 771,
+          "ing_name": "곡물, 채소",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 128,
+          "ing_name": "로스트닭다리살",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 174,
+          "ing_name": "적채",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 189,
+          "ing_name": "슈레드치즈",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 210,
+          "ing_name": "바베큐소스",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 771,
+          "ing_name": "곡물, 채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 128,
+          "ing_name": "로스트닭다리살",
+          "is_default": true,
+          "allergens": [
+            "닭고기",
+            "대두",
+            "밀",
+            "소고기",
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 174,
+          "ing_name": "적채",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 189,
+          "ing_name": "슈레드치즈",
+          "is_default": true,
+          "allergens": [
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "allergens": [
+            "토마토"
+          ]
+        },
+        {
+          "ing_id": 210,
+          "ing_name": "바베큐소스",
+          "is_default": true,
+          "allergens": [
+            "닭고기",
+            "대두",
+            "밀",
+            "소고기"
+          ]
+        }
+      ]
+    },
+    {
+      "menu_id": 7636,
+      "menu_name": "바질 카프레제 샌드위치",
+      "csv_allergens": [
+        "달걀",
+        "대두",
+        "밀",
+        "아황산류 (10mg/kg 이상함유)",
+        "우유",
+        "토마토"
+      ],
+      "derived_allergens": [
+        "아황산류 (10mg/kg 이상함유)",
+        "우유",
+        "토마토"
+      ],
+      "missing_vs_csv": [
+        "달걀",
+        "대두",
+        "밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 208,
+          "ing_name": "바질페스토",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 175,
+          "ing_name": "드라이토마토",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 193,
+          "ing_name": "몬테레이치즈",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 377,
+          "ing_name": "화이트치즈",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 6927,
+          "ing_name": "채소믹스",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "대두",
+          "allergen_id": 43,
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "reason": "공식표에 '대두' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "대두",
+          "allergen_id": 43,
+          "ing_id": 208,
+          "ing_name": "바질페스토",
+          "is_default": true,
+          "reason": "공식표에 '대두' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "대두",
+          "allergen_id": 43,
+          "ing_id": 175,
+          "ing_name": "드라이토마토",
+          "is_default": true,
+          "reason": "공식표에 '대두' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "대두",
+          "allergen_id": 43,
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "reason": "공식표에 '대두' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "대두",
+          "allergen_id": 43,
+          "ing_id": 193,
+          "ing_name": "몬테레이치즈",
+          "is_default": true,
+          "reason": "공식표에 '대두' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "대두",
+          "allergen_id": 43,
+          "ing_id": 377,
+          "ing_name": "화이트치즈",
+          "is_default": true,
+          "reason": "공식표에 '대두' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "대두",
+          "allergen_id": 43,
+          "ing_id": 6927,
+          "ing_name": "채소믹스",
+          "is_default": true,
+          "reason": "공식표에 '대두' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "reason": "재료명에 '밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 208,
+          "ing_name": "바질페스토",
+          "is_default": true,
+          "allergens": [
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 175,
+          "ing_name": "드라이토마토",
+          "is_default": true,
+          "allergens": [
+            "아황산류 (10mg/kg 이상함유)",
+            "토마토"
+          ]
+        },
+        {
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "allergens": [
+            "토마토"
+          ]
+        },
+        {
+          "ing_id": 193,
+          "ing_name": "몬테레이치즈",
+          "is_default": true,
+          "allergens": [
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 377,
+          "ing_name": "화이트치즈",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 6927,
+          "ing_name": "채소믹스",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 5352,
+      "menu_name": "바질치킨 랩",
+      "csv_allergens": [
+        "달걀",
+        "닭고기",
+        "대두",
+        "밀",
+        "아황산류 (10mg/kg 이상함유)",
+        "우유"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "닭고기",
+        "대두",
+        "아황산류 (10mg/kg 이상함유)",
+        "우유"
+      ],
+      "missing_vs_csv": [
+        "밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 223,
+          "ing_name": "시저",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 125,
+          "ing_name": "닭가슴살",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 208,
+          "ing_name": "바질페스토",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 188,
+          "ing_name": "크랜베리",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 223,
+          "ing_name": "시저",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두",
+            "아황산류 (10mg/kg 이상함유)",
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 125,
+          "ing_name": "닭가슴살",
+          "is_default": true,
+          "allergens": [
+            "닭고기"
+          ]
+        },
+        {
+          "ing_id": 208,
+          "ing_name": "바질페스토",
+          "is_default": true,
+          "allergens": [
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 188,
+          "ing_name": "크랜베리",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 6918,
+      "menu_name": "불고기 반미 샌드위치",
+      "csv_allergens": [
+        "달걀",
+        "대두",
+        "밀",
+        "소고기",
+        "우유",
+        "조개류 (굴, 전복, 홍합포함)"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "밀",
+        "소고기",
+        "조개류 (굴, 전복, 홍합포함)"
+      ],
+      "missing_vs_csv": [
+        "우유"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 377,
+          "ing_name": "화이트치즈",
+          "is_default": true,
+          "reason": "재료명에 '우유' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 105,
+          "ing_name": "크리미칠리",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 138,
+          "ing_name": "우삼겹",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "밀",
+            "소고기",
+            "조개류 (굴, 전복, 홍합포함)"
+          ]
+        },
+        {
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 174,
+          "ing_name": "적채",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 172,
+          "ing_name": "당근라페",
+          "is_default": true,
+          "allergens": [
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 377,
+          "ing_name": "화이트치즈",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 6927,
+          "ing_name": "채소믹스",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 3388,
+      "menu_name": "비빔메밀면 누들볼",
+      "csv_allergens": [
+        "달걀",
+        "대두",
+        "메밀",
+        "밀"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "밀",
+        "소고기",
+        "조개류 (굴, 전복, 홍합포함)"
+      ],
+      "missing_vs_csv": [
+        "메밀"
+      ],
+      "extra_vs_csv": [
+        "소고기",
+        "조개류 (굴, 전복, 홍합포함)"
+      ],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "메밀",
+          "allergen_id": 46,
+          "ing_id": 1571,
+          "ing_name": "메밀면, 채소",
+          "is_default": true,
+          "reason": "재료명에 '메밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        }
+      ],
+      "fix_remove_or_review_extra": [
+        {
+          "action": "REMOVE_ALLERGEN_FROM_ING_OR_REVIEW_MENU_ING",
+          "allergen": "소고기",
+          "ing_id": 100,
+          "ing_name": "고추장비빔",
+          "is_default": true,
+          "reason": "공식표에 없는 '소고기'가 이 재료에서 파생됨"
+        },
+        {
+          "action": "REMOVE_ALLERGEN_FROM_ING_OR_REVIEW_MENU_ING",
+          "allergen": "조개류 (굴, 전복, 홍합포함)",
+          "ing_id": 100,
+          "ing_name": "고추장비빔",
+          "is_default": true,
+          "reason": "공식표에 없는 '조개류 (굴, 전복, 홍합포함)'가 이 재료에서 파생됨"
+        }
+      ],
+      "menu_ingredients": [
+        {
+          "ing_id": 1571,
+          "ing_name": "메밀면, 채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 100,
+          "ing_name": "고추장비빔",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "밀",
+            "소고기",
+            "조개류 (굴, 전복, 홍합포함)"
+          ]
+        },
+        {
+          "ing_id": 149,
+          "ing_name": "에그",
+          "is_default": true,
+          "allergens": [
+            "달걀"
+          ]
+        },
+        {
+          "ing_id": 174,
+          "ing_name": "적채",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 179,
+          "ing_name": "후리가케",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "밀"
+          ]
+        }
+      ]
+    },
+    {
+      "menu_id": 8196,
+      "menu_name": "스파이시 쉬림프 샌드위치",
+      "csv_allergens": [
+        "달걀",
+        "대두",
+        "밀",
+        "새우",
+        "소고기",
+        "우유",
+        "토마토"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "새우",
+        "소고기",
+        "우유",
+        "토마토"
+      ],
+      "missing_vs_csv": [
+        "밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "reason": "재료명에 '밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 105,
+          "ing_name": "크리미칠리",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 155,
+          "ing_name": "케이준쉬림프",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "새우",
+            "소고기"
+          ]
+        },
+        {
+          "ing_id": 165,
+          "ing_name": "할라피뇨",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "allergens": [
+            "토마토"
+          ]
+        },
+        {
+          "ing_id": 189,
+          "ing_name": "슈레드치즈",
+          "is_default": true,
+          "allergens": [
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 377,
+          "ing_name": "화이트치즈",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 6927,
+          "ing_name": "채소믹스",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 10069,
+      "menu_name": "시저치킨 랩",
+      "csv_allergens": [
+        "달걀",
+        "닭고기",
+        "대두",
+        "밀",
+        "아황산류 (10mg/kg 이상함유)",
+        "우유"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "닭고기",
+        "대두",
+        "아황산류 (10mg/kg 이상함유)",
+        "우유"
+      ],
+      "missing_vs_csv": [
+        "밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 223,
+          "ing_name": "시저",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 125,
+          "ing_name": "닭가슴살",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 188,
+          "ing_name": "크랜베리",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 223,
+          "ing_name": "시저",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두",
+            "아황산류 (10mg/kg 이상함유)",
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 125,
+          "ing_name": "닭가슴살",
+          "is_default": true,
+          "allergens": [
+            "닭고기"
+          ]
+        },
+        {
+          "ing_id": 188,
+          "ing_name": "크랜베리",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 9941,
+      "menu_name": "에그마요 랩",
+      "csv_allergens": [
+        "달걀",
+        "대두",
+        "돼지 고기",
+        "밀",
+        "우유",
+        "조개류 (굴, 전복, 홍합포함)"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "돼지 고기",
+        "조개류 (굴, 전복, 홍합포함)"
+      ],
+      "missing_vs_csv": [
+        "밀",
+        "우유"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 4319,
+          "ing_name": "*채소 미포함",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 108,
+          "ing_name": "크리미할라피뇨",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 195,
+          "ing_name": "에그마요",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 143,
+          "ing_name": "베이컨",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 184,
+          "ing_name": "나쵸칩",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 195,
+          "ing_name": "에그마요",
+          "is_default": true,
+          "reason": "재료명에 '우유' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 4319,
+          "ing_name": "*채소 미포함",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 108,
+          "ing_name": "크리미할라피뇨",
+          "is_default": true,
+          "allergens": [
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 195,
+          "ing_name": "에그마요",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두",
+            "조개류 (굴, 전복, 홍합포함)"
+          ]
+        },
+        {
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 143,
+          "ing_name": "베이컨",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "돼지 고기"
+          ]
+        },
+        {
+          "ing_id": 184,
+          "ing_name": "나쵸칩",
+          "is_default": true,
+          "allergens": [
+            "대두"
+          ]
+        }
+      ]
+    },
+    {
+      "menu_id": 3925,
+      "menu_name": "우삼겹 MAX 프로틴 박스",
+      "csv_allergens": [
+        "대두",
+        "밀",
+        "소고기",
+        "조개류 (굴, 전복, 홍합포함)"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "밀"
+      ],
+      "missing_vs_csv": [
+        "소고기",
+        "조개류 (굴, 전복, 홍합포함)"
+      ],
+      "extra_vs_csv": [
+        "달걀"
+      ],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "소고기",
+          "allergen_id": 53,
+          "ing_id": 3929,
+          "ing_name": "우삼겹x3",
+          "is_default": true,
+          "reason": "재료명에 '소고기' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "조개류 (굴, 전복, 홍합포함)",
+          "allergen_id": 55,
+          "ing_id": 3666,
+          "ing_name": "곡물(1.5배), 채소",
+          "is_default": true,
+          "reason": "공식표에 '조개류 (굴, 전복, 홍합포함)' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "조개류 (굴, 전복, 홍합포함)",
+          "allergen_id": 55,
+          "ing_id": 111,
+          "ing_name": "(저당) 참깨소이",
+          "is_default": true,
+          "reason": "공식표에 '조개류 (굴, 전복, 홍합포함)' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "조개류 (굴, 전복, 홍합포함)",
+          "allergen_id": 55,
+          "ing_id": 3929,
+          "ing_name": "우삼겹x3",
+          "is_default": true,
+          "reason": "공식표에 '조개류 (굴, 전복, 홍합포함)' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "조개류 (굴, 전복, 홍합포함)",
+          "allergen_id": 55,
+          "ing_id": 172,
+          "ing_name": "당근라페",
+          "is_default": true,
+          "reason": "공식표에 '조개류 (굴, 전복, 홍합포함)' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "조개류 (굴, 전복, 홍합포함)",
+          "allergen_id": 55,
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "reason": "공식표에 '조개류 (굴, 전복, 홍합포함)' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "조개류 (굴, 전복, 홍합포함)",
+          "allergen_id": 55,
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "reason": "공식표에 '조개류 (굴, 전복, 홍합포함)' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        }
+      ],
+      "fix_remove_or_review_extra": [
+        {
+          "action": "REMOVE_ALLERGEN_FROM_ING_OR_REVIEW_MENU_ING",
+          "allergen": "달걀",
+          "ing_id": 111,
+          "ing_name": "(저당) 참깨소이",
+          "is_default": true,
+          "reason": "공식표에 없는 '달걀'가 이 재료에서 파생됨"
+        }
+      ],
+      "menu_ingredients": [
+        {
+          "ing_id": 3666,
+          "ing_name": "곡물(1.5배), 채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 111,
+          "ing_name": "(저당) 참깨소이",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두",
+            "밀"
+          ]
+        },
+        {
+          "ing_id": 3929,
+          "ing_name": "우삼겹x3",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 172,
+          "ing_name": "당근라페",
+          "is_default": true,
+          "allergens": [
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 1568,
+      "menu_name": "우삼겹메밀면 누들볼",
+      "csv_allergens": [
+        "달걀",
+        "대두",
+        "메밀",
+        "밀",
+        "소고기",
+        "조개류 (굴, 전복, 홍합포함)",
+        "호두"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "밀",
+        "소고기",
+        "조개류 (굴, 전복, 홍합포함)",
+        "호두"
+      ],
+      "missing_vs_csv": [
+        "메밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "메밀",
+          "allergen_id": 46,
+          "ing_id": 1571,
+          "ing_name": "메밀면, 채소",
+          "is_default": true,
+          "reason": "재료명에 '메밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 1571,
+          "ing_name": "메밀면, 채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 89,
+          "ing_name": "오리엔탈",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두",
+            "밀",
+            "소고기",
+            "조개류 (굴, 전복, 홍합포함)"
+          ]
+        },
+        {
+          "ing_id": 138,
+          "ing_name": "우삼겹",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "밀",
+            "소고기",
+            "조개류 (굴, 전복, 홍합포함)"
+          ]
+        },
+        {
+          "ing_id": 174,
+          "ing_name": "적채",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 182,
+          "ing_name": "견과류",
+          "is_default": true,
+          "allergens": [
+            "호두"
+          ]
+        }
+      ]
+    },
+    {
+      "menu_id": 7958,
+      "menu_name": "이탈리안 피자 샌드위치",
+      "csv_allergens": [
+        "달걀",
+        "대두",
+        "돼지 고기",
+        "밀",
+        "아황산류 (10mg/kg 이상함유)",
+        "우유",
+        "토마토"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "아황산류 (10mg/kg 이상함유)",
+        "우유",
+        "토마토"
+      ],
+      "missing_vs_csv": [
+        "돼지 고기",
+        "밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "돼지 고기",
+          "allergen_id": 52,
+          "ing_id": 2118,
+          "ing_name": "잠봉",
+          "is_default": true,
+          "reason": "재료명에 '돼지 고기' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        },
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "reason": "재료명에 '밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 223,
+          "ing_name": "시저",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두",
+            "아황산류 (10mg/kg 이상함유)",
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 175,
+          "ing_name": "드라이토마토",
+          "is_default": true,
+          "allergens": [
+            "아황산류 (10mg/kg 이상함유)",
+            "토마토"
+          ]
+        },
+        {
+          "ing_id": 2118,
+          "ing_name": "잠봉",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 193,
+          "ing_name": "몬테레이치즈",
+          "is_default": true,
+          "allergens": [
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 164,
+          "ing_name": "올리브",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 6821,
+          "ing_name": "화이트치즈 (*채소믹스 미포함)",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 4185,
+      "menu_name": "잠봉 샌드위치",
+      "csv_allergens": [
+        "달걀",
+        "대두",
+        "돼지 고기",
+        "밀",
+        "우유",
+        "토마토"
+      ],
+      "derived_allergens": [
+        "대두",
+        "우유",
+        "토마토"
+      ],
+      "missing_vs_csv": [
+        "달걀",
+        "돼지 고기",
+        "밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 108,
+          "ing_name": "크리미할라피뇨",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 2118,
+          "ing_name": "잠봉",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 189,
+          "ing_name": "슈레드치즈",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 377,
+          "ing_name": "화이트치즈",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "돼지 고기",
+          "allergen_id": 52,
+          "ing_id": 2118,
+          "ing_name": "잠봉",
+          "is_default": true,
+          "reason": "재료명에 '돼지 고기' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 108,
+          "ing_name": "크리미할라피뇨",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 2118,
+          "ing_name": "잠봉",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 189,
+          "ing_name": "슈레드치즈",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 377,
+          "ing_name": "화이트치즈",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 108,
+          "ing_name": "크리미할라피뇨",
+          "is_default": true,
+          "allergens": [
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 2118,
+          "ing_name": "잠봉",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "allergens": [
+            "토마토"
+          ]
+        },
+        {
+          "ing_id": 189,
+          "ing_name": "슈레드치즈",
+          "is_default": true,
+          "allergens": [
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 377,
+          "ing_name": "화이트치즈",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 3794,
+      "menu_name": "치킨 MAX 프로틴 파스타",
+      "csv_allergens": [
+        "닭고기",
+        "대두",
+        "돼지 고기",
+        "밀",
+        "우유"
+      ],
+      "derived_allergens": [
+        "대두",
+        "돼지 고기"
+      ],
+      "missing_vs_csv": [
+        "닭고기",
+        "밀",
+        "우유"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "닭고기",
+          "allergen_id": 50,
+          "ing_id": 3799,
+          "ing_name": "닭가슴살x3",
+          "is_default": true,
+          "reason": "재료명에 '닭고기' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        },
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 3796,
+          "ing_name": "바질 파스타면(2배), 채소",
+          "is_default": true,
+          "reason": "재료명에 '밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 3796,
+          "ing_name": "바질 파스타면(2배), 채소",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 110,
+          "ing_name": "(저당) 레몬허브",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 3799,
+          "ing_name": "닭가슴살x3",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 143,
+          "ing_name": "베이컨",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 172,
+          "ing_name": "당근라페",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 3796,
+          "ing_name": "바질 파스타면(2배), 채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 110,
+          "ing_name": "(저당) 레몬허브",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 3799,
+          "ing_name": "닭가슴살x3",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 143,
+          "ing_name": "베이컨",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "돼지 고기"
+          ]
+        },
+        {
+          "ing_id": 172,
+          "ing_name": "당근라페",
+          "is_default": true,
+          "allergens": [
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 6683,
+      "menu_name": "칠리베이컨 곡물랩",
+      "csv_allergens": [
+        "달걀",
+        "대두",
+        "돼지 고기",
+        "밀",
+        "우유"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "돼지 고기",
+        "밀"
+      ],
+      "missing_vs_csv": [
+        "우유"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 771,
+          "ing_name": "곡물, 채소",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 105,
+          "ing_name": "크리미칠리",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 149,
+          "ing_name": "에그",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 143,
+          "ing_name": "베이컨",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 186,
+          "ing_name": "양파플레이크",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 771,
+          "ing_name": "곡물, 채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 105,
+          "ing_name": "크리미칠리",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 149,
+          "ing_name": "에그",
+          "is_default": true,
+          "allergens": [
+            "달걀"
+          ]
+        },
+        {
+          "ing_id": 143,
+          "ing_name": "베이컨",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "돼지 고기"
+          ]
+        },
+        {
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 186,
+          "ing_name": "양파플레이크",
+          "is_default": true,
+          "allergens": [
+            "밀"
+          ]
+        }
+      ]
+    },
+    {
+      "menu_id": 7264,
+      "menu_name": "클래식 치킨 샌드위치",
+      "csv_allergens": [
+        "달걀",
+        "닭고기",
+        "대두",
+        "밀",
+        "아황산류 (10mg/kg 이상함유)",
+        "우유",
+        "토마토"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "닭고기",
+        "대두",
+        "아황산류 (10mg/kg 이상함유)",
+        "우유",
+        "토마토"
+      ],
+      "missing_vs_csv": [
+        "밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "reason": "재료명에 '밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 223,
+          "ing_name": "시저",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두",
+            "아황산류 (10mg/kg 이상함유)",
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 125,
+          "ing_name": "닭가슴살",
+          "is_default": true,
+          "allergens": [
+            "닭고기"
+          ]
+        },
+        {
+          "ing_id": 188,
+          "ing_name": "크랜베리",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "allergens": [
+            "토마토"
+          ]
+        },
+        {
+          "ing_id": 377,
+          "ing_name": "화이트치즈",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 6927,
+          "ing_name": "채소믹스",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 6550,
+      "menu_name": "타코 쉬림프 랩",
+      "csv_allergens": [
+        "달걀",
+        "대두",
+        "밀",
+        "새우",
+        "소고기",
+        "우유",
+        "토마토"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "새우",
+        "소고기",
+        "우유",
+        "토마토"
+      ],
+      "missing_vs_csv": [
+        "밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 228,
+          "ing_name": "허니머스타드",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 155,
+          "ing_name": "케이준쉬림프",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 165,
+          "ing_name": "할라피뇨",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 184,
+          "ing_name": "나쵸칩",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 205,
+          "ing_name": "사워크림",
+          "is_default": true,
+          "reason": "공식표에 '밀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 228,
+          "ing_name": "허니머스타드",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 155,
+          "ing_name": "케이준쉬림프",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "새우",
+            "소고기"
+          ]
+        },
+        {
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 165,
+          "ing_name": "할라피뇨",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "allergens": [
+            "토마토"
+          ]
+        },
+        {
+          "ing_id": 184,
+          "ing_name": "나쵸칩",
+          "is_default": true,
+          "allergens": [
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 205,
+          "ing_name": "사워크림",
+          "is_default": true,
+          "allergens": [
+            "소고기",
+            "우유"
+          ]
+        }
+      ]
+    },
+    {
+      "menu_id": 2393,
+      "menu_name": "타코 쉬림프 샐러디",
+      "csv_allergens": [
+        "대두",
+        "돼지 고기",
+        "새우",
+        "소고기",
+        "우유"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "돼지 고기",
+        "새우",
+        "소고기",
+        "우유"
+      ],
+      "missing_vs_csv": [],
+      "extra_vs_csv": [
+        "달걀"
+      ],
+      "fix_add_allergen_to_ing": [],
+      "fix_remove_or_review_extra": [
+        {
+          "action": "REMOVE_ALLERGEN_FROM_ING_OR_REVIEW_MENU_ING",
+          "allergen": "달걀",
+          "ing_id": 105,
+          "ing_name": "크리미칠리",
+          "is_default": true,
+          "reason": "공식표에 없는 '달걀'가 이 재료에서 파생됨"
+        }
+      ],
+      "menu_ingredients": [
+        {
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 105,
+          "ing_name": "크리미칠리",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 155,
+          "ing_name": "케이준쉬림프",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "새우",
+            "소고기"
+          ]
+        },
+        {
+          "ing_id": 165,
+          "ing_name": "할라피뇨",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 134,
+          "ing_name": "그라운드비프",
+          "is_default": true,
+          "allergens": [
+            "대두",
+            "돼지 고기",
+            "소고기"
+          ]
+        },
+        {
+          "ing_id": 184,
+          "ing_name": "나쵸칩",
+          "is_default": true,
+          "allergens": [
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 205,
+          "ing_name": "사워크림",
+          "is_default": true,
+          "allergens": [
+            "소고기",
+            "우유"
+          ]
+        }
+      ]
+    },
+    {
+      "menu_id": 1978,
+      "menu_name": "탄단지 샐러디",
+      "csv_allergens": [
+        "고등어",
+        "달걀",
+        "닭고기",
+        "대두",
+        "밀",
+        "호두"
+      ],
+      "derived_allergens": [
+        "고등어",
+        "달걀",
+        "닭고기",
+        "대두",
+        "밀",
+        "소고기",
+        "조개류 (굴, 전복, 홍합포함)",
+        "호두"
+      ],
+      "missing_vs_csv": [],
+      "extra_vs_csv": [
+        "소고기",
+        "조개류 (굴, 전복, 홍합포함)"
+      ],
+      "fix_add_allergen_to_ing": [],
+      "fix_remove_or_review_extra": [
+        {
+          "action": "REMOVE_ALLERGEN_FROM_ING_OR_REVIEW_MENU_ING",
+          "allergen": "소고기",
+          "ing_id": 89,
+          "ing_name": "오리엔탈",
+          "is_default": true,
+          "reason": "공식표에 없는 '소고기'가 이 재료에서 파생됨"
+        },
+        {
+          "action": "REMOVE_ALLERGEN_FROM_ING_OR_REVIEW_MENU_ING",
+          "allergen": "조개류 (굴, 전복, 홍합포함)",
+          "ing_id": 89,
+          "ing_name": "오리엔탈",
+          "is_default": true,
+          "reason": "공식표에 없는 '조개류 (굴, 전복, 홍합포함)'가 이 재료에서 파생됨"
+        }
+      ],
+      "menu_ingredients": [
+        {
+          "ing_id": 367,
+          "ing_name": "채소",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 89,
+          "ing_name": "오리엔탈",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두",
+            "밀",
+            "소고기",
+            "조개류 (굴, 전복, 홍합포함)"
+          ]
+        },
+        {
+          "ing_id": 125,
+          "ing_name": "닭가슴살",
+          "is_default": true,
+          "allergens": [
+            "닭고기"
+          ]
+        },
+        {
+          "ing_id": 188,
+          "ing_name": "크랜베리",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 199,
+          "ing_name": "스윗포테이토",
+          "is_default": true,
+          "allergens": [
+            "고등어",
+            "달걀",
+            "대두",
+            "밀"
+          ]
+        },
+        {
+          "ing_id": 182,
+          "ing_name": "견과류",
+          "is_default": true,
+          "allergens": [
+            "호두"
+          ]
+        }
+      ]
+    },
+    {
+      "menu_id": 5664,
+      "menu_name": "파스타볼",
+      "csv_allergens": [
+        "대두",
+        "밀",
+        "우유"
+      ],
+      "derived_allergens": [],
+      "missing_vs_csv": [
+        "대두",
+        "밀",
+        "우유"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "대두",
+          "allergen_id": 43,
+          "ing_id": 3251,
+          "ing_name": "파스타면, 채소",
+          "is_default": true,
+          "reason": "공식표에 '대두' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 3251,
+          "ing_name": "파스타면, 채소",
+          "is_default": true,
+          "reason": "재료명에 '밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "우유",
+          "allergen_id": 47,
+          "ing_id": 3251,
+          "ing_name": "파스타면, 채소",
+          "is_default": true,
+          "reason": "공식표에 '우유' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 3251,
+          "ing_name": "파스타면, 채소",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 7743,
+      "menu_name": "프레시 잠봉 샌드위치",
+      "csv_allergens": [
+        "달걀",
+        "대두",
+        "돼지 고기",
+        "밀",
+        "우유",
+        "토마토"
+      ],
+      "derived_allergens": [
+        "대두",
+        "우유",
+        "토마토"
+      ],
+      "missing_vs_csv": [
+        "달걀",
+        "돼지 고기",
+        "밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 108,
+          "ing_name": "크리미할라피뇨",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 2118,
+          "ing_name": "잠봉",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 189,
+          "ing_name": "슈레드치즈",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 377,
+          "ing_name": "화이트치즈",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "REVIEW_WHICH_ING_SHOULD_CARRY",
+          "allergen": "달걀",
+          "allergen_id": 45,
+          "ing_id": 6927,
+          "ing_name": "채소믹스",
+          "is_default": true,
+          "reason": "공식표에 '달걀' 있으나 파생 없음 — 담당 재료 확인 필요",
+          "confidence": "low"
+        },
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "돼지 고기",
+          "allergen_id": 52,
+          "ing_id": 2118,
+          "ing_name": "잠봉",
+          "is_default": true,
+          "reason": "재료명에 '돼지 고기' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        },
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "reason": "재료명에 '밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 108,
+          "ing_name": "크리미할라피뇨",
+          "is_default": true,
+          "allergens": [
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 2118,
+          "ing_name": "잠봉",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 169,
+          "ing_name": "양파",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 189,
+          "ing_name": "슈레드치즈",
+          "is_default": true,
+          "allergens": [
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 170,
+          "ing_name": "토마토",
+          "is_default": true,
+          "allergens": [
+            "토마토"
+          ]
+        },
+        {
+          "ing_id": 377,
+          "ing_name": "화이트치즈",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 6927,
+          "ing_name": "채소믹스",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "menu_id": 7394,
+      "menu_name": "하와이안 잠봉 샌드위치",
+      "csv_allergens": [
+        "달걀",
+        "대두",
+        "돼지 고기",
+        "밀",
+        "우유"
+      ],
+      "derived_allergens": [
+        "달걀",
+        "대두",
+        "우유"
+      ],
+      "missing_vs_csv": [
+        "돼지 고기",
+        "밀"
+      ],
+      "extra_vs_csv": [],
+      "fix_add_allergen_to_ing": [
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "돼지 고기",
+          "allergen_id": 52,
+          "ing_id": 2118,
+          "ing_name": "잠봉",
+          "is_default": true,
+          "reason": "재료명에 '돼지 고기' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        },
+        {
+          "action": "ADD_ALLERGEN_TO_ING",
+          "allergen": "밀",
+          "allergen_id": 44,
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "reason": "재료명에 '밀' 관련 키워드가 있으나 알레르기 미등록",
+          "confidence": "high"
+        }
+      ],
+      "fix_remove_or_review_extra": [],
+      "menu_ingredients": [
+        {
+          "ing_id": 6813,
+          "ing_name": "통밀 치아바타",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 228,
+          "ing_name": "허니머스타드",
+          "is_default": true,
+          "allergens": [
+            "달걀",
+            "대두"
+          ]
+        },
+        {
+          "ing_id": 2118,
+          "ing_name": "잠봉",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 178,
+          "ing_name": "파인애플",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 189,
+          "ing_name": "슈레드치즈",
+          "is_default": true,
+          "allergens": [
+            "우유"
+          ]
+        },
+        {
+          "ing_id": 188,
+          "ing_name": "크랜베리",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 168,
+          "ing_name": "옥수수",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 377,
+          "ing_name": "화이트치즈",
+          "is_default": true,
+          "allergens": []
+        },
+        {
+          "ing_id": 6927,
+          "ing_name": "채소믹스",
+          "is_default": true,
+          "allergens": []
+        }
+      ]
+    }
+  ]
+}
