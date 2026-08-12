@@ -1,0 +1,245 @@
+{
+  "removed_count": 34,
+  "kept_count": 58,
+  "before_count": 92,
+  "pairs": [
+    {
+      "remove_id": 364,
+      "keep_id": 8196,
+      "name": "스파이시 쉬림프 샌드위치",
+      "remove_cat": 231,
+      "keep_cat": 236
+    },
+    {
+      "remove_id": 501,
+      "keep_id": 6918,
+      "name": "불고기 반미 샌드위치",
+      "remove_cat": 231,
+      "keep_cat": 236
+    },
+    {
+      "remove_id": 638,
+      "keep_id": 7264,
+      "name": "클래식 치킨 샌드위치",
+      "remove_cat": 232,
+      "keep_cat": 236
+    },
+    {
+      "remove_id": 908,
+      "keep_id": 6683,
+      "name": "칠리베이컨 곡물랩",
+      "remove_cat": 232,
+      "keep_cat": 235
+    },
+    {
+      "remove_id": 1036,
+      "keep_id": 6422,
+      "name": "멕시칸 랩",
+      "remove_cat": 232,
+      "keep_cat": 235
+    },
+    {
+      "remove_id": 1301,
+      "keep_id": 5855,
+      "name": "로스트닭다리살 샐러디",
+      "remove_cat": 232,
+      "keep_cat": 233
+    },
+    {
+      "remove_id": 1437,
+      "keep_id": 8601,
+      "name": "그라브락스 연어 샐러디",
+      "remove_cat": 232,
+      "keep_cat": 233
+    },
+    {
+      "remove_id": 1700,
+      "keep_id": 6550,
+      "name": "타코 쉬림프 랩",
+      "remove_cat": 232,
+      "keep_cat": 235
+    },
+    {
+      "remove_id": 1833,
+      "keep_id": 6275,
+      "name": "로스트닭다리살마요 덮밥",
+      "remove_cat": 232,
+      "keep_cat": 232
+    },
+    {
+      "remove_id": 4056,
+      "keep_id": 8065,
+      "name": "BELT 시저 샌드위치",
+      "remove_cat": 232,
+      "keep_cat": 236
+    },
+    {
+      "remove_id": 4317,
+      "keep_id": 7504,
+      "name": "비프에그마요 샌드위치",
+      "remove_cat": 232,
+      "keep_cat": 236
+    },
+    {
+      "remove_id": 4581,
+      "keep_id": 10451,
+      "name": "고소우삼겹 곡물랩",
+      "remove_cat": 232,
+      "keep_cat": 235
+    },
+    {
+      "remove_id": 4842,
+      "keep_id": 10324,
+      "name": "그라브락스 연어 랩",
+      "remove_cat": 232,
+      "keep_cat": 235
+    },
+    {
+      "remove_id": 4969,
+      "keep_id": 10069,
+      "name": "시저치킨 랩",
+      "remove_cat": 232,
+      "keep_cat": 235
+    },
+    {
+      "remove_id": 5093,
+      "keep_id": 10193,
+      "name": "로스트닭다리살 랩",
+      "remove_cat": 232,
+      "keep_cat": 235
+    },
+    {
+      "remove_id": 5224,
+      "keep_id": 9941,
+      "name": "에그마요 랩",
+      "remove_cat": 232,
+      "keep_cat": 235
+    },
+    {
+      "remove_id": 5725,
+      "keep_id": 1568,
+      "name": "우삼겹메밀면 누들볼",
+      "remove_cat": 232,
+      "keep_cat": 232
+    },
+    {
+      "remove_id": 5998,
+      "keep_id": 768,
+      "name": "그라브락스 연어 포케볼",
+      "remove_cat": 232,
+      "keep_cat": 232
+    },
+    {
+      "remove_id": 6133,
+      "keep_id": 2393,
+      "name": "타코 쉬림프 샐러디",
+      "remove_cat": 233,
+      "keep_cat": 233
+    },
+    {
+      "remove_id": 8328,
+      "keep_id": 1978,
+      "name": "탄단지 샐러디",
+      "remove_cat": 233,
+      "keep_cat": 233
+    },
+    {
+      "remove_id": 8463,
+      "keep_id": 2114,
+      "name": "랜치 콥 샐러디",
+      "remove_cat": 233,
+      "keep_cat": 233
+    },
+    {
+      "remove_id": 8737,
+      "keep_id": 3523,
+      "name": "고소삼겹 들기름파스타 누들볼",
+      "remove_cat": 232,
+      "keep_cat": 233
+    },
+    {
+      "remove_id": 8870,
+      "keep_id": 1167,
+      "name": "칠리베이컨 포케볼",
+      "remove_cat": 232,
+      "keep_cat": 232
+    },
+    {
+      "remove_id": 9003,
+      "keep_id": 2962,
+      "name": "바베큐닭다리살 포케볼",
+      "remove_cat": 232,
+      "keep_cat": 233
+    },
+    {
+      "remove_id": 9138,
+      "keep_id": 2678,
+      "name": "우삼겹 포케볼",
+      "remove_cat": 232,
+      "keep_cat": 233
+    },
+    {
+      "remove_id": 9273,
+      "keep_id": 2820,
+      "name": "노릇노릇두부 포케볼",
+      "remove_cat": 232,
+      "keep_cat": 233
+    },
+    {
+      "remove_id": 9408,
+      "keep_id": 3105,
+      "name": "바베큐삼겹 덮밥",
+      "remove_cat": 232,
+      "keep_cat": 233
+    },
+    {
+      "remove_id": 9549,
+      "keep_id": 3664,
+      "name": "닭다리살 MAX 프로틴 박스",
+      "remove_cat": 232,
+      "keep_cat": 234
+    },
+    {
+      "remove_id": 9677,
+      "keep_id": 3794,
+      "name": "치킨 MAX 프로틴 파스타",
+      "remove_cat": 232,
+      "keep_cat": 234
+    },
+    {
+      "remove_id": 9806,
+      "keep_id": 3925,
+      "name": "우삼겹 MAX 프로틴 박스",
+      "remove_cat": 232,
+      "keep_cat": 234
+    },
+    {
+      "remove_id": 10581,
+      "keep_id": 5478,
+      "name": "채소볼",
+      "remove_cat": 232,
+      "keep_cat": 232
+    },
+    {
+      "remove_id": 10642,
+      "keep_id": 5539,
+      "name": "포케볼",
+      "remove_cat": 232,
+      "keep_cat": 232
+    },
+    {
+      "remove_id": 10706,
+      "keep_id": 5603,
+      "name": "메밀면볼",
+      "remove_cat": 232,
+      "keep_cat": 232
+    },
+    {
+      "remove_id": 10767,
+      "keep_id": 5664,
+      "name": "파스타볼",
+      "remove_cat": 232,
+      "keep_cat": 232
+    }
+  ]
+}

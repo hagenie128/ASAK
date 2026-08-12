@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 from html import unescape
 import csv
 import json
@@ -1005,7 +1006,7 @@ class SaladyScraper:
             if sub_el:
                 name_en = sub_el.get_text(strip=True)
 
-        desc_el = soup.select_one(".view_top .txt, .view_top > p")
+        desc_el = soup.select_one(".view_top .txt, .view_top > p, .view_tit > p")
         description = desc_el.get_text(" ", strip=True) if desc_el else ""
 
         image_url = ""

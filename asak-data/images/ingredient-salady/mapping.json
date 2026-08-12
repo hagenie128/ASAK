@@ -3,6 +3,13 @@
   "note": "학습/참고용. 상업 배포 전 권리 확인 필요.",
   "salady_items": [
     {
+      "name": "고추장제육",
+      "image_url": "https://salady.com/superboard/data/topping/2026081214414817865133086994.png",
+      "thumb_url": "https://salady.com/superboard/data/topping/thumb/2026081214414817865133086994.png",
+      "kind": "topping",
+      "local_file": "topping_고추장제육.png"
+    },
+    {
       "name": "닭가슴살",
       "image_url": "https://salady.com/superboard/data/topping/2022052515493716534613775756.jpg",
       "thumb_url": "https://salady.com/superboard/data/topping/thumb/2022052515493716534613775756.jpg",
@@ -52,11 +59,11 @@
       "local_file": "topping_로스트삼겹.png"
     },
     {
-      "name": "베이컨",
+      "name": "칩베이컨",
       "image_url": "https://salady.com/superboard/data/topping/2022052515514016534615009312.jpg",
       "thumb_url": "https://salady.com/superboard/data/topping/thumb/2022052515514016534615009312.jpg",
       "kind": "topping",
-      "local_file": "topping_베이컨.jpg"
+      "local_file": "topping_칩베이컨.jpg"
     },
     {
       "name": "두부",
@@ -85,6 +92,13 @@
       "thumb_url": "https://salady.com/superboard/data/topping/thumb/2026021110533017707748104608.png",
       "kind": "topping",
       "local_file": "topping_스크램블-에그.png"
+    },
+    {
+      "name": "엑스트라버진 올리브오일",
+      "image_url": "https://salady.com/superboard/data/topping/2026081214430717865133873833.png",
+      "thumb_url": "https://salady.com/superboard/data/topping/thumb/2026081214430717865133873833.png",
+      "kind": "topping",
+      "local_file": "topping_엑스트라버진-올리브오일.png"
     },
     {
       "name": "에그마요",
@@ -453,10 +467,10 @@
       "ingredient_id": 143,
       "ingredient_name": "베이컨",
       "type_id": 27,
-      "salady_name": "베이컨",
+      "salady_name": "칩베이컨",
       "salady_kind": "topping",
       "image_url": "https://salady.com/superboard/data/topping/2022052515514016534615009312.jpg",
-      "local_file": "topping_베이컨.jpg"
+      "local_file": "topping_칩베이컨.jpg"
     },
     {
       "ingredient_id": 146,

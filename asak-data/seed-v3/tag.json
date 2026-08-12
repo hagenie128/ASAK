@@ -19,5 +19,12 @@
     "name": "저당",
     "color_hex": "#b45309",
     "active": true
+  },
+  {
+    "id": 240,
+    "code": "VEGAN",
+    "name": "VEGAN",
+    "color_hex": "#059669",
+    "active": true
   }
 ]

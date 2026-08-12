@@ -21,13 +21,13 @@
     "code_group": 10,
     "common_code": 32,
     "tag": 3,
-    "menu": 84,
-    "menu_tag": 21,
-    "menu_nutr": 84,
+    "menu": 58,
+    "menu_tag": 12,
+    "menu_nutr": 58,
     "ing": 90,
     "allergen": 14,
-    "ing_allergen": 108,
-    "menu_ing": 578,
+    "ing_allergen": 119,
+    "menu_ing": 405,
     "opt_group": 7,
     "menu_opt_grp_legacy_20260710": 467,
     "menu_opt_legacy_20260710": 9166,
@@ -36,7 +36,7 @@
     "pay_method_cfg": 1,
     "opt_policy": 82,
     "opt_policy_item": 734,
-    "menu_opt_policy": 467,
+    "menu_opt_policy": 279,
     "menu_opt_override": 0,
     "ing_nutr": 66
   },
@@ -63,5 +63,7 @@
     "menu_opt_policy": "seed-v3/menu_opt_policy.json",
     "menu_opt_override": "seed-v3/menu_opt_override.json",
     "ing_nutr": "seed-v3/ing_nutr.json"
-  }
+  },
+  "deduped_at": "2026-08-12T12:29:36.648383+00:00",
+  "deduped_removed": 34
 }

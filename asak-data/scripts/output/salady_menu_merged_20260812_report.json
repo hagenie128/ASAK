@@ -1,0 +1,739 @@
+{
+  "updated_menus": [
+    {
+      "menu_id": 8601,
+      "name": "그라브락스 연어 샐러디",
+      "kcal": 290.3
+    },
+    {
+      "menu_id": 3388,
+      "name": "소고기 비빔메밀 누들볼",
+      "kcal": 398.8
+    },
+    {
+      "menu_id": 7743,
+      "name": "[프로틴]프레시 잠봉 샌드위치",
+      "kcal": 493.3
+    },
+    {
+      "menu_id": 7053,
+      "name": "[프로틴]바질 레몬연어 샌드위치",
+      "kcal": 576.5
+    }
+  ],
+  "created_menus": [],
+  "created_ings": [],
+  "synced_menu_ing": [
+    {
+      "menu_id": 1978,
+      "name": "탄단지 샐러디",
+      "count": 6
+    },
+    {
+      "menu_id": 10768,
+      "name": "치킨 콥 샐러디",
+      "count": 8
+    },
+    {
+      "menu_id": 5855,
+      "name": "로스트닭다리살 샐러디",
+      "count": 9
+    },
+    {
+      "menu_id": 8601,
+      "name": "그라브락스 연어 샐러디",
+      "count": 7
+    },
+    {
+      "menu_id": 2254,
+      "name": "단호박 노릇두부 샐러디",
+      "count": 8
+    },
+    {
+      "menu_id": 2393,
+      "name": "타코 쉬림프 샐러디",
+      "count": 9
+    },
+    {
+      "menu_id": 768,
+      "name": "그라브락스 연어 포케볼",
+      "count": 9
+    },
+    {
+      "menu_id": 1167,
+      "name": "칠리베이컨 포케볼",
+      "count": 9
+    },
+    {
+      "menu_id": 2678,
+      "name": "우삼겹 포케볼",
+      "count": 9
+    },
+    {
+      "menu_id": 10769,
+      "name": "청양간장 두부 비빔밥",
+      "count": 9
+    },
+    {
+      "menu_id": 2962,
+      "name": "바베큐닭다리살 포케볼",
+      "count": 10
+    },
+    {
+      "menu_id": 10770,
+      "name": "고추장제육 포케볼",
+      "count": 9
+    },
+    {
+      "menu_id": 3249,
+      "name": "그라브락스 연어 파스타 누들볼",
+      "count": 7
+    },
+    {
+      "menu_id": 1568,
+      "name": "우삼겹메밀면 누들볼",
+      "count": 6
+    },
+    {
+      "menu_id": 10771,
+      "name": "고추장제육 들기름파스타 누들볼",
+      "count": 9
+    },
+    {
+      "menu_id": 10772,
+      "name": "고추장제육 간장메밀 누들볼",
+      "count": 9
+    },
+    {
+      "menu_id": 3388,
+      "name": "소고기 비빔메밀 누들볼",
+      "count": 9
+    },
+    {
+      "menu_id": 3664,
+      "name": "닭다리살 MAX 프로틴 박스",
+      "count": 6
+    },
+    {
+      "menu_id": 3794,
+      "name": "치킨 MAX 프로틴 파스타",
+      "count": 7
+    },
+    {
+      "menu_id": 3925,
+      "name": "우삼겹 MAX 프로틴 박스",
+      "count": 6
+    },
+    {
+      "menu_id": 10773,
+      "name": "[프로틴]바질크림 치킨 샌드위치",
+      "count": 6
+    },
+    {
+      "menu_id": 10774,
+      "name": "[프로틴]치킨 반미 샌드위치",
+      "count": 8
+    },
+    {
+      "menu_id": 8196,
+      "name": "스파이시 쉬림프 샌드위치",
+      "count": 7
+    },
+    {
+      "menu_id": 6918,
+      "name": "불고기 반미 샌드위치",
+      "count": 7
+    },
+    {
+      "menu_id": 8065,
+      "name": "BELT 시저 샌드위치",
+      "count": 7
+    },
+    {
+      "menu_id": 7743,
+      "name": "[프로틴]프레시 잠봉 샌드위치",
+      "count": 7
+    },
+    {
+      "menu_id": 7264,
+      "name": "클래식 치킨 샌드위치",
+      "count": 6
+    },
+    {
+      "menu_id": 7504,
+      "name": "[프로틴]비프에그마요 샌드위치",
+      "count": 7
+    },
+    {
+      "menu_id": 7053,
+      "name": "[프로틴]바질 레몬연어 샌드위치",
+      "count": 7
+    },
+    {
+      "menu_id": 6683,
+      "name": "칠리베이컨 곡물랩",
+      "count": 6
+    },
+    {
+      "menu_id": 10451,
+      "name": "고소우삼겹 곡물랩",
+      "count": 6
+    },
+    {
+      "menu_id": 4711,
+      "name": "바베큐닭다리살 곡물랩",
+      "count": 8
+    },
+    {
+      "menu_id": 6422,
+      "name": "멕시칸 랩",
+      "count": 5
+    },
+    {
+      "menu_id": 10324,
+      "name": "그라브락스 연어 랩",
+      "count": 5
+    },
+    {
+      "menu_id": 10069,
+      "name": "시저치킨 랩",
+      "count": 4
+    },
+    {
+      "menu_id": 10193,
+      "name": "로스트닭다리살 랩",
+      "count": 7
+    },
+    {
+      "menu_id": 9941,
+      "name": "에그마요 랩",
+      "count": 5
+    },
+    {
+      "menu_id": 5352,
+      "name": "바질치킨 랩",
+      "count": 5
+    },
+    {
+      "menu_id": 6550,
+      "name": "타코 쉬림프 랩",
+      "count": 8
+    },
+    {
+      "menu_id": 10775,
+      "name": "바질크림 잠봉 랩",
+      "count": 7
+    }
+  ],
+  "synced_menu_opt_policy": [],
+  "synced_menu_tag": [
+    {
+      "menu_id": 1978,
+      "name": "탄단지 샐러디"
+    },
+    {
+      "menu_id": 10768,
+      "name": "치킨 콥 샐러디"
+    },
+    {
+      "menu_id": 5855,
+      "name": "로스트닭다리살 샐러디"
+    },
+    {
+      "menu_id": 8601,
+      "name": "그라브락스 연어 샐러디"
+    },
+    {
+      "menu_id": 2254,
+      "name": "단호박 노릇두부 샐러디"
+    },
+    {
+      "menu_id": 2393,
+      "name": "타코 쉬림프 샐러디"
+    },
+    {
+      "menu_id": 768,
+      "name": "그라브락스 연어 포케볼"
+    },
+    {
+      "menu_id": 1167,
+      "name": "칠리베이컨 포케볼"
+    },
+    {
+      "menu_id": 2678,
+      "name": "우삼겹 포케볼"
+    },
+    {
+      "menu_id": 10769,
+      "name": "청양간장 두부 비빔밥"
+    },
+    {
+      "menu_id": 2962,
+      "name": "바베큐닭다리살 포케볼"
+    },
+    {
+      "menu_id": 10770,
+      "name": "고추장제육 포케볼"
+    },
+    {
+      "menu_id": 3249,
+      "name": "그라브락스 연어 파스타 누들볼"
+    },
+    {
+      "menu_id": 1568,
+      "name": "우삼겹메밀면 누들볼"
+    },
+    {
+      "menu_id": 10771,
+      "name": "고추장제육 들기름파스타 누들볼"
+    },
+    {
+      "menu_id": 10772,
+      "name": "고추장제육 간장메밀 누들볼"
+    },
+    {
+      "menu_id": 3388,
+      "name": "소고기 비빔메밀 누들볼"
+    },
+    {
+      "menu_id": 3664,
+      "name": "닭다리살 MAX 프로틴 박스"
+    },
+    {
+      "menu_id": 3794,
+      "name": "치킨 MAX 프로틴 파스타"
+    },
+    {
+      "menu_id": 3925,
+      "name": "우삼겹 MAX 프로틴 박스"
+    },
+    {
+      "menu_id": 10773,
+      "name": "[프로틴]바질크림 치킨 샌드위치"
+    },
+    {
+      "menu_id": 10774,
+      "name": "[프로틴]치킨 반미 샌드위치"
+    },
+    {
+      "menu_id": 8196,
+      "name": "스파이시 쉬림프 샌드위치"
+    },
+    {
+      "menu_id": 6918,
+      "name": "불고기 반미 샌드위치"
+    },
+    {
+      "menu_id": 8065,
+      "name": "BELT 시저 샌드위치"
+    },
+    {
+      "menu_id": 7743,
+      "name": "[프로틴]프레시 잠봉 샌드위치"
+    },
+    {
+      "menu_id": 7264,
+      "name": "클래식 치킨 샌드위치"
+    },
+    {
+      "menu_id": 7504,
+      "name": "[프로틴]비프에그마요 샌드위치"
+    },
+    {
+      "menu_id": 7053,
+      "name": "[프로틴]바질 레몬연어 샌드위치"
+    },
+    {
+      "menu_id": 6683,
+      "name": "칠리베이컨 곡물랩"
+    },
+    {
+      "menu_id": 10451,
+      "name": "고소우삼겹 곡물랩"
+    },
+    {
+      "menu_id": 4711,
+      "name": "바베큐닭다리살 곡물랩"
+    },
+    {
+      "menu_id": 6422,
+      "name": "멕시칸 랩"
+    },
+    {
+      "menu_id": 10324,
+      "name": "그라브락스 연어 랩"
+    },
+    {
+      "menu_id": 10069,
+      "name": "시저치킨 랩"
+    },
+    {
+      "menu_id": 10193,
+      "name": "로스트닭다리살 랩"
+    },
+    {
+      "menu_id": 9941,
+      "name": "에그마요 랩"
+    },
+    {
+      "menu_id": 5352,
+      "name": "바질치킨 랩"
+    },
+    {
+      "menu_id": 6550,
+      "name": "타코 쉬림프 랩"
+    },
+    {
+      "menu_id": 10775,
+      "name": "바질크림 잠봉 랩"
+    }
+  ],
+  "ing_allergen_added": [
+    {
+      "menu_id": 1978,
+      "name": "탄단지 샐러디",
+      "count": 3
+    },
+    {
+      "menu_id": 5855,
+      "name": "로스트닭다리살 샐러디",
+      "count": 2
+    },
+    {
+      "menu_id": 8601,
+      "name": "그라브락스 연어 샐러디",
+      "count": 1
+    },
+    {
+      "menu_id": 2393,
+      "name": "타코 쉬림프 샐러디",
+      "count": 2
+    },
+    {
+      "menu_id": 768,
+      "name": "그라브락스 연어 포케볼",
+      "count": 1
+    },
+    {
+      "menu_id": 2678,
+      "name": "우삼겹 포케볼",
+      "count": 1
+    },
+    {
+      "menu_id": 2962,
+      "name": "바베큐닭다리살 포케볼",
+      "count": 1
+    },
+    {
+      "menu_id": 3249,
+      "name": "그라브락스 연어 파스타 누들볼",
+      "count": 2
+    },
+    {
+      "menu_id": 1568,
+      "name": "우삼겹메밀면 누들볼",
+      "count": 1
+    },
+    {
+      "menu_id": 3794,
+      "name": "치킨 MAX 프로틴 파스타",
+      "count": 1
+    },
+    {
+      "menu_id": 3925,
+      "name": "우삼겹 MAX 프로틴 박스",
+      "count": 1
+    },
+    {
+      "menu_id": 8196,
+      "name": "스파이시 쉬림프 샌드위치",
+      "count": 2
+    },
+    {
+      "menu_id": 8065,
+      "name": "BELT 시저 샌드위치",
+      "count": 1
+    },
+    {
+      "menu_id": 7743,
+      "name": "[프로틴]프레시 잠봉 샌드위치",
+      "count": 1
+    },
+    {
+      "menu_id": 7504,
+      "name": "[프로틴]비프에그마요 샌드위치",
+      "count": 1
+    },
+    {
+      "menu_id": 7053,
+      "name": "[프로틴]바질 레몬연어 샌드위치",
+      "count": 2
+    },
+    {
+      "menu_id": 10451,
+      "name": "고소우삼겹 곡물랩",
+      "count": 1
+    },
+    {
+      "menu_id": 4711,
+      "name": "바베큐닭다리살 곡물랩",
+      "count": 1
+    },
+    {
+      "menu_id": 6422,
+      "name": "멕시칸 랩",
+      "count": 1
+    },
+    {
+      "menu_id": 9941,
+      "name": "에그마요 랩",
+      "count": 2
+    },
+    {
+      "menu_id": 5352,
+      "name": "바질치킨 랩",
+      "count": 1
+    },
+    {
+      "menu_id": 6550,
+      "name": "타코 쉬림프 랩",
+      "count": 1
+    }
+  ],
+  "unresolved_ings": [],
+  "images_downloaded": [],
+  "images_missing": [
+    {
+      "type": "ing_photo",
+      "id": 57,
+      "name": "채소볼"
+    },
+    {
+      "type": "ing_photo",
+      "id": 58,
+      "name": "포케볼"
+    },
+    {
+      "type": "ing_photo",
+      "id": 61,
+      "name": "메밀면볼"
+    },
+    {
+      "type": "ing_photo",
+      "id": 66,
+      "name": "파스타볼"
+    },
+    {
+      "type": "ing_photo",
+      "id": 70,
+      "name": "양송이크림스프"
+    },
+    {
+      "type": "ing_photo",
+      "id": 77,
+      "name": "포테이토크림스프"
+    },
+    {
+      "type": "ing_photo",
+      "id": 88,
+      "name": "카사바칩"
+    },
+    {
+      "type": "ing_photo",
+      "id": 118,
+      "name": "아메리카노"
+    },
+    {
+      "type": "ing_photo",
+      "id": 119,
+      "name": "그린밀싹"
+    },
+    {
+      "type": "ing_photo",
+      "id": 120,
+      "name": "오렌지당근"
+    },
+    {
+      "type": "ing_photo",
+      "id": 121,
+      "name": "레드클렌즈"
+    },
+    {
+      "type": "ing_photo",
+      "id": 122,
+      "name": "코크제로"
+    },
+    {
+      "type": "ing_photo",
+      "id": 123,
+      "name": "스프라이트제로"
+    },
+    {
+      "type": "ing_photo",
+      "id": 124,
+      "name": "애사비사과스파클링"
+    },
+    {
+      "type": "ing_photo",
+      "id": 178,
+      "name": "파인애플"
+    },
+    {
+      "type": "ing_photo",
+      "id": 193,
+      "name": "몬테레이치즈"
+    },
+    {
+      "type": "ing_photo",
+      "id": 367,
+      "name": "채소"
+    },
+    {
+      "type": "ing_photo",
+      "id": 771,
+      "name": "곡물, 채소"
+    },
+    {
+      "type": "ing_photo",
+      "id": 1571,
+      "name": "메밀면, 채소"
+    },
+    {
+      "type": "ing_photo",
+      "id": 1836,
+      "name": "곡물 (*채소믹스 미포함)"
+    },
+    {
+      "type": "ing_photo",
+      "id": 1845,
+      "name": "데리야끼소스"
+    },
+    {
+      "type": "ing_photo",
+      "id": 1848,
+      "name": "시저 드레싱"
+    },
+    {
+      "type": "ing_photo",
+      "id": 1851,
+      "name": "참기름"
+    },
+    {
+      "type": "ing_photo",
+      "id": 3251,
+      "name": "파스타면, 채소"
+    },
+    {
+      "type": "ing_photo",
+      "id": 3666,
+      "name": "곡물(1.5배), 채소"
+    },
+    {
+      "type": "ing_photo",
+      "id": 3796,
+      "name": "바질 파스타면(2배), 채소"
+    },
+    {
+      "type": "ing_photo",
+      "id": 4319,
+      "name": "*채소 미포함"
+    },
+    {
+      "type": "ing_photo",
+      "id": 6278,
+      "name": "곡물"
+    },
+    {
+      "type": "ing_photo",
+      "id": 6290,
+      "name": "(*채소믹스 미포함"
+    },
+    {
+      "type": "ing_photo",
+      "id": 6293,
+      "name": "드레싱 미제공)"
+    },
+    {
+      "type": "ing_photo",
+      "id": 6813,
+      "name": "통밀 치아바타"
+    },
+    {
+      "type": "ing_photo",
+      "id": 6821,
+      "name": "화이트치즈 (*채소믹스 미포함)"
+    },
+    {
+      "type": "ing_photo",
+      "id": 6927,
+      "name": "채소믹스"
+    },
+    {
+      "type": "ing_photo",
+      "id": 9419,
+      "name": "참기름 (*채소믹스 미포함"
+    },
+    {
+      "type": "ing_photo",
+      "id": 9815,
+      "name": "곡물밥x1.5"
+    },
+    {
+      "type": "ing_photo",
+      "id": 9817,
+      "name": "청양간장 드레싱"
+    }
+  ],
+  "csv_touched_menu_ids": [
+    768,
+    1167,
+    1568,
+    1978,
+    2254,
+    2393,
+    2678,
+    2962,
+    3249,
+    3388,
+    3664,
+    3794,
+    3925,
+    4711,
+    5352,
+    5855,
+    6422,
+    6550,
+    6683,
+    6918,
+    7053,
+    7264,
+    7504,
+    7743,
+    8065,
+    8196,
+    8601,
+    9941,
+    10069,
+    10193,
+    10324,
+    10451,
+    10768,
+    10769,
+    10770,
+    10771,
+    10772,
+    10773,
+    10774,
+    10775
+  ],
+  "db": {
+    "menu": 58,
+    "menu_nutr": 58,
+    "menu_ing": 289,
+    "menu_tag": 24,
+    "menu_opt_policy": 248,
+    "ing": 92,
+    "ing_nutr": 68,
+    "ing_allergen": 150
+  }
+}

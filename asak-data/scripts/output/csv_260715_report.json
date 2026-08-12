@@ -1,0 +1,947 @@
+{
+  "source": {
+    "nutrition_csv": "C:\\ASAK-workspace\\ASAK\\asak-data\\scripts\\input\\nutrition_260715.csv",
+    "allergy_csv": "C:\\ASAK-workspace\\ASAK\\asak-data\\scripts\\input\\allergy_260715.csv",
+    "nutrition_rows_raw": 211,
+    "nutrition_rows_deduped": 117,
+    "allergy_rows_raw": 172,
+    "allergy_rows_deduped": 96,
+    "prefer_scope": "SALADY"
+  },
+  "nutrition": {
+    "menu_matched": 50,
+    "menu_updated": 5,
+    "menu_unchanged": 45,
+    "ing_matched": 62,
+    "ing_updated": 0,
+    "ing_unchanged": 62,
+    "unmatched": [
+      {
+        "name": "(베이스) 파스타면",
+        "category": "PROTEIN BOX",
+        "scope": "SALADY"
+      },
+      {
+        "name": "(베이스) 곡물밥",
+        "category": "PROTEIN BOX",
+        "scope": "SALADY"
+      },
+      {
+        "name": "[우창윤픽] 포만호르몬에그샐러디",
+        "category": "PROMOTION MENU",
+        "scope": "SALADY"
+      },
+      {
+        "name": "[우창윤픽] 포만호르몬에그",
+        "category": "PROMOTION MENU",
+        "scope": "SALADY"
+      },
+      {
+        "name": "엑스트라버진올리브오일",
+        "category": "PROMOTION MENU",
+        "scope": "SALADY"
+      },
+      {
+        "name": "[고창] 리얼수박주스",
+        "category": "PROMOTION MENU",
+        "scope": "SALADY"
+      },
+      {
+        "name": "치즈스크램블온브레드",
+        "category": "ON BREAD",
+        "scope": "SALADY"
+      },
+      {
+        "name": "베이컨스크램블온브레드",
+        "category": "ON BREAD",
+        "scope": "SALADY"
+      },
+      {
+        "name": "프루티가든샐러디",
+        "category": "SALADY",
+        "scope": "SALADY & SANDWICH (대상매장)"
+      }
+    ],
+    "menu_updated_sample": [
+      {
+        "menu_id": 8601,
+        "name": "그라브락스연어샐러디",
+        "before": {
+          "serving_g": 235.0,
+          "kcal": 290.3,
+          "carb_g": 6.4,
+          "sugar_g": 3.7,
+          "protein_g": 20.8,
+          "fat_g": 19.8,
+          "saturated_fat_g": 3.5,
+          "sodium_mg": 441.0
+        },
+        "after": {
+          "serving_g": 235.0,
+          "kcal": 247.3,
+          "carb_g": 7.8,
+          "sugar_g": 5.1,
+          "protein_g": 21.0,
+          "fat_g": 14.4,
+          "saturated_fat_g": 2.7,
+          "sodium_mg": 505.0
+        }
+      },
+      {
+        "menu_id": 3388,
+        "name": "비빔메밀면누들볼",
+        "before": {
+          "serving_g": null,
+          "kcal": 398.8,
+          "carb_g": 32.0,
+          "sugar_g": 4.0,
+          "protein_g": 23.8,
+          "fat_g": 19.0,
+          "saturated_fat_g": 5.6,
+          "sodium_mg": 354.7
+        },
+        "after": {
+          "serving_g": 246.0,
+          "kcal": 235.6,
+          "carb_g": 30.0,
+          "sugar_g": 2.2,
+          "protein_g": 13.4,
+          "fat_g": 6.6,
+          "saturated_fat_g": 1.8,
+          "sodium_mg": 294.3
+        }
+      },
+      {
+        "menu_id": 8196,
+        "name": "스파이시쉬림프샌드위치",
+        "before": {
+          "serving_g": 254.0,
+          "kcal": 463.7,
+          "carb_g": 55.4,
+          "sugar_g": 8.7,
+          "protein_g": 18.7,
+          "fat_g": 18.5,
+          "saturated_fat_g": 4.4,
+          "sodium_mg": 1176.4
+        },
+        "after": {
+          "serving_g": 254.0,
+          "kcal": 463.7,
+          "carb_g": 55.4,
+          "sugar_g": 8.7,
+          "protein_g": 18.4,
+          "fat_g": 18.5,
+          "saturated_fat_g": 4.4,
+          "sodium_mg": 1176.4
+        }
+      },
+      {
+        "menu_id": 7053,
+        "name": "바질레몬연어샌드위치",
+        "before": {
+          "serving_g": 289.0,
+          "kcal": 576.5,
+          "carb_g": 71.0,
+          "sugar_g": 17.0,
+          "protein_g": 20.8,
+          "fat_g": 22.7,
+          "saturated_fat_g": 4.0,
+          "sodium_mg": 1023.0
+        },
+        "after": {
+          "serving_g": 289.0,
+          "kcal": 574.4,
+          "carb_g": 70.7,
+          "sugar_g": 16.9,
+          "protein_g": 20.6,
+          "fat_g": 22.6,
+          "saturated_fat_g": 4.0,
+          "sodium_mg": 1021.5
+        }
+      },
+      {
+        "menu_id": 7743,
+        "name": "프레시잠봉샌드위치",
+        "before": {
+          "serving_g": 241.0,
+          "kcal": 493.3,
+          "carb_g": 54.2,
+          "sugar_g": 8.5,
+          "protein_g": 20.0,
+          "fat_g": 21.7,
+          "saturated_fat_g": 5.2,
+          "sodium_mg": 1135.5
+        },
+        "after": {
+          "serving_g": 241.0,
+          "kcal": 491.2,
+          "carb_g": 53.9,
+          "sugar_g": 8.4,
+          "protein_g": 19.8,
+          "fat_g": 21.6,
+          "saturated_fat_g": 5.2,
+          "sodium_mg": 1133.9
+        }
+      }
+    ],
+    "ing_updated_sample": []
+  },
+  "allergy_ingredients": {
+    "ing_matched": 45,
+    "ing_updated": 1,
+    "ing_unchanged": 44,
+    "unmatched": [],
+    "skipped_unknown_allergen_cols": [],
+    "unknown_col_hits": {},
+    "ing_updated_sample": [
+      {
+        "ing_id": 195,
+        "name": "에그마요",
+        "before": [
+          "달걀",
+          "대두",
+          "우유",
+          "조개류 (굴, 전복, 홍합포함)"
+        ],
+        "after": [
+          "달걀",
+          "대두",
+          "조개류 (굴, 전복, 홍합포함)"
+        ]
+      }
+    ]
+  },
+  "allergy_menu_validation": {
+    "menus_checked": 49,
+    "mismatch_count": 30,
+    "mismatches": [
+      {
+        "menu_id": 5603,
+        "name": "메밀면볼",
+        "csv": [
+          "달걀",
+          "대두",
+          "메밀",
+          "밀"
+        ],
+        "derived": [
+          "메밀",
+          "밀"
+        ],
+        "only_csv": [
+          "달걀",
+          "대두"
+        ],
+        "only_derived": []
+      },
+      {
+        "menu_id": 5664,
+        "name": "파스타볼",
+        "csv": [
+          "대두",
+          "밀",
+          "우유"
+        ],
+        "derived": [
+          "밀"
+        ],
+        "only_csv": [
+          "대두",
+          "우유"
+        ],
+        "only_derived": []
+      },
+      {
+        "menu_id": 1978,
+        "name": "탄단지샐러디",
+        "csv": [
+          "고등어",
+          "달걀",
+          "닭고기",
+          "대두",
+          "밀",
+          "호두"
+        ],
+        "derived": [
+          "고등어",
+          "달걀",
+          "닭고기",
+          "대두",
+          "밀",
+          "소고기",
+          "조개류 (굴, 전복, 홍합포함)",
+          "호두"
+        ],
+        "only_csv": [],
+        "only_derived": [
+          "소고기",
+          "조개류 (굴, 전복, 홍합포함)"
+        ]
+      },
+      {
+        "menu_id": 2114,
+        "name": "랜치콥샐러디",
+        "csv": [
+          "달걀",
+          "닭고기",
+          "돼지 고기",
+          "토마토"
+        ],
+        "derived": [
+          "달걀",
+          "닭고기",
+          "대두",
+          "돼지 고기",
+          "우유",
+          "토마토"
+        ],
+        "only_csv": [],
+        "only_derived": [
+          "대두",
+          "우유"
+        ]
+      },
+      {
+        "menu_id": 8601,
+        "name": "그라브락스연어샐러디",
+        "csv": [
+          "달걀",
+          "대두"
+        ],
+        "derived": [
+          "고등어",
+          "달걀",
+          "대두"
+        ],
+        "only_csv": [],
+        "only_derived": [
+          "고등어"
+        ]
+      },
+      {
+        "menu_id": 2393,
+        "name": "타코쉬림프샐러디",
+        "csv": [
+          "대두",
+          "돼지 고기",
+          "새우",
+          "소고기",
+          "우유"
+        ],
+        "derived": [
+          "달걀",
+          "대두",
+          "돼지 고기",
+          "새우",
+          "소고기",
+          "우유"
+        ],
+        "only_csv": [],
+        "only_derived": [
+          "달걀"
+        ]
+      },
+      {
+        "menu_id": 2678,
+        "name": "우삼겹포케볼",
+        "csv": [
+          "대두",
+          "밀",
+          "소고기",
+          "조개류 (굴, 전복, 홍합포함)",
+          "호두"
+        ],
+        "derived": [
+          "달걀",
+          "대두",
+          "밀",
+          "소고기",
+          "조개류 (굴, 전복, 홍합포함)"
+        ],
+        "only_csv": [
+          "호두"
+        ],
+        "only_derived": [
+          "달걀"
+        ]
+      },
+      {
+        "menu_id": 768,
+        "name": "그라브락스연어포케볼",
+        "csv": [
+          "대두",
+          "밀"
+        ],
+        "derived": [
+          "고등어",
+          "달걀",
+          "대두",
+          "밀"
+        ],
+        "only_csv": [],
+        "only_derived": [
+          "고등어",
+          "달걀"
+        ]
+      },
+      {
+        "menu_id": 2534,
+        "name": "로스트삼겹포케볼",
+        "csv": [
+          "대두",
+          "돼지 고기",
+          "밀"
+        ],
+        "derived": [
+          "대두",
+          "돼지 고기",
+          "밀",
+          "소고기",
+          "조개류 (굴, 전복, 홍합포함)"
+        ],
+        "only_csv": [],
+        "only_derived": [
+          "소고기",
+          "조개류 (굴, 전복, 홍합포함)"
+        ]
+      },
+      {
+        "menu_id": 3249,
+        "name": "그라브락스연어파스타누들볼",
+        "csv": [
+          "대두",
+          "밀",
+          "우유"
+        ],
+        "derived": [
+          "고등어",
+          "밀",
+          "우유"
+        ],
+        "only_csv": [
+          "대두"
+        ],
+        "only_derived": [
+          "고등어"
+        ]
+      },
+      {
+        "menu_id": 3523,
+        "name": "고소삼겹들기름파스타누들볼",
+        "csv": [
+          "대두",
+          "돼지 고기",
+          "밀"
+        ],
+        "derived": [
+          "달걀",
+          "대두",
+          "돼지 고기",
+          "밀",
+          "소고기",
+          "조개류 (굴, 전복, 홍합포함)"
+        ],
+        "only_csv": [],
+        "only_derived": [
+          "달걀",
+          "소고기",
+          "조개류 (굴, 전복, 홍합포함)"
+        ]
+      },
+      {
+        "menu_id": 3388,
+        "name": "비빔메밀면누들볼",
+        "csv": [
+          "달걀",
+          "대두",
+          "메밀",
+          "밀"
+        ],
+        "derived": [
+          "달걀",
+          "대두",
+          "돼지 고기",
+          "메밀",
+          "밀",
+          "소고기",
+          "조개류 (굴, 전복, 홍합포함)"
+        ],
+        "only_csv": [],
+        "only_derived": [
+          "돼지 고기",
+          "소고기",
+          "조개류 (굴, 전복, 홍합포함)"
+        ]
+      },
+      {
+        "menu_id": 3664,
+        "name": "닭다리살MAX 프로틴박스",
+        "csv": [
+          "닭고기",
+          "대두",
+          "밀",
+          "소고기",
+          "우유"
+        ],
+        "derived": [
+          "달걀",
+          "닭고기",
+          "대두",
+          "밀",
+          "우유"
+        ],
+        "only_csv": [
+          "소고기"
+        ],
+        "only_derived": [
+          "달걀"
+        ]
+      },
+      {
+        "menu_id": 3794,
+        "name": "치킨MAX 프로틴파스타",
+        "csv": [
+          "닭고기",
+          "대두",
+          "돼지 고기",
+          "밀",
+          "우유"
+        ],
+        "derived": [
+          "닭고기",
+          "대두",
+          "돼지 고기",
+          "밀"
+        ],
+        "only_csv": [
+          "우유"
+        ],
+        "only_derived": []
+      },
+      {
+        "menu_id": 3925,
+        "name": "우삼겹MAX 프로틴박스",
+        "csv": [
+          "대두",
+          "밀",
+          "소고기",
+          "조개류 (굴, 전복, 홍합포함)"
+        ],
+        "derived": [
+          "달걀",
+          "대두",
+          "밀",
+          "소고기"
+        ],
+        "only_csv": [
+          "조개류 (굴, 전복, 홍합포함)"
+        ],
+        "only_derived": [
+          "달걀"
+        ]
+      },
+      {
+        "menu_id": 6422,
+        "name": "멕시칸랩",
+        "csv": [
+          "달걀",
+          "대두",
+          "돼지 고기",
+          "밀",
+          "소고기",
+          "우유"
+        ],
+        "derived": [
+          "달걀",
+          "대두",
+          "돼지 고기",
+          "소고기",
+          "우유"
+        ],
+        "only_csv": [
+          "밀"
+        ],
+        "only_derived": []
+      },
+      {
+        "menu_id": 6550,
+        "name": "타코쉬림프랩",
+        "csv": [
+          "달걀",
+          "대두",
+          "밀",
+          "새우",
+          "소고기",
+          "우유",
+          "토마토"
+        ],
+        "derived": [
+          "달걀",
+          "대두",
+          "새우",
+          "소고기",
+          "우유",
+          "토마토"
+        ],
+        "only_csv": [
+          "밀"
+        ],
+        "only_derived": []
+      },
+      {
+        "menu_id": 9941,
+        "name": "에그마요랩",
+        "csv": [
+          "달걀",
+          "대두",
+          "돼지 고기",
+          "밀",
+          "우유",
+          "조개류 (굴, 전복, 홍합포함)"
+        ],
+        "derived": [
+          "달걀",
+          "대두",
+          "돼지 고기",
+          "조개류 (굴, 전복, 홍합포함)"
+        ],
+        "only_csv": [
+          "밀",
+          "우유"
+        ],
+        "only_derived": []
+      },
+      {
+        "menu_id": 10069,
+        "name": "시저치킨랩",
+        "csv": [
+          "달걀",
+          "닭고기",
+          "대두",
+          "밀",
+          "아황산류 (10mg/kg 이상함유)",
+          "우유"
+        ],
+        "derived": [
+          "달걀",
+          "닭고기",
+          "대두",
+          "아황산류 (10mg/kg 이상함유)",
+          "우유"
+        ],
+        "only_csv": [
+          "밀"
+        ],
+        "only_derived": []
+      },
+      {
+        "menu_id": 5352,
+        "name": "바질치킨랩",
+        "csv": [
+          "달걀",
+          "닭고기",
+          "대두",
+          "밀",
+          "아황산류 (10mg/kg 이상함유)",
+          "우유"
+        ],
+        "derived": [
+          "달걀",
+          "닭고기",
+          "대두",
+          "아황산류 (10mg/kg 이상함유)",
+          "우유"
+        ],
+        "only_csv": [
+          "밀"
+        ],
+        "only_derived": []
+      },
+      {
+        "menu_id": 10324,
+        "name": "그라브락스연어랩",
+        "csv": [
+          "대두",
+          "밀",
+          "우유",
+          "토마토"
+        ],
+        "derived": [
+          "고등어",
+          "대두",
+          "토마토"
+        ],
+        "only_csv": [
+          "밀",
+          "우유"
+        ],
+        "only_derived": [
+          "고등어"
+        ]
+      },
+      {
+        "menu_id": 6683,
+        "name": "칠리베이컨곡물랩",
+        "csv": [
+          "달걀",
+          "대두",
+          "돼지 고기",
+          "밀",
+          "우유"
+        ],
+        "derived": [
+          "달걀",
+          "대두",
+          "돼지 고기",
+          "밀"
+        ],
+        "only_csv": [
+          "우유"
+        ],
+        "only_derived": []
+      },
+      {
+        "menu_id": 10451,
+        "name": "고소우삼겹곡물랩",
+        "csv": [
+          "대두",
+          "밀",
+          "소고기",
+          "우유",
+          "조개류 (굴, 전복, 홍합포함)",
+          "호두"
+        ],
+        "derived": [
+          "대두",
+          "밀",
+          "소고기",
+          "조개류 (굴, 전복, 홍합포함)",
+          "호두"
+        ],
+        "only_csv": [
+          "우유"
+        ],
+        "only_derived": []
+      },
+      {
+        "menu_id": 4711,
+        "name": "바베큐닭다리살곡물랩",
+        "csv": [
+          "달걀",
+          "닭고기",
+          "대두",
+          "밀",
+          "소고기",
+          "우유",
+          "토마토"
+        ],
+        "derived": [
+          "닭고기",
+          "대두",
+          "밀",
+          "소고기",
+          "우유",
+          "토마토"
+        ],
+        "only_csv": [
+          "달걀"
+        ],
+        "only_derived": []
+      },
+      {
+        "menu_id": 7264,
+        "name": "클래식치킨샌드위치",
+        "csv": [
+          "달걀",
+          "닭고기",
+          "대두",
+          "밀",
+          "아황산류 (10mg/kg 이상함유)",
+          "우유",
+          "토마토"
+        ],
+        "derived": [
+          "달걀",
+          "닭고기",
+          "대두",
+          "아황산류 (10mg/kg 이상함유)",
+          "우유",
+          "토마토"
+        ],
+        "only_csv": [
+          "밀"
+        ],
+        "only_derived": []
+      },
+      {
+        "menu_id": 8065,
+        "name": "BELT 시저샌드위치",
+        "csv": [
+          "달걀",
+          "대두",
+          "돼지 고기",
+          "밀",
+          "아황산류 (10mg/kg 이상함유)",
+          "우유",
+          "토마토"
+        ],
+        "derived": [
+          "달걀",
+          "대두",
+          "돼지 고기",
+          "아황산류 (10mg/kg 이상함유)",
+          "우유",
+          "토마토"
+        ],
+        "only_csv": [
+          "밀"
+        ],
+        "only_derived": []
+      },
+      {
+        "menu_id": 4185,
+        "name": "잠봉샌드위치",
+        "csv": [
+          "달걀",
+          "대두",
+          "돼지 고기",
+          "밀",
+          "우유",
+          "토마토"
+        ],
+        "derived": [
+          "대두",
+          "돼지 고기",
+          "우유",
+          "토마토"
+        ],
+        "only_csv": [
+          "달걀",
+          "밀"
+        ],
+        "only_derived": []
+      },
+      {
+        "menu_id": 8196,
+        "name": "스파이시쉬림프샌드위치",
+        "csv": [
+          "달걀",
+          "대두",
+          "밀",
+          "새우",
+          "소고기",
+          "우유",
+          "토마토"
+        ],
+        "derived": [
+          "달걀",
+          "대두",
+          "새우",
+          "소고기",
+          "우유",
+          "토마토"
+        ],
+        "only_csv": [
+          "밀"
+        ],
+        "only_derived": []
+      },
+      {
+        "menu_id": 7743,
+        "name": "프레시잠봉샌드위치",
+        "csv": [
+          "달걀",
+          "대두",
+          "돼지 고기",
+          "밀",
+          "우유",
+          "토마토"
+        ],
+        "derived": [
+          "대두",
+          "돼지 고기",
+          "우유",
+          "토마토"
+        ],
+        "only_csv": [
+          "달걀",
+          "밀"
+        ],
+        "only_derived": []
+      },
+      {
+        "menu_id": 7636,
+        "name": "바질카프레제샌드위치",
+        "csv": [
+          "달걀",
+          "대두",
+          "밀",
+          "아황산류 (10mg/kg 이상함유)",
+          "우유",
+          "토마토"
+        ],
+        "derived": [
+          "밀",
+          "아황산류 (10mg/kg 이상함유)",
+          "우유",
+          "토마토"
+        ],
+        "only_csv": [
+          "달걀",
+          "대두"
+        ],
+        "only_derived": []
+      }
+    ],
+    "unmatched_menu_rows": [
+      {
+        "name": "[우창윤픽] 포만호르몬에그샐러디",
+        "category": "PROMOTION MENU",
+        "scope": "SALADY"
+      },
+      {
+        "name": "[우창윤픽] 포만호르몬에그",
+        "category": "PROMOTION MENU",
+        "scope": "SALADY"
+      },
+      {
+        "name": "치즈스크램블온브레드",
+        "category": "ON BREAD",
+        "scope": "SALADY"
+      },
+      {
+        "name": "베이컨스크램블온브레드",
+        "category": "ON BREAD",
+        "scope": "SALADY"
+      },
+      {
+        "name": "프루티가든샐러디",
+        "category": "SALADY",
+        "scope": "SALADY & SANDWICH"
+      }
+    ]
+  },
+  "db_apply": {
+    "menu_nutr": 58,
+    "menu_nutr_skipped": 0,
+    "ing_nutr": 68,
+    "ing_nutr_skipped": 0,
+    "ing_allergen_deleted": 121,
+    "ing_allergen_inserted": 120
+  },
+  "db_verify": {
+    "roast_chicken_salad": [
+      {
+        "id": 5855,
+        "name": "로스트닭다리살 샐러디",
+        "kcal": 259.2,
+        "serving_g": 290.0,
+        "sugar_g": 12.2,
+        "saturated_fat_g": 3.9
+      }
+    ],
+    "menu_nutr_filled": 50,
+    "menu_nutr_total": 58,
+    "ing_allergen_count": 120
+  }
+}
