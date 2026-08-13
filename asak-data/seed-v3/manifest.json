@@ -17,13 +17,13 @@
     "set_variants"
   ],
   "counts": {
-    "category": 6,
+    "category": 8,
     "code_group": 10,
     "common_code": 32,
     "tag": 3,
-    "menu": 58,
+    "menu": 73,
     "menu_tag": 12,
-    "menu_nutr": 58,
+    "menu_nutr": 73,
     "ing": 90,
     "allergen": 14,
     "ing_allergen": 119,
@@ -65,5 +65,6 @@
     "ing_nutr": "seed-v3/ing_nutr.json"
   },
   "deduped_at": "2026-08-12T12:29:36.648383+00:00",
-  "deduped_removed": 34
+  "deduped_removed": 34,
+  "side_drink_applied_at": "2026-08-13T04:54:44Z"
 }

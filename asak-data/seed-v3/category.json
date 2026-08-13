@@ -34,5 +34,17 @@
     "name": "샌드위치",
     "sort_no": 1,
     "active": true
+  },
+  {
+    "id": 237,
+    "name": "사이드",
+    "sort_no": 4,
+    "active": true
+  },
+  {
+    "id": 238,
+    "name": "음료",
+    "sort_no": 6,
+    "active": true
   }
 ]

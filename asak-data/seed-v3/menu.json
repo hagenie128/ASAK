@@ -636,5 +636,170 @@
     "sold_out": false,
     "created_at": "2026-08-12T12:19:27+00:00",
     "updated_at": "2026-08-12T12:34:47+00:00"
+  },
+  {
+    "id": 10776,
+    "cat_id": 237,
+    "name": "양송이 크림스프",
+    "price": 4500,
+    "image_url": "https://naverbooking-phinf.pstatic.net/20220218_261/1645169219731T8uQL_PNG/%BE%E7%BC%DB%C0%CC_%C5%A9%B8%B2%BD%BA%C7%C1.png?type=f220_220_60_sharpen",
+    "description": "양송이의 풍미가 살아있는 고소하고 담백한 스프 (*세트 가격으로 구매를 원할 시 메인 메뉴 옵션에서 선택해주세요)",
+    "sold_out": false,
+    "created_at": "2026-08-13T04:54:35+00:00",
+    "updated_at": "2026-08-13T04:54:35+00:00"
+  },
+  {
+    "id": 10777,
+    "cat_id": 237,
+    "name": "단호박 크림스프",
+    "price": 4900,
+    "image_url": "https://naverbooking-phinf.pstatic.net/20231101_232/1698797882757ejexf_PNG/%B4%DC%C8%A3%B9%DA%C5%A9%B8%B2%BD%BA%C7%C1_230914.png?type=f220_220_60_sharpen",
+    "description": "달콤한 단호박과 크리미하고 진한 크림이 만나 달콤하고 부드러운 스프",
+    "sold_out": false,
+    "created_at": "2026-08-13T04:54:35+00:00",
+    "updated_at": "2026-08-13T04:54:35+00:00"
+  },
+  {
+    "id": 10778,
+    "cat_id": 237,
+    "name": "치킨토마토 스튜",
+    "price": 4900,
+    "image_url": "https://naverbooking-phinf.pstatic.net/20240206_29/17071779377427rYsv_PNG/%C4%A1%C5%B2%C5%E4%B8%B6%C5%E4%BD%BA%C6%A9_240118.png?type=f220_220_60_sharpen",
+    "description": "큐브 형태의 닭가슴살과 각종 야채가 들어있는 가볍지만 든든한 토마토 스튜",
+    "sold_out": false,
+    "created_at": "2026-08-13T04:54:35+00:00",
+    "updated_at": "2026-08-13T04:54:35+00:00"
+  },
+  {
+    "id": 10779,
+    "cat_id": 237,
+    "name": "포테이토 크림스프",
+    "price": 4500,
+    "image_url": "https://naverbooking-phinf.pstatic.net/20250212_170/1739346365492MhGun_PNG/%C6%F7%C5%D7%C0%CC%C5%E4%C5%A9%B8%B2%BD%BA%C7%C1_%B4%A9%B3%A2.png?type=f220_220_60_sharpen",
+    "description": "큐브 형태의 감자에 닭육수와 부드러운 크림을 더한 고소한 풍미의 스프",
+    "sold_out": false,
+    "created_at": "2026-08-13T04:54:35+00:00",
+    "updated_at": "2026-08-13T04:54:35+00:00"
+  },
+  {
+    "id": 10780,
+    "cat_id": 237,
+    "name": "카사바칩",
+    "price": 1900,
+    "image_url": "https://naverbooking-phinf.pstatic.net/20260511_153/1778490284780neIs8_PNG/image.png?type=f220_220_60_sharpen",
+    "description": "식이섬유가 풍부하고 GI 지수가 낮아 혈당 부담없이 가벼운 카사바칩",
+    "sold_out": false,
+    "created_at": "2026-08-13T04:54:35+00:00",
+    "updated_at": "2026-08-13T04:54:35+00:00"
+  },
+  {
+    "id": 10781,
+    "cat_id": 238,
+    "name": "[고창] 리얼 수박 주스",
+    "price": 4500,
+    "image_url": "https://naverbooking-phinf.pstatic.net/20260616_95/1781574117233glSXl_PNG/image.png?type=f220_220_60_sharpen",
+    "description": "전북 고창의 제철 수박을 원물 그대로 착즙한  리얼 수박 주스로 더 건강하게 즐기는 샐러디의 여름 한정 시즌 음료 메뉴 (~8/31)",
+    "sold_out": false,
+    "created_at": "2026-08-13T04:54:35+00:00",
+    "updated_at": "2026-08-13T04:54:35+00:00"
+  },
+  {
+    "id": 10782,
+    "cat_id": 238,
+    "name": "아메리카노 (HOT)",
+    "price": 2700,
+    "image_url": "https://ldb-phinf.pstatic.net/20220218_284/1645169353812C0HyS_JPEG/%C7%D6-%BE%C6%B8%DE%B8%AE%C4%AB%B3%EB.jpg?type=f220_220_60_sharpen",
+    "description": "바디감과 밸런스가 좋은 커피",
+    "sold_out": false,
+    "created_at": "2026-08-13T04:54:35+00:00",
+    "updated_at": "2026-08-13T04:54:35+00:00"
+  },
+  {
+    "id": 10783,
+    "cat_id": 238,
+    "name": "아메리카노 (ICE)",
+    "price": 2700,
+    "image_url": "https://naverbooking-phinf.pstatic.net/20230209_70/16759240041608GQ3z_PNG/%C0%BD%B7%E1_%BE%C6%C0%CC%BD%BA%BE%C6%B8%DE%B8%AE%C4%AB%B3%EB_%C1%A4%B9%E6%C7%E2.png?type=f220_220_60_sharpen",
+    "description": "바디감과 밸런스가 좋은 커피",
+    "sold_out": false,
+    "created_at": "2026-08-13T04:54:35+00:00",
+    "updated_at": "2026-08-13T04:54:35+00:00"
+  },
+  {
+    "id": 10784,
+    "cat_id": 238,
+    "name": "코크제로 355ml",
+    "price": 2400,
+    "image_url": "https://naverbooking-phinf.pstatic.net/20230209_226/1675924020650XfA2n_PNG/%C4%DA%C5%A9%C1%A6%B7%CE_%C1%A4%B9%E6%C7%E2.png?type=f220_220_60_sharpen",
+    "description": "설탕이 들어가지 않은 0kcal 탄산수",
+    "sold_out": false,
+    "created_at": "2026-08-13T04:54:35+00:00",
+    "updated_at": "2026-08-13T04:54:35+00:00"
+  },
+  {
+    "id": 10785,
+    "cat_id": 238,
+    "name": "스프라이트제로 355ml",
+    "price": 2400,
+    "image_url": "https://naverbooking-phinf.pstatic.net/20230209_259/1675924031699HXHcT_PNG/%BD%BA%C7%C1%B6%F3%C0%CC%C6%AE%C1%A6%B7%CE_%C1%A4%B9%E6%C7%E2.png?type=f220_220_60_sharpen",
+    "description": "설탕이 들어가지 않은 0kcal 탄산음료",
+    "sold_out": false,
+    "created_at": "2026-08-13T04:54:35+00:00",
+    "updated_at": "2026-08-13T04:54:35+00:00"
+  },
+  {
+    "id": 10786,
+    "cat_id": 238,
+    "name": "착즙 주스(그린밀싹)",
+    "price": 4500,
+    "image_url": "https://naverbooking-phinf.pstatic.net/20230209_215/1675924073717W2uRJ_PNG/%B1%D7%B8%B0%B9%D0%BD%CF_%C1%A4%B9%E6%C7%E2.png?type=f220_220_60_sharpen",
+    "description": "케일, 밀싹, 사과, 레몬, 파인애플이 들어간 착즙 주스 (*얼음컵에 담겨 제공됩니다.)",
+    "sold_out": false,
+    "created_at": "2026-08-13T04:54:35+00:00",
+    "updated_at": "2026-08-13T04:54:35+00:00"
+  },
+  {
+    "id": 10787,
+    "cat_id": 238,
+    "name": "착즙 주스(오렌지당근)",
+    "price": 4500,
+    "image_url": "https://naverbooking-phinf.pstatic.net/20230209_282/1675924095601wKk71_PNG/%BF%C0%B7%BB%C1%F6%B4%E7%B1%D9_%C1%A4%B9%E6%C7%E2.png?type=f220_220_60_sharpen",
+    "description": "당근, 오렌지, 사과, 유자가 들어간 달콤한 착즙 주스 (*얼음컵에 담겨 제공됩니다.)",
+    "sold_out": false,
+    "created_at": "2026-08-13T04:54:35+00:00",
+    "updated_at": "2026-08-13T04:54:35+00:00"
+  },
+  {
+    "id": 10788,
+    "cat_id": 238,
+    "name": "착즙 주스(레드클렌즈)",
+    "price": 4500,
+    "image_url": "https://naverbooking-phinf.pstatic.net/20230802_274/1690933962166mEIrd_PNG/%B7%B9%B5%E5%C5%AC%B7%BB%C1%EE_%BE%F3%C0%BD.png?type=f220_220_60_sharpen",
+    "description": "비트, 사과, 당근, 파인애플, 레몬이 들어간 상큼한 착즙 주스 (*얼음컵에 담겨 제공됩니다.)",
+    "sold_out": false,
+    "created_at": "2026-08-13T04:54:35+00:00",
+    "updated_at": "2026-08-13T04:54:35+00:00"
+  },
+  {
+    "id": 10789,
+    "cat_id": 238,
+    "name": "생수 330ml",
+    "price": 500,
+    "image_url": "https://naverbooking-phinf.pstatic.net/20240806_105/1722904895600jFQhJ_PNG/%BB%FD%BC%F6_240322.png?type=f220_220_60_sharpen",
+    "description": "",
+    "sold_out": false,
+    "created_at": "2026-08-13T04:54:35+00:00",
+    "updated_at": "2026-08-13T04:54:35+00:00"
+  },
+  {
+    "id": 10790,
+    "cat_id": 238,
+    "name": "애사비 사과 스파클링",
+    "price": 2600,
+    "image_url": "https://naverbooking-phinf.pstatic.net/20260206_166/1770357291093t7wmP_PNG/%C5%B0%BF%C0%BD%BA%C5%A9%BE%D6%BB%E7%BA%F1_%BB%E7%B0%FA_%BD%BA%C6%C4%C5%AC%B8%B5.png?type=f220_220_60_sharpen",
+    "description": "제로 슈거로 가볍고, 상큼한 애사비 스파클링",
+    "sold_out": false,
+    "created_at": "2026-08-13T04:54:35+00:00",
+    "updated_at": "2026-08-13T04:54:35+00:00"
   }
 ]
