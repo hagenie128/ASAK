@@ -32,6 +32,24 @@ Kiosk fallback image.
 
 ---
 
+## Allergy integrity (2026-08-12)
+
+- Source of truth: `asak-data/scripts/input/allergy_260715.csv`; prefer `SALADY` rows.
+- Menu allergens are derived by the `menu_ing -> ing_allergen -> allergen` relation. Correct high-confidence omissions at the ingredient relation, not by copying menu values.
+- High-confidence links: implemented in seed and live DB, 11 links across 10 ingredients.
+- Live checklist: 36 mismatches before, 26 remaining after the change; 10 menu records now match the official sheet.
+- Deletion candidates remain `decision required`: shared dressing and sauce ingredients need an impact review before removing any allergen.
+- Customer display remains `not connected`: the kiosk detail API and `MenuDetailPage` do not currently pass or render an allergens field.
+
+### Allergy regression QA
+
+- [x] The 11 approved links exist in seed and DB.
+- [x] `ing_allergen` has no duplicate `(ing_id, allergen_id)` pairs in seed.
+- [x] The original 36-menu checklist was recalculated against live DB.
+- [ ] Add `allergens: string[]` to `GET /api/kiosk/menuDetail/{menuId}`.
+- [ ] Render the real API data through `AllergenAccordion` in the kiosk detail screen.
+- [ ] Browser QA: no allergen, one allergen, and long allergen-list states.
+
 ## Figma QA
 
 - [ ] Menu List Error

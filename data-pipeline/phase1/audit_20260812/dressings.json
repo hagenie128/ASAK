@@ -1,0 +1,128 @@
+{
+  "count": 15,
+  "name_map": {
+    "(저당)들기름소이": "(저당) 들기름소이",
+    "(저당)랜치": "(저당) 랜치",
+    "(저당)레몬허브": "(저당) 레몬허브",
+    "(저당)발사믹": "(저당) 발사믹",
+    "(저당)스리라차소이": "(저당) 스리라차소이",
+    "(저당)참깨소이": "(저당) 참깨소이",
+    "고추간장소스": "고추간장 소스",
+    "고추장비빔": "고추장비빔",
+    "바질페스토": "바질페스토",
+    "시저": "시저",
+    "오리엔탈": "오리엔탈",
+    "크리미칠리": "크리미칠리",
+    "크리미할라피뇨": "크리미할라피뇨",
+    "허니머스타드": "허니머스타드",
+    "화이트치즈소스": "화이트치즈소스"
+  },
+  "items": [
+    {
+      "name": "(저당) 들기름소이",
+      "name_normalized": "(저당)들기름소이",
+      "source": "allergy_pdf"
+    },
+    {
+      "name": "(저당) 랜치",
+      "name_normalized": "(저당)랜치",
+      "kcal": 137.3,
+      "source": "calorie_calculator"
+    },
+    {
+      "name": "(저당) 레몬허브",
+      "name_normalized": "(저당)레몬허브",
+      "kcal": 4.1,
+      "source": "calorie_calculator"
+    },
+    {
+      "name": "(저당) 발사믹",
+      "name_normalized": "(저당)발사믹",
+      "kcal": 110.0,
+      "source": "calorie_calculator"
+    },
+    {
+      "name": "(저당) 스리라차소이",
+      "name_normalized": "(저당)스리라차소이",
+      "kcal": 58.2,
+      "source": "calorie_calculator"
+    },
+    {
+      "name": "(저당) 참깨소이",
+      "name_normalized": "(저당)참깨소이",
+      "kcal": 110.0,
+      "source": "calorie_calculator"
+    },
+    {
+      "name": "고추간장 소스",
+      "name_normalized": "고추간장소스",
+      "source": "allergy_pdf"
+    },
+    {
+      "name": "고추장비빔",
+      "name_normalized": "고추장비빔",
+      "kcal": 80.0,
+      "source": "calorie_calculator"
+    },
+    {
+      "name": "바질페스토",
+      "name_normalized": "바질페스토",
+      "nutrition_pdf": {
+        "menu": "바질페스토",
+        "calories_kcal": 119.0,
+        "carbs_g": 0.5,
+        "sugar_g": 1.8,
+        "protein_g": 2.8,
+        "fat_g": 10.7,
+        "saturated_fat_g": 2.0,
+        "sodium_mg": 171.0
+      },
+      "kcal": 119.0,
+      "source": "official_topping"
+    },
+    {
+      "name": "시저",
+      "name_normalized": "시저",
+      "source": "allergy_pdf"
+    },
+    {
+      "name": "오리엔탈",
+      "name_normalized": "오리엔탈",
+      "kcal": 160.0,
+      "source": "calorie_calculator"
+    },
+    {
+      "name": "크리미칠리",
+      "name_normalized": "크리미칠리",
+      "kcal": 235.0,
+      "source": "calorie_calculator"
+    },
+    {
+      "name": "크리미할라피뇨",
+      "name_normalized": "크리미할라피뇨",
+      "kcal": 235.0,
+      "source": "calorie_calculator"
+    },
+    {
+      "name": "허니머스타드",
+      "name_normalized": "허니머스타드",
+      "source": "allergy_pdf"
+    },
+    {
+      "name": "화이트치즈소스",
+      "name_normalized": "화이트치즈소스",
+      "nutrition_pdf": {
+        "menu": "화이트치즈소스",
+        "calories_kcal": 54.0,
+        "carbs_g": 3.5,
+        "sugar_g": 2.7,
+        "protein_g": 0.3,
+        "fat_g": 4.4,
+        "saturated_fat_g": 1.2,
+        "sodium_mg": 73.5
+      },
+      "kcal": 54.0,
+      "source": "official_topping"
+    }
+  ]
+}

@@ -19,6 +19,17 @@ Figma node 39:7002
 menu, optionGroups, allergens
 ```
 
+### 3.1 Allergy data status (2026-08-12)
+
+| Area | Status | Verified current fact |
+| --- | --- | --- |
+| DB source | Implemented | Menu-level aggregation is possible through `menu_ing -> ing_allergen -> allergen`. |
+| Kiosk detail API | Not connected | `GET /api/kiosk/menuDetail/{menuId}` DTO and mapper do not return `allergens`. |
+| Kiosk rendering | Not connected | `AllergenAccordion` exists but `MenuDetailPage` does not render it. |
+| Figma | Not verified | Recorded node is `39:7002`; latest frame and copy need a separate review. |
+
+Do not mark customer allergen display as complete until the API and screen are connected.
+
 ## 4. Required States
 
 - `default`
@@ -40,9 +51,13 @@ menu, optionGroups, allergens
 - `QuantityControl`
 - `AllergenNotice`
 
+Current code has `AllergenAccordion`, but it is not connected in `MenuDetailPage`.
+
 ## 7. API Contract
 
 - `GET /api/kiosk/menuDetail/{menuId}`
+
+Current implementation returns basic menu fields, `ingredients`, `optionGroups`, and `tags`; it does not include `allergens`. Adding `allergens: string[]` requires an API-contract decision and coordinated mapper, DTO, and screen work.
 
 ## 8. User Actions
 
