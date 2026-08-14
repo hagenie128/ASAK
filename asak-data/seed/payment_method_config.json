@@ -2,8 +2,37 @@
   {
     "id": 10828,
     "method_id": 19,
-    "name": "카드",
+    "name": "카드 / 삼성페이 결제",
+    "description": "신용 · 체크카드",
+    "image_asset_id": 352,
     "is_active": true,
     "sort_order": 1
+  },
+  {
+    "id": 10829,
+    "method_id": 46,
+    "name": "카카오페이 결제",
+    "description": "모바일 간편결제",
+    "image_asset_id": 353,
+    "is_active": true,
+    "sort_order": 2
+  },
+  {
+    "id": 10830,
+    "method_id": 47,
+    "name": "네이버페이 결제",
+    "description": "모바일 간편결제",
+    "image_asset_id": 354,
+    "is_active": true,
+    "sort_order": 3
+  },
+  {
+    "id": 10832,
+    "method_id": 49,
+    "name": "토스페이 결제",
+    "description": "모바일 간편결제",
+    "image_asset_id": 355,
+    "is_active": true,
+    "sort_order": 4
   }
 ]
