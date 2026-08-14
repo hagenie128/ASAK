@@ -1,6 +1,6 @@
 # ASAK Screen Registry
 
-> Status: Current Draft
+> Status: **DRAFT**
 
 | ID | Domain | Screen | Route | Status |
 |---|---|---|---|---|

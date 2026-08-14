@@ -24,7 +24,6 @@
 ## 추적·범위
 
 - [향후 범위](future-scope.md)
-- [구 wbs-v2 / wbs-schedule](wbs.md) — 리다이렉트만 (정본은 wbs.md)
 
 ## DB·API·QA (Notion export — Historical)
 

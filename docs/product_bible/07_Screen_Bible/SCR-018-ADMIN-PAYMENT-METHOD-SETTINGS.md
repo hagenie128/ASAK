@@ -1,6 +1,6 @@
 # SCR-018: Admin Payment Method Settings
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `/paymentMethods`
 > Purpose: 결제수단·정책 관리
 

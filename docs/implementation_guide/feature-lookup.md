@@ -7,7 +7,7 @@
 
 | 작업 | 구현 가이드 | 화면 | 우선 확인할 원본 문서 |
 | --- | --- | --- | --- |
-| 전체 시작·충돌 판단 | [시작점](00-start-here.md) | 전체 | [Index](../governance/product-bible-index-2026-07-16.md), [Canonical Source](../product_bible/01_Foundation/CANONICAL_SOURCE.md), [Screen Registry](../product_bible/07_Screen_Bible/SCREEN_REGISTRY.md) |
+| 전체 시작·충돌 판단 | [시작점](00-start-here.md) | 전체 | [Product Bible Hub](../product_bible/product-bible-hub.md), [Canonical Source](../product_bible/01_Foundation/CANONICAL_SOURCE.md), [Screen Registry](../product_bible/07_Screen_Bible/SCREEN_REGISTRY.md) |
 | 홈·메뉴·옵션 | [Kiosk](02-kiosk-implementation.md) | SCR-001, 003, 004 | [Menu Detail Flow](../product_bible/03_Menu_Inventory_SoldOut/MENU_BIBLE.md) |
 | 장바구니 | [Kiosk](02-kiosk-implementation.md) | SCR-005 | [Cart State](../product_bible/02_Order_Cart_Payment/CART_BIBLE.md) |
 | 주문 생성·상태 | [Kiosk](02-kiosk-implementation.md), [API·DB](04-api-db-implementation.md) | SCR-005, 009, 010 | [Order Flow](../product_bible/02_Order_Cart_Payment/ORDER_BIBLE.md), [Order Architecture](../product_bible/02_Order_Cart_Payment/ORDER_BIBLE.md) |

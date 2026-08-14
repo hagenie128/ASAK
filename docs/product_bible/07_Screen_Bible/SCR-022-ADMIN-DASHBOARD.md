@@ -1,6 +1,6 @@
 # SCR-022: Admin Dashboard
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `/dashboard`
 > Purpose: 관리자 KPI·요약 대시보드 운영 현황 파악
 

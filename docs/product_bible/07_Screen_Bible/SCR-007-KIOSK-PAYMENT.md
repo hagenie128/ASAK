@@ -1,6 +1,6 @@
 # SCR-007: Kiosk Payment
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `/payment`
 > Purpose: 결제수단 선택·결제
 

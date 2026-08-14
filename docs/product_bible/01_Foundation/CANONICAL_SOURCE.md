@@ -1,6 +1,6 @@
 # ASAK Canonical Source
 
-> Status: Current
+> Status: **CURRENT**
 > 이 문서는 정보 충돌 시 어떤 자료를 우선할지 정의한다.
 
 ## 1. Repository Responsibility

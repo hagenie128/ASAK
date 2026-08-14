@@ -1,6 +1,6 @@
 # SCR-020: Admin Monthly Sales
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `/sales/monthly`
 > Purpose: 월별 추이 분석
 

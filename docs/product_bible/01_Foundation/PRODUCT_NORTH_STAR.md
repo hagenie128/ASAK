@@ -1,6 +1,6 @@
 # Product North Star
 
-> Status: `Canonical`
+> Status: **CANONICAL**
 > Updated: `2026-08-14`
 > 이 문서는 아래 원문을 출처별 구획으로 통합했습니다. 원문의 규칙·표·체크리스트는 삭제하지 않았습니다.
 

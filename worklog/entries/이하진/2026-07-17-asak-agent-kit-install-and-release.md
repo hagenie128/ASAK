@@ -78,7 +78,7 @@ ASAK 팀 프로젝트의 작업 원칙을 Codex 등 여러 AI 도구에서 재�
 
 ## 12. 첨부하면 좋은 자료
 
-- [ASAK Agent Kit README](../../../../asak-agent-kit/README.md)
-- [수동 설치 가이드](../../../../asak-agent-kit/docs/manual-install.md)
+- ASAK Agent Kit README (과거 경로)
+- 수동 설치 가이드 (과거 경로)
 - `install-asak.cmd`, `install-asak.ps1`, `verify-asak.ps1`
 - ChatGPT 공유 대화: `AI 스킬 추천` (v2/v2.1 개선 근거)

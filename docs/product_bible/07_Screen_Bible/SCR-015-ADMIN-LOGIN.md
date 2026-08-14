@@ -1,6 +1,6 @@
 # SCR-015: Admin Login
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `/login`
 > Purpose: 관리자 인증
 

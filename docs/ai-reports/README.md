@@ -1,6 +1,6 @@
 # AI 산출물 보고서
 
-> Status: **Reference / Archive-like** · 구현 정본 아님
+> Status: **CANONICAL**
 
 일자별 `asak-doc-sync` · `asak-signoff` · 공부 근거 보고서를 둡니다.
 

@@ -1,6 +1,6 @@
 # 주간 rollup (weekly)
 
-> Status: **Current** · 개인/팀 **주간 요약**
+> Status: **CURRENT**
 > 공식 회의록이 아닙니다. 회의록 정본은 [`../../docs/operations/meeting-minutes/`](../../docs/operations/meeting-minutes/README.md)입니다.
 
 매주 금요일 또는 스프린트 종료 시 주간 요약을 작성합니다.

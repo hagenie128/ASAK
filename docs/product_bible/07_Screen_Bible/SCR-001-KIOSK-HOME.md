@@ -1,6 +1,6 @@
 # SCR-001: Kiosk Home
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `/`
 > Purpose: 주문 유형 선택
 

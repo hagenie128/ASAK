@@ -1,6 +1,6 @@
 # 앱 구현 문서 허브
 
-> Status: **Current** (2026-07-28)
+> Status: **CURRENT**
 > Product Bible(정책) · implementation_guide(작업 카드) · 저장소 PLAN(진행) 역할을 한 표로 정리합니다.
 
 ## 어디를 보나
@@ -12,7 +12,7 @@
 | **제품 규칙·API·SCR ID?** | [Product Bible 허브](../product_bible/product-bible-hub.md) → Pack README | [Canonical](../governance/canonical-contract-decisions-2026-07-16.md) |
 | **지금 고치는 화면 작업 카드?** | [implementation_guide/00_START_HERE](../implementation_guide/00-start-here.md) | Pack 07·12 |
 | **저장소별 이번 스프린트?** | Kiosk·back `IMPLEMENTATION_PLAN.md` · Admin `STRUCTURE_GUIDE` + Mock 사전 | `src/STRUCTURE_GUIDE.md` |
-| **Figma↔코드 한 표?** | 워크스페이스 [ui-index.md](../../UI-INDEX.md) | [design/figma-0718-project-gap.md](../design/figma-0718-project-gap.md) |
+| **Figma↔코드 한 표?** | 워크스페이스 [ui-index.md](../../UI-INDEX.md) | [design/README.md](../design/README.md) |
 
 ## Pack 11/12 vs IMPLEMENTATION_PLAN (merge 안 함)
 

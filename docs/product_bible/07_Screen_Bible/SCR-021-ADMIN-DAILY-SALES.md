@@ -1,6 +1,6 @@
 # SCR-021: Admin Daily Sales
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `/sales/daily`
 > Purpose: 일별·시간대 분석
 

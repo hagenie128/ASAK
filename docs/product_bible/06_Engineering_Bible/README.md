@@ -1,6 +1,6 @@
 # 06_Engineering_Bible
 
-> Status: `Canonical Pack`
+> Status: **CANONICAL**
 > Updated: `2026-08-14`
 > Pack 경계는 유지하고, 반복 문서는 도메인별 통합 문서로 줄였습니다.
 
@@ -51,4 +51,4 @@
 
 #### 고정 스택
 
-React · JavaScript · Zustand · Spring Boot 4.1 · Java 25 — Pack 본문 변경 전 [Pack 1 Principles](../01_Foundation/PRODUCT_NORTH_STAR.md) 확인
+React · JavaScript · Zustand · Spring Boot 4.0.7 · Java 25 — Pack 본문 변경 전 [Pack 1 Principles](../01_Foundation/PRODUCT_NORTH_STAR.md) 확인

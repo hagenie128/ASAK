@@ -1,6 +1,6 @@
 # notion — Notion export
 
-> 태그: `#generated-input` / `#historical`
+> Status: **HISTORY**
 > 이 경로는 DevCopilot 동기화 스크립트의 고정 입력입니다. Product Bible을 대체하지 않습니다.
 
 대량 과거 export 사본은 제거했습니다. 현재 폴더의 입력만 유지하며, 삭제된 이력은 Git history로 조회합니다.

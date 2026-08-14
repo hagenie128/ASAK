@@ -1,6 +1,6 @@
 # SCR-011: Admin Sold-out Management
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `/soldOut`
 > Purpose: 품절 변경·영향 확인
 

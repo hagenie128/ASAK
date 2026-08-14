@@ -1,17 +1,17 @@
 # 발표 자료 — ASAK 샐러드 스마트 키오스크
 
-> Status: **Current** · 발표 최신본은 수정3만 사용
+> Status: **CURRENT**
 
 프로젝트 결과보고서 발표 PPT와 디자인 규격, 작성 근거를 모은 폴더입니다.
 
 | 파일 | 내용 | 태그 |
 |---|---|---|
-| `00_ppt/ASAK_샐러드_스마트키오스크_수정3_20260811.pptx` | **최신 발표본 22장** | `#current` |
-| `00_ppt/screenshots/` | Kiosk·Admin 실기동 캡처 | `#reference` |
-| `ASAK_PPT_디자인시스템.md` | 그리드·컬러·타이포·템플릿 규격 | `#current` |
-| `ASAK_PPT_작성계획_초안.md` | 슬라이드별 문구·발표 노트 | `#reference` |
-| `01_asak_ppt_design/` | 시안·장별 렌더 PNG | `#reference` |
-| `_archive/00_ppt/` | 원본·수정1·수정2 등 이전 pptx | `#archive` |
+| `00_ppt/ASAK_샐러드_스마트키오스크_수정3_20260811.pptx` | **최신 발표본 22장** | `CURRENT` |
+| `00_ppt/screenshots/` | Kiosk·Admin 실기동 캡처 | `REFERENCE` |
+| `ASAK_PPT_디자인시스템.md` | 그리드·컬러·타이포·템플릿 규격 | `CURRENT` |
+| `ASAK_PPT_작성계획_초안.md` | 슬라이드별 문구·발표 노트 | `REFERENCE` |
+| `01_asak_ppt_design/` | 시안·장별 렌더 PNG | `REFERENCE` |
+| `_archive/00_ppt/` | 원본·수정1·수정2 등 이전 pptx | `HISTORY` |
 
 ## 덱 구성
 

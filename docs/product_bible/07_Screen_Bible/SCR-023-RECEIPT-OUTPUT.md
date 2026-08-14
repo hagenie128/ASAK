@@ -1,6 +1,6 @@
 # SCR-023: Receipt Output
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `extension`
 > Purpose: 영수증 출력
 

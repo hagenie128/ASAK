@@ -1,6 +1,6 @@
 # architecture — 구조 / 갭 분석
 
-> 태그: `#current`
+> Status: **CURRENT**
 
 | 파일 | 용도 |
 |---|---|

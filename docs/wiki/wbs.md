@@ -1,6 +1,6 @@
 # 작업 분해표 (WBS)
 
-> Status: **Current** · 정본 ID `WBS-001`~`085`
+> Status: **CANONICAL**
 > 입구: [START_HERE](../START_HERE.md) · 코드 감각: [wbs-status-notes.md](wbs-status-notes.md) · 구현 맵: [current-implementation-map](../planning/current-implementation-map-2026-07-16.md)
 > **팀:** 김나연 · 이하진 · 기준일 **2026-08-14**
 >
@@ -11,7 +11,7 @@
 
 1. 아래 **이번 주 우선** → 영역 표만 본다.
 2. DONE은 **근거** 칸을 채운다.
-3. Hub/Notion 카드와 ID·상태를 맞춘다. 구 `wbs-v2` / `wbs-schedule`는 리다이렉트다.
+3. Hub/Notion 카드와 ID·상태를 맞춘다. 구 `wbs-v2` / `wbs-schedule` 경로는 삭제했고 정본은 이 파일이다.
 
 ## 이번 주 우선
 

@@ -1,6 +1,6 @@
 # ASAK AI Master Context
 
-> Status: Current
+> Status: **CURRENT**
 > AI는 작업 전에 이 문서를 읽는다.
 
 ## Project

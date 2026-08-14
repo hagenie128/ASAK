@@ -126,6 +126,6 @@ orphan 정리
 
 ## 11. 연결된 기록
 
-- AI signoff: [`docs/ai-reports/2026-08-12/asak-signoff-salady-menu-asset-sync.md`](../../../../docs/ai-reports/2026-08-12/asak-signoff-salady-menu-asset-sync.md) (워크스페이스 루트)
+- AI signoff: [`docs/ai-reports/2026-08-12/asak-signoff-salady-menu-asset-sync.md`](../../../docs/ai-reports/2026-08-12/asak-signoff-salady-menu-asset-sync.md) (워크스페이스 루트)
 - dedupe 리포트: `asak-data/scripts/output/dedupe_menus_seed_v3_report.json`
 - merged 리포트: `asak-data/scripts/output/salady_menu_merged_20260812_report.json`

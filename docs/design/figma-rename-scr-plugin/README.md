@@ -1,5 +1,11 @@
 # SCR Frame Rename (kiosk_design)
 
+> Status: **LEGACY / 사용 중지**
+>
+> 이 플러그인과 `code.js`는 구 `kiosk_design` 파일용이며 현재 0718 디자인 정본과 화면 번호가 다릅니다. 특히 코드가 SCR-020/021을 영수증·멤버십으로 취급하므로 현재 파일에 실행하면 안 됩니다. 현재 정본은 [Screen Registry](../../product_bible/07_Screen_Bible/SCREEN_REGISTRY.md)와 [디자인 문서 허브](../README.md)입니다.
+>
+> 현재 정본: SCR-020 관리자 월별 매출 · SCR-021 관리자 일별 매출 · SCR-023 영수증 출력 · SCR-024 멤버십·쿠폰
+
 
 
 `kiosk_design` Figma 파일의 Page 구조를 **무료 플랜 3페이지**(02 User Flow · 03 Kiosk · 04 Admin)에 맞추고, SCR 프레임 이름을 `SCR-XXX 화면명` 형식으로 일괄 정리하는 개발용 플러그인입니다.
@@ -24,14 +30,14 @@
 
 
 
-## 목표 Page 구조 (무료 플랜 3페이지)
+## 레거시 목표 Page 구조 (무료 플랜 3페이지)
 
 > **Figma Free: 페이지 최대 3개** — Notion 유료 권장 7페이지(00~06)는 아래 3페이지로 통합. 플러그인은 **이 3페이지만 생성**합니다.
 
 | Page | SCR | 내용 |
 |------|-----|------|
 | **02. User Flow** | — | Cover·DS 토큰·고객·관리자 흐름·Prototype 링크·Archive 참고 (수동 배치) |
-| **03. Kiosk Screens** | SCR-001~014, 020~021 | 키오스크 고객 + Day10 관리자(009~011) |
+| **03. Kiosk Screens** | SCR-001~014, 구 020~021 | 키오스크 고객 + Day10 관리자(009~011) |
 | **04. Admin Screens** | SCR-015~019 | 후반 관리자 (로그인·메뉴·결제·매출) |
 
 유료 플랜 전환 시 00 Cover · 01 Design System · 05 Prototype · 06 Archive 분리 가능.
@@ -52,7 +58,7 @@ SCR-009~011   관리자 (주문·품절) — 같은 Page
 
 SCR-012~014   결제실패·타임아웃·접근성
 
-SCR-020~021   영수증·멤버십 (없으면 플레이스홀더 생성)
+구 SCR-020~021   영수증·멤버십 (현재 정본에서는 SCR-023~024)
 
 ```
 

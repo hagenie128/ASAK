@@ -1,6 +1,6 @@
 # WBS 상태 메모 (코드 기준)
 
-> Status: **Current** · 기준일 **2026-08-14**
+> Status: **CURRENT**
 > **할 일 정본:** [wbs.md](wbs.md) (`WBS-001`~`085`)
 > Hub 상태: TODO · IN_PROGRESS · IN_REVIEW · DONE · DELAYED
 > **팀:** 김나연 · 이하진

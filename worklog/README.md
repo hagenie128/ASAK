@@ -1,6 +1,6 @@
 # ASAK 워크로그
 
-> Cleanup 상태: `daily/`, `entries/`, `weekly/`는 캘린더·Notion 동기화의 현재 경로입니다. 완료 이력은 삭제하지 않으며, 스크립트 경로를 변경할 승인 전에는 `archive/`로 일괄 이동하지 않습니다. `archive/completed/`, `archive/former-members/`, `archive/plans/`, `current/`은 다음 경로 전환을 위한 예약 구조입니다.
+> Status: **HISTORY**
 
 ## 역할과 중복 원칙
 
@@ -13,7 +13,7 @@
 > **Git:** [worklog/](https://github.com/hagenie128/ASAK/tree/main/worklog)
 **Hub 링크 인덱스:** [`docs/wiki/worklog-index.md`](../docs/wiki/worklog-index.md) (daily · entries · weekly 한 문서)
 
-4인 팀 · **9주** ASAK 프로젝트 (7/2~9/2 발표)의 **일일 요약 + 상세 기록 + 캘린더 뷰**를 한곳에서 관리합니다.
+현재 2인 팀 · **9주** ASAK 프로젝트 (7/2~9/2 발표)의 **일일 요약 + 상세 기록 + 캘린더 뷰**를 한곳에서 관리합니다.
 
 관련 문서: [`docs/guides/01-team-setup.md`](../docs/guides/01-team-setup.md) · [`docs/guides/03-work-log-template.md`](../docs/guides/03-work-log-template.md) · [`docs/guides/04-sample-work-log-example.md`](../docs/guides/04-sample-work-log-example.md) · [`docs/guides/02-github-issues-guide.md`](../docs/guides/02-github-issues-guide.md)
 
@@ -41,7 +41,7 @@
 | 기능·이슈 깊은 기록 | `entries/{이름}/` + [03-work-log-template](../docs/guides/03-work-log-template.md) | 12섹션 |
 | 공유 인프라 (선택) | `daily/_team/` | 담당 **미지정** 행 |
 
-팀원: **이하진 · 김나연 · 박유진 · 강민준** — Git 사용자 매핑은 [`team_config.json`](team_config.json)
+현재 팀원: **이하진 · 김나연** — Git 사용자 매핑의 정본은 [`team_config.json`](team_config.json)입니다. 이전 참여자 기록은 기존 Worklog와 Git 이력에 보존합니다.
 
 ---
 
@@ -54,7 +54,7 @@
 5. **Notion 동기화** — `.\worklog\scripts\sync_today.ps1` (본인 파일의 표 행만 DB 업로드)
 6. **주간 회고** — 금요일 `weekly/YYYY-Www.md` · (선택) `python worklog/scripts/build_calendar.py`
 
-**Cursor / MCP:** [`guide-mcp-sync.md`](guide-mcp-sync.md) · [`prompts/prompt-daily-sync.md`](prompts/prompt-daily-sync.md)
+Cursor에서는 설치된 `asak-signoff` 스킬을 사용합니다. 별도 프롬프트 사본은 유지하지 않습니다.
 
 ---
 
@@ -70,8 +70,6 @@ worklog/
   daily/
     이하진/YYYY-MM-DD.md
     김나연/
-    박유진/
-    강민준/
     _team/                  공유 인프라 (담당 미지정, 선택)
   entries/
     {이름}/YYYY-MM-DD-주제.md

@@ -1,6 +1,6 @@
 # 정본(Canonical) 계약 결정
 
-> 상태: 현재 — 2026-07-16 사람 결정 확정. 이 문서는 문서 계약만 선언하며, 이 단계에서 소스 변경을 승인하지 않습니다.
+> Status: **CURRENT**
 
 ## 저장소 소유권
 
@@ -51,7 +51,7 @@ DB 상태 매핑 및 신규 mock에 사용하지 않습니다.
 
 다음은 MVP 데모 데이터(MVP Demo Data) 소스 자산이며, 향후 형태/무결성 업데이트 전까지 그대로 둡니다.
 
-- `ASAK-Kiosk/public/mocks/kiosk.json`
-- `ASAK-Admin/public/mocks/asak-admin-data.json`
+- `ASAK/asak-data/archive/frontend-mocks/kiosk.json` (과거 Kiosk mock, HISTORY)
+- `ASAK-Admin/src/mocks/asak-admin-data.json` (Admin 런타임 mock)
 
 향후 mock 수정 시 정본 API 응답 형태와 일치해야 하며, 매출 KPI/차트/테이블 합계 및 비율을 일관되게 유지해야 합니다.

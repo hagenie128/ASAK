@@ -1,6 +1,6 @@
 # ASAK 팀 가이드 (읽기 순서)
 
-> 태그: `#reference`
+> Status: **REFERENCE**
 > 제품·API 정본은 [Product Bible](../product_bible) / [정본 계약](../governance/canonical-contract-decisions-2026-07-16.md).
 > 전체 지도: [document-tag-index-2026-07-20.md](../document-tag-index-2026-07-20.md)
 
@@ -8,7 +8,7 @@
 > **Notion:** [📖 문서 읽는 순서](https://app.notion.com/p/39451ef04f0b81088a91d914f985fb11) · [📚 팀 문서 안내](https://app.notion.com/p/39551ef04f0b813b8765e64384f2dfd3)
 > **Git:** [`docs/guides/`](https://github.com/hagenie128/ASAK/tree/main/docs/guides) — ASAK repo
 
-**Step 0 (Windows)** — PC에 Git·Python·Java·Node가 **아직 없으면** [`install-windows.md`](../operations/setup/install-windows.md) (클릭·폴더·PATH 상세) → [`getting-started.md`](../operations/setup/getting-started.md) (세팅 + 워크로그) → 아래 **01~06**.
+**Step 0 (Windows)** — PC에 Git·Python·Java·Node가 **아직 없으면** [`install-windows.md`](../operations/setup/install-windows.md) → [`getting-started.md`](../operations/setup/getting-started.md) → 아래 가이드를 봅니다.
 
 | 순서 | 문서 | 내용 |
 |------|------|------|
@@ -20,7 +20,6 @@
 | 03 | [`03-work-log-template.md`](03-work-log-template.md) | 기능·이슈 단위 작업 기록 (12섹션) · [`일일 워크로그와의 관계`](03-work-log-template.md#일일-워크로그와의-관계) |
 | 04 | [`04-sample-work-log-example.md`](04-sample-work-log-example.md) | 상세 기록 예시 (SCR-003 · 이하진) · daily 연결은 [`worklog/guide-team-daily.md`](../../worklog/guide-team-daily.md) |
 | 05 | [`05-personal-portfolio-template.md`](05-personal-portfolio-template.md) | 프로젝트 종료 후 포트폴리오 정리 |
-| 06 | [`06-team-ai-prompt.md`](06-team-ai-prompt.md) | 팀 공통 AI 프롬프트 (Cursor·ChatGPT 등) |
 
 ### 구현 가이드 (07~11은 여기로 통합)
 
@@ -31,13 +30,5 @@
 | 07 프론트 | [stub](07-frontend-development-guide.md) → [00_START_HERE](../implementation_guide/00-start-here.md) |
 | 08 백엔드 | [stub](08-backend-development-guide.md) → [04 API·DB](../implementation_guide/04-api-db-implementation.md) |
 | 09~11 흐름·순서 | [09-11-moved](09-11-moved.md) |
-
-### AI 활용 가이드 (12~14)
-
-| 순서 | 문서 | 내용 |
-|------|------|------|
-| 12 | [`12-ai-agent-tools-guide.md`](12-ai-agent-tools-guide.md) | AI 스킬·코드 그래프 사용 시점과 안전 규칙 (`grill-with-docs` 의존 스킬 포함) |
-| 13 | [`13-ai-skill-prompt-examples.md`](13-ai-skill-prompt-examples.md) | 기존 ASAK 스킬·외부 공학 스킬 복사·붙여넣기 요청 예시 |
-| 14 | [`14-team-ai-tools-setup.md`](14-team-ai-tools-setup.md) | 팀원 PC별 스킬·코드 그래프 설치 (`grilling`·`domain-modeling` 포함) |
 
 **일일 워크로그**는 별도 흐름입니다 → [`worklog/README.md`](../../worklog/README.md) 확인 순서 · Notion [📅 일일 워크로그 — 팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95) · [📅 일일 워크로그 DB](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9)

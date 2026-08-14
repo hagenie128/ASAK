@@ -178,6 +178,6 @@ INSERT INTO option_group_kinds (code, name_ko) VALUES
 
 ## 다음 단계 (구현 시)
 
-- `db/import_json.py`: `output/menus.json`, `store_menus.json`, `dressings.json` → INSERT
+- 과거 JSON import 도구는 제거했습니다. 재수집·재적재가 필요하면 Git 이력에서 복원합니다.
 - 가격·옵션은 `collected_at` / `valid_from`로 스크래핑 회차별 이력 관리
 - `menu_id` 매칭 품질: `name_normalized` + 세트 접미사 제거 규칙 공유 (`salady_scraper.normalize_menu_name`)

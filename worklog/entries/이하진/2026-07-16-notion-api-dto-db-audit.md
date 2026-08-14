@@ -74,6 +74,6 @@ Notion·Product Bible·코드를 교차 검증해 API·DTO·DB 문서의 과장�
 
 ## 12. 첨부하면 좋은 자료
 
-- [Notion Web Audit Ledger](../../../docs/governance/notion-web-audit-ledger-2026-07-16.md)
+- Notion Web Audit Ledger (Git 이력)
 - [API·DB 구현 가이드](../../../docs/implementation_guide/04-api-db-implementation.md)
 - [현재 구현 맵](../../../docs/planning/current-implementation-map-2026-07-16.md)

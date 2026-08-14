@@ -39,7 +39,7 @@
 | 11 | Backend Implementation | [README](11_Backend_Implementation/README.md) |
 | 12 | Frontend Implementation | [README](12_Frontend_Implementation/README.md) |
 
-Index(표): [product-bible-index](../governance/product-bible-index-2026-07-16.md) · 입구: [START_HERE](../START_HERE.md)
+전체 색인: [product-bible-hub](product-bible-hub.md) · 입구: [START_HERE](../START_HERE.md)
 
 ## MVP에서 건너뛰기
 

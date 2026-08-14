@@ -1,4 +1,4 @@
-> Status: **Historical — Notion export** (2026-07-20)
+> Status: **HISTORY**
 > → **정본:** Pack 02·07 · [future-scope](future-scope.md)
 
 # ASAK 사용자 시나리오 명세

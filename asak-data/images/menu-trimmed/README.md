@@ -10,9 +10,9 @@
 
 ## 다시 만들기
 ```bash
-python3 scripts/trim_menu_images.py
+python ../../scripts/trim_menu_images.py
 ```
-(스크립트 경로: `asak-data/scripts/trim_menu_images.py`)
+(현재 폴더 기준. 저장소 루트에서는 `python asak-data/scripts/trim_menu_images.py`)
 
 ## 트리밍 기준
 - alpha &lt; 12 → 배경

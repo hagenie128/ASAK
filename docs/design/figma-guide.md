@@ -15,7 +15,6 @@
 | 화면 체크리스트 | [SCR_FIGMA_CHECKLIST.md](SCR_FIGMA_CHECKLIST.md) |
 | 링크 데이터 | [figma-links.template.json](figma-links.template.json) |
 | 플러그인 | [FIGMA_PLUGINS.md](FIGMA_PLUGINS.md) |
-| 코드 갭 (0718) | [figma-0718-project-gap.md](figma-0718-project-gap.md) |
 | Figma↔코드 표 | [ui-index.md](../../../ui-index.md) |
 
 ## Git 도구

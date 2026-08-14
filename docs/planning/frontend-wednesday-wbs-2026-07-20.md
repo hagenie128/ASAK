@@ -1,9 +1,9 @@
 # 프론트 3일 스프린트 WBS — 2026-07-20(월) ~ 07-22(수)
 
-> Status: **Historical** · 2026-07-20 시점 3일 실행표
+> Status: **HISTORY**
 > **현재 할 일 정본:** [`docs/wiki/wbs.md`](../wiki/wbs.md) (`WBS-001`~`085`) · 구 `wbs-v2`는 리다이렉트
 > **이 문서:** 학원 시간표에 꽂은 **실행·검증표** (UI 재이식 금지)
-> **갭 기준:** [`docs/design/figma-0718-project-gap.md`](../design/figma-0718-project-gap.md) — UI ✅ / 로직·API 연결만
+> **디자인 기준:** [design/README](../design/README.md) — Figma 자료는 참고이며 현재 구현은 코드로 확인
 
 | 항목 | 내용 |
 |------|------|
@@ -156,7 +156,7 @@ P3 픽셀 미세조정 · 공통 Button 리팩터 · 새 문서 → 수요일 �
 | [ ] | 16:30–17:30 | 나연 | Cart 삭제/비우기 Confirm · 수량 toast 회귀 | 025, 022–024 | `CartPage`, `quantityLimits` | 한도 toast 4초 |
 | [ ] | 16:30–17:30 | 하진 | 사이드바 active route | 033, 044 | `AdminSidebar.jsx` | 경로별 하이라이트 |
 | [ ] | 17:30–18:00 | 둘 | **버퍼** · 막힌 것 1건만 핫픽스 | — | — | P0만 |
-| [ ] | 18:00–18:20 | 둘 | 커밋 + wbs-v2 Evidence | — | `wbs-v2-2026-07-16.md` | Status 갱신 |
+| [ ] | 18:00–18:20 | 둘 | 커밋 + WBS Evidence | — | `wbs.md` | Status 갱신 |
 
 **월 퇴근 게이트 (둘 다 YES여야 화 진행 수월)**
 
@@ -272,8 +272,9 @@ P3 픽셀 미세조정 · 공통 Button 리팩터 · 새 문서 → 수요일 �
 
 | 파일 | 용도 |
 |------|------|
-| `ASAK-Kiosk/public/mocks/kiosk.json` | 카테고리·메뉴·상세·옵션 · 품절/알레르기/빈 카테고리 등 |
-| `ASAK-Admin/public/mocks/asak-admin-data.json` | 주문·품절·결제수단·매출·메뉴 · `adminMockRepository` 경유 |
+| `ASAK-Kiosk/public/mocks/payment-scenarios.sample.json` | 결제·완료·오류 예시만 |
+| `ASAK/asak-data/archive/frontend-mocks/kiosk.json` | 과거 Kiosk 전체 mock (HISTORY) |
+| `ASAK-Admin/src/mocks/asak-admin-data.json` | 주문·품절·결제수단·매출·메뉴 · `adminMockRepository` 경유 |
 
 화면은 JSON을 직접 읽지 말고 repository/기존 import 경계를 유지한다.
 

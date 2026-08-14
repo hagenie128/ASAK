@@ -1,6 +1,6 @@
 # Current Implementation Map
 
-> Status: **Historical Snapshot** · 2026-07-23 이후 코드 변경은 반영하지 않습니다.
+> Status: **HISTORY**
 > 기준일: **2026-07-23** · 당시 코드 실측 (7/20 감사 + 7/21~23 Admin mock·Figma 정합 반영).
 > 문서 입구: [START_HERE](../START_HERE.md)
 > 이전 07-16 버전은 Cart/Admin을 MISSING으로 적어 **과소평가**되어 폐기 수준으로 대체됨.
@@ -57,7 +57,7 @@
 | `quantityLimits.js` | `IMPLEMENTED` | 9/30 적용 · 4초 toast는 TODO (WBS2-024) |
 | `orderSessionStore` / cart 호환 | `IMPLEMENTED` | |
 | `api/*` + adapters | `PLACEHOLDER` / `PARTIAL` | 페이지 미사용 |
-| `public/mocks/kiosk.json` | `MOCK_WIRED` | 정본 mock |
+| `public/mocks/payment-scenarios.sample.json` | `SAMPLE` | 결제 예시만 · 전체는 `asak-data/archive/frontend-mocks/` |
 
 ---
 
