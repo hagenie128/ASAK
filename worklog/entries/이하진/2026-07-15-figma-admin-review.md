@@ -85,5 +85,5 @@ ASAK Figma 디자인 시스템의 전체 구조를 지속적으로 검토하면�
 ## 12. 첨부하면 좋은 자료
 
 - [Figma — ASAK Design System Product UI 0715](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715?node-id=39-7344)
-- [Figma–React 검토 기록](../../../docs/design/_archive/audits/ASAK_FIGMA_MCP_REVIEW_2026-07-14.md)
+- Figma–React 검토 기록 (삭제된 과거 이력)
 - [오늘 일일 워크로그](../../daily/이하진/2026-07-15.md)

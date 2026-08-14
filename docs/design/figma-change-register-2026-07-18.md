@@ -1,5 +1,8 @@
 # ASAK Figma 변경 레지스터
 
+> Status: **Historical Reference** · 2026-07-20 디자인 동결 전 기록이며 신규 실행 계획이 아닙니다.
+
+
 > 이 파일만 작업판으로 사용한다. A~E 출처 문서는 **근거 보관용**으로 유지하고 새 통합 문서는 만들지 않는다.
 
 ## 0. 최초 1회 병합과 고정 파트너
@@ -44,9 +47,9 @@
 
 ## 0718 복구 배치 (2026-07-18) — 완료 요약
 
-**쓰기 타깃:** `yHhvn5RKjBd91U8BJUQz7F` (0718)  
-**참고:** ASAK-1 · 0714(화면 시각) · 0715 **구분선 아래** 컴포넌트/화면 보관본  
-**정본 표:** [figma-0718-color-canon-2026-07-18.md](./figma-0718-color-canon-2026-07-18.md)
+**쓰기 타깃:** `yHhvn5RKjBd91U8BJUQz7F` (0718)
+**참고:** ASAK-1 · 0714(화면 시각) · 0715 **구분선 아래** 컴포넌트/화면 보관본
+**정본 표:** [figma-0718-color-canon-2026-07-18.md](figma-0718-color-canon-2026-07-18.md)
 
 | Phase | 내용 | 결과 |
 |---|---|---|
@@ -58,14 +61,14 @@
 | — | 표 밖 unbound hex | 바꾸지 않음 · 캐논 문서에 목록만 |
 | 5 | 화면 조합 (잘 데려가기) | 맵 문서 · 키오스크/Admin Core·QA 섹션 · SCR-008/001/003 정리 · Archive Default ID 확정 |
 
-**조합 맵:** [figma-0718-screen-combine-map-2026-07-18.md](./figma-0718-screen-combine-map-2026-07-18.md)
+**조합 맵:** [figma-0718-screen-combine-map-2026-07-18.md](figma-0718-screen-combine-map-2026-07-18.md)
 
 ### 지금 할 일
 
 1. 0718에서 Modal / BottomCTA / SaveBar / MenuButton side·drink 눈 QA
-2. 깨진 Default만 수동 복붙  
-   - 키오스크 → **0714**  
-   - Admin → **0715 Archive** (`525:19726` 등, 맵 표 참고)  
+2. 깨진 Default만 수동 복붙
+   - 키오스크 → **0714**
+   - Admin → **0715 Archive** (`525:19726` 등, 맵 표 참고)
    - 붙여넣은 뒤 **0718 로컬 Semantic만** 재바인딩 (**Figma AI bulk 금지**)
 3. 기존 Change ID(B0/B1…)는 수치·구조 이슈용으로 유지 — 색·조합과 섞지 않음
 

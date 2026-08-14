@@ -1,10 +1,13 @@
-> **실행 계획 정본 (Current)** · Figma 편집: **0718** `yHhvn5RKjBd91U8BJUQz7F` · QA 근거: [figma-qa-unified-complete](./figma-qa-unified-complete-2026-07-17.md) (0715 감사)
+> **실행 계획 정본 (Current)** · Figma 편집: **0718** `yHhvn5RKjBd91U8BJUQz7F` · QA 근거: [figma-qa-unified-complete](figma-qa-unified-complete-2026-07-17.md) (0715 감사)
+
+> Status: **Historical Reference** · 2026-07-20 디자인 동결 전 기록이며 신규 실행 계획이 아닙니다.
+
 
 # ASAK Figma 종합 수정 실행 계획
 
-> 기준 문서: `figma-qa-unified-complete-2026-07-17.md`  
-> 기준 파일: `JSrjOy668zhfkiLplCkreh`  
-> 대상: Foundations, Shared, Kiosk Components/Screens, Admin Components/Screens  
+> 기준 문서: `figma-qa-unified-complete-2026-07-17.md`
+> 기준 파일: `JSrjOy668zhfkiLplCkreh`
+> 대상: Foundations, Shared, Kiosk Components/Screens, Admin Components/Screens
 > 원칙: **AI가 전체를 대신 고치지 않는다. 사람은 디자인 결정과 Figma 편집을 맡고, AI는 수치 추출·변경 목록·교차 검증·회귀 탐지를 맡는다.**
 
 ## 1. 결론

@@ -21,12 +21,9 @@
 - [정본 계약](../governance/canonical-contract-decisions-2026-07-16.md)
 - [전체 흐름도 (Mermaid)](project-flow.md)
 
-## 추적·범위 (Historical — `_archive/wiki-secondary`)
+## 추적·범위
 
-- [추적성 매트릭스](../_archive/wiki-secondary/traceability-matrix.md)
-- [향후 범위](../_archive/wiki-secondary/future-scope.md)
-- [DevCopilot 동기화 보고](../_archive/wiki-secondary/devcopilot-sync-report.md)
-- [레거시 WBS2 매핑 감사](../_archive/wiki-secondary/legacy-wbs2-mapping-audit-2026-07-16.md)
+- [향후 범위](future-scope.md)
 - [구 wbs-v2 / wbs-schedule](wbs.md) — 리다이렉트만 (정본은 wbs.md)
 
 ## DB·API·QA (Notion export — Historical)
@@ -36,17 +33,14 @@
 - [DB 테이블](db-table-definition.md)
 - [DB 뷰](db-view-definition.md) ← **메뉴/주문/품절/매출 View**
 - [DevCopilot 허브 점검 2026-07-24](devcopilot-hub-audit-2026-07-24.md)
-- [DB 약어](../_archive/wiki-secondary/db-abbreviation-glossary.md)
-- [DB 감사 계획](../_archive/wiki-secondary/db-audit-plan.md)
 - [REST API 명세](rest-api-spec.md) *(legacy path 보존)*
 - [요구사항](requirements-definition.md)
 - [시나리오](user-scenarios.md)
 - [QA 케이스](qa-test-cases.md)
 - [화면·Figma](screen-design-figma.md) *(SCR 정본: Pack 07)*
 
-## 스냅샷
+## 저장소별 기준
 
-- [DevCopilot baseline 2026-07-16](../_archive/wiki-secondary/snapshots/devcopilot-baseline-2026-07-16.md) (역사)
 - 앱 구조: `ASAK-Kiosk/src/STRUCTURE_GUIDE.md`, `ASAK-Admin/src/STRUCTURE_GUIDE.md`
 - 앱 계획: 각 저장소 `IMPLEMENTATION_PLAN.md`
 

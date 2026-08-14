@@ -2,7 +2,7 @@
 
 > **2026-07-16 override:** do not clone or modify `ASAK-front` for current implementation work. The current workspace root contains `ASAK`, `ASAK-Kiosk`, `ASAK-Admin`, and `ASAK-back`. Kiosk remote migration is blocked pending owner confirmation; see [current status baseline](../wiki/current-status-baseline.md).
 
-> **Notion:** [01. 팀/역할/일정](https://app.notion.com/p/15451ef04f0b821c83568124e6ebb32f) · [📖 문서 읽는 순서](https://app.notion.com/p/39451ef04f0b81088a91d914f985fb11)  
+> **Notion:** [01. 팀/역할/일정](https://app.notion.com/p/15451ef04f0b821c83568124e6ebb32f) · [📖 문서 읽는 순서](https://app.notion.com/p/39451ef04f0b81088a91d914f985fb11)
 > **Git:** [`docs/guides/README.md`](README.md) — 가이드 읽기 순서 **01**
 
 이 문서는 팀원이 `ASAK (A Salad A Kiosk)` 구조를 같은 방식으로 세팅하고 작업을 시작할 수 있도록 만든 공용 가이드입니다.
@@ -48,7 +48,7 @@ c:\ASAK-back     -> ASAK-back
 
 ### `ASAK` 안의 `frontend/`, `backend/`는?
 
-`c:\ASAK\frontend`와 `c:\ASAK-front`는 **다른 Git 저장소**입니다.  
+`c:\ASAK\frontend`와 `c:\ASAK-front`는 **다른 Git 저장소**입니다.
 `c:\ASAK\backend`와 `c:\ASAK-back`도 마찬가지입니다.
 
 `ASAK` 통합 저장소 안의 `frontend/`, `backend/`는 통합 구조를 보여주는 참고용 폴더에 가깝고, 실제 프론트/백 개발은 각각 `ASAK-front`, `ASAK-back`에서 진행하는 것을 기준으로 합니다.
@@ -100,7 +100,7 @@ node --version
 
 팀 확정 스택과 **필수/권장 라이브러리**(도입 Week 포함)는 아래를 정본으로 봅니다.
 
-- Git: [`docs/wiki/tech-stack-summary.md`](../wiki/tech-stack-summary.md)
+- Git: [제품 Master Context](../product_bible/01_Foundation/MASTER_CONTEXT.md)
 - Notion: [기술 스택 & 라이브러리](https://app.notion.com/p/39051ef04f0b801cb506f1a930b847a5)
 
 요약: 백엔드는 Spring Boot 4.1 + Java 25 + JPA + MySQL/H2, 프론트는 React 19 + Vite 8 + Zustand + Axios(Tailwind 미사용). 실제 구현 repo는 `ASAK-front` / `ASAK-back`입니다.
@@ -288,7 +288,7 @@ git push
 
 ## 12. 작업 기록 규칙
 
-일일 개인 요약은 Git [`worklog/daily/{이름}/`](../../worklog/daily/) 정본 + Notion [📅 일일 워크로그 DB](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9) Calendar (`sync_daily_to_notion.py --person` 또는 `--all`) 하이브리드로 관리합니다. 공유 인프라는 선택적으로 `daily/_team/` (담당 **미지정**).
+일일 개인 요약은 Git [`worklog/daily/{이름}/`](../../worklog/daily) 정본 + Notion [📅 일일 워크로그 DB](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9) Calendar (`sync_daily_to_notion.py --person` 또는 `--all`) 하이브리드로 관리합니다. 공유 인프라는 선택적으로 `daily/_team/` (담당 **미지정**).
 
 - Notion 사용법: [📅 일일 워크로그 — 팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95)
 - 팀 공유 Quick Start: [`worklog/guide-team-daily.md`](../../worklog/guide-team-daily.md)

@@ -12,13 +12,13 @@
 
 ### 의도적으로 나눈 것
 
-- **공식 카탈로그(`menus`) vs 매장 SKU(`store_menu_items`)**  
+- **공식 카탈로그(`menus`) vs 매장 SKU(`store_menu_items`)**
   같은 "탄단지 샐러디"라도 매장·세트·이벤트 메뉴는 별도 행. `menu_id` FK로 공식 메뉴와 연결(매칭 실패 시 NULL).
-- **영양 `menu_nutrition.source`**  
+- **영양 `menu_nutrition.source`**
   웹(`nutrition`)과 PDF(`nutrition_pdf`) 값이 다를 수 있어 `(menu_id, source)` 복합 PK.
-- **드레싱**  
+- **드레싱**
   마스터(`dressings`) + 메뉴 정책(`menu_dressing_policies`) + 매장 정책(`store_menu_dressing_policies`) + 옵션 선택지(`store_option_choices.dressing_id`).
-- **가격 이력**  
+- **가격 이력**
   `store_menu_prices`에 `valid_from`으로 스냅샷·이력 확장 가능.
 
 ## ER 다이어그램
@@ -165,9 +165,9 @@ INSERT INTO option_group_kinds (code, name_ko) VALUES
 
 | 파일 | 용도 |
 |------|------|
-| [schema.sql](./schema.sql) | DDL (PostgreSQL 기준) |
-| [seed_lookup.sql](./seed_lookup.sql) | 룩업 초기 데이터 |
-| [views.sql](./views.sql) | 조회용 뷰 (메뉴+드레싱+매장가격) |
+| [schema.sql](schema.sql) | DDL (PostgreSQL 기준) |
+| [seed_lookup.sql](seed_lookup.sql) | 룩업 초기 데이터 |
+| [views.sql](views.sql) | 조회용 뷰 (메뉴+드레싱+매장가격) |
 
 ## SQLite 사용 시
 

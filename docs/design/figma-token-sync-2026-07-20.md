@@ -1,6 +1,9 @@
 # Figma → Code 핸드오프 (내일 구현용)
 
-기준 파일: [ASAK — Design System & Product UI 0718](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=134-7720)  
+> Status: **Historical Reference** · 2026-07-20 디자인 동결 전 기록이며 신규 실행 계획이 아닙니다.
+
+
+기준 파일: [ASAK — Design System & Product UI 0718](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=134-7720)
 fileKey: `yHhvn5RKjBd91U8BJUQz7F`
 
 ## 이미 맞춰 둔 것 (오늘)
@@ -8,7 +11,7 @@ fileKey: `yHhvn5RKjBd91U8BJUQz7F`
 | 대상 | 파일 | 내용 |
 | --- | --- | --- |
 | 1. 토큰 | [`ASAK-Kiosk/src/styles/tokens.css`](../../../ASAK-Kiosk/src/styles/tokens.css) | Figma Variable 실측값으로 교체 (근사값 주석 제거) |
-| 1. 토큰 | [`ASAK-Admin/src/styles/app-shell.css`](../../../ASAK-Admin/src/styles/app-shell.css) `:root` | Kiosk와 동일 Semantic 규칙 (`#b5e30f`, Pretendard, Admin text 스케일) |
+| 1. 토큰 | `ASAK-Admin/src/styles/app-shell.css` 당시 경로의 `:root` | Kiosk와 동일 Semantic 규칙 (`#b5e30f`, Pretendard, Admin text 스케일) |
 | 연결 | `commonStyle.css` MenuCard·BottomCTA disabled | 새 토큰 변수 참조 |
 
 **건드리지 않음:** Zustand, 가격/수량 로직, Axios, mock JSON, 나연 담기 흐름(OrderList 등).
@@ -52,7 +55,7 @@ fileKey: `yHhvn5RKjBd91U8BJUQz7F`
 
 ### 6. 없는 에셋
 
-`src/assets/figma/`에 없는 아이콘만 Figma MCP asset → 로컬 저장.  
+`src/assets/figma/`에 없는 아이콘만 Figma MCP asset → 로컬 저장.
 **이미 있는 홈 로고·히어로는 사용자 교체 예정이면 덮어쓰지 말 것.**
 
 후보: qty +/- SVG(이전에 삭제된 적 있음), Confirm/Toast 마크, 결제 브랜드 로고 정본 SVG.

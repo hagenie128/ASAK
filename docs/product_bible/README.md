@@ -1,6 +1,6 @@
 # Product Bible — 읽는 법
 
-> **👉 Pack 12개 헤매지 말고 [product-bible-hub.md](product-bible-hub.md) 한 페이지부터.**  
+> **👉 Pack 12개 헤매지 말고 [product-bible-hub.md](product-bible-hub.md) 한 페이지부터.**
 > MVP는 허브 §2 **필수 15링크**만으로도 충분합니다.
 
 ## 구현 vs 정책
@@ -43,4 +43,4 @@ Index(표): [product-bible-index](../governance/product-bible-index-2026-07-16.m
 
 ## MVP에서 건너뛰기
 
-SCR-023·024, TTS·WebSocket·고급 차트, `product_bible/_archive/**` — [future-scope](../_archive/wiki-secondary/future-scope.md)
+SCR-023·024, TTS·WebSocket·고급 차트 — [future-scope](../wiki/future-scope.md)

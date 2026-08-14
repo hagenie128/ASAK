@@ -1,12 +1,12 @@
 # Figma 0718 × 프로젝트 Gap (2026-07-20) — 정정본
 
-정본: [ASAK Design System & Product UI 0718](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F)  
-fileKey: `yHhvn5RKjBd91U8BJUQz7F`  
+정본: [ASAK Design System & Product UI 0718](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F)
+fileKey: `yHhvn5RKjBd91U8BJUQz7F`
 ❌ 0715 (`JSrjOy668zhfkiLplCkreh`) 링크 금지
 
-> **정정:** 이전 버전에서 PARTIAL/MISSING을 「UI 미이식」처럼 읽히게 적었다.  
-> 코드 실측 결과 **화면 시안·className·에셋·CSS는 이미 이식됨.**  
-> 팀이 CSS를 손으로 새로 쓰지 않았고, 스타일은 `commonStyle.css` / `app-shell.css`에 Figma 이식분으로 들어 있다.  
+> **정정:** 이전 버전에서 PARTIAL/MISSING을 「UI 미이식」처럼 읽히게 적었다.
+> 코드 실측 결과 **화면 시안·className·에셋·CSS는 이미 이식됨.**
+> 팀이 CSS를 손으로 새로 쓰지 않았고, 스타일은 `commonStyle.css` / `app-shell.css`에 Figma 이식분으로 들어 있다.
 > 아래 Gap은 **로직·API·상태 연결**만 가리킨다.
 
 ---
@@ -56,7 +56,7 @@ fileKey: `yHhvn5RKjBd91U8BJUQz7F`
 
 라우트는 전부 있음 (`KioskApp.jsx`). `/ui-preview`만 제거.
 
-**실제 CTA는** `MenuListFooter` / `MenuDetailFooter` / 각 페이지 footer 버튼 + CSS.  
+**실제 CTA는** `MenuListFooter` / `MenuDetailFooter` / 각 페이지 footer 버튼 + CSS.
 `components/common/Button.jsx`는 학습용 주석 자리표시자일 뿐, 「버튼 UI가 없다」가 아님.
 
 ---
@@ -99,7 +99,7 @@ hooks/api/adapters/types 다수 = **자리표시자 주석** (UI와 별개).
 
 UI를 갈아엎지 않는다. **연결만** 한다.
 
-**나연:** Payment 선택 상태 · 결제 mock · Complete 주문번호 · Error/Timeout 훅  
+**나연:** Payment 선택 상태 · 결제 mock · Complete 주문번호 · Error/Timeout 훅
 **하진:** 세션 · Live 상태변경 · 주문상세 query · 품절 저장 · 매출 날짜 · 메뉴편집 저장
 
 Figma에서 추가로 볼 것: Variant 미세 차이·상태 프레임 대조 (이미 있는 CSS 위 조정).
@@ -108,6 +108,6 @@ Figma에서 추가로 볼 것: Variant 미세 차이·상태 프레임 대조 (�
 
 ## 7. 관련
 
-- [figma-0718-page-map.md](./figma-0718-page-map.md)
+- [figma-0718-page-map.md](figma-0718-page-map.md)
 - [ui-index.md](../../../ui-index.md) — 「미구현」열 = **데이터/동작**, UI 파일 없음이 아님
-- [ui-implementation-map.md](../../../ASAK-Admin/docs/ui-implementation-map.md)
+- ASAK-Admin/docs/ui-implementation-map.md (삭제된 과거 경로)

@@ -4,26 +4,26 @@
 
 🔗 **[Notion — Figma 가이드 + SCR×Figma 매트릭스](https://app.notion.com/p/39451ef04f0b81849dc7d81f8106b5ad)** · hub: [📐 디자인 & 화면](https://app.notion.com/p/39451ef04f0b8163b1f9ebb477917efc)
 
-**Figma 파일 정본 (2026-07-20):** [ASAK — Design System & Product UI 0718](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718) · fileKey `yHhvn5RKjBd91U8BJUQz7F`  
+**Figma 파일 정본 (2026-07-20):** [ASAK — Design System & Product UI 0718](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718) · fileKey `yHhvn5RKjBd91U8BJUQz7F`
 ❌ 0715 (`JSrjOy668zhfkiLplCkreh`) — QA 이력만, 편집 금지
 
 ## Git 실행 스택
 
 | 역할 | 문서 |
 |---|---|
-| 폴더 인덱스 | [README.md](./README.md) |
-| QA 통합본 (0715 감사) | [figma-qa-unified-complete-2026-07-17.md](./figma-qa-unified-complete-2026-07-17.md) |
-| **실행 계획 정본** | [figma-unified-corrective-execution-plan-2026-07-17.md](./figma-unified-corrective-execution-plan-2026-07-17.md) |
-| 체크리스트 | [figma-precise-fix-checklist-2026-07-18.md](./figma-precise-fix-checklist-2026-07-18.md) |
-| 코드 갭 (0718) | [figma-0718-project-gap.md](./figma-0718-project-gap.md) |
+| 폴더 인덱스 | [README.md](README.md) |
+| 화면 체크리스트 | [SCR_FIGMA_CHECKLIST.md](SCR_FIGMA_CHECKLIST.md) |
+| 링크 데이터 | [figma-links.template.json](figma-links.template.json) |
+| 플러그인 | [FIGMA_PLUGINS.md](FIGMA_PLUGINS.md) |
+| 코드 갭 (0718) | [figma-0718-project-gap.md](figma-0718-project-gap.md) |
 | Figma↔코드 표 | [ui-index.md](../../../ui-index.md) |
 
-## Git 도구·Archive
+## Git 도구
 
-- [figma-links.template.json](./figma-links.template.json)
-- 통합 감사(Archive): [`_archive/audits/ASAK_FIGMA_INTEGRATED_AUDIT.md`](./_archive/audits/ASAK_FIGMA_INTEGRATED_AUDIT.md)
-- 구 SCR 체크리스트: [`_archive/legacy-ds02-scr/SCR_FIGMA_CHECKLIST.md`](./_archive/legacy-ds02-scr/SCR_FIGMA_CHECKLIST.md)
-- 중복 실행계획: [`_archive/figma-plans-2026-07-17/`](./_archive/figma-plans-2026-07-17/)
+- [figma-links.template.json](figma-links.template.json)
+- [SCR_FIGMA_CHECKLIST.md](SCR_FIGMA_CHECKLIST.md)
+- [kiosk-design-system-index.md](kiosk-design-system-index.md)
+- `figma-rename-scr-plugin/`, `figma-apply-ds02-theme-plugin/`, `figma-create-ds02-components-plugin/`
 
 ## 05-C / 06-C 빠른 링크 (0718)
 
@@ -32,4 +32,4 @@
 | Kiosk | [05-C Screens / Kiosk](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=134-7720) |
 | Admin | [06-C Screens / Admin](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=134-10606) |
 
-태블릿 프레임 셋업(Archive): [`_archive/legacy-ds02-scr/TABLET_PORTRAIT_FIGMA_SETUP.md`](./_archive/legacy-ds02-scr/TABLET_PORTRAIT_FIGMA_SETUP.md)
+과거 감사·중복 실행계획·프롬프트는 활성 문서에서 제거했으며 필요할 때 Git 이력으로 조회합니다.

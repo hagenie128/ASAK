@@ -1,4 +1,7 @@
-> **부록 (Current)** · 실행 순서 정본: [figma-unified-corrective-execution-plan-2026-07-17.md](./figma-unified-corrective-execution-plan-2026-07-17.md)
+> **부록 (Current)** · 실행 순서 정본: [figma-unified-corrective-execution-plan-2026-07-17.md](figma-unified-corrective-execution-plan-2026-07-17.md)
+
+> Status: **Historical Reference** · 2026-07-20 디자인 동결 전 기록이며 신규 실행 계획이 아닙니다.
+
 
 # ASAK Figma 정밀 실행 체크리스트 — 위치·수치 확정판
 
@@ -257,4 +260,4 @@ lineHeight와 달리 색상은 Figma AI가 "정답"을 스스로 판단할 수 �
 
 ---
 
-*이 문서는 [figma-fix-execution-plan-2026-07-17.md](figma-fix-execution-plan-2026-07-17.md)의 2·3단계를 정확한 노드ID·현재값·목표값으로 구체화한 실행판. 추후 QA(A~E 라운드2)에서 항목이 늘어나면 이 표에 행만 추가한다.*
+*이 문서는 [figma-unified-corrective-execution-plan-2026-07-17.md](figma-unified-corrective-execution-plan-2026-07-17.md)의 2·3단계를 정확한 노드ID·현재값·목표값으로 구체화한 실행판. 추후 QA(A~E 라운드2)에서 항목이 늘어나면 이 표에 행만 추가한다.*

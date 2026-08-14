@@ -1,12 +1,13 @@
 # Admin 구현 TODO 정리표 (TODO-001 ~ TODO-076)
 
+> Status: **Historical Snapshot** · 2026-08-06 실행표이며 현재 완료 상태는 WBS와 코드로 확인합니다.
 > 인라인 주석 태그: `TODO-NNN`
 > **번호 순 = 교사 우선순위** (주문 → 메뉴 → 품절 → 결제수단 → 매출 → 대시보드)
 > 파일 상단에 모아 두지 않고, **해당 코드 위치**에만 달아 두었다.
 > 검색: `TODO-00` / `TODO-0` / `TODO-`
 > 진행 갱신: 2026-08-06 (오늘 작업 순서 재정렬: 메뉴 조회 먼저)
 > 작업 원칙: **기능별로 화면–API–DB 결과를 함께 확인**하며 진행한다.
-> 상세 검증: [`admin-feature-verify-todos-2026-08-06.md`](./admin-feature-verify-todos-2026-08-06.md)
+> 상세 검증: [`admin-feature-verify-todos-2026-08-06.md`](admin-feature-verify-todos-2026-08-06.md)
 
 ## 오늘 작업 우선순위 (8/5 + 8/6 합본)
 
@@ -90,7 +91,7 @@
 
 > CreateMenuRequest / UpdateMenuRequest 기본 필드 DTO는 정리 완료(별도 TODO 번호 없음).
 
-상세 검증: `T-1`~`T-7` ([검증 투두](./admin-feature-verify-todos-2026-08-06.md))
+상세 검증: `T-1`~`T-7` ([검증 투두](admin-feature-verify-todos-2026-08-06.md))
 
 ### P3 · 품절 (032~039) — SCR-011
 

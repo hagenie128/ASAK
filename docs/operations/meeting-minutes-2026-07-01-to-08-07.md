@@ -1,20 +1,20 @@
 # ASAK 프로젝트 2조 회의록 (2026-07-01 ~ 08-07) — 리다이렉트
 
 > **이 문서는 더 이상 갱신하지 않습니다.**
-> 회의록 정본은 주차별 파일입니다 → **[`meeting-minutes/README.md`](./meeting-minutes/README.md)**
+> 회의록 정본은 주차별 파일입니다 → **[`meeting-minutes/README.md`](meeting-minutes/README.md)**
 
 ## 어디로 가야 하나
 
 | 찾는 것 | 정본 위치 |
 |---|---|
-| 회의록 목록·팀 개요·역할 | [`meeting-minutes/README.md`](./meeting-minutes/README.md) |
-| 현재 상태 스냅샷 | [README §현재 상태 스냅샷](./meeting-minutes/README.md) |
-| 횡단 결정 요약 (12건) | [README §횡단 결정 요약](./meeting-minutes/README.md) |
-| ⚠️ 확인 필요 사항 (결정↔구현 갭) | [README §확인 필요 사항](./meeting-minutes/README.md) |
-| 현재 미결·후속 (담당자별) | [README §현재 미결·후속](./meeting-minutes/README.md) |
-| 참고 문서 모음 | [README §참고 문서](./meeting-minutes/README.md#참고-문서-2026-08-07) |
-| 주차별 본문 | [W27](./meeting-minutes/2026-W27.md) · [W28](./meeting-minutes/2026-W28.md) · [W29](./meeting-minutes/2026-W29.md) · [W30](./meeting-minutes/2026-W30.md) · [W31](./meeting-minutes/2026-W31.md) · [W32](./meeting-minutes/2026-W32.md) |
-| 새 회의록 작성 | [`meeting-minutes/_TEMPLATE.md`](./meeting-minutes/_TEMPLATE.md) |
+| 회의록 목록·팀 개요·역할 | [`meeting-minutes/README.md`](meeting-minutes/README.md) |
+| 현재 상태 스냅샷 | [README §현재 상태 스냅샷](meeting-minutes/README.md) |
+| 횡단 결정 요약 (12건) | [README §횡단 결정 요약](meeting-minutes/README.md) |
+| ⚠️ 확인 필요 사항 (결정↔구현 갭) | [README §확인 필요 사항](meeting-minutes/README.md) |
+| 현재 미결·후속 (담당자별) | [README §현재 미결·후속](meeting-minutes/README.md) |
+| 참고 문서 모음 | [README §참고 문서](meeting-minutes/README.md#참고-문서-2026-08-07) |
+| 주차별 본문 | [W27](meeting-minutes/2026-W27.md) · [W28](meeting-minutes/2026-W28.md) · [W29](meeting-minutes/2026-W29.md) · [W30](meeting-minutes/2026-W30.md) · [W31](meeting-minutes/2026-W31.md) · [W32](meeting-minutes/2026-W32.md) |
+| 새 회의록 작성 | [`meeting-minutes/_TEMPLATE.md`](meeting-minutes/_TEMPLATE.md) |
 | Hub(위키) 업로드본 | [`wiki/meeting-minutes-weekly.md`](../wiki/meeting-minutes-weekly.md) |
 
 ## 왜 남겨두나

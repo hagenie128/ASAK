@@ -1,6 +1,6 @@
 # ASAK DB 뷰(View) 정의서
 
-> 기준일: 2026-07-24 · 실DB `asak_db` · DDL/주석 원본: [`ASAK-back/docs/view.sql`](https://github.com/nayeon0828/ASAK-backend/blob/main/docs/view.sql)  
+> 기준일: 2026-07-24 · 실DB `asak_db` · DDL/주석 원본: [`ASAK-back/docs/view.sql`](https://github.com/nayeon0828/ASAK-backend/blob/main/docs/view.sql)
 > DevCopilot ERD(워크스페이스 2)와 동기화. 매출 4종은 `asak-data/scripts/create_sales_views_mysql.py` 원본.
 >
 > 2026-07-24 확인: 저장소 안 로컬 스냅샷(`devcopilot-db-live-2026-07-22.json`)은 short-name 마이그레이션 이전 기록이라 오래됐지만, 실제 DevCopilot 허브(workspace 2)는 이미 short-name·`canceled_at`/`refunded_at` 전부 최신 상태로 확인됨. 로컬 스냅샷 파일만 오래된 것이고 허브 자체는 문제없음.
@@ -23,8 +23,8 @@
 
 ## JSON 묶음 (`JSON_ARRAYAGG`)
 
-부모 1행에 자식 N행을 붙일 때 JOIN만 하면 행이 폭발(fan-out)한다.  
-`JSON_OBJECT`로 한 행을 객체로 만들고 `JSON_ARRAYAGG`로 배열 컬럼 1개에 합친다.  
+부모 1행에 자식 N행을 붙일 때 JOIN만 하면 행이 폭발(fan-out)한다.
+`JSON_OBJECT`로 한 행을 객체로 만들고 `JSON_ARRAYAGG`로 배열 컬럼 1개에 합친다.
 자식 0건이면 `NULL` → 필요 시 `COALESCE(..., JSON_ARRAY())`로 `[]` 처리.
 
 ---
@@ -143,6 +143,6 @@ BASE/DRESSING을 컬럼으로 pivot (`base_name`, `dressing_name`).
 
 ## 관련 문서
 
-- 테이블 정의: [db-table-definition.md](./db-table-definition.md)
+- 테이블 정의: [db-table-definition.md](db-table-definition.md)
 - 백엔드 뷰 SQL: `ASAK-back/docs/view.sql`
 - DevCopilot 동기화: `asak-data/scripts/sync_devcopilot_views.py`

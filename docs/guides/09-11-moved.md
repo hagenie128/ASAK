@@ -1,6 +1,6 @@
 # (보관됨) 프로젝트 흐름 / 기능 순서 / 상세 흐름
 
-> `09`·`10`·`11` 가이드 본문은 `implementation_guide`와 겹쳐 **보관**했습니다.
+> `09`·`10`·`11`의 중복 본문은 제거하고 현재 정본 경로만 유지합니다.
 
 | 예전 문서 | 지금 볼 곳 |
 |---|---|
@@ -8,4 +8,4 @@
 | 10 기능별 순서 | [IMPLEMENTATION_PRIORITY](../planning/implementation-priority-2026-07-16.md) · [FEATURE_LOOKUP](../implementation_guide/feature-lookup.md) |
 | 11 상세 흐름 | [02 Kiosk](../implementation_guide/02-kiosk-implementation.md) · [03 Admin](../implementation_guide/03-admin-implementation.md) |
 
-원문: [`../_archive/guides-dev-overlap/`](../_archive/guides-dev-overlap/)
+과거 원문이 필요하면 Git 이력에서 이 파일의 이전 버전을 조회합니다.

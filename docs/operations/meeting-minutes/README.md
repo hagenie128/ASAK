@@ -1,6 +1,7 @@
 # ASAK 프로젝트 2조 회의록
 
 > Status: **Current** · 공식 주차별 회의록 **파일 정본**
+> 아래 상태·갭 서술은 **2026-08-07 시점 스냅샷**이며 현재 구현 상태로 해석하지 않습니다.
 > Hub 통합본: [`../../wiki/meeting-minutes-weekly.md`](../../wiki/meeting-minutes-weekly.md)
 > 개인/팀 주간 rollup: [`../../../worklog/weekly/`](../../../worklog/weekly/README.md)
 
@@ -42,12 +43,12 @@
 
 | 주차 | 기간 | 주제 | 파일 |
 |---|---|---|---|
-| W27 | 06-29 ~ 07-05 | 킥오프·기획 정비 | [2026-W27.md](./2026-W27.md) |
-| W28 | 07-06 ~ 07-12 | 디자인 방향·관리자 UI 골격 | [2026-W28.md](./2026-W28.md) |
-| W29 | 07-13 ~ 07-19 | 저장소 분리·Figma→코드·구현 경계 | [2026-W29.md](./2026-W29.md) |
-| W30 | 07-20 ~ 07-26 | mock 완성·백엔드 골격·제출 | [2026-W30.md](./2026-W30.md) |
-| W31 | 07-27 ~ 08-02 | Admin API·계약 통일·연동 시작 | [2026-W31.md](./2026-W31.md) |
-| W32 | 08-03 ~ 08-07 | 실연동·관리자 CRUD·문서화 | [2026-W32.md](./2026-W32.md) |
+| W27 | 06-29 ~ 07-05 | 킥오프·기획 정비 | [2026-W27.md](2026-W27.md) |
+| W28 | 07-06 ~ 07-12 | 디자인 방향·관리자 UI 골격 | [2026-W28.md](2026-W28.md) |
+| W29 | 07-13 ~ 07-19 | 저장소 분리·Figma→코드·구현 경계 | [2026-W29.md](2026-W29.md) |
+| W30 | 07-20 ~ 07-26 | mock 완성·백엔드 골격·제출 | [2026-W30.md](2026-W30.md) |
+| W31 | 07-27 ~ 08-02 | Admin API·계약 통일·연동 시작 | [2026-W31.md](2026-W31.md) |
+| W32 | 08-03 ~ 08-07 | 실연동·관리자 CRUD·문서화 | [2026-W32.md](2026-W32.md) |
 
 ---
 
@@ -112,7 +113,7 @@
 
 | # | 결정 | 결정 시점 | 코드 실측 (2026-08-07) | 판정 |
 |---|---|---|---|---|
-| 1 | 필드명 정본 변환은 **adapter 경계에서만** 수행 | W31 | [`orderAdapter.js:20`](../../../../ASAK-Kiosk/src/adapters/orderAdapter.js)이 `return payload` — TODO 주석만 있고 변환 **미구현** | ❌ 미반영 |
+| 1 | 필드명 정본 변환은 **adapter 경계에서만** 수행 | W31 | `ASAK-Kiosk/src/adapters/orderAdapter.js:20` 당시 경로에서 `return payload` — TODO 주석만 있고 변환 **미구현** | ❌ 미반영 |
 | 2 | `orderType` = `EAT_IN` / `TAKE_OUT` (`STORE`·`TAKEOUT` 폐기) | W30·W31 | BE `OrderType.java` 준수 ✅ / kiosk mock `student-project-data.json:75`에 `"orderType": "STORE"` 잔존 | ⚠️ mock만 미정리 |
 | 3 | 취소 철자 `CANCELED` | W31 | BE `OrderStatus.java`·`PaymentStatus.java` 준수 ✅ / `scripts/expand-mocks.js:520,549,652`가 `CANCELLED` 생성 | ⚠️ mock 생성기 미정리 |
 | 4 | 옵션 추가금 필드 `extraPrice` | W31 | BE `add_price AS extraPrice` 준수 ✅ / kiosk mock JSON 전반 `priceDelta` | ⚠️ mock만 미정리 |
@@ -194,7 +195,7 @@
 
 | 종류 | 링크·경로 |
 |---|---|
-| 주차별 정본 | 이 폴더 [`README`](./README.md) · [W27](./2026-W27.md)~[W32](./2026-W32.md) |
+| 주차별 정본 | 이 폴더 [`README`](README.md) · [W27](2026-W27.md)~[W32](2026-W32.md) |
 | Hub 업로드본 | [`wiki/meeting-minutes-weekly.md`](../../wiki/meeting-minutes-weekly.md) |
 | 워크로그 Hub 인덱스 | [`wiki/worklog-index.md`](../../wiki/worklog-index.md) (daily · entries · weekly 링크) |
 | 구 통합본 | [`meeting-minutes-2026-07-01-to-08-07.md`](../meeting-minutes-2026-07-01-to-08-07.md) — **리다이렉트 스텁** (본문 이관 완료, 갱신 안 함) |
@@ -219,5 +220,5 @@
 |---|---|
 | 2026-08-07 | 초안(통합본). 2조 채널·팀 협의·워크로그 통합. |
 | 2026-08-07 | 주차별 파일 분리 (`meeting-minutes/2026-W*.md`). |
-| 2026-08-07 | 상태 스냅샷·`⚠️ 확인 필요 사항`(결정↔구현 갭) 신설, Action Items 담당자 배정, 역할표에 백엔드 도메인 분담 반영. 회의록 [`_TEMPLATE.md`](./_TEMPLATE.md) 추가. |
+| 2026-08-07 | 상태 스냅샷·`⚠️ 확인 필요 사항`(결정↔구현 갭) 신설, Action Items 담당자 배정, 역할표에 백엔드 도메인 분담 반영. 회의록 [`_TEMPLATE.md`](_TEMPLATE.md) 추가. |
 | 2026-08-07 | 참고 문서 섹션을 `wbs.md`·START_HERE·baseline·API/DB·DONE/PASS 점검 등 현재 정본으로 갱신. |
