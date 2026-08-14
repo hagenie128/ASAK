@@ -13,28 +13,28 @@ Home → Menu → Detail → **Cart** → Order Create → **Payment** → Compl
 ### Cart
 | 문서 | 내용 |
 |---|---|
-| [Cart Architecture](docs/09-features/cart/CART_ARCHITECTURE.md) | 구조 |
-| [Cart State & Events](docs/09-features/cart/CART_STATE_AND_EVENT_FLOW.md) | 상태·이벤트 |
-| [Cart API Contract](docs/09-features/cart/CART_API_AND_DATA_CONTRACT.md) | API·필드 |
-| [Cart Edge Cases & QA](docs/09-features/cart/CART_EDGE_CASE_AND_QA.md) | 예외·QA |
+| [Cart Architecture](cart/CART_ARCHITECTURE.md) | 구조 |
+| [Cart State & Events](cart/CART_STATE_AND_EVENT_FLOW.md) | 상태·이벤트 |
+| [Cart API Contract](cart/CART_API_AND_DATA_CONTRACT.md) | API·필드 |
+| [Cart Edge Cases & QA](cart/CART_EDGE_CASE_AND_QA.md) | 예외·QA |
 
 ### Order
 | 문서 | 내용 |
 |---|---|
-| [Order Architecture](docs/09-features/order/ORDER_ARCHITECTURE.md) | 구조 |
-| [Order Flow & State](docs/09-features/order/ORDER_FLOW_AND_STATE.md) | 상태 머신 |
-| [Order API Contract](docs/09-features/order/ORDER_API_CONTRACT.md) | API |
-| [Order Edge Cases & QA](docs/09-features/order/ORDER_EDGE_CASE_AND_QA.md) | 예외·QA |
+| [Order Architecture](order/ORDER_ARCHITECTURE.md) | 구조 |
+| [Order Flow & State](order/ORDER_FLOW_AND_STATE.md) | 상태 머신 |
+| [Order API Contract](order/ORDER_API_CONTRACT.md) | API |
+| [Order Edge Cases & QA](order/ORDER_EDGE_CASE_AND_QA.md) | 예외·QA |
 
 ### Payment
 | 문서 | 내용 |
 |---|---|
-| [Payment Architecture](docs/09-features/payment/PAYMENT_ARCHITECTURE.md) | 구조 |
-| [Payment Flow & State](docs/09-features/payment/PAYMENT_FLOW_AND_STATE.md) | 흐름 |
-| [Payment API Contract](docs/09-features/payment/PAYMENT_API_CONTRACT.md) | API |
-| [Payment Why](docs/09-features/payment/PAYMENT_WHY.md) | 설계 이유 |
-| [Payment Edge Cases & QA](docs/09-features/payment/PAYMENT_EDGE_CASE_AND_QA.md) | 예외·QA |
+| [Payment Architecture](payment/PAYMENT_ARCHITECTURE.md) | 구조 |
+| [Payment Flow & State](payment/PAYMENT_FLOW_AND_STATE.md) | 흐름 |
+| [Payment API Contract](payment/PAYMENT_API_CONTRACT.md) | API |
+| [Payment Why](payment/PAYMENT_WHY.md) | 설계 이유 |
+| [Payment Edge Cases & QA](payment/PAYMENT_EDGE_CASE_AND_QA.md) | 예외·QA |
 
 ## 연결 화면 (Pack 7)
 
-[SCR-005 Cart](../07_Screen_Bible/docs/07-screens/SCR-005-KIOSK-CART.md) · [SCR-007 Payment](../07_Screen_Bible/docs/07-screens/SCR-007-KIOSK-PAYMENT.md) · [SCR-008 Complete](../07_Screen_Bible/docs/07-screens/SCR-008-KIOSK-COMPLETE.md)
+[SCR-005 Cart](../07_Screen_Bible/SCR-005-KIOSK-CART.md) · [SCR-007 Payment](../07_Screen_Bible/SCR-007-KIOSK-PAYMENT.md) · [SCR-008 Complete](../07_Screen_Bible/SCR-008-KIOSK-COMPLETE.md)

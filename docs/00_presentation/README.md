@@ -1,18 +1,17 @@
 # 발표 자료 — ASAK 샐러드 스마트 키오스크
 
-프로젝트 결과보고서 발표 PPT와 그 디자인 규격, 작성 근거를 모아둔 폴더입니다.
+> Status: **Current** · 발표 최신본은 수정3만 사용
 
-| 파일 | 내용 |
-|---|---|
-| `00_ppt/ASAK_샐러드_스마트키오스크_수정3_20260811.pptx` | **최신 결과보고서 발표본 22장** (문구 v2 + 실화면 캡처) |
-| `00_ppt/ASAK_샐러드_스마트키오스크_수정2_20260811.pptx` | 문구 반영본 (캡처 전) |
-| `00_ppt/screenshots/` | Kiosk·Admin 실기동 캡처 (1080×1920 / 1920×1080) |
-| `ASAK_PPT_디자인시스템.md` | 그리드 · 컬러 · 타이포 · 컴포넌트 11종 · 템플릿 15종 규격 |
-| `ASAK_PPT_작성계획_초안.md` | 슬라이드별 문구 · 발표 노트 · 시연 Plan B |
-| `00_ppt/patch_ppt_v2.py` | 수정1→수정2 문구 패치 스크립트 |
-| `ASAK_PPT_최종_01-08.png` · `09-16` · `17-22` | 22장 전체 렌더링 (PowerPoint 실제 출력) |
-| `ASAK_PPT_디자인시안*.png` | 템플릿 16종 디자인 시안 |
-| `build.mjs` | pptxgenjs 빌드 스크립트 (PPT 재생성용) |
+프로젝트 결과보고서 발표 PPT와 디자인 규격, 작성 근거를 모은 폴더입니다.
+
+| 파일 | 내용 | 태그 |
+|---|---|---|
+| `00_ppt/ASAK_샐러드_스마트키오스크_수정3_20260811.pptx` | **최신 발표본 22장** | `#current` |
+| `00_ppt/screenshots/` | Kiosk·Admin 실기동 캡처 | `#reference` |
+| `ASAK_PPT_디자인시스템.md` | 그리드·컬러·타이포·템플릿 규격 | `#current` |
+| `ASAK_PPT_작성계획_초안.md` | 슬라이드별 문구·발표 노트 | `#reference` |
+| `01_asak_ppt_design/` | 시안·장별 렌더 PNG | `#reference` |
+| `_archive/00_ppt/` | 원본·수정1·수정2 등 이전 pptx | `#archive` |
 
 ## 덱 구성
 
@@ -30,17 +29,12 @@
 
 ## 작성 근거
 
-문구는 임의로 쓰지 않고 저장소 문서에서 가져왔습니다.
-
 | 항목 | 근거 |
 |---|---|
 | 팀 · 기간 | `docs/operations/meeting-minutes/2026-W27` ~ `W32` |
-| 담당 업무 | `docs/wiki/wbs.md` 담당 열 · `worklog/entries/` |
-| 강사 피드백 4건 | 회의록 「강사 피드백」 (07.14 · 07.23 · 07.24 · 08.04) |
-| ERD 2장 | `아삭_mysql.sql` — 24개 테이블 · FK 39건 |
+| 담당 업무 | `docs/wiki/wbs.md` · `worklog/entries/` |
+| 강사 피드백 | 회의록 「강사 피드백」 |
 | 구현 현황 | `docs/wiki/current-status-baseline.md` |
-
-`current-status-baseline.md`의 **"mock 1차 연결 ≠ DONE"** 원칙을 그대로 따랐습니다. 주문 생성 · 결제 승인 API 미완성, 관리자 화면 mock 단계, QA 실행 증거 없음을 자체 평가에 명시했습니다.
 
 ## 재빌드
 
@@ -48,10 +42,4 @@
 node build.mjs
 ```
 
-`pptxgenjs`가 필요합니다. 좌표 규격은 `ASAK_PPT_디자인시스템.md` 기준입니다.
-
-## 발표 전 확인
-
-- [x] 화면 캡처 교체 — `수정3`에 Kiosk 목록·상세·장바구니·결제 · Admin Live·메뉴 삽입 (11~16·19쪽)
-- [ ] 시연 가능 범위 확정 — 14쪽은 결제 화면 이동까지(시연 B)
-- [ ] **폰트 포함 저장** — PowerPoint `파일 → 옵션 → 저장 → 파일에 글꼴 포함`. 현재 pptx에는 Pretendard가 임베드되어 있지 않아 발표 PC에 Pretendard가 없으면 폰트가 바뀝니다
+좌표 규격은 `ASAK_PPT_디자인시스템.md` 기준입니다.

@@ -44,7 +44,7 @@ P0는 **초기 감사만 수행**했다. P1/P2는 후보 검색만 수행했으�
 - `docs/wiki/wbs-v2-2026-07-16.md`
 - `docs/wiki/legacy-wbs2-mapping-audit-2026-07-16.md`
 - `docs/wiki/rest-api-spec.md`, `docs/wiki/db-audit-plan.md`, `docs/wiki/qa-test-cases.md`
-- `docs/product_bible/07_Screen_Bible/docs/07-screens/SCREEN_REGISTRY.md`
+- `docs/product_bible/07_Screen_Bible/SCREEN_REGISTRY.md`
 
 ## 배치 체크포인트
 

@@ -1,6 +1,6 @@
 # 문서 태그 인덱스
 
-> Status: **Current** (2026-07-20)  
+> Status: **Current** (2026-07-20)
 > 이전 `DOCUMENT_TAG_INDEX.md` / `document-tag-index-2026-07-18.md` 경로는 **이 파일**로 통합했습니다.
 
 운영 인벤토리(KEEP / Historical / archive 후보): **[document-inventory-slim-2026-07-20.md](document-inventory-slim-2026-07-20.md)**
@@ -11,7 +11,7 @@
 
 | 태그 | 의미 | 예 |
 |---|---|---|
-| `#current` | 지금 실행·링크에 씀 | START_HERE, wbs-v2, 구현 맵 |
+| `#current` | 지금 실행·링크에 씀 | START_HERE, wbs.md, 구현 맵 |
 | `#canonical` | 정책·계약 정본 | product_bible, canonical-contract-decisions |
 | `#reference` | 참고·Notion export·Wiki | wiki/requirements-definition |
 | `#archive` | 실행 금지·이력 | `_archive/**`, design `_archive/**` |

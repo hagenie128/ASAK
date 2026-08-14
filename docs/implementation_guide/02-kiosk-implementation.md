@@ -1,6 +1,6 @@
 # Kiosk 화면 작업 카드
 
-> `05-C Kiosk`의 **9개 Screen ID**를 구현할 때 바로 쓰는 문서다.  
+> `05-C Kiosk`의 **9개 Screen ID**를 구현할 때 바로 쓰는 문서다.
 > 각 카드에는 화면 행동, 필요한 데이터/API, 상태, 완료 확인만 둔다.
 
 **Figma 공통 링크:** [05-C Screens / Kiosk](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=134-7720)
@@ -15,7 +15,7 @@
 | 주문 유형 선택 | `/menu`로 이동하며 선택값을 주문 draft에 보관한다. | 이 화면 자체의 API는 정본에 정의되지 않았다. |
 | 접근성 모드 진입 | `/accessibility`로 이동한다. | 현재 모드 값은 로컬 UI 상태다. |
 
-**상태:** 기본, 주문 유형 선택, High Contrast.  
+**상태:** 기본, 주문 유형 선택, High Contrast.
 **완료 체크:** [ ] 두 주문 유형이 다음 화면까지 유지된다. [ ] 선택하지 않은 주문은 만들지 않는다. [ ] 접근성 모드 진입이 보인다.
 
 ## SCR-003 · Menu List
@@ -51,7 +51,7 @@
 | 금액 | `basePrice`, `options[].additionalAmount`, 수량 | 화면 합계는 미리 보이되 주문 생성 서버값이 최종이다. |
 | 알레르기 | `allergens[].displayName` | 펼침/접힘 상태에서도 확인 가능해야 한다. |
 
-**상태:** 옵션 선택, Loading, Error, 알레르기 펼침, 메뉴·재료·베이스·옵션 품절, 수량 제한 toast, 장바구니 수정/저장/저장 오류/취소.  
+**상태:** 옵션 선택, Loading, Error, 알레르기 펼침, 메뉴·재료·베이스·옵션 품절, 수량 제한 toast, 장바구니 수정/저장/저장 오류/취소.
 **완료 체크:** [ ] draft 수정 취소가 원본 장바구니를 바꾸지 않는다. [ ] 필수 옵션/수량 제한이 작동한다. [ ] 품절 항목이 담기지 않는다.
 
 <details>
@@ -164,11 +164,11 @@
 <details>
 <summary>원본 문서가 필요할 때만 열기</summary>
 
-- [Home/Menu Frontend Guide](../product_bible/12_Frontend_Implementation/docs/13-frontend-implementation/03-kiosk/HOME_MENU_IMPLEMENTATION.md)
-- [Cart Guide](../product_bible/12_Frontend_Implementation/docs/13-frontend-implementation/03-kiosk/CART_IMPLEMENTATION.md)
-- [Payment/Complete Guide](../product_bible/12_Frontend_Implementation/docs/13-frontend-implementation/03-kiosk/PAYMENT_COMPLETE_IMPLEMENTATION.md)
-- [Timeout/Accessibility Guide](../product_bible/12_Frontend_Implementation/docs/13-frontend-implementation/03-kiosk/TIMEOUT_ACCESSIBILITY_IMPLEMENTATION.md)
-- [Menu API Contract](../product_bible/03_Menu_Inventory_SoldOut/docs/09-features/menu/MENU_API_CONTRACT.md)
-- [Order API Contract](../product_bible/02_Order_Cart_Payment/docs/09-features/order/ORDER_API_CONTRACT.md)
-- [Payment API Contract](../product_bible/02_Order_Cart_Payment/docs/09-features/payment/PAYMENT_API_CONTRACT.md)
+- [Home/Menu Frontend Guide](../product_bible/12_Frontend_Implementation/03-kiosk/HOME_MENU_IMPLEMENTATION.md)
+- [Cart Guide](../product_bible/12_Frontend_Implementation/03-kiosk/CART_IMPLEMENTATION.md)
+- [Payment/Complete Guide](../product_bible/12_Frontend_Implementation/03-kiosk/PAYMENT_COMPLETE_IMPLEMENTATION.md)
+- [Timeout/Accessibility Guide](../product_bible/12_Frontend_Implementation/03-kiosk/TIMEOUT_ACCESSIBILITY_IMPLEMENTATION.md)
+- [Menu API Contract](../product_bible/03_Menu_Inventory_SoldOut/menu/MENU_API_CONTRACT.md)
+- [Order API Contract](../product_bible/02_Order_Cart_Payment/order/ORDER_API_CONTRACT.md)
+- [Payment API Contract](../product_bible/02_Order_Cart_Payment/payment/PAYMENT_API_CONTRACT.md)
 </details>

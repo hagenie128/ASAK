@@ -1,8 +1,8 @@
 # 2026-07-28 관리자 주문 상세 금액 내역 및 API 모듈 정리
 
 > 일일 기록: [2026-07-28.md](../../daily/이하진/2026-07-28.md)
-> 기준 화면: [SCR-010 Admin Order Management](../../../docs/product_bible/07_Screen_Bible/docs/07-screens/SCR-010-ADMIN-ORDER-MANAGEMENT.md) · Figma 0718 화면 `134:10630` · 구현 컴포넌트 주석의 상세 패널 `150:5418`
-> 관련 확장 화면: [SCR-023 Receipt Output](../../../docs/product_bible/07_Screen_Bible/docs/07-screens/SCR-023-RECEIPT-OUTPUT.md) — 이 날짜에는 미구현
+> 기준 화면: [SCR-010 Admin Order Management](../../../docs/product_bible/07_Screen_Bible/SCR-010-ADMIN-ORDER-MANAGEMENT.md) · Figma 0718 화면 `134:10630` · 구현 컴포넌트 주석의 상세 패널 `150:5418`
+> 관련 확장 화면: [SCR-023 Receipt Output](../../../docs/product_bible/07_Screen_Bible/SCR-023-RECEIPT-OUTPUT.md) — 이 날짜에는 미구현
 
 ---
 

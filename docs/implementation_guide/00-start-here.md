@@ -1,6 +1,6 @@
 # ASAK 구현 작업대
 
-> **문서를 처음부터 읽지 않는다.** 지금 만들 기능을 골라서 해당 블록만 본다.  
+> **문서를 처음부터 읽지 않는다.** 지금 만들 기능을 골라서 해당 블록만 본다.
 > 이 폴더는 Product Bible을 다시 쓴 문서가 아니라, 구현 중 필요한 정보를 빠르게 찾는 **작업용 인덱스**다.
 
 ## 지금 하는 일 선택
@@ -50,7 +50,7 @@
 
 우선순위는 `Decision/ADR → Screen Registry → Feature/API 문서 → 최신 Figma → 실제 코드`다. 실제 코드와 정책이 다르면 임의로 덮어쓰지 말고 차이를 기록한다.
 
-- [Canonical Source](../product_bible/01_Foundation/docs/00-product-bible/CANONICAL_SOURCE.md)
-- [Screen Registry](../product_bible/07_Screen_Bible/docs/07-screens/SCREEN_REGISTRY.md)
+- [Canonical Source](../product_bible/01_Foundation/CANONICAL_SOURCE.md)
+- [Screen Registry](../product_bible/07_Screen_Bible/SCREEN_REGISTRY.md)
 - [Product Bible Index](../governance/product-bible-index-2026-07-16.md)
 </details>

@@ -9,8 +9,9 @@ from pptx import Presentation
 from pptx.util import Emu
 
 ROOT = Path(__file__).resolve().parent
+ARCHIVE = ROOT.parent / "_archive" / "00_ppt"
 SHOT = ROOT / "screenshots"
-SRC = ROOT / "ASAK_샐러드_스마트키오스크_수정2_20260811.pptx"
+SRC = ARCHIVE / "ASAK_샐러드_스마트키오스크_수정2_20260811.pptx"
 DST = ROOT / "ASAK_샐러드_스마트키오스크_수정3_20260811.pptx"
 
 # (slide 1-based, shape_index, image_filename)

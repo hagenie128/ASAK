@@ -11,14 +11,14 @@ MCP workspace `2`에 연결해 `get_wbs_tasks`로 P4를 재조회했습니다.
 | 034~036, 038~043 | `IN_PROGRESS` (변경 호출 없음) |
 | 037, 044~045 | `TODO` |
 | Evidence | MCP `update_wbs_task`에 evidence 필드 **없음** → 로컬 Evidence만 정본 |
-| 스냅샷 | `docs/wiki/snapshots/devcopilot-wbs-live-2026-07-22.json` |
+| 스냅샷 | `docs/_archive/wiki-secondary/snapshots/devcopilot-wbs-live-2026-07-22.json` |
 
 7/21 Admin mock 1차 연결은 Status를 DONE으로 올리지 않습니다. 메뉴·매출은 mock 연결됨. 필터 고도화·실패 fixture·QA evidence가 남아 있습니다.
 
 ## 전체 엔티티 감사 (2026-07-22)
 
-WBS만 본 것이 아니라 Requirements / Scenarios / Screens / APIs / DB / Tests / Bugs를 모두 조회했다.  
-상세: [devcopilot-full-audit-2026-07-22.md](../wiki/snapshots/devcopilot-full-audit-2026-07-22.md)
+WBS만 본 것이 아니라 Requirements / Scenarios / Screens / APIs / DB / Tests / Bugs를 모두 조회했다.
+상세: [devcopilot-full-audit-2026-07-22.md](snapshots/devcopilot-full-audit-2026-07-22.md)
 
 | 엔티티 | 결과 |
 |---|---|
@@ -182,6 +182,6 @@ MCP는 API create/read만 노출하고 update/archive는 없습니다. 해당 ca
   - WBS2-034~036, 038~043: 원격 이미 IN_PROGRESS → **이미 일치** (no-op)
   - WBS2-037, 045: 원격 이미 TODO → **이미 일치** (no-op)
   - **WBS2-044** (	ask_pk=162): 원격 TODO → **IN_PROGRESS** (근거: Shared AdminAsyncState/AdminConfirmDialog가 주문·품절·메뉴·결제·매출·대시보드 등에 적용. State QA evidence 없어 DONE 아님)
-- **스냅샷:** ASAK/docs/wiki/snapshots/devcopilot-wbs-live-2026-07-23.json (토큰/시크릿 미포함)
+- **스냅샷:** ASAK/docs/_archive/wiki-secondary/snapshots/devcopilot-wbs-live-2026-07-23.json (토큰/시크릿 미포함)
 - **로컬 baseline:** 메뉴·매출 "정적" 잔존 문구는 이전 정리로 mock 연결 표기. sync-report 상단의 구형 "매출 정적" 문구만 이 세션에서 정정.
 

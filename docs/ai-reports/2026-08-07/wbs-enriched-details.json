@@ -1676,7 +1676,7 @@
     "비고": "완료 조건: 모든 저장소 점검 통과; 배포 환경·담당 확인; 배포 후보 검토",
     "우선순위": "상",
     "진척률": "—",
-    "근거": "Definition of Done: checklist 승인 및 RC 근거 첨부. 근거: [Release Checklist](../product_bible/09_QA_Bible/docs/10-qa/07-demo-release/RELEASE_CHECKLIST.md); 환경/RC 근거 아직 없음.",
+    "근거": "Definition of Done: checklist 승인 및 RC 근거 첨부. 근거: [Release Checklist](../product_bible/09_QA_Bible/07-demo-release/RELEASE_CHECKLIST.md); 환경/RC 근거 아직 없음.",
     "넘김": "모든 저장소 점검 통과; 배포 환경·담당 확인; 배포 후보 검토"
   },
   {
@@ -1696,7 +1696,7 @@
     "비고": "완료 조건: 슬라이드, 스크립트, Demo 1–5 순서, fallback, 최종 리허설 기록이 팀 검토 완료",
     "우선순위": "중",
     "진척률": "—",
-    "근거": "Definition of Done: 팀 검토 및 리허설 기록 완료. 근거: 2026-07-03 회의에서 발표/demo를 하진·나연 공동 담당; [Demo Scenario](../product_bible/09_QA_Bible/docs/10-qa/07-demo-release/DEMO_SCENARIO.md).",
+    "근거": "Definition of Done: 팀 검토 및 리허설 기록 완료. 근거: 2026-07-03 회의에서 발표/demo를 하진·나연 공동 담당; [Demo Scenario](../product_bible/09_QA_Bible/07-demo-release/DEMO_SCENARIO.md).",
     "넘김": "슬라이드, 스크립트, Demo 1–5 순서, fallback, 최종 리허설 기록이 팀 검토 완료"
   }
 ]

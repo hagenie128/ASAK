@@ -24,9 +24,9 @@
 # Part A: 시각 복구 전체 감사
 
 
-> **작성일:** 2026-07-17  
-> **역할:** Product/UX 분석 + Design Director 지시 + QA 검수 기준  
-> **범위:** Figma 직접 수정 없음. `C:\ASAK-workspace\figma` PNG/PDF 실측 + Product Bible + 클로드 대화 분석 통합  
+> **작성일:** 2026-07-17
+> **역할:** Product/UX 분석 + Design Director 지시 + QA 검수 기준
+> **범위:** Figma 직접 수정 없음. `C:\ASAK-workspace\figma` PNG/PDF 실측 + Product Bible + 클로드 대화 분석 통합
 > **목표 명칭:** Commercial Food Kiosk Visual System Refinement (리브랜딩 금지)
 
 ---
@@ -52,18 +52,18 @@
 
 ### 금지 (절대)
 
-- Instance Detach  
-- Production에서 Legacy/Deprecated Component 사용  
-- 02~04-C 밖·다른 파일 Component 참조 유지  
-- Hardcoded hex (01-C 미연결)  
-- Selected에 Blue  
-- 카드/옵션/카트 전체 Dark Charcoal Fill  
-- 품절 = 카드 전체 검정·블러·과도 opacity  
-- 새 Component Set 중복 생성  
-- Receipt / Membership / Coupon / QR / Delivery 추가  
-- 07-C 구조 변경(Deprecated 표기만 허용)  
-- Frame 크기 변경 (Kiosk 1080×1920 / Admin 1920×1080)  
-- Apple / Linear / Vercel 복제, Glass / Neon / Gradient 추가  
+- Instance Detach
+- Production에서 Legacy/Deprecated Component 사용
+- 02~04-C 밖·다른 파일 Component 참조 유지
+- Hardcoded hex (01-C 미연결)
+- Selected에 Blue
+- 카드/옵션/카트 전체 Dark Charcoal Fill
+- 품절 = 카드 전체 검정·블러·과도 opacity
+- 새 Component Set 중복 생성
+- Receipt / Membership / Coupon / QR / Delivery 추가
+- 07-C 구조 변경(Deprecated 표기만 허용)
+- Frame 크기 변경 (Kiosk 1080×1920 / Admin 1920×1080)
+- Apple / Linear / Vercel 복제, Glass / Neon / Gradient 추가
 - C 폐기 후 B 복구
 
 ### 화면 크기 정본
@@ -75,7 +75,7 @@
 
 ### Touch Target
 
-- Kiosk: **≥ 64px** (가능하면 Bible 기준 80×80)  
+- Kiosk: **≥ 64px** (가능하면 Bible 기준 80×80)
 - Admin: Desktop 밀도 유지, Kiosk 초대형 버튼 복제 금지
 
 ---
@@ -84,22 +84,22 @@
 
 ### Bible 핵심 원칙 (8)
 
-1. Product Before Decoration  
-2. One Screen, One Decision  
-3. State Is Part of the Product  
-4. Recovery Over Blame  
-5. Server Is the Price Authority  
-6. Lime/Green Is Accent only (CTA·Selected·Active)  
-7. Food(Kiosk) / Data(Admin) are Heroes  
-8. No Hidden Business Logic + Scope Discipline  
+1. Product Before Decoration
+2. One Screen, One Decision
+3. State Is Part of the Product
+4. Recovery Over Blame
+5. Server Is the Price Authority
+6. Lime/Green Is Accent only (CTA·Selected·Active)
+7. Food(Kiosk) / Data(Admin) are Heroes
+8. No Hidden Business Logic + Scope Discipline
 
 ### C버전을 만든 이유 (5)
 
-1. Screen State 확장 (loading/empty/error/soldOut/processing 등)  
-2. Cart·Option·Sold-out 로직·데이터 계약 반영  
-3. Component/Variant 정본화  
-4. Prototype·Handoff·`__spec` 보완  
-5. 01-C~04-C + 07-C QA Matrix 연결  
+1. Screen State 확장 (loading/empty/error/soldOut/processing 등)
+2. Cart·Option·Sold-out 로직·데이터 계약 반영
+3. Component/Variant 정본화
+4. Prototype·Handoff·`__spec` 보완
+5. 01-C~04-C + 07-C QA Matrix 연결
 
 ### B vs C
 
@@ -119,11 +119,11 @@ Home → 매장 식사/포장 선택 → orderType 저장 → Menu List 직접 �
 
 ### Cart 정책 요약
 
-- qty≥2: Minus로 1 감소 / qty=1: Minus disabled / 삭제 별도  
-- qty 0 금지 / 동일 menuId 최대 9 / Cart 전체 최대 30  
-- **직원 문의 문구는 전체 30 초과 시도에만** (코드 MENU_LIMIT에도 직원 문구 있음 → 카피 정합 필요)  
-- 옵션 수정 = `cartItemId` + `updateCartItem` / 수정 중 `addCartItem` 금지  
-- 전체 비우기 제공  
+- qty≥2: Minus로 1 감소 / qty=1: Minus disabled / 삭제 별도
+- qty 0 금지 / 동일 menuId 최대 9 / Cart 전체 최대 30
+- **직원 문의 문구는 전체 30 초과 시도에만** (코드 MENU_LIMIT에도 직원 문구 있음 → 카피 정합 필요)
+- 옵션 수정 = `cartItemId` + `updateCartItem` / 수정 중 `addCartItem` 금지
+- 전체 비우기 제공
 
 ### Sold-out 정책 요약
 
@@ -136,27 +136,27 @@ Home → 매장 식사/포장 선택 → orderType 저장 → Menu List 직접 �
 
 ### 기타 정책
 
-- Processing 중 Timeout 비활성  
-- TTS 실패 → 주문 상태 Rollback 금지  
-- 주문방식: EAT_IN / TAKE_OUT만  
+- Processing 중 Timeout 비활성
+- TTS 실패 → 주문 상태 Rollback 금지
+- 주문방식: EAT_IN / TAKE_OUT만
 
 ### 찾지 못한 것
 
-- 별도 파일명 `Implementation Final`, `Kiosk/Admin Screen Bible` 단독 문서  
-- 이번 export에 **01-C Foundations** 폴더 없음 → Variable 하드코딩 여부는 Figma Agent 확인  
-- Node ID `150:*`, `4:*` Legacy는 문서 텍스트에 없음 → Figma 전수 확인  
-- Admin `Checkbox.png`, `Deprecated/Admin-EmptyState.png` 투명 export → 재export 필요  
+- 별도 파일명 `Implementation Final`, `Kiosk/Admin Screen Bible` 단독 문서
+- 이번 export에 **01-C Foundations** 폴더 없음 → Variable 하드코딩 여부는 Figma Agent 확인
+- Node ID `150:*`, `4:*` Legacy는 문서 텍스트에 없음 → Figma 전수 확인
+- Admin `Checkbox.png`, `Deprecated/Admin-EmptyState.png` 투명 export → 재export 필요
 
 ---
 
 ## 2. 총괄 결론 (두 분석 합의)
 
-1. **“로직만 늘고 시각이 무너졌다”는 진단은 맞다.**  
-2. **“모든 품절이 검다”는 과장**이다. Menu List/Detail 일부·Admin Ingredient는 Badge 방향이 맞다.  
-   진짜 다크 문제는 **Confirm scrim 불투명 검정, OrderCard 캔버스, SaveBar/TopHeaderItem, OptionSelectionRow default 다크, Home 다크 캔버스**에 집중.  
-3. **가장 반복적인 시스템 실패는 Lime Accent 붕괴** (amber/olive/red/blue/black이 Primary에 혼용).  
-4. **두 번째는 Legacy/Deprecated 혼용** (CategoryTab/Tap, Badge, Deprecated MenuCard).  
-5. **세 번째는 Text Clip / Overlap / BottomCTA 높이 불일치**.  
+1. **“로직만 늘고 시각이 무너졌다”는 진단은 맞다.**
+2. **“모든 품절이 검다”는 과장**이다. Menu List/Detail 일부·Admin Ingredient는 Badge 방향이 맞다.
+   진짜 다크 문제는 **Confirm scrim 불투명 검정, OrderCard 캔버스, SaveBar/TopHeaderItem, OptionSelectionRow default 다크, Home 다크 캔버스**에 집중.
+3. **가장 반복적인 시스템 실패는 Lime Accent 붕괴** (amber/olive/red/blue/black이 Primary에 혼용).
+4. **두 번째는 Legacy/Deprecated 혼용** (CategoryTab/Tap, Badge, Deprecated MenuCard).
+5. **세 번째는 Text Clip / Overlap / BottomCTA 높이 불일치**.
 6. C State·정책은 유지하고, **02~04-C 밝은 정본 + 01-C 토큰**으로 Production만 다시 꽂는다.
 
 ---
@@ -165,124 +165,124 @@ Home → 매장 식사/포장 선택 → orderType 저장 → Menu List 직접 �
 
 ### [P0] 주문방식 재확인 중복 + Layer Overlap
 
-- **분류:** 주문 흐름 / Prototype 잔재  
-- **위치:** SCR-001 Home / Order Type Selection (`224:10766` 후보), Modal (`224:10870` 후보), Home `134:7721`, 버튼 `134:7788`  
-- **PNG 실측:** 모달 뒤 Ghost 카드 겹침, Selected=Blue, 포장 영문 "Eat In"  
-- **Bible/코드:** Home에서 orderType 확정 후 `/menu` 직행. 재확인 정책 없음.  
-- **권장:** Prototype 직결, Selection Frame Archive, Ghost 제거, Lime Selected, Take Out 카피  
-- **영향:** SCR-001, SCR-003 진입  
-- **확실도:** 정책·PNG **확인 완료** / Node 실물은 Figma 전수  
+- **분류:** 주문 흐름 / Prototype 잔재
+- **위치:** SCR-001 Home / Order Type Selection (`224:10766` 후보), Modal (`224:10870` 후보), Home `134:7721`, 버튼 `134:7788`
+- **PNG 실측:** 모달 뒤 Ghost 카드 겹침, Selected=Blue, 포장 영문 "Eat In"
+- **Bible/코드:** Home에서 orderType 확정 후 `/menu` 직행. 재확인 정책 없음.
+- **권장:** Prototype 직결, Selection Frame Archive, Ghost 제거, Lime Selected, Take Out 카피
+- **영향:** SCR-001, SCR-003 진입
+- **확실도:** 정책·PNG **확인 완료** / Node 실물은 Figma 전수
 
 ### [P0] 품절·다크 Surface 위반 (선택적 위치)
 
-- **분류:** Sold-out / Surface  
-- **위치:** MenuCard soldOut(블러·회색), SCR-003 Sold-out(다크 오버레이), CartItemCard soldOut(연두 워시·비가독), OptionSelectionRow default 다크, Discard/Disable-all Confirm **불투명 검정 scrim**, Admin OrderCard 검정 캔버스, SaveBar/TopHeaderItem 다크  
-- **권장:** White Surface 유지 + 이미지만 채도↓ + Badge. Scrim=반투명. 대형 Dark Fill 금지  
+- **분류:** Sold-out / Surface
+- **위치:** MenuCard soldOut(블러·회색), SCR-003 Sold-out(다크 오버레이), CartItemCard soldOut(연두 워시·비가독), OptionSelectionRow default 다크, Discard/Disable-all Confirm **불투명 검정 scrim**, Admin OrderCard 검정 캔버스, SaveBar/TopHeaderItem 다크
+- **권장:** White Surface 유지 + 이미지만 채도↓ + Badge. Scrim=반투명. 대형 Dark Fill 금지
 - **확실도:** PNG **확인 완료**
 
 ### [P0] Menu Detail 옵션명 잘림 + kcal 겹침 + 위계 붕괴
 
-- **분류:** Text Clipping / Hierarchy  
-- **위치:** SCR-004 Default / Option Selected / Ingredient·Base·Menu Sold-out  
-- **실측:** 오리엔/탈, 아보카/도, 훈제연/어, 두부큐/브; 0kcal 오버랩; 0g/000원 하드코딩  
-- **권장:** Name FILL max 2줄, Price 고정폭, kcal 전용 슬롯, 03-C Option 밝은 Set  
+- **분류:** Text Clipping / Hierarchy
+- **위치:** SCR-004 Default / Option Selected / Ingredient·Base·Menu Sold-out
+- **실측:** 오리엔/탈, 아보카/도, 훈제연/어, 두부큐/브; 0kcal 오버랩; 0g/000원 하드코딩
+- **권장:** Name FILL max 2줄, Price 고정폭, kcal 전용 슬롯, 03-C Option 밝은 Set
 - **확실도:** PNG **확인 완료**
 
 ### [P0] CartItemCard 과복잡 + 품절 비가독 + 작은 터치
 
-- **분류:** Cart Component  
-- **위치:** 03-C CartItemCard, SCR-005 Default/Sold-out/Edit Required/Checkout Blocked  
-- **실측:** 6단 정보, 아보카도 중복, edit/delete 과소, stepper 스타일 불일치, 연두 워시  
-- **권장:** summary 3줄, touch≥64, State별 showEdit 정책 시각 일치  
+- **분류:** Cart Component
+- **위치:** 03-C CartItemCard, SCR-005 Default/Sold-out/Edit Required/Checkout Blocked
+- **실측:** 6단 정보, 아보카도 중복, edit/delete 과소, stepper 스타일 불일치, 연두 워시
+- **권장:** summary 3줄, touch≥64, State별 showEdit 정책 시각 일치
 - **확실도:** PNG **확인 완료**
 
 ### [P0] Payment Processing / Error State 충돌
 
-- **분류:** Payment  
-- **위치:** SCR-007 Processing, SCR-012 Declined/Network Failure  
-- **실측:** Processing인데 CTA 활성 톤; Error인데 “처리 중” 카피 잔존; 모달 버튼 소형; 재시도=Red(의미 충돌)  
-- **권장:** Processing CTA Disabled; Error 카피 정리; Retry=Lime/Charcoal; Modal touch≥64  
+- **분류:** Payment
+- **위치:** SCR-007 Processing, SCR-012 Declined/Network Failure
+- **실측:** Processing인데 CTA 활성 톤; Error인데 “처리 중” 카피 잔존; 모달 버튼 소형; 재시도=Red(의미 충돌)
+- **권장:** Processing CTA Disabled; Error 카피 정리; Retry=Lime/Charcoal; Modal touch≥64
 - **확실도:** PNG **확인 완료**
 
 ### [P0] Admin Dashboard KPI Clip + Sold-out Disable-all 검정 Scrim
 
-- **분류:** Admin Clip / Modal  
-- **위치:** SCR-022 Default, SCR-011 Disable-all Confirm  
-- **실측:** KPI 잘림·4카드 vs Partial Data 5카드 불일치; Confirm 불투명 검정+amber 버튼  
+- **분류:** Admin Clip / Modal
+- **위치:** SCR-022 Default, SCR-011 Disable-all Confirm
+- **실측:** KPI 잘림·4카드 vs Partial Data 5카드 불일치; Confirm 불투명 검정+amber 버튼
 - **확실도:** PNG **확인 완료**
 
 ### [P0] Admin OrderCard / SaveBar / TopHeaderItem 다크 + StickyActionBar 중복
 
-- **분류:** Admin Component Dark / 중복  
-- **위치:** 04-C OrderCard, SaveBar, TopHeaderItem, StickyActionBar  
-- **권장:** Light Surface, SaveBar 통합, OrderCard CTA Admin 사이즈  
+- **분류:** Admin Component Dark / 중복
+- **위치:** 04-C OrderCard, SaveBar, TopHeaderItem, StickyActionBar
+- **권장:** Light Surface, SaveBar 통합, OrderCard CTA Admin 사이즈
 - **확실도:** 클로드 PNG 분석 **확인 완료**
 
 ### [P1] Lime Accent 전역 붕괴
 
-- **위치:** Login 올리브, Confirm amber/red, Payment Retry red, SalesPeriodFilter 검정, Navbar promo 검정, DatePicker/Toggle 올리브, Home Selected blue, OptionSelectionRow selected blue, Menu List 가격 전부 Lime  
-- **권장:** Primary/Selected/Active = 01-C Lime Variable만. Hardcoded hex 제거  
-- **확실도:** 다수 화면 **확인 완료** / 01-C Variable 정의는 Figma 확인  
+- **위치:** Login 올리브, Confirm amber/red, Payment Retry red, SalesPeriodFilter 검정, Navbar promo 검정, DatePicker/Toggle 올리브, Home Selected blue, OptionSelectionRow selected blue, Menu List 가격 전부 Lime
+- **권장:** Primary/Selected/Active = 01-C Lime Variable만. Hardcoded hex 제거
+- **확실도:** 다수 화면 **확인 완료** / 01-C Variable 정의는 Figma 확인
 
 ### [P1] Legacy / Deprecated / 이름 중복 혼용
 
-- **위치:** Deprecated MenuCard; CategoryTab / CategoryTap / Category; Admin-Badge ≈ StatusBadge; Legacy BottomCTA/OrderDetailRow 후보 `4:*` vs `150:*`  
-- **권장:** Production 연결 0, Deprecated annotation, 단일 정본만  
-- **확실도:** 일부 PNG **확인 완료** / Instance 전수는 Figma  
+- **위치:** Deprecated MenuCard; CategoryTab / CategoryTap / Category; Admin-Badge ≈ StatusBadge; Legacy BottomCTA/OrderDetailRow 후보 `4:*` vs `150:*`
+- **권장:** Production 연결 0, Deprecated annotation, 단일 정본만
+- **확실도:** 일부 PNG **확인 완료** / Instance 전수는 Figma
 
 ### [P1] BottomCTA 높이·Variant 불일치 + Toast가 CTA 가림
 
-- **위치:** SCR-003/005/007/012, Showcase BottomCTA 4종, Save Error / Checkout Blocked Toast  
-- **권장:** y=1740 h=180 전수; Toast는 CTA 위 ≥16px  
-- **확실도:** 패턴 **확인 완료** / 전 Frame 좌표는 Figma  
+- **위치:** SCR-003/005/007/012, Showcase BottomCTA 4종, Save Error / Checkout Blocked Toast
+- **권장:** y=1740 h=180 전수; Toast는 CTA 위 ≥16px
+- **확실도:** 패턴 **확인 완료** / 전 Frame 좌표는 Figma
 
 ### [P1] Menu List 데이터·Footer 불일치 + 하드코딩
 
-- **위치:** SCR-003 Default — 주문내역 2개 vs Footer 0개/0원; 9장 동일 메뉴; 이미지-이름 불일치  
+- **위치:** SCR-003 Default — 주문내역 2개 vs Footer 0개/0원; 9장 동일 메뉴; 이미지-이름 불일치
 - **확실도:** PNG **확인 완료**
 
 ### [P1] Admin Nav Active 오류 + Detail 0원 + Refund/영수증 Future
 
-- **위치:** SCR-010/011 Sidebar Home Active; Detail 총액 0원; Refund/Print Receipt  
+- **위치:** SCR-010/011 Sidebar Home Active; Detail 총액 0원; Refund/Print Receipt
 - **확실도:** PNG **확인 완료**
 
 ### [P1] Admin Enum 밖 상태 (취소/환불/결제완료)
 
-- **위치:** SCR-009/010 Status Badge  
-- **권장:** RECEIVED/PREPARING/COMPLETED + READY/APPROVED/FAILED만. 나머지는 `__manual-check`  
+- **위치:** SCR-009/010 Status Badge
+- **권장:** RECEIVED/PREPARING/COMPLETED + READY/APPROVED/FAILED만. 나머지는 `__manual-check`
 - **확실도:** 문서·화면 **확인 완료**
 
 ### [P1] Sales KPI 미확정 + 헤더/표 비동기 + Loading 레이아웃 오류
 
-- **위치:** SCR-019/020/021  
+- **위치:** SCR-019/020/021
 - **확실도:** 감사문서 + 클로드 PNG **확인 완료**
 
 ### [P1] Shared Toast 상태 구분 불가 + 다크 통일 필
 
-- **위치:** 02-C Toast; SCR-011/016 이중 Toast  
-- **권장:** 톤별 아이콘/좌측 바 + 밝은 Surface; Production 단일 Toast  
+- **위치:** 02-C Toast; SCR-011/016 이중 Toast
+- **권장:** 톤별 아이콘/좌측 바 + 밝은 Surface; Production 단일 Toast
 - **확실도:** 클로드 PNG **확인 완료**
 
 ### [P1] OptionSelectionRow / HomeActionButton / QuantityStepper
 
-- **OptionSelectionRow:** default 다크 + selected Blue  
-- **HomeActionButton:** 포장 영문 Eat In  
-- **QuantityStepper:** 48px 문서화 → Kiosk 64+로 상향  
+- **OptionSelectionRow:** default 다크 + selected Blue
+- **HomeActionButton:** 포장 영문 Eat In
+- **QuantityStepper:** 48px 문서화 → Kiosk 64+로 상향
 - **확실도:** PNG **확인 완료**
 
 ### [P1] Admin SoldOutCard 정본 부재
 
-- **위치:** 04-C SoldOutCard — dim/Badge 없음  
+- **위치:** 04-C SoldOutCard — dim/Badge 없음
 - **확실도:** 클로드 PNG **확인 완료**
 
 ### [P2] SCR-001 Home 다크 히어로 Canvas 무게
 
-- 음식 히어로는 유지 가능하나 **전체 Dark Theme로 읽히면 Fail**. Light Neutral + 음식 영역 제한.  
+- 음식 히어로는 유지 가능하나 **전체 Dark Theme로 읽히면 Fail**. Light Neutral + 음식 영역 제한.
 - **확실도:** PNG **확인 완료**
 
 ### [P2] SCR-008 Complete 양호 / receipt State 메타 Future
 
-- 시각 PASS에 가까움. receiptPrint는 Future Scope 표기.  
+- 시각 PASS에 가까움. receiptPrint는 Future Scope 표기.
 
 ### [P2] SCR-015 Unauthorized Empty 오용 / Login 올리브 Primary
 
@@ -306,17 +306,17 @@ Text clip 전 Frame, BottomCTA 전 좌표, Instance source 전수, 01-C Variable
 
 ## 4. 디자인 시스템 개선 방향 (각 최대 3줄)
 
-- **Surface:** Canvas=밝은 Neutral, Card=White. 대형 Dark/풀라운드 SaaS 패널 금지.  
-- **Typography:** Pretendard Variable만. Charcoal 본문. 옵션명 max 2줄. 임의 축소 금지.  
-- **Spacing:** 01-C 토큰만 (예: 4/8/16/24/32/48). 화면별 임의 padding 금지.  
-- **Card:** flat, 과도 radius/shadow 금지. 음식/행동이 있을 때만.  
-- **Selected:** Lime subtle fill + Lime stroke/indicator. Blue 금지. 전체 Lime fill 금지.  
-- **Disabled:** Neutral light + 대비↓ + 이유. 수동 opacity로 정보 죽이기 금지. 검정 Fill 금지.  
-- **Sold-out:** Surface 유지 + 이미지 채도↓ + Badge + 문구. 카드 전체 검정/블러/워시 금지.  
-- **BottomCTA:** y=1740 h=180. 03-C Instance만. loading/disabled 정식 Variant.  
-- **Admin Table:** dense row, zebra, Enum Badge만. 금액 clip 0.  
-- **Sidebar:** Active=현재 페이지. Lime Active Nav. 검정 CTA 남용 금지.  
-- **Status Badge:** order/payment/soldOut 구분. 색+텍스트. 미계약 상태 `__manual-check`.  
+- **Surface:** Canvas=밝은 Neutral, Card=White. 대형 Dark/풀라운드 SaaS 패널 금지.
+- **Typography:** Pretendard Variable만. Charcoal 본문. 옵션명 max 2줄. 임의 축소 금지.
+- **Spacing:** 01-C 토큰만 (예: 4/8/16/24/32/48). 화면별 임의 padding 금지.
+- **Card:** flat, 과도 radius/shadow 금지. 음식/행동이 있을 때만.
+- **Selected:** Lime subtle fill + Lime stroke/indicator. Blue 금지. 전체 Lime fill 금지.
+- **Disabled:** Neutral light + 대비↓ + 이유. 수동 opacity로 정보 죽이기 금지. 검정 Fill 금지.
+- **Sold-out:** Surface 유지 + 이미지 채도↓ + Badge + 문구. 카드 전체 검정/블러/워시 금지.
+- **BottomCTA:** y=1740 h=180. 03-C Instance만. loading/disabled 정식 Variant.
+- **Admin Table:** dense row, zebra, Enum Badge만. 금액 clip 0.
+- **Sidebar:** Active=현재 페이지. Lime Active Nav. 검정 CTA 남용 금지.
+- **Status Badge:** order/payment/soldOut 구분. 색+텍스트. 미계약 상태 `__manual-check`.
 
 ---
 
@@ -365,8 +365,8 @@ Text clip 전 Frame, BottomCTA 전 좌표, Instance source 전수, 01-C Variable
 | Save Error Toast | Toast가 옵션 행 가림 | Toast CTA/콘텐츠와 겹침 0 | |
 | Allergy Expanded | (전수) clip/겹침 | Detail과 동일 타이포 규칙 | |
 
-**Pilot 유지:** 1080×1920, Header, 메뉴 정보, Group 순서, State 의미, Lime selected, BottomCTA 담기  
-**Pilot 금지:** 07-C, Master 전면 재설계(배치2 범위만), 타 화면 자동 전파  
+**Pilot 유지:** 1080×1920, Header, 메뉴 정보, Group 순서, State 의미, Lime selected, BottomCTA 담기
+**Pilot 금지:** 07-C, Master 전면 재설계(배치2 범위만), 타 화면 자동 전파
 
 ### SCR-005 Cart
 
@@ -533,10 +533,10 @@ Text clip 전 Frame, BottomCTA 전 좌표, Instance source 전수, 01-C Variable
 
 ### Admin 공통
 
-- 04-C Instance만  
-- Kiosk BottomCTA 금지  
-- Active Nav = 현재 페이지  
-- Primary = Lime Variable  
+- 04-C Instance만
+- Kiosk BottomCTA 금지
+- Active Nav = 현재 페이지
+- Primary = Lime Variable
 
 ---
 
@@ -561,11 +561,11 @@ Text clip 전 Frame, BottomCTA 전 좌표, Instance source 전수, 01-C Variable
 
 ## 9. 시스템 Top 원인 (우선 수정 순서)
 
-1. **Lime Accent 미바인딩(하드코딩 추정)** → 01-C Variable 전수 연결  
-2. **다크가 “테마”가 아니라 특정 Component/Confirm에 잔존** → 5곳 집중 제거  
-3. **Deprecated/중복 Set** → Production 연결 0  
-4. **Auto Layout FILL/HUG 오류** → clip/overlap  
-5. **State Frame 불일치** → Sales Loading, Dashboard Default vs Partial  
+1. **Lime Accent 미바인딩(하드코딩 추정)** → 01-C Variable 전수 연결
+2. **다크가 “테마”가 아니라 특정 Component/Confirm에 잔존** → 5곳 집중 제거
+3. **Deprecated/중복 Set** → Production 연결 0
+4. **Auto Layout FILL/HUG 오류** → clip/overlap
+5. **State Frame 불일치** → Sales Loading, Dashboard Default vs Partial
 
 ---
 
@@ -586,8 +586,8 @@ BATCH 10 Component 정리 (Category*, Deprecated, SoldOutCard, Badge)
 BATCH 11 Annotation 숨김 + Pretendard/Variable 전수 + Screenshot 리포트
 ```
 
-**지금 바로:** BATCH 1만.  
-**BATCH 1 통과 후:** BATCH 2.  
+**지금 바로:** BATCH 1만.
+**BATCH 1 통과 후:** BATCH 2.
 **BATCH 2 없이 BATCH 3 금지** (다크 Option이 다시 붙음).
 
 ---
@@ -767,33 +767,33 @@ FIGMA AGENT — Component 정리 + Admin P1
 
 ## 13. 작업지시서 1 — P0 주문방식 중복 (요약본)
 
-- **대상:** Home `134:7721`, 버튼 `134:7788`, Selection `224:10766`, Modal `224:10870` (이름 재확인)  
-- **현재:** Home → (재질문) → Menu List  
-- **해제:** Selection/Modal로 가는 연결 전부  
-- **새 연결:** 버튼 → SCR-003 Default  
-- **유지:** orderType EAT_IN/TAKE_OUT  
-- **영향:** SCR-001, SCR-003, Prototype  
-- **완료:** 1클릭 도달, Archive, overlap 0, Screenshot  
-- **금지:** 레이아웃 대규모 변경, 확인 없는 삭제  
+- **대상:** Home `134:7721`, 버튼 `134:7788`, Selection `224:10766`, Modal `224:10870` (이름 재확인)
+- **현재:** Home → (재질문) → Menu List
+- **해제:** Selection/Modal로 가는 연결 전부
+- **새 연결:** 버튼 → SCR-003 Default
+- **유지:** orderType EAT_IN/TAKE_OUT
+- **영향:** SCR-001, SCR-003, Prototype
+- **완료:** 1클릭 도달, Archive, overlap 0, Screenshot
+- **금지:** 레이아웃 대규모 변경, 확인 없는 삭제
 
 ---
 
 ## 14. 작업지시서 2 — Menu Detail Visual Pilot (요약본)
 
 ### 유지
-콘텐츠(메뉴·옵션그룹·알레르기·CTA), 정보구조(필수→선택→CTA), ASAK Light+Lime selected, State 의미  
+콘텐츠(메뉴·옵션그룹·알레르기·CTA), 정보구조(필수→선택→CTA), ASAK Light+Lime selected, State 의미
 
 ### 변경
-Layout Auto Layout, Typography 2줄, Surface White, Option Name/Price/kcal, Selected Lime, Disabled Badge, Spacing 토큰, BottomCTA y=1740 h=180, clip 0  
+Layout Auto Layout, Typography 2줄, Surface White, Option Name/Price/kcal, Selected Lime, Disabled Badge, Spacing 토큰, BottomCTA y=1740 h=180, clip 0
 
 ### 변경 금지
-Production 전체, Master 전면, 타 화면 전파, Prototype 전체, 07-C  
+Production 전체, Master 전면, 타 화면 전파, Prototype 전체, 07-C
 
 ### 정량
-1080×1920; padding 60; content≤960; CTA y=1740 h=180; touch≥64; name max 2; price min-width≥120  
+1080×1920; padding 60; content≤960; CTA y=1740 h=180; touch≥64; name max 2; price min-width≥120
 
 ### 완료 체크
-긴 옵션명 5종 테스트; overlap 0; Lime selected; CTA 좌표; Detach 0; Screenshot  
+긴 옵션명 5종 테스트; overlap 0; Lime selected; CTA 좌표; Detach 0; Screenshot
 
 ---
 
@@ -819,13 +819,13 @@ Production 전체, Master 전면, 타 화면 전파, Prototype 전체, 07-C
 
 ## 16. 디렉터 최종 코멘트 (페이지 넘기며 본 의견)
 
-1. **배치1을 미루면 안 된다.** Order Type Selection은 정책·코드·PNG가 모두 “지우라”고 말한다.  
-2. **품절을 검게 칠한 곳이 전부가 아니다.** 검게/무거워 보이는 체감은 Confirm scrim·Home Canvas·Option dark default·Cart 워시·SaveBar가 합쳐진 결과다. **5곳 타격**이 효율적이다.  
-3. **SCR-005 Default와 SCR-008은 살릴 레퍼런스**다. 전체를 다시 그리지 말고 이 톤으로 맞춘다.  
-4. **SCR-004는 Pilot로 끊어야** 한다. 옵션 그리드 clip이 Master(OptionSelectionRow/카드) 문제라 Master 먼저.  
-5. **Admin은 Lime 통일 + KPI clip + Nav Active + 0원**만 고쳐도 “AI Dashboard 티”가 크게 줄어든다.  
-6. **01-C가 export에 없다.** Agent 첫 질문에 “이 Fill이 Variable인가 Hardcoded인가”를 의무화한다.  
-7. **직원 문의 토스트**는 Bible/요청=30만, 코드=9에도 직원 문구 → Figma 카피는 30만 따르고, 코드는 별도 티켓.  
+1. **배치1을 미루면 안 된다.** Order Type Selection은 정책·코드·PNG가 모두 “지우라”고 말한다.
+2. **품절을 검게 칠한 곳이 전부가 아니다.** 검게/무거워 보이는 체감은 Confirm scrim·Home Canvas·Option dark default·Cart 워시·SaveBar가 합쳐진 결과다. **5곳 타격**이 효율적이다.
+3. **SCR-005 Default와 SCR-008은 살릴 레퍼런스**다. 전체를 다시 그리지 말고 이 톤으로 맞춘다.
+4. **SCR-004는 Pilot로 끊어야** 한다. 옵션 그리드 clip이 Master(OptionSelectionRow/카드) 문제라 Master 먼저.
+5. **Admin은 Lime 통일 + KPI clip + Nav Active + 0원**만 고쳐도 “AI Dashboard 티”가 크게 줄어든다.
+6. **01-C가 export에 없다.** Agent 첫 질문에 “이 Fill이 Variable인가 Hardcoded인가”를 의무화한다.
+7. **직원 문의 토스트**는 Bible/요청=30만, 코드=9에도 직원 문구 → Figma 카피는 30만 따르고, 코드는 별도 티켓.
 8. **완료의 정의는 State 개수가 아니다.** Screenshot에서 2~3초 안에 행동이 보이고, clip/overlap/dark sold-out/Blue selected/Detach가 0일 때 완료다.
 
 ---
@@ -1150,10 +1150,10 @@ Bible "One Screen, One Decision"은 화면별로 잘 지켜지고 있다(Home=�
 # Part B: 컴포넌트 정본 · Instance Swap 매핑
 
 
-> **작성일:** 2026-07-17  
-> **근거:** Figma MCP 실측 (`use_figma` instance → mainComponent 집계)  
-> **파일:** [ASAK — Design System & Product UI 0715](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715)  
-> **fileKey:** `JSrjOy668zhfkiLplCkreh`  
+> **작성일:** 2026-07-17
+> **근거:** Figma MCP 실측 (`use_figma` instance → mainComponent 집계)
+> **파일:** [ASAK — Design System & Product UI 0715](https://www.figma.com/design/JSrjOy668zhfkiLplCkreh/ASAK-%E2%80%94-Design-System---Product-UI-0715)
+> **fileKey:** `JSrjOy668zhfkiLplCkreh`
 > **원칙:** 쓰인 컴포넌트는 전부 이 문서에 기록한다. 화면에서 쓰는 정본은 **구분선 위 C 페이지**만 허용한다.
 
 ---
@@ -1197,7 +1197,7 @@ Bible "One Screen, One Decision"은 화면별로 잘 지켜지고 있다(Home=�
 
 ## 2. 05-C에서 실제로 쓰인 컴포넌트 (공식 기록)
 
-> 집계 기준: Instance → `getMainComponentAsync` → Component Set/Component name+id  
+> 집계 기준: Instance → `getMainComponentAsync` → Component Set/Component name+id
 > **쓰인 것은 전부 아래 표에 남긴다.** Legacy는 “현재 사용 중”으로 기록하되 **교체 대상**.
 
 ### 2-A. 사용량 Top (05-C)
@@ -1398,46 +1398,46 @@ Legacy Empty/Error/Toast/Confirm → 158:* Shared Final
 ## 8. 화면별 “써야 하는 Final” 체크리스트
 
 ### SCR-001 Home
-- [ ] HomeActionButton `150:718` only  
-- [ ] Header Final  
-- [ ] Order Type Selection Archive (흐름)  
+- [ ] HomeActionButton `150:718` only
+- [ ] Header Final
+- [ ] Order Type Selection Archive (흐름)
 
 ### SCR-003 Menu List
-- [ ] CategoryTab `150:695` (Tap/Legacy 제거)  
-- [ ] MenuCard `150:678` (+ SoldOutBadge)  
-- [ ] BottomCTA `150:385` layout=cartSummary  
-- [ ] CartFooterBar `150:655`  
-- [ ] Toast/Empty/Loading/Error = Shared Final  
+- [ ] CategoryTab `150:695` (Tap/Legacy 제거)
+- [ ] MenuCard `150:678` (+ SoldOutBadge)
+- [ ] BottomCTA `150:385` layout=cartSummary
+- [ ] CartFooterBar `150:655`
+- [ ] Toast/Empty/Loading/Error = Shared Final
 
 ### SCR-004 Menu Detail ★
-- [ ] MenuDetailSummary `160:1734`  
-- [ ] OptionGroup `160:1764`  
-- [ ] OptionSelectionRow `160:1831` (**카드 수동 Frame 대체**)  
-- [ ] AllergyAccordion + AllergenNotice/Tag  
-- [ ] QuantityStepper `150:166`  
-- [ ] BottomCTA singlePrimary `150:385`  
-- [ ] ConfirmDialog Final (Discard)  
-- [ ] Legacy OrderDetailRow `4:12652` **598건 제거 목표**  
+- [ ] MenuDetailSummary `160:1734`
+- [ ] OptionGroup `160:1764`
+- [ ] OptionSelectionRow `160:1831` (**카드 수동 Frame 대체**)
+- [ ] AllergyAccordion + AllergenNotice/Tag
+- [ ] QuantityStepper `150:166`
+- [ ] BottomCTA singlePrimary `150:385`
+- [ ] ConfirmDialog Final (Discard)
+- [ ] Legacy OrderDetailRow `4:12652` **598건 제거 목표**
 
 ### SCR-005 Cart
-- [ ] CartItemCard `150:404`  
-- [ ] QuantityStepper  
-- [ ] BottomCTA twoCTA  
-- [ ] ConfirmDialog clear/delete  
-- [ ] Toast Final  
+- [ ] CartItemCard `150:404`
+- [ ] QuantityStepper
+- [ ] BottomCTA twoCTA
+- [ ] ConfirmDialog clear/delete
+- [ ] Toast Final
 
 ### SCR-007 / 012 / 013
-- [ ] PaymentMethodCard `150:3`  
-- [ ] OrderSummaryInfo `150:182`  
-- [ ] StepIndicator `150:359`  
-- [ ] BottomCTA  
-- [ ] Modal/Confirm/Toast Shared Final  
+- [ ] PaymentMethodCard `150:3`
+- [ ] OrderSummaryInfo `150:182`
+- [ ] StepIndicator `150:359`
+- [ ] BottomCTA
+- [ ] Modal/Confirm/Toast Shared Final
 
 ### Admin 공통
-- [ ] Navbar `150:4739` + NavItem `150:5187`  
-- [ ] StatusBadge `150:5064` only  
-- [ ] Shared Toast/Empty/Error/Loading/Confirm  
-- [ ] Kiosk Component 0건 (PaymentMethodCard 등)  
+- [ ] Navbar `150:4739` + NavItem `150:5187`
+- [ ] StatusBadge `150:5064` only
+- [ ] Shared Toast/Empty/Error/Loading/Confirm
+- [ ] Kiosk Component 0건 (PaymentMethodCard 등)
 
 ---
 
@@ -1467,9 +1467,9 @@ FIGMA AGENT — Legacy Instance → Final Component Swap (구분선 위만)
 
 ## 10. 관련 문서
 
-- 시각·배치 전체: Part A (위)  
-- 이 문서가 **컴포넌트 공식 정본(사용 실측 + Final 매핑)**  
-- Product Bible Component Map은 이 표와 충돌 시 **이 문서(실측)를 우선**하고 Bible은 후속 동기화  
+- 시각·배치 전체: Part A (위)
+- 이 문서가 **컴포넌트 공식 정본(사용 실측 + Final 매핑)**
+- Product Bible Component Map은 이 표와 충돌 시 **이 문서(실측)를 우선**하고 Bible은 후속 동기화
 
 ---
 
@@ -1548,22 +1548,22 @@ FIGMA AGENT — Legacy Instance → Final Component Swap (구분선 위만)
 # Part C: 유저플로우 · 정책 · 핸드오프 갭
 
 
-> **작성일:** 2026-07-17  
-> **목적:** Figma에 “화면/상태가 있다·연결됐다”고 보이는 것과 **실제 제품 구현·핸드오프 가능 여부**를 분리해 기록한다.  
-> **관점:** User Flow / UX / Design→Dev Handoff / Policy Consistency  
-> **근거:** Product Bible · `implementation_guide` · ASAK-Kiosk / ASAK-Admin / ASAK-back 코드 · Figma 05-C/06-C 실측  
-> **관련 문서:**  
-> - Part A(위) — 시각·컴포넌트 복구  
-> - Part B(위) — 쓰인 컴포넌트 정본  
-> - [`../implementation_guide/00-start-here.md`](../implementation_guide/00-start-here.md)
+> **작성일:** 2026-07-17
+> **목적:** Figma에 “화면/상태가 있다·연결됐다”고 보이는 것과 **실제 제품 구현·핸드오프 가능 여부**를 분리해 기록한다.
+> **관점:** User Flow / UX / Design→Dev Handoff / Policy Consistency
+> **근거:** Product Bible · `implementation_guide` · ASAK-Kiosk / ASAK-Admin / ASAK-back 코드 · Figma 05-C/06-C 실측
+> **관련 문서:**
+> - Part A(위) — 시각·컴포넌트 복구
+> - Part B(위) — 쓰인 컴포넌트 정본
+> - [`implementation_guide/00-start-here.md`](../../../implementation_guide/00-start-here.md)
 > - Part D(아래) — Admin 데이터 위젯 제안
 
 ---
 
 ## 0. 한 줄 결론
 
-**Figma C 페이지는 “구현 정본 시안 + State 카탈로그”이지, “개발 완료”가 아니다.**  
-코드는 **Home → Menu List → Menu Detail(+미니 주문목록)** 까지만 부분 동작하고, **Cart·Payment·Complete·Timeout·Accessibility·Admin 전 구간·Backend business API는 미완/스캐폴드**다.  
+**Figma C 페이지는 “구현 정본 시안 + State 카탈로그”이지, “개발 완료”가 아니다.**
+코드는 **Home → Menu List → Menu Detail(+미니 주문목록)** 까지만 부분 동작하고, **Cart·Payment·Complete·Timeout·Accessibility·Admin 전 구간·Backend business API는 미완/스캐폴드**다.
 핸드오프 관점에서는 **정본 충돌(B vs C), Legacy Component 연결, 필드명·route 불일치, 완료 체크 전부 미체크**가 개발자가 “이미 끝난 줄” 착각하게 만드는 위험이다.
 
 ---
@@ -1690,7 +1690,7 @@ GET /api/health 만. 주문·결제·품절·매출 API 없음
 
 ## 4. Figma “있어 보임” ≠ 구현 완료 — 화면별 체크
 
-> 규칙: Figma에 Default/State Frame이 있어도, **Router + 상태머신 + API/mock 계약 + 정책 행동**이 없으면 `디자인만`.  
+> 규칙: Figma에 Default/State Frame이 있어도, **Router + 상태머신 + API/mock 계약 + 정책 행동**이 없으면 `디자인만`.
 > `implementation_guide`의 **완료 체크는 전부 `[ ]`**. START_HERE도 “링크 = 구현 완료 아님”을 명시.
 
 | SCR | Figma(05-C/06-C) | 코드 | Backend | UX 완료? | 핸드오프 가능? | 비고 |
@@ -1720,30 +1720,30 @@ GET /api/health 만. 주문·결제·품절·매출 API 없음
 
 ### P0 — 주문 끊김
 
-1. **담기 후 Cart/결제 경로 없음**  
+1. **담기 후 Cart/결제 경로 없음**
    Detail → Menu만 복귀. 전용 Cart·Payment route 없음 → **주문을 끝낼 수 없음**.
-2. **미니 OrderList ≠ Cart 정책**  
+2. **미니 OrderList ≠ Cart 정책**
    목록 하단 주문내역으로 수량/삭제는 되나, Confirm·옵션수정·주문생성·가격변경 안내·품절 수정 강제가 없음.
-3. **Figma Home이 주문유형을 두 번 묻게 보임**  
+3. **Figma Home이 주문유형을 두 번 묻게 보임**
    코드는 1회 선택인데 시안이 재질문 → 핸드오프 시 개발자가 잘못된 Prototype을 따라갈 위험.
 
 ### P1 — 신뢰·복구
 
-4. Loading/Error가 목록·상세에 거의 없음 → 실패가 “빈 화면/깨짐”으로 보임.  
-5. 결제 Processing/Timeout/실패 복구 시안은 있으나 코드·프로토타입 연결 불명확.  
-6. 품절 후 장바구니에 남은 항목을 **고치게 하는 UX** 없음 (자동삭제 금지 정책과 맞추려면 반드시 필요).  
+4. Loading/Error가 목록·상세에 거의 없음 → 실패가 “빈 화면/깨짐”으로 보임.
+5. 결제 Processing/Timeout/실패 복구 시안은 있으나 코드·프로토타입 연결 불명확.
+6. 품절 후 장바구니에 남은 항목을 **고치게 하는 UX** 없음 (자동삭제 금지 정책과 맞추려면 반드시 필요).
 7. 메뉴 9개 제한 토스트에 **“직원에게 문의”** — 카트 30 정책과 카피 충돌 가능.
 
 ### P1 — Admin 판단 3초 원칙
 
-8. Dashboard / Live / Orders route·라벨이 Registry와 어긋남 → 운영자가 “지금 뭐 보는 화면인지” 학습 비용↑.  
+8. Dashboard / Live / Orders route·라벨이 Registry와 어긋남 → 운영자가 “지금 뭐 보는 화면인지” 학습 비용↑.
 9. TTS·409·저장 중 잠금이 없으면 Live Board는 **위험한 버튼 나열**이 됨.
 
 ### P2 — 세부 마찰
 
-10. 동일 구성 재담기 시 줄이 늘어남 (합치기 없음).  
-11. 제외 재료·알레르기 Accordion 약함/미연결.  
-12. High Contrast 미구현 → 접근성 모드 진입만 문서에 존재.  
+10. 동일 구성 재담기 시 줄이 늘어남 (합치기 없음).
+11. 제외 재료·알레르기 Accordion 약함/미연결.
+12. High Contrast 미구현 → 접근성 모드 진입만 문서에 존재.
 13. Future 영수증 UI 파일이 Kiosk에 있어 MVP와 혼동.
 
 ---
@@ -1784,14 +1784,14 @@ GET /api/health 만. 주문·결제·품절·매출 API 없음
 
 ### 6-D. 앱 경계
 
-- 관리자 페이지·컴포넌트가 **ASAK-Kiosk**에도 있음 / **ASAK-Admin**은 빈 껍데기.  
+- 관리자 페이지·컴포넌트가 **ASAK-Kiosk**에도 있음 / **ASAK-Admin**은 빈 껍데기.
 - 핸드오프 시 “어느 저장소가 정본 React인가”를 먼저 고정해야 함 → Canonical: **Kiosk / Admin 분리**.
 
 ### 6-E. Figma → React 핸드오프 차단 요인
 
-1. Production이 Legacy Component를 씀 → 토큰·Variant props가 Final과 다름.  
-2. OptionSelectionRow 등 Final이 화면에 0건 → Detail 구현자가 수동 Frame을 복제하기 쉬움.  
-3. Visual Recovery 미완(다크 품절, CTA 높이, 텍스트 잘림) → “시안 그대로” 구현하면 **정책·가독성 Fail**.  
+1. Production이 Legacy Component를 씀 → 토큰·Variant props가 Final과 다름.
+2. OptionSelectionRow 등 Final이 화면에 0건 → Detail 구현자가 수동 Frame을 복제하기 쉬움.
+3. Visual Recovery 미완(다크 품절, CTA 높이, 텍스트 잘림) → “시안 그대로” 구현하면 **정책·가독성 Fail**.
 4. `__manual-check` / Mock settings / Future를 Production처럼 넘기면 BE에 없는 API를 요구하게 됨.
 
 ---
@@ -1817,35 +1817,35 @@ GET /api/health 만. 주문·결제·품절·매출 API 없음
 
 ### Wave 0 — 착각 제거 (문서·Figma, 코드 최소)
 
-1. CANONICAL_SOURCE를 **05-C/06-C**로 맞춤.  
-2. Figma BATCH1: 주문유형 중복 제거.  
-3. Legacy→Final Component Swap (인벤토리 §7).  
+1. CANONICAL_SOURCE를 **05-C/06-C**로 맞춤.
+2. Figma BATCH1: 주문유형 중복 제거.
+3. Legacy→Final Component Swap (인벤토리 §7).
 4. Admin route 표 ↔ 앱 path 통일안 확정.
 
 ### Wave 1 — 주문을 끝낼 수 있게 (Kiosk P0)
 
-5. `/cart`, `/payment`, `/complete` Route + 페이지 연결.  
-6. Cart: Confirm 삭제, 옵션수정 draft, 합치기, 품절 수정 게이트, POST order(mock 가능).  
-7. Payment: 수단·Processing·멱등·Error·실패 시 유지.  
-8. Complete: replace + `resetSession`.  
-9. Timeout + Processing 예외.  
+5. `/cart`, `/payment`, `/complete` Route + 페이지 연결.
+6. Cart: Confirm 삭제, 옵션수정 draft, 합치기, 품절 수정 게이트, POST order(mock 가능).
+7. Payment: 수단·Processing·멱등·Error·실패 시 유지.
+8. Complete: replace + `resetSession`.
+9. Timeout + Processing 예외.
 10. 필드 adapter (`name`↔`menuName` …).
 
 ### Wave 2 — 상태·품절·접근성
 
-11. Menu List/Detail Loading·Error.  
-12. soldOutPolicy 실구현 + Cart 연동.  
-13. 제외 재료·알레르기.  
-14. Accessibility High Contrast 전 흐름.  
+11. Menu List/Detail Loading·Error.
+12. soldOutPolicy 실구현 + Cart 연동.
+13. 제외 재료·알레르기.
+14. Accessibility High Contrast 전 흐름.
 15. 토스트 카피 정책 정리.
 
 ### Wave 3 — Admin + Backend
 
-16. Backend: menu/order/payment/soldOut envelope.  
-17. Admin Login·권한 계약 확정.  
-18. Live Order + 상태전이 + TTS 실패 분리.  
-19. Sold-out SaveBar·Confirm.  
-20. Dashboard / Sales 기간 API.  
+16. Backend: menu/order/payment/soldOut envelope.
+17. Admin Login·권한 계약 확정.
+18. Live Order + 상태전이 + TTS 실패 분리.
+19. Sold-out SaveBar·Confirm.
+20. Dashboard / Sales 기간 API.
 21. Kiosk↔Admin 결제수단 동기화.
 
 ### Wave 4 — Extension (의도적 후순위)
@@ -1865,8 +1865,8 @@ GET /api/health 만. 주문·결제·품절·매출 API 없음
 | Admin 전 State | 많음 | 0 (스캐폴드 문구) | |
 | Extension | Draft | 보류 | |
 
-**판정문 (핸드오프용):**  
-> “Figma 05-C/06-C에 State가 채워져 있다” = **디자인 카탈로그 준비도**.  
+**판정문 (핸드오프용):**
+> “Figma 05-C/06-C에 State가 채워져 있다” = **디자인 카탈로그 준비도**.
 > “구현 완료” = Router + 정책 행동 + (mock 또는) API + QA 체크리스트 PASS.
 
 ---
@@ -1875,24 +1875,24 @@ GET /api/health 만. 주문·결제·품절·매출 API 없음
 
 **디자이너 → Dev 넘기기 전**
 
-- [ ] 이 Frame의 mainComponent가 02~04-C Final인가? (Legacy `4:*`면 Fail)  
-- [ ] Prototype이 정책 P1(주문유형 1회)을 따르는가?  
-- [ ] Future/Refund/영수증이 Production CTA로 강조되지 않는가?  
-- [ ] Loading/Empty/Error/Disabled가 같은 SCR에 있는가?  
+- [ ] 이 Frame의 mainComponent가 02~04-C Final인가? (Legacy `4:*`면 Fail)
+- [ ] Prototype이 정책 P1(주문유형 1회)을 따르는가?
+- [ ] Future/Refund/영수증이 Production CTA로 강조되지 않는가?
+- [ ] Loading/Empty/Error/Disabled가 같은 SCR에 있는가?
 - [ ] 카피·Enum이 Bible과 같은가?
 
 **개발자 → “화면 완료” 선언 전**
 
-- [ ] Registry route가 App에 있는가?  
-- [ ] 완료 체크(02/03 가이드)를 실제로 통과했는가?  
-- [ ] 서버 없으면 mock임을 UI/코드에 명시했는가?  
-- [ ] 가격·품절·수량이 단일 유틸/정책을 쓰는가?  
+- [ ] Registry route가 App에 있는가?
+- [ ] 완료 체크(02/03 가이드)를 실제로 통과했는가?
+- [ ] 서버 없으면 mock임을 UI/코드에 명시했는가?
+- [ ] 가격·품절·수량이 단일 유틸/정책을 쓰는가?
 - [ ] 실패 후 장바구니/선택이 유지되는가?
 
 **Backend → Front 연결 전**
 
-- [ ] envelope·error code가 가이드와 같은가?  
-- [ ] 가격 재계산·멱등·상태전이가 Service에 있는가?  
+- [ ] envelope·error code가 가이드와 같은가?
+- [ ] 가격 재계산·멱등·상태전이가 Service에 있는가?
 - [ ] DTO 필드명이 Front adapter 표와 맞는가?
 
 ---
@@ -1908,7 +1908,7 @@ GET /api/health 만. 주문·결제·품절·매출 API 없음
 
 ### 11-2. C2(CANONICAL_SOURCE B vs Guide C) — 확인, 원문 인용
 
-`ASAK/docs/product_bible/01_Foundation/docs/00-product-bible/CANONICAL_SOURCE.md` §3을 직접 읽었다. 실제 원문:
+`ASAK/docs/product_bible/01_Foundation/CANONICAL_SOURCE.md` §3을 직접 읽었다. 실제 원문:
 
 ```text
 현재 최신 기준:
@@ -2008,12 +2008,12 @@ Part D의 Dashboard 확장안(§2)은 위에서 확인한 대로 **Dashboard 라
 # Part D: Admin 데이터 위젯 제안
 
 
-> **작성일:** 2026-07-17  
-> **목적:** 관리자 화면에 **새 데이터 소스 없이** 주문·결제·품절·메뉴에서 이미(또는 곧) 쌓이는 값만으로 운영 판단 섹션을 보강한다.  
-> **원칙:**  
-> - Dashboard 상단 KPI는 Bible대로 **4개 유지** (순매출 / 주문 수 / 객단가 / 진행 중).  
-> - “더 볼 정보”는 **본문 위젯·보조 섹션**으로 둔다.  
-> - 회원·재방문·목표·전년비·환불률 등 **추가 계약 필요 지표는 넣지 않는다** (`SALES_ARCHITECTURE` §3).  
+> **작성일:** 2026-07-17
+> **목적:** 관리자 화면에 **새 데이터 소스 없이** 주문·결제·품절·메뉴에서 이미(또는 곧) 쌓이는 값만으로 운영 판단 섹션을 보강한다.
+> **원칙:**
+> - Dashboard 상단 KPI는 Bible대로 **4개 유지** (순매출 / 주문 수 / 객단가 / 진행 중).
+> - “더 볼 정보”는 **본문 위젯·보조 섹션**으로 둔다.
+> - 회원·재방문·목표·전년비·환불률 등 **추가 계약 필요 지표는 넣지 않는다** (`SALES_ARCHITECTURE` §3).
 > - Future Scope(영수증 통계, 쿠폰, QR) 금지.
 
 **관련:** Part C · Dashboard/Sales Bible
@@ -2068,7 +2068,7 @@ Part D의 Dashboard 확장안(§2)은 위에서 확인한 대로 **Dashboard 라
 | **A7** | **품절 영향 힌트** | 품절 재료/옵션이 걸린 **메뉴 수** (affectedMenuCount) | 품절 관리 |
 | **A8** | **옵션·제외 인사이트 (오늘)** | 옵션 선택 TOP / 제외 재료 TOP | 메뉴·재고 |
 
-> **KPI 4개 규칙:** A1~A8은 카드/리스트 위젯이지 상단 KPI 슬롯을 늘리지 않는다.  
+> **KPI 4개 규칙:** A1~A8은 카드/리스트 위젯이지 상단 KPI 슬롯을 늘리지 않는다.
 > **Empty:** 주문 0이면 “오늘 주문 없음” + 객단가 `-`와 동일 톤.
 
 ### 2-B. 운영 알림 규칙 (새 데이터 없음)
@@ -2216,10 +2216,10 @@ TTS 실패는 **주문 상태와 분리된 토스트/배너** (기존 정책 유
 
 ### Figma (06-C) 배치 가이드
 
-1. 상단 KPI 4 유지.  
-2. 2열: 왼쪽 실시간(상태·최근·대기 신호) / 오른쪽 성과(인기·유형·카테고리·수단).  
-3. 하단: 시간대 미니 + 알림.  
-4. 각 위젯 Loading / Empty / Error **개별**.  
+1. 상단 KPI 4 유지.
+2. 2열: 왼쪽 실시간(상태·최근·대기 신호) / 오른쪽 성과(인기·유형·카테고리·수단).
+3. 하단: 시간대 미니 + 알림.
+4. 각 위젯 Loading / Empty / Error **개별**.
 5. 새 Component Set 남발 금지 — `SalesMetricCard`·리스트·미니바는 04-C 확장.
 
 ### 구현 우선순위 (추천)
@@ -2235,9 +2235,9 @@ P3  A8 옵션/제외 · 메뉴 화면 힌트 · 품절×인기 교차
 
 ## 11. UX 카피 톤 (짧게)
 
-- “오늘 포장이 62%예요. 포장 용기를 먼저 확인해 주세요.”  
-- “대기 최장 8분 · 접수 4건”  
-- “인기 2위 메뉴가 품절입니다.”  
+- “오늘 포장이 62%예요. 포장 용기를 먼저 확인해 주세요.”
+- “대기 최장 8분 · 접수 4건”
+- “인기 2위 메뉴가 품절입니다.”
 - 데이터 없을 때: “아직 오늘 주문이 없어요.” (비난 금지)
 
 ---

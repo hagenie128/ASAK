@@ -2,7 +2,7 @@
 
 > 일일 기록: [2026-07-30.md](../../daily/이하진/2026-07-30.md)
 > Figma 정본: [`ASAK — Design System + Product UI 0718`](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=134-10606) · Admin 캔버스 `134:10606` · Kiosk 캔버스 `134:7720`
-> 기준 화면: [SCR-009](../../../docs/product_bible/07_Screen_Bible/docs/07-screens/SCR-009-ADMIN-LIVE-ORDER-BOARD.md) · [SCR-011](../../../docs/product_bible/07_Screen_Bible/docs/07-screens/SCR-011-ADMIN-SOLD-OUT-MANAGEMENT.md) · [SCR-016](../../../docs/product_bible/07_Screen_Bible/docs/07-screens/SCR-016-ADMIN-MENU-MANAGEMENT.md)
+> 기준 화면: [SCR-009](../../../docs/product_bible/07_Screen_Bible/SCR-009-ADMIN-LIVE-ORDER-BOARD.md) · [SCR-011](../../../docs/product_bible/07_Screen_Bible/SCR-011-ADMIN-SOLD-OUT-MANAGEMENT.md) · [SCR-016](../../../docs/product_bible/07_Screen_Bible/SCR-016-ADMIN-MENU-MANAGEMENT.md)
 
 ---
 
@@ -156,6 +156,6 @@ Figma MCP로 0718 정본의 Admin·Kiosk 캔버스 메타데이터를 읽어 파
 
 ## 13. 첨부 / 참고 자료
 
-- ASAK: `CONTEXT.md`, `docs/implementation_guide/09-figma-state-checklist.md`, `docs/product_bible/04_Dashboard_Sales_Kitchen_TTS/docs/09-features/sales/SALES_CANCELLATION_REFUND_RULES.md`, `docs/product_bible/07_Screen_Bible/docs/07-screens/SCR-009-ADMIN-LIVE-ORDER-BOARD.md`
+- ASAK: `CONTEXT.md`, `docs/implementation_guide/09-figma-state-checklist.md`, `docs/product_bible/04_Dashboard_Sales_Kitchen_TTS/sales/SALES_CANCELLATION_REFUND_RULES.md`, `docs/product_bible/07_Screen_Bible/SCR-009-ADMIN-LIVE-ORDER-BOARD.md`
 - ASAK-Admin: `src/api/ordersApi.js`, `src/components/admin/LiveOrderPreview.jsx`, `src/components/admin/MenuEditPanel.jsx`, `src/pages/admin/SoldOutManagePage.jsx`, `src/styles/tokens.css`
 - ASAK-Kiosk: `docs/figma-unbound-colors-2026-07-30.md`, `src/styles/tokens.css`, `src/styles/kiosk/*.css`

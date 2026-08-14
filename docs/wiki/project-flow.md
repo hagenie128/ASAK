@@ -5,7 +5,7 @@
 > **이번 주:** Kiosk 장바구니→주문→결제 실연동 · Admin 메뉴 CRUD→품절→결제수단→매출 순.
 > 상세: [admin-todo-checklist](../planning/admin-todo-checklist-2026-08-05.md) · [검증 투두](../planning/admin-feature-verify-todos-2026-08-06.md) · [회의록](../operations/meeting-minutes/README.md) · [동기화 보고서](../ai-reports/2026-08-06/asak-doc-sync-admin-devcopilot.md)
 > 문서 입구: [START_HERE](../START_HERE.md)
-> 이 문서는 **그림으로 보는 요약**입니다. 상태 표로 자세히 보려면 [Current Implementation Map](../planning/current-implementation-map-2026-07-16.md), 코드-문서 충돌은 [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md), 할 일은 [WBS 2.0](wbs-v2-2026-07-16.md)을 보세요.
+> 상태 표: [구현 맵](../planning/current-implementation-map-2026-07-16.md) · 문서↔코드 차이: [gap report](../architecture/document-code-gap-report-2026-07-16.md) · 할 일: [작업 분해표](wbs.md)
 
 ## 범례 (모든 그림 공통)
 
@@ -234,7 +234,7 @@ flowchart LR
 
 **지금 스프린트에서 하지 말 일:** CSS/시안 통째 교체, `priceCalculation`/`quantityLimits` 되돌리기, Admin 기능을 Kiosk 저장소에 새로 만들기, Backend 실연동 먼저 시작하기.
 
-관련 문서: [WBS 2.0 (정본)](wbs-v2-2026-07-16.md) · [WBS 상태 메모](wbs-status-notes.md) · [프론트 3일 실행표](../planning/frontend-wednesday-wbs-2026-07-20.md)
+관련 문서: [작업 분해표](wbs.md) · [WBS 상태 메모](wbs-status-notes.md) · [프론트 3일 실행표](../planning/frontend-wednesday-wbs-2026-07-20.md) *(Historical)*
 
 ---
 
@@ -247,7 +247,7 @@ flowchart LR
 | [구현 맵](../planning/current-implementation-map-2026-07-16.md) | SCR별 상세 |
 | [Current Implementation Map](../planning/current-implementation-map-2026-07-16.md) | 화면·mock·API 상태표 |
 | [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md) | 정본 vs 코드 충돌 상세 |
-| [WBS 2.0](wbs-v2-2026-07-16.md) | 실행 할 일 정본 |
+| [작업 분해표](wbs.md) | 실행 할 일 정본 |
 | [Kiosk 구조 가이드](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) | Kiosk 코딩 시작점 |
 | [Admin 구조 가이드](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [Mock 사전](../../ASAK-Admin/public/mocks/README.md) | Admin 코딩 시작점 (`IMPLEMENTATION_PLAN` 삭제됨) |
 | [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md) | Backend 코딩 시작점 |

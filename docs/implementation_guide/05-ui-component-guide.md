@@ -42,10 +42,10 @@ Screen Registry와 승인된 `05-C/06-C`가 화면 기준이다. 실제 코드�
 
 ## 정본 링크
 
-- [Screen Registry](../product_bible/07_Screen_Bible/docs/07-screens/SCREEN_REGISTRY.md)
-- [Component System](../product_bible/08_Component_Bible/docs/08-components/00-foundation/COMPONENT_SYSTEM.md)
-- [Component Creation Rules](../product_bible/08_Component_Bible/docs/08-components/00-foundation/COMPONENT_CREATION_RULES.md)
-- [Frontend Architecture](../product_bible/06_Engineering_Bible/docs/02-frontend/FRONTEND_ARCHITECTURE.md)
-- [Product Principles](../product_bible/01_Foundation/docs/00-product-bible/PRODUCT_PRINCIPLES.md)
+- [Screen Registry](../product_bible/07_Screen_Bible/SCREEN_REGISTRY.md)
+- [Component System](../product_bible/08_Component_Bible/00-foundation/COMPONENT_SYSTEM.md)
+- [Component Creation Rules](../product_bible/08_Component_Bible/00-foundation/COMPONENT_CREATION_RULES.md)
+- [Frontend Architecture](../product_bible/06_Engineering_Bible/02-frontend/FRONTEND_ARCHITECTURE.md)
+- [Product Principles](../product_bible/01_Foundation/PRODUCT_PRINCIPLES.md)
 - [05-C Screens / Kiosk](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=134-7720)
 - [06-C Screens / Admin](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=134-10606)

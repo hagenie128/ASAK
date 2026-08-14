@@ -1,11 +1,11 @@
 # Admin 화면 작업 카드
 
-> `06-C Admin`의 **10개 Screen ID**를 구현할 때 바로 쓰는 문서다.  
+> `06-C Admin`의 **10개 Screen ID**를 구현할 때 바로 쓰는 문서다.
 > 각 카드에는 화면 행동, 필요한 데이터/API, 상태, 완료 확인만 둔다.
 
 **Figma 공통 링크:** [06-C Screens / Admin](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=134-10606)
 
-**Mock 필드·props 치트시트 (바인딩 시 여기부터):**  
+**Mock 필드·props 치트시트 (바인딩 시 여기부터):**
 [`ASAK-Admin/public/mocks/README.md`](../../../ASAK-Admin/public/mocks/README.md) · 각 Page/컴포넌트 파일 상단 주석 · `adminMockRepository.js` 헤더
 
 ## SCR-015 · Login
@@ -55,7 +55,7 @@
 | `409` | 최신 주문을 다시 읽고 임의로 덮어쓰지 않는다. |
 | TTS 실패 | 주문 상태는 성공대로 유지하고 TTS 실패만 별도로 표시한다. |
 
-`RECEIVED → PREPARING → COMPLETED`가 MVP 상태 전이다.  
+`RECEIVED → PREPARING → COMPLETED`가 MVP 상태 전이다.
 **완료 체크:** [ ] Loading/Empty/Error/상세/확인/저장/성공/실패/TTS 실패가 있다. [ ] 완료 주문을 다시 완료해도 TTS/매출이 중복되지 않는다.
 
 ## SCR-010 · Order Management
@@ -75,7 +75,7 @@
 | 상세 열기 | 선택한 주문의 상세를 보이고 목록의 선택 상태를 유지한다. |
 | Loading / Empty / Error | 데이터 없음과 조회 실패를 다르게 보인다. |
 
-**API 메모:** 목록 `GET /api/admin/orders`의 query/DTO는 Draft를 확정해야 한다. 상세와 상태 변경은 위 SCR-009 계약을 사용한다.  
+**API 메모:** 목록 `GET /api/admin/orders`의 query/DTO는 Draft를 확정해야 한다. 상세와 상태 변경은 위 SCR-009 계약을 사용한다.
 **완료 체크:** [ ] 필터/상세/Loading/Empty/Error가 있다. [ ] 목록·상세·Dashboard가 같은 상태/금액 정의를 쓴다.
 
 ## SCR-011 · Sold-out Management
@@ -186,11 +186,11 @@
 <details>
 <summary>원본 문서가 필요할 때만 열기</summary>
 
-- [Dashboard Guide](../product_bible/12_Frontend_Implementation/docs/13-frontend-implementation/04-admin/DASHBOARD_IMPLEMENTATION.md)
-- [Live Order/TTS Guide](../product_bible/12_Frontend_Implementation/docs/13-frontend-implementation/04-admin/LIVE_ORDER_TTS_IMPLEMENTATION.md)
-- [Order Management Guide](../product_bible/12_Frontend_Implementation/docs/13-frontend-implementation/04-admin/ORDER_MANAGEMENT_IMPLEMENTATION.md)
-- [Sold-out Guide](../product_bible/12_Frontend_Implementation/docs/13-frontend-implementation/04-admin/SOLD_OUT_IMPLEMENTATION.md)
-- [Menu Management Guide](../product_bible/12_Frontend_Implementation/docs/13-frontend-implementation/04-admin/MENU_MANAGEMENT_IMPLEMENTATION.md)
-- [Sales Guide](../product_bible/12_Frontend_Implementation/docs/13-frontend-implementation/04-admin/SALES_IMPLEMENTATION.md)
-- [Sales API Contract](../product_bible/04_Dashboard_Sales_Kitchen_TTS/docs/09-features/sales/SALES_API_CONTRACT.md)
+- [Dashboard Guide](../product_bible/12_Frontend_Implementation/04-admin/DASHBOARD_IMPLEMENTATION.md)
+- [Live Order/TTS Guide](../product_bible/12_Frontend_Implementation/04-admin/LIVE_ORDER_TTS_IMPLEMENTATION.md)
+- [Order Management Guide](../product_bible/12_Frontend_Implementation/04-admin/ORDER_MANAGEMENT_IMPLEMENTATION.md)
+- [Sold-out Guide](../product_bible/12_Frontend_Implementation/04-admin/SOLD_OUT_IMPLEMENTATION.md)
+- [Menu Management Guide](../product_bible/12_Frontend_Implementation/04-admin/MENU_MANAGEMENT_IMPLEMENTATION.md)
+- [Sales Guide](../product_bible/12_Frontend_Implementation/04-admin/SALES_IMPLEMENTATION.md)
+- [Sales API Contract](../product_bible/04_Dashboard_Sales_Kitchen_TTS/sales/SALES_API_CONTRACT.md)
 </details>

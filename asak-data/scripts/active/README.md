@@ -1,3 +1,5 @@
-# Active scripts placeholder
+# scripts/active
 
-Current scripts remain one level above while callers use their existing paths. Populate this directory only after approved path migration and dry-run validation.
+> Status: **Placeholder** · 비어 있음
+
+경로 이전 승인 전 자리표시자입니다. 파일을 두지 않습니다.

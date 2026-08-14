@@ -1,12 +1,12 @@
 # Current Implementation Map
 
-> 기준일: **2026-07-23** · **코드 실측** 정본 (7/20 감사 + 7/21~23 Admin mock·Figma 정합 반영).  
-> 문서 입구: [START_HERE](../START_HERE.md)  
-> 이전 07-16 버전은 Cart/Admin을 MISSING으로 적어 **과소평가**되어 폐기 수준으로 대체됨.  
-> Canonical(미코드 반영): [canonical-contract-decisions-2026-07-16.md](../governance/canonical-contract-decisions-2026-07-16.md)  
-> 요약 baseline: [current-status-baseline.md](../wiki/current-status-baseline.md)  
-> WBS: [wbs-v2-2026-07-16.md](../wiki/wbs-v2-2026-07-16.md) · [wbs-status-notes.md](../wiki/wbs-status-notes.md)  
-> Admin 필드 대조: [`ASAK-Admin/public/mocks/README.md`](../../../ASAK-Admin/public/mocks/README.md)  
+> 기준일: **2026-07-23** · **코드 실측** 정본 (7/20 감사 + 7/21~23 Admin mock·Figma 정합 반영).
+> 문서 입구: [START_HERE](../START_HERE.md)
+> 이전 07-16 버전은 Cart/Admin을 MISSING으로 적어 **과소평가**되어 폐기 수준으로 대체됨.
+> Canonical(미코드 반영): [canonical-contract-decisions-2026-07-16.md](../governance/canonical-contract-decisions-2026-07-16.md)
+> 요약 baseline: [current-status-baseline.md](../wiki/current-status-baseline.md)
+> WBS: [wbs.md](../wiki/wbs.md) · [wbs-status-notes.md](../wiki/wbs-status-notes.md)
+> Admin 필드 대조: [`ASAK-Admin/public/mocks/README.md`](../../../ASAK-Admin/public/mocks/README.md)
 > 원칙: **1차 mock 연결 ≠ DONE**
 
 ## 상태 범례
@@ -118,9 +118,9 @@
 
 ## 다음 작업 (문서 → 코드)
 
-1. Kiosk: 결제 mock 연결 · 한도 toast · 타임아웃 (WBS2-024, 026~030) · **결제수단 개수(8 vs Admin 4) 계약 재확인**  
-2. Admin: 실패용 테스트 데이터 · 품절↔`menus.isSoldOut` 동기화 · 주문 필터 고도화 · Live 페이징 · P2 polish · 상태/QA 실행 기록 (`WBS2-044~045`)  
-3. 정본 경로/상수 정렬 (DECIDED_PENDING)  
+1. Kiosk: 결제 mock 연결 · 한도 toast · 타임아웃 (WBS2-024, 026~030) · **결제수단 개수(8 vs Admin 4) 계약 재확인**
+2. Admin: 실패용 테스트 데이터 · 품절↔`menus.isSoldOut` 동기화 · 주문 필터 고도화 · Live 페이징 · P2 polish · 상태/QA 실행 기록 (`WBS2-044~045`)
+3. 정본 경로/상수 정렬 (DECIDED_PENDING)
 4. Backend P5: 조회 경로는 실DB·Bruno 검증, 주문 저장·결제·상태변경/취소·품절·매출은 기능별 세로 슬라이스 완성 후 **실연동 BLOCKED** 해제 검토
 
 ### Admin 실행 순서 메모 (2026-07-21 ~ 2026-07-23 진척 반영)
