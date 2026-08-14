@@ -9,7 +9,7 @@
 - **입구:** [문서 시작](START_HERE.md) · [프로젝트 허브](../PROJECT_HUB.md)
 - **정책 정본:** `product_bible/` (먼저 [읽기 허브](product_bible/product-bible-hub.md)) · **계약:** `governance/canonical-contract-decisions-2026-07-16.md`
 - **현재 구현:** [구현 현황 요약](wiki/current-status-baseline.md) · [구현 맵](planning/current-implementation-map-2026-07-16.md) · **앱 허브:** [앱 구현 허브](planning/app-implementation-hub.md)
-- **AI 도구 사용:** [AI 스킬 및 코드 그래프 사용 가이드](guides/12-ai-agent-tools-guide.md) · Codex·Claude·Cursor·Antigravity 공통 사용 규칙
+- **AI 도구 사용:** 설치된 ASAK 스킬을 직접 사용하며 중복 프롬프트·설정 사본은 유지하지 않음
 - **앱 실행 문서:** `src/STRUCTURE_GUIDE.md` · 키오스크/백엔드는 `IMPLEMENTATION_PLAN.md` · **관리자 계획 파일은 삭제됨** → 가상 데이터 사전·중앙 작업 분해표·구현 맵 사용
 - **과거 이력:** 대형 `_archive/` 트리는 제거했습니다. 필요한 과거 자료는 Git 이력에서 조회하며 정본으로 되돌리지 않습니다.
 - **파일명 규칙:** [document-naming-guide-2026-07-20.md](document-naming-guide-2026-07-20.md) · 검사: `pwsh asak-data/scripts/check-filename-convention.ps1` · 인벤토리: [document-inventory-slim-2026-07-20.md](document-inventory-slim-2026-07-20.md)
@@ -31,9 +31,9 @@ python worklog/scripts/build_calendar.py
 6. [문서–코드 차이 보고서](architecture/document-code-gap-report-2026-07-16.md)
 7. [구현 우선순위](planning/implementation-priority-2026-07-16.md) *(목표 순서 · 현재 상태는 구현 맵 기준)*
 8. [프론트 3일 WBS](planning/frontend-wednesday-wbs-2026-07-20.md)
-9. [제품 기준 문서 허브](product_bible/product-bible-hub.md) · [팩 안내](product_bible/README.md) · [색인](governance/product-bible-index-2026-07-16.md)
+9. [제품 기준 문서 허브](product_bible/product-bible-hub.md) · [팩 안내](product_bible/README.md)
 10. [디자인](design) · [화면](screens)
-11. [운영 환경 설정](operations/setup)
+11. [운영 환경 설정](operations/setup) · [Android PWA 전체화면](operations/setup/android-pwa-fullscreen.md)
 12. 과거 이력은 Git history에서만 조회 — 실행 기준으로 사용하지 않음
 
 ## 정본과 범위
@@ -42,28 +42,28 @@ python worklog/scripts/build_calendar.py
 - Product Bible은 Pack 1~12의 활성 통합 문서만 구현 기준으로 사용한다.
 - 기존 Notion 내보내기, 회의록, 작업 분해표는 고유 맥락을 보존하는 참고 또는 보관 자료이며 제품 기준 문서를 대체하지 않는다.
 - 제품 기준 문서 수는 구현 범위를 뜻하지 않는다. 구현은 최소 기능 제품과 `FUTURE_SCOPE`를 구분해 승인된 세로 기능 흐름만 진행한다.
-- 계약 결정은 [정본 계약 결정](governance/canonical-contract-decisions-2026-07-16.md), 과거 문서 분류는 [과거·참고 자료 목록](governance/legacy-and-reference-index-2026-07-16.md)을 따른다.
+- 계약 결정은 [정본 계약 결정](governance/canonical-contract-decisions-2026-07-16.md)을 따른다.
 
 ## 폴더 역할
 
 | 폴더 | 역할 | 태그 |
 |---|---|---|
-| `START_HERE.md` | 단일 문서 진입점 | `#current` |
-| `governance` | 정본·계약·상태·과거 자료 정책 | `#canonical` / `#reference` |
-| `planning` | 구현 맵·우선순위·앱 허브 | `#current` |
-| `implementation_guide` | 화면·도메인 작업 카드 | `#current` |
-| `architecture` | 문서–코드 차이 분석 | `#reference` |
-| `product_bible` | 제품 기준 팩 1~12 | `#canonical` |
-| `operations` | 설치·회의록 정본 | `#current` |
-| `design` | Figma 동결 정본과 실행 플러그인 | `#reference` / `#tooling` |
-| `screens` | 화면 export/스냅샷 | `#reference` |
-| `guides` | 온보딩·AI 도구 가이드 | `#reference` |
-| `study` | 공부 레포트·외부 참고 | `#reference` |
-| `team` | 팀 협업 stub | `#reference` |
+| `START_HERE.md` | 단일 문서 진입점 | `CURRENT` |
+| `governance` | 정본·계약·상태 정책 | `CANONICAL` |
+| `planning` | 구현 맵·우선순위·앱 허브 | `DRAFT` / `HISTORY` |
+| `implementation_guide` | 화면·도메인 작업 카드 | `CURRENT` |
+| `architecture` | 문서–코드 차이 분석 | `HISTORY` |
+| `product_bible` | 제품 기준 팩 1~12 | `CANONICAL` |
+| `operations` | 설치·회의록 정본 | `CURRENT` / `HISTORY` |
+| `design` | Figma 참고와 실행 플러그인 | `REFERENCE` |
+| `screens` | 화면 export/스냅샷 | `REFERENCE` |
+| `guides` | 온보딩 가이드 | `REFERENCE` |
+| `study` | 공부 레포트·외부 참고 | `REFERENCE` |
+| `team` | 팀 협업 stub | `REFERENCE` |
 | `wiki` | Hub/DevCopilot 참고·WBS 정본 | Mixed |
-| `notion` | DevCopilot 동기화 입력 (이동 금지) | `#reference` |
-| `ai-reports` | 일자별 AI 동기화/사인오프 산출 | `#archive`에 가깝게 취급 |
-| `00_presentation` | 발표 PPT (최신=수정3) | `#current` |
+| `notion` | DevCopilot 동기화 입력 (이동 금지) | `REFERENCE` |
+| `ai-reports` | 일자별 작업 근거 | `HISTORY` |
+| `00_presentation` | 발표 PPT (최신=수정3) | `CURRENT` |
 
 ## 제품 기준 문서 팩 1~12
 

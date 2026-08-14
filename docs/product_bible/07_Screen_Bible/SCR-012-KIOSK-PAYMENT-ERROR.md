@@ -1,6 +1,6 @@
 # SCR-012: Kiosk Payment Error
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `state/overlay`
 > Purpose: 결제 실패 복구
 

@@ -1,6 +1,6 @@
 # SCR-024: Membership / Coupon
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `extension`
 > Purpose: 적립·쿠폰
 

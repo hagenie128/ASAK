@@ -49,7 +49,7 @@ flowchart TB
 - `ASAK-Kiosk` / `ASAK-Admin`: 실제 화면 코드(React)가 있는 곳입니다.
 - `ASAK-back`: 로컬 폴더명은 유지하지만 실제 원격은 `nayeon0828/ASAK-backend`입니다. Kiosk 메뉴/카테고리 조회·장바구니 검증, Admin 메뉴·주문 조회 경로가 있고, 주문 저장·결제·상태변경/취소·품절·매출은 아직 미완성 또는 미구현입니다.
 
-관련 문서: [Kiosk 구조 가이드](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [Kiosk 구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) · [Admin 구조 가이드](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [Admin Mock 사전](../../ASAK-Admin/public/mocks/README.md) · [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md)
+관련 문서: [Kiosk 구조 가이드](../../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [Kiosk 구현 계획](../../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) · [Admin 구조 가이드](../../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [Admin Mock 사전](../../../ASAK-Admin/public/mocks/README.md) · [Backend 구현 계획](../../../ASAK-back/IMPLEMENTATION_PLAN.md)
 > Admin 루트 `IMPLEMENTATION_PLAN.md`는 **삭제됨** — 구조 지도·Mock 사전·중앙 WBS/맵을 본다.
 
 ---
@@ -83,7 +83,7 @@ flowchart LR
 - 라우트 정의: `ASAK-Kiosk/src/apps/kiosk/KioskApp.jsx`
 - 장바구니 상태 유지: `ASAK-Kiosk/src/store/orderSessionStore.js` (zustand — 화면을 이동해도 값이 유지됨)
 
-관련 WBS: `WBS2-017~032` (P3 키오스크) · 자세한 라우트 표는 [Kiosk 구조 가이드](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) 참고.
+관련 WBS: `WBS2-017~032` (P3 키오스크) · 자세한 라우트 표는 [Kiosk 구조 가이드](../../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) 참고.
 
 ---
 
@@ -132,26 +132,26 @@ flowchart TB
 - 나머지 mock 입구: `ASAK-Admin/src/mocks/adminMockRepository.js` (Page에서 JSON 직접 import 금지)
 - 셸: 1920×1080 캔버스 + viewport scale · Shared AsyncState/Confirm
 
-관련 WBS: `WBS2-033~045` (P4 관리자) · 자세한 라우트 표는 [Admin 구조 가이드](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) 참고.
+관련 WBS: `WBS2-033~045` (P4 관리자) · 자세한 라우트 표는 [Admin 구조 가이드](../../../ASAK-Admin/src/STRUCTURE_GUIDE.md) 참고.
 
 ---
 
 ## 4. 데이터/API 목표 흐름 (Kiosk·Admin → API → DB)
 
-Kiosk는 여전히 mock JSON 비중이 큽니다. Admin은 **주문 API만 실연동(미검증)** 이고, 메뉴·품절·결제·매출·대시보드는 mock입니다. 백엔드는 Admin 주문(Live·목록·상세·상태·취소)과 메뉴 GET이 있고, 품절·결제수단·매출·대시보드는 Controller 스텁입니다.
+Kiosk는 메뉴·장바구니·주문은 실 API를 쓰고, 결제 시나리오 예시만 `public/mocks/payment-scenarios.sample.json`에 둡니다. Admin은 **주문 API만 실연동(미검증)** 이고, 메뉴·품절·결제·매출·대시보드는 `src/mocks`입니다. 백엔드는 Admin 주문(Live·목록·상세·상태·취소)과 메뉴 GET이 있고, 품절·결제수단·매출·대시보드는 Controller 스텁입니다.
 
 ```mermaid
 flowchart LR
     subgraph K["ASAK-Kiosk"]
         K1["pages/kiosk/*.jsx"]
-        K2["public/mocks/kiosk.json<br/>(직접 import, ✅ mock 동작)"]
+        K2["실 API + payment-scenarios.sample.json"]
         K1 --> K2
     end
 
     subgraph AD["ASAK-Admin"]
         A1["주문 화면<br/>✅ ordersApi 실연동·미검증"]
         A2["메뉴·품절·결제·매출·대시보드<br/>⚠️ adminMockRepository"]
-        A3["public/mocks/asak-admin-data.json"]
+        A3["src/mocks/asak-admin-data.json"]
         A1 --> B1
         A2 --> A3
     end
@@ -165,7 +165,7 @@ flowchart LR
         D1["⚠️ MyBatis 매퍼 사용 · 실DB 통합 검증은 미검증"]
     end
 
-    K2 -. 목표 API 경로로 연결 예정 .-> B2
+    K2 --> B1
     B1 --> D1
     B2 -. 구현되면 저장 .-> D1
 
@@ -178,7 +178,7 @@ flowchart LR
 - 품절 PATCH: 코드/TODO는 `{targetType,targetId,isSoldOut}` (구 DevCopilot `{menuId}`는 코드에 맞춤 갱신).
 - 금액 필드: 문서는 `totalAmount`, `approvedAmount`를 쓰지만, 키오스크 `orderSessionStore`는 `totalPrice` 등 — adapter에서 맞춤.
 
-자세한 표: [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md) · [정본 계약 결정](../governance/canonical-contract-decisions-2026-07-16.md) · [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md)
+자세한 표: [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md) · [정본 계약 결정](../governance/canonical-contract-decisions-2026-07-16.md) · [Backend 구현 계획](../../../ASAK-back/IMPLEMENTATION_PLAN.md)
 
 ---
 
@@ -248,9 +248,9 @@ flowchart LR
 | [Current Implementation Map](../planning/current-implementation-map-2026-07-16.md) | 화면·mock·API 상태표 |
 | [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md) | 정본 vs 코드 충돌 상세 |
 | [작업 분해표](wbs.md) | 실행 할 일 정본 |
-| [Kiosk 구조 가이드](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) | Kiosk 코딩 시작점 |
-| [Admin 구조 가이드](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [Mock 사전](../../ASAK-Admin/public/mocks/README.md) | Admin 코딩 시작점 (`IMPLEMENTATION_PLAN` 삭제됨) |
-| [Backend 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md) | Backend 코딩 시작점 |
+| [Kiosk 구조 가이드](../../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [구현 계획](../../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) | Kiosk 코딩 시작점 |
+| [Admin 구조 가이드](../../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [Mock 사전](../../../ASAK-Admin/public/mocks/README.md) | Admin 코딩 시작점 (`IMPLEMENTATION_PLAN` 삭제됨) |
+| [Backend 구현 계획](../../../ASAK-back/IMPLEMENTATION_PLAN.md) | Backend 코딩 시작점 |
 
 ## Documentation status
 

@@ -1,6 +1,6 @@
 # SCR-019: Admin Sales Summary
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `/sales`
 > Purpose: 기간 성과 요약
 

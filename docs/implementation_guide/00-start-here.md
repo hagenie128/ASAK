@@ -18,7 +18,7 @@
 | API 공통 처리·기존 mock 연결 | [API 공통 규칙](04-api-db-implementation.md) | envelope, error, adapter, Backend 진행 상태 |
 | UI 컴포넌트/토큰 | [UI 컴포넌트](05-ui-component-guide.md) | 기존 컴포넌트 재사용, Figma 상태 |
 | Figma 화면 상태를 하나씩 대조 | [상태 체크리스트](09-figma-state-checklist.md) | Default/Loading/Empty/Error/Saving/복구 |
-| Figma 완료처럼 보이는데 코드/정책 갭 | [0718 프로젝트 갭](../design/figma-0718-project-gap.md) | UI 이식 vs 로직·API 연결 |
+| Figma 완료처럼 보이는데 코드/정책 갭 | [디자인 기준](../design/README.md) | UI 이식 vs 로직·API 연결 |
 | 테스트·시연 직전 | [QA](06-qa-release-guide.md) | 화면 상태, P0 시나리오 |
 
 ## 작업할 때 보는 순서
@@ -52,5 +52,5 @@
 
 - [Canonical Source](../product_bible/01_Foundation/CANONICAL_SOURCE.md)
 - [Screen Registry](../product_bible/07_Screen_Bible/SCREEN_REGISTRY.md)
-- [Product Bible Index](../governance/product-bible-index-2026-07-16.md)
+- [Product Bible Hub](../product_bible/product-bible-hub.md)
 </details>

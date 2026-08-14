@@ -8,13 +8,13 @@
 | 경로 | 역할 |
 |---|---|
 | `docs/START_HERE.md` | 단일 진입 |
-| `docs/wiki/current-status-baseline.md` | `#historical` 2026-08-07 코드 현실 요약 |
-| `docs/planning/current-implementation-map-2026-07-16.md` | `#historical` 2026-07-23 SCR별 상태표 |
+| `docs/wiki/current-status-baseline.md` | `HISTORY` 2026-08-07 코드 현실 요약 |
+| `docs/planning/current-implementation-map-2026-07-16.md` | `HISTORY` 2026-07-23 SCR별 상태표 |
 | `docs/planning/app-implementation-hub.md` | Bible / guide / PLAN 역할 표 |
 | `docs/wiki/wbs.md` | 할 일 정본 |
 | `docs/wiki/wbs-status-notes.md` | WBS↔코드 요약 |
 | `docs/wiki/index.md` | 위키 색인 |
-| `docs/architecture/document-code-gap-report-2026-07-16.md` | `#historical` 2026-07-20 Gap |
+| `docs/architecture/document-code-gap-report-2026-07-16.md` | `HISTORY` 2026-07-20 Gap |
 | `docs/governance/canonical-contract-decisions-2026-07-16.md` | 계약 |
 | `docs/governance/document-status-manifest-2026-07-16.md` | 상태 매니페스트 |
 | `docs/product_bible/product-bible-hub.md` | **바이블 읽기 허브** (역할별·MVP 15) |
@@ -30,12 +30,11 @@
 
 | 경로 | 대신 볼 것 |
 |---|---|
-| `docs/wiki/wbs-schedule.md` · `wbs-v2-2026-07-16.md` | → `wbs.md` 리다이렉트 |
 | `docs/wiki/requirements-definition.md` 등 Notion export 5종 | Product Bible Pack |
 | `docs/wiki/snapshots/README.md` | 과거 JSON 제거 안내 |
 | `docs/planning/implementation-priority-2026-07-16.md` | 구현 맵 · app-implementation-hub |
 | `docs/governance/repository-cleanup-inventory-2026-07-16.md` 등 감사 3종 | document-inventory-slim |
-| 날짜별 design QA·교정·토큰 보고 | `#historical` · design/README |
+| 날짜별 design QA·교정·토큰 보고 | `HISTORY` · design/README |
 | 삭제한 archive 이력 | Git history · START_HERE |
 | ASAK 루트 `README.md` (레거시 frontend/) | START_HERE · 워크스페이스 README |
 

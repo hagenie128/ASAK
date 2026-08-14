@@ -62,3 +62,28 @@
 - 병합 전 경로를 새 통합 문서로 치환
 - 삭제 archive를 가리키던 활성 안내를 Git history 또는 승격 경로로 교정
 - 커밋·푸시: 하지 않음
+
+## 8. 추가 감축 (2026-08-14 2차)
+
+- Python 128개 중 현재 문서·실행 흐름과 의존성이 확인된 27개만 유지
+- 일회성 MCP 저장기, DB 보정, 크롤링 probe, 과거 DevCopilot 브라우저 도구 103개 삭제
+- 스킬로 대체된 프롬프트·스킬 복제본·에이전트 설정 예시 23개 삭제
+- 디자인 날짜별 완료 보고서 10개 삭제: `docs/design` Markdown 18개 → 8개
+- governance 일회성 감사·중복 색인 6개 삭제
+- 문서 상태를 `CURRENT`, `CANONICAL`, `REFERENCE`, `HISTORY`, `DRAFT` 5개로 통일
+- 유지 Python 27개 전체 `py_compile` 통과
+- 변경 Markdown 내부 누락 링크 0건
+
+## 9. 프론트 mock 정리 (2026-08-14 3차)
+
+- Admin 런타임만 유지: `ASAK-Admin/src/mocks/asak-admin-data.json` + `adminMockRepository.js`
+- Kiosk·Admin `public/mocks` 대용량 JSON을 `asak-data/archive/frontend-mocks/`로 이동
+- Kiosk에는 `payment-scenarios.sample.json`(약 5KB)만 예시로 남김
+- Admin `public/mocks/asak-admin-data.json` 중복본과 `kiosk.json` 삭제
+- 문서·README 경로를 새 위치로 갱신
+
+## 10. 위키 리다이렉트 스텁 삭제 (2026-08-14)
+
+- 삭제: `docs/wiki/wbs-schedule.md`, `docs/wiki/wbs-v2-2026-07-16.md`
+- 삭제: `docs/operations/meeting-minutes-2026-07-01-to-08-07.md`
+- 활성 링크를 `wbs.md` · `meeting-minutes/` 정본으로 교체

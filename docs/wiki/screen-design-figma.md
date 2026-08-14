@@ -1,4 +1,4 @@
-> Status: **Historical — Notion export** (2026-07-20)  
+> Status: **HISTORY**
 > → **SCR 정본:** [Pack 07 Screen Bible](../product_bible/07_Screen_Bible/README.md) · Figma: [figma-guide](../design/figma-guide.md)
 
 # ASAK 화면 설계 및 Figma 연동

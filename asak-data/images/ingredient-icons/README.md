@@ -9,7 +9,7 @@
 
 ## 다시 생성
 ```bash
-python3 ../scripts/generate_ingredient_icons.py
+python ../../scripts/generate_ingredient_icons.py
 ```
 
 ## 미리보기

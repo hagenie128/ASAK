@@ -42,22 +42,10 @@ node docs/design/figma-create-ds02-components-plugin/bundle_plugin.js
 node docs/design/figma-create-ds02-components-plugin/_test_mock.js
 ```
 
-### Mock 테스트 (로컬)
-
-```bash
-python docs/design/figma-create-ds02-components-plugin/embed_kiosk_icons.py
-node docs/design/figma-create-ds02-components-plugin/_test_mock.js
-```
-
 ### 키오스크 아이콘 PNG 재생성
 
 1. 새 4×4 아이콘 시트 PNG를 `assets/asak-kiosk-icons-4x4.png`에 덮어쓰기 (행·열 순서는 [Archive icon prompt](../FIGMA_PLUGINS.md) 및 위 `IconSheet` 표와 동일해야 함)
-2. base64 주입:
-
-```bash
-python docs/design/figma-create-ds02-components-plugin/embed_kiosk_icons.py
-```
-
+2. `code.js`의 내장 자산을 갱신한 뒤 `_test_mock.js`로 확인
 3. Figma Desktop에서 플러그인 manifest **재 import** 후 `02. User Flow`에서 실행
 
 > **이미지 embed 형식:** PNG → base64 ASCII `KIOSK_ICONS_B64` → `bytesFromBase64()` → `figma.createImage(Uint8Array)`. 4×4 시트 셀 크롭은 **`scaleMode: "CROP"`** + `imageTransform` `[[0.25,0,col×0.25],[0,0.25,row×0.25]]` (Figma API: `imageTransform`은 CROP/TILE에서만 적용 — `FILL`이면 전체 시트가 들어감).

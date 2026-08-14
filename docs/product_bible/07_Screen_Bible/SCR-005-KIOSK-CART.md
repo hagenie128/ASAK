@@ -1,6 +1,6 @@
 # SCR-005: Kiosk Cart
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `/cart`
 > Purpose: 결제 전 최종 검토
 

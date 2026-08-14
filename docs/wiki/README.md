@@ -1,6 +1,6 @@
 # ASAK DevCopilot Wiki
 
-> Status: **Mixed** · Hub 업로드용 참고 (`#reference`) · 구현 정책 정본 아님
+> Status: **CANONICAL**
 > 정책 정본: [Product Bible](../product_bible) · 태그: [document-tag-index-2026-07-20.md](../document-tag-index-2026-07-20.md)
 
 ## Current — 지금 쓰는 문서
@@ -35,12 +35,4 @@
 | [meeting-deliverables-checklist.md](meeting-deliverables-checklist.md) | 산출물 체크 |
 | [worklog-index.md](worklog-index.md) | 워크로그 색인 |
 
-## 리다이렉트
-
-| 문서 | 목적지 |
-|---|---|
-| [wbs-schedule.md](wbs-schedule.md) | → `wbs.md` |
-| [wbs-v2-2026-07-16.md](wbs-v2-2026-07-16.md) | → `wbs.md` |
-
-부가 감사·대형 스냅샷은 저장소에서 제거했습니다. 필요하면 Git 이력으로 조회합니다.
-(구 `wiki/snapshots` 포함)
+부가 감사·대형 스냅샷·구 `wbs-schedule`/`wbs-v2` 스텁은 저장소에서 제거했습니다. 필요하면 Git 이력으로 조회합니다.

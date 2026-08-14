@@ -1,6 +1,6 @@
 # Document–Code Gap Report
 
-> Status: **Historical Snapshot** · 아래 차이는 2026-07-20 실측 결과이며 현재 코드와 다를 수 있습니다.
+> Status: **HISTORY**
 > 기준일: **2026-07-20** · 코드 실측.
 > 문서 입구: [START_HERE](../START_HERE.md)
 > 「없다」와 「연결 안 됨」을 구분한다. UI가 있어도 mock/API 미연결이면 gap이다.

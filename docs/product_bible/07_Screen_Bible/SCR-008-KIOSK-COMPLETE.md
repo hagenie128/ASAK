@@ -1,6 +1,6 @@
 # SCR-008: Kiosk Complete
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `/complete`
 > Purpose: 주문 접수 확인
 

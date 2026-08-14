@@ -1,6 +1,6 @@
 # SCR-016: Admin Menu Management
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `/menus`
 > Purpose: 메뉴 추가·수정
 

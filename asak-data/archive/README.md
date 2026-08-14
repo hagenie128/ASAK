@@ -1,6 +1,6 @@
 # asak-data/archive
 
-> Status: **Archived** · 활성 seed·이미지 경로가 아닙니다.
+> Status: **HISTORY**
 
 | 경로 | 내용 |
 |---|---|

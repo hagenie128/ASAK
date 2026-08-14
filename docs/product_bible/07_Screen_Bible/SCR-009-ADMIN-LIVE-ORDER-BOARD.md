@@ -1,6 +1,6 @@
 # SCR-009: Admin Live Order Board
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `/` (운영 홈) · Canonical alias `/orders/live` → `/`
 > Purpose: 실시간 주문 처리
 

@@ -17,7 +17,7 @@
 
 ## 다시 받기
 ```bash
-python3 ../scripts/download_ingredient_images_salady.py
+python ../../scripts/download_ingredient_images_salady.py
 ```
 
 ## 한계

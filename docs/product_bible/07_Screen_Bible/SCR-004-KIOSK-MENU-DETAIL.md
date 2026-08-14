@@ -1,6 +1,6 @@
 # SCR-004: Kiosk Menu Detail
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `/menu/:menuId`
 > Purpose: 옵션 구성
 

@@ -1,6 +1,6 @@
 # ASAK 프로젝트 2조 회의록
 
-> Status: **Current** · 공식 주차별 회의록 **파일 정본**
+> Status: **CANONICAL**
 > 아래 상태·갭 서술은 **2026-08-07 시점 스냅샷**이며 현재 구현 상태로 해석하지 않습니다.
 > Hub 통합본: [`../../wiki/meeting-minutes-weekly.md`](../../wiki/meeting-minutes-weekly.md)
 > 개인/팀 주간 rollup: [`../../../worklog/weekly/`](../../../worklog/weekly/README.md)
@@ -114,7 +114,7 @@
 | # | 결정 | 결정 시점 | 코드 실측 (2026-08-07) | 판정 |
 |---|---|---|---|---|
 | 1 | 필드명 정본 변환은 **adapter 경계에서만** 수행 | W31 | `ASAK-Kiosk/src/adapters/orderAdapter.js:20` 당시 경로에서 `return payload` — TODO 주석만 있고 변환 **미구현** | ❌ 미반영 |
-| 2 | `orderType` = `EAT_IN` / `TAKE_OUT` (`STORE`·`TAKEOUT` 폐기) | W30·W31 | BE `OrderType.java` 준수 ✅ / kiosk mock `student-project-data.json:75`에 `"orderType": "STORE"` 잔존 | ⚠️ mock만 미정리 |
+| 2 | `orderType` = `EAT_IN` / `TAKE_OUT` (`STORE`·`TAKEOUT` 폐기) | W30·W31 | BE `OrderType.java` 준수 ✅ / 과거 mock `asak-data/archive/frontend-mocks/student-project-data.json`에 `"STORE"` 잔존(런타임 미사용) | ✅ 프론트 런타임 정리됨 |
 | 3 | 취소 철자 `CANCELED` | W31 | BE `OrderStatus.java`·`PaymentStatus.java` 준수 ✅ / `scripts/expand-mocks.js:520,549,652`가 `CANCELLED` 생성 | ⚠️ mock 생성기 미정리 |
 | 4 | 옵션 추가금 필드 `extraPrice` | W31 | BE `add_price AS extraPrice` 준수 ✅ / kiosk mock JSON 전반 `priceDelta` | ⚠️ mock만 미정리 |
 | 5 | 결제수단 정본 **3종** `CARD`·`KAKAO_PAY`·`NAVER_PAY` | W30 | kiosk mock **8종**(`card`,`kakao`,`naver`,`toss`,`payco`,`apple`,`cash`,`zero`) / Admin Figma SCR-018 **4종** / DB 정본 **3종**. 게다가 kiosk는 `methodId` 소문자 슬러그로 `paymentMethodCode` enum과 **형식도 불일치** | ❌ 3중 불일치 |
@@ -161,7 +161,7 @@
 
 ## 참고 문서 (2026-08-07)
 
-> 회의록과 같이 볼 **현재 정본**. `wbs-v2` / `wbs-schedule`는 리다이렉트만 — 정본은 [`wbs.md`](../../wiki/wbs.md).
+> 회의록과 같이 볼 **현재 정본**. WBS는 [`wbs.md`](../../wiki/wbs.md).
 
 ### 입구·상태
 
@@ -198,7 +198,6 @@
 | 주차별 정본 | 이 폴더 [`README`](README.md) · [W27](2026-W27.md)~[W32](2026-W32.md) |
 | Hub 업로드본 | [`wiki/meeting-minutes-weekly.md`](../../wiki/meeting-minutes-weekly.md) |
 | 워크로그 Hub 인덱스 | [`wiki/worklog-index.md`](../../wiki/worklog-index.md) (daily · entries · weekly 링크) |
-| 구 통합본 | [`meeting-minutes-2026-07-01-to-08-07.md`](../meeting-minutes-2026-07-01-to-08-07.md) — **리다이렉트 스텁** (본문 이관 완료, 갱신 안 함) |
 | 산출물 체크리스트 | [`wiki/meeting-deliverables-checklist.md`](../../wiki/meeting-deliverables-checklist.md) |
 | 주간 워크로그 | [W28](../../../worklog/weekly/2026-W28.md) · [W29](../../../worklog/weekly/2026-W29.md) · [W30](../../../worklog/weekly/2026-W30.md) · [W31](../../../worklog/weekly/2026-W31.md) · [W32](../../../worklog/weekly/2026-W32.md) |
 | daily / entries | `worklog/daily/{김나연\|이하진}/` · `worklog/entries/{김나연\|이하진}/` |

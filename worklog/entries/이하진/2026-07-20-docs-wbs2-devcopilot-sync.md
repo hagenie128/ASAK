@@ -113,6 +113,6 @@
 - [`docs/START_HERE.md`](../../../docs/START_HERE.md)
 - [`docs/planning/current-implementation-map-2026-07-16.md`](../../../docs/planning/current-implementation-map-2026-07-16.md)
 - [`docs/architecture/document-code-gap-report-2026-07-16.md`](../../../docs/architecture/document-code-gap-report-2026-07-16.md)
-- [`docs/wiki/devcopilot-sync-report.md`](../../../docs/wiki/devcopilot-sync-report.md)
+- `docs/wiki/devcopilot-sync-report.md` (과거 경로)
 - [`docs/wiki/wbs-v2-2026-07-16.md`](../../../docs/wiki/wbs-v2-2026-07-16.md) · [`docs/wiki/wbs-status-notes.md`](../../../docs/wiki/wbs-status-notes.md)
 - 오늘 일일 워크로그: [`daily/이하진/2026-07-20.md`](../../daily/이하진/2026-07-20.md)

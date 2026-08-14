@@ -41,7 +41,7 @@
 | `START_HERE.md` | 전체 문서 **단일 진입** |
 | `00-start-here.md` | implementation_guide **첫 번째** |
 | `figma-*.md` | design / Figma 실행·QA |
-| `wbs-v2-2026-07-16.md` | **WBS 정본** (날짜 = 그 버전 기준일) |
+| `wbs.md` | **WBS 정본** (`WBS-001`~`085`) |
 | `current-implementation-map-2026-07-16.md` | **코드 실측 스냅샷** |
 | `*-2026-07-18.md` | 7/18 시점 기록·감사·handoff |
 | `document-*-2026-07-20.md` | **문서 메타** (인벤토리·태그·네이밍) |
@@ -57,7 +57,7 @@
 |---|---|---|
 | 루트 | `START_HERE.md`, `document-{role}-{date}.md` | `document-inventory-slim-2026-07-20.md` |
 | `design/` | `figma-{topic}[-date].md` | `figma-guide.md`, `figma-token-report.md` |
-| `wiki/` | `{topic}.md` 또는 `wbs-{ver}-{date}.md` | `wbs-v2-2026-07-16.md` |
+| `wiki/` | `{topic}.md` | `wbs.md`, `project-flow.md` |
 | `planning/` | `{topic}[-{date}].md` | `app-implementation-hub.md` |
 | `governance/` | `{topic}-{date}.md` | `canonical-contract-decisions-2026-07-16.md` |
 | `implementation_guide/` | `NN-{topic}.md`, `feature-lookup.md` | `02-kiosk-implementation.md` |
@@ -67,7 +67,7 @@
 | `screens/` | `{topic}.{json\|md}` | `screens.json` |
 | `_archive/` | **rename 최소** · 배너로 Historical | |
 
-### 저장소 로컬 (`#repo-local`)
+### 저장소 로컬 (`REFERENCE`)
 
 | 위치 | 패턴 | 예 |
 |---|---|---|

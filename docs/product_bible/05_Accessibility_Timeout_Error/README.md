@@ -1,6 +1,6 @@
 # 05_Accessibility_Timeout_Error
 
-> Status: `Canonical Pack`
+> Status: **CANONICAL**
 > Updated: `2026-08-14`
 > Pack 경계는 유지하고, 반복 문서는 도메인별 통합 문서로 줄였습니다.
 

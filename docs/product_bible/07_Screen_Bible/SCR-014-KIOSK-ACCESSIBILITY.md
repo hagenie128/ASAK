@@ -1,6 +1,6 @@
 # SCR-014: Kiosk Accessibility
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `/accessibility`
 > Purpose: 글자·대비 설정
 

@@ -1,6 +1,6 @@
 # SCR-003: Kiosk Menu List
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `/menu`
 > Purpose: 메뉴 탐색
 

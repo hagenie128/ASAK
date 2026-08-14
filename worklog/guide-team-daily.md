@@ -107,17 +107,11 @@ python worklog/scripts/sync_daily_to_notion.py --date today
 
 ## Cursor 사용자
 
-채팅에 아래 프롬프트 파일을 참고하거나 그대로 붙여넣으세요.
-
-- [`worklog/prompts/prompt-daily-sync.md`](prompts/prompt-daily-sync.md)
-
-예시 한 줄:
+설치된 `asak-signoff` 스킬을 사용하거나 다음처럼 요청합니다.
 
 ```text
-오늘 worklog/daily/{본인}/YYYY-MM-DD.md 채워주고 sync_daily_to_notion.py --date today 실행해줘 (표 + 오늘 작업 미니 카드, entries/{본인}/ 링크, WBS/PR/Issue 포함)
+오늘 워크로그를 정리하고 Notion 동기화 전 검증까지 해줘.
 ```
-
-Cursor + Notion MCP로 토큰 없이 동기화하는 방법은 [`guide-mcp-sync.md`](guide-mcp-sync.md) 를 참고하세요.
 
 ---
 

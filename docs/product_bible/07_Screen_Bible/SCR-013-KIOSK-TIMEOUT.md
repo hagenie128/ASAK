@@ -1,6 +1,6 @@
 # SCR-013: Kiosk Timeout
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `state/overlay`
 > Purpose: 유휴 세션 복구·초기화
 

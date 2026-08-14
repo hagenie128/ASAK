@@ -33,20 +33,21 @@
 | 5   | [WBS 통합본](wiki/wbs.md)                 | **정본** — `WBS-001`~`085` (기획→발표) |
 | 6   | [WBS 상태 메모](wiki/wbs-status-notes.md) | 코드↔WBS 요약                          |
 
-`wbs-v2` / `wbs-schedule`는 리다이렉트(정본은 `wbs.md`).
+WBS 정본은 [`wiki/wbs.md`](wiki/wbs.md). 구 `wbs-v2` / `wbs-schedule` 스텁은 삭제했다.
 
 ---
 
 ## 3. 앱 가이드 (코딩할 때)
 
-> **AI 도구 사용:** [AI 스킬 및 코드 그래프 사용 가이드](guides/12-ai-agent-tools-guide.md)에서 Codex·Claude·Cursor·Antigravity의 스킬과 코드 그래프를 확인한다. 바로 복사해 쓸 요청문은 [AI 스킬 명령어 예시](guides/13-ai-skill-prompt-examples.md)에 있다.
+> AI 작업 절차는 설치된 ASAK 스킬을 직접 사용합니다. 중복 프롬프트 문서는 유지하지 않습니다.
 
 | #   | 문서                                                                                                         | 한 줄                        |
 | --- | ------------------------------------------------------------------------------------------------------------ | ---------------------------- |
-| 6   | [키오스크 구조](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) | 키오스크 WBS-023~038               |
-| 7   | [관리자 구조](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [가상 데이터 사전](../../ASAK-Admin/public/mocks/README.md) | 관리자 WBS-039~051                 |
+| 6   | [키오스크 구조](../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [구현 계획](../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) · [README PWA](../../ASAK-Kiosk/README.md#-pwa--키오스크-전체화면) | 키오스크 WBS-023~038 · PWA |
+| 7   | [관리자 구조](../../ASAK-Admin/src/STRUCTURE_GUIDE.md) · [가상 데이터 사전](../../ASAK-Admin/public/mocks/README.md) · [README PWA](../../ASAK-Admin/README.md#-pwa--태블릿-전체화면) | 관리자 WBS-039~051 · PWA |
 | 8   | [백엔드 구현 계획](../../ASAK-back/IMPLEMENTATION_PLAN.md)                                                  | 백엔드 WBS-052~066                 |
 | 9   | [앱 구현 허브](planning/app-implementation-hub.md)                                                           | 기준 문서·가이드·계획의 역할 표    |
+| 9a  | [Android PWA 전체화면](operations/setup/android-pwa-fullscreen.md)                                           | 키오스크·관리자 태블릿 설치·fullscreen |
 
 워크스페이스에서 UI 찾을 때: 루트 [`ui-index.md`](../../ui-index.md).
 
@@ -78,11 +79,9 @@
 | #   | 문서                                                                            | 한 줄                                         |
 | --- | ------------------------------------------------------------------------------- | --------------------------------------------- |
 | 12  | Git history                                                                    | 삭제된 과거 이력 조회용 · 실행 기준 아님      |
-| 13  | [과거·참고 자료 목록](governance/legacy-and-reference-index-2026-07-16.md)      | 비정본 분류                                   |
-| 14  | [문서 이름 규칙](document-naming-guide-2026-07-20.md)                           | **파일명 문법** · 폴더별 패턴 · 검사 스크립트 |
-| 15  | [문서 태그 인덱스](document-tag-index-2026-07-20.md)                            | KEEP / `#current` · `#archive`                |
-| 16  | [design 실행 스택](design/README.md)                                            | Figma QA·CORRECTIVE 계획                      |
-| 17  | [문서 인벤토리(슬림)](document-inventory-slim-2026-07-20.md)                    | KEEP / archive 후보                           |
+| 13  | [문서 이름 규칙](document-naming-guide-2026-07-20.md)                           | 파일명 문법 · 폴더별 패턴                     |
+| 14  | [문서 상태 라벨](document-tag-index-2026-07-20.md)                              | 5개 공통 라벨                                 |
+| 15  | [디자인 참고](design/README.md)                                                 | Figma 링크·플러그인                           |
 
 ---
 

@@ -1,6 +1,6 @@
 # ASAK Current Status Baseline
 
-> Status: **Historical Snapshot** · 2026-08-07 시점의 코드 실측 요약이며 현재 상태로 자동 갱신되지 않습니다.
+> Status: **HISTORY**
 > 기준일: **2026-08-07** (7/28 baseline 위에 실연동 우선순위·Admin 주문 API 진척을 덮어씀).
 > **화면별 상세:** [구현 맵](../planning/current-implementation-map-2026-07-16.md) ← SCR 상태표
 > 문서 입구: [START_HERE](../START_HERE.md) · WBS: [wbs.md](wbs.md) · [상태 메모](wbs-status-notes.md)

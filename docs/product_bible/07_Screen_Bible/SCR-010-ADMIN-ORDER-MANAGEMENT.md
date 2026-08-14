@@ -1,6 +1,6 @@
 # SCR-010: Admin Order Management
 
-> Status: Current Draft
+> Status: **DRAFT**
 > Route: `/orders`
 > Purpose: 검색·필터·상세
 

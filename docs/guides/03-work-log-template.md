@@ -155,7 +155,7 @@ AI가 실제로 도움 준 부분만 적습니다.
 예:
 
 - 실행한 명령어:
-  - `python build_viewer.py`
+  - 담당 앱 `npm run build`
   - `./gradlew test`
 - 테스트한 시나리오:
   - 메뉴 선택

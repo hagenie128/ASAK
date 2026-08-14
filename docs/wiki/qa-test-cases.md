@@ -1,4 +1,4 @@
-> Status: **Historical — Notion export** (2026-07-20)  
+> Status: **HISTORY**
 > → **정본:** [Pack 09 QA](../product_bible/09_QA_Bible/README.md)
 
 # ASAK QA 테스트 케이스
