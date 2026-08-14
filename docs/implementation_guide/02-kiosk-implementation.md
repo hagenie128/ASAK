@@ -164,11 +164,11 @@
 <details>
 <summary>원본 문서가 필요할 때만 열기</summary>
 
-- [Home/Menu Frontend Guide](../product_bible/12_Frontend_Implementation/03-kiosk/HOME_MENU_IMPLEMENTATION.md)
-- [Cart Guide](../product_bible/12_Frontend_Implementation/03-kiosk/CART_IMPLEMENTATION.md)
-- [Payment/Complete Guide](../product_bible/12_Frontend_Implementation/03-kiosk/PAYMENT_COMPLETE_IMPLEMENTATION.md)
-- [Timeout/Accessibility Guide](../product_bible/12_Frontend_Implementation/03-kiosk/TIMEOUT_ACCESSIBILITY_IMPLEMENTATION.md)
-- [Menu API Contract](../product_bible/03_Menu_Inventory_SoldOut/menu/MENU_API_CONTRACT.md)
-- [Order API Contract](../product_bible/02_Order_Cart_Payment/order/ORDER_API_CONTRACT.md)
-- [Payment API Contract](../product_bible/02_Order_Cart_Payment/payment/PAYMENT_API_CONTRACT.md)
+- [Home/Menu Frontend Guide](../product_bible/12_Frontend_Implementation/KIOSK_FRONTEND_IMPLEMENTATION.md)
+- [Cart Guide](../product_bible/12_Frontend_Implementation/KIOSK_FRONTEND_IMPLEMENTATION.md)
+- [Payment/Complete Guide](../product_bible/12_Frontend_Implementation/KIOSK_FRONTEND_IMPLEMENTATION.md)
+- [Timeout/Accessibility Guide](../product_bible/12_Frontend_Implementation/KIOSK_FRONTEND_IMPLEMENTATION.md)
+- [Menu API Contract](../product_bible/03_Menu_Inventory_SoldOut/MENU_BIBLE.md)
+- [Order API Contract](../product_bible/02_Order_Cart_Payment/ORDER_BIBLE.md)
+- [Payment API Contract](../product_bible/02_Order_Cart_Payment/PAYMENT_BIBLE.md)
 </details>

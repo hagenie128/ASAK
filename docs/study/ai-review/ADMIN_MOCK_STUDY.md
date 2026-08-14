@@ -1,10 +1,10 @@
 # ASAK Admin 공부 가이드 (개인용 · git 올림 금지)
 
-> 위치: `ASAK-workspace/_local_study/admin/` · 루트 `.gitignore`에 `_local_study/` 등록됨  
-> 목적: **초보자도** Admin이 왜 이렇게 나뉘어 있는지, mock이 어떻게 흐르는지 복습하기  
-> 짧은 지도(어디 파일이 있는지): [`../../ASAK-Admin/src/STRUCTURE_GUIDE.md`](../../ASAK-Admin/src/STRUCTURE_GUIDE.md)  
-> Mock 필드 사전: [`../../ASAK-Admin/public/mocks/README.md`](../../ASAK-Admin/public/mocks/README.md)  
-> 화면별(SCR) 완료도: [`scr-completion-admin-2026-07-23.md`](./scr-completion-admin-2026-07-23.md) · 키오스크: [`../kiosk/scr-completion-kiosk-2026-07-23.md`](../kiosk/scr-completion-kiosk-2026-07-23.md)
+> 위치: `ASAK-workspace/_local_study/admin/` · 루트 `.gitignore`에 `_local_study/` 등록됨
+> 목적: **초보자도** Admin이 왜 이렇게 나뉘어 있는지, mock이 어떻게 흐르는지 복습하기
+> 짧은 지도(어디 파일이 있는지): [`../../../../ASAK-Admin/src/STRUCTURE_GUIDE.md`](../../../../ASAK-Admin/src/STRUCTURE_GUIDE.md)
+> Mock 필드 사전: [`../../../../ASAK-Admin/public/mocks/README.md`](../../../../ASAK-Admin/public/mocks/README.md)
+> 화면별(SCR) 완료도 문서는 2026-07-23 과거 이력으로 제거했습니다. 현재 상태는 WBS와 실제 코드를 확인합니다.
 
 ---
 
@@ -57,12 +57,12 @@ Page (화면 조립)
 
 ### 2-2. “미리 파일만 많이 만들기”를 피한 이유
 
-안 쓰는 stub를 잔뜩 만들면 읽는 사람이 “이게 살아 있는 코드인지” 헷갈린다.  
+안 쓰는 stub를 잔뜩 만들면 읽는 사람이 “이게 살아 있는 코드인지” 헷갈린다.
 **실제로 연결하는 화면만** 분리하고, 안 만든 화면은 정적/placeholder를 유지하는 편이 안전하다.
 
 ### 2-3. Admin 저장소가 정본인 이유
 
-관리자 UI·로직의 **정본은 `ASAK-Admin`만**이다.  
+관리자 UI·로직의 **정본은 `ASAK-Admin`만**이다.
 키오스크(`ASAK-Kiosk`)에 Admin 화면을 복사해 두지 않는다. 역할이 다르기 때문이다.
 
 ---
@@ -86,11 +86,11 @@ export default function OrderListPage() {
 }
 ```
 
-**왜?**  
+**왜?**
 URL(`/`)에 붙는 “페이지 이름”과, 실제 보드 UI를 분리하면:
 
-1. 라우트 표가 단순해지고  
-2. Live 보드를 다른 경로에서도 재사용하기 쉽고  
+1. 라우트 표가 단순해지고
+2. Live 보드를 다른 경로에서도 재사용하기 쉽고
 3. Page가 두꺼워져 “모든 로직의 쓰레기통”이 되는 것을 막는다.
 
 ### 다른 화면의 같은 패턴
@@ -124,16 +124,16 @@ MenuManagePage 안에
 
 ### 4-1. 읽는 순서 (공부할 때)
 
-1. `public/mocks/asak-admin-data.json` — “가짜 DB에 뭐가 있나”  
-2. `src/mocks/adminMockRepository.js` — “어떤 getter가 있나”  
-3. `src/hooks/useOrdersQuery.js` (또는 해당 화면 hook) — “Page에 뭐를 넘기나”  
+1. `public/mocks/asak-admin-data.json` — “가짜 DB에 뭐가 있나”
+2. `src/mocks/adminMockRepository.js` — “어떤 getter가 있나”
+3. `src/hooks/useOrdersQuery.js` (또는 해당 화면 hook) — “Page에 뭐를 넘기나”
 4. `src/pages/admin/...` — “어떻게 조립하나”
 
 ### 4-2. Repository의 역할
 
-- Page/Component가 JSON 경로(`sales.daily.data.rows`)를 직접 알지 않게 **함수 이름**으로 감싼다.  
+- Page/Component가 JSON 경로(`sales.daily.data.rows`)를 직접 알지 않게 **함수 이름**으로 감싼다.
   예: `getAdminOrders()`, `getSalesSummary("today")`, `getSoldOutCatalog()`
-- 실패/빈 목록도 envelope로 통일한다.  
+- 실패/빈 목록도 envelope로 통일한다.
   예: `{ empty: true }` 옵션, `asak_mock_fail_save`로 저장 실패 시뮬레이션
 
 ### 4-3. Hook의 역할
@@ -176,13 +176,13 @@ Hook이 `envelope.data`를 풀어 Page에는 “쓰기 쉬운 값”만 넘기�
 | `/menus/new` | 얇은 `MenuEditPage` → Manage에 `create` | `create` |
 | `/menus/edit?menuId=` | 얇은 `MenuEditPage` → Manage에 `edit` | `edit` + 해당 메뉴 선택 |
 
-**별도 “빈 편집 전용 페이지”가 아니다.**  
+**별도 “빈 편집 전용 페이지”가 아니다.**
 등록/수정 라우트는 Manage 화면을 열고, 우측만 편집 폼(`MenuEditPanel`)으로 바꾸는 방식이다.
 
 ### 5-2. 왜 우측 패널인가
 
-- 목록을 보면서 상세/편집을 하므로 문맥이 유지된다.  
-- Figma 시안(목록 + Detail)과 맞춘다.  
+- 목록을 보면서 상세/편집을 하므로 문맥이 유지된다.
+- Figma 시안(목록 + Detail)과 맞춘다.
 - 스크롤은 **우측 패널 안쪽**(`.menu-detail-panel__scroll` 등)만 하고, 셸 전체는 안 흔들리게 한다.
 
 ### 5-3. 흐름 그림
@@ -218,9 +218,9 @@ admin/orders.css, sold-out.css, menu.css, …
 
 ### 왜 순서가 중요한가
 
-1. **tokens 먼저** — 뒤에서 `var(--admin-bg)`를 쓸 수 있다.  
-2. **reset 다음** — 브라우저마다 다른 margin을 맞춘다.  
-3. **global** — `body` 높이·`overflow: hidden` 같은 “앱 뼈대”  
+1. **tokens 먼저** — 뒤에서 `var(--admin-bg)`를 쓸 수 있다.
+2. **reset 다음** — 브라우저마다 다른 margin을 맞춘다.
+3. **global** — `body` 높이·`overflow: hidden` 같은 “앱 뼈대”
 4. **commonStyle** — 화면별 디테일
 
 키오스크도 같은 레이어 이름을 쓴다. Admin/Kiosk를 오가며 공부할 때 “어디를 고치면 되는지”가 같다.
@@ -235,21 +235,21 @@ admin/orders.css, sold-out.css, menu.css, …
 
 ### 의도
 
-- Figma는 1920×1080 캔버스를 기준으로 그렸지만,  
-  실제 브라우저는 모니터마다 높이가 다르다.  
-- 그래서 셸은 **뷰포트를 꽉 채우는 방향**으로 맞춘다.  
-  - `body`: `height: 100vh` / `100dvh`, `overflow: hidden`  
-  - `.admin-app`: `height: 100%`, `max-height: 100dvh`, `overflow: hidden`  
+- Figma는 1920×1080 캔버스를 기준으로 그렸지만,
+  실제 브라우저는 모니터마다 높이가 다르다.
+- 그래서 셸은 **뷰포트를 꽉 채우는 방향**으로 맞춘다.
+  - `body`: `height: 100vh` / `100dvh`, `overflow: hidden`
+  - `.admin-app`: `height: 100%`, `max-height: 100dvh`, `overflow: hidden`
 - **바깥(body)은 스크롤하지 않고**, 사이드바는 고정, **메인·내부 패널만** 세로 스크롤.
 
 ### 왜 body 스크롤을 막나
 
-운영 화면(키오스크형 관리자)은 “페이지 전체가 위아래로 흔들리는” UX보다,  
+운영 화면(키오스크형 관리자)은 “페이지 전체가 위아래로 흔들리는” UX보다,
 **표·카드 영역만 스크롤**하는 편이 익숙하고 실수(더블 스크롤)가 적다.
 
 ### 예전에 문서에 있던 “1080px 고정”
 
-시안 맞춤용으로 `1080px` 고정을 쓰던 시기가 있었다.  
+시안 맞춤용으로 `1080px` 고정을 쓰던 시기가 있었다.
 지금은 **뷰포트 채움**이 의도에 가깝다. 화면이 잘리면 `global.css` / `admin/base.css`의 height·overflow를 먼저 본다.
 
 ---
@@ -266,12 +266,12 @@ admin/orders.css, sold-out.css, menu.css, …
 └─────────────┴────┴─────────────┘
 ```
 
-- `.sold-out-management__workspace` = 가로 flex (좌 패널 · transfer · 우 패널)  
-- **페이지(셸) 전체가 스크롤되지 않게** `overflow: hidden`  
-- 긴 카드 목록은 **각 패널 안쪽**에서 스크롤  
+- `.sold-out-management__workspace` = 가로 flex (좌 패널 · transfer · 우 패널)
+- **페이지(셸) 전체가 스크롤되지 않게** `overflow: hidden`
+- 긴 카드 목록은 **각 패널 안쪽**에서 스크롤
 - 가운데는 이동 버튼(선택 항목을 반대편으로)
 
-저장 시 `useSoldOutDraft`가 repository에 맡기고,  
+저장 시 `useSoldOutDraft`가 repository에 맡기고,
 실패하면 draft를 **이전 스냅샷으로 롤백**한다 (아래 QA 치트).
 
 ---
@@ -280,8 +280,8 @@ admin/orders.css, sold-out.css, menu.css, …
 
 공통:
 
-- UI: `AdminPagination.jsx`  
-- 로직: `usePagination(items, { pageSize })`  
+- UI: `AdminPagination.jsx`
+- 로직: `usePagination(items, { pageSize })`
 - 설정: `src/constants/pagination.js` 의 `ADMIN_PAGINATION`
 
 ```text
@@ -293,8 +293,8 @@ menus      → pageSize 12  (메뉴 4열×3행 느낌)
 
 ### 왜 “전역 기본 10개”로 안 묶나
 
-화면마다 카드/행 밀도가 다르다.  
-Live는 카드가 커서 3장, 주문 표는 15행처럼 **시안에 맞게 화면 키로만** 맞춘다.  
+화면마다 카드/행 밀도가 다르다.
+Live는 카드가 커서 3장, 주문 표는 15행처럼 **시안에 맞게 화면 키로만** 맞춘다.
 `usePagination`에 pageSize를 안 넘기면 에러를 내서, “깜빡하고 전역 기본에 의존”하는 실수를 막는다.
 
 > 구현이 화면마다 조금씩 진행 중일 수 있다. **의도**는 “공통 훅 + 화면별 설정”이다.
@@ -310,18 +310,18 @@ Live는 카드가 커서 3장, 주문 표는 15행처럼 **시안에 맞게 화�
 | `single` | 하루/한 달 점프 (일별·월별) |
 | `range` | 시작~끝 (매출 요약·주문 필터) |
 
-- `open` + `onClose` + `onChange`  
-- **적용** 누르기 전까지는 draft만 바뀜  
+- `open` + `onClose` + `onChange`
+- **적용** 누르기 전까지는 draft만 바뀜
 
 ### 매출 요약에서
 
-1. 기간 탭(오늘/주/달) → KPI·차트는 `getSalesSummary(period)`  
-2. 달력 기간 → **하단 일자별 표**만 `daily.rows` 필터  
-3. 탭을 다시 누르면 커스텀 기간 해제  
+1. 기간 탭(오늘/주/달) → KPI·차트는 `getSalesSummary(period)`
+2. 달력 기간 → **하단 일자별 표**만 `daily.rows` 필터
+3. 탭을 다시 누르면 커스텀 기간 해제
 
 ### 주문 관리에서
 
-날짜를 고른 뒤 **조회**를 눌러야 `appliedFilters`에 반영된다.  
+날짜를 고른 뒤 **조회**를 눌러야 `appliedFilters`에 반영된다.
 **draft(작성 중)** 와 **applied(실제 조회)** 를 나눈 이유를 기억하자.
 
 ---
@@ -345,7 +345,7 @@ sessionStorage.removeItem("asak_live_fixture");
 
 코드 위치:
 
-- 저장 실패 플래그: `adminMockRepository.js` (`asak_mock_fail_save`)  
+- 저장 실패 플래그: `adminMockRepository.js` (`asak_mock_fail_save`)
 - Live fixture: `LiveOrderPreview.jsx` (`asak_live_fixture`)
 
 **공부 포인트:** “실패 UI”와 “빈 목록 UI”는 다르다. empty는 에러가 아니다.
@@ -354,13 +354,13 @@ sessionStorage.removeItem("asak_live_fixture");
 
 ## 12. 자주 헷갈리는 포인트
 
-1. **`getMonth()`는 0부터** → 화면에 보여줄 때 `+1`. `getFullYear()`는 +1 하지 않음.  
-2. **`onClick={handleMonth("prev")}`** → 렌더 시 즉시 실행.  
-   올바른 예: `onClick={() => handleMonth("prev")}`  
-3. **envelope vs data** — repository는 `{ success, data }`, Page는 보통 `data`만.  
-4. **매출 `chartBars`** — mock 값이 **막대 높이(px)** 인 경우가 있다. 금액이 아닐 수 있음.  
-5. **주문 상태 CSS** — mock은 `RECEIVED`, CSS는 `received` → `OrderStatusBadge`가 맞춤.  
-6. **금액 필드** — 목표 이름은 `totalAmount`일 수 있으나, **현재 mock은 `totalPrice`** 인 곳이 많다. `public/mocks/README.md` 표를 본다.  
+1. **`getMonth()`는 0부터** → 화면에 보여줄 때 `+1`. `getFullYear()`는 +1 하지 않음.
+2. **`onClick={handleMonth("prev")}`** → 렌더 시 즉시 실행.
+   올바른 예: `onClick={() => handleMonth("prev")}`
+3. **envelope vs data** — repository는 `{ success, data }`, Page는 보통 `data`만.
+4. **매출 `chartBars`** — mock 값이 **막대 높이(px)** 인 경우가 있다. 금액이 아닐 수 있음.
+5. **주문 상태 CSS** — mock은 `RECEIVED`, CSS는 `received` → `OrderStatusBadge`가 맞춤.
+6. **금액 필드** — 목표 이름은 `totalAmount`일 수 있으나, **현재 mock은 `totalPrice`** 인 곳이 많다. `public/mocks/README.md` 표를 본다.
 7. Canonical 문서 경로(`/orders/live` 등)와 코드 kebab-case(`/`)가 다를 수 있다. **실행 정본은 코드 라우트** (`AdminApp.jsx`).
 
 ---
@@ -401,17 +401,17 @@ main.jsx
   → public/mocks/asak-admin-data.json
 ```
 
-세션: `src/auth/adminSession.js` (localStorage mock).  
+세션: `src/auth/adminSession.js` (localStorage mock).
 보호 경로는 비로그인 시 로그인 화면으로 보낸다.
 
 ---
 
 ## 15. 아직 실서버가 아닌 것 (기대치)
 
-- 메뉴 저장/삭제 → toast stub  
-- 결제 POLICIES 본문 수정 → 정적일 수 있음  
-- 대시보드 전주 대비 → mock에 값 없으면 `—`  
-- Live WebSocket → 폴링/수동 refresh 수준  
+- 메뉴 저장/삭제 → toast stub
+- 결제 POLICIES 본문 수정 → 정적일 수 있음
+- 대시보드 전주 대비 → mock에 값 없으면 `—`
+- Live WebSocket → 폴링/수동 refresh 수준
 - Backend business API → 아직 붙이지 않는 전제(BLOCKED일 수 있음)
 
 “버그”가 아니라 **목업 범위**인 경우가 많다.
@@ -420,32 +420,32 @@ main.jsx
 
 ## 16. 작은 연습문제
 
-1. 매출 요약에서 달력으로 `2026-07-05 ~ 2026-07-08`을 고르면 하단 표에 며칠이 보이는지 세어 보라.  
-2. 주문 관리에서 상태를 `PREPARING`만 고르고 조회한 뒤, 상세에서 상태 변경이 보이는지 확인하라.  
-3. `asak_mock_fail_save=1` 켠 채로 품절 저장 → 목록이 되돌아가는지 확인하라.  
-4. `OrderListPage`와 `MenuManagePage`를 나란히 열고, “Page가 조합만 하는지” 줄을 세어 보라.  
+1. 매출 요약에서 달력으로 `2026-07-05 ~ 2026-07-08`을 고르면 하단 표에 며칠이 보이는지 세어 보라.
+2. 주문 관리에서 상태를 `PREPARING`만 고르고 조회한 뒤, 상세에서 상태 변경이 보이는지 확인하라.
+3. `asak_mock_fail_save=1` 켠 채로 품절 저장 → 목록이 되돌아가는지 확인하라.
+4. `OrderListPage`와 `MenuManagePage`를 나란히 열고, “Page가 조합만 하는지” 줄을 세어 보라.
 5. (코드) `ADMIN_PAGINATION`에서 Live와 주문의 `pageSize`가 다른 이유를 한 문장으로 설명해 보라.
 
 ---
 
 ## 17. 다시 볼 파일 (복습 체크)
 
-- [ ] `src/pages/admin/OrderListPage.jsx` — 가장 얇은 Page  
-- [ ] `src/pages/admin/MenuManagePage.jsx` — 목록 + 우측 패널  
-- [ ] `src/mocks/adminMockRepository.js`  
-- [ ] `src/hooks/useSalesQuery.js` / `useOrdersQuery.js` / `usePagination.js`  
-- [ ] `src/constants/pagination.js`  
-- [ ] `src/components/admin/AdminDatePicker.jsx`  
-- [ ] `src/apps/AdminApp.jsx` — 라우트 + CSS import 순서  
-- [ ] `src/styles/global.css` · `admin/base.css` · `commonStyle.css`  
-- [ ] `src/styles/admin/sold-out.css` — 좌중우  
-- [ ] `public/mocks/README.md` — 필드 사전  
-- [ ] `src/STRUCTURE_GUIDE.md` — 짧은 지도  
+- [ ] `src/pages/admin/OrderListPage.jsx` — 가장 얇은 Page
+- [ ] `src/pages/admin/MenuManagePage.jsx` — 목록 + 우측 패널
+- [ ] `src/mocks/adminMockRepository.js`
+- [ ] `src/hooks/useSalesQuery.js` / `useOrdersQuery.js` / `usePagination.js`
+- [ ] `src/constants/pagination.js`
+- [ ] `src/components/admin/AdminDatePicker.jsx`
+- [ ] `src/apps/AdminApp.jsx` — 라우트 + CSS import 순서
+- [ ] `src/styles/global.css` · `admin/base.css` · `commonStyle.css`
+- [ ] `src/styles/admin/sold-out.css` — 좌중우
+- [ ] `public/mocks/README.md` — 필드 사전
+- [ ] `src/STRUCTURE_GUIDE.md` — 짧은 지도
 
 ---
 
 ## 18. 3줄 요약
 
-1. **Page는 조립**, 데이터는 **Hook → Repository → JSON**.  
-2. CSS는 **tokens → reset → global → commonStyle**, 셸은 **뷰포트 · 안쪽만 스크롤**.  
+1. **Page는 조립**, 데이터는 **Hook → Repository → JSON**.
+2. CSS는 **tokens → reset → global → commonStyle**, 셸은 **뷰포트 · 안쪽만 스크롤**.
 3. QA는 **sessionStorage 플래그**로 실패/빈 목록을 연습한다.

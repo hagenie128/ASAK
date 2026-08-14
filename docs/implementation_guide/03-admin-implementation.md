@@ -186,11 +186,11 @@
 <details>
 <summary>원본 문서가 필요할 때만 열기</summary>
 
-- [Dashboard Guide](../product_bible/12_Frontend_Implementation/04-admin/DASHBOARD_IMPLEMENTATION.md)
-- [Live Order/TTS Guide](../product_bible/12_Frontend_Implementation/04-admin/LIVE_ORDER_TTS_IMPLEMENTATION.md)
-- [Order Management Guide](../product_bible/12_Frontend_Implementation/04-admin/ORDER_MANAGEMENT_IMPLEMENTATION.md)
-- [Sold-out Guide](../product_bible/12_Frontend_Implementation/04-admin/SOLD_OUT_IMPLEMENTATION.md)
-- [Menu Management Guide](../product_bible/12_Frontend_Implementation/04-admin/MENU_MANAGEMENT_IMPLEMENTATION.md)
-- [Sales Guide](../product_bible/12_Frontend_Implementation/04-admin/SALES_IMPLEMENTATION.md)
-- [Sales API Contract](../product_bible/04_Dashboard_Sales_Kitchen_TTS/sales/SALES_API_CONTRACT.md)
+- [Dashboard Guide](../product_bible/12_Frontend_Implementation/ADMIN_FRONTEND_IMPLEMENTATION.md)
+- [Live Order/TTS Guide](../product_bible/12_Frontend_Implementation/ADMIN_FRONTEND_IMPLEMENTATION.md)
+- [Order Management Guide](../product_bible/12_Frontend_Implementation/ADMIN_FRONTEND_IMPLEMENTATION.md)
+- [Sold-out Guide](../product_bible/12_Frontend_Implementation/ADMIN_FRONTEND_IMPLEMENTATION.md)
+- [Menu Management Guide](../product_bible/12_Frontend_Implementation/ADMIN_FRONTEND_IMPLEMENTATION.md)
+- [Sales Guide](../product_bible/12_Frontend_Implementation/ADMIN_FRONTEND_IMPLEMENTATION.md)
+- [Sales API Contract](../product_bible/04_Dashboard_Sales_Kitchen_TTS/SALES_BIBLE.md)
 </details>

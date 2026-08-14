@@ -51,8 +51,8 @@
 
 ## 정본 링크
 
-- [QA Strategy](../product_bible/09_QA_Bible/00-strategy/QA_STRATEGY.md)
-- [회귀 점검 Suite](../product_bible/09_QA_Bible/06-regression/REGRESSION_SUITE.md)
-- [Release Checklist](../product_bible/09_QA_Bible/07-demo-release/RELEASE_CHECKLIST.md)
-- [Order Edge Case and QA](../product_bible/02_Order_Cart_Payment/order/ORDER_EDGE_CASE_AND_QA.md)
-- [Error Recovery Architecture](../product_bible/05_Accessibility_Timeout_Error/error-recovery/ERROR_RECOVERY_ARCHITECTURE.md)
+- [QA Strategy](../product_bible/09_QA_Bible/QA_STRATEGY_AND_TEMPLATE.md)
+- [회귀 점검 Suite](../product_bible/09_QA_Bible/NONFUNCTIONAL_REGRESSION_SUITE.md)
+- [Release Checklist](../product_bible/09_QA_Bible/RELEASE_AND_DEMO_OPERATIONS.md)
+- [Order Edge Case and QA](../product_bible/02_Order_Cart_Payment/ORDER_BIBLE.md)
+- [Error Recovery Architecture](../product_bible/05_Accessibility_Timeout_Error/ERROR_RECOVERY_BIBLE.md)

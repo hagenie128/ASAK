@@ -1,6 +1,6 @@
 # {{DATE}} 일일 워크로그 — {{PERSON}}
 
-> ASAK 9주 프로젝트 (7/2~9/2 발표) · 4인 팀  
+> ASAK 9주 프로젝트 (7/2~9/2 발표) · 4인 팀
 > **가이드:** [guide-team-daily.md](../guide-team-daily.md) · **상세 템플릿:** [03-work-log-template.md](../../docs/guides/03-work-log-template.md) · **상세 예시:** [04-sample-work-log-example.md](../../docs/guides/04-sample-work-log-example.md)
 
 ---
@@ -17,7 +17,7 @@
 
 ## 오늘 작업
 
-> 기능·이슈마다 카드 하나. **12섹션 전체**는 [`entries/{{PERSON}}/`](../entries/{{PERSON}}/) — daily에는 아래 **미니 필드**만 (상세 템플릿 §2·§3·§5·§6·§10·§11과 같은 이름).
+> 기능·이슈마다 카드 하나. **12섹션 전체**는 [`entries/{{PERSON}}/`](../entries/{{PERSON}}) — daily에는 아래 **미니 필드**만 (상세 템플릿 §2·§3·§5·§6·§10·§11과 같은 이름).
 
 ### (작업명) — SCR-xxx · WBS-000 / #이슈 · `feature`
 
@@ -39,4 +39,4 @@
 
 ## 내일 계획
 
-- 
+-

@@ -15,7 +15,7 @@
 | P3 QA             | 8/18 ~ 8/21            | 토스트·타임아웃·QA·합계 검증                       |
 | 문서·발표         | 8/14 ~ 8/21(발표 8/28) | 문서/DB감사/배포·데모                              |
 
-상세 ID 목록: [wbs-date-rebase-plan.json](./wbs-date-rebase-plan.json) (57건).
+상세 ID 목록: [wbs-date-rebase-plan.json](wbs-date-rebase-plan.json) (57건).
 
 ## 검증
 

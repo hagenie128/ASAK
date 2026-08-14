@@ -52,9 +52,9 @@
 
 - [Canonical Contract Decisions](../governance/canonical-contract-decisions-2026-07-16.md)
 - [Kiosk Frontend Data Contract](../../../ASAK-Kiosk/src/contracts/api-data-contract.md)
-- [Menu API Contract](../product_bible/03_Menu_Inventory_SoldOut/menu/MENU_API_CONTRACT.md)
-- [Order API Contract](../product_bible/02_Order_Cart_Payment/order/ORDER_API_CONTRACT.md)
-- [Payment API Contract](../product_bible/02_Order_Cart_Payment/payment/PAYMENT_API_CONTRACT.md)
-- [Menu Management API Contract](../product_bible/03_Menu_Inventory_SoldOut/menu-management/MENU_MANAGEMENT_API_CONTRACT.md)
-- [Sales API Contract](../product_bible/04_Dashboard_Sales_Kitchen_TTS/sales/SALES_API_CONTRACT.md)
+- [Menu API Contract](../product_bible/03_Menu_Inventory_SoldOut/MENU_BIBLE.md)
+- [Order API Contract](../product_bible/02_Order_Cart_Payment/ORDER_BIBLE.md)
+- [Payment API Contract](../product_bible/02_Order_Cart_Payment/PAYMENT_BIBLE.md)
+- [Menu Management API Contract](../product_bible/03_Menu_Inventory_SoldOut/MENU_MANAGEMENT_BIBLE.md)
+- [Sales API Contract](../product_bible/04_Dashboard_Sales_Kitchen_TTS/SALES_BIBLE.md)
 </details>

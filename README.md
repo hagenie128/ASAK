@@ -73,7 +73,7 @@ Hub (**시작**: [📐 디자인 & 화면](https://app.notion.com/p/39451ef04f0b
 
 읽기 순서: 1 브랜드 → 2 Figma 설정 → 3 화면 설계 초안 → 4 Figma 매트릭스 → 5 DevCopilot 업로드
 
-예전 Git 안내 파일은 [`docs/design/_archive/`](docs/design/_archive/)에 있습니다. 신규 작업은 위 Notion 페이지와 [디자인 문서 입구](docs/design/README.md)만 사용하세요.
+예전 Git 안내 파일은 저장소에서 제거했습니다. 필요하면 Git 이력으로 조회하고, 신규 작업은 위 Notion 페이지와 [디자인 문서 입구](docs/design/README.md)만 사용하세요.
 
 ## 팀 세팅 가이드
 

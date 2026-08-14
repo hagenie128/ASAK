@@ -1,8 +1,11 @@
-> **QA 이력 (0715 파일 `JSrjOy668zhfkiLplCkreh`)** — 편집·실행 정본은 **0718** · [figma-unified-corrective-execution-plan](./figma-unified-corrective-execution-plan-2026-07-17.md)
+> **QA 이력 (0715 파일 `JSrjOy668zhfkiLplCkreh`)** — 편집·실행 정본은 **0718** · [figma-unified-corrective-execution-plan](figma-unified-corrective-execution-plan-2026-07-17.md)
+
+> Status: **Historical Reference** · 2026-07-20 디자인 동결 전 기록이며 신규 실행 계획이 아닙니다.
+
 
 # ASAK Figma QA 의견 통합본 (출처별 + 종합)
 
-**작성일:** 2026-07-17 · **파일:** `JSrjOy668zhfkiLplCkreh` · **쓰기:** 0회  
+**작성일:** 2026-07-17 · **파일:** `JSrjOy668zhfkiLplCkreh` · **쓰기:** 0회
 **규칙:** 주제별 → **문제→개선(출처 권장)** → 출처별 표(**A→B→C→D→E**) → 종합. 통합자 사견 없음.
 **문제→개선**의 ‘개선하면’은 출처 A~E 원문에 적힌 권장·목표값만 모은 것이며, 통합자가 새로 만든 수치가 아니다.
 

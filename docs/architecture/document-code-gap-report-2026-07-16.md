@@ -1,8 +1,9 @@
 # Document–Code Gap Report
 
-> 기준일: **2026-07-20** · 코드 실측.  
-> 문서 입구: [START_HERE](../START_HERE.md)  
-> 「없다」와 「연결 안 됨」을 구분한다. UI가 있어도 mock/API 미연결이면 gap이다.  
+> Status: **Historical Snapshot** · 아래 차이는 2026-07-20 실측 결과이며 현재 코드와 다를 수 있습니다.
+> 기준일: **2026-07-20** · 코드 실측.
+> 문서 입구: [START_HERE](../START_HERE.md)
+> 「없다」와 「연결 안 됨」을 구분한다. UI가 있어도 mock/API 미연결이면 gap이다.
 > 정본 맵: [current-implementation-map-2026-07-16.md](../planning/current-implementation-map-2026-07-16.md)
 
 ## 핵심 충돌 (정본 결정됨 · 코드 미반영)
@@ -41,11 +42,11 @@
 
 ### C. 반드시 보존
 
-1. Kiosk `priceCalculation.js`, `quantityLimits.js`  
-2. `orderSessionStore` + cart/order 호환 export  
-3. Axios envelope unwrap  
-4. Admin `AdminSidebar` / Layout / Figma 정적 페이지  
-5. `kiosk.json`, `asak-admin-data.json` mock 자산  
+1. Kiosk `priceCalculation.js`, `quantityLimits.js`
+2. `orderSessionStore` + cart/order 호환 export
+3. Axios envelope unwrap
+4. Admin `AdminSidebar` / Layout / Figma 정적 페이지
+5. `kiosk.json`, `asak-admin-data.json` mock 자산
 
 ---
 
@@ -71,11 +72,11 @@ SCR-023 영수증, SCR-024 멤버십, 외부 AI TTS, WebSocket, 고급 차트, �
 | `CURRENT_IMPLEMENTATION_MAP` | **2026-07-20 재작성** |
 | `IMPLEMENTATION_PLAN` (3저장소) | **2026-07-20 재작성** |
 | `STRUCTURE_GUIDE` | Kiosk 갱신 · Admin 신규 |
-| `docs/_archive/**`, `docs/design/_archive/**` | ARCHIVE 유지 |
+| 삭제된 과거 archive 이력 | Git history에서만 조회 |
 | Product Bible | TARGET 정책 유지 (구현 증거 아님) |
 
 ## Human decision overlay
 
-`API-01~03`, `SCR-01~02` = `DECIDED_PENDING_CODE_CHANGE`  
-`DATA-01` = `DECIDED_NOT_IMPLEMENTED` (adapter)  
+`API-01~03`, `SCR-01~02` = `DECIDED_PENDING_CODE_CHANGE`
+`DATA-01` = `DECIDED_NOT_IMPLEMENTED` (adapter)
 상세: [canonical-contract-decisions-2026-07-16.md](../governance/canonical-contract-decisions-2026-07-16.md)

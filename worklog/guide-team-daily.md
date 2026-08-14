@@ -1,14 +1,14 @@
 # ASAK 팀 일일 워크로그 가이드
 
 > **처음이면:** Notion [🚀 ASAK 처음 시작하기 — Part 2](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) · Git [`docs/operations/setup/getting-started.md`](../docs/operations/setup/getting-started.md#part-2--워크로그-쓰기-유치원-선생님-모드)
-> **Notion (편집 정본):** [📅 일일 워크로그 — 팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95) · **일일 기록 DB:** [📅 일일 워크로그](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9)  
+> **Notion (편집 정본):** [📅 일일 워크로그 — 팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95) · **일일 기록 DB:** [📅 일일 워크로그](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9)
 > **매일 퇴근 전 5분** — Git에 정본을 남기고 Notion Calendar로 팀과 공유합니다.
 
 | 항목 | 링크 |
 |---|---|
 | Notion 허브 | [🧾 키오스크 풀스택 프로젝트](https://app.notion.com/p/39151ef04f0b808f99f8ea068efb5790) |
 | Notion Calendar | [📅 일일 워크로그](https://app.notion.com/p/eeae4beb07ad4051928a87de0ea4c8f9) |
-| Git 정본 | [`worklog/daily/{이름}/`](daily/) · 공유 [`_team/`](daily/_team/) |
+| Git 정본 | [`worklog/daily/{이름}/`](daily) · 공유 [`_team/`](daily/_team) |
 | 토큰·API 설정 | Notion [일일 워크로그 — 팀 가이드](https://app.notion.com/p/39451ef04f0b81c0a018e8fe6ea9fb95) §3~§5 |
 | 상세 템플릿 (12섹션) | [`docs/guides/03-work-log-template.md`](../docs/guides/03-work-log-template.md) |
 | 상세 작성 예시 | [`docs/guides/04-sample-work-log-example.md`](../docs/guides/04-sample-work-log-example.md) |
@@ -61,7 +61,7 @@ python worklog/scripts/init_daily.py
 - **작업 목적** · **직접 구현** · **AI 도움** · **이슈** · **검증** · **포트폴리오 요약**
 - 마지막 줄 **상세 기록 →** `entries/{이름}/YYYY-MM-DD-주제.md` 링크
 
-디버깅·구현 흐름·첨부 등 **깊은 내용**은 [`entries/{이름}/`](entries/이하진/) + [03-work-log-template.md](../docs/guides/03-work-log-template.md) 12섹션.
+디버깅·구현 흐름·첨부 등 **깊은 내용**은 [`entries/{이름}/`](entries/이하진) + [03-work-log-template.md](../docs/guides/03-work-log-template.md) 12섹션.
 
 ### 3. Notion 동기화
 

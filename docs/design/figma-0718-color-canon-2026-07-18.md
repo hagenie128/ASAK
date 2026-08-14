@@ -1,5 +1,8 @@
 # ASAK Figma 0718 색·파일 정본 (Phase 0)
 
+> Status: **Historical Reference** · 2026-07-20 디자인 동결 전 기록이며 신규 실행 계획이 아닙니다.
+
+
 **작성:** 2026-07-18 · **쓰기 대상:** `yHhvn5RKjBd91U8BJUQz7F` 만
 
 ## 파일 역할
@@ -54,5 +57,5 @@
 
 ## 0715 구분선 아래 (반입 창고)
 
-`01~06` · `05-B/06-B` · Visual Recovery Pilot · `06-C Pre-componentization Archive(68)` · `92-Archive`  
+`01~06` · `05-B/06-B` · Visual Recovery Pilot · `06-C Pre-componentization Archive(68)` · `92-Archive`
 0718에는 구분선 아래 없음. 필요 Master만 골라 가져올 것.

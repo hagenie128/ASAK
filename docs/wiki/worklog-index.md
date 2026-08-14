@@ -172,9 +172,9 @@
 | 구분 | 링크 |
 |---|---|
 | 워크로그 README | [worklog/README.md](https://github.com/hagenie128/ASAK/blob/main/worklog/README.md) |
-| 주차별 회의록 (Hub) | [meeting-minutes-weekly.md](./meeting-minutes-weekly.md) |
+| 주차별 회의록 (Hub) | [meeting-minutes-weekly.md](meeting-minutes-weekly.md) |
 | 회의록 정본 폴더 | [docs/operations/meeting-minutes/](https://github.com/hagenie128/ASAK/tree/main/docs/operations/meeting-minutes) |
-| 현재 상태 baseline | [current-status-baseline.md](./current-status-baseline.md) |
+| 현재 상태 baseline | [current-status-baseline.md](current-status-baseline.md) |
 
 ## 변경 이력
 

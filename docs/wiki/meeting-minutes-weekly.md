@@ -37,7 +37,7 @@
 > **읽는 법** — 위 표는 **주요 기능 구현 기준**이며 완료(DONE) 주장이 아니다.
 > **1차 mock 연결 ≠ DONE** · **코드 있음 ≠ 통합 검증 완료**.
 > 진행률 백분율(%)은 운영 지표로 쓰지 않는다.
-> 근거 정본: [`current-status-baseline.md`](./current-status-baseline.md)
+> 근거 정본: [`current-status-baseline.md`](current-status-baseline.md)
 
 ---
 
@@ -163,23 +163,23 @@
 
 ## 참고 문서 (2026-08-07)
 
-> 정본 폴더: [operations/meeting-minutes](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md#참고-문서-2026-08-07). `wbs-v2`/`wbs-schedule` 대신 [wbs.md](./wbs.md).
+> 정본 폴더: [operations/meeting-minutes](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md#참고-문서-2026-08-07). `wbs-v2`/`wbs-schedule` 대신 [wbs.md](wbs.md).
 
 ### 입구·상태
 
 | 종류 | 링크 |
 |---|---|
 | 문서 입구 | [START_HERE](https://github.com/hagenie128/ASAK/blob/main/docs/START_HERE.md) |
-| 영역별 현황 | [current-status-baseline](./current-status-baseline.md) |
+| 영역별 현황 | [current-status-baseline](current-status-baseline.md) |
 | 구현 맵 | [current-implementation-map](https://github.com/hagenie128/ASAK/blob/main/docs/planning/current-implementation-map-2026-07-16.md) |
-| 전체 흐름도 | [project-flow](./project-flow.md) |
+| 전체 흐름도 | [project-flow](project-flow.md) |
 
 ### 계획·WBS
 
 | 종류 | 링크 |
 |---|---|
-| WBS 정본 | [wbs.md](./wbs.md) (`WBS-001`~`085`) |
-| WBS 상태 메모 | [wbs-status-notes](./wbs-status-notes.md) |
+| WBS 정본 | [wbs.md](wbs.md) (`WBS-001`~`085`) |
+| WBS 상태 메모 | [wbs-status-notes](wbs-status-notes.md) |
 | DONE·PASS 점검 | [asak-done-pass-audit](https://github.com/hagenie128/ASAK/blob/main/docs/ai-reports/2026-08-07/asak-done-pass-audit.md) |
 | WBS 일정 rebase | [asak-wbs-date-rebase](https://github.com/hagenie128/ASAK/blob/main/docs/ai-reports/2026-08-07/asak-wbs-date-rebase.md) |
 
@@ -188,9 +188,9 @@
 | 종류 | 링크 |
 |---|---|
 | 정본 계약 | [canonical-contract-decisions](https://github.com/hagenie128/ASAK/blob/main/docs/governance/canonical-contract-decisions-2026-07-16.md) |
-| REST API 명세 | [rest-api-spec](./rest-api-spec.md) |
-| DB 테이블 | [db-table-definition](./db-table-definition.md) |
-| DB 뷰 | [db-view-definition](./db-view-definition.md) |
+| REST API 명세 | [rest-api-spec](rest-api-spec.md) |
+| DB 테이블 | [db-table-definition](db-table-definition.md) |
+| DB 뷰 | [db-view-definition](db-view-definition.md) |
 | MySQL 스키마 DDL | `ASAK-back/docs/아삭_mysql.sql` · `view.sql` (파일 반영 · 실DB 적용 미검증) |
 
 ### 회의록·워크로그·미리보기
@@ -199,7 +199,7 @@
 |---|---|
 | 주차별 정본 | [meeting-minutes README](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md) |
 | 구 통합본 | [2026-07-01~08-07](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes-2026-07-01-to-08-07.md) — **리다이렉트 스텁** (본문 이관 완료, 갱신 안 함) |
-| 산출물 체크리스트 | [meeting-deliverables-checklist](./meeting-deliverables-checklist.md) |
+| 산출물 체크리스트 | [meeting-deliverables-checklist](meeting-deliverables-checklist.md) |
 | 주간 워크로그 | [W28](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-W28.md) · [W29](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-W29.md) |
 | daily/entries | `worklog/daily/{김나연\|이하진}/` · `worklog/entries/...` |
 | Kiosk / Admin | https://asak-kiosk.vercel.app/ · https://asak-admin.vercel.app/ |

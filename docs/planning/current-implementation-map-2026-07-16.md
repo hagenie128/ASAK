@@ -1,6 +1,7 @@
 # Current Implementation Map
 
-> 기준일: **2026-07-23** · **코드 실측** 정본 (7/20 감사 + 7/21~23 Admin mock·Figma 정합 반영).
+> Status: **Historical Snapshot** · 2026-07-23 이후 코드 변경은 반영하지 않습니다.
+> 기준일: **2026-07-23** · 당시 코드 실측 (7/20 감사 + 7/21~23 Admin mock·Figma 정합 반영).
 > 문서 입구: [START_HERE](../START_HERE.md)
 > 이전 07-16 버전은 Cart/Admin을 MISSING으로 적어 **과소평가**되어 폐기 수준으로 대체됨.
 > Canonical(미코드 반영): [canonical-contract-decisions-2026-07-16.md](../governance/canonical-contract-decisions-2026-07-16.md)

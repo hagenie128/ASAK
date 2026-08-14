@@ -1,11 +1,14 @@
 # Figma 0718 — 핸드오프 페이지 지도 (2026-07-20)
 
-정본 파일: [ASAK — Design System & Product UI 0718](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718)  
+> Status: **Historical Reference** · 2026-07-20 디자인 동결 전 기록이며 신규 실행 계획이 아닙니다.
+
+
+정본 파일: [ASAK — Design System & Product UI 0718](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718)
 fileKey: `yHhvn5RKjBd91U8BJUQz7F`
 
 ## ❌ 쓰지 말 것
 
-0715 파일 `JSrjOy668zhfkiLplCkreh` 링크는 **노드 ID가 겹쳐** 옛 시안을 열게 됩니다.  
+0715 파일 `JSrjOy668zhfkiLplCkreh` 링크는 **노드 ID가 겹쳐** 옛 시안을 열게 됩니다.
 예: `node-id=0-1`, `190-2` 를 0715 URL로 열면 혼란의 원인.
 
 ## ✅ 0718에서 볼 페이지
@@ -25,9 +28,9 @@ fileKey: `yHhvn5RKjBd91U8BJUQz7F`
 
 ## 바로가기
 
-- START HERE: https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/?node-id=0-1  
-- QA Gap Matrix: https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/?node-id=190-2  
-- User Flows: https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/?node-id=3183-13  
-- Handoff Specs: https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/?node-id=3184-2  
-- 전수 Gap 문서: [`figma-0718-project-gap.md`](./figma-0718-project-gap.md)  
+- START HERE: https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/?node-id=0-1
+- QA Gap Matrix: https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/?node-id=190-2
+- User Flows: https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/?node-id=3183-13
+- Handoff Specs: https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/?node-id=3184-2
+- 전수 Gap 문서: [`figma-0718-project-gap.md`](figma-0718-project-gap.md)
 - 화면 인덱스(코드): [`ui-index.md`](../../../ui-index.md)

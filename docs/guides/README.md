@@ -1,11 +1,11 @@
 # ASAK 팀 가이드 (읽기 순서)
 
-> 태그: `#reference`  
-> 제품·API 정본은 [Product Bible](../product_bible/) / [정본 계약](../governance/canonical-contract-decisions-2026-07-16.md).  
+> 태그: `#reference`
+> 제품·API 정본은 [Product Bible](../product_bible) / [정본 계약](../governance/canonical-contract-decisions-2026-07-16.md).
 > 전체 지도: [document-tag-index-2026-07-20.md](../document-tag-index-2026-07-20.md)
 
-> **00. 온보딩:** Notion [🚀 ASAK 처음 시작하기](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) · Git [`getting-started.md`](../operations/setup/getting-started.md)  
-> **Notion:** [📖 문서 읽는 순서](https://app.notion.com/p/39451ef04f0b81088a91d914f985fb11) · [📚 팀 문서 안내](https://app.notion.com/p/39551ef04f0b813b8765e64384f2dfd3)  
+> **00. 온보딩:** Notion [🚀 ASAK 처음 시작하기](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b) · Git [`getting-started.md`](../operations/setup/getting-started.md)
+> **Notion:** [📖 문서 읽는 순서](https://app.notion.com/p/39451ef04f0b81088a91d914f985fb11) · [📚 팀 문서 안내](https://app.notion.com/p/39551ef04f0b813b8765e64384f2dfd3)
 > **Git:** [`docs/guides/`](https://github.com/hagenie128/ASAK/tree/main/docs/guides) — ASAK repo
 
 **Step 0 (Windows)** — PC에 Git·Python·Java·Node가 **아직 없으면** [`install-windows.md`](../operations/setup/install-windows.md) (클릭·폴더·PATH 상세) → [`getting-started.md`](../operations/setup/getting-started.md) (세팅 + 워크로그) → 아래 **01~06**.

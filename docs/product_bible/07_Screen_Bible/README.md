@@ -1,15 +1,48 @@
-# Pack 07 — Screen Bible (화면 정본)
+# 07_Screen_Bible
+
+> Status: `Canonical Pack`
+> Updated: `2026-08-14`
+> Pack 경계는 유지하고, 반복 문서는 도메인별 통합 문서로 줄였습니다.
+
+## 현재 문서
+
+- [SCR-001-KIOSK-HOME.md](SCR-001-KIOSK-HOME.md)
+- [SCR-003-KIOSK-MENU-LIST.md](SCR-003-KIOSK-MENU-LIST.md)
+- [SCR-004-KIOSK-MENU-DETAIL.md](SCR-004-KIOSK-MENU-DETAIL.md)
+- [SCR-005-KIOSK-CART.md](SCR-005-KIOSK-CART.md)
+- [SCR-007-KIOSK-PAYMENT.md](SCR-007-KIOSK-PAYMENT.md)
+- [SCR-008-KIOSK-COMPLETE.md](SCR-008-KIOSK-COMPLETE.md)
+- [SCR-009-ADMIN-LIVE-ORDER-BOARD.md](SCR-009-ADMIN-LIVE-ORDER-BOARD.md)
+- [SCR-010-ADMIN-ORDER-MANAGEMENT.md](SCR-010-ADMIN-ORDER-MANAGEMENT.md)
+- [SCR-011-ADMIN-SOLD-OUT-MANAGEMENT.md](SCR-011-ADMIN-SOLD-OUT-MANAGEMENT.md)
+- [SCR-012-KIOSK-PAYMENT-ERROR.md](SCR-012-KIOSK-PAYMENT-ERROR.md)
+- [SCR-013-KIOSK-TIMEOUT.md](SCR-013-KIOSK-TIMEOUT.md)
+- [SCR-014-KIOSK-ACCESSIBILITY.md](SCR-014-KIOSK-ACCESSIBILITY.md)
+- [SCR-015-ADMIN-LOGIN.md](SCR-015-ADMIN-LOGIN.md)
+- [SCR-016-ADMIN-MENU-MANAGEMENT.md](SCR-016-ADMIN-MENU-MANAGEMENT.md)
+- [SCR-018-ADMIN-PAYMENT-METHOD-SETTINGS.md](SCR-018-ADMIN-PAYMENT-METHOD-SETTINGS.md)
+- [SCR-019-ADMIN-SALES-SUMMARY.md](SCR-019-ADMIN-SALES-SUMMARY.md)
+- [SCR-020-ADMIN-MONTHLY-SALES.md](SCR-020-ADMIN-MONTHLY-SALES.md)
+- [SCR-021-ADMIN-DAILY-SALES.md](SCR-021-ADMIN-DAILY-SALES.md)
+- [SCR-022-ADMIN-DASHBOARD.md](SCR-022-ADMIN-DASHBOARD.md)
+- [SCR-023-RECEIPT-OUTPUT.md](SCR-023-RECEIPT-OUTPUT.md)
+- [SCR-024-MEMBERSHIP---COUPON.md](SCR-024-MEMBERSHIP---COUPON.md)
+- [SCREEN_REGISTRY.md](SCREEN_REGISTRY.md)
+
+## 이전 Pack 안내
+
+### Pack 07 — Screen Bible (화면 정본)
 
 > **허브:** [product-bible-hub.md](../product-bible-hub.md) §4 SCR 전체 표
 > **ID 충돌 시:** [SCREEN_REGISTRY](SCREEN_REGISTRY.md) 먼저 수정
 
-## 정본
+#### 정본
 
 | 문서 | 내용 |
 |---|---|
 | [SCREEN_REGISTRY](SCREEN_REGISTRY.md) | **SCR ID·라우트 정본** |
 
-## 키오스크
+#### 키오스크
 
 | SCR | 문서 |
 |---|---|
@@ -23,7 +56,7 @@
 | 013 | [Timeout](SCR-013-KIOSK-TIMEOUT.md) |
 | 014 | [Accessibility](SCR-014-KIOSK-ACCESSIBILITY.md) |
 
-## 관리자
+#### 관리자
 
 | SCR | 문서 |
 |---|---|
@@ -38,13 +71,13 @@
 | 021 | [Daily Sales](SCR-021-ADMIN-DAILY-SALES.md) |
 | 022 | [Dashboard](SCR-022-ADMIN-DASHBOARD.md) |
 
-## FUTURE (MVP 제외)
+#### FUTURE (MVP 제외)
 
 | SCR | 문서 |
 |---|---|
 | 023 | [Receipt Output](SCR-023-RECEIPT-OUTPUT.md) |
 | 024 | [Membership / Coupon](SCR-024-MEMBERSHIP---COUPON.md) |
 
-## Figma↔코드
+#### Figma↔코드
 
 워크스페이스 [ui-index.md](../../../../ui-index.md) · 구현 카드 [implementation_guide](../../implementation_guide/00-start-here.md)
