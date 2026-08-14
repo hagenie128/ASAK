@@ -1,7 +1,7 @@
 # 2026-07-27 Admin 운영 조회 API·메뉴 adapter
 
 > 일일 기록: [2026-07-27.md](../../daily/이하진/2026-07-27.md)
-> 화면 기준: [SCR-009](../../../docs/product_bible/07_Screen_Bible/docs/07-screens/SCR-009-ADMIN-LIVE-ORDER-BOARD.md), [SCR-010](../../../docs/product_bible/07_Screen_Bible/docs/07-screens/SCR-010-ADMIN-ORDER-MANAGEMENT.md), [SCR-016](../../../docs/product_bible/07_Screen_Bible/docs/07-screens/SCR-016-ADMIN-MENU-MANAGEMENT.md)
+> 화면 기준: [SCR-009](../../../docs/product_bible/07_Screen_Bible/SCR-009-ADMIN-LIVE-ORDER-BOARD.md), [SCR-010](../../../docs/product_bible/07_Screen_Bible/SCR-010-ADMIN-ORDER-MANAGEMENT.md), [SCR-016](../../../docs/product_bible/07_Screen_Bible/SCR-016-ADMIN-MENU-MANAGEMENT.md)
 
 ---
 

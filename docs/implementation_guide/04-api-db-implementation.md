@@ -1,6 +1,6 @@
 # API·DB 공통 규칙
 
-> 화면별 URL·request·response는 이미 [Kiosk 기능 가이드](02-kiosk-implementation.md), [Admin 기능 가이드](03-admin-implementation.md)에 붙어 있다.  
+> 화면별 URL·request·response는 이미 [Kiosk 기능 가이드](02-kiosk-implementation.md), [Admin 기능 가이드](03-admin-implementation.md)에 붙어 있다.
 > 이 문서는 **여러 화면에서 공통으로 쓰는 처리 규칙만** 찾는 곳이다.
 
 ## 현재 연결 상태
@@ -52,9 +52,9 @@
 
 - [Canonical Contract Decisions](../governance/canonical-contract-decisions-2026-07-16.md)
 - [Kiosk Frontend Data Contract](../../../ASAK-Kiosk/src/contracts/api-data-contract.md)
-- [Menu API Contract](../product_bible/03_Menu_Inventory_SoldOut/docs/09-features/menu/MENU_API_CONTRACT.md)
-- [Order API Contract](../product_bible/02_Order_Cart_Payment/docs/09-features/order/ORDER_API_CONTRACT.md)
-- [Payment API Contract](../product_bible/02_Order_Cart_Payment/docs/09-features/payment/PAYMENT_API_CONTRACT.md)
-- [Menu Management API Contract](../product_bible/03_Menu_Inventory_SoldOut/docs/09-features/menu-management/MENU_MANAGEMENT_API_CONTRACT.md)
-- [Sales API Contract](../product_bible/04_Dashboard_Sales_Kitchen_TTS/docs/09-features/sales/SALES_API_CONTRACT.md)
+- [Menu API Contract](../product_bible/03_Menu_Inventory_SoldOut/menu/MENU_API_CONTRACT.md)
+- [Order API Contract](../product_bible/02_Order_Cart_Payment/order/ORDER_API_CONTRACT.md)
+- [Payment API Contract](../product_bible/02_Order_Cart_Payment/payment/PAYMENT_API_CONTRACT.md)
+- [Menu Management API Contract](../product_bible/03_Menu_Inventory_SoldOut/menu-management/MENU_MANAGEMENT_API_CONTRACT.md)
+- [Sales API Contract](../product_bible/04_Dashboard_Sales_Kitchen_TTS/sales/SALES_API_CONTRACT.md)
 </details>

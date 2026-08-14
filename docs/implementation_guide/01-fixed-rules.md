@@ -39,8 +39,8 @@
 
 ## 정본 링크
 
-- [Product Principles](../product_bible/01_Foundation/docs/00-product-bible/PRODUCT_PRINCIPLES.md)
-- [Canonical Source](../product_bible/01_Foundation/docs/00-product-bible/CANONICAL_SOURCE.md)
-- [Master Context](../product_bible/01_Foundation/docs/10-ai/MASTER_CONTEXT.md)
-- [Frontend Architecture](../product_bible/06_Engineering_Bible/docs/02-frontend/FRONTEND_ARCHITECTURE.md)
-- [Backend Architecture](../product_bible/06_Engineering_Bible/docs/03-backend/BACKEND_ARCHITECTURE.md)
+- [Product Principles](../product_bible/01_Foundation/PRODUCT_PRINCIPLES.md)
+- [Canonical Source](../product_bible/01_Foundation/CANONICAL_SOURCE.md)
+- [Master Context](../product_bible/01_Foundation/MASTER_CONTEXT.md)
+- [Frontend Architecture](../product_bible/06_Engineering_Bible/02-frontend/FRONTEND_ARCHITECTURE.md)
+- [Backend Architecture](../product_bible/06_Engineering_Bible/03-backend/BACKEND_ARCHITECTURE.md)

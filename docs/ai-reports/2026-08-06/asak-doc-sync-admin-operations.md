@@ -39,12 +39,12 @@
 
 ### 문서
 
-- `docs/product_bible/03_Menu_Inventory_SoldOut/docs/09-features/menu-management/MENU_MANAGEMENT_API_CONTRACT.md`
-- `docs/product_bible/12_Frontend_Implementation/docs/13-frontend-implementation/04-admin/MENU_MANAGEMENT_IMPLEMENTATION.md`
-- `docs/product_bible/11_Backend_Implementation/docs/12-backend-implementation/02-menu/MENU_MANAGEMENT_IMPLEMENTATION.md`
-- `docs/product_bible/12_Frontend_Implementation/docs/13-frontend-implementation/04-admin/SOLD_OUT_IMPLEMENTATION.md`
-- `docs/product_bible/11_Backend_Implementation/docs/12-backend-implementation/05-admin/SOLD_OUT_IMPLEMENTATION.md`
-- `docs/product_bible/11_Backend_Implementation/docs/12-backend-implementation/04-payment/PAYMENT_METHOD_IMPLEMENTATION.md`
+- `docs/product_bible/03_Menu_Inventory_SoldOut/menu-management/MENU_MANAGEMENT_API_CONTRACT.md`
+- `docs/product_bible/12_Frontend_Implementation/04-admin/MENU_MANAGEMENT_IMPLEMENTATION.md`
+- `docs/product_bible/11_Backend_Implementation/02-menu/MENU_MANAGEMENT_IMPLEMENTATION.md`
+- `docs/product_bible/12_Frontend_Implementation/04-admin/SOLD_OUT_IMPLEMENTATION.md`
+- `docs/product_bible/11_Backend_Implementation/05-admin/SOLD_OUT_IMPLEMENTATION.md`
+- `docs/product_bible/11_Backend_Implementation/04-payment/PAYMENT_METHOD_IMPLEMENTATION.md`
 
 ## 3. 갱신한 문서
 

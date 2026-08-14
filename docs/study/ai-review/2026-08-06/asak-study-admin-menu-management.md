@@ -54,7 +54,7 @@
   - `ASAK-back/src/main/java/com/asak/admin/dto/response/MenuDetailResponse.java`
   - `ASAK-back/src/main/java/com/asak/admin/mapper/AdminMenuMapper.java`
 - 문서
-  - `ASAK/docs/product_bible/07_Screen_Bible/docs/07-screens/SCR-016-ADMIN-MENU-MANAGEMENT.md`
+  - `ASAK/docs/product_bible/07_Screen_Bible/SCR-016-ADMIN-MENU-MANAGEMENT.md`
   - `ASAK/docs/wiki/rest-api-spec.md`
 
 ---

@@ -1,12 +1,16 @@
-# ASAK data scripts
+# asak-data/scripts
 
-이 폴더는 현재 DevCopilot·Notion·DB 보조 스크립트의 실행 위치입니다. `notion_raw/`, JSON report/snapshot, batch 입력은 일부 Python 파일이 직접 참조하므로 cleanup에서 경로를 바꾸지 않았습니다.
+> Status: **Current** · 경로 이동 주의
 
-- 현재 운영 스크립트: 이 폴더의 `.py` 파일
-- 이동 완료 산출물: `../reports/generated/`의 `_gs_*.md`
-- 향후 `active/`·`archive/` 분리는 호출 경로를 갱신하고 Python syntax/실행 dry-run으로 검증한 뒤 수행합니다.
+## 유지 경로 (스크립트 계약)
 
-```powershell
-python asak-data/scripts/sync_current_docs_devcopilot.py --help
-python asak-data/scripts/load_seed_sqlite.py --help
-```
+| 경로 | 역할 |
+|---|---|
+| `*.py` | 시드·이미지·Notion·DevCopilot 스크립트 |
+| `notion_raw/` | Notion fetch 원본 JSON (다수 스크립트가 기록) |
+| `output/` | 일회성 리포트 JSON |
+| `*_report.json` 등 | 실행 산출 스냅샷 |
+
+이 경로들은 하드코딩되어 있습니다. 승인·재검증 없이 옮기지 마세요.
+
+빈 `active/`는 이전용 placeholder입니다.

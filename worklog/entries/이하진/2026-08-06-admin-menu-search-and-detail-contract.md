@@ -1,7 +1,7 @@
 # 2026-08-06 관리자 메뉴 검색 흐름 및 상세 응답 정리
 
 > 일일 기록: [2026-08-06.md](../../daily/이하진/2026-08-06.md)
-> 기준 화면: [SCR-016](../../../docs/product_bible/07_Screen_Bible/docs/07-screens/SCR-016-ADMIN-MENU-MANAGEMENT.md)
+> 기준 화면: [SCR-016](../../../docs/product_bible/07_Screen_Bible/SCR-016-ADMIN-MENU-MANAGEMENT.md)
 
 ---
 

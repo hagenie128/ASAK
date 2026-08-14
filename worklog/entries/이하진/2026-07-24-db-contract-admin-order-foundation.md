@@ -1,7 +1,7 @@
 # 2026-07-24 DB 뷰·API 계약·Admin 주문 조회 기반
 
 > 일일 기록: [2026-07-24.md](../../daily/이하진/2026-07-24.md)
-> 기준 화면: [SCR-010 Admin Order Management](../../../docs/product_bible/07_Screen_Bible/docs/07-screens/SCR-010-ADMIN-ORDER-MANAGEMENT.md) · Figma 0718 `134:10630`
+> 기준 화면: [SCR-010 Admin Order Management](../../../docs/product_bible/07_Screen_Bible/SCR-010-ADMIN-ORDER-MANAGEMENT.md) · Figma 0718 `134:10630`
 
 ---
 

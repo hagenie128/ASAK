@@ -1,7 +1,7 @@
 # 2026-07-29 관리자 Live 주문 보드 및 메뉴 옵션 카탈로그 기록
 
 > 일일 기록: [2026-07-29.md](../../daily/이하진/2026-07-29.md)
-> 기준 화면: [SCR-009 Admin Live Order Board](../../../docs/product_bible/07_Screen_Bible/docs/07-screens/SCR-009-ADMIN-LIVE-ORDER-BOARD.md) · Figma 0718 Default `134:10607`, Loading `134:11447`, Empty `134:11452`, Error `134:11468` · [SCR-016 Admin Menu Management](../../../docs/product_bible/07_Screen_Bible/docs/07-screens/SCR-016-ADMIN-MENU-MANAGEMENT.md) · Figma 0718 Detail Edit `134:12668`
+> 기준 화면: [SCR-009 Admin Live Order Board](../../../docs/product_bible/07_Screen_Bible/SCR-009-ADMIN-LIVE-ORDER-BOARD.md) · Figma 0718 Default `134:10607`, Loading `134:11447`, Empty `134:11452`, Error `134:11468` · [SCR-016 Admin Menu Management](../../../docs/product_bible/07_Screen_Bible/SCR-016-ADMIN-MENU-MANAGEMENT.md) · Figma 0718 Detail Edit `134:12668`
 
 ---
 

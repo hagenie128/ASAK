@@ -11,8 +11,9 @@ from pathlib import Path
 from pptx import Presentation
 from pptx.enum.shapes import MSO_SHAPE_TYPE
 
-SRC = Path(__file__).with_name("ASAK_샐러드_스마트키오스크_수정1_20260811.pptx")
-DST = Path(__file__).with_name("ASAK_샐러드_스마트키오스크_수정2_20260811.pptx")
+ARCHIVE = Path(__file__).resolve().parent.parent / "_archive" / "00_ppt"
+SRC = ARCHIVE / "ASAK_샐러드_스마트키오스크_수정1_20260811.pptx"
+DST = ARCHIVE / "ASAK_샐러드_스마트키오스크_수정2_20260811.pptx"
 
 # (슬라이드 1-based, old_full_text, new_full_text)
 # old는 dump 기준 정확한 전체 문자열. \x0b는 수직탭(문단 구분).

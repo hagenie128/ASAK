@@ -99,7 +99,7 @@
 | Admin↔Kiosk 결제수단 개수       | Admin **4** vs Kiosk **8** 가능 → 계약 재확인                                               |
 | 품절 저장 stub                  | `menus.isSoldOut` 미동기화                                                                  |
 | P2 polish                       | 결제 정책 화면 · Login Unauthorized · 메뉴 이미지 폴백 등                                   |
-| 근거 원격                   | DevCopilot 근거 필드는 MCP 미지원 → 로컬 `wbs-v2` 근거만 상세                       |
+| 근거 원격                   | DevCopilot 근거 필드는 MCP 미지원 → 로컬 `wbs.md` 근거만 상세                       |
 | Live 페이징 · 실패용 테스트 데이터 · QA | 미완                                                                                        |
 
 ## 동기화 메모
@@ -113,7 +113,7 @@
 
 - 7/21 Admin mock 페이지 바인딩(주문·품절·결제수단·공통 pagination)과 대시보드/Live 연결을 **문서에 반영**.
 - baseline의 「Page 연동 0」 문구를 폐기하고, 화면별 mock 연결/잔여 TODO를 분리 표기.
-- DevCopilot 원격 상태 재동기화: **2026-07-22 MCP로 Status 재확인 완료** (P4 일치). 근거 상세는 MCP 미지원 → 로컬 `wbs-v2` 근거 열 참고.
+- DevCopilot 원격 상태 재동기화: **2026-07-22 MCP로 Status 재확인 완료** (P4 일치). 근거 상세는 MCP 미지원 → 로컬 `wbs.md` 근거 열 참고.
 
 ### 2026-07-23
 

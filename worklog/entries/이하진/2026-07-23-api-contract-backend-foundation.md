@@ -113,7 +113,7 @@ ASAK Admin/Kiosk mock 화면의 다음 단계로 메뉴·결제 API 계약과 �
 
 - 일일 기록: [2026-07-23 daily](../../daily/이하진/2026-07-23.md)
 - 같은 날 Admin UI 상세: [Admin mock·Figma 정합](2026-07-23-admin-mock-figma-parity.md)
-- API 계약 대조 문서: `ASAK/docs/product_bible/02_Order_Cart_Payment/docs/09-features/payment/PAYMENT_API_CONTRACT.md`
-- 매출 규칙: `ASAK/docs/product_bible/04_Dashboard_Sales_Kitchen_TTS/docs/09-features/sales/SALES_CANCELLATION_REFUND_RULES.md`
+- API 계약 대조 문서: `ASAK/docs/product_bible/02_Order_Cart_Payment/payment/PAYMENT_API_CONTRACT.md`
+- 매출 규칙: `ASAK/docs/product_bible/04_Dashboard_Sales_Kitchen_TTS/sales/SALES_CANCELLATION_REFUND_RULES.md`
 - Bruno 컬렉션: `ASAK-back/api/`
 - 관련 커밋: `43dcf96`, `ba4bc8f`, `a255e24`, `ffb5889`, `b6f7425`, `300c851`, `3333e04`, `da736ab`, `410a897`, `a4cba77`, `e0221f4`, `5c32687`, `2f71fed`, `d36b88a`, `df2cfdb`

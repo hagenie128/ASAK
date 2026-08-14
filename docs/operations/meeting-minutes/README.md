@@ -1,5 +1,9 @@
 # ASAK 프로젝트 2조 회의록
 
+> Status: **Current** · 공식 주차별 회의록 **파일 정본**
+> Hub 통합본: [`../../wiki/meeting-minutes-weekly.md`](../../wiki/meeting-minutes-weekly.md)
+> 개인/팀 주간 rollup: [`../../../worklog/weekly/`](../../../worklog/weekly/README.md)
+
 | 항목 | 내용 |
 |---|---|
 | 기간 | 2026-07-01 ~ 2026-08-07 |

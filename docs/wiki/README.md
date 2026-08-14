@@ -1,27 +1,46 @@
 # ASAK DevCopilot Wiki
 
-> 태그: `#reference` (학원 산출물) · 구현 정본 아님
-> 정본: [Product Bible](../product_bible/) · 태그: [document-tag-index-2026-07-20.md](../document-tag-index-2026-07-20.md)
+> Status: **Mixed** · Hub 업로드용 참고 (`#reference`) · 구현 정책 정본 아님
+> 정책 정본: [Product Bible](../product_bible/) · 태그: [document-tag-index-2026-07-20.md](../document-tag-index-2026-07-20.md)
 
-## 산출물 (유지)
+## Current — 지금 쓰는 문서
 
-| 문서 | DevCopilot |
+| 문서 | 역할 |
 |---|---|
-| [requirements-definition.md](./requirements-definition.md) | wiki/9 |
-| [user-scenarios.md](./user-scenarios.md) | wiki/10 |
-| [screen-design-figma.md](./screen-design-figma.md) | wiki/5 |
-| [db-table-definition.md](./db-table-definition.md) | wiki/11 |
-| [db-view-definition.md](./db-view-definition.md) | ERD View (2026-07-24 sync) |
-| [rest-api-spec.md](./rest-api-spec.md) | [wiki/12](https://devcopilot.ai.kr/workspace/2/wiki/12) |
-| [wbs.md](./wbs.md) | **WBS 통합본** (정본) |
-| [wbs-schedule.md](./wbs-schedule.md) | → wbs.md 리다이렉트 (구 wiki/13) |
-| [wbs-v2-2026-07-16.md](./wbs-v2-2026-07-16.md) | → wbs.md 리다이렉트 |
-| [qa-test-cases.md](./qa-test-cases.md) | wiki/14 |
-| [meeting-deliverables-checklist.md](./meeting-deliverables-checklist.md) | [wiki/15](https://devcopilot.ai.kr/workspace/2/wiki/15) |
-| [meeting-minutes-weekly.md](./meeting-minutes-weekly.md) | [wiki/78](https://devcopilot.ai.kr/workspace/2/wiki/78) |
-| [worklog-index.md](./worklog-index.md) | [wiki/83](https://devcopilot.ai.kr/workspace/2/wiki/83) |
-| [project-flow.md](./project-flow.md) | [wiki/79](https://devcopilot.ai.kr/workspace/2/wiki/79) |
-| [wbs-status-notes.md](./wbs-status-notes.md) | (Hub WBS Status · 통합본 기준) |
+| [wbs.md](./wbs.md) | **작업 분해표 정본** (`WBS-001`~`085`) |
+| [wbs-status-notes.md](./wbs-status-notes.md) | 코드↔WBS 요약 |
+| [current-status-baseline.md](./current-status-baseline.md) | 구현 현황 요약 |
+| [project-flow.md](./project-flow.md) | 전체 흐름도 |
 | [index.md](./index.md) | 운영 인덱스 |
+| [db-table-definition.md](./db-table-definition.md) / [db-view-definition.md](./db-view-definition.md) | DB 참고 |
+| [backend-db-midpoint-audit-2026-07-28.md](./backend-db-midpoint-audit-2026-07-28.md) | 중간점검 |
+
+## Historical — Notion export (정본 아님)
+
+| 문서 | 대신 볼 곳 |
+|---|---|
+| [requirements-definition.md](./requirements-definition.md) | Product Bible Pack 02~03 |
+| [user-scenarios.md](./user-scenarios.md) | Screen Bible · 시나리오 허브 |
+| [screen-design-figma.md](./screen-design-figma.md) | [design/README](../design/README.md) |
+| [rest-api-spec.md](./rest-api-spec.md) | [정본 계약](../governance/canonical-contract-decisions-2026-07-16.md) |
+| [qa-test-cases.md](./qa-test-cases.md) | Product Bible Pack 09 |
+
+## 회의·Hub 업로드
+
+| 문서 | 역할 |
+|---|---|
+| [meeting-minutes-weekly.md](./meeting-minutes-weekly.md) | Hub 업로드용 **통합본** |
+| [`../operations/meeting-minutes/`](../operations/meeting-minutes/README.md) | 주차별 회의록 **파일 정본** |
+| [`../../worklog/weekly/`](../../worklog/weekly/README.md) | 개인/팀 주간 rollup (회의록 아님) |
+| [meeting-deliverables-checklist.md](./meeting-deliverables-checklist.md) | 산출물 체크 |
+| [worklog-index.md](./worklog-index.md) | 워크로그 색인 |
+
+## 리다이렉트
+
+| 문서 | 목적지 |
+|---|---|
+| [wbs-schedule.md](./wbs-schedule.md) | → `wbs.md` |
+| [wbs-v2-2026-07-16.md](./wbs-v2-2026-07-16.md) | → `wbs.md` |
 
 부가 요약·감사·스냅샷 → [`../_archive/wiki-secondary/`](../_archive/wiki-secondary/)
+(구 `wiki/snapshots` 포함)

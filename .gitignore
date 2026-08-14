@@ -31,5 +31,6 @@ docs/_archive/notion-export/
 # Local one-off archives, diagnostic output, and script scratch artifacts.
 /*.zip
 /debug.log
+/로컬자료/
 asak-data/scripts/_gs_*.md
 asak-data/scripts/_upload_log.txt

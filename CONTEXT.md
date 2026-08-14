@@ -1,8 +1,8 @@
-# ASAK Domain Context
+# ASAK 도메인 맥락
 
-## Order and payment terms
+## 주문 및 결제 용어
 
-- **Cancellation**: A pre-handoff termination of an order. The order is no longer fulfilled.
-- **Completed-order refund**: A financial reversal after the product has been handed to the customer. The fulfilled order remains part of operational history.
-- **Order status**: The fulfillment progress of an order, including `RECEIVED`, `PREPARING`, `COMPLETED`, and `CANCELED`.
-- **Payment status**: The financial progress of a payment, including `APPROVED` and `REFUNDED`.
+- **주문 취소**: 상품을 고객에게 전달하기 전에 주문 이행을 중단하는 것. 취소된 주문은 더 이상 조리하거나 전달하지 않는다.
+- **완료 주문 환불**: 상품을 고객에게 전달한 뒤 결제를 되돌리는 것. 이미 이행된 주문 기록은 운영 이력에 그대로 남긴다.
+- **주문 상태**: 주문 이행 진행 단계를 뜻한다. 현재 상태값은 `RECEIVED`(접수), `PREPARING`(조리 중), `COMPLETED`(완료), `CANCELED`(취소)다.
+- **결제 상태**: 결제 처리 진행 단계를 뜻한다. 현재 상태값은 `APPROVED`(승인), `REFUNDED`(환불)다.

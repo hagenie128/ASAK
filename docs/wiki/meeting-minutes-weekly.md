@@ -1,6 +1,9 @@
 # ASAK 주차별 회의록 (2026-07 ~ 08)
 
-> Hub 업로드용. 정본: [https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/)
+> Status: **Generated** · Hub 업로드용 통합본 · **직접 편집 금지**
+> 원본: [`../operations/meeting-minutes/`](../operations/meeting-minutes/README.md)
+> **개인/팀 주간 rollup:** [`../../worklog/weekly/`](../../worklog/weekly/README.md) (이 문서와 역할이 다름)
+> Hub: [wiki/78](https://devcopilot.ai.kr/workspace/2/wiki/78)
 
 # ASAK 프로젝트 2조 회의록
 
