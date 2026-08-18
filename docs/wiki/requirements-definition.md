@@ -1,4 +1,5 @@
 > Status: **HISTORY**
+> **2026-08-18 Hub:** 요구사항 카드 정본 ID는 DevCopilot workspace 2 요구사항 탭. 이 파일은 2026-07-05 Notion 내보내기다. 구현 상태는 TODO를 DONE으로 읽지 말 것.
 > → **정본:** [Product Bible Pack 02](../product_bible/02_Order_Cart_Payment/README.md) · API: [정본](../governance/canonical-contract-decisions-2026-07-16.md) · 현실: [baseline](current-status-baseline.md)
 
 # ASAK 요구사항 정의서

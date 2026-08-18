@@ -1,4 +1,5 @@
 > Status: **HISTORY**
+> **2026-08-18 Hub:** QA 카드는 workspace 2 QA 탭. 실행 기록 없음 → PASS로 올리지 말 것. TC-015의 API-019은 월별 매출이며 영수증 출력이 아니다.
 > → **정본:** [Pack 09 QA](../product_bible/09_QA_Bible/README.md)
 
 # ASAK QA 테스트 케이스

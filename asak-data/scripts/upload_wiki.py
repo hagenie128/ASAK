@@ -58,10 +58,19 @@ def upsert_wiki(title: str, content: str, dry_run: bool = False) -> dict:
 
 def main() -> None:
     p = argparse.ArgumentParser(description="Upload markdown to DevCopilot Wiki (upsert)")
-    p.add_argument("--title", required=True, help="Wiki page title")
-    p.add_argument("--file", type=Path, required=True, help="Markdown file path")
+    p.add_argument("--list", action="store_true", help="Print existing wiki id and title")
+    p.add_argument("--title", help="Wiki page title")
+    p.add_argument("--file", type=Path, help="Markdown file path")
     p.add_argument("--dry-run", action="store_true")
     args = p.parse_args()
+    if args.list:
+        wikis = list_wikis()
+        print(f"count {len(wikis)}")
+        for w in sorted(wikis, key=lambda x: x.get("id") or 0):
+            print(f"{w.get('id')}\t{w.get('title')}")
+        return
+    if not args.title or not args.file:
+        p.error("--title and --file are required unless --list")
     path = args.file if args.file.is_absolute() else REPO_ROOT / args.file
     if not path.exists():
         print(f"Missing {path}", file=sys.stderr)
