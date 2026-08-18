@@ -68,13 +68,14 @@
 
 | 호출 | 보낼 값 | 성공 뒤 사용할 `data` |
 | --- | --- | --- |
-| `POST /api/kiosk/orders` | `orderType`, `items[].menuId`, `quantity`, `selectedOptionItemIds`, `excludedIngredientIds` | `orderId`, `orderNo`, `orderStatus`, `paymentStatus`, `totalAmount`, `items[].lineAmount` |
+| `POST /api/kiosk/orders` | `orderType`, `items[].menuId`, `quantity`, `selectedOptionItemIds`, `excludedIngredientIds` | `orderId`, `orderNo`, `status(=READY)`, `totalAmount`, `items[].lineAmount` |
 
 | 상태/행동 | 처리 |
 | --- | --- |
 | 삭제/마지막 항목 삭제/전체 비우기 | 확인 상태 뒤 삭제하고 마지막이면 Empty로 전환한다. |
 | 옵션 수정 | SCR-004의 draft 편집으로 이동하고 성공할 때만 항목을 교체한다. |
 | 주문 생성 중 | 결제하기 버튼을 잠그고 요청을 하나만 보낸다. |
+| 주문 생성 성공 | `status=READY`를 저장하고 결제 단계(API-006)로 이동한다. |
 | `ORDER_PRICE_CHANGED` | 장바구니를 지우지 않고 서버의 가격 변경을 알린다. |
 | `MENU_SOLD_OUT`, `OPTION_ITEM_SOLD_OUT` | 문제 항목을 표시하고 수정·삭제한 뒤 다시 시도한다. |
 | 주문 생성 성공 | `orderId`와 서버 `totalAmount`를 `/payment`에 넘긴다. |

@@ -80,8 +80,8 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 | API-002 | — | `{categories, menus[{menuId, categoryId, name, price, imageUrl, isSoldOut, ...}]}` |
 | API-003 | path menuId | 상세 + `ingredients` + `optionGroups` |
 | API-004 | `{items:[{menuId, quantity, optionItems[{optionItemId,quantity}], excludedIngredientIds}]}` | `totalAmount` 등 |
-| API-005 | `{orderType: EAT_IN\|TAKE_OUT, items:[...]}` | `orderId, orderNo, totalAmount, orderStatus, paymentStatus` |
-| API-006 | `{orderId, paymentMethodCode, idempotencyKey}` | `paymentId, approvedAmount, approvedAt, waitingOrderCount` · 금액은 서버 재계산 |
+| API-005 | `{orderType: EAT_IN\|TAKE_OUT, items:[...]}` | `orderId, orderNo, totalAmount, status(=READY)` |
+| API-006 | `{orderId, orderStatus(=READY), paymentMethodCode, idempotencyKey}` | `paymentId, orderId, orderNo, paymentStatus, approvedAmount, approvedAt, waitingOrderCount` · 금액은 서버 재계산 |
 | API-014 | — | `{methods:[{methodId, methodCode, methodName, imageAssetId, imageUrl, description, active, sortOrder}]}` |
 
 ## 관리자 메뉴·옵션
@@ -94,7 +94,7 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 
 | 구분 | 코드 |
 |------|------|
-| 주문 | `RECEIVED`, `PREPARING`, `COMPLETED`, `CANCELED` |
+| 주문 | `READY`, `RECEIVED`, `PREPARING`, `COMPLETED`, `CANCELED` |
 | 결제 | `READY`, `APPROVED`, `FAILED`, `REFUNDED` |
 | 주문유형 | `EAT_IN`, `TAKE_OUT` |
 | 결제수단 | `CARD`, `KAKAO_PAY`, `NAVER_PAY` · enums에 `TOSS_PAY` 추가됨(**정본 3종과 결정 필요**) |

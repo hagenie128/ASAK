@@ -10,9 +10,9 @@ Notion [04. 화면 설계](https://app.notion.com/p/1c751ef04f0b825ea3aa8145f563
 | SCR-004 | 메뉴 상세 / 옵션 선택 | 키오스크 | 와이어프레임 | 상 | menuId, 기본 재료 목록, excludedIngredientIds, | 선택 메뉴, 기본 재료, 제외 재료, 품절 재료 뱃지, 추가 옵션, 옵션 | FWD-MENU-001, FWD-MENU-002, FW | 옵션 선택 시나리오 | API-003, API-004 |
 | SCR-005 | 장바구니·주문확인 | 키오스크 | 와이어프레임 | 상 | 장바구니 항목, orderType, excludedIngredientId | 선택 메뉴, 기본 재료 제외 목록, 추가 옵션, 수량, 예상 총액, or | FWD-CART-001, FWD-CART-002, FW | 장바구니 확인 및 주문 생성 시나리오 | API-005 |
 | SCR-006 | 주문 확인 | 키오스크 | 병합됨 | 상 | 장바구니 항목, excludedIngredientIds, optionIt | orderId, orderNo, totalPrice, orderStatu |  | 장바구니 확인 및 주문 생성 시나리오 | API-005 |
-| SCR-007 | 결제 | 키오스크 | 와이어프레임 | 상 | orderId, paymentMethod, amount | paymentId, paymentStatus, orderStatus | FWD-PAY-001, KSD-MEMBER-001, K | 가상 결제 완료 시나리오 | API-006 |
+| SCR-007 | 결제 | 키오스크 | 와이어프레임 | 상 | orderId, paymentMethod, amount | paymentId | FWD-PAY-001, KSD-MEMBER-001, K | 가상 결제 완료 시나리오 | API-006 |
 | SCR-008 | 주문 완료 | 키오스크 | 와이어프레임 | 상 | orderNo, paymentStatus, totalPrice | 주문번호, 주문 완료 안내 | FWD-PAY-002, FWD-ORDER-002, KS | 가상 결제 완료 시나리오 | API-006 |
-| SCR-009 | 관리자 주문 관리 | 관리자 | 와이어프레임 | 상 | status | 주문 목록, 주문번호, 주문유형, 결제상태, 주문상태, 주문금액, 주문일 | LMIS-ORDER-001, LMIS-ORDER-002 | 관리자 주문 목록 확인, 주문 상세  | API-007 |
+| SCR-009 | 관리자 주문 관리 | 관리자 | 와이어프레임 | 상 | status | 주문 목록, 주문번호, 주문유형, 결제상태, 주문상태, 주문금액, 주문일 (`READY`는 `대기중` 버튼 비활성) | LMIS-ORDER-001, LMIS-ORDER-002 | 관리자 주문 목록 확인, 주문 상세  | API-007 |
 | SCR-010 | 관리자 주문 상세 | 관리자 | 와이어프레임 | 상 | orderId, 변경할 status | 주문 상세 정보, 변경된 주문 상태 | LMIS-ORDER-001, LMIS-ORDER-002 | 관리자 주문 상세 확인, 주문 상태  | API-007, API-008 |
 | SCR-011 | 관리자 판매 항목 품절 관리 | 관리자 | 와이어프레임 | 중 | targetType(MENU/INGREDIENT), targetId, i | 메뉴 목록, 메뉴 기본 재료, 옵션 항목, 재료 역할, 변경된 품절 상태 | LMIS-MENU-001, LMIS-MENU-002 | 판매 항목 품절 관리 흐름(옵션기능) | API-002, API-003, API-004 |
 | SCR-012 | 결제 실패 / 재시도 (팝업·토스트) | 오류예외 | 기획중 | 상 | paymentId/orderId, errorCode, message | 재결제 요청, 장바구니·주문확인(SCR-005) 복귀 | FWD-PAY-002, KSD-PAY-001 | 결제 실패 흐름 | API-006 |
