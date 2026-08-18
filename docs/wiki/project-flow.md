@@ -1,8 +1,9 @@
 # ASAK 전체 흐름도 (Mermaid)
 
-> 기준일: **2026-08-07** · 코드 실측 기준 (문서 주장이 아니라 실제 파일/라우트를 확인함).
-> Admin: 주문(Live·목록·상태·취소) API 연동 **구현됨·미검증**, 메뉴/품절/결제/매출/대시보드는 mock 또는 BE 스텁.
-> **이번 주:** Kiosk 장바구니→주문→결제 실연동 · Admin 메뉴 CRUD→품절→결제수단→매출 순.
+> 기준일: **2026-08-18** · 코드 실측 기준 (문서 주장이 아니라 실제 파일/라우트를 확인함).
+> Admin: 주문(Live·목록·상태·취소) + 메뉴 CRUD/soft delete **코드 연결·미검증**. 품절/결제수단/매출/대시보드/로그인은 BE 스텁.
+> Kiosk: 결제수단(API-014)·주문생성(API-005) 호출. 결제 승인은 타이머 mock · 클라이언트 `/payments` ≠ 서버 `/api/kiosk/payments`.
+> **이번 주:** 08/21까지 RTOS(`device_event`+콘솔, 적어도 Spring↔React). 코드에 `device_event` 없음.
 > 상세: [admin-todo-checklist](../planning/admin-todo-checklist-2026-08-05.md) · [검증 투두](../planning/admin-feature-verify-todos-2026-08-06.md) · [회의록](../operations/meeting-minutes/README.md) · [동기화 보고서](../ai-reports/2026-08-06/asak-doc-sync-admin-devcopilot.md)
 > 문서 입구: [START_HERE](../START_HERE.md)
 > 상태 표: [구현 맵](../planning/current-implementation-map-2026-07-16.md) · 문서↔코드 차이: [gap report](../architecture/document-code-gap-report-2026-07-16.md) · 할 일: [작업 분해표](wbs.md)
@@ -56,7 +57,7 @@ flowchart TB
 
 ## 2. 고객 키오스크 주문 흐름
 
-`ASAK-Kiosk/src/apps/kiosk/KioskApp.jsx`의 `<Routes>`를 그대로 따라간 그림입니다. Home부터 장바구니까지는 실제로 mock 데이터로 움직이고, 결제부터는 화면만 있고 아직 안 움직입니다.
+`ASAK-Kiosk/src/apps/kiosk/KioskApp.jsx`의 `<Routes>`를 그대로 따라간 그림입니다. Home부터 장바구니까지는 동작하고, 결제 화면은 결제수단 API를 부르며, 진행 화면은 주문 생성 후 타이머로 성공/실패를 보여 줍니다.
 
 ```mermaid
 flowchart LR
@@ -64,9 +65,9 @@ flowchart LR
     Menu["✅ /menu<br/>MenuListPage<br/>mock 메뉴 목록"]
     Detail["✅ /menu/:menuId<br/>MenuDetailPage<br/>옵션·수량·가격 계산"]
     Cart["✅ /cart<br/>CartPage<br/>수량 변경·삭제·합계"]
-    Payment["⚠️ /payment<br/>PaymentPage<br/>수단 선택·결제 버튼 disabled"]
-    Complete["⚠️ /complete<br/>OrderCompletePage<br/>UI만, 주문번호 미연결"]
-    PayError["⚠️ /payment-error<br/>PaymentErrorPage<br/>정적, 실패 흐름 미연결"]
+    Payment["✅ /payment<br/>PaymentPage<br/>API-014 결제수단 조회"]
+    Complete["⚠️ /complete<br/>OrderCompletePage<br/>UI·주문번호 연결 미검증"]
+    PayError["⚠️ /payment-error<br/>PaymentErrorPage<br/>실패 흐름 일부"]
     Timeout["⚠️ /timeout<br/>TimeoutPage<br/>정적, 타이머 미연결"]
     A11y["⚠️ /accessibility<br/>AccessibilityPage"]
     Receipt["❌ /receipt<br/>ReceiptPage<br/>Future Scope (SCR-023)"]
@@ -89,7 +90,7 @@ flowchart LR
 
 ## 3. 관리자 운영 흐름
 
-`ASAK-Admin/src/apps/AdminApp.jsx`가 URL을 화면에 연결합니다. **주문(Live·목록·상태·취소)은 `ordersApi` → BE**, 그 외(메뉴·품절·결제·매출·대시보드·로그인)는 아직 mock/스텁입니다 (mock ≠ DONE).
+`ASAK-Admin/src/apps/AdminApp.jsx`가 URL을 화면에 연결합니다. **주문(Live·목록·상태·취소)과 메뉴 CRUD는 API 모듈 연결·미검증**, 품절·결제·매출·대시보드·로그인은 mock 또는 BE 스텁입니다 (코드 연결 ≠ DONE).
 
 ```mermaid
 flowchart TB
@@ -98,8 +99,8 @@ flowchart TB
     Dashboard["✅ /dashboard<br/>DashboardPage · SCR-022 · mock"]
     Orders["✅ /orders<br/>OrderManagement · SCR-010 · API 연동·미검증"]
     SoldOut["✅ /sold-out<br/>SoldOutManagePage · SCR-011 · mock"]
-    Menus["✅ /menus<br/>MenuManagePage · SCR-016 · mock"]
-    MenuEdit["✅ /menus/new|/edit<br/>Edit 패널 · mock"]
+    Menus["✅ /menus<br/>MenuManagePage · SCR-016 · menusApi 연결·미검증"]
+    MenuEdit["✅ /menus/new|/edit<br/>Edit 패널 · menusApi 연결·미검증"]
     Payments["✅ /payment-methods<br/>PaymentMethodPage · SCR-018 · mock"]
     Sales["✅ /sales<br/>SalesSummaryPage · SCR-019 · mock"]
     Monthly["✅ /sales/monthly<br/>MonthlySalesPage · SCR-020 · mock"]

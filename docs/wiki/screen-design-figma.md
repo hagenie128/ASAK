@@ -1,4 +1,5 @@
 > Status: **HISTORY**
+> **2026-08-18 Hub:** 화면 카드는 workspace 2 화면 설계 탭. SCR 정본은 Pack 07 Screen Bible. 이 파일은 2026-07-06 Notion 내보내기다.
 > → **SCR 정본:** [Pack 07 Screen Bible](../product_bible/07_Screen_Bible/README.md) · Figma: [figma-guide](../design/figma-guide.md)
 
 # ASAK 화면 설계 및 Figma 연동

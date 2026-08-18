@@ -1,5 +1,6 @@
 # ASAK DB 설계 테이블 정의서
 
+> **2026-08-18 Hub:** DB 탭은 원격 ERD를 오래된 스냅샷으로 덮지 않는다. 뷰 정본: [db-view-definition.md](db-view-definition.md). `device_event` 테이블은 코드/ERD에 없음.
 > Notion 05. DB 설계 · MySQL 3NF 22테이블 · `asak-data/seed/manifest.json`
 
 ## ERD (요약)

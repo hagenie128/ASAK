@@ -1,7 +1,7 @@
 # ASAK 프로젝트 2조 회의록
 
 > Status: **CANONICAL**
-> 아래 상태·갭 서술은 **2026-08-07 시점 스냅샷**이며 현재 구현 상태로 해석하지 않습니다.
+> 아래 상태·갭 서술은 **2026-08-07 시점 스냅샷**이며 현재 구현 상태로 해석하지 않습니다. 2026-08-18 일정·주차 표는 유지합니다.
 > Hub 통합본: [`../../wiki/meeting-minutes-weekly.md`](../../wiki/meeting-minutes-weekly.md)
 > 개인/팀 주간 rollup: [`../../../worklog/weekly/`](../../../worklog/weekly/README.md)
 

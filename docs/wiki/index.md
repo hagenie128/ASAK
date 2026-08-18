@@ -33,7 +33,7 @@
 - [DB 테이블](db-table-definition.md)
 - [DB 뷰](db-view-definition.md) ← **메뉴/주문/품절/매출 View**
 - [DevCopilot 허브 점검 2026-07-24](devcopilot-hub-audit-2026-07-24.md)
-- [REST API 명세](rest-api-spec.md) *(legacy path 보존)*
+- [REST API 명세](rest-api-spec.md) ← **CURRENT** · `/api/kiosk/**`, `/api/admin/**`
 - [요구사항](requirements-definition.md)
 - [시나리오](user-scenarios.md)
 - [QA 케이스](qa-test-cases.md)

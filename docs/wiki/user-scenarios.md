@@ -1,4 +1,5 @@
 > Status: **HISTORY**
+> **2026-08-18 Hub:** 시나리오 카드는 workspace 2 사용자 시나리오 탭. SC-015 영수증은 API-019(월별 매출)이 아니다. 멤버십/쿠폰 시나리오는 ARCHIVED.
 > → **정본:** Pack 02·07 · [future-scope](future-scope.md)
 
 # ASAK 사용자 시나리오 명세
