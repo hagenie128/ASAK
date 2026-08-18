@@ -1,13 +1,13 @@
 # ASAK Future Scope and Archived Scope
 
-> 기준일: 2026-07-16. 감사 가능성을 위해 보존되며 MVP 완료 주장에서 제외됩니다.
+> 기준일: 2026-08-18. 감사 가능성을 위해 보존되며 MVP 완료 주장에서 제외됩니다.
 
 | ID / area | Classification | Reason |
 |---|---|---|
-| SCR-023 / receipt output | FUTURE_SCOPE | MVP에 실제 프린터/장치 연동 없음 |
+| SCR-023 / receipt output | 8/17~8/21 최소 IN_SCOPE | 선생님 8/18: `device_event`·콘솔·Spring+React. **실제 프린터는 FUTURE** |
 | SCR-024 / membership and coupon | FUTURE_SCOPE | 멤버십, QR, barcode, 쿠폰 정책은 MVP 밖 |
 | Delivery order type | OUT_OF_SCOPE | 제품 정책은 매장·포장만 허용 |
-| RTOS device APIs | OUT_OF_SCOPE | 하드웨어 연동 evidence 없음 |
+| RTOS 실제 하드웨어 | FUTURE_SCOPE | 보드·펌웨어·실프린터. 8/21 필수는 시뮬/콘솔 연동 |
 | CMS remote monitoring | OUT_OF_SCOPE | 현재 MVP에 포함되지 않음 |
 | Advanced sales charts and forecasts | FUTURE_SCOPE | Sales source/API 미구현 |
 | External TTS and WebSocket | FUTURE_SCOPE | Browser SpeechSynthesis MVP 정책과 외부 연동은 별개 |

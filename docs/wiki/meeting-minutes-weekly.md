@@ -51,6 +51,8 @@
 | W30 | 07-20 ~ 07-26 | mock 완성·백엔드 골격·제출 | [2026-W30.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W30.md) |
 | W31 | 07-27 ~ 08-02 | Admin API·계약 통일·연동 시작 | [2026-W31.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W31.md) |
 | W32 | 08-03 ~ 08-07 | 실연동·관리자 CRUD·문서화 | [2026-W32.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W32.md) |
+| W33 | 08-10 ~ 08-16 | 키오스크 실API·관리자 메뉴 연동 | [2026-W33.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W33.md) |
+| W34 | 08-17 ~ 08-21 | 장치 이벤트/RTOS 연동 | [2026-W34.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W34.md) |
 
 ---
 

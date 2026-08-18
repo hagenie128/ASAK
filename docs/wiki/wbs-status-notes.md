@@ -23,13 +23,15 @@ WBS는 백엔드만이 아니다. 키오스크·관리자·디자인·QA·발표
 
 ## 이번 주 (DONE으로 올리지 말 것)
 
+> 2026-08-18 선생님: 08/21까지 RTOS(적어도 Spring+React). 코드 있음 ≠ DONE.
+
 | 묶음 | ID | Hub 권고 |
 |---|---|---|
+| 장치 이벤트/RTOS | RTOS-DEVICE-001~003 · API-019 | IN_PROGRESS (콘솔·연동 전 DONE 금지) |
 | 키오스크 주문·결제 | 031~034, 069 | IN_PROGRESS (실연동 전 DONE 금지) |
 | 관리자 주문 | 041~043, 070 | IN_PROGRESS |
-| 메뉴·품절·결제·매출 | 044~049 | IN_PROGRESS / TODO |
-| 백엔드 슬라이스 | 052~066 | 화면과 수직으로 |
-| QA·발표 | 072~085 | 근거 없이 DONE/PASS 금지 |
+| 메뉴·품절·결제·매출 | 044~049 | IN_PROGRESS / TODO · 08/24 기능 마감 전 |
+| QA·발표 | 072~085 | 08/24~09/01 · 근거 없이 DONE/PASS 금지 |
 
 계약 키워드: `totalAmount`, `APPROVED`, `EAT_IN`/`TAKE_OUT`, Live=`/orders/live`, `/paymentMethods`.
 
