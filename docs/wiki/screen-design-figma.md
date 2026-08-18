@@ -148,7 +148,7 @@ Figma `kiosk_design` 파일의 DS 프레임. 상세: [kiosk-design-system-index.
 - **구분**: 키오스크 | **단계**: KSD | **상태**: 와이어프레임
 - **설명**: 주문 금액을 확인하고 실제 PG 연동 없이 가상 결제를 진행하는 화면. 승인 대기 중 로딩 상태 필수.
 - **입력**: orderId, paymentMethod, amount
-- **출력**: paymentId, paymentStatus, orderStatus
+- **출력**: paymentId
 - **Figma**: https://www.figma.com/design/iqaoVwFjFE6Zq1WpOVgjeG/kiosk_design?node-id=75-8
 - **요구사항**: FWD-PAY-001, KSD-MEMBER-001 (EXCLUDED), KSD-PAY-001
 - **시나리오**: 가상 결제 완료 시나리오
@@ -177,7 +177,7 @@ Figma `kiosk_design` 파일의 DS 프레임. 상세: [kiosk-design-system-index.
 - **요구사항**: LMIS-ORDER-001, LMIS-ORDER-002, LMIS-ORDER-004
 - **시나리오**: 관리자 주문 목록 확인, 주문 상세 확인 시나리오
 - **API**: API-007
-- **비고**: 주문 상태 변경은 관리자 주문 상세 화면에서 수행한다.
+- **비고**: `READY` 주문은 라이브 보드에서 `대기중`으로 표시되고 준비 시작 버튼이 비활성화된다. 주문 상태 변경은 관리자 주문 상세 화면에서 수행한다.
 
 ## SCR-010 관리자 주문 상세 (LMIS-ORDER-001)
 
