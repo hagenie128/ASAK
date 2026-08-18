@@ -1,6 +1,6 @@
 # ASAK 위키 색인
 
-> 현재 운영 진입점 — **2026-08-07** (WBS 통합본).
+> 현재 운영 진입점 — **2026-08-18** (선생님 남은 일정).
 > **전체 문서 입구:** [START_HERE](../START_HERE.md) · WBS 정본 **[wbs.md](wbs.md)** (`WBS-001`~`085`) · [상태 메모](wbs-status-notes.md).
 
 ## 지금 상태 (먼저)
@@ -16,6 +16,7 @@
 
 ## 계획·스프린트
 
+- [남은 일정 (선생님 8/18)](wbs.md#남은-일정-선생님-2026-08-18)
 - [프론트 3일 WBS](../planning/frontend-wednesday-wbs-2026-07-20.md)
 - [구현 우선순위](../planning/implementation-priority-2026-07-16.md) *(목표 순서 — 현실은 구현 맵)*
 - [정본 계약](../governance/canonical-contract-decisions-2026-07-16.md)
