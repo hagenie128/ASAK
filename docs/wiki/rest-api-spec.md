@@ -24,14 +24,14 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 
 | Hub | Method | Path | 코드 | 상태 |
 |---|---|---|---|---|
-| — | GET | `/api/health` | `HealthController` | 구현 · Bruno health 테스트 있음 |
+| 430 | GET | `/api/health` | `HealthController` | 구현 · Bruno health 테스트 있음 |
 | API-001 | GET | `/api/kiosk/categories` | `UserMenuController` | 구현 · 미검증 |
 | API-002 | GET | `/api/kiosk/menuList` | `UserMenuController` | 구현 · 미검증 |
 | API-003 | GET | `/api/kiosk/menuDetail/{menuId}` | `UserMenuController` | 구현 · 미검증 |
 | API-004 | POST | `/api/kiosk/cart/validate` | `UserOrderController` | 구현 · 미검증 |
 | API-005 | POST | `/api/kiosk/orders` | `UserOrderController` | 구현 · 미검증 |
-| API-006 | POST | `/api/kiosk/payments` | `UserPayController` | 구현 · 키오스크 화면 연결 미확인 |
-| API-014 | GET | `/api/kiosk/payment-methods` | `UserPayController` | 구현 · 화면은 정적 METHODS일 수 있음 |
+| API-006 | POST | `/api/kiosk/payments` | `UserPayController` | 구현 · **계약 불일치:** Kiosk `API_ENDPOINTS.payments`는 `/payments`. `PaymentProcessingPage`는 `createOrder`만 호출하고 `approvePayment`는 미호출 |
+| API-014 | GET | `/api/kiosk/payment-methods` | `UserPayController` | 구현 · `PaymentPage`가 `getPaymenMethods` 호출. JSON 키 `active` (DB `pay_method_cfg.active`. 구 `isEnabled` 폐기) |
 | API-007 | GET | `/api/admin/orders` | `AdminOrderController` | 구현 · 미검증. query: page,size,orderStatus,paymentStatus,orderType,dateFrom,dateTo,keyword |
 | API-022 | GET | `/api/admin/orders/{orderId}` | 동상 | 구현 · 미검증 |
 | API-021 | GET | `/api/admin/orders/live` | 동상 | 구현 · 미검증 |
@@ -39,13 +39,13 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 | API-024 | PATCH | `/api/admin/orders/{orderId}/cancel` | 동상 | 구현 · 미검증 |
 | API-011 | GET | `/api/admin/menus` | `AdminMenuController` | 구현 · query categoryId,keyword,isSoldOut,tagId,page,size,sort |
 | API-023 | GET | `/api/admin/menus/{menuId}` | 동상 | 구현 |
-| — | GET | `/api/admin/menus/categories` | 동상 | 구현 · `/{menuId}`보다 위에 선언 |
-| — | GET | `/api/admin/menus/ingredients` | 동상 | 구현 |
+| 431 | GET | `/api/admin/menus/categories` | 동상 | 구현 · `/{menuId}`보다 위에 선언 |
+| 432 | GET | `/api/admin/menus/ingredients` | 동상 | 구현 |
 | API-012 | POST | `/api/admin/menus` | 동상 | 구현 · 브라우저 E2E 미실행 |
 | API-013 | PATCH | `/api/admin/menus/{menuId}` | 동상 | 구현 · 브라우저 E2E 미실행 |
-| — | DELETE | `/api/admin/menus/{menuId}` | 동상 | 구현 · **soft delete** (`deleted_at`) |
-| — | GET | `/api/admin/opts/groups` | `AdminOptionController` | 구현 |
-| — | GET | `/api/admin/opts/{optionGroupId}` | 동상 | 구현 |
+| 433 | DELETE | `/api/admin/menus/{menuId}` | 동상 | 구현 · **soft delete** (`deleted_at`) |
+| 434 | GET | `/api/admin/opts/groups` | `AdminOptionController` | 구현 |
+| 435 | GET | `/api/admin/opts/{optionGroupId}` | 동상 | 구현 |
 
 `AdminOrderController`의 class mapping은 `"api/admin/orders"`(선행 `/` 없음)다. Spring은 보통 동일하게 `/api/admin/orders`로 붙는다.
 
@@ -82,7 +82,7 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 | API-004 | `{items:[{menuId, quantity, optionItems[{optionItemId,quantity}], excludedIngredientIds}]}` | `totalAmount` 등 |
 | API-005 | `{orderType: EAT_IN\|TAKE_OUT, items:[...]}` | `orderId, orderNo, totalAmount, orderStatus, paymentStatus` |
 | API-006 | `{orderId, paymentMethodCode, idempotencyKey}` | `paymentId, approvedAmount, approvedAt, waitingOrderCount` · 금액은 서버 재계산 |
-| API-014 | — | `{methods:[{methodId, methodCode, methodName, ...}]}` |
+| API-014 | — | `{methods:[{methodId, methodCode, methodName, imageAssetId, imageUrl, description, active, sortOrder}]}` |
 
 ## 관리자 메뉴·옵션
 
