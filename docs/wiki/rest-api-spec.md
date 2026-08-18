@@ -1,283 +1,104 @@
-> Status: **HISTORY**
-> → **정본:** Pack 06·11 API Contract · [정본](../governance/canonical-contract-decisions-2026-07-16.md)
+> Status: **CURRENT**
+> 기준일: **2026-08-18** · 코드: `ASAK-back` Controller 매핑
+> 계약 필드: [정본](../governance/canonical-contract-decisions-2026-07-16.md) · Bruno: `ASAK-back/api/`
+> Hub API 카드: workspace 2 (기존 ID 갱신)
 
 # ASAK REST API 명세서
 
-> API 목록은 Notion DB 참조 — [06. API 명세](https://app.notion.com/p/34651ef04f0b838ca3a481e55eebfb2b)
+모든 서비스 path는 `/api`로 시작한다. JSON은 `camelCase`. DB `snake_case`는 API에 노출하지 않는다.
 
-> Notion 06. API 명세 · API-001~020 · 공통 응답 `{success,status,code,message,data}`
-
-> **2026-07-14 표준:** 모든 서비스 endpoint는 `/api`로 시작하며 JSON property는 `camelCase`다. 제공된 DevCopilot MCP 연결 URL은 서비스 API endpoint가 아니다. DB의 `snake_case` 컬럼명은 API에 노출하지 않는다. 상세 전환 기준은 [2026-07-14 피드백 반영 기준](api-feedback-resolution-2026-07-14.md)을 따른다.
-
-> **Week 5 MVP:** 고객 키오스크 주문 흐름(API-001~006) 완성이 최우선. 장치·멤버십·실결제·상세통계는 후반 확장.
-
-## 작성 체크리스트
-
-- [ ] API ID를 작성했는가?
-- [ ] Method와 URL이 명확한가?
-- [ ] Request Body 또는 Query String 예시가 있는가?
-- [ ] 성공 Response Body 예시가 있는가?
-- [ ] 실패 Response Body 예시가 있는가?
-- [ ] 모든 응답이 `success`, `status`, `code`, `message`, `data` 구조를 따르는가?
-- [ ] 관련 테이블을 적었는가?
-- [ ] 처리 내용을 단계별로 적었는가?
-- [ ] 화면 설계와 연결되는 API인지 확인했는가?
-- [ ] Week 5 MVP 범위 밖 API를 9주 로드맵의 확장 기능으로 분리했는가?
-
-## Part 0 — 공통
-
-### ApiResponse envelope
-
-모든 API 성공/실패 응답은 아래 필드를 포함한다. **비즈니스 payload는 `data`에만** 둔다.
+공통 envelope:
 
 ```json
 { "success": true, "status": 200, "code": "...", "message": "...", "data": {} }
 ```
 
-### 인증·공통 헤더·에러 처리
+- 인증: 현재 Controller에 JWT 검사 없음. `POST /api/admin/login`은 **스텁**.
+- 헤더: `Content-Type: application/json` (POST/PATCH), `Accept: application/json`
+- 에러: HTTP status + `success=false`. 프론트는 `code`로 분기.
+- Git 커밋 ≠ HTTP E2E 통과. 아래 **구현**은 Controller 메서드 존재, **스텁**은 `@RequestMapping`만 있고 메서드 없음.
 
-- Week 5 MVP(API-001~009): 별도 인증 없음. 관리자 API는 후반 JWT/세션 적용 예정.
-- 공통 헤더: `Content-Type: application/json` (POST/PATCH), `Accept: application/json`
-- 에러: HTTP status + `success=false` envelope. `code`로 프론트 분기.
+Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bruno 경로를 우선**한다. 구 path `/api/menus`, `/api/orders`는 폐기.
 
-### envelope 예시
+## 구현된 endpoint (Controller 메서드 있음)
 
-#### API-001 카테고리 목록
+| Hub | Method | Path | 코드 | 상태 |
+|---|---|---|---|---|
+| — | GET | `/api/health` | `HealthController` | 구현 · Bruno health 테스트 있음 |
+| API-001 | GET | `/api/kiosk/categories` | `UserMenuController` | 구현 · 미검증 |
+| API-002 | GET | `/api/kiosk/menuList` | `UserMenuController` | 구현 · 미검증 |
+| API-003 | GET | `/api/kiosk/menuDetail/{menuId}` | `UserMenuController` | 구현 · 미검증 |
+| API-004 | POST | `/api/kiosk/cart/validate` | `UserOrderController` | 구현 · 미검증 |
+| API-005 | POST | `/api/kiosk/orders` | `UserOrderController` | 구현 · 미검증 |
+| API-006 | POST | `/api/kiosk/payments` | `UserPayController` | 구현 · 키오스크 화면 연결 미확인 |
+| API-014 | GET | `/api/kiosk/payment-methods` | `UserPayController` | 구현 · 화면은 정적 METHODS일 수 있음 |
+| API-007 | GET | `/api/admin/orders` | `AdminOrderController` | 구현 · 미검증. query: page,size,orderStatus,paymentStatus,orderType,dateFrom,dateTo,keyword |
+| API-022 | GET | `/api/admin/orders/{orderId}` | 동상 | 구현 · 미검증 |
+| API-021 | GET | `/api/admin/orders/live` | 동상 | 구현 · 미검증 |
+| API-008 | PATCH | `/api/admin/orders/{orderId}/{status}` | 동상 | 구현 · path status=`PREPARING`\|`COMPLETED` · body 없음 |
+| API-024 | PATCH | `/api/admin/orders/{orderId}/cancel` | 동상 | 구현 · 미검증 |
+| API-011 | GET | `/api/admin/menus` | `AdminMenuController` | 구현 · query categoryId,keyword,isSoldOut,tagId,page,size,sort |
+| API-023 | GET | `/api/admin/menus/{menuId}` | 동상 | 구현 |
+| — | GET | `/api/admin/menus/categories` | 동상 | 구현 · `/{menuId}`보다 위에 선언 |
+| — | GET | `/api/admin/menus/ingredients` | 동상 | 구현 |
+| API-012 | POST | `/api/admin/menus` | 동상 | 구현 · 브라우저 E2E 미실행 |
+| API-013 | PATCH | `/api/admin/menus/{menuId}` | 동상 | 구현 · 브라우저 E2E 미실행 |
+| — | DELETE | `/api/admin/menus/{menuId}` | 동상 | 구현 · **soft delete** (`deleted_at`) |
+| — | GET | `/api/admin/opts/groups` | `AdminOptionController` | 구현 |
+| — | GET | `/api/admin/opts/{optionGroupId}` | 동상 | 구현 |
 
-**성공**
+`AdminOrderController`의 class mapping은 `"api/admin/orders"`(선행 `/` 없음)다. Spring은 보통 동일하게 `/api/admin/orders`로 붙는다.
 
-```json
-{
-  "success": true,
-  "status": 200,
-  "code": "CATEGORY_LIST_SUCCESS",
-  "message": "카테고리 목록 조회 성공",
-  "data": [
-    {
-      "categoryId": 231,
-      "name": "신메뉴",
-      "sortOrder": 0
-    },
-    {
-      "categoryId": 236,
-      "name": "샌드위치",
-      "sortOrder": 1
-    },
-    {
-      "categoryId": 233,
-      "name": "샐러디·볼",
-      "sortOrder": 2
-    },
-    {
-      "categoryId": 235,
-      "name": "랩",
-      "sortOrder": 3
-    },
-    {
-      "categoryId": 234,
-      "name": "프로틴",
-      "sortOrder": 5
-    },
-    {
-      "categoryId": 232,
-      "name": "기타",
-      "sortOrder": 8
-    }
-  ]
-}
-```
+## 스텁 (클래스만, 메서드 없음)
 
-**실패**
+| Hub | Method | Path | 비고 |
+|---|---|---|---|
+| API-009 | PATCH | `/api/admin/soldOut` | `AdminSoldOutController` 비어 있음. TODO body `changes[]` |
+| API-010 | GET | `/api/admin/soldOut` | 동상 |
+| API-015 | GET | `/api/admin/paymentMethods` | `AdminPaymentMethodController` 비어 있음 |
+| API-016 | PATCH | `/api/admin/paymentMethods/{methodId}` | 동상 |
+| API-017 | GET | `/api/admin/sales/daily` | `AdminStatsController` TODO |
+| API-018 | GET | `/api/admin/sales/summary` | 동상 |
+| API-019 | GET | `/api/admin/sales/monthly` | 동상 |
+| API-020 | GET | `/api/admin/dashboard` | 동상 |
+| — | POST | `/api/admin/login` | `AdminAuthController` TODO |
 
-```json
-{
-  "success": false,
-  "status": 500,
-  "code": "CATEGORY_LIST_FAILED",
-  "message": "카테고리 목록 조회 중 오류가 발생했습니다.",
-  "data": null
-}
-```
+## 미구현 (명세·요구만, Controller 없음)
 
-#### API-005 주문 생성
+| 요구 | Method | Path | 비고 |
+|---|---|---|---|
+| RTOS-DEVICE-001 | POST | `/api/orders/{orderId}/receipt-print` | 8/21 최소 범위 **결정 필요**. 코드 없음 |
+| RTOS-DEVICE-004~006 | POST | `/api/device/scan` | EXCLUDED |
+| KSD-MEMBER-001 | POST | `/api/membership/stamps` | FUTURE |
+| — | GET | `/api/ui/accessibility-options` | 코드 없음 |
 
-**성공**
+## 키오스크 계약 요약
 
-```json
-{
-  "success": true,
-  "status": 201,
-  "code": "ORDER_CREATE_SUCCESS",
-  "message": "주문 생성 성공",
-  "data": {
-    "orderId": 1,
-    "orderNo": "ASAK-20260703-001",
-    "orderType": "TAKE_OUT",
-    "totalAmount": 8900,
-    "orderStatus": "RECEIVED",
-    "paymentStatus": "READY"
-  }
-}
-```
+| ID | Request | 성공 data 요지 |
+|---|---|---|
+| API-001 | — | `[{categoryId, categoryName, sortOrder, isActive}]` |
+| API-002 | — | `{categories, menus[{menuId, categoryId, name, price, imageUrl, isSoldOut, ...}]}` |
+| API-003 | path menuId | 상세 + `ingredients` + `optionGroups` |
+| API-004 | `{items:[{menuId, quantity, optionItems[{optionItemId,quantity}], excludedIngredientIds}]}` | `totalAmount` 등 |
+| API-005 | `{orderType: EAT_IN\|TAKE_OUT, items:[...]}` | `orderId, orderNo, totalAmount, orderStatus, paymentStatus` |
+| API-006 | `{orderId, paymentMethodCode, idempotencyKey}` | `paymentId, approvedAmount, approvedAt, waitingOrderCount` · 금액은 서버 재계산 |
+| API-014 | — | `{methods:[{methodId, methodCode, methodName, ...}]}` |
 
-**실패**
+## 관리자 메뉴·옵션
 
-```json
-{
-  "success": false,
-  "status": 400,
-  "code": "ORDER_INVALID",
-  "message": "주문 정보가 올바르지 않습니다.",
-  "data": null
-}
-```
+- 삭제: 물리 DELETE가 아니라 `deleted_at`. 주문 이력 FK 유지.
+- 수정: 자식 컬렉션이 `null`이 아니면 교체. `CORE` 재료는 서버에서 제거 불가.
+- 옵션 그룹 요약 필드: `optionGroupId, name, groupType, selectType, minSelect, maxSelect, isRequired, recommendedLabel`
 
-#### API-006 결제 승인
-
-**성공**
-
-```json
-{
-  "success": true,
-  "status": 200,
-  "code": "PAYMENT_APPROVED",
-  "message": "가상 결제가 승인되었습니다.",
-  "data": {
-    "paymentId": 1,
-    "orderId": 1,
-    "orderNo": "ASAK-20260703-001",
-    "approvedAmount": 8900,
-    "paymentStatus": "APPROVED",
-    "approvedAt": "2026-07-03T13:30:00"
-  }
-}
-```
-
-**실패**
-
-```json
-{
-  "success": false,
-  "status": 400,
-  "code": "PAYMENT_AMOUNT_MISMATCH",
-  "message": "결제 금액이 주문 금액과 일치하지 않습니다.",
-  "data": null
-}
-```
-
-#### API-007 관리자 주문 목록
-
-**성공**
-
-```json
-{
-  "success": true,
-  "status": 200,
-  "code": "ADMIN_ORDER_LIST_SUCCESS",
-  "message": "관리자 주문 목록 조회 성공",
-  "data": {
-    "content": [
-      {
-        "orderId": 1,
-        "orderNo": "ASAK-20260703-001",
-        "orderType": "TAKE_OUT",
-        "totalAmount": 8900,
-        "orderStatus": "RECEIVED",
-        "paymentStatus": "APPROVED",
-        "createdAt": "2026-07-03T13:00:00",
-        "items": [
-          {
-            "menuId": 364,
-            "menuName": "스파이시 쉬림프 샌드위치",
-            "quantity": 1,
-            "unitPrice": 8900,
-            "optionItems": [
-              {
-                "optionItemId": 269,
-                "name": "크리미칠리",
-                "quantity": 1
-              }
-            ],
-            "excludedIngredients": [
-              {
-                "ingredientId": 169,
-                "name": "양파"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "totalElements": 1
-  }
-}
-```
-
-**실패**
-
-```json
-{
-  "success": false,
-  "status": 400,
-  "code": "ORDER_STATUS_INVALID",
-  "message": "주문 상태값이 올바르지 않습니다.",
-  "data": null
-}
-```
-
-## 읽기 순서
-
-1. **Part 0 — 공통** — envelope · 인증·헤더·에러
-2. **Part 1 — 고객 키오스크 (Week 5 MVP)** — API-001~006
-3. **Part 2 — 관리자 (Week 6)** — API-007~009
-4. **Part 3 — Week 7~8 확장** — API-010~020
-
-## Part 1 — 고객 키오스크 (Week 5 MVP)
-
-키오스크 흐름: **카테고리 → 메뉴목록 → 메뉴상세 → 옵션 → 주문생성 → 결제**
-
-| ID | Method | Endpoint | Request | Success (전체 envelope, data=payload) | 설명 |
-|----|--------|----------|---------|---------------------------------------|------|
-| API-001 | GET | `/api/categories` | — | `{"success":true,"status":200,"code":"CATEGORY_LIST_SUCCESS","message":"카테고리 목록 조회 성공","data":[{"categoryId":231,"name":"신메뉴","sortOrder":0},{"categoryId":236,"name":"샌드위치","sortOrder":1},{"categoryId":233,"name":"샐러디·볼","sortOrder":2},{"categoryId":235,"name":"랩","sortOrder":3},{"categoryId":234,"name":"프로틴","sortOrder":5},{"categoryId":232,"name":"기타","sortOrder":8}]}` | category 테이블에서 sort_order 기준으로 카테고리 목록 조회 |
-| API-002 | GET | `/api/menus` | categoryId=1 | `{"success":true,"status":200,"code":"MENU_LIST_SUCCESS","message":"메뉴 목록 조회 성공","data":[{"menuId":364,"categoryId":231,"name":"스파이시 쉬림프 샌드위치","price":8900,"imageUrl":"/assets/menu/364.png","baseKcal":464,"isSoldOut":false,"hasSoldOutIngredient":false,"soldOutReason":null,"soldOutBadges":[]}]}` | 카테고리 조건에 따라 ASAK 메뉴 목록을 조회한다. |
-| API-003 | GET | `/api/menus/{menuId}` | menuId=364 | `{"success":true,"status":200,"code":"MENU_DETAIL_SUCCESS","message":"메뉴 상세 조회 성공","data":{"menuId":364,"categoryId":231,"name":"스파이시 쉬림프 샌드위치","price":8900,"imageUrl":"/assets/menu/364.png","description":"케이준 쉬림프, 할라피뇨, 토마토, 슈레드치즈, 화이트치즈 · 기본 드레싱: 크리미칠리","baseKcal":464,"ingredients":[{"ingredientId":155,"name":"케이준쉬림프","canRemove":false,"isSoldOut":false},{"ingredientId":105,"name":"크리미칠리","canRemove":true,"isSoldOut":false},{"ingredientId":377,"name":"화이트치즈","canRemove":true,"isSoldOut":false}],"allergens":[],"allergyText":"","isSoldOut":false,"hasSoldOutIngredient":false,"isOrderable":true,"soldOutReason":null,"soldOutBadges":[]}}` | menuId로 메뉴 조회 |
-| API-004 | GET | `/api/menus/{menuId}/options` | menuId=364 | `{"success":true,"status":200,"code":"MENU_OPTIONS_SUCCESS","message":"메뉴 옵션 조회 성공","data":[{"optionGroupId":240,"name":"드레싱 선택","groupType":"DRESSING","selectType":"SINGLE","minSelect":1,"maxSelect":1,"sortOrder":1,"isRequired":true,"items":[{"optionItemId":269,"ingredientId":105,"name":"크리미칠리","extraPrice":0,"originalPrice":null,"extraKcal":235,"servingAmount":50,"servingUnit":"g","proteinG":0,"iconUrl":null,"colorHex":null,"isRecommended":true,"isDefault":true,"isSoldOut":false},{"optionItemId":247,"ingredientId":219,"name":"(저당) 들기름소이","extraPrice":0,"originalPrice":null,"extraKcal":null,"servingAmount":50,"servingUnit":"g","isRecommended":false,"isDefault":false,"isSoldOut":false}]}]}` | 베이스/드레싱/토핑/세트 옵션 목록 조회 |
-| API-005 | POST | `/api/orders` | {"orderType":"EAT_IN","items":[{"menuId":364,"quantity":1,"o | `{"success":true,"status":201,"code":"ORDER_CREATE_SUCCESS","message":"주문 생성 성공","data":{"orderId":1,"orderNo":"ASAK-20260703-001","orderType":"TAKE_OUT","totalAmount":8900,"orderStatus":"RECEIVED","paymentStatus":"READY"}}` | 장바구니 내용을 기준으로 주문을 생성한다. SCR-005 컨펌 팝업 확인 후 호출. |
-| API-006 | POST | `/api/payments` | {"orderId":1,"paymentMethodCode":"CARD","idempotencyKey":"uuid"} | `{"success":true,"status":200,"code":"PAYMENT_APPROVED","message":"가상 결제가 승인되었습니다.","data":{"paymentId":1,"orderId":1,"orderNo":"ASAK-20260703-001","approvedAmount":8900,"paymentStatus":"APPROVED","approvedAt":"2026-07-03T13:30:00"}}` | 결제 승인 처리 및 결제 정보 저장 |
-
-> **2026-08-06 코드 동기화(Admin):** path는 현재 BE 기준. 품절=`/api/admin/soldOut`, 결제수단=`/api/admin/paymentMethods`, Live=`GET /api/admin/orders/live`. (구 `sold-out-items`·`payment-methods`·`orders/active` 폐기)
-> **2026-08-07 필드 정본:** `totalAmount` · `approvedAmount` · `approvedAt` · `paymentStatus=APPROVED` · `orderType=EAT_IN|TAKE_OUT` · `CANCELED`. (구 `totalPrice`/`PAID`/`paidAt`/`DINE_IN` 예시 폐기)
-
-## Part 2 — 관리자 (Week 6)
-
-| ID | Method | Endpoint | Request | Success (전체 envelope, data=payload) | 설명 |
-|----|--------|----------|---------|---------------------------------------|------|
-| API-007 | GET | `/api/admin/orders` | status=APPROVED | `{"success":true,"status":200,"code":"ADMIN_ORDER_LIST_SUCCESS","message":"관리자 주문 목록 조회 성공","data":{"content":[{"orderId":1,"orderNo":"ASAK-20260703-001","orderType":"TAKE_OUT","totalAmount":8900,"orderStatus":"RECEIVED","paymentStatus":"APPROVED","createdAt":"2026-07-03T13:00:00","items":[{"menuId":364,"menuName":"스파이시 쉬림프 샌드위치","quantity":1,"unitPrice":8900,"optionItems":[{"optionItemId":269,"name":"크리미칠리","quantity":1}],"excludedIngredients":[{"ingredientId":169,"name":"양파"}]}]}],"totalElements":1}}` | 관리자용 주문 목록과 상세 조회. `optionItems`에는 legacy `REQUEST`(빼기) 그룹을 넣지 않고, 실제 제외 재료는 `excludedIngredients`만 사용한다. Live 보드는 `GET /api/admin/orders/live`. 취소는 `PATCH /api/admin/orders/{orderId}/cancel`. |
-| API-008 | PATCH | `/api/admin/orders/{orderId}/{status}` | path: `orderId`, `status` (`PREPARING` 또는 `COMPLETED`), body 없음 | `{"success":true,"status":200,"code":"ADMIN_ORDER_STATUS_CHANGE_SUCCESS","message":"관리자 주문 상태 변경 성공","data":null}` | 관리자가 주문 상태를 변경한다. |
-| API-009 | PATCH | `/api/admin/soldOut` | {"targetType":"MENU","targetId":364,"isSoldOut":true} | `{"success":true,"status":200,"code":"SOLD_OUT_UPDATE_SUCCESS","message":"판매 항목 품절 상태 변경 성공","data":{"targetType":"MENU","targetId":364,"isSoldOut":true}}` | 메뉴/재료/옵션 품절 상태 변경 (BE Controller 스텁·미구현) |
-
-## Part 3 — Week 7~8 확장 (API-010~020)
-
-| ID | Method | Endpoint | REQ | 설명 |
-|----|--------|----------|-----|------|
-| API-010 | GET | `/api/admin/soldOut` | targetType=MENU&keyword= | 품절 처리 대상 목록 조회 (BE 스텁) |
-| API-011 | GET | `/api/admin/menus` | categoryId=1&keyword=&isSoldOut=false | 관리자 메뉴 목록 조회 |
-| API-012 | POST | `/api/admin/menus` | {"categoryId":1,"name":"새 메뉴","price":8900,"imageU | 관리자 메뉴 등록/수정 |
-| API-013 | GET | `/api/kiosk/payment-methods` | — | 키오스크 결제수단 목록 조회 |
-| API-014 | PATCH | `/api/admin/paymentMethods/{methodId}` | {"isEnabled":true,"sortOrder":1} | 관리자 결제수단 노출/정렬 변경 (BE 스텁) |
-| API-015 | GET | `/api/admin/sales/daily` | from=2026-07-01&to=2026-07-31 | 일자별 주문수와 결제금액 조회 |
-| API-016 | POST | `/api/cart/validate` | {"items":[{"menuId":364,"quantity":1,"optionItems" | 장바구니 주문 가능 여부 검증 |
-| API-017 | GET | `/api/ui/accessibility-options` | — | 접근성 옵션 목록 조회 |
-| API-018 | POST | `/api/membership/stamps` | {"orderId":1,"memberId":"M001","confirmStamp":true | 결제 후 스탬프 1회 확인·적립 (SC-006, KSD-MEMBER-001) |
-| API-019 | POST | `/api/orders/{orderId}/receipt-print` | {"orderId":""} | 모의 프린터 출력 요청 (SC-015, Week 5 MVP 제외) |
-| API-020 | POST | `/api/device/scan` | {"scanType":"COUPON","code":"QR123456"} | 쿠폰/멤버십 인식 (SC-016, RTOS-DEVICE-004/005/006) |
-
-## 상태값 (common_code)
+## 상태값
 
 | 구분 | 코드 |
 |------|------|
-| 주문상태 | RECEIVED, PREPARING, COMPLETED |
-| 결제상태 | READY, APPROVED, FAILED |
-| 주문유형 | EAT_IN, TAKE_OUT |
+| 주문 | `RECEIVED`, `PREPARING`, `COMPLETED`, `CANCELED` |
+| 결제 | `READY`, `APPROVED`, `FAILED`, `REFUNDED` |
+| 주문유형 | `EAT_IN`, `TAKE_OUT` |
+| 결제수단 | `CARD`, `KAKAO_PAY`, `NAVER_PAY` · enums에 `TOSS_PAY` 추가됨(**정본 3종과 결정 필요**) |
 
-상세 request/response JSON은 Notion 06. API 명세 본문 참고.
+## Bruno
+
+`ASAK-back/api/kiosk/` · `api/admin/` · `api/health/`. 성공 assert는 health만.
