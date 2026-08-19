@@ -16,28 +16,28 @@
 >
 > `08/17~08/21`의 최우선은 RTOS 최소 연동이다. 이때 RTOS는 Admin과 Kiosk로 나눈 별도 기능이 아니라 **하나의 공통 흐름**으로 다룬다. 대시보드·결제의 앞단/백단 준비는 같은 기간에 병행하고, 기능 완결·피드백 반영·테스트는 `08/24~08/28`에 마감한다.
 
-| 날짜 | 인라인 TODO | 작업 묶음 | 의존 순서·완료 확인 |
-|---|---|---|---|
-| **8/19** | `015~018`, `023` | RTOS 공통 흐름 설계 + 대시보드 백단 | RTOS 이벤트의 단일 흐름(서버 API → 한 React 화면 → 콘솔)을 정하고, 대시보드 summary·dashboard 응답/집계 기준을 확정한다. |
-| **8/20** | `019~025`, `011~012` | **RTOS 테스트 시연 가능 상태 만들기** + 대시보드 앞단 + 결제 백단 | RTOS 이벤트가 React에 보이도록 연결하고, 테스트 시연에 쓸 서버 API·React 표시·콘솔 출력을 한 번 끝까지 재현한다. 대시보드 API 소비 구조와 결제수단 Controller→Service/Mapper를 준비한다. |
-| **8/21 (금)** | `013~014` | **RTOS 테스트 시연** + 결제 앞단 | 새 기능 구현보다 RTOS 테스트 시연을 우선한다. 서버 API → React 표시 → 콘솔 출력 순서로 실제 실행 결과를 보여 주고 확인 항목을 남긴다. 결제수단 API→draft 연결은 시연 후 가능한 범위에서 진행한다. |
-| **8/24** | `015~025` | 대시보드·매출 기능 마감 | `015~018` 집계 API를 확정하고 `019~022` 매출 화면, `023~025` 대시보드 순으로 연결·검증한다. |
-| **8/25** | `011~014` | 결제수단 기능 마감 | `011 → 012 → 013 → 014`의 API·draft·화면 저장과 오류 상태를 검증한다. |
-| **8/26** | `003~010` | 메뉴 잔여·품절 | 메뉴 생성/삭제 잔여를 확인한 뒤 `007 → 008 → 009 → 010` 순서로 품절 API·draft 연결을 완결한다. |
-| **8/27** | `027~037` | 관리자 로그인·보호 경로 | `027 → 028 → 029 → 030` 백단 인증 뒤 `031~035`, 오류 매핑 `037`을 연결한다. |
-| **8/28** | `001`, `038~043` | 환불·영수증 및 통합 QA | 승인 결제 취소·환불 상태 정책을 먼저 결정한다. 미결정이면 구현하지 않고 `결정 필요`로 기록한다. |
-| **8/31~9/01** | 미완료만 | 발표 전 회귀·문서 | 남은 TODO의 구현 여부와 API/화면/DB 검증 결과를 구분해 기록한다. |
+| 날짜 | 인라인 TODO | API 계약 | 작업 묶음 | 의존 순서·완료 확인 |
+|---|---|---|---|---|
+| **8/19** | `015~018`, `023` | `API-017~020` | RTOS 공통 흐름 설계 + 대시보드 백단 | RTOS 이벤트의 단일 흐름(서버 API → 한 React 화면 → 콘솔)을 정하고, 대시보드 summary·dashboard 응답/집계 기준을 확정한다. |
+| **8/20** | `019~025`, `011~012` | `API-017~020`, `API-015·016` | **RTOS 테스트 시연 가능 상태 만들기** + 대시보드 앞단 + 결제 백단 | RTOS 이벤트가 React에 보이도록 연결하고, 테스트 시연에 쓸 서버 API·React 표시·콘솔 출력을 한 번 끝까지 재현한다. 대시보드 API 소비 구조와 결제수단 Controller→Service/Mapper를 준비한다. |
+| **8/21 (금)** | `013~014` | `API-015·016` | **RTOS 테스트 시연** + 결제 앞단 | 새 기능 구현보다 RTOS 테스트 시연을 우선한다. 서버 API → React 표시 → 콘솔 출력 순서로 실제 실행 결과를 보여 주고 확인 항목을 남긴다. 결제수단 API→draft 연결은 시연 후 가능한 범위에서 진행한다. |
+| **8/24** | `015~025` | `API-017~020` | 대시보드·매출 기능 마감 | `015~018` 집계 API를 확정하고 `019~022` 매출 화면, `023~025` 대시보드 순으로 연결·검증한다. |
+| **8/25** | `011~014` | `API-015·016` | 결제수단 기능 마감 | `011 → 012 → 013 → 014`의 API·draft·화면 저장과 오류 상태를 검증한다. |
+| **8/26** | `003~010` | `API-012·013·028`, `API-009·010` | 메뉴 잔여·품절 | 메뉴 생성/삭제 잔여를 확인한 뒤 `007 → 008 → 009 → 010` 순서로 품절 API·draft 연결을 완결한다. |
+| **8/27** | `027~037` | **번호 미연결** (`POST /api/admin/login` 스텁) | 관리자 로그인·보호 경로 | `027 → 028 → 029 → 030` 백단 인증 뒤 `031~035`, 오류 매핑 `037`을 연결한다. |
+| **8/28** | `001`, `038~043` | **번호 미연결** (환불·영수증 계약 결정 필요) | 환불·영수증 및 통합 QA | 승인 결제 취소·환불 상태 정책을 먼저 결정한다. 미결정이면 구현하지 않고 `결정 필요`로 기록한다. |
+| **8/31~9/01** | 미완료만 | — | 발표 전 회귀·문서 | 남은 TODO의 구현 여부와 API/화면/DB 검증 결과를 구분해 기록한다. |
 
 ### 실제 인라인 TODO 묶음과 위치
 
-| 묶음 | TODO | 실제 위치 |
-|---|---|---|
-| 주문 환불·영수증 | `001`, `038~043` | `AdminOrderService`·`AdminOrderController`·`AdminOrderMapper.xml` / `ordersApi.js`·`OrderManagePage.jsx` |
-| 메뉴 잔여 | `003~006` | `AdminMenuController` / `MenuManagePage.jsx`·`MenuEditPanel.jsx` |
-| 품절 | `007~010` | `AdminSoldOutController`·`AdminSoldOutService` / `soldOutApi.js`·`useSoldOutDraft.js` |
-| 결제수단 | `011~014` | `AdminPaymentMethodController`·`AdminPaymentMethodService` / `paymentMethodsApi.js`·`usePaymentMethodDraft.js` |
-| 매출·대시보드 | `015~025` | `AdminStatsController`·`AdminStatsService`·`AdminStatsMapper` / `salesApi.js`·`useSalesQuery.js`·`adminApi.js`·`useDashboard.js` |
-| 로그인·보호 경로 | `027~037` | `AdminAuthController`·`JwtTokenProvider`·`JwtAuthenticationFilter`·`SecurityConfig` / `adminApi.js`·`adminSession.js`·`apiClient.js`·`useAdminAuth.js`·`LoginPage.jsx` |
+| 묶음 | TODO | API 계약 | 실제 위치 |
+|---|---|---|---|
+| 주문 환불·영수증 | `001`, `038~043` | 번호 미연결 · `API-024` 취소와 별도 환불 계약 필요 | `AdminOrderService`·`AdminOrderController`·`AdminOrderMapper.xml` / `ordersApi.js`·`OrderManagePage.jsx` |
+| 메뉴 잔여 | `003~006` | `API-012` POST · `API-013` PATCH · `API-028` DELETE | `AdminMenuController` / `MenuManagePage.jsx`·`MenuEditPanel.jsx` |
+| 품절 | `007~010` | `API-009` PATCH · `API-010` GET | `AdminSoldOutController`·`AdminSoldOutService` / `soldOutApi.js`·`useSoldOutDraft.js` |
+| 결제수단 | `011~014` | `API-015` GET · `API-016` PATCH | `AdminPaymentMethodController`·`AdminPaymentMethodService` / `paymentMethodsApi.js`·`usePaymentMethodDraft.js` |
+| 매출·대시보드 | `015~025` | `API-017` daily · `API-018` summary · `API-019` monthly · `API-020` dashboard | `AdminStatsController`·`AdminStatsService`·`AdminStatsMapper` / `salesApi.js`·`useSalesQuery.js`·`adminApi.js`·`useDashboard.js` |
+| 로그인·보호 경로 | `027~037` | 번호 미연결 · `POST /api/admin/login` 스텁 | `AdminAuthController`·`JwtTokenProvider`·`JwtAuthenticationFilter`·`SecurityConfig` / `adminApi.js`·`adminSession.js`·`apiClient.js`·`useAdminAuth.js`·`LoginPage.jsx` |
 
 ### 일정 해석 메모
 

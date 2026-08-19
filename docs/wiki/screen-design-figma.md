@@ -271,7 +271,7 @@ Figma `kiosk_design` 파일의 DS 프레임. 상세: [kiosk-design-system-index.
 - **요구사항**: LMIS-MENU-004, FWD-MENU-013, FWD-MENU-014, FWD-MENU-015
 - **시나리오**: 관리자의 신규 메뉴 등록
 - **API**: API-012
-- **비고**: 추천 드레싱은 menu_option 기준으로 저장
+- **비고**: 추천 드레싱은 menu_option 기준으로 저장 (2026-08-19 주: `menu_option` 은 현재 DB에 없다. 저장 위치는 `opt_policy_item.recommended`(정책 기본값)와 `menu_opt_override.recommended`(메뉴별 예외)로 나뉜다. [db-table-definition.md](db-table-definition.md) 참고)
 
 ## SCR-018 관리자 결제수단 설정 (LMIS-PAY-001)
 
