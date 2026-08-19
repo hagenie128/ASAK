@@ -3,7 +3,7 @@
 > 작성일: 2026-08-19
 > 대상: `ASAK-back/docs`, `ASAK/docs/wiki`
 > 기준: 운영 DB `asak_db`(`nam3324.synology.me:33338`)의 `SHOW CREATE TABLE` / `SHOW CREATE VIEW` 실측
-> 상태: **테이블 문서 갱신 완료 · 뷰 문서 검증 완료(수정 불필요) · 중앙 wiki 갱신 완료 · 결정 필요 2건**
+> 상태: **테이블·뷰 문서 실측 일치 확인 · 중앙 wiki 갱신 완료 · 04 문서 링크 재연결 완료 · 결정 필요 3건**
 
 ## 1. 왜 했나
 
@@ -106,6 +106,8 @@ FK 는 46개 **전부** 이름이 달랐다. 문서 이름으로 `ALTER TABLE ..
 | ASAK-back | `docs/implementation_guide/04-api-db-implementation.md` | 필드 매핑에 `idempotency_key`·`image_asset_id` 추가, DB 정책 4항목 추가, 정본 링크 추가 | 구현됨 |
 | ASAK | `docs/wiki/db-table-definition.md` | 22테이블·레거시 이름 → 26테이블 실측 기준. ERD 재작성, 이전 이름 열 추가 | 구현됨 |
 | ASAK | `docs/wiki/db-view-definition.md` | 헤더에 2026-08-19 실측 검증 결과 추가 | 검증됨 |
+| ASAK | `docs/wiki/requirements-definition.md` | FWD-MENU-015 의 `menu_option.is_recommended` 에 현재 위치 주석 병기 (원문 보존) | 구현됨 |
+| ASAK | `docs/wiki/screen-design-figma.md` | 274행 "추천 드레싱은 menu_option 기준" 에 주석 병기 (원문 보존) | 구현됨 |
 
 `ASAK-back/docs/MENU_IMAGE_ASSET_FLOW.md` 는 확인 결과 `media_asset` 구조와 FK 이름이
 실측과 정확히 일치해 수정하지 않았다.
@@ -114,43 +116,210 @@ FK 는 46개 **전부** 이름이 달랐다. 문서 이름으로 `ALTER TABLE ..
 
 실제로 실행한 것만 적는다.
 
+최종 상태(8절의 `vw_order_live` 적용 및 9절 링크 재연결 이후).
+
 ```text
 python docs/tools/schema_sync.py verify
 [테이블] 문서를 SHOW CREATE 형태로 되돌려 실제와 비교
   결과: 완전 일치 (테이블 26개)
 [뷰] 정의 토큰 비교
-  결과: 일치 20개 / 표기 차이 2개
-[뷰] 표기가 다른 뷰는 실제로 실행해 결과가 같은지 확인
+  결과: 일치 20개 / 괄호 표기 차이 2개 / 정의 차이 0개
+[뷰] 괄호만 다른 뷰는 실제로 실행해 결과가 같은지 확인
   OK  vw_menu_list — 행 72/72, 체크섬 동일
   OK  vw_menu_opt_policy_json — 행 324/324, 체크섬 동일
 최종: 문서가 실제와 일치한다
 ```
 
-`git diff --check` 공백 오류 없음. 04 문서에서 추가·수정한 상대 링크 8개 대상 존재 확인.
+`git diff --check` 공백 오류 없음. 04 문서 상대 링크 15개 전수 검사 결과 깨진 링크 0개.
 
 API 실행 검증, 화면 검증은 하지 않았다. 이번 범위는 문서와 DB 스키마 대조다.
 
-## 6. 결정 필요
+## 6. 2차 작업 — 결정 필요 3건 후속 처리
 
-**(1) 레거시 `menu_option` / `menu_option_group` 의 현재 대응 테이블**
+1차에서 남긴 3건을 이어서 처리했다.
 
-시드 manifest 의 `menu_option`(9,166건)과 `menu_option_group`(467건)이 현재 어느 테이블로
-갔는지 확정하지 못했다. 옵션 구조는 `menu_opt_policy → opt_policy → opt_policy_item → opt_item`
-으로 재편됐고 `menu_opt_override` 가 추가됐으나, 두 레거시 테이블이 이 중 어디로 어떻게
-나뉘었는지 마이그레이션 기록을 찾지 못했다. 시드를 다시 만들 계획이 있으면 먼저 정리해야 한다.
-`db-table-definition.md` 에 `결정 필요` 로 남겼다.
+### (1) 레거시 `menu_option` / `menu_option_group` — 해결
 
-**(2) 신규 5개 테이블의 연계 REQ**
+요구사항 정의서와 뷰 SQL 에 근거가 있었다.
 
-`ing_nutr`, `opt_policy`, `opt_policy_item`, `menu_opt_override`, `media_asset` 은 요구사항 ID 를
-확인하지 못해 `— (미확인)` 으로 뒀다. 요구사항 정의서와 대조해 채워야 한다.
+`FWD-MENU-015` 가 레거시 컬럼을 직접 지목한다 — "메뉴별로 다른 추천 드레싱을
+`menu_option.is_recommended` 기준으로 표시한다." 그리고 `vw_menu_opt_resolved` 가 현재 구조를
+보여준다.
 
-**(3) 범위 밖이지만 낡은 문서 — 이번에 고치지 않음**
+```sql
+COALESCE(mo.recommended, opi.recommended) AS recommended
+COALESCE(mo.is_default,  opi.is_default)  AS is_default
+COALESCE(mo.sort_no,     opi.sort_no)     AS sort_no
+COALESCE(mo.active,      opi.active)      AS active
+LEFT JOIN menu_opt_override mo ON mo.menu_id = mop.menu_id AND mo.opt_item_id = opi.opt_item_id
+```
 
-`ASAK-back/docs/implementation_guide/04-api-db-implementation.md` 의 "실제 연결 상태" 표는
-기준일 2026-07-23 으로, `Controller/Service/Mapper` 를 "패키지와 빈 클래스 존재", "SQL은 아직 없음"
-으로 적고 있다. 실제로는 `UserPayService` 등 결제·주문 로직이 구현돼 있어 사실과 다르다.
-이번 요청 범위(스키마 동기화) 밖이라 손대지 않았다. 별도로 갱신할 것.
+`menu_option` 이 담던 4개 값이 **공통 정책 기본값 `opt_policy_item` + 메뉴별 예외
+`menu_opt_override`** 로 분해됐다. 9,166건 → 1,469건 + 76건. `menu_option_group`(467건) →
+`menu_opt_policy`(1,454건), 근거는 FK 이름 `fk_menu_option_policy_menu` / `_policy`.
+
+이후 `asak-data/seed-v3/` 의 레거시 스냅샷으로도 확증했다. 10절 참고.
+(1차 작성 시 "asak-data 가 워크스페이스에 없다"고 적었으나 틀렸다. 같은 저장소 안에 있다.)
+
+### (2) 연계 REQ — 재매핑함. 기존 매핑에 오류가 있었다
+
+신규 5개만 비어 있는 게 아니라 **기존 매핑 자체가 여럿 틀려 있었다.**
+
+| 테이블 | 이전 판의 REQ | 그 REQ 의 실제 내용 |
+|---|---|---|
+| `ing`, `menu_ing`, `opt_group`, `opt_item`, `menu_opt_policy` | FWD-MENU-003 | "메뉴 대표 이미지 제공" — 재료·옵션과 무관 |
+| `menu_option` | FWD-MENU-004 | "알레르기/비건 태그 확인" — 옵션과 무관 |
+| `code_group`, `common_code` | KSD-ARCH-001 | "데이터는 Spring Boot를 통해서만 접근" — 비기능 요구 |
+
+`tag`=FWD-MENU-013, `allergen`/`ing_allergen`=FWD-MENU-008, `menu_nutr`=FWD-MENU-009,
+`item_exclusion`=FWD-MENU-007, `opt_item_comp`=LMIS-MENU-006 은 정확했다.
+
+`requirements-definition.md` 의 요구사항 내용과 대조해 26개를 다시 매핑했다. 근거가 강한 것만
+확정하고 나머지는 `후보:` 로 표시했다. 확정한 것 중 근거가 뚜렷한 예:
+
+- `media_asset` → FWD-MENU-003 "메뉴 대표 이미지 제공"
+- `menu_opt_override`, `opt_policy_item` → FWD-MENU-015 (`recommended` 보유)
+- `pay_method_cfg` → LMIS-PAY-001 "결제 수단 설정 관리"
+- `payment` → FWD-PAY-002 · KSD-PAY-001 "결제 데이터 무결성 보장"
+
+`code_group`, `common_code` 는 대응하는 요구사항이 없어 비워뒀다.
+
+### (3) 04 문서 "실제 연결 상태" 표 — 코드 확인 후 갱신함
+
+2026-08-19 기준 코드로 확인한 실제 상태로 표를 다시 썼다. 파일 존재와 내용 기준이며 실행 검증은
+하지 않았다.
+
+| 항목 | 이전 판 | 실제 |
+|---|---|---|
+| `ApiResponse<T>` | "필드 구조만 존재, factory·Controller 적용 필요" | 5필드 envelope + `success()` factory 구현. Controller 13개 중 10개 사용 |
+| Controller/Service/Mapper | "빈 클래스 존재, SQL은 아직 없음" | Controller 13(9개 매핑 보유), Service 10(`UserOrderService` 471줄 등), Mapper XML 10개 중 7개에 SQL 70문 |
+| Bruno `api/` | 24개 | 37개 |
+| 예외 처리 | (항목 없음) | `ErrorCode`, `GlobalExceptionHandler` 구현됨 |
+
+`AdminPaymentMethodMapper`, `AdminSoldOutMapper`, `DeviceEventMapper` 3개 XML 은 여전히 비어 있어
+표에 명시했다. (작업 중 커밋 `f0d9c09` 로 `AdminStatsMapper` 가 `AdminSalesMapper` 로 바뀌며
+SQL 4문이 채워졌고, `ErrorCode` 도 51개에서 53개가 됐다. 04 문서 수치는 53개 기준으로 맞췄다.)
+
+## 7. 업무 코드 규칙 — 문자열로 확정
+
+04 문서를 고치다 발견했다. "업무 코드 규칙" 절은 API 의 `code` 를 `"0000"`, `"1001"` 같은
+**숫자 코드**로 반환한다고 적고 있으나, 실제 코드는 문자열 상수를 쓴다.
+
+```java
+// ErrorCode.java
+INVALID_OPTION_SELECTION("INVALID_OPTION_SELECTION", HttpStatus.BAD_REQUEST, ...)
+IDEMPOTENCY_KEY_CONFLICT("IDEMPOTENCY_KEY_CONFLICT", HttpStatus.CONFLICT, ...)
+
+// ApiResponse.java 주석
+// code는 API별 의미 있는 문자열을 쓴다. (레거시 "0000" 숫자 코드 사용 안 함)
+```
+
+근거가 될 `devcopilot-api-alignment-2026-07-23.md` 는 저장소에 없고, 숫자 코드 규칙을 담은 문서도
+04 문서 하나뿐이었다(`ASAK/docs/wiki`, `docs/governance` 전체 검색). 반면 구현은 53개 코드가
+모두 문자열로 일관돼 있고 프론트도 그 값으로 분기한다.
+
+**2026-08-19 확정: 업무 코드는 문자열이다.** 04 문서의 숫자 코드 규칙을 폐기 처리하고, 문자열
+규칙과 응답 예시, `ErrorCode.java` 정본 링크, 새 오류 추가 절차로 다시 썼다. 폐기된 숫자 매핑은
+이력으로 남겨 뒀다.
+
+## 8. `vw_order_live` 에 READY 포함 — 적용 완료
+
+2차 작업 마무리 검증에서 문서와 실제의 차이로 잡혔다가, 확인 결과 **의도한 변경**이었고
+운영 DB 적용까지 끝났다. 1차 보고의 "뷰 22개 일치"는 적용 전 시점 기준이라 이 건에 한해 틀렸다.
+
+주방 보드가 결제 대기(`READY`) 주문도 보여주도록 `vw_order_live` 의 상태 필터를 4곳 모두 넓혔다.
+
+```sql
+WHERE st.code IN ('RECEIVED','PREPARING','READY')
+```
+
+`ASAK-back/docs/view.sql` 은 커밋 `3fc21b5` 에서 먼저 바뀌었고, 이후 운영 DB에도 적용됐다.
+2026-08-19 재덤프 후 `verify` 결과 정의 차이 0개. 보드에 READY 3건이 함께 잡히는 것도 확인했다
+(PREPARING 9 · RECEIVED 1 · READY 3 = 13행).
+
+참고로 `common_code` 에 `READY` 코드가 두 개 있다(id 14, id 51 — 둘 다 이름이 "결제 대기").
+코드 그룹이 달라 `(code_grp_id, code)` UNIQUE 는 지켜지지만, 상태 필터를 코드 문자열로 거는
+뷰에서는 어느 그룹을 뜻하는지 모호해질 수 있다. **확인 필요.**
+
+### 도구도 함께 고쳤다
+
+이 건을 `schema_sync.py verify` 초기 버전이 **"표기 차이"로 잘못 통과시켰다.** 두 SQL 의 실행
+결과(행 수·체크섬)가 현재 데이터에서 우연히 같았기 때문이다. 실행 비교는 "지금 데이터에서 결과가
+같다"만 보일 뿐 "정의가 같다"를 보이지 못한다.
+
+차이를 두 종류로 나누도록 고쳤다.
+
+- **괄호 표기 차이** — 차이나는 토큰이 전부 `(` `)` 인 경우만. 이때만 실행 비교로 확인한다.
+- **정의 차이** — 리터럴·식별자가 다르면 실행 결과와 무관하게 불일치로 판정하고 종료코드 1.
+
+수정 후 결과:
+
+```text
+[뷰] 정의 토큰 비교
+  결과: 일치 19개 / 괄호 표기 차이 2개 / 정의 차이 1개
+  !! 정의가 다르다: vw_order_live (괄호 외 토큰이 다름)
+최종: 차이가 있다. diff 를 실행할 것
+```
+
+## 9. 04 문서의 깨진 링크 6개 — 5개 재연결, 1개는 대체 없음
+
+링크 검사에서 대상 파일이 없는 링크 6개가 나왔다. `product_bible` 이 두 커밋에 걸쳐 평탄화·통합되면서
+(`70ca782` 평탄화 → `c0b743d` 통합) `order/`, `payment/`, `menu/`, `01-common/`, `03-backend/`
+하위 폴더와 `*_API_CONTRACT.md` 파일이 사라졌다.
+
+통합본이 `## 원문:` 절로 출처를 밝히고 있어 이를 근거로 대응을 확정했다. 추정이 아니다.
+
+| 옛 경로 | 현재 경로 | 근거 |
+|---|---|---|
+| `02_Order_Cart_Payment/order/ORDER_API_CONTRACT.md` | `02_Order_Cart_Payment/ORDER_BIBLE.md` | 해당 파일 L16 `## 원문:` |
+| `02_Order_Cart_Payment/payment/PAYMENT_API_CONTRACT.md` | `02_Order_Cart_Payment/PAYMENT_BIBLE.md` | L17 |
+| `03_Menu_Inventory_SoldOut/menu/MENU_API_CONTRACT.md` | `03_Menu_Inventory_SoldOut/MENU_BIBLE.md` | L16 |
+| `06_Engineering_Bible/03-backend/VALIDATION_AND_EXCEPTION_RULES.md` | `06_Engineering_Bible/BACKEND_ENGINEERING_RULES.md` | L543 |
+| `11_Backend_Implementation/01-common/EXCEPTION_IMPLEMENTATION.md` | `11_Backend_Implementation/BACKEND_COMMON_IMPLEMENTATION.md` | L60 |
+
+`governance/devcopilot-api-alignment-2026-07-23.md` 는 커밋 `63277c2` 에서 35줄이 삭제됐고
+대체 문서가 없다. 링크를 지우고 그 사실과 함께 "5필드 계약은 `ApiResponse` 구현이 정본"임을 적었다.
+
+04 문서 링크 15개 전수 재검사 결과 깨진 링크 0개.
+
+## 10. `asak-data` 는 ASAK 저장소 안에 있었다 — 앞선 기록 정정
+
+6절 (1) 에 "`asak-data` 저장소가 이 워크스페이스에 없어 확인하지 못했다"고 적었으나 틀렸다.
+`ASAK/asak-data/` 로 같은 저장소 안에 있다. 확인한 내용은 다음과 같다.
+
+**옵션 재편 대응이 시드 데이터로 확증됐다.** `asak-data/seed-v3/` 는 short-name 정본 시드이고
+레거시 스냅샷을 파일로 남겨 뒀다.
+
+| 파일 | 건수 |
+|---|---|
+| `menu_opt_legacy_20260710.json` | 9,166 (레거시 `menu_option`) |
+| `menu_opt_grp_legacy_20260710.json` | 467 (레거시 `menu_option_group`) |
+| `opt_policy.json` | 82 |
+| `opt_policy_item.json` | 734 |
+| `menu_opt_policy.json` | 279 |
+| `menu_opt_override.json` | 0 |
+
+파일명의 `20260710` 이 재편 시점이다. 뷰 SQL 로 추론했던 대응이 시드로도 확인됐다. 다만 재편 SQL
+스크립트 자체는 `asak-data/scripts/migrations/` 에 없다(그 폴더에는 2026-08-11~12 것만 있다).
+
+신규 테이블 두 개의 출처도 찾았다.
+
+- `ing_nutr` ← `20260811_split_ing_nutrition.sql`
+- `media_asset` ← `20260812_create_media_asset.sql`
+
+**시드 수치 표에 문제가 있다.** `db-table-definition.md` 의 "시드 manifest 수치 (v2)" 표가
+실제 manifest 어느 쪽과도 일치하지 않는다.
+
+| 항목 | 문서 표 | `seed/manifest.json` (v2) | `seed-v3/manifest.json` |
+|---|---|---|---|
+| `menu` | 84 | 50 | 73 |
+| `menu_ingredient` | 578 | 347 | 405 |
+| `menu_option_group` | 467 | 279 | 467 (legacy) |
+| `menu_option` | 9,166 | 5,449 | 9,166 (legacy) |
+| `category` | 6 | 6 | 8 |
+
+옵션 두 항목만 v3 legacy 와 같고 나머지는 v2 와 섞여 있다. 어느 시점 기준인지 확정되지 않아
+수치는 그대로 두고 비교표를 주석으로 덧붙였다. **확정 필요.**
 
 ## 7. 주의
 

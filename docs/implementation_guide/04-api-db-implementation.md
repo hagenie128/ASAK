@@ -1,60 +1,128 @@
-# API·DB 공통 규칙
+# API·DB 구현 규칙
 
-> 화면별 URL·request·response는 이미 [Kiosk 기능 가이드](02-kiosk-implementation.md), [Admin 기능 가이드](03-admin-implementation.md)에 붙어 있다.
-> 이 문서는 **여러 화면에서 공통으로 쓰는 처리 규칙만** 찾는 곳이다.
+> 상태: Current · 기준일: 2026-08-19 (이전 기준일 2026-07-23)
 
-## 현재 연결 상태
+## 실제 연결 상태
 
-| 사실 | 구현할 때의 처리 |
+2026-08-19에 코드로 확인한 상태다. 파일 존재와 내용 기준이며 실행·응답 검증은 하지 않았다.
+
+| 항목 | 현재 상태 | 작업 시 주의 |
+| --- | --- | --- |
+| `ApiResponse<T>` | 5필드 envelope + `success()` factory 구현됨. Controller 13개 중 10개가 사용 | `code`는 숫자가 아니라 문자열 상수다. 아래 "업무 코드 규칙" 항목 참고 |
+| 예외 처리 | `ErrorCode`, `GlobalExceptionHandler` 구현됨 | 오류 코드 정본은 `ErrorCode.java` |
+| Controller | 13개. 9개가 매핑 annotation 보유 | 나머지는 골격 상태일 수 있으니 파일을 직접 확인 |
+| Service | 10개. 주문·결제·메뉴 로직 구현됨 (`UserOrderService` 471줄, `AdminMenuService` 279줄, `UserPayService` 206줄) | 금액 계산 정본은 `UserOrderService.validateAndPriceItems()` |
+| Mapper XML | 10개 중 6개에 SQL 있음(총 66문). `AdminPaymentMethodMapper`, `AdminSoldOutMapper`, `AdminStatsMapper`, `DeviceEventMapper` 4개는 **비어 있음** | 해당 4개 영역은 아직 SQL 없음 |
+| Bruno `api/` | 요청 37개 | 구현된 API와 미구현 API가 섞여 있으니 개별 확인 |
+| MyBatis | `mapper-locations: classpath:/mappers/**/*.xml` 설정됨 | — |
+| DB 설정 | 외부 MySQL 접속 정보와 `ddl-auto=none` | 스키마를 코드가 자동 변경하지 않는다. 실제 컬럼은 `docs/아삭_mysql.sql` 실측본으로 확인 |
+
+## 목표 API 범위
+
+| 영역 | API |
 | --- | --- |
-| Backend 실제 원격은 `nayeon0828/ASAK-backend`이며, Kiosk 메뉴/카테고리 조회·장바구니 검증과 Admin 메뉴/주문 조회는 코드 경로가 있다 | 각 endpoint는 Controller→Service→MyBatis Mapper까지 존재하지만, 실DB·Bruno 응답은 별도 검증 전이다. |
-| 주문 생성은 validation 뒤 `null`을 반환하고, 결제·상태변경/취소·품절·결제수단·매출/대시보드 mapping은 없다 | Front는 이를 완료 API로 연결하지 않는다. 저장·응답 DTO·오류 응답·Bruno 검증까지 같은 세로 슬라이스에서 끝낸다. |
-| API 계약은 `SPEC_ONLY`/Draft가 포함됨 | Backend 구현 시 원본 계약을 확정하고 Front adapter를 연결한다. |
-| 기존 frontend mock 필드가 다름 | 기존 store를 한꺼번에 바꾸지 않고 API 경계에서 변환한다. |
+| Kiosk | categories, menuList, menuDetail, cart validate, orders, payments, payment methods |
+| Admin 주문 | active orders, list, detail, status update, cancel/refund |
+| Admin 메뉴 | menu list/detail/create/update, sold-out |
+| Admin 운영 | payment methods, dashboard, sales daily/summary/monthly |
 
-## 모든 API에서 공통으로 처리할 것
+정확한 URL과 API 번호는 [기능 구현 매트릭스](08-feature-implementation-matrix.md) 및 `api/` Bruno 요청을 기준으로 한다.
 
-### 응답을 화면에 넘기는 방식
+## 공통 응답·오류의 기존 정의
+
+이 항목은 새 정책이 아니라 다음 정본을 구현 단계에 맞춰 연결한 것이다.
+
+- [DevCopilot API 정리 기준](../../../ASAK/docs/governance/devcopilot-api-alignment-2026-07-23.md): 이 저장소에 적용할 `{ success, status, code, message, data }` 계약과 현재 API 목록
+- [예외 구현 기준](../../../ASAK/docs/product_bible/11_Backend_Implementation/01-common/EXCEPTION_IMPLEMENTATION.md): `ErrorCode`, `BusinessException`, `GlobalExceptionHandler`의 구현 골격
+- [검증·예외 규칙](../../../ASAK/docs/product_bible/06_Engineering_Bible/03-backend/VALIDATION_AND_EXCEPTION_RULES.md): Bean Validation/Service 검증/DB 제약의 역할과 400·404·409 기준
+
+`ApiResponse`, `GlobalExceptionHandler`, `ErrorCode`는 2026-08-19 기준 구현돼 있다(위 표 참고). `API_DESIGN_RULES.md`의 3필드 예시는 2026-07-23 정렬 문서의 5필드 계약과 다르므로, 구현 시에는 후자를 적용하고 차이를 남긴다.
+
+### 업무 코드 규칙
+
+**업무 `code`는 문자열 상수다.** (2026-08-19 확정)
+
+HTTP `status`는 전송 결과(`400`/`404`/`409` 등)이고, 업무 `code`는 프론트가 오류를 구분하는 값이다.
+둘은 역할이 다르다. `409` 하나가 메뉴 품절·옵션 품절·주문 상태 충돌·멱등성 키 충돌을 모두 가리키므로,
+프론트는 `status`가 아니라 `code`로 분기해 화면 안내를 정한다.
 
 ```json
-{"success": true, "status": 200, "code": "OK", "message": "OK", "data": {}}
+{
+  "success": false,
+  "status": 409,
+  "code": "IDEMPOTENCY_KEY_CONFLICT",
+  "message": "이미 다른 결제 요청에 사용된 멱등성 키입니다.",
+  "data": null
+}
 ```
 
-- API client가 envelope를 한 번만 벗기고, 화면은 필요한 `data`만 받는다.
-- 실패 때도 `status`, `code`, `message`, `data`를 버리지 않는다.
-- Entity를 그대로 JSON으로 반환하지 않는다. Controller는 DTO validation, Service는 가격·품절·상태 전이·멱등성을 맡는다.
+- `code` 값은 `ErrorCode` enum 상수 이름과 같은 문자열이다. `MENU_SOLD_OUT`, `CART_EMPTY`,
+  `IDEMPOTENCY_KEY_CONFLICT` 처럼 읽어서 뜻이 통해야 한다.
+- **정본은 [`ErrorCode.java`](../../src/main/java/com/asak/common/exception/ErrorCode.java)다.**
+  2026-08-19 기준 51개이며 장바구니·메뉴·옵션 검증 / 주문 / 결제 / 매출 네 묶음으로 나뉜다.
+  HTTP status 분포는 `CONFLICT` 17, `NOT_FOUND` 13, `BAD_REQUEST` 12, `INTERNAL_SERVER_ERROR` 11.
+- 새 오류를 추가할 때는 `ErrorCode` 에 상수를 넣고 `CustomException` 으로 던진다.
+  `GlobalExceptionHandler` 가 `ApiResponse.error(errorCode)` 로 위 형태의 응답을 만든다.
+- 잡히지 않은 예외는 `500` + `code: "INTERNAL_SERVER_ERROR"` 로 나간다.
 
-### 오류별 공통 행동
+> **폐기된 규칙:** 이전 판은 `code` 값을 `"0000"`, `"1001"`, `"2001"` 같은 숫자로 쓰라고 적었고
+> 옵션 `1001`, 메뉴 `2001`~`2002`, 주문 `3001`~`3003`, 결제 `4001`~`4003` 매핑을 실었다.
+> 구현은 그 규칙을 따르지 않았고(`ApiResponse` 주석: `레거시 "0000" 숫자 코드 사용 안 함`),
+> 근거가 될 `devcopilot-api-alignment-2026-07-23.md` 도 저장소에 없다. 숫자 코드는 쓰지 않는다.
 
-| 상황 | 화면 행동 |
-| --- | --- |
-| `401` | 로그인/세션 만료를 안내한다. |
-| `403` | 권한 없음을 알리고 무의미한 재시도는 숨긴다. |
-| `409` | 최신 데이터를 다시 받고 충돌·가격 변경을 안내한다. |
-| network / `5xx` | 입력값·필터·장바구니를 남기고 재시도한다. |
-| `MENU_SOLD_OUT`, `OPTION_ITEM_SOLD_OUT` | 해당 항목만 표시하고 수정·삭제로 복구한다. |
-| `PAYMENT_IN_PROGRESS`, `PAYMENT_ALREADY_APPROVED` | 결제를 다시 만들지 말고 현재 결과를 조회한다. |
+## 필드·DB 매핑
 
-### 기존 mock과 목표 API를 연결하는 이름
-
-| 목표 API | 기존 mock/store에서 보일 수 있는 값 | 경계에서 맞출 이름 |
+| DB | API DTO | 비고 |
 | --- | --- | --- |
-| `menuName` | `name` | `menuName` |
-| `basePrice` | `price` | `basePrice` |
-| `calories` | `baseKcal` | `calories` |
-| `additionalAmount` | `extraPrice` | `additionalAmount` |
-| `totalAmount` | `totalPrice` | 기존 store에는 `totalPrice` 유지 가능 |
-| `approvedAmount` | `amount` | 기존 결제 상태에는 `amount` 유지 가능 |
-| `approvedAt` | `paidAt` | 기존 결제 상태에는 `paidAt` 유지 가능 |
+| `orders.total_price` | `totalAmount` | 요청 금액이 아닌 서버 계산 결과 |
+| `payment.amount` | `approvedAmount` | 승인/환불 규칙과 함께 처리 |
+| `payment.paid_at` | `approvedAt` | 승인 시각 |
+| `orders.canceled_at` | `canceledAt` | 주문 취소 시각 |
+| `payment.refunded_at` | `refundedAt` | 승인 결제 환불 시각 |
+| `menu.cat_id` | `categoryId` | `categoryCode` 사용 금지 |
+| `menu.sold_out` | `isSoldOut` | 메뉴 판매 가능 여부 |
+| `category.sort_no` | `sortOrder` | 탭/목록 정렬 |
+| `category.active` | `isActive` | 카테고리 노출 여부 |
+| `payment.idempotency_key` | `idempotencyKey` | 결제 승인 요청 필드. 저장 후 UNIQUE로 중복 결제 차단 |
+| `menu.image_asset_id` | `mediaAssetId` | `media_asset` FK. 조회 URL은 `media_asset.url` |
 
-<details>
-<summary>원본 API 계약이 필요할 때만 열기</summary>
+## 실제 DB 정책
 
-- [Canonical Contract Decisions](../governance/canonical-contract-decisions-2026-07-16.md)
-- [Kiosk Frontend Data Contract](../../../ASAK-Kiosk/src/contracts/api-data-contract.md)
-- [Menu API Contract](../product_bible/03_Menu_Inventory_SoldOut/MENU_BIBLE.md)
-- [Order API Contract](../product_bible/02_Order_Cart_Payment/ORDER_BIBLE.md)
-- [Payment API Contract](../product_bible/02_Order_Cart_Payment/PAYMENT_BIBLE.md)
-- [Menu Management API Contract](../product_bible/03_Menu_Inventory_SoldOut/MENU_MANAGEMENT_BIBLE.md)
-- [Sales API Contract](../product_bible/04_Dashboard_Sales_Kitchen_TTS/SALES_BIBLE.md)
-</details>
+> 컬럼·기본값·제약조건의 정본은 [`docs/아삭_mysql.sql`](../아삭_mysql.sql)이다. 운영 DB 실측본이며
+> [`docs/tools/schema_sync.py`](../tools/README.md)로 재생성·검증한다. 문서와 실제가 어긋난 적이 있으므로
+> 컬럼을 기억이나 옛 문서로 가정하지 말 것 (2026-08-19 대조 내역: [`docs/2026-08-19_schema_doc_drift.md`](../2026-08-19_schema_doc_drift.md)).
+
+- 옵션 조회 경로는 `menu_opt_policy → opt_policy → opt_policy_item → opt_item`이다. `menu_option`은 레거시 명칭이다.
+- 재료 제외와 선택 옵션은 `item_exclusion`, `order_item`, `order_item_option`에 저장한다.
+- 결제수단과 상태 코드는 `pay_method_cfg`, `common_code`를 사용한다.
+- 결제 승인은 `payment.idempotency_key`(`VARCHAR(64) NOT NULL UNIQUE`, DB 기본값 없음)로 멱등성을 보장한다. 클라이언트가 요청마다 UUID를 보내고 서버가 저장한다. 같은 키인데 `order_id`나 결제수단이 다르면 `IDEMPOTENCY_KEY_CONFLICT`(409)다. 수동 INSERT 시 이 컬럼을 빠뜨리면 `Field 'idempotency_key' doesn't have a default value`로 실패한다.
+- 이미지는 `media_asset`에 모으고 `menu.image_asset_id`, `ing.icon_asset_id`, `ing.photo_asset_id`, `pay_method_cfg.image_asset_id`가 참조한다. 메뉴 조회는 `media_asset`을 `LEFT JOIN`한다. 배경은 [`MENU_IMAGE_ASSET_FLOW.md`](../MENU_IMAGE_ASSET_FLOW.md) 참고.
+- `orders.order_no`와 `payment.order_id`는 UNIQUE다. 주문번호 중복 발급과 한 주문의 이중 결제 행을 DB가 막는다.
+- 외래키 제약 이름은 옛 테이블 이름을 쓰는 것이 많다(`fk_ingredient_type`, `fk_payment_method_config_method` 등). `DROP FOREIGN KEY` 시 테이블명에서 유추하지 말고 실측본을 확인한다.
+- 매출 API는 `vw_sales_daily`, `vw_sales_hourly`, `vw_top_menu_daily`, `vw_top_menu_hourly`를 읽기 원본으로 사용한다.
+- 전액 환불의 순매출은 0이어야 하며, 취소/환불 주문은 인기 메뉴 집계에서 제외한다.
+- `menu.active`는 실제 DB에 없으므로 새 필드로 가정하지 않는다.
+
+## 구현 전·후 체크
+
+1. DB에 실제 컬럼/뷰와 테스트 데이터가 있는지 확인한다.
+2. request DTO에 Bean Validation과 오류 코드 규칙을 정한다.
+3. Service에서 금액, 품절, 상태 전이, 트랜잭션 경계를 구현한다.
+4. Mapper XML은 파라미터와 result mapping을 DTO 기준으로 명시한다.
+5. 성공, 400 검증 오류, 404 없음, 409 충돌, 5xx 예외 응답을 Bruno로 확인한다.
+
+## 정본 링크
+
+> **2026-08-19 확인:** 아래 `product_bible/` 링크 4개와 `governance/devcopilot-api-alignment-2026-07-23.md`
+> 는 대상 파일이 없어 **깨져 있다.** `product_bible` 이 평탄화 재구성되면서 `order/`, `payment/`,
+> `menu/`, `01-common/`, `03-backend/` 하위 폴더가 사라진 것으로 보인다
+> (예: `02_Order_Cart_Payment/` 아래에 지금은 `ORDER_BIBLE.md`, `PAYMENT_BIBLE.md` 가 있다).
+> 어느 문서가 옛 계약 문서를 이어받았는지 확인되지 않아 임의로 바꾸지 않았다. 별도 정리 필요.
+
+- [테이블 DDL 실측본](../아삭_mysql.sql) · [뷰 정의](../view.sql) · [동기화 도구](../tools/README.md)
+- [중앙 테이블 정의서](../../../ASAK/docs/wiki/db-table-definition.md) · [중앙 뷰 정의서](../../../ASAK/docs/wiki/db-view-definition.md)
+- [API 계약 Bruno 안내](../../api/README.md)
+- [메뉴 API 계약](../../../ASAK/docs/product_bible/03_Menu_Inventory_SoldOut/menu/MENU_API_CONTRACT.md)
+- [주문 API 계약](../../../ASAK/docs/product_bible/02_Order_Cart_Payment/order/ORDER_API_CONTRACT.md)
+- [결제 API 계약](../../../ASAK/docs/product_bible/02_Order_Cart_Payment/payment/PAYMENT_API_CONTRACT.md)
+- [정본 계약 결정](../../../ASAK/docs/governance/canonical-contract-decisions-2026-07-16.md)

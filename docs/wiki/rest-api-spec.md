@@ -24,7 +24,7 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 
 | Hub | Method | Path | 코드 | 상태 |
 |---|---|---|---|---|
-| 430 | GET | `/api/health` | `HealthController` | 구현 · Bruno health 테스트 있음 |
+| API-025 | GET | `/api/health` | `HealthController` | 구현 · Bruno health 테스트 있음 |
 | API-001 | GET | `/api/kiosk/categories` | `UserMenuController` | 구현 · 미검증 |
 | API-002 | GET | `/api/kiosk/menuList` | `UserMenuController` | 구현 · 미검증 |
 | API-003 | GET | `/api/kiosk/menuDetail/{menuId}` | `UserMenuController` | 구현 · 미검증 |
@@ -39,13 +39,13 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 | API-024 | PATCH | `/api/admin/orders/{orderId}/cancel` | 동상 | 구현 · 미검증 |
 | API-011 | GET | `/api/admin/menus` | `AdminMenuController` | 구현 · query categoryId,keyword,isSoldOut,tagId,page,size,sort |
 | API-023 | GET | `/api/admin/menus/{menuId}` | 동상 | 구현 |
-| 431 | GET | `/api/admin/menus/categories` | 동상 | 구현 · `/{menuId}`보다 위에 선언 |
-| 432 | GET | `/api/admin/menus/ingredients` | 동상 | 구현 |
+| API-026 | GET | `/api/admin/menus/categories` | 동상 | 구현 · `/{menuId}`보다 위에 선언 |
+| API-027 | GET | `/api/admin/menus/ingredients` | 동상 | 구현 |
 | API-012 | POST | `/api/admin/menus` | 동상 | 구현 · 브라우저 E2E 미실행 |
 | API-013 | PATCH | `/api/admin/menus/{menuId}` | 동상 | 구현 · 브라우저 E2E 미실행 |
-| 433 | DELETE | `/api/admin/menus/{menuId}` | 동상 | 구현 · **soft delete** (`deleted_at`) |
-| 434 | GET | `/api/admin/opts/groups` | `AdminOptionController` | 구현 |
-| 435 | GET | `/api/admin/opts/{optionGroupId}` | 동상 | 구현 |
+| API-028 | DELETE | `/api/admin/menus/{menuId}` | 동상 | 구현 · **soft delete** (`deleted_at`) |
+| API-029 | GET | `/api/admin/opts/groups` | `AdminOptionController` | 구현 |
+| API-030 | GET | `/api/admin/opts/{optionGroupId}` | 동상 | 구현 |
 
 `AdminOrderController`의 class mapping은 `"api/admin/orders"`(선행 `/` 없음)다. Spring은 보통 동일하게 `/api/admin/orders`로 붙는다.
 
