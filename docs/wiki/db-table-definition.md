@@ -112,8 +112,24 @@ erDiagram
 
 ## 시드 manifest 수치 (v2)
 
-아래는 `asak-data/seed/manifest.json` 기준이며 **레거시 테이블 이름과 시드 시점 건수**다.
-운영 DB의 현재 행 수와는 다르다. 실제 건수가 필요하면 운영 DB를 직접 조회한다.
+아래는 **레거시 테이블 이름과 시드 시점 건수**다. 운영 DB의 현재 행 수와는 다르다.
+실제 건수가 필요하면 운영 DB를 직접 조회한다.
+
+> **주의 (2026-08-19):** 이 표의 수치가 실제 시드 manifest 어느 쪽과도 일치하지 않는다.
+> 여러 버전이 섞여 있다.
+>
+> | 항목 | 이 표 | `seed/manifest.json` (v2) | `seed-v3/manifest.json` |
+> |---|---|---|---|
+> | `menu` | 84 | 50 | 73 |
+> | `menu_ingredient` / `menu_ing` | 578 | 347 | 405 |
+> | `menu_option_group` | 467 | 279 | 467 (legacy 스냅샷) |
+> | `menu_option` | 9,166 | 5,449 | 9,166 (legacy 스냅샷) |
+> | `category` | 6 | 6 | 8 |
+> | `ingredient_allergen` / `ing_allergen` | 108 | 108 | 119 |
+>
+> 옵션 두 항목은 v3 의 legacy 스냅샷과 같고 나머지는 v2 와 섞여 있다. 어느 시점 기준인지
+> 확정되지 않아 수치는 그대로 뒀다. 시드 건수가 필요하면 이 표 대신
+> `asak-data/seed/manifest.json` 또는 `asak-data/seed-v3/manifest.json` 을 직접 볼 것.
 
 | 엔티티 | 건수 |
 |--------|------|
@@ -159,12 +175,34 @@ COALESCE(mo.active,      opi.active)      AS active
 표시한다"고 적혀 있다. 지금 읽을 곳은 `menu_opt_override.recommended`(없으면
 `opt_policy_item.recommended`)다.
 
+시드 데이터가 이 대응을 그대로 보여준다. `asak-data/seed-v3/` 는 short-name 정본 시드이며
+레거시 스냅샷을 파일로 남겨 뒀다.
+
+| seed-v3 파일 | 건수 | 뜻 |
+|---|---|---|
+| `menu_opt_legacy_20260710.json` | 9,166 | 레거시 `menu_option` 스냅샷 |
+| `menu_opt_grp_legacy_20260710.json` | 467 | 레거시 `menu_option_group` 스냅샷 |
+| `opt_policy.json` | 82 | 재편 후 정책 |
+| `opt_policy_item.json` | 734 | 재편 후 정책별 옵션 항목 |
+| `menu_opt_policy.json` | 279 | 재편 후 메뉴-정책 연결 |
+| `menu_opt_override.json` | 0 | 재편 시점에는 예외 없음 |
+
+파일명의 `20260710` 이 재편 시점이다. 옵션 구조 재편 자체의 SQL 스크립트는
+`asak-data/scripts/migrations/` 에 없다(그 폴더에는 2026-08-11~12 의 영양정보 분리·미디어 자산
+마이그레이션만 있다). 구조 대응은 위 시드와 `vw_menu_opt_resolved` 로 확인되므로 읽기·구현에는
+문제가 없다.
+
+### 신규 테이블의 출처
+
+| 테이블 | 마이그레이션 |
+|---|---|
+| `ing_nutr` | `asak-data/scripts/migrations/20260811_split_ing_nutrition.sql` (재료에서 영양정보 분리) |
+| `media_asset` | `asak-data/scripts/migrations/20260812_create_media_asset.sql` |
+
 ### 결정 필요
 
-옛 9,166건이 실제로 어떤 규칙으로 정책과 예외로 나뉘었는지, 데이터 이관 스크립트나 기록은 찾지
-못했다. 구조 대응은 위와 같이 확인됐으므로 읽기·구현에는 문제가 없다. 다만 **시드를 처음부터 다시
-만들 계획이 있다면** 정책 분류 기준을 먼저 정해야 한다. `asak-data` 저장소가 이 워크스페이스에
-없어 `seed/manifest.json` 과 마이그레이션 스크립트를 직접 확인하지 못했다.
+**시드를 처음부터 다시 만들 계획이 있다면** 9,166건을 정책 82개와 항목 734개로 나눈 분류 기준을
+먼저 정해야 한다. 결과 데이터는 남아 있으나 그 규칙을 적용한 스크립트가 없다.
 
 `code_group`, `common_code` 는 연계 REQ 를 찾지 못했다. 이전 판은 `KSD-ARCH-001` 로 적었으나
 그 요구사항은 "데이터는 Spring Boot를 통해서만 접근"이라는 비기능 항목이라 공통코드 테이블과
