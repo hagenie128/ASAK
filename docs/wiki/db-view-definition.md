@@ -3,6 +3,11 @@
 > 기준일: 2026-07-24 · 실DB `asak_db` · DDL/주석 원본: [`ASAK-back/docs/view.sql`](https://github.com/nayeon0828/ASAK-backend/blob/main/docs/view.sql)
 > DevCopilot ERD(워크스페이스 2)와 동기화. 매출 4종은 `asak-data/scripts/create_sales_views_mysql.py` 원본.
 >
+> **2026-08-19 실측 검증:** 운영 DB의 `SHOW CREATE VIEW` 와 대조한 결과 뷰 22개가 실제와 일치했다.
+> 이 문서에 적힌 22개가 실제 뷰 전부이며 누락·잉여가 없다. 20개는 정의가 토큰 단위까지 같았고,
+> `vw_menu_list`·`vw_menu_opt_policy_json` 2개는 `view.sql` 이 조인 괄호를 가독성 때문에 생략한
+> 표기 차이뿐이라 실행 결과(행 수·체크섬·컬럼 순서)가 같음을 확인했다. 22개 모두 정상 조회되고
+> `backup_*` 테이블을 참조하는 뷰는 없다. 재검증: `ASAK-back/docs/tools/schema_sync.py verify`
 > 2026-07-24 확인: 저장소 안 로컬 스냅샷(`devcopilot-db-live-2026-07-22.json`)은 short-name 마이그레이션 이전 기록이라 오래됐지만, 실제 DevCopilot 허브(workspace 2)는 이미 short-name·`canceled_at`/`refunded_at` 전부 최신 상태로 확인됨. 로컬 스냅샷 파일만 오래된 것이고 허브 자체는 문제없음.
 
 뷰는 **읽기 전용 읽기 모델(read model)** 이다. 앱/API는 조인·집계·품절 판정을 뷰에 맡기고, 쓰기(INSERT/UPDATE)는 베이스 테이블만 사용한다.
