@@ -3,7 +3,7 @@
 > 작성일: 2026-08-19
 > 대상: `ASAK-back/docs`, `ASAK/docs/wiki`
 > 기준: 운영 DB `asak_db`(`nam3324.synology.me:33338`)의 `SHOW CREATE TABLE` / `SHOW CREATE VIEW` 실측
-> 상태: **테이블·뷰 문서 실측 일치 확인 · 중앙 wiki 갱신 완료 · 04 문서 링크 재연결 완료 · 결정 필요 3건**
+> 상태: **문서 동기화 완료 · DB 변경 3건 반영·검증 완료(11절) · 업무 판단 대기 항목 있음**
 
 ## 1. 왜 했나
 
@@ -155,8 +155,13 @@ LEFT JOIN menu_opt_override mo ON mo.menu_id = mop.menu_id AND mo.opt_item_id = 
 ```
 
 `menu_option` 이 담던 4개 값이 **공통 정책 기본값 `opt_policy_item` + 메뉴별 예외
-`menu_opt_override`** 로 분해됐다. 9,166건 → 1,469건 + 76건. `menu_option_group`(467건) →
-`menu_opt_policy`(1,454건), 근거는 FK 이름 `fk_menu_option_policy_menu` / `_policy`.
+`menu_opt_override`** 로 분해됐다. 9,166건 → `opt_policy` 82행 + `opt_policy_item` 734행이며
+`menu_opt_override` 는 현재 0행이다. `menu_option_group`(467건) → `menu_opt_policy`(324행),
+근거는 FK 이름 `fk_menu_option_policy_menu` / `_policy`.
+
+> **정정(2026-08-19):** 이 문단에 처음 적었던 "1,469건 + 76건", "menu_opt_policy 1,454건" 은
+> `SHOW CREATE TABLE` 의 `AUTO_INCREMENT` 값을 행 수로 잘못 읽은 것이다. AUTO_INCREMENT 는 다음
+> 발급 번호일 뿐이다. 실측 행 수는 `COUNT(*)` 기준으로 위와 같다.
 
 이후 `asak-data/seed-v3/` 의 레거시 스냅샷으로도 확증했다. 10절 참고.
 (1차 작성 시 "asak-data 가 워크스페이스에 없다"고 적었으나 틀렸다. 같은 저장소 안에 있다.)
@@ -321,7 +326,71 @@ WHERE st.code IN ('RECEIVED','PREPARING','READY')
 옵션 두 항목만 v3 legacy 와 같고 나머지는 v2 와 섞여 있다. 어느 시점 기준인지 확정되지 않아
 수치는 그대로 두고 비교표를 주석으로 덧붙였다. **확정 필요.**
 
-## 7. 주의
+## 11. DB 실제 변경 기록 (2026-08-19)
+
+조사에서 그친 것이 아니라 아래 세 건은 실제로 반영했다. 모두 백업 후 실행하고 검증했다.
+
+### 11-1. `vw_order_live` 에 READY 포함
+
+8절 참고. 주방 보드가 결제 대기 주문도 보여주도록 상태 필터를 넓혔다. 운영 DB 적용 확인.
+
+### 11-2. 중복 옵션 42쌍 통합
+
+`opt_item` 에 같은 그룹·같은 이름이 두 벌씩 있고 둘 다 같은 정책에 연결돼 있어, 고객 화면에 같은
+옵션이 두 번 노출되고 있었다((메뉴,옵션) 조합 2,925건).
+
+| 테이블 | 전 | 후 |
+|---|---|---|
+| `opt_item` | 157 | 115 |
+| `opt_policy_item` | 734 | 626 |
+| `order_item_option` | 349,157 | 346,845 |
+
+주문 이력 101,019행을 남길 id 로 이관했고, 한 주문에 두 옵션이 함께 담겼던 충돌 2,312행은
+삭제했다. **`orders.total_price` 합계 948,785,200 은 변하지 않았다.** 무결성 검증 5종 모두 0.
+
+재발 방지로 `opt_item` 에 `UNIQUE (opt_group_id, name)` 을 걸었다. 상세 경위와 검증 쿼리는
+`ASAK-back/docs/2026-08-19_duplicate_option_cleanup_plan.md`.
+
+**부작용 하나와 보정.** 충돌 행 삭제가 "금액에 영향 없다"고 판단했으나 틀렸다. 그 판단은
+`order_item.price` 에 옵션이 반영돼 있지 않다는 관찰(98.6%)에 근거했는데, 그 수치는 시드가 만든
+것이고 **2026-08 의 실제 주문은 옵션을 제대로 반영하고 있었다.** 규칙 일치가 33,932 → 33,895 로
+37건 줄었다. 삭제된 41행의 수량을 남은 id 에 합산해 33,932 로 되돌렸고, 2026-08 아이템 1,962개가
+전부 규칙에 맞는 것을 확인했다(백업 `backup_20260819_oio_before_qty_fix`).
+
+시드와 실제 데이터가 섞인 테이블에서 "영향 없음"을 전체 비율로 판단하면 안 된다는 교훈이 남았다.
+
+### 11-3. 영양정보·재료량 결측 채우기
+
+영양성분표 PDF `nutrition_260813` 과 `ing_nutr.serving_g` 를 근거로 `NULL` 인 칸만 채웠다.
+**기존 값은 한 행도 덮지 않았다**(PDF 가 DB 기준인 CSV 8/12 보다 최신이라 45건이 다르지만,
+어느 쪽이 정본인지 확정되지 않아 손대지 않았다).
+
+| 대상 | 결과 |
+|---|---|
+| `menu_nutr` kcal 결측 | 15 → 1 (생수 330ml 만 남음. 물이라 PDF 에 없다) |
+| `menu_nutr` serving_g 결측 | 27 → 4 |
+| `menu_ing.quantity` 결측 | 330 → 73 |
+
+`menu_ing` 은 남은 73행이 `ing_nutr.serving_g` 자체가 없는 재료(채소, 곡물, 통밀 치아바타 등)라
+근거가 없다. `quantity = 0.00` 인 24행도 그대로 뒀다 — 실제 값인지 결측인지 확정이 필요하다.
+
+### 11-4. 남긴 백업
+
+| 테이블 | 행수 |
+|---|---|
+| `backup_20260819_opt_item_before_merge` | 157 |
+| `backup_20260819_opt_policy_item_before_merge` | 734 |
+| `backup_20260819_order_item_option_before_merge` | 349,157 |
+| `backup_20260819_opt_dedupe_map` | 42 (keep_id ↔ drop_id 매핑) |
+| `backup_20260819_menu_nutr_before_pdf_fill` | 73 |
+| `backup_20260819_menu_ing_before_serving_g` | 411 |
+
+며칠 운영해 보고 문제가 없으면 정리한다. 매핑 테이블은 어느 옵션이 어디로 합쳐졌는지에 대한
+유일한 기록이라 오래 두는 편이 낫다.
+
+`docs/아삭_mysql.sql` 은 UNIQUE 제약 추가를 반영해 재생성했고 `verify` 로 실제와 일치함을 확인했다.
+
+## 12. 주의
 
 DB `nam3324.synology.me:33338/asak_db` 는 **팀 공용**이다. 로컬 사본이 아니다.
 `schema_sync.py` 는 읽기 전용으로 막아뒀지만, 다른 작업으로 쓰기를 할 때는 백업과 승인이 필요하다.

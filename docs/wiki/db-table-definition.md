@@ -1,5 +1,10 @@
 # ASAK DB 설계 테이블 정의서
 
+> **2026-08-19 옵션 중복 정리:** `opt_item` 에 같은 그룹·같은 이름이 두 벌씩(42쌍) 있던 것을
+> 하나로 합쳤다. 157행 → **115행**. 주문 이력은 남긴 id 로 이관해 잃지 않았고 주문 총액도 변하지
+> 않았다. 재발을 막으려고 `UNIQUE (opt_group_id, name)` 을 걸었다.
+> 경위와 검증: `ASAK-back/docs/2026-08-19_duplicate_option_cleanup_plan.md`
+>
 > **2026-08-19 실측 동기화:** 운영 DB(`asak_db`)에서 `SHOW CREATE TABLE` 로 직접 읽어 갱신했다.
 > 실제 테이블은 **26개**이며, 이전 판의 "22테이블"과 레거시 테이블 이름은 short-name 마이그레이션
 > 이전 기준이라 실제와 달랐다. DDL 정본: `ASAK-back/docs/아삭_mysql.sql` ·
@@ -75,7 +80,7 @@ erDiagram
 | 15 | `opt_policy_item` | 정책에 속한 옵션 항목. `(policy_id, opt_item_id)` UNIQUE. `recommended` 기본값 | FWD-MENU-015 | `menu_option` 의 공통 기본값 부분 |
 | 16 | `menu_opt_policy` | 메뉴-옵션정책 연결. `(menu_id, policy_id)` UNIQUE | 후보: FWD-MENU-002 · FWD-MENU-010 | `menu_option_policy` (시드의 `menu_option_group`) |
 | 17 | `menu_opt_override` | 메뉴별 옵션 항목 오버라이드. `(menu_id, opt_item_id)` UNIQUE. `recommended` 예외값 | FWD-MENU-015 | `menu_option` 의 메뉴별 예외 부분 |
-| 18 | `opt_item` | 옵션 선택 항목. `add_price` 추가금. `sold_out` 보유 | FWD-MENU-010 · LMIS-MENU-001 | `option_item` |
+| 18 | `opt_item` | 옵션 선택 항목. `add_price` 추가금. `sold_out` 보유. `(opt_group_id, name)` UNIQUE | FWD-MENU-010 · LMIS-MENU-001 | `option_item` |
 | 19 | `opt_item_comp` | 세트 옵션 구성품 | LMIS-MENU-006 | `option_item_component` |
 | 20 | `media_asset` | 이미지 자산(Cloudinary 등). `(provider_id, public_id)` UNIQUE | FWD-MENU-003 | — (신규) |
 | 21 | `pay_method_cfg` | 결제수단 설정. `method_id` UNIQUE, `image_asset_id` FK | LMIS-PAY-001 · FWD-PAY-001 | `payment_method_config` |
@@ -167,9 +172,14 @@ COALESCE(mo.active,      opi.active)      AS active
 -- opi = opt_policy_item (정책 기본값), mo = menu_opt_override (메뉴별 예외)
 ```
 
-정책으로 공통화하고 예외만 남긴 결과 9,166건이 `opt_policy_item` 1,469건 + `menu_opt_override`
-76건 규모로 줄었다. `menu_option_group`(467건)은 `menu_opt_policy`(1,454건)에 해당한다.
+정책으로 공통화하고 예외만 남긴 결과 9,166건이 `opt_policy` 82건 + `opt_policy_item` 734건으로
+줄었고, 메뉴별 예외를 담는 `menu_opt_override` 는 현재 **0행**이다(아직 예외가 없다는 뜻이며,
+구조상 필요할 때 쓰인다). `menu_option_group`(467건)은 `menu_opt_policy`(324행)에 해당한다.
 외래키 이름 `fk_menu_option_policy_menu` / `_policy` 가 근거다.
+
+> 행 수는 2026-08-19 운영 DB 실측이다. `SHOW CREATE TABLE` 의 `AUTO_INCREMENT` 값은 다음 발급
+> 번호일 뿐 행 수가 아니다(`opt_policy_item` 은 AUTO_INCREMENT 1469 / 실제 734행). 행 수가
+> 필요하면 반드시 `COUNT(*)` 로 확인할 것.
 
 `FWD-MENU-015` 는 아직 "메뉴별로 다른 추천 드레싱을 `menu_option.is_recommended` 기준으로
 표시한다"고 적혀 있다. 지금 읽을 곳은 `menu_opt_override.recommended`(없으면
