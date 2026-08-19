@@ -3,7 +3,7 @@
 > 작성일: 2026-08-19
 > 대상: `ASAK-back/docs`, `ASAK/docs/wiki`
 > 기준: 운영 DB `asak_db`(`nam3324.synology.me:33338`)의 `SHOW CREATE TABLE` / `SHOW CREATE VIEW` 실측
-> 상태: **테이블 문서 갱신 완료 · 뷰 문서 검증 완료(수정 불필요) · 중앙 wiki 갱신 완료 · 결정 필요 2건**
+> 상태: **테이블·뷰 문서 실측 일치 확인 · 중앙 wiki 갱신 완료 · 04 문서 링크 재연결 완료 · 결정 필요 3건**
 
 ## 1. 왜 했나
 
@@ -116,19 +116,21 @@ FK 는 46개 **전부** 이름이 달랐다. 문서 이름으로 `ALTER TABLE ..
 
 실제로 실행한 것만 적는다.
 
+최종 상태(8절의 `vw_order_live` 적용 및 9절 링크 재연결 이후).
+
 ```text
 python docs/tools/schema_sync.py verify
 [테이블] 문서를 SHOW CREATE 형태로 되돌려 실제와 비교
   결과: 완전 일치 (테이블 26개)
 [뷰] 정의 토큰 비교
-  결과: 일치 20개 / 표기 차이 2개
-[뷰] 표기가 다른 뷰는 실제로 실행해 결과가 같은지 확인
+  결과: 일치 20개 / 괄호 표기 차이 2개 / 정의 차이 0개
+[뷰] 괄호만 다른 뷰는 실제로 실행해 결과가 같은지 확인
   OK  vw_menu_list — 행 72/72, 체크섬 동일
   OK  vw_menu_opt_policy_json — 행 324/324, 체크섬 동일
 최종: 문서가 실제와 일치한다
 ```
 
-`git diff --check` 공백 오류 없음. 04 문서에서 추가·수정한 상대 링크 8개 대상 존재 확인.
+`git diff --check` 공백 오류 없음. 04 문서 상대 링크 15개 전수 검사 결과 깨진 링크 0개.
 
 API 실행 검증, 화면 검증은 하지 않았다. 이번 범위는 문서와 DB 스키마 대조다.
 
@@ -156,9 +158,8 @@ LEFT JOIN menu_opt_override mo ON mo.menu_id = mop.menu_id AND mo.opt_item_id = 
 `menu_opt_override`** 로 분해됐다. 9,166건 → 1,469건 + 76건. `menu_option_group`(467건) →
 `menu_opt_policy`(1,454건), 근거는 FK 이름 `fk_menu_option_policy_menu` / `_policy`.
 
-남은 것은 구조 대응이 아니라 데이터 이관 기록뿐이다. `asak-data` 저장소가 이 워크스페이스에 없어
-`seed/manifest.json` 과 마이그레이션 스크립트는 확인하지 못했다. 시드를 처음부터 다시 만들 계획이
-있을 때만 문제가 된다.
+이후 `asak-data/seed-v3/` 의 레거시 스냅샷으로도 확증했다. 10절 참고.
+(1차 작성 시 "asak-data 가 워크스페이스에 없다"고 적었으나 틀렸다. 같은 저장소 안에 있다.)
 
 ### (2) 연계 REQ — 재매핑함. 기존 매핑에 오류가 있었다
 
@@ -191,12 +192,13 @@ LEFT JOIN menu_opt_override mo ON mo.menu_id = mop.menu_id AND mo.opt_item_id = 
 | 항목 | 이전 판 | 실제 |
 |---|---|---|
 | `ApiResponse<T>` | "필드 구조만 존재, factory·Controller 적용 필요" | 5필드 envelope + `success()` factory 구현. Controller 13개 중 10개 사용 |
-| Controller/Service/Mapper | "빈 클래스 존재, SQL은 아직 없음" | Controller 13(9개 매핑 보유), Service 10(`UserOrderService` 471줄 등), Mapper XML 10개 중 6개에 SQL 66문 |
+| Controller/Service/Mapper | "빈 클래스 존재, SQL은 아직 없음" | Controller 13(9개 매핑 보유), Service 10(`UserOrderService` 471줄 등), Mapper XML 10개 중 7개에 SQL 70문 |
 | Bruno `api/` | 24개 | 37개 |
 | 예외 처리 | (항목 없음) | `ErrorCode`, `GlobalExceptionHandler` 구현됨 |
 
-`AdminPaymentMethodMapper`, `AdminSoldOutMapper`, `AdminStatsMapper`, `DeviceEventMapper`
-4개 XML 은 여전히 비어 있어 표에 명시했다.
+`AdminPaymentMethodMapper`, `AdminSoldOutMapper`, `DeviceEventMapper` 3개 XML 은 여전히 비어 있어
+표에 명시했다. (작업 중 커밋 `f0d9c09` 로 `AdminStatsMapper` 가 `AdminSalesMapper` 로 바뀌며
+SQL 4문이 채워졌고, `ErrorCode` 도 51개에서 53개가 됐다. 04 문서 수치는 53개 기준으로 맞췄다.)
 
 ## 7. 업무 코드 규칙 — 문자열로 확정
 
@@ -213,7 +215,7 @@ IDEMPOTENCY_KEY_CONFLICT("IDEMPOTENCY_KEY_CONFLICT", HttpStatus.CONFLICT, ...)
 ```
 
 근거가 될 `devcopilot-api-alignment-2026-07-23.md` 는 저장소에 없고, 숫자 코드 규칙을 담은 문서도
-04 문서 하나뿐이었다(`ASAK/docs/wiki`, `docs/governance` 전체 검색). 반면 구현은 51개 코드가
+04 문서 하나뿐이었다(`ASAK/docs/wiki`, `docs/governance` 전체 검색). 반면 구현은 53개 코드가
 모두 문자열로 일관돼 있고 프론트도 그 값으로 분기한다.
 
 **2026-08-19 확정: 업무 코드는 문자열이다.** 04 문서의 숫자 코드 규칙을 폐기 처리하고, 문자열
@@ -259,28 +261,65 @@ WHERE st.code IN ('RECEIVED','PREPARING','READY')
 최종: 차이가 있다. diff 를 실행할 것
 ```
 
-## 9. 덤으로 발견 — 04 문서의 정본 링크 6개가 깨져 있다
+## 9. 04 문서의 깨진 링크 6개 — 5개 재연결, 1개는 대체 없음
 
-링크 검사에서 나왔다. 대상 파일이 존재하지 않는다.
+링크 검사에서 대상 파일이 없는 링크 6개가 나왔다. `product_bible` 이 두 커밋에 걸쳐 평탄화·통합되면서
+(`70ca782` 평탄화 → `c0b743d` 통합) `order/`, `payment/`, `menu/`, `01-common/`, `03-backend/`
+하위 폴더와 `*_API_CONTRACT.md` 파일이 사라졌다.
 
-```text
-ASAK/docs/governance/devcopilot-api-alignment-2026-07-23.md
-ASAK/docs/product_bible/02_Order_Cart_Payment/order/ORDER_API_CONTRACT.md
-ASAK/docs/product_bible/02_Order_Cart_Payment/payment/PAYMENT_API_CONTRACT.md
-ASAK/docs/product_bible/03_Menu_Inventory_SoldOut/menu/MENU_API_CONTRACT.md
-ASAK/docs/product_bible/06_Engineering_Bible/03-backend/VALIDATION_AND_EXCEPTION_RULES.md
-ASAK/docs/product_bible/11_Backend_Implementation/01-common/EXCEPTION_IMPLEMENTATION.md
-```
+통합본이 `## 원문:` 절로 출처를 밝히고 있어 이를 근거로 대응을 확정했다. 추정이 아니다.
 
-`product_bible` 이 평탄화 재구성되면서 `order/`, `payment/`, `menu/`, `01-common/`, `03-backend/`
-하위 폴더가 사라진 것으로 보인다. 지금 `02_Order_Cart_Payment/` 아래에는 `ORDER_BIBLE.md`,
-`PAYMENT_BIBLE.md`, `CART_BIBLE.md` 가 있고 `11_Backend_Implementation/` 아래에는
-`BACKEND_COMMON_IMPLEMENTATION.md` 가 있다.
+| 옛 경로 | 현재 경로 | 근거 |
+|---|---|---|
+| `02_Order_Cart_Payment/order/ORDER_API_CONTRACT.md` | `02_Order_Cart_Payment/ORDER_BIBLE.md` | 해당 파일 L16 `## 원문:` |
+| `02_Order_Cart_Payment/payment/PAYMENT_API_CONTRACT.md` | `02_Order_Cart_Payment/PAYMENT_BIBLE.md` | L17 |
+| `03_Menu_Inventory_SoldOut/menu/MENU_API_CONTRACT.md` | `03_Menu_Inventory_SoldOut/MENU_BIBLE.md` | L16 |
+| `06_Engineering_Bible/03-backend/VALIDATION_AND_EXCEPTION_RULES.md` | `06_Engineering_Bible/BACKEND_ENGINEERING_RULES.md` | L543 |
+| `11_Backend_Implementation/01-common/EXCEPTION_IMPLEMENTATION.md` | `11_Backend_Implementation/BACKEND_COMMON_IMPLEMENTATION.md` | L60 |
 
-어느 문서가 옛 계약 문서를 이어받았는지 내용 확인 없이는 알 수 없어 링크를 임의로 바꾸지 않았다.
-04 문서 "정본 링크" 절에 경고만 달았다. 별도 정리가 필요하다.
+`governance/devcopilot-api-alignment-2026-07-23.md` 는 커밋 `63277c2` 에서 35줄이 삭제됐고
+대체 문서가 없다. 링크를 지우고 그 사실과 함께 "5필드 계약은 `ApiResponse` 구현이 정본"임을 적었다.
 
-앞의 (7) 업무 코드 규칙 충돌도 이 문제와 얽혀 있다. 근거가 될 정렬 문서 자체가 없어 판단이 막혔다.
+04 문서 링크 15개 전수 재검사 결과 깨진 링크 0개.
+
+## 10. `asak-data` 는 ASAK 저장소 안에 있었다 — 앞선 기록 정정
+
+6절 (1) 에 "`asak-data` 저장소가 이 워크스페이스에 없어 확인하지 못했다"고 적었으나 틀렸다.
+`ASAK/asak-data/` 로 같은 저장소 안에 있다. 확인한 내용은 다음과 같다.
+
+**옵션 재편 대응이 시드 데이터로 확증됐다.** `asak-data/seed-v3/` 는 short-name 정본 시드이고
+레거시 스냅샷을 파일로 남겨 뒀다.
+
+| 파일 | 건수 |
+|---|---|
+| `menu_opt_legacy_20260710.json` | 9,166 (레거시 `menu_option`) |
+| `menu_opt_grp_legacy_20260710.json` | 467 (레거시 `menu_option_group`) |
+| `opt_policy.json` | 82 |
+| `opt_policy_item.json` | 734 |
+| `menu_opt_policy.json` | 279 |
+| `menu_opt_override.json` | 0 |
+
+파일명의 `20260710` 이 재편 시점이다. 뷰 SQL 로 추론했던 대응이 시드로도 확인됐다. 다만 재편 SQL
+스크립트 자체는 `asak-data/scripts/migrations/` 에 없다(그 폴더에는 2026-08-11~12 것만 있다).
+
+신규 테이블 두 개의 출처도 찾았다.
+
+- `ing_nutr` ← `20260811_split_ing_nutrition.sql`
+- `media_asset` ← `20260812_create_media_asset.sql`
+
+**시드 수치 표에 문제가 있다.** `db-table-definition.md` 의 "시드 manifest 수치 (v2)" 표가
+실제 manifest 어느 쪽과도 일치하지 않는다.
+
+| 항목 | 문서 표 | `seed/manifest.json` (v2) | `seed-v3/manifest.json` |
+|---|---|---|---|
+| `menu` | 84 | 50 | 73 |
+| `menu_ingredient` | 578 | 347 | 405 |
+| `menu_option_group` | 467 | 279 | 467 (legacy) |
+| `menu_option` | 9,166 | 5,449 | 9,166 (legacy) |
+| `category` | 6 | 6 | 8 |
+
+옵션 두 항목만 v3 legacy 와 같고 나머지는 v2 와 섞여 있다. 어느 시점 기준인지 확정되지 않아
+수치는 그대로 두고 비교표를 주석으로 덧붙였다. **확정 필요.**
 
 ## 7. 주의
 
