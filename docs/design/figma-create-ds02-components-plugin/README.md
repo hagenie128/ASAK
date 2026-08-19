@@ -1,4 +1,4 @@
-# Create DS-02 User Flow Components
+﻿# Create DS-02 User Flow Components
 
 `kiosk_design` Figma 파일 **`02. User Flow`** 페이지에 **DS-02 Modern Minimal** 키오스크 컴포넌트 라이브러리를 자동 생성하는 플러그인입니다.
 
@@ -44,7 +44,7 @@ node docs/design/figma-create-ds02-components-plugin/_test_mock.js
 
 ### 키오스크 아이콘 PNG 재생성
 
-1. 새 4×4 아이콘 시트 PNG를 `assets/asak-kiosk-icons-4x4.png`에 덮어쓰기 (행·열 순서는 [Archive icon prompt](../FIGMA_PLUGINS.md) 및 위 `IconSheet` 표와 동일해야 함)
+1. 새 4×4 아이콘 시트 PNG를 `assets/asak-kiosk-icons-4x4.png`에 덮어쓰기 (행·열 순서는 [Archive icon prompt](../figma-plugins.md) 및 위 `IconSheet` 표와 동일해야 함)
 2. `code.js`의 내장 자산을 갱신한 뒤 `_test_mock.js`로 확인
 3. Figma Desktop에서 플러그인 manifest **재 import** 후 `02. User Flow`에서 실행
 
@@ -259,4 +259,4 @@ node docs/design/figma-create-ds02-components-plugin/_test_mock.js
 
 - [figma-rename-scr-plugin](../figma-rename-scr-plugin) — SCR 프레임 이름 정리
 - [figma-apply-ds02-theme-plugin](../figma-apply-ds02-theme-plugin) — 기존 프레임 DS-02 테마 적용
-- [Figma 플러그인 안내](../FIGMA_PLUGINS.md)
+- [Figma 플러그인 안내](../figma-plugins.md)

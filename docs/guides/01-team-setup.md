@@ -1,4 +1,4 @@
-# 팀 설정 가이드
+﻿# 팀 설정 가이드
 
 > Status: **REFERENCE**
 
@@ -19,4 +19,4 @@
 - [WBS](../wiki/wbs.md)
 - [GitHub Issue 가이드](02-github-issues-guide.md)
 - [워크로그](../../worklog/README.md)
-- [구현 가이드](../implementation_guide/00-start-here.md)
+- [구현 가이드](../implementation-guide/00-start-here.md)

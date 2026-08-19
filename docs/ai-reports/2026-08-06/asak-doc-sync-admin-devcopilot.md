@@ -1,4 +1,4 @@
-# ASAK Doc Sync + DevCopilot Sync 근거 보고서
+﻿# ASAK Doc Sync + DevCopilot Sync 근거 보고서
 
 - 기준 시점: **2026-08-06**
 - 작업공간: DevCopilot workspace **2** (`ASAK 키오스크 프로젝트`)
@@ -54,8 +54,8 @@ MCP get_* 도구는 pagination 파라미터가 없고, 각 1회 호출로 목록
 
 | 문서 | 상태 |
 |---|---|
-| `docs/planning/admin-todo-checklist-2026-08-05.md` | 우선순위·TODO 번호 정합. 메뉴/품절/결제 미착수 표기와 코드 스텁 일치 |
-| `docs/planning/admin-feature-verify-todos-2026-08-06.md` | 검증 투두. 경로·필드가 코드/Screen Bible 쪽과 대체로 일치 |
+| `docs/planning/admin-todo-2026-08-05.md` | 우선순위·TODO 번호 정합. 메뉴/품절/결제 미착수 표기와 코드 스텁 일치 |
+| `docs/planning/admin-verify-todos-2026-08-06.md` | 검증 투두. 경로·필드가 코드/Screen Bible 쪽과 대체로 일치 |
 | `docs/wiki/project-flow.md` | 기준일 **2026-07-23**. Admin Live/주문 구현 이후 내용 미반영 → 갱신 후보 |
 | `docs/wiki/rest-api-spec.md` | Admin 결제경로 kebab 등 혼재 → 결정 필요 |
 | Product/Screen Bible Admin 구현 가이드 | UX·의도 정본. 코드와 다르면 조용히 덮지 않음 |
@@ -67,8 +67,8 @@ MCP get_* 도구는 pagination 파라미터가 없고, 각 1회 호출로 목록
 | # | 문서 | 제안 | 근거 | 권고 |
 |---|---|---|---|---|
 | A1 | `docs/wiki/project-flow.md` | 기준일을 2026-08-06으로 올리고 Admin 주문(Live·상태·취소) **구현됨·미검증**, 메뉴 GET **부분**, 품절/결제/매출 **스텁**으로 표시 | Controller 실측 | 승인 시 수정 |
-| A2 | `docs/planning/admin-todo-checklist-2026-08-05.md` | 진행 로그에 「2026-08-06 문서·DevCopilot 점검」한 줄 추가. TODO 상태를 임의 완료 처리하지 않음 | 점검 사실만 | 승인 시 최소 수정 |
-| A3 | `docs/planning/admin-feature-verify-todos-2026-08-06.md` | 진행 로그에 점검일·미검증 유지 기록 | 동일 | 승인 시 최소 수정 |
+| A2 | `docs/planning/admin-todo-2026-08-05.md` | 진행 로그에 「2026-08-06 문서·DevCopilot 점검」한 줄 추가. TODO 상태를 임의 완료 처리하지 않음 | 점검 사실만 | 승인 시 최소 수정 |
+| A3 | `docs/planning/admin-verify-todos-2026-08-06.md` | 진행 로그에 점검일·미검증 유지 기록 | 동일 | 승인 시 최소 수정 |
 | A4 | `docs/wiki/rest-api-spec.md` | Admin path/body를 코드에 맞출지 명세에 맞출지 | **결정 필요** | 자동 수정 금지 |
 | A5 | Product/Screen Bible | 경로·필드 의도 변경 | 코드와 충돌 시 **결정 필요** | 자동 수정 금지 |
 
@@ -115,8 +115,8 @@ MCP get_* 도구는 pagination 파라미터가 없고, 각 1회 호출로 목록
 | ID | 파일 | 결과 |
 |---|---|---|
 | A1 | `docs/wiki/project-flow.md` | 기준일 2026-08-06, Admin 주문 API 연동·나머지 mock/스텁 반영 |
-| A2 | `docs/planning/admin-todo-checklist-2026-08-05.md` | 진행 로그 1행 추가 (TODO 상태값 변경 없음) |
-| A3 | `docs/planning/admin-feature-verify-todos-2026-08-06.md` | 진행 로그 점검일 기록 (검증칸 ⬜ 유지) |
+| A2 | `docs/planning/admin-todo-2026-08-05.md` | 진행 로그 1행 추가 (TODO 상태값 변경 없음) |
+| A3 | `docs/planning/admin-verify-todos-2026-08-06.md` | 진행 로그 점검일 기록 (검증칸 ⬜ 유지) |
 
 ### DevCopilot 원격 갱신 + 재조회
 

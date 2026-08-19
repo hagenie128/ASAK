@@ -1,4 +1,4 @@
-# 2026-07-24 DB 뷰·API 계약·Admin 주문 조회 기반
+﻿# 2026-07-24 DB 뷰·API 계약·Admin 주문 조회 기반
 
 > 일일 기록: [2026-07-24.md](../../daily/이하진/2026-07-24.md)
 > 기준 화면: [SCR-010 Admin Order Management](../../../docs/product_bible/07_Screen_Bible/SCR-010-ADMIN-ORDER-MANAGEMENT.md) · Figma 0718 `134:10630`
@@ -101,5 +101,5 @@ SCR-010의 Figma 0718 기준은 Default `134:10630`, Loading `235:15447`, Empty 
 ## 12. 참고 자료
 
 - `ASAK-back/docs/view.sql`
-- `docs/wiki/wbs-v2-2026-07-16.md`, `docs/wiki/rest-api-spec.md`, `docs/wiki/devcopilot-hub-audit-2026-07-24.md`
+- `docs/wiki/wbs-v2-2026-07-16.md`, `docs/wiki/rest-api-spec.md`, `docs/wiki/devcopilot-audit-2026-07-24.md`
 - `OrderListFilter.java`, `OrderListResponse.java`, `AdminOrderController.java`, `AdminOrderService.java`, `AdminOrderMapper.xml`

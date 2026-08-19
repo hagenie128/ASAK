@@ -1,4 +1,4 @@
-# 스키마 문서 실측 동기화 — 테이블 26개 · 뷰 22개
+﻿# 스키마 문서 실측 동기화 — 테이블 26개 · 뷰 22개
 
 > 작성일: 2026-08-19
 > 대상: `ASAK-back/docs`, `ASAK/docs/wiki`
@@ -53,7 +53,7 @@ python docs/tools/schema_sync.py all
 FK 는 46개 **전부** 이름이 달랐다. 문서 이름으로 `ALTER TABLE ... DROP FOREIGN KEY` 를 하면
 하나도 듣지 않는다.
 
-전체 내역: `ASAK-back/docs/2026-08-19_schema_doc_drift.md`
+전체 내역: `ASAK-back/docs/schema-doc-drift-2026-08-19.md`
 
 ### 뷰 — 문서가 맞았다
 
@@ -101,15 +101,15 @@ FK 는 46개 **전부** 이름이 달랐다. 문서 이름으로 `ALTER TABLE ..
 |---|---|---|---|
 | ASAK-back | `docs/아삭_mysql.sql` | 실측 DDL 로 전면 재생성 (테이블 26개, FK 46개) | 구현됨 |
 | ASAK-back | `docs/view.sql` | 내용 변경 없음. 헤더에 검증 방법·결과·DEFINER 주의 기록 | 검증됨 |
-| ASAK-back | `docs/2026-08-19_schema_doc_drift.md` | 테이블·뷰 대조 내역 신규 | 신규 |
+| ASAK-back | `docs/schema-doc-drift-2026-08-19.md` | 테이블·뷰 대조 내역 신규 | 신규 |
 | ASAK-back | `docs/tools/schema_sync.py`, `README.md` | 재동기화 도구 신규 | 신규 |
-| ASAK-back | `docs/implementation_guide/04-api-db-implementation.md` | 필드 매핑에 `idempotency_key`·`image_asset_id` 추가, DB 정책 4항목 추가, 정본 링크 추가 | 구현됨 |
+| ASAK-back | `docs/implementation-guide/04-api-db-implementation.md` | 필드 매핑에 `idempotency_key`·`image_asset_id` 추가, DB 정책 4항목 추가, 정본 링크 추가 | 구현됨 |
 | ASAK | `docs/wiki/db-table-definition.md` | 22테이블·레거시 이름 → 26테이블 실측 기준. ERD 재작성, 이전 이름 열 추가 | 구현됨 |
 | ASAK | `docs/wiki/db-view-definition.md` | 헤더에 2026-08-19 실측 검증 결과 추가 | 검증됨 |
 | ASAK | `docs/wiki/requirements-definition.md` | FWD-MENU-015 의 `menu_option.is_recommended` 에 현재 위치 주석 병기 (원문 보존) | 구현됨 |
 | ASAK | `docs/wiki/screen-design-figma.md` | 274행 "추천 드레싱은 menu_option 기준" 에 주석 병기 (원문 보존) | 구현됨 |
 
-`ASAK-back/docs/MENU_IMAGE_ASSET_FLOW.md` 는 확인 결과 `media_asset` 구조와 FK 이름이
+`ASAK-back/docs/menu-image-asset-flow.md` 는 확인 결과 `media_asset` 구조와 FK 이름이
 실측과 정확히 일치해 수정하지 않았다.
 
 ## 5. 검증 결과
@@ -349,7 +349,7 @@ WHERE st.code IN ('RECEIVED','PREPARING','READY')
 삭제했다. **`orders.total_price` 합계 948,785,200 은 변하지 않았다.** 무결성 검증 5종 모두 0.
 
 재발 방지로 `opt_item` 에 `UNIQUE (opt_group_id, name)` 을 걸었다. 상세 경위와 검증 쿼리는
-`ASAK-back/docs/2026-08-19_duplicate_option_cleanup_plan.md`.
+`ASAK-back/docs/duplicate-option-cleanup-plan-2026-08-19.md`.
 
 **부작용 하나와 보정.** 충돌 행 삭제가 "금액에 영향 없다"고 판단했으나 틀렸다. 그 판단은
 `order_item.price` 에 옵션이 반영돼 있지 않다는 관찰(98.6%)에 근거했는데, 그 수치는 시드가 만든

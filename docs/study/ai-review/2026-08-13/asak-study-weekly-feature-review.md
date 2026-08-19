@@ -1,4 +1,4 @@
-# ASAK 이번 주 기능별 복습 (2026-08-10 ~ 2026-08-13)
+﻿# ASAK 이번 주 기능별 복습 (2026-08-10 ~ 2026-08-13)
 
 ## 1. 결론
 
@@ -297,7 +297,7 @@ priceCalculation(unitPrice, optionItems, quantity)
 
 ### E. 발표 자료·화면 증거
 
-- 발표 PPT, Kiosk/Admin 화면 캡처, 캡처·PPT 보정 스크립트, 작성계획을 `ASAK/docs/00_presentation`에 정리했다.
+- 발표 PPT, Kiosk/Admin 화면 캡처, 캡처·PPT 보정 스크립트, 작성계획을 `ASAK/docs/00-presentation`에 정리했다.
 - 이는 기능 구현 자체보다 **발표용 산출물과 화면 증거를 저장소에 고정한 작업**이다. 발표 리허설과 팀 문구 확정은 남아 있다.
 
 ## 4. 오늘 진행 중인 로컬 변경 (완료로 판정하지 않음)

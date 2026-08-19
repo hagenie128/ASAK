@@ -1,8 +1,8 @@
-# WBS
+﻿# WBS
 
 > Status: **CANONICAL**
-> 입구: [START_HERE](../START_HERE.md) · 코드 감각: [wbs-status-notes.md](wbs-status-notes.md) · 구현 맵: [current-implementation-map](../planning/current-implementation-map-2026-07-16.md)
-> **팀:** 김나연 · 이하진 · 기준일 **2026-08-19**
+> 입구: [START_HERE](../START_HERE.md) · 코드 감각: [wbs-status-notes.md](wbs-status-notes.md) · 구현 맵: [current-implementation-map](../planning/impl-map-2026-07-16.md)
+> **팀:** 김나연 · 이하진 · 기준일 **2026-08-19 18:56**
 >
 > 상태: `TODO` · `IN_PROGRESS` · `IN_REVIEW` · `DONE` · `DELAYED`
 > mock만으로 DONE 금지 · 근거 없는 PASS 금지
@@ -29,12 +29,12 @@
 
 | 기간 | 실제 인라인 TODO | API 계약 | WBS 연결 | 목표 |
 |---|---|---|---|---|
-| **08/19** | `015~018`, `023` | `API-017~020` | RTOS-DEVICE-001~003 · WBS-040 · WBS-064 | RTOS 공통 흐름을 정하고 대시보드 집계/API 기준을 확정한다. |
-| **08/20** | `019~025`, `011~012` | `API-017~020`, `API-015·016` | RTOS-DEVICE-001~003 · WBS-040 · WBS-046 | RTOS Spring→React 최소 연결을 끝까지 재현해 **테스트 시연 가능 상태**를 만들고, 대시보드 앞단·결제수단 백단을 병행한다. |
-| **08/21 (금)** | `013~014` | `API-015·016` | RTOS-DEVICE-001~003 · WBS-046 | **RTOS 테스트 시연**을 우선한다. Spring Boot API → React 표시 → 콘솔 출력의 실제 실행 결과를 확인한 뒤 결제수단 앞단을 진행한다. |
-| **08/24** | `015~025` | `API-017~020` | WBS-040 · WBS-047~049 · WBS-064 | 대시보드·매출 API와 화면 연결을 마감·검증한다. |
-| **08/25** | `011~014` | `API-015·016` | WBS-046 | 결제수단 API·draft·화면 저장과 오류 상태를 마감·검증한다. |
-| **08/26** | `003~010` | `API-012·013·028`, `API-009·010` | WBS-044~045 · WBS-062 | 메뉴 잔여 확인과 품절의 Controller→Service/Mapper→API→draft 연결 |
+| **08/19 ✅** | `015`, `018` (부분) | `API-017` summary | WBS-064 | 매출 summary BE 구현. monthly 스텁. 런타임 미검증. RTOS 별도 저장소. 옵션 정리·뷰 레퍼런스 문서화. |
+| **08/20** | `016`(monthly), `017`(daily), `019~022` | `API-017~019` | RTOS · WBS-047~049 · WBS-064 | 매출 BE 마무리 + FE salesApi 연결. RTOS Spring→React 최소 연결 병행. |
+| **08/21 (금)** | RTOS | 번호 미연결 | RTOS-DEVICE-001~003 | **RTOS 테스트 시연** — Spring Boot API → React 표시 → 콘솔 출력. |
+| **08/24** | `023~025` | `API-020` dashboard | WBS-040 · WBS-064 | 대시보드 BE+FE 연결·검증. |
+| **08/25** | `011~014` | `API-015·016` | WBS-046 | 결제수단 Controller→Service/Mapper→FE 마감. |
+| **08/26** | `007~010` | `API-009·010` | WBS-044~045 · WBS-062 | 품절 Controller→FE 마감. 메뉴 잔여 QA(003~006 E2E). |
 | **08/27** | `027~037` | 번호 미연결 · 로그인 스텁 | WBS-070 | 로그인·JWT·보호 경로와 401/403 오류 처리 연결 |
 | **08/28** | `001`, `038~043` | 번호 미연결 · 환불/영수증 결정 필요 | WBS-042~043 · WBS-051 · WBS-071 | 환불 정책 결정 후 환불/영수증 계약 또는 통합 QA 기록 |
 
@@ -160,7 +160,7 @@ RTOS는 Admin과 Kiosk의 별도 결과물로 나누지 않는다. 하나의 이
 | WBS-061 | 결제 승인·실패 API 만들기                      | 나연       | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-back        | API 테스트 기록    | POST payments · PaymentResult/UserPayMapper · API-006 계약 · 확인 **2026-07-24**                                                                                                                                                                                          |
 | WBS-062 | 품절 처리 API 만들기                           | 하진       | TODO        | 중   | 2026-08-11~2026-08-14 | ASAK-back        | API 테스트 기록    | PATCH soldOut                                                                                                                                                                                                                                                             |
 | WBS-063 | 관리자용 주문 조회·상태 변경 API 만들기        | 하진       | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-back        | API 테스트 기록    | Admin orders · Controller/Service/Mapper와 `vw_order_live`·목록/상세 조회 SQL 보강 · legacy REQUEST 옵션은 `optionItems`에서 제외하고 제외 재료는 `item_exclusion`만 사용하도록 View 정의 정리(`e9543ce`) · `compileJava` 통과 **2026-07-28** · 실서버·DB·API 테스트 남음 |
-| WBS-064 | 매출 합계를 내는 데이터 소스 만들고 맞추기     | 하진       | IN_PROGRESS | 상   | 2026-08-14~2026-08-18 | ASAK-back        | 합계 검증          | sales views 정비 · API-017/018/019 예시·취소/환불 집계 규칙 유지 · `compileJava` 통과 **2026-07-28** · Sales API/실DB 합계 검증 남음                                                                                                                                      |
+| WBS-064 | 매출 합계를 내는 데이터 소스 만들고 맞추기     | 하진       | IN_PROGRESS | 상   | 2026-08-14~2026-08-24 | ASAK-back        | 합계 검증          | sales views 정비 · API-017 summary Controller+Service+Mapper(vw_sales_daily) **구현(08/19)** · monthly 스텁 · daily 미구현 · 런타임 미검증 · Sales FE salesApi.js 빈 셸 |
 | WBS-065 | API 오류 응답·입력 검사를 통일하기             | —          | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-back        | API 응답 테스트    | ApiResponse + GlobalExceptionHandler · Bruno 주문 요청의 정본 용어 정렬 · `compileJava` 통과 **2026-07-28** · 응답·오류 검증 남음                                                                                                                                         |
 | WBS-066 | DB 설계도와 실제 테이블·관계가 맞는지 비교하기 | 하진, 나연 | IN_PROGRESS | 상   | 2026-08-14~2026-08-21 | ASAK / ASAK-back | 점검 보고서        | db-audit-plan · 7/28 중간점검                                                                                                                                                                                                                                             |
 

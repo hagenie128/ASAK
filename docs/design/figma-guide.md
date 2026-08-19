@@ -1,4 +1,4 @@
-# ASAK Figma 디자인 가이드
+﻿# ASAK Figma 디자인 가이드
 
 > **Git stub:** Notion에서 SCR×Figma 매트릭스·팀 규칙을 편집할 수 있습니다. **실행·QA·토큰은 아래 Git 정본**을 따릅니다.
 
@@ -12,15 +12,15 @@
 | 역할 | 문서 |
 |---|---|
 | 폴더 인덱스 | [README.md](README.md) |
-| 화면 체크리스트 | [SCR_FIGMA_CHECKLIST.md](SCR_FIGMA_CHECKLIST.md) |
+| 화면 체크리스트 | [scr-figma-checklist.md](scr-figma-checklist.md) |
 | 링크 데이터 | [figma-links.template.json](figma-links.template.json) |
-| 플러그인 | [FIGMA_PLUGINS.md](FIGMA_PLUGINS.md) |
+| 플러그인 | [figma-plugins.md](figma-plugins.md) |
 | Figma↔코드 표 | [ui-index.md](../../../ui-index.md) |
 
 ## Git 도구
 
 - [figma-links.template.json](figma-links.template.json)
-- [SCR_FIGMA_CHECKLIST.md](SCR_FIGMA_CHECKLIST.md)
+- [scr-figma-checklist.md](scr-figma-checklist.md)
 - [kiosk-design-system-index.md](kiosk-design-system-index.md)
 - `figma-rename-scr-plugin/`, `figma-apply-ds02-theme-plugin/`, `figma-create-ds02-components-plugin/`
 

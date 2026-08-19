@@ -1,4 +1,4 @@
-# SCR Frame Rename (kiosk_design)
+﻿# SCR Frame Rename (kiosk_design)
 
 > Status: **LEGACY / 사용 중지**
 >
@@ -398,7 +398,7 @@ figma-rename-scr-plugin/
 
 - Notion: [Figma 가이드 + SCR×Figma](https://app.notion.com/p/39451ef04f0b81849dc7d81f8106b5ad)
 
-- Git: [`SCR_FIGMA_CHECKLIST.md`](../SCR_FIGMA_CHECKLIST.md) · [`figma-links.template.json`](../figma-links.template.json)
+- Git: [`scr-figma-checklist.md`](../scr-figma-checklist.md) · [`figma-links.template.json`](../figma-links.template.json)
 
 - Design System: [`figma-create-ds02-components-plugin`](../figma-create-ds02-components-plugin/README.md) · [`kiosk-design-system.md`](../kiosk-design-system-index.md)
 

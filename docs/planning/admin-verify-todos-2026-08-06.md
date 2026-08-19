@@ -1,8 +1,8 @@
-# Admin 기능별 화면–API–DB 검증 투두 (2026-08-06)
+﻿# Admin 기능별 화면–API–DB 검증 투두 (2026-08-06)
 
 > Status: **HISTORY**
 > 작업 원칙: **기능별로 화면–API–DB 결과를 함께 확인**하며 진행
-> 인라인 코드 태그: `TODO-NNN` (`admin-todo-checklist-2026-08-05.md`)
+> 인라인 코드 태그: `TODO-NNN` (`admin-todo-2026-08-05.md`)
 > 완료 조건: 각 ID의 **화면 · API · DB** 세 칸 모두 통과
 
 ## 오늘(2026-08-06) 작업 순서

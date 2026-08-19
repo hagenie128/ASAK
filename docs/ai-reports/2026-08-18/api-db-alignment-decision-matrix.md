@@ -1,8 +1,8 @@
-# ASAK API · DB 정렬 의사결정 매트릭스
+﻿# ASAK API · DB 정렬 의사결정 매트릭스
 
 > 기준일: 2026-08-18  
 > 목적: 관리자/키오스크/공용에서 API 명세, 실DB, 현재 구현이 갈리는 항목을 한눈에 보고 최종 정본을 결정한다.  
-> 기준 자료: `ASAK/docs/wiki/rest-api-spec.md`, `ASAK/docs/governance/canonical-contract-decisions-2026-07-16.md`, `ASAK-back/src/main/resources/mappers/*.xml`, 실DB `asak_db`
+> 기준 자료: `ASAK/docs/wiki/rest-api-spec.md`, `ASAK/docs/governance/contract-decisions-2026-07-16.md`, `ASAK-back/src/main/resources/mappers/*.xml`, 실DB `asak_db`
 
 ## 판정 기준
 

@@ -1,6 +1,6 @@
-> Status: **CURRENT**
+﻿> Status: **CURRENT**
 > 기준일: **2026-08-18** · 코드: `ASAK-back` Controller 매핑
-> 계약 필드: [정본](../governance/canonical-contract-decisions-2026-07-16.md) · Bruno: `ASAK-back/api/`
+> 계약 필드: [정본](../governance/contract-decisions-2026-07-16.md) · Bruno: `ASAK-back/api/`
 > Hub API 카드: workspace 2 (기존 ID 갱신)
 
 # ASAK REST API 명세서

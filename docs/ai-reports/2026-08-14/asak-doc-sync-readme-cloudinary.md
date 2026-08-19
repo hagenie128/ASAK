@@ -1,4 +1,4 @@
-# ASAK README·Cloudinary 문서 동기화 근거
+﻿# ASAK README·Cloudinary 문서 동기화 근거
 
 ## 1. 대상과 기준
 
@@ -17,7 +17,7 @@
 - Backend `build.gradle`, Controller 11개, Service·Mapper·Mapper XML 실제 구조
 - `CreateMenuRequest.mediaAssetId`, `AdminMenuService.resolveMediaAssetId`
 - `AdminMenuMapper.xml`, `UserMenuMapper.xml`의 `media_asset` JOIN
-- `ASAK-back/docs/MENU_IMAGE_ASSET_FLOW.md`
+- `ASAK-back/docs/menu-image-asset-flow.md`
 - Admin `AdminApp.jsx`, API·Hook·mock repository, 메뉴 패널의 `imageUrl`
 - Kiosk `KioskApp.jsx`, 메뉴·장바구니·주문 API, 이미지 사용 컴포넌트
 - 각 앱 `package.json`, `.env.example`, Vite/PWA 설정

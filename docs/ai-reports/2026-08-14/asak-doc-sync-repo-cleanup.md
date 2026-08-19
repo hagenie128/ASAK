@@ -1,4 +1,4 @@
-# ASAK 전역 정리 근거 (삭제·병합·라벨링)
+﻿# ASAK 전역 정리 근거 (삭제·병합·라벨링)
 
 ## 1. 대상과 기준
 
@@ -19,11 +19,11 @@
 
 | 항목 | 새 위치 |
 |---|---|
-| PPT 원본·수정1·수정2 | `docs/00_presentation/_archive/00_ppt/` |
+| PPT 원본·수정1·수정2 | `docs/00-presentation/_archive/00-ppt/` |
 | 이미지 백업 `260813_backup` | `asak-data/archive/images-260813-backup/` |
 | data-pipeline 감사 v1·v2 | `data-pipeline/phase1/_archive/` |
 | 향후 범위 정본 | `docs/wiki/future-scope.md` |
-| API 피드백 기준 | `docs/wiki/api-feedback-resolution-2026-07-14.md` |
+| API 피드백 기준 | `docs/governance/api-feedback-2026-07-14.md` |
 | Figma 플러그인·토큰·체크리스트 | `docs/design/` 활성 경로 |
 
 ## 4. 병합·역할 분리 (라벨링)
@@ -44,7 +44,7 @@
 - `asak-data/scripts/notion_raw`, `scripts/output` (스크립트 고정 경로)
 - `images/menu-trimmed` (동기화 입력)
 - Product Bible 원문의 사실·표·체크리스트
-- 사용자가 수정 중인 `planning/platform-delivery-expansion-plan-2026-08-14.md`
+- 사용자가 수정 중인 `planning/platform-expansion-2026-08-14.md`
 
 ## 6. 허브·README 갱신
 

@@ -1,4 +1,4 @@
-# ASAK 문서 동기화 근거 — 선생님 일정 (2026-08-18)
+﻿# ASAK 문서 동기화 근거 — 선생님 일정 (2026-08-18)
 
 > Status: **HISTORY**
 
@@ -16,7 +16,7 @@
 - `docs/wiki/db-table-definition.md` 22테이블 — `device_event` 없음
 - `ASAK-back` grep: `device_event` / `DeviceEvent` **없음**
 - `docs/wiki/rest-api-spec.md` API-019 receipt-print (Week 5 MVP 제외), API-020 scan (EXCLUDED)
-- `docs/00_presentation` RTOS 금지 키워드
+- `docs/00-presentation` RTOS 금지 키워드
 
 ## 3. 갱신한 문서
 
@@ -25,10 +25,10 @@
 - `docs/wiki/future-scope.md` — 8/21 최소 IN_SCOPE vs 실하드웨어 FUTURE
 - `docs/START_HERE.md`
 - `docs/wiki/index.md`
-- `docs/operations/meeting-minutes/2026-W34.md` (신규)
-- `docs/operations/meeting-minutes/README.md` · `2026-W32.md` 다음 링크
+- `docs/operations/meeting-minutes/2026-w34.md` (신규)
+- `docs/operations/meeting-minutes/README.md` · `2026-w32.md` 다음 링크
 - `docs/wiki/meeting-minutes-weekly.md` 주차 표
-- `worklog/weekly/2026-W34.md` (신규) · `worklog/weekly/README.md` · `docs/wiki/worklog-index.md`
+- `worklog/weekly/2026-w34.md` (신규) · `worklog/weekly/README.md` · `docs/wiki/worklog-index.md`
 
 ## 4. 변경 근거
 

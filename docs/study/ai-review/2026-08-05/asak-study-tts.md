@@ -1,4 +1,4 @@
-# ASAK 공부 — 관리자 주문 완료 TTS(음성 안내) 흐름
+﻿# ASAK 공부 — 관리자 주문 완료 TTS(음성 안내) 흐름
 
 ## 0. 문서 기본 정보와 한 줄 결론
 
@@ -8,7 +8,7 @@
 | 대상 화면 | `SCR-009` (관리자 실시간 주문 보드) |
 | 확인 기준일 | 2026-08-05 |
 | 확인한 범위 | Frontend 코드 / TTS Bible(명세) / Git 이력 · (Backend는 TTS 자체가 아닌 상태변경 경로만) |
-| 정본 형식 기준 | `ASAK/docs/study/ai-review/ASAK_STUDY_EXAMPLE_CANONICAL.md` |
+| 정본 형식 기준 | `ASAK/docs/study/ai-review/asak-study-example-canonical.md` |
 
 ### 한 줄 결론
 
@@ -46,7 +46,7 @@ TTS는 서버가 아니라 **브라우저 Web Speech API로 동작**하며, 관�
 | 3 | `ASAK-Admin/src/api/ordersApi.js` | 완료 처리가 어떤 요청을 보내는지 | `changeOrderStatus(orderId, status)` |
 | 4 | `ASAK-Admin/src/api/apiClient.js` | 성공 응답을 화면이 어떻게 받는지 | envelope 해제(`unwrapResponse`) |
 | 5 | `ASAK/docs/.../tts/TTS_ARCHITECTURE.md` 외 2종 | 명세와 코드 대조 | 트리거·중복방지·Mute·실패정책 |
-| 6 | `ASAK/docs/planning/admin-todo-checklist-2026-08-05.md` | TODO-013 진행 상태 대조 | 체크리스트 vs 실제 코드 불일치 |
+| 6 | `ASAK/docs/planning/admin-todo-2026-08-05.md` | TODO-013 진행 상태 대조 | 체크리스트 vs 실제 코드 불일치 |
 
 ---
 
@@ -177,7 +177,7 @@ export const speak = (text, options = {}) =>
 - `LiveOrderPreview.jsx`가 위 두 함수를 import해 `COMPLETED` 성공 후 `await speak(...)`를 호출한다.
 - TTS 실패는 별도 `try/catch`로 격리되어 `toast.error`만 내고 주문 성공을 유지한다.
 - TTS는 서버 호출이 없다(백엔드에 TTS 코드 없음). Web Speech API 기반이다.
-- 메시지 문구가 명세(TTS_ARCHITECTURE 1절, IMPLEMENTATION_GUIDE)와 동일하다.
+- 메시지 문구가 명세(TTS_ARCHITECTURE 1절, implementation-guide)와 동일하다.
 - 최신 커밋 `5cbf861 feat: 라이브 완료 TTS 및 에러 안내 문구 정리`가 이 기능을 추가했다.
 
 ---
@@ -200,7 +200,7 @@ export const speak = (text, options = {}) =>
 - **파일 구조**: 명세 4절은 `features/tts/ttsService.js` 등을 제시하나 실제는 `utils/ttsMessages.js` 한 파일에 통합.
 
 ### 문서 간 불일치
-- `admin-todo-checklist-2026-08-05.md`의 TODO-013은 "부분 · `speak`/`ttsService.js` 없음"으로 기재. 그러나 실제 코드에는 `speak`가 **구현되어 있음**(커밋 `5cbf861`). → 체크리스트가 코드 진행보다 뒤처져 있음. 체크리스트 규칙(2행: "코드 인라인을 정본")에 따라 **체크리스트를 코드 기준으로 갱신 필요**(담당: Admin FE).
+- `admin-todo-2026-08-05.md`의 TODO-013은 "부분 · `speak`/`ttsService.js` 없음"으로 기재. 그러나 실제 코드에는 `speak`가 **구현되어 있음**(커밋 `5cbf861`). → 체크리스트가 코드 진행보다 뒤처져 있음. 체크리스트 규칙(2행: "코드 인라인을 정본")에 따라 **체크리스트를 코드 기준으로 갱신 필요**(담당: Admin FE).
 
 ### 미확인
 - 실제 브라우저에서 발화가 나는지(수동 QA) 미검증.

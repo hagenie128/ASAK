@@ -1,4 +1,4 @@
-# 2026-07-20 문서 정본 재편·코드 실태 재감사·DevCopilot WBS2 재동기화
+﻿# 2026-07-20 문서 정본 재편·코드 실태 재감사·DevCopilot WBS2 재동기화
 
 > **템플릿:** [03-work-log-template.md](../../../docs/guides/03-work-log-template.md) · **일일:** [2026-07-20.md](../../daily/이하진/2026-07-20.md)
 
@@ -17,14 +17,14 @@
 
 - 7/16 문서 정리(`f9349ba`, `671e486`) 이후 문서만 보고 진행률을 판단하면 실제 코드 상태와 어긋날 위험이 있어, **코드를 1차 정본**으로 다시 확인한다.
 - Kiosk·Admin·Backend 3개 저장소의 실제 구현 범위를 재확인하고, 그 결과를 로컬 문서와 DevCopilot workspace/2 양쪽에 일관되게 반영한다.
-- 문서 진입 구조가 여러 위치에 흩어져 있던 문제를 `START_HERE`/`PROJECT_HUB` 단일 진입점으로 정리한다.
+- 문서 진입 구조가 여러 위치에 흩어져 있던 문제를 `START_HERE`/`project-hub` 단일 진입점으로 정리한다.
 
 ## 3. 직접 구현 영역
 
-- **문서 정본 구조:** `docs/START_HERE.md`, `PROJECT_HUB.md`, `docs/document-naming-guide-2026-07-20.md`, `docs/document-inventory-slim-2026-07-20.md`, `docs/product_bible/README.md` 신규 작성.
-- **코드 실태 반영 문서:** `docs/planning/current-implementation-map-2026-07-16.md`, `docs/architecture/document-code-gap-report-2026-07-16.md`, `docs/wiki/wbs-status-notes.md`, `docs/wiki/current-status-baseline.md`, `docs/wiki/wbs-v2-2026-07-16.md`, `docs/wiki/screens.json` 갱신.
+- **문서 정본 구조:** `docs/START_HERE.md`, `project-hub.md`, `docs/doc-naming-guide-2026-07-20.md`, `docs/doc-inventory-2026-07-20.md`, `docs/product_bible/README.md` 신규 작성.
+- **코드 실태 반영 문서:** `docs/planning/impl-map-2026-07-16.md`, `docs/architecture/document-code-gap-report-2026-07-16.md`, `docs/wiki/wbs-status-notes.md`, `docs/wiki/current-status-baseline.md`, `docs/wiki/wbs-v2-2026-07-16.md`, `docs/wiki/screens.json` 갱신.
 - **앱별 구조 문서:** `ASAK-Kiosk/src/STRUCTURE_GUIDE.md`, `ASAK-Admin/src/STRUCTURE_GUIDE.md`, `ASAK-Kiosk/IMPLEMENTATION_PLAN.md`, `ASAK-Admin/IMPLEMENTATION_PLAN.md`, `ASAK-back/IMPLEMENTATION_PLAN.md` 갱신.
-- **루트 안내:** `README.md`, `ASAK/README.md`, `UI-INDEX.md` 상단에 `START_HERE` 링크·코드-정본 안내 배너 추가.
+- **루트 안내:** `README.md`, `ASAK/README.md`, `ui-index.md` 상단에 `START_HERE` 링크·코드-정본 안내 배너 추가.
 - **DevCopilot MCP:** WBS2-001~066 제목 한글화, WBS2-017/022/023 상태 `DONE` 반영, LMIS 요구사항 8건 `IN_PROGRESS` 반영, SCR-020~024 정의 정리, Target API 4건 신규 create.
 - **동기화 보고서:** `docs/wiki/devcopilot-sync-report.md`에 Before/After 표, API mismatch record, Dashboard 재계산, Safety controls 기록.
 
@@ -61,7 +61,7 @@
 - 이슈 1:
   - 증상: 문서(7/16 정리본) 기준으로는 여러 항목이 진행 중/완료로 보였으나, 코드를 직접 열어보니 Admin은 정적 UI만 연결되고 실제 데이터 연동이 0건이었다.
   - 원인: 문서가 마지막 갱신 시점의 스냅샷이라 이후 코드 변화(또는 애초에 정적 UI만 만든 상태)를 반영하지 못했다.
-  - 해결: `current-implementation-map-2026-07-16.md`·`document-code-gap-report-2026-07-16.md`를 코드 재스캔 결과로 갱신하고, WBS2 상태도 코드 evidence 기준으로 재조정했다.
+  - 해결: `impl-map-2026-07-16.md`·`document-code-gap-report-2026-07-16.md`를 코드 재스캔 결과로 갱신하고, WBS2 상태도 코드 evidence 기준으로 재조정했다.
 - 이슈 2:
   - 증상: DevCopilot 대시보드의 WBS 진행률(%)이 실제 활성 작업 대비 지나치게 낮게 보였다(예: 5.4%).
   - 원인: 대시보드 계산 공식의 분모에 `EXCLUDED`(중복·보류) 레코드 다수가 포함되어 있었다.
@@ -111,7 +111,7 @@
 ## 12. 첨부하면 좋은 자료
 
 - [`docs/START_HERE.md`](../../../docs/START_HERE.md)
-- [`docs/planning/current-implementation-map-2026-07-16.md`](../../../docs/planning/current-implementation-map-2026-07-16.md)
+- [`docs/planning/impl-map-2026-07-16.md`](../../../docs/planning/impl-map-2026-07-16.md)
 - [`docs/architecture/document-code-gap-report-2026-07-16.md`](../../../docs/architecture/document-code-gap-report-2026-07-16.md)
 - `docs/wiki/devcopilot-sync-report.md` (과거 경로)
 - [`docs/wiki/wbs-v2-2026-07-16.md`](../../../docs/wiki/wbs-v2-2026-07-16.md) · [`docs/wiki/wbs-status-notes.md`](../../../docs/wiki/wbs-status-notes.md)

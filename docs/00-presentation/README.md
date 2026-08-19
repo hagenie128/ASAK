@@ -1,4 +1,4 @@
-# 발표 자료 — ASAK 샐러드 스마트 키오스크
+﻿# 발표 자료 — ASAK 샐러드 스마트 키오스크
 
 > Status: **CURRENT**
 
@@ -6,12 +6,12 @@
 
 | 파일 | 내용 | 태그 |
 |---|---|---|
-| `00_ppt/ASAK_샐러드_스마트키오스크_수정3_20260811.pptx` | **최신 발표본 22장** | `CURRENT` |
-| `00_ppt/screenshots/` | Kiosk·Admin 실기동 캡처 | `REFERENCE` |
+| `00-ppt/ASAK_샐러드_스마트키오스크_수정3_20260811.pptx` | **최신 발표본 22장** | `CURRENT` |
+| `00-ppt/screenshots/` | Kiosk·Admin 실기동 캡처 | `REFERENCE` |
 | `ASAK_PPT_디자인시스템.md` | 그리드·컬러·타이포·템플릿 규격 | `CURRENT` |
 | `ASAK_PPT_작성계획_초안.md` | 슬라이드별 문구·발표 노트 | `REFERENCE` |
-| `01_asak_ppt_design/` | 시안·장별 렌더 PNG | `REFERENCE` |
-| `_archive/00_ppt/` | 원본·수정1·수정2 등 이전 pptx | `HISTORY` |
+| `01-asak-ppt-design/` | 시안·장별 렌더 PNG | `REFERENCE` |
+| `_archive/00-ppt/` | 원본·수정1·수정2 등 이전 pptx | `HISTORY` |
 
 ## 덱 구성
 
@@ -31,7 +31,7 @@
 
 | 항목 | 근거 |
 |---|---|
-| 팀 · 기간 | `docs/operations/meeting-minutes/2026-W27` ~ `W32` |
+| 팀 · 기간 | `docs/operations/meeting-minutes/2026-w27` ~ `W32` |
 | 담당 업무 | `docs/wiki/wbs.md` · `worklog/entries/` |
 | 강사 피드백 | 회의록 「강사 피드백」 |
 | 구현 현황 | `docs/wiki/current-status-baseline.md` |

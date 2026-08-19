@@ -1,7 +1,7 @@
-# ASAK 회의록 및 최종 배포 검증
+﻿# ASAK 회의록 및 최종 배포 검증
 
 > **⚠️ HISTORICAL / 참고용 — 일일 실행에 쓰지 마세요.**
-> → 대신 [**START_HERE**](https://github.com/hagenie128/ASAK/blob/main/docs/START_HERE.md) · [**wbs.md**](https://github.com/hagenie128/ASAK/blob/main/docs/wiki/wbs.md) · [구현 맵](https://github.com/hagenie128/ASAK/blob/main/docs/planning/current-implementation-map-2026-07-16.md) · [wbs-status-notes](https://github.com/hagenie128/ASAK/blob/main/docs/wiki/wbs-status-notes.md) · [baseline](https://github.com/hagenie128/ASAK/blob/main/docs/wiki/current-status-baseline.md) · [주차별 회의록](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md)
+> → 대신 [**START_HERE**](https://github.com/hagenie128/ASAK/blob/main/docs/START_HERE.md) · [**wbs.md**](https://github.com/hagenie128/ASAK/blob/main/docs/wiki/wbs.md) · [구현 맵](https://github.com/hagenie128/ASAK/blob/main/docs/planning/impl-map-2026-07-16.md) · [wbs-status-notes](https://github.com/hagenie128/ASAK/blob/main/docs/wiki/wbs-status-notes.md) · [baseline](https://github.com/hagenie128/ASAK/blob/main/docs/wiki/current-status-baseline.md) · [주차별 회의록](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md)
 > 산출물 존재 ≠ 구현 근거. (체크리스트의 `ASAK-front` 등은 구 명칭.)
 
 > Notion 10. 회의록 + 11. 최종 제출 체크리스트 (2026-07-06)

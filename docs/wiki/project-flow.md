@@ -1,12 +1,12 @@
-# ASAK 전체 흐름도 (Mermaid)
+﻿# ASAK 전체 흐름도 (Mermaid)
 
 > 기준일: **2026-08-18** · 코드 실측 기준 (문서 주장이 아니라 실제 파일/라우트를 확인함).
 > Admin: 주문(Live·목록·상태·취소) + 메뉴 CRUD/soft delete **코드 연결·미검증**. 품절/결제수단/매출/대시보드/로그인은 BE 스텁.
 > Kiosk: 결제수단(API-014)·주문생성(API-005) 호출. 결제 승인은 타이머 mock · 클라이언트 `/payments` ≠ 서버 `/api/kiosk/payments`.
 > **이번 주:** 08/21까지 RTOS(`device_event`+콘솔, 적어도 Spring↔React). 코드에 `device_event` 없음.
-> 상세: [admin-todo-checklist](../planning/admin-todo-checklist-2026-08-05.md) · [검증 투두](../planning/admin-feature-verify-todos-2026-08-06.md) · [회의록](../operations/meeting-minutes/README.md) · [동기화 보고서](../ai-reports/2026-08-06/asak-doc-sync-admin-devcopilot.md)
+> 상세: [admin-todo-checklist](../planning/admin-todo-2026-08-05.md) · [검증 투두](../planning/admin-verify-todos-2026-08-06.md) · [회의록](../operations/meeting-minutes/README.md) · [동기화 보고서](../ai-reports/2026-08-06/asak-doc-sync-admin-devcopilot.md)
 > 문서 입구: [START_HERE](../START_HERE.md)
-> 상태 표: [구현 맵](../planning/current-implementation-map-2026-07-16.md) · 문서↔코드 차이: [gap report](../architecture/document-code-gap-report-2026-07-16.md) · 할 일: [작업 분해표](wbs.md)
+> 상태 표: [구현 맵](../planning/impl-map-2026-07-16.md) · 문서↔코드 차이: [gap report](../architecture/document-code-gap-report-2026-07-16.md) · 할 일: [작업 분해표](wbs.md)
 
 ## 범례 (모든 그림 공통)
 
@@ -179,7 +179,7 @@ flowchart LR
 - 품절 PATCH: 코드/TODO는 `{targetType,targetId,isSoldOut}` (구 DevCopilot `{menuId}`는 코드에 맞춤 갱신).
 - 금액 필드: 문서는 `totalAmount`, `approvedAmount`를 쓰지만, 키오스크 `orderSessionStore`는 `totalPrice` 등 — adapter에서 맞춤.
 
-자세한 표: [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md) · [정본 계약 결정](../governance/canonical-contract-decisions-2026-07-16.md) · [Backend 구현 계획](../../../ASAK-back/IMPLEMENTATION_PLAN.md)
+자세한 표: [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md) · [정본 계약 결정](../governance/contract-decisions-2026-07-16.md) · [Backend 구현 계획](../../../ASAK-back/IMPLEMENTATION_PLAN.md)
 
 ---
 
@@ -235,7 +235,7 @@ flowchart LR
 
 **지금 스프린트에서 하지 말 일:** CSS/시안 통째 교체, `priceCalculation`/`quantityLimits` 되돌리기, Admin 기능을 Kiosk 저장소에 새로 만들기, Backend 실연동 먼저 시작하기.
 
-관련 문서: [작업 분해표](wbs.md) · [WBS 상태 메모](wbs-status-notes.md) · [프론트 3일 실행표](../planning/frontend-wednesday-wbs-2026-07-20.md) *(Historical)*
+관련 문서: [작업 분해표](wbs.md) · [WBS 상태 메모](wbs-status-notes.md) · [프론트 3일 실행표](../planning/frontend-sprint-wbs-2026-07-20.md) *(Historical)*
 
 ---
 
@@ -245,8 +245,8 @@ flowchart LR
 |---|---|
 | [START_HERE](../START_HERE.md) | 문서 전체 입구 |
 | [현재 상태 baseline](current-status-baseline.md) | 영역별 요약 |
-| [구현 맵](../planning/current-implementation-map-2026-07-16.md) | SCR별 상세 |
-| [Current Implementation Map](../planning/current-implementation-map-2026-07-16.md) | 화면·mock·API 상태표 |
+| [구현 맵](../planning/impl-map-2026-07-16.md) | SCR별 상세 |
+| [Current Implementation Map](../planning/impl-map-2026-07-16.md) | 화면·mock·API 상태표 |
 | [Document–Code Gap Report](../architecture/document-code-gap-report-2026-07-16.md) | 정본 vs 코드 충돌 상세 |
 | [작업 분해표](wbs.md) | 실행 할 일 정본 |
 | [Kiosk 구조 가이드](../../../ASAK-Kiosk/src/STRUCTURE_GUIDE.md) · [구현 계획](../../../ASAK-Kiosk/IMPLEMENTATION_PLAN.md) | Kiosk 코딩 시작점 |
@@ -256,4 +256,4 @@ flowchart LR
 ## Documentation status
 
 - Status: **Current (2026-07-20)** — 코드 실측(`KioskApp.jsx`, `AdminApp.jsx`, `orderSessionStore.js`, `adminMockRepository.js`, `priceCalculation.js`, `quantityLimits.js`, `HealthController.java` 확인) 기준으로 작성.
-- 이 문서는 그림(흐름도) 전용 요약이며, 상태 판정의 정본은 [Current Implementation Map](../planning/current-implementation-map-2026-07-16.md)입니다. 표와 그림이 다르면 표를 따르세요.
+- 이 문서는 그림(흐름도) 전용 요약이며, 상태 판정의 정본은 [Current Implementation Map](../planning/impl-map-2026-07-16.md)입니다. 표와 그림이 다르면 표를 따르세요.
