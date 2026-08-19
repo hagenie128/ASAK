@@ -1,7 +1,7 @@
-# ASAK DevCopilot Wiki
+﻿# ASAK DevCopilot Wiki
 
 > Status: **CANONICAL**
-> 정책 정본: [Product Bible](../product_bible) · 태그: [document-tag-index-2026-07-20.md](../document-tag-index-2026-07-20.md)
+> 정책 정본: [Product Bible](../product_bible) · 태그: [doc-tag-index-2026-07-20.md](../doc-tag-index-2026-07-20.md)
 
 ## Current — 지금 쓰는 문서
 
@@ -13,7 +13,7 @@
 | [project-flow.md](project-flow.md) | 전체 흐름도 |
 | [index.md](index.md) | 운영 인덱스 |
 | [db-table-definition.md](db-table-definition.md) / [db-view-definition.md](db-view-definition.md) | DB 참고 |
-| [backend-db-midpoint-audit-2026-07-28.md](backend-db-midpoint-audit-2026-07-28.md) | 중간점검 |
+| [backend-db-audit-2026-07-28.md](backend-db-audit-2026-07-28.md) | 중간점검 |
 
 ## Historical — Notion export (정본 아님)
 
@@ -22,7 +22,7 @@
 | [requirements-definition.md](requirements-definition.md) | Product Bible Pack 02~03 |
 | [user-scenarios.md](user-scenarios.md) | Screen Bible · 시나리오 허브 |
 | [screen-design-figma.md](screen-design-figma.md) | [design/README](../design/README.md) |
-| [rest-api-spec.md](rest-api-spec.md) | [정본 계약](../governance/canonical-contract-decisions-2026-07-16.md) |
+| [rest-api-spec.md](rest-api-spec.md) | [정본 계약](../governance/contract-decisions-2026-07-16.md) |
 | [qa-test-cases.md](qa-test-cases.md) | Product Bible Pack 09 |
 
 ## 회의·Hub 업로드

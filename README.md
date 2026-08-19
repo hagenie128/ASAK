@@ -1,4 +1,4 @@
-<div align="center">
+﻿<div align="center">
 
 # 🥗 ASAK
 
@@ -9,7 +9,7 @@
 ![WBS](https://img.shields.io/badge/WBS-Active-16A34A?style=flat-square)
 ![Use](https://img.shields.io/badge/Use-Education_%C2%B7_Portfolio-F59E0B?style=flat-square)
 
-[문서 시작](docs/START_HERE.md) · [프로젝트 허브](PROJECT_HUB.md) · [작업 분해표](docs/wiki/wbs.md) · [구현 현황](docs/wiki/current-status-baseline.md)
+[문서 시작](docs/START_HERE.md) · [프로젝트 허브](project-hub.md) · [작업 분해표](docs/wiki/wbs.md) · [구현 현황](docs/wiki/current-status-baseline.md)
 
 </div>
 

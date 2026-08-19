@@ -1,4 +1,4 @@
-# GitHub Issues 가이드 (ASAK)
+﻿# GitHub Issues 가이드 (ASAK)
 
 > **2026-07-16 override:** issue, branch, and PR instructions must distinguish the current four repositories. Do not create Kiosk migration issues that change remotes, pull, reset, rebase, or move files until the canonical repository decision is approved. WBS execution IDs use `WBS2-*`; legacy WBS identifiers remain historical records.
 
@@ -89,4 +89,4 @@ gh label create docs --color 0075CA --description "문서" --repo hagenie128/ASA
 
 - [`01-team-setup.md`](01-team-setup.md) — 저장소·브랜치·기록 규칙
 - [`worklog/README.md`](../../worklog/README.md) — 일일·entries 워크로그
-- [`.github/PULL_REQUEST_TEMPLATE.md`](../../.github/PULL_REQUEST_TEMPLATE.md) — PR 본문 템플릿
+- [`.github/PULL_REQUESTtemplate.md`](../../.github/PULL_REQUESTtemplate.md) — PR 본문 템플릿

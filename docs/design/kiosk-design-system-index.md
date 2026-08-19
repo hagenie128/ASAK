@@ -1,4 +1,4 @@
-# ASAK 키오스크 디자인 시스템
+﻿# ASAK 키오스크 디자인 시스템
 
 > **정본**: Candidate B — **DS-02 Modern Minimal**
 >
@@ -17,7 +17,7 @@
 | 디자인 명세 | [kiosk-design-system.md](./kiosk-design-system-index.md) |
 | CSS 토큰 | [kiosk-tokens.css](./kiosk-tokens.css) |
 | 공통 토큰 | [kiosk-tokens.css](./kiosk-tokens.css) |
-| Figma 플러그인 | [FIGMA_PLUGINS.md](./FIGMA_PLUGINS.md) |
+| Figma 플러그인 | [figma-plugins.md](./figma-plugins.md) |
 | 구 MASTER 명세 | [`_archive/legacy-ds02-scr/kiosk-design-system.md`](./kiosk-design-system-index.md) |
 
 Figma 플러그인은 DS-02만 생성하며, 예전 후보 프레임은 재실행 시 정리 대상으로 인식한다.

@@ -1,4 +1,4 @@
-# 전체 화면·기능 찾기
+﻿# 전체 화면·기능 찾기
 
 > **빠짐 확인용 목록**이다. `화면 하나` 또는 `상태 하나`를 구현할 때 해당 작업 카드로 이동한다.
 > Screen Registry는 21개 화면을 정의하고, 05-C/06-C는 그 화면 안의 Loading·Empty·Error·Saving 등 세부 상태까지 보여 준다.
@@ -19,7 +19,7 @@
 | API·DTO·DB | [API·DB](04-api-db-implementation.md) | 전체 | [Order API Contract](../product_bible/02_Order_Cart_Payment/ORDER_BIBLE.md), [API Design](../product_bible/06_Engineering_Bible/API_AND_DATABASE_RULES.md), [Database Rules](../product_bible/06_Engineering_Bible/API_AND_DATABASE_RULES.md) |
 | Figma와 React 컴포넌트 | [UI·컴포넌트](05-ui-component-guide.md) | 전체 | [Component System](../product_bible/08_Component_Bible/COMPONENT_FOUNDATIONS.md), [Frontend Architecture](../product_bible/06_Engineering_Bible/FRONTEND_ENGINEERING_RULES.md) |
 | Figma 상태를 하나씩 구현 확인 | [상태 체크리스트](09-figma-state-checklist.md) | SCR-001~022 | [07-C QA / Screen State Matrix](https://www.figma.com/design/yHhvn5RKjBd91U8BJUQz7F/ASAK-%E2%80%94-Design-System---Product-UI-0718?node-id=190-2) |
-| 테스트·시연·릴리스 | [QA](06-qa-release-guide.md) | 전체 | [QA Strategy](../product_bible/09_QA_Bible/QA_STRATEGY_AND_TEMPLATE.md), [Regression Suite](../product_bible/09_QA_Bible/NONFUNCTIONAL_REGRESSION_SUITE.md), [Release Checklist](../product_bible/09_QA_Bible/RELEASE_AND_DEMO_OPERATIONS.md) |
+| 테스트·시연·릴리스 | [QA](06-qa-release-guide.md) | 전체 | [QA Strategy](../product_bible/09_QA_Bible/QA_STRATEGY_ANDtemplate.md), [Regression Suite](../product_bible/09_QA_Bible/NONFUNCTIONAL_REGRESSION_SUITE.md), [Release Checklist](../product_bible/09_QA_Bible/RELEASE_AND_DEMO_OPERATIONS.md) |
 | 영수증 출력 | [Extension](07-extension-implementation.md#scr-023--receipt-output) | SCR-023 | [Receipt Screen](../product_bible/07_Screen_Bible/SCR-023-RECEIPT-OUTPUT.md) |
 | 멤버십·쿠폰 | [Extension](07-extension-implementation.md#scr-024--membership--coupon) | SCR-024 | [Membership Screen](../product_bible/07_Screen_Bible/SCR-024-MEMBERSHIP---COUPON.md) |
 

@@ -1,14 +1,14 @@
-# ASAK DB 설계 테이블 정의서
+﻿# ASAK DB 설계 테이블 정의서
 
 > **2026-08-19 옵션 중복 정리:** `opt_item` 에 같은 그룹·같은 이름이 두 벌씩(42쌍) 있던 것을
 > 하나로 합쳤다. 157행 → **115행**. 주문 이력은 남긴 id 로 이관해 잃지 않았고 주문 총액도 변하지
 > 않았다. 재발을 막으려고 `UNIQUE (opt_group_id, name)` 을 걸었다.
-> 경위와 검증: `ASAK-back/docs/2026-08-19_duplicate_option_cleanup_plan.md`
+> 경위와 검증: `ASAK-back/docs/duplicate-option-cleanup-plan-2026-08-19.md`
 >
 > **2026-08-19 실측 동기화:** 운영 DB(`asak_db`)에서 `SHOW CREATE TABLE` 로 직접 읽어 갱신했다.
 > 실제 테이블은 **26개**이며, 이전 판의 "22테이블"과 레거시 테이블 이름은 short-name 마이그레이션
 > 이전 기준이라 실제와 달랐다. DDL 정본: `ASAK-back/docs/아삭_mysql.sql` ·
-> 대조 내역: `ASAK-back/docs/2026-08-19_schema_doc_drift.md`
+> 대조 내역: `ASAK-back/docs/schema-doc-drift-2026-08-19.md`
 >
 > **2026-08-18 Hub:** DB 탭은 원격 ERD를 오래된 스냅샷으로 덮지 않는다. 뷰 정본: [db-view-definition.md](db-view-definition.md). `device_event` 테이블은 코드/ERD에 없음.
 > Notion 05. DB 설계 · MySQL 3NF · `asak-data/seed/manifest.json`
@@ -113,7 +113,7 @@ erDiagram
 | `pay_method_cfg.image_asset_id` | 결제수단 이미지 |
 
 `menu.image_url` 은 이관 확인용으로 당분간 유지한다. 배경과 전환 기준은
-`ASAK-back/docs/MENU_IMAGE_ASSET_FLOW.md` 참고.
+`ASAK-back/docs/menu-image-asset-flow.md` 참고.
 
 ## 시드 manifest 수치 (v2)
 

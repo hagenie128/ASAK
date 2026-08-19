@@ -1,4 +1,4 @@
-# ASAK 파일·문서 네이밍 규칙
+﻿# ASAK 파일·문서 네이밍 규칙
 
 > 갱신: **2026-07-20**  
 > **파일명만 보고** 종류·역할·시점을 추측할 수 있게 하는 규칙입니다.  
@@ -39,10 +39,10 @@
 |---|---|
 | `README.md` | 그 **폴더 입구** |
 | `START_HERE.md` | 전체 문서 **단일 진입** |
-| `00-start-here.md` | implementation_guide **첫 번째** |
+| `00-start-here.md` | implementation-guide **첫 번째** |
 | `figma-*.md` | design / Figma 실행·QA |
 | `wbs.md` | **WBS 정본** (`WBS-001`~`085`) |
-| `current-implementation-map-2026-07-16.md` | **코드 실측 스냅샷** |
+| `impl-map-2026-07-16.md` | **코드 실측 스냅샷** |
 | `*-2026-07-18.md` | 7/18 시점 기록·감사·handoff |
 | `document-*-2026-07-20.md` | **문서 메타** (인벤토리·태그·네이밍) |
 | `_archive/` 아래 | **실행 금지** 이력 |
@@ -55,12 +55,12 @@
 
 | 폴더 | 패턴 | 예 |
 |---|---|---|
-| 루트 | `START_HERE.md`, `document-{role}-{date}.md` | `document-inventory-slim-2026-07-20.md` |
+| 루트 | `START_HERE.md`, `document-{role}-{date}.md` | `doc-inventory-2026-07-20.md` |
 | `design/` | `figma-{topic}[-date].md` | `figma-guide.md`, `figma-token-report.md` |
 | `wiki/` | `{topic}.md` | `wbs.md`, `project-flow.md` |
-| `planning/` | `{topic}[-{date}].md` | `app-implementation-hub.md` |
-| `governance/` | `{topic}-{date}.md` | `canonical-contract-decisions-2026-07-16.md` |
-| `implementation_guide/` | `NN-{topic}.md`, `feature-lookup.md` | `02-kiosk-implementation.md` |
+| `planning/` | `{topic}[-{date}].md` | `impl-hub.md` |
+| `governance/` | `{topic}-{date}.md` | `contract-decisions-2026-07-16.md` |
+| `implementation-guide/` | `NN-{topic}.md`, `feature-lookup.md` | `02-kiosk-implementation.md` |
 | `guides/` | `NN-{topic}.md`, `09-11-moved.md` | `01-team-setup.md` |
 | `operations/setup/` | `{topic}.md` | `getting-started.md` |
 | `architecture/` | `{topic}-{date}.md` | `document-code-gap-report-2026-07-16.md` |
@@ -87,7 +87,7 @@
 | 붙인다 | 붙이지 않는다 |
 |---|---|
 | WBS·구현맵·감사 **정본 스냅샷** | `figma-guide.md` (living) |
-| repo handoff·parity log | `app-implementation-hub.md` |
+| repo handoff·parity log | `impl-hub.md` |
 | 1회성 계획·register | `README.md`, `00-start-here.md` |
 | document inventory / manifest | `ui-index.md` |
 
@@ -129,7 +129,7 @@
 | `asak-data/scripts/*_report.json` | `snake_case` | 파이프라인 산출물 |
 | `worklog/` | `YYYY-MM-DD-*.md` | 날짜 접두 한국어 파일명 허용 |
 | `docs/notion/` | Notion export | 스크립트 입력 · 그대로 유지 |
-| `.github/` | GitHub 템플릿 | `PULL_REQUEST_TEMPLATE.md` 등 고정 |
+| `.github/` | GitHub 템플릿 | `PULL_REQUESTtemplate.md` 등 고정 |
 
 **사람이 읽는 docs/ · repo docs/ 만** 위 kebab-case 규칙 적용.
 
@@ -150,7 +150,7 @@
 4. **순서**가 필요하면 `NN-` 붙였는가?
 5. **design**이면 `figma-` 접두를 고려했는가?
 6. 맨 위 **배너** (`Current` / `Historical` / `→ 대신 X`) 달았는가?
-7. [document-inventory-slim](document-inventory-slim-2026-07-20.md) KEEP 목록에 넣을 필요가 있는가?
+7. [document-inventory-slim](doc-inventory-2026-07-20.md) KEEP 목록에 넣을 필요가 있는가?
 
 ---
 
@@ -159,10 +159,10 @@
 | 영역 | 상태 |
 |---|---|
 | `docs/design/` active | ✅ kebab-case |
-| `docs/implementation_guide/` | ✅ `NN-{topic}.md` |
+| `docs/implementation-guide/` | ✅ `NN-{topic}.md` |
 | `docs/operations/setup/` | ✅ |
 | 워크스페이스 `ui-index.md` | ✅ |
 | `product_bible/` Pack 본문 | ⏸ 유지 |
 | `_archive/` deep history | ⏸ 배너·링크만 |
 
-관련: [document-tag-index-2026-07-20.md](document-tag-index-2026-07-20.md) · [document-inventory-slim-2026-07-20.md](document-inventory-slim-2026-07-20.md)
+관련: [doc-tag-index-2026-07-20.md](doc-tag-index-2026-07-20.md) · [doc-inventory-2026-07-20.md](doc-inventory-2026-07-20.md)

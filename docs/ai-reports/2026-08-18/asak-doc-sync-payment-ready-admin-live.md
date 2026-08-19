@@ -1,4 +1,4 @@
-## 대상 저장소와 기준
+﻿## 대상 저장소와 기준
 
 - 문서 저장소: `ASAK`
 - 구현 근거 저장소: `ASAK-back`, `ASAK-Admin`
@@ -29,7 +29,7 @@
 - `docs/wiki/rest-api-spec.md`
 - `docs/wiki/screen-design-figma.md`
 - `docs/screens/screens.md`
-- `docs/implementation_guide/02-kiosk-implementation.md`
+- `docs/implementation-guide/02-kiosk-implementation.md`
 - `docs/ai-reports/2026-08-18/asak-doc-sync-payment-ready-admin-live.md`
 
 ## 반영 내용

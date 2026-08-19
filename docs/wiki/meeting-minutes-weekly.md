@@ -1,4 +1,4 @@
-# ASAK 주차별 회의록 (2026-07 ~ 08)
+﻿# ASAK 주차별 회의록 (2026-07 ~ 08)
 
 > Status: **REFERENCE**
 > 원본: [`../operations/meeting-minutes/`](../operations/meeting-minutes/README.md)
@@ -59,14 +59,14 @@
 
 | 주차 | 기간 | 주제 | 파일 |
 |---|---|---|---|
-| W27 | 06-29 ~ 07-05 | 킥오프·기획 정비 | [2026-W27.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W27.md) |
-| W28 | 07-06 ~ 07-12 | 디자인 방향·관리자 UI 골격 | [2026-W28.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W28.md) |
-| W29 | 07-13 ~ 07-19 | 저장소 분리·Figma→코드·구현 경계 | [2026-W29.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W29.md) |
-| W30 | 07-20 ~ 07-26 | mock 완성·백엔드 골격·제출 | [2026-W30.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W30.md) |
-| W31 | 07-27 ~ 08-02 | Admin API·계약 통일·연동 시작 | [2026-W31.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W31.md) |
-| W32 | 08-03 ~ 08-07 | 실연동·관리자 CRUD·문서화 | [2026-W32.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W32.md) |
-| W33 | 08-10 ~ 08-16 | 키오스크 실API·관리자 메뉴 연동 | [2026-W33.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W33.md) |
-| W34 | 08-17 ~ 08-21 | 장치 이벤트/RTOS 연동 | [2026-W34.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W34.md) |
+| W27 | 06-29 ~ 07-05 | 킥오프·기획 정비 | [2026-w27.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w27.md) |
+| W28 | 07-06 ~ 07-12 | 디자인 방향·관리자 UI 골격 | [2026-w28.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w28.md) |
+| W29 | 07-13 ~ 07-19 | 저장소 분리·Figma→코드·구현 경계 | [2026-w29.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w29.md) |
+| W30 | 07-20 ~ 07-26 | mock 완성·백엔드 골격·제출 | [2026-w30.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w30.md) |
+| W31 | 07-27 ~ 08-02 | Admin API·계약 통일·연동 시작 | [2026-w31.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w31.md) |
+| W32 | 08-03 ~ 08-07 | 실연동·관리자 CRUD·문서화 | [2026-w32.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w32.md) |
+| W33 | 08-10 ~ 08-16 | 키오스크 실API·관리자 메뉴 연동 | [2026-w33.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w33.md) |
+| W34 | 08-17 ~ 08-21 | 장치 이벤트/RTOS 연동 | [2026-w34.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w34.md) |
 
 ---
 
@@ -187,7 +187,7 @@
 |---|---|
 | 문서 입구 | [START_HERE](https://github.com/hagenie128/ASAK/blob/main/docs/START_HERE.md) |
 | 영역별 현황 | [current-status-baseline](current-status-baseline.md) |
-| 구현 맵 | [current-implementation-map](https://github.com/hagenie128/ASAK/blob/main/docs/planning/current-implementation-map-2026-07-16.md) |
+| 구현 맵 | [current-implementation-map](https://github.com/hagenie128/ASAK/blob/main/docs/planning/impl-map-2026-07-16.md) |
 | 전체 흐름도 | [project-flow](project-flow.md) |
 
 ### 계획·WBS
@@ -203,7 +203,7 @@
 
 | 종류 | 링크 |
 |---|---|
-| 정본 계약 | [canonical-contract-decisions](https://github.com/hagenie128/ASAK/blob/main/docs/governance/canonical-contract-decisions-2026-07-16.md) |
+| 정본 계약 | [canonical-contract-decisions](https://github.com/hagenie128/ASAK/blob/main/docs/governance/contract-decisions-2026-07-16.md) |
 | REST API 명세 | [rest-api-spec](rest-api-spec.md) |
 | DB 테이블 | [db-table-definition](db-table-definition.md) |
 | DB 뷰 | [db-view-definition](db-view-definition.md) |
@@ -215,10 +215,10 @@
 |---|---|
 | 주차별 정본 | [meeting-minutes README](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md) |
 | 산출물 체크리스트 | [meeting-deliverables-checklist](meeting-deliverables-checklist.md) |
-| 주간 워크로그 | [W28](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-W28.md) · [W29](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-W29.md) |
+| 주간 워크로그 | [W28](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-w28.md) · [W29](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-w29.md) |
 | daily/entries | `worklog/daily/{김나연\|이하진}/` · `worklog/entries/...` |
 | Kiosk / Admin | https://asak-kiosk.vercel.app/ · https://asak-admin.vercel.app/ |
-| RTOS 공부 노트 | [study/RTOS](https://github.com/hagenie128/ASAK/blob/main/docs/study/RTOS/RTOS.md) |
+| RTOS 공부 노트 | [study/RTOS](https://github.com/hagenie128/ASAK/blob/main/docs/study/rtos/rtos.md) |
 
 ---
 
@@ -228,20 +228,20 @@
 |---|---|
 | 2026-08-07 | 초안(통합본). 2조 채널·팀 협의·워크로그 통합. |
 | 2026-08-07 | 주차별 파일 분리 (`meeting-minutes/2026-W*.md`). |
-| 2026-08-07 | 상태 스냅샷·`⚠️ 확인 필요 사항`(결정↔구현 갭) 신설, Action Items 담당자 배정, 역할표에 백엔드 도메인 분담 반영. 회의록 `_TEMPLATE.md` 추가. |
+| 2026-08-07 | 상태 스냅샷·`⚠️ 확인 필요 사항`(결정↔구현 갭) 신설, Action Items 담당자 배정, 역할표에 백엔드 도메인 분담 반영. 회의록 `template.md` 추가. |
 | 2026-08-07 | 참고 문서를 `wbs.md`·START_HERE·baseline·API/DB·DONE/PASS 등 현재 정본으로 갱신. |
 
 
 ---
 
-# 회의록 2026-W27 — 킥오프·기획 정비
+# 회의록 2026-w27 — 킥오프·기획 정비
 
 | 항목 | 내용 |
 |---|---|
-| 주차 | ISO 2026-W27 |
+| 주차 | ISO 2026-w27 |
 | 기간 | 2026-06-29 ~ 2026-07-05 |
 | 팀 | 김나연, 이하진 |
-| 목차 | [회의록 목록](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md) · [다음 주 →](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W28.md) |
+| 목차 | [회의록 목록](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md) · [다음 주 →](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w28.md) |
 
 ---
 
@@ -282,15 +282,15 @@
 - **daily:** (해당 기간 파일 없음)
 - **entries:** (해당 기간 파일 없음)
 
-# 회의록 2026-W28 — 디자인 방향·관리자 UI 골격
+# 회의록 2026-w28 — 디자인 방향·관리자 UI 골격
 
 | 항목 | 내용 |
 |---|---|
-| 주차 | ISO 2026-W28 |
+| 주차 | ISO 2026-w28 |
 | 기간 | 2026-07-06 ~ 2026-07-12 |
 | 팀 | 김나연, 이하진 |
-| 목차 | [← 이전](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W27.md) · [목록](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md) · [다음 →](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W29.md) |
-| 주간 일지 | [`worklog/weekly/2026-W28.md`](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-W28.md) |
+| 목차 | [← 이전](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w27.md) · [목록](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md) · [다음 →](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w29.md) |
+| 주간 일지 | [`worklog/weekly/2026-w28.md`](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-w28.md) |
 
 ---
 
@@ -348,18 +348,18 @@
 
 ### 주간 워크로그
 
-- `worklog/weekly/2026-W28.md`
+- `worklog/weekly/2026-w28.md`
 
 - 참고 문서: [회의록 README §참고 문서](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md#참고-문서-2026-08-07)
-# 회의록 2026-W29 — 저장소 분리·Figma→코드·구현 경계
+# 회의록 2026-w29 — 저장소 분리·Figma→코드·구현 경계
 
 | 항목 | 내용 |
 |---|---|
-| 주차 | ISO 2026-W29 |
+| 주차 | ISO 2026-w29 |
 | 기간 | 2026-07-13 ~ 2026-07-19 |
 | 팀 | 김나연, 이하진 (2인 체제 확정) |
-| 목차 | [← 이전](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W28.md) · [목록](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md) · [다음 →](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W30.md) |
-| 주간 일지 | [`worklog/weekly/2026-W29.md`](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-W29.md) |
+| 목차 | [← 이전](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w28.md) · [목록](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md) · [다음 →](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w30.md) |
+| 주간 일지 | [`worklog/weekly/2026-w29.md`](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-w29.md) |
 
 ---
 
@@ -449,18 +449,18 @@
 
 ### 주간 워크로그
 
-- `worklog/weekly/2026-W29.md`
+- `worklog/weekly/2026-w29.md`
 
 - 참고 문서: [회의록 README §참고 문서](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md#참고-문서-2026-08-07)
-# 회의록 2026-W30 — mock 완성·백엔드 골격·제출
+# 회의록 2026-w30 — mock 완성·백엔드 골격·제출
 
 | 항목 | 내용 |
 |---|---|
-| 주차 | ISO 2026-W30 |
+| 주차 | ISO 2026-w30 |
 | 기간 | 2026-07-20 ~ 2026-07-26 |
 | 팀 | 김나연, 이하진 |
-| 목차 | [← 이전](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W29.md) · [목록](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md) · [다음 →](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W31.md) |
-| 주간 일지 | [`worklog/weekly/2026-W30.md`](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-W30.md) |
+| 목차 | [← 이전](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w29.md) · [목록](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md) · [다음 →](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w31.md) |
+| 주간 일지 | [`worklog/weekly/2026-w30.md`](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-w30.md) |
 
 ---
 
@@ -543,17 +543,17 @@
 
 ### 주간 워크로그
 
-- `worklog/weekly/2026-W30.md`
+- `worklog/weekly/2026-w30.md`
 
 - 참고 문서: [회의록 README §참고 문서](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md#참고-문서-2026-08-07)
-# 회의록 2026-W31 — Admin API·계약 통일·연동 시작
+# 회의록 2026-w31 — Admin API·계약 통일·연동 시작
 
 | 항목 | 내용 |
 |---|---|
-| 주차 | ISO 2026-W31 |
+| 주차 | ISO 2026-w31 |
 | 기간 | 2026-07-27 ~ 2026-08-02 |
 | 팀 | 김나연, 이하진 |
-| 목차 | [← 이전](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W30.md) · [목록](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md) · [다음 →](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W32.md) |
+| 목차 | [← 이전](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w30.md) · [목록](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md) · [다음 →](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w32.md) |
 
 ---
 
@@ -643,17 +643,17 @@
 
 ### 주간 워크로그
 
-- `worklog/weekly/2026-W31.md`
+- `worklog/weekly/2026-w31.md`
 
 - 참고 문서: [회의록 README §참고 문서](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md#참고-문서-2026-08-07)
-# 회의록 2026-W32 — 실연동·관리자 CRUD·문서화
+# 회의록 2026-w32 — 실연동·관리자 CRUD·문서화
 
 | 항목 | 내용 |
 |---|---|
-| 주차 | ISO 2026-W32 |
+| 주차 | ISO 2026-w32 |
 | 기간 | 2026-08-03 ~ 2026-08-07 |
 | 팀 | 김나연, 이하진 |
-| 목차 | [← 이전](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W31.md) · [목록](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md) |
+| 목차 | [← 이전](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w31.md) · [목록](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md) |
 
 ---
 
@@ -769,6 +769,6 @@
 
 ### 주간 워크로그
 
-- `worklog/weekly/2026-W32.md`
+- `worklog/weekly/2026-w32.md`
 
 - 참고 문서: [회의록 README §참고 문서](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/README.md#참고-문서-2026-08-07)

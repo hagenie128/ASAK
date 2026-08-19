@@ -1,4 +1,4 @@
-# QA·릴리스 구현 가이드
+﻿# QA·릴리스 구현 가이드
 
 > 기능이 보인다고 완료가 아니다. Figma, API, DB, 상태값과 복구 흐름까지 확인해야 완료다.
 
@@ -51,7 +51,7 @@
 
 ## 정본 링크
 
-- [QA Strategy](../product_bible/09_QA_Bible/QA_STRATEGY_AND_TEMPLATE.md)
+- [QA Strategy](../product_bible/09_QA_Bible/QA_STRATEGY_ANDtemplate.md)
 - [회귀 점검 Suite](../product_bible/09_QA_Bible/NONFUNCTIONAL_REGRESSION_SUITE.md)
 - [Release Checklist](../product_bible/09_QA_Bible/RELEASE_AND_DEMO_OPERATIONS.md)
 - [Order Edge Case and QA](../product_bible/02_Order_Cart_Payment/ORDER_BIBLE.md)

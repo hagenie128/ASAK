@@ -1,4 +1,4 @@
-# 2026-07-21 Admin mock 페이지 바인딩
+﻿# 2026-07-21 Admin mock 페이지 바인딩
 
 > **일일:** [2026-07-21](../../daily/이하진/2026-07-21.md)
 
@@ -92,7 +92,7 @@ Page → hooks (useOrdersQuery / useSoldOutDraft / usePagination)
   - 매출 3화면 getter 연결(WBS2-041~043)
   - Admin #1 TC-A01~A06 전체 회귀 점검
 - 집에서 먼저 확인할 문서:
-  - `ASAK/docs/planning/current-implementation-map-2026-07-16.md`
+  - `ASAK/docs/planning/impl-map-2026-07-16.md`
   - `ASAK/docs/wiki/current-status-baseline.md`
   - `ASAK/docs/wiki/wbs-status-notes.md`
   - `ASAK/docs/wiki/wbs-v2-2026-07-16.md`

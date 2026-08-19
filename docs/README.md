@@ -1,4 +1,4 @@
-# ASAK 문서 안내
+﻿# ASAK 문서 안내
 
 > **👉 처음이면 [문서 시작](START_HERE.md)만 보세요.** (단일 진입점)
 > **2026-08-14:** 현재 구현 상태 문서는 시점 스냅샷이며, 실행 작업 분해표 정본은 [`wiki/wbs.md`](wiki/wbs.md)입니다.
@@ -6,13 +6,13 @@
 
 ## 운영 원칙
 
-- **입구:** [문서 시작](START_HERE.md) · [프로젝트 허브](../PROJECT_HUB.md)
-- **정책 정본:** `product_bible/` (먼저 [읽기 허브](product_bible/product-bible-hub.md)) · **계약:** `governance/canonical-contract-decisions-2026-07-16.md`
-- **현재 구현:** [구현 현황 요약](wiki/current-status-baseline.md) · [구현 맵](planning/current-implementation-map-2026-07-16.md) · **앱 허브:** [앱 구현 허브](planning/app-implementation-hub.md)
+- **입구:** [문서 시작](START_HERE.md) · [프로젝트 허브](../project-hub.md)
+- **정책 정본:** `product_bible/` (먼저 [읽기 허브](product_bible/product-bible-hub.md)) · **계약:** `governance/contract-decisions-2026-07-16.md`
+- **현재 구현:** [구현 현황 요약](wiki/current-status-baseline.md) · [구현 맵](planning/impl-map-2026-07-16.md) · **앱 허브:** [앱 구현 허브](planning/impl-hub.md)
 - **AI 도구 사용:** 설치된 ASAK 스킬을 직접 사용하며 중복 프롬프트·설정 사본은 유지하지 않음
 - **앱 실행 문서:** `src/STRUCTURE_GUIDE.md` · 키오스크/백엔드는 `IMPLEMENTATION_PLAN.md` · **관리자 계획 파일은 삭제됨** → 가상 데이터 사전·중앙 작업 분해표·구현 맵 사용
 - **과거 이력:** 대형 `_archive/` 트리는 제거했습니다. 필요한 과거 자료는 Git 이력에서 조회하며 정본으로 되돌리지 않습니다.
-- **파일명 규칙:** [document-naming-guide-2026-07-20.md](document-naming-guide-2026-07-20.md) · 검사: `pwsh asak-data/scripts/check-filename-convention.ps1` · 인벤토리: [document-inventory-slim-2026-07-20.md](document-inventory-slim-2026-07-20.md)
+- **파일명 규칙:** [doc-naming-guide-2026-07-20.md](doc-naming-guide-2026-07-20.md) · 검사: `pwsh asak-data/scripts/check-filename-convention.ps1` · 인벤토리: [doc-inventory-2026-07-20.md](doc-inventory-2026-07-20.md)
 - **주의:** `docs/notion`, `worklog/daily` 경로는 스크립트가 읽음 — 무단 이동 금지
 
 ```powershell
@@ -24,13 +24,13 @@ python worklog/scripts/build_calendar.py
 ## 문서 진입 순서
 
 1. **[문서 시작](START_HERE.md)** ← 여기부터
-2. [위키 색인](wiki/index.md) · [구현 현황 요약](wiki/current-status-baseline.md) · [구현 맵](planning/current-implementation-map-2026-07-16.md)
-3. [앱 구현 허브](planning/app-implementation-hub.md) · [작업 분해표](wiki/wbs.md)
-4. [정본 계약 결정](governance/canonical-contract-decisions-2026-07-16.md)
-5. [현재 구현 맵](planning/current-implementation-map-2026-07-16.md)
+2. [위키 색인](wiki/index.md) · [구현 현황 요약](wiki/current-status-baseline.md) · [구현 맵](planning/impl-map-2026-07-16.md)
+3. [앱 구현 허브](planning/impl-hub.md) · [작업 분해표](wiki/wbs.md)
+4. [정본 계약 결정](governance/contract-decisions-2026-07-16.md)
+5. [현재 구현 맵](planning/impl-map-2026-07-16.md)
 6. [문서–코드 차이 보고서](architecture/document-code-gap-report-2026-07-16.md)
-7. [구현 우선순위](planning/implementation-priority-2026-07-16.md) *(목표 순서 · 현재 상태는 구현 맵 기준)*
-8. [프론트 3일 WBS](planning/frontend-wednesday-wbs-2026-07-20.md)
+7. [구현 우선순위](planning/impl-priority-2026-07-16.md) *(목표 순서 · 현재 상태는 구현 맵 기준)*
+8. [프론트 3일 WBS](planning/frontend-sprint-wbs-2026-07-20.md)
 9. [제품 기준 문서 허브](product_bible/product-bible-hub.md) · [팩 안내](product_bible/README.md)
 10. [디자인](design) · [화면](screens)
 11. [운영 환경 설정](operations/setup) · [Android PWA 전체화면](operations/setup/android-pwa-fullscreen.md)
@@ -42,7 +42,7 @@ python worklog/scripts/build_calendar.py
 - Product Bible은 Pack 1~12의 활성 통합 문서만 구현 기준으로 사용한다.
 - 기존 Notion 내보내기, 회의록, 작업 분해표는 고유 맥락을 보존하는 참고 또는 보관 자료이며 제품 기준 문서를 대체하지 않는다.
 - 제품 기준 문서 수는 구현 범위를 뜻하지 않는다. 구현은 최소 기능 제품과 `FUTURE_SCOPE`를 구분해 승인된 세로 기능 흐름만 진행한다.
-- 계약 결정은 [정본 계약 결정](governance/canonical-contract-decisions-2026-07-16.md)을 따른다.
+- 계약 결정은 [정본 계약 결정](governance/contract-decisions-2026-07-16.md)을 따른다.
 
 ## 폴더 역할
 
@@ -51,7 +51,7 @@ python worklog/scripts/build_calendar.py
 | `START_HERE.md` | 단일 문서 진입점 | `CURRENT` |
 | `governance` | 정본·계약·상태 정책 | `CANONICAL` |
 | `planning` | 구현 맵·우선순위·앱 허브 | `DRAFT` / `HISTORY` |
-| `implementation_guide` | 화면·도메인 작업 카드 | `CURRENT` |
+| `implementation-guide` | 화면·도메인 작업 카드 | `CURRENT` |
 | `architecture` | 문서–코드 차이 분석 | `HISTORY` |
 | `product_bible` | 제품 기준 팩 1~12 | `CANONICAL` |
 | `operations` | 설치·회의록 정본 | `CURRENT` / `HISTORY` |
@@ -63,7 +63,7 @@ python worklog/scripts/build_calendar.py
 | `wiki` | Hub/DevCopilot 참고·WBS 정본 | Mixed |
 | `notion` | DevCopilot 동기화 입력 (이동 금지) | `REFERENCE` |
 | `ai-reports` | 일자별 작업 근거 | `HISTORY` |
-| `00_presentation` | 발표 PPT (최신=수정3) | `CURRENT` |
+| `00-presentation` | 발표 PPT (최신=수정3) | `CURRENT` |
 
 ## 제품 기준 문서 팩 1~12
 

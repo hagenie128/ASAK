@@ -1,7 +1,7 @@
-# ASAK 문서 동기화 — 업무 코드 규칙 (2026-08-19)
+﻿# ASAK 문서 동기화 — 업무 코드 규칙 (2026-08-19)
 
 - 범위: `ApiResponse` 오류 envelope와 문자열 업무 코드 규칙
-- 정본: `ASAK-back/docs/implementation_guide/04-api-db-implementation.md`
+- 정본: `ASAK-back/docs/implementation-guide/04-api-db-implementation.md`
 - 소스코드·실제 DB·Git: 수정하지 않음
 - 인증 정보: 기록하지 않음
 
@@ -15,7 +15,7 @@
 
 ## 반영 내용
 
-1. 중앙 문서 `ASAK/docs/implementation_guide/04-api-db-implementation.md`를 백엔드 재작성본 기준으로 정렬했다.
+1. 중앙 문서 `ASAK/docs/implementation-guide/04-api-db-implementation.md`를 백엔드 재작성본 기준으로 정렬했다.
 2. DevCopilot workspace 2의 기존 API 카드 30개에 `response_error` 규칙을 갱신했다.
 
 허브에 반영한 공통 규칙은 다음과 같다.

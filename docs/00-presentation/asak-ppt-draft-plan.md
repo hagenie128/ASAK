@@ -1,6 +1,6 @@
-# ASAK 결과보고서 PPT 작성 계획
+﻿# ASAK 결과보고서 PPT 작성 계획
 
-> **정본 위치:** `ASAK/docs/00_presentation/ASAK_PPT_작성계획_초안.md` 와 동기화
+> **정본 위치:** `ASAK/docs/00-presentation/ASAK_PPT_작성계획_초안.md` 와 동기화
 > **디자인 규격:** `ASAK_PPT_디자인시스템.md` (T01~T15 · 22장)
 > **구현 현실:** `docs/wiki/current-status-baseline.md` — mock 연결 ≠ DONE
 > **작성 원칙:** 슬라이드에는 짧게, 말은 노트에. 구현·시연 가능한 것만 주장한다.
@@ -43,7 +43,7 @@
 | 멘토/강사명     | ✅   | 남상규                                                       |
 | 이탈 인원 표기  | 참고 | 민준·유진 → 나연·하진 이관 (표에 넣을지 팀 합의)             |
 | 시연 범위       | ⬜   | 아래 §4 — 당일 가능한 흐름만 확정                            |
-| 화면 캡처       | ✅   | `00_ppt/screenshots/` · 수정3 PPT 반영                        |
+| 화면 캡처       | ✅   | `00-ppt/screenshots/` · 수정3 PPT 반영                        |
 | 강사 피드백 4건 | ⬜   | 07.14 · 07.23 · 07.24 · 08.04 회의록에서 Before→After로 채움 |
 
 ---
@@ -578,6 +578,6 @@ ASAK 샐러드 스마트 키오스크
 ## 8. 다음 작업
 
 1. §1 확인 필요 3항목(멘토·시연 A/B·피드백 4행) 채우기
-2. 캡처 넣고 `ASAK/docs/00_presentation/build.mjs` 또는 pptx에 문구 반영
+2. 캡처 넣고 `ASAK/docs/00-presentation/build.mjs` 또는 pptx에 문구 반영
 3. 리허설 1회 — 시연 Plan B까지 소리 내어 통과
 4. (선택) 이 문서의 헤드라인·카피만 뽑아 스피커 큐카드 1장으로 압축

@@ -1,4 +1,4 @@
-# Apply DS-02 Theme (Y2K → Salady)
+﻿# Apply DS-02 Theme (Y2K → Salady)
 
 커뮤니티 [Y2K UI Kit (Retro Bubblegum)](https://www.figma.com/design/ndHUuQpfTvanwdspoIKM4Q/Y2K-UI-Kit)을 **사용자 사본**에서 DS-02 Modern Minimal로 일괄 리컬러하는 Figma 플러그인입니다.
 
@@ -40,4 +40,4 @@ node docs/design/figma-apply-ds02-theme-plugin/_test_mock.js
 
 - [Archive migration mapping](../kiosk-design-system-index.md)
 - [figma-create-ds02-components-plugin](../figma-create-ds02-components-plugin/README.md)
-- [Figma 플러그인 안내](../FIGMA_PLUGINS.md)
+- [Figma 플러그인 안내](../figma-plugins.md)

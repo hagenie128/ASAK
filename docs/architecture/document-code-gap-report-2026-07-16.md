@@ -1,10 +1,10 @@
-# Document–Code Gap Report
+﻿# Document–Code Gap Report
 
 > Status: **HISTORY**
 > 기준일: **2026-07-20** · 코드 실측.
 > 문서 입구: [START_HERE](../START_HERE.md)
 > 「없다」와 「연결 안 됨」을 구분한다. UI가 있어도 mock/API 미연결이면 gap이다.
-> 정본 맵: [current-implementation-map-2026-07-16.md](../planning/current-implementation-map-2026-07-16.md)
+> 정본 맵: [impl-map-2026-07-16.md](../planning/impl-map-2026-07-16.md)
 
 ## 핵심 충돌 (정본 결정됨 · 코드 미반영)
 
@@ -79,4 +79,4 @@ SCR-023 영수증, SCR-024 멤버십, 외부 AI TTS, WebSocket, 고급 차트, �
 
 `API-01~03`, `SCR-01~02` = `DECIDED_PENDING_CODE_CHANGE`
 `DATA-01` = `DECIDED_NOT_IMPLEMENTED` (adapter)
-상세: [canonical-contract-decisions-2026-07-16.md](../governance/canonical-contract-decisions-2026-07-16.md)
+상세: [contract-decisions-2026-07-16.md](../governance/contract-decisions-2026-07-16.md)

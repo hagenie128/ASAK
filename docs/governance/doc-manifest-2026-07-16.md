@@ -1,8 +1,8 @@
-# 문서 상태 매니페스트
+﻿# 문서 상태 매니페스트
 
 > Status: **CANONICAL**
 > 갱신: **2026-08-14** · archive 제거 + Pack 통합 상태 정책.
-> **입구:** [START_HERE](../START_HERE.md) · KEEP 목록: [document-inventory-slim](../document-inventory-slim-2026-07-20.md)
+> **입구:** [START_HERE](../START_HERE.md) · KEEP 목록: [document-inventory-slim](../doc-inventory-2026-07-20.md)
 
 | 경로 규칙 | 상태 | 정본(Canonical) 참조 |
 |---|---|---|
@@ -15,4 +15,4 @@
 | 승인 전 화면·확장 계획 | `DRAFT` | 확정 전 요구 |
 | 삭제한 과거 파일 | Git history | 현재 실행 기준 제외 |
 
-라벨 정의: [document-tag-index](../document-tag-index-2026-07-20.md) · 진입: [governance/README](README.md)
+라벨 정의: [document-tag-index](../doc-tag-index-2026-07-20.md) · 진입: [governance/README](README.md)

@@ -1,4 +1,4 @@
-# 디자인 문서
+﻿# 디자인 문서
 
 > Status: **REFERENCE**
 > Figma 편집 정본: **0718** (`yHhvn5RKjBd91U8BJUQz7F`) · 2026-07-20 이후 디자인 추가 작업은 중지 상태입니다.
@@ -8,10 +8,10 @@
 | 역할 | 경로 | 상태 |
 |---|---|---|
 | 진입·Figma 링크 | [figma-guide.md](figma-guide.md) | `CURRENT` |
-| 화면 체크리스트 | [SCR_FIGMA_CHECKLIST.md](SCR_FIGMA_CHECKLIST.md) | `REFERENCE` |
+| 화면 체크리스트 | [scr-figma-checklist.md](scr-figma-checklist.md) | `REFERENCE` |
 | 링크 데이터 | [figma-links.template.json](figma-links.template.json) | `#generated-input` |
 | 토큰 인덱스 | [kiosk-design-system-index.md](kiosk-design-system-index.md) | `REFERENCE` |
-| 플러그인 안내 | [FIGMA_PLUGINS.md](FIGMA_PLUGINS.md) | `REFERENCE` |
+| 플러그인 안내 | [figma-plugins.md](figma-plugins.md) | `REFERENCE` |
 
 ## 실행 자산
 

@@ -1,4 +1,4 @@
-# Product Bible 구조 평탄화 근거
+﻿# Product Bible 구조 평탄화 근거
 
 ## 1. 대상과 기준
 
@@ -12,7 +12,7 @@
 - `docs/product_bible/README.md`
 - `docs/product_bible/product-bible-hub.md`
 - Pack 01~12의 `README.md`와 활성 Markdown 문서 200개
-- `docs/implementation_guide`, `docs/wiki`, `docs/ai-reports`, `docs/study`, `worklog`의 Product Bible 경로 참조
+- `docs/implementation-guide`, `docs/wiki`, `docs/ai-reports`, `docs/study`, `worklog`의 Product Bible 경로 참조
 - `docs/product_bible/_archive`는 이력 보존 대상으로 확인만 하고 이동하지 않음
 
 ## 3. 변경 내용
