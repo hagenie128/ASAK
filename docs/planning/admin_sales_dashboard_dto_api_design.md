@@ -1,6 +1,6 @@
 # Admin Dashboard · Sales DTO / API 설계 정리
 
-> 기준 화면: Dashboard / Sales Summary / Monthly Sales / Daily Sales  
+> 기준 화면: Dashboard / Sales Summary / Monthly Sales / Daily Sales
 > 목적: 프론트 실제 사용 필드 기준으로 API 응답과 DTO 구조를 정리하고, 중복 데이터와 UI 전용 필드를 제거한다.
 
 ---
