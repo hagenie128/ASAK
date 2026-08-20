@@ -1,7 +1,7 @@
 # Sales Bible
 
 > Status: **CANONICAL**
-> Updated: `2026-08-14`
+> Updated: `2026-08-20`
 > 이 문서는 아래 원문을 출처별 구획으로 통합했습니다. 원문의 규칙·표·체크리스트는 삭제하지 않았습니다.
 
 ## 통합 원문
@@ -17,39 +17,30 @@
 
 ### Sales API Contract
 
-> Status: Draft
+> Status: Current (`AdminSalesController` 기준, DB View 적용은 별도)
 
 #### Summary
 
 ```http
-GET /api/admin/sales/summary?startDate=2026-07-01&endDate=2026-07-16
+GET /api/admin/sales/summary?period=month
 ```
 
 ```json
 {
   "success": true,
   "data": {
-    "period": {
-      "startDate": "2026-07-01",
-      "endDate": "2026-07-16",
-      "preset": "CUSTOM",
-      "comparisonLabel": "직전 동일 기간 대비"
-    },
-    "kpis": {
-      "netSales": 8420000,
-      "orderCount": 723,
-      "customerCount": 723,
-      "averageOrderValue": 11646,
-      "comparisonRate": 0.15
-    },
-    "dailyTrend": [
-      {"date": "2026-07-01", "salesAmount": 510000, "orderCount": 42}
+    "label": "이번 달",
+    "dateRange": "2026.08.01 ~ 2026.08.20",
+    "availablePeriods": ["today", "week", "month"],
+    "kpis": [
+      {"label": "총매출", "value": 6842500, "display": "6,842,500원", "delta": 12.4, "deltaLabel": "전월 대비"}
     ],
-    "hourlyTrend": [
-      {"hour": 12, "salesAmount": 680000, "orderCount": 58}
+    "hourlySales": [
+      {"hour": 12, "salesAmount": 680000}
     ],
-    "popularMenus": [],
-    "orderTypeRatio": []
+    "paymentShare": [{"label": "카드", "percent": 65.0}],
+    "orderShare": [{"label": "포장", "percent": 58.0}],
+    "ranking": [{"rank": 1, "menuId": 2037, "menuName": "로스트닭다리살 샐러드", "orderCount": 120, "salesAmount": 1536000}]
   }
 }
 ```
@@ -63,13 +54,24 @@ GET /api/admin/sales/monthly?year=2026
 #### Daily
 
 ```http
-GET /api/admin/sales/daily?date=2026-07-16
+GET /api/admin/sales/daily?from=2026-08-01&to=2026-08-20
 ```
+
+#### Daily time slots
+
+```http
+GET /api/admin/sales/daily/time-slots?date=2026-08-20&intervalMinutes=30
+```
+
+- `period`: `today`, `week`, `month`만 허용하며 기본값은 `month`이다.
+- `intervalMinutes`: `30`, `60`만 허용하며 기본값은 `60`이다.
+- 30분 조회는 `salesMinute`가 `0` 또는 `30`, 60분 조회는 항상 `0`이다.
+- 영업시간(10:00~22:00) 안의 빈 슬롯은 Service에서 0으로 채운다. 오늘 이후 날짜·시간은 생성하지 않는다.
 
 #### Rules
 
 - amount는 integer
-- ratio는 0~1
+- `percent`, `delta`는 백분율 값(예: `65.0`, `12.4`)이다.
 - 날짜는 ISO `YYYY-MM-DD`
 - timezone은 Asia/Seoul
 - 지원하지 않는 field는 반환하지 않는다

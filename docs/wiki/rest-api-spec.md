@@ -46,6 +46,11 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 | API-028 | DELETE | `/api/admin/menus/{menuId}` | 동상 | 구현 · **soft delete** (`deleted_at`) |
 | API-029 | GET | `/api/admin/opts/groups` | `AdminOptionController` | 구현 |
 | API-030 | GET | `/api/admin/opts/{optionGroupId}` | 동상 | 구현 |
+| API-020 | GET | `/api/admin/dashboard` | `AdminSalesController` | 구현 · `AdminDashboardResponse` |
+| API-018 | GET | `/api/admin/sales/summary` | 동상 | 구현 · query `period=today\|week\|month` |
+| API-019 | GET | `/api/admin/sales/monthly` | 동상 | 구현 · query `year=YYYY` |
+| API-017 | GET | `/api/admin/sales/daily` | 동상 | 구현 · query `from=YYYY-MM-DD`, `to` 선택 |
+| — | GET | `/api/admin/sales/daily/time-slots` | 동상 | 구현 · query `date`, `intervalMinutes=30\|60` |
 
 `AdminOrderController`의 class mapping은 `"api/admin/orders"`(선행 `/` 없음)다. Spring은 보통 동일하게 `/api/admin/orders`로 붙는다.
 
@@ -57,10 +62,6 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 | API-010 | GET | `/api/admin/soldOut` | 동상 |
 | API-015 | GET | `/api/admin/paymentMethods` | `AdminPaymentMethodController` 비어 있음 |
 | API-016 | PATCH | `/api/admin/paymentMethods/{methodId}` | 동상 |
-| API-017 | GET | `/api/admin/sales/daily` | `AdminStatsController` TODO |
-| API-018 | GET | `/api/admin/sales/summary` | 동상 |
-| API-019 | GET | `/api/admin/sales/monthly` | 동상 |
-| API-020 | GET | `/api/admin/dashboard` | 동상 |
 | — | POST | `/api/admin/login` | `AdminAuthController` TODO |
 
 ## 미구현 (명세·요구만, Controller 없음)
