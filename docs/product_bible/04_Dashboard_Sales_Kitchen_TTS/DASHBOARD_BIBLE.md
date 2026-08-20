@@ -1,7 +1,7 @@
 # Dashboard Bible
 
 > Status: **CANONICAL**
-> Updated: `2026-08-14`
+> Updated: `2026-08-20`
 > 이 문서는 아래 원문을 출처별 구획으로 통합했습니다. 원문의 규칙·표·체크리스트는 삭제하지 않았습니다.
 
 ## 통합 원문
@@ -94,34 +94,26 @@ GET /api/admin/dashboard
 - 프론트 호출 수가 줄어든다.
 - 화면 구현이 단순하다.
 
-#### 6. 응답 초안
+#### 6. 현재 응답 계약
 
 ```json
 {
   "success": true,
   "data": {
-    "summary": {
-      "netSales": 842000,
-      "orderCount": 72,
-      "averageOrderValue": 11694,
-      "activeOrderCount": 8
-    },
-    "orderStatusCounts": {
-      "received": 3,
-      "preparing": 5,
-      "completed": 64
-    },
-    "popularMenus": [],
-    "soldOutSummary": {
-      "menuCount": 2,
-      "ingredientCount": 3,
-      "optionItemCount": 1
-    },
+    "dateLabel": "2026.08.20",
+    "kpis": [
+      {"label": "오늘 매출", "value": 392500, "display": "392,500원"}
+    ],
     "recentOrders": [],
-    "generatedAt": "2026-07-16T08:00:00"
+    "statusSummary": [{"label": "접수", "count": 3, "tone": "warning"}],
+    "orderTypeSummary": {"eatIn": 12, "takeOut": 30},
+    "inventoryAlerts": [{"label": "재고 부족", "badge": "2건", "tone": "danger"}],
+    "weeklySales": [{"label": "월", "amount": 510000, "isCurrent": true}]
   }
 }
 ```
+
+응답 DTO는 `AdminDashboardResponse`이며, KPI는 `SalesKpiResponse`를 공유한다. 차트의 높이·색상 같은 렌더링 전용 값은 API에 포함하지 않는다.
 
 #### 7. 필수 상태
 
