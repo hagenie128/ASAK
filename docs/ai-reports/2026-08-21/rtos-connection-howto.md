@@ -132,3 +132,92 @@ Invoke-RestMethod -Method Post `
 6. **주의**: `requestSource=ADMIN`으로 기록되는지 확인(`AdminDeviceEventController`가
    `createReceiptPrintEvent(orderId, request, "ADMIN")`로 고정 전달하므로 별도 처리 불필요, 백엔드 응답에서
    `requestSource` 필드로 재검증만).
+
+## 8. 영수증 모양 설계 — Admin 상세 패널과 동일하게
+
+목표: 지금 RTOS에 찍히는 영수증은 `주문번호|메뉴요약|금액` 3필드뿐인데, 이걸
+`ASAK-Admin/src/components/admin/orders/OrderDetailPanel.jsx`(72~154줄)가 보여주는 정보
+(주문번호/주문일시/결제수단, 메뉴명·수량·단가, 옵션, 제외 재료, 메뉴별 합계, 요청사항, 총 결제 금액)
+와 동일하게 확장.
+
+### 8-1. 방식: 사전 포맷팅된 텍스트 통째 전송 (채택)
+
+구조화 JSON을 RTOS가 직접 파싱하게 하는 대신, **Admin(JS) 쪽에서 영수증 전체를 줄바꿈 포함
+완성된 문자열로 조립**해서 `payload`에 그대로 넣는다. RTOS는 그 문자열을 분해하지 않고 통째로
+출력만 하면 되므로 C 파서를 중첩 구조까지 확장할 필요가 없다.
+
+```js
+// ASAK-Admin/src/utils/receiptFormat.js (신규 제안)
+// OrderDetailPanel.jsx의 getPositiveQuantity/getOptionLineAmount/getItemTotalAmount와
+// 동일 계산 로직을 공용 유틸로 뽑아 여기서 재사용 (화면 표시와 출력물 금액이 어긋나지 않도록).
+import { formatCurrency } from "./currency.js";
+import { formatDateTime } from "./date.js";
+import { PAYMENT_METHOD_LABEL } from "../constants/orderLabels.js";
+
+export function buildReceiptText(order) {
+  const lines = [];
+  const W = 40;
+  const rule = "-".repeat(W);
+
+  lines.push("+" + "-".repeat(W - 2) + "+");
+  lines.push(" ASAK RECEIPT".padEnd(W));
+  lines.push("+" + "-".repeat(W - 2) + "+");
+  lines.push(`주문번호: ${order.orderNo}`);
+  lines.push(`주문일시: ${formatDateTime(order.createdAt)}`);
+  lines.push(`결제수단: ${PAYMENT_METHOD_LABEL[order.paymentMethod] || "-"}`);
+  lines.push(rule);
+
+  for (const item of order.items ?? []) {
+    lines.push(`${item.menuName} x${item.quantity}  ${formatCurrency(item.unitPrice)}`);
+    for (const opt of item.optionItems ?? []) {
+      lines.push(`  + ${opt.name}  ${formatCurrency(opt.price)}`);
+    }
+    for (const ex of item.excludedIngredients ?? []) {
+      lines.push(`  - ${ex.name} 제외`);
+    }
+  }
+  lines.push(rule);
+  lines.push(`요청사항: ${order.requestNote || "없음"}`);
+  lines.push(rule);
+  lines.push(`총 결제 금액: ${formatCurrency(order.totalAmount)}`);
+  lines.push("+" + "-".repeat(W - 2) + "+");
+
+  return lines.join("\n");
+}
+```
+
+`ordersApi.js`의 `printReceipt`에서 이 함수 결과를 `payload`로 사용:
+
+```js
+printReceipt: (order) =>
+  apiClient.post(API_ENDPOINTS.printReceipt(order.orderId), {
+    eventType: "PRINT_RECEIPT",
+    payload: buildReceiptText(order),
+    requestId: crypto.randomUUID(),
+  }),
+```
+
+- `OrderDetailPanel.jsx`의 `getPositiveQuantity`/`getOptionLineAmount`/`getItemTotalAmount`는 현재
+  파일 내부 비공개 함수라, `receiptFormat.js`와 공유하려면 별도 유틸(예:
+  `src/utils/orderAmount.js`)로 뽑아 두 곳에서 import하는 걸 권장 (금액 계산 두 벌 유지 방지).
+
+### 8-2. RTOS(`ASAK-RTOS/src/main.c`) 쪽 필수 수정 — 공유 코드, 팀원과 조율 필요
+
+사전 포맷 텍스트 방식이어도 아래 세 가지는 고쳐야 함. 안 고치면 잘리거나 깨짐.
+
+1. **버퍼 크기 부족**: `work_t.payload`가 `char payload[256]`로 고정(main.c 상단 struct 정의).
+   옵션·제외·요청사항까지 들어간 영수증 텍스트는 256바이트를 쉽게 넘김 →
+   `payload[256]` → 최소 `payload[1024]` 이상으로 확장, `RESPONSE_CAPACITY`(현재 2048)도 여유
+   있는지 같이 확인.
+2. **이스케이프 미처리**: `json_string()`(main.c 51-78행 근처)은 백슬래시 이스케이프를 전혀
+   처리하지 않고 `"`를 만나면 바로 문자열 끝으로 판단함. JS `JSON.stringify`가 payload 안의
+   줄바꿈을 `\n`으로, `"`가 있으면 `\"`로 이스케이프해서 보내는데, 지금 파서는:
+   - `\n`을 실제 줄바꿈이 아니라 문자 그대로 `\`+`n`으로 복사해버림 (영수증이 한 줄로 붙어버림)
+   - payload 안에 `\"`가 있으면 그 지점에서 문자열이 끝난 걸로 오판해 뒷부분이 잘림
+   → `json_string()`에 `\n`→개행, `\"`→`"`, `\\`→`\` 최소 이스케이프 해제 로직 추가 필요.
+3. **`handle_print_receipt` 단순화**: 지금은 `strtok(payload, "|")`로 3분할해서 찍는데,
+   통짜 텍스트를 받으면 분할하지 말고 `printf("%s\n", work->payload)`로 그대로 출력하도록 교체.
+   (요구되는 코드 자체는 오히려 지금보다 간단해짐.)
+
+이 세 가지는 `ASAK-RTOS`가 팀원의 번호표/영수증+번호표 처리와 같은 `main.c`를 공유하므로,
+건드리기 전에 팀원과 "영수증 payload를 통짜 텍스트로 바꾼다" 합의만 짧게 해두는 걸 권장.
