@@ -94,6 +94,8 @@
 
 ### `vw_soldout_catalog`
 메뉴/재료/옵션아이템 UNION. 품절 관리 화면용 (`target_type`: MENU | INGREDIENT | OPTION_ITEM).
+`price`와 `image_url`까지 공통 행에 포함한다. Admin 품절 API는 이 뷰만 조회하고,
+품절 상태 변경은 각 베이스 테이블의 `sold_out`을 UPDATE한다.
 
 ---
 

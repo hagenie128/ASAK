@@ -13,6 +13,22 @@
 2. DONE은 **근거** 칸을 채운다.
 3. Hub/Notion 카드와 ID·상태를 맞춘다. 구 `wbs-v2` / `wbs-schedule` 경로는 삭제했고 정본은 이 파일이다.
 
+## 2026-08-21 구현 상태 정정
+
+> 아래 블록은 기존 일정/이력보다 우선하는 현재 코드 기준 정정이다. `DONE`은 실DB·Bruno·브라우저 E2E까지 끝난 경우에만 사용한다.
+
+| WBS | 상태 | 현재 근거 | 남은 완료 조건 |
+| --- | --- | --- | --- |
+| WBS-040 대시보드 | IN_REVIEW | `AdminSalesController#getDashboard` → `adminApi.getDashboard` → `useDashboard` → adapter 연결 | 위젯 값/partial error/실DB 합계 브라우저 QA |
+| WBS-044 / 062 품절 | IN_REVIEW | `GET/PATCH /api/admin/soldOut`, menu·ingredient·option item DB 조회/저장, `useSoldOutDraft` 연결 | 메뉴·재료 저장/복구, 복수 변경 전체 롤백을 Bruno·실DB로 확인 |
+| WBS-046 결제수단 | TODO | 화면 draft는 mock, Controller/API는 미구현 | URL 정본과 `active` DTO·정렬/409 정책 확정 후 Controller → Service/Mapper → API → draft 구현 |
+| WBS-047~049 / 064 매출 | IN_REVIEW | summary/monthly/daily/time-slots/dashboard BE·FE 연결, 30/60분 time-slots 분리 | 집계 View 배포, DB 실매출 집계와 Service 10:00~22:00 0-fill, Bruno/화면 합계 확인 |
+| WBS-070 Admin 실연동 | IN_PROGRESS | 메뉴·품절·매출·대시보드 호출은 코드 연결 | 결제수단·인증·환불/영수증 미연결 및 연결 기능의 실서버 E2E 증거 |
+
+- 품절 UI는 `MENU`, `INGREDIENT` 탭만 노출한다. `OPTION_ITEM`은 API/DB 카탈로그에 포함하되 탭은 숨긴다.
+- 매출의 `/sales/daily` 객체 응답과 `/sales/daily/time-slots` 배열 응답은 서로 다른 API다. 배열을 daily 객체로 취급하지 않는다.
+- 기존 표의 `monthly 스텁`, `daily 미구현`, `salesApi.js 빈 셸`, `품절 저장 연동 TODO` 표기는 8/21 기준 과거 기록이다.
+
 ## 이번 주 우선
 
 > 기준: 선생님 2026-08-18 피드백. 이번 주(08/17~08/21) 마감은 **RTOS 연동, 적어도 Spring Boot와 React 연동**. RTOS endpoint의 정본 API 번호는 아직 없다. 기존 `API-019` 표기는 월별 매출 API와 충돌하므로 사용하지 않는다.

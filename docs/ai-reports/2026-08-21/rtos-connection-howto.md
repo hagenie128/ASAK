@@ -221,3 +221,177 @@ printReceipt: (order) =>
 
 이 세 가지는 `ASAK-RTOS`가 팀원의 번호표/영수증+번호표 처리와 같은 `main.c`를 공유하므로,
 건드리기 전에 팀원과 "영수증 payload를 통짜 텍스트로 바꾼다" 합의만 짧게 해두는 걸 권장.
+
+## 9. TTS 개선 — 보이스 선택 + 주문번호 뒤 4자리만 읽기 (적용 완료)
+
+관련 파일: `ASAK-Admin/src/utils/ttsMessages.js` (수정 완료),
+호출부 `ASAK-Admin/src/components/admin/LiveOrderBoard.jsx` 293~299줄(수정 불필요, 함수 내부만 바뀜).
+
+### 9-1. 보이스 선택 개선 (적용 완료)
+
+기존엔 `ko-KR` lang만 지정하고 보이스는 브라우저 기본값에 맡기고 있었음. `speechSynthesis.getVoices()`로
+설치된 한국어 보이스 목록을 받아 Google → Microsoft Neural(Heami/SunHi/InJoon) → 그 외 순으로
+선택하도록 `pickKoreanVoice()`를 추가하고, `speak()`에서 `utterance.voice`로 지정하도록 반영함.
+`getVoices()`가 비동기라 첫 로드 시 빈 배열일 수 있어 `window.speechSynthesis.onvoiceschanged`에서
+캐시를 갱신하는 초기화 코드도 같이 넣음.
+
+**시연 PC 실측 결과** (2026-08-21, 콘솔에서 `speechSynthesis.getVoices().filter(v=>v.lang.startsWith('ko'))`로 확인):
+
+| 보이스 | lang | localService |
+|---|---|---|
+| `Microsoft Heami - Korean (Korean)` | ko-KR | true (오프라인) |
+| `Google 한국의` | ko-KR | false (네트워크 필요) |
+
+`pickKoreanVoice()`가 `Google 한국의`를 1순위로 골라서, 코드 수정 없이 이미 이 보이스가 선택됨.
+
+**남은 리스크**: `Google 한국의`는 `localService: false`라 인터넷 연결이 필요함. 시연장 와이파이가
+불안정하면 재생이 끊기거나 실패할 수 있으므로, 시연 직전 실제 네트워크 환경에서 한 번 더
+들어보고 문제 있으면 Heami(오프라인)로 강제 전환하는 옵션도 고려.
+
+### 9-2. 주문번호 뒤 4자리만 읽기 (적용 완료)
+
+실제 `orderNo` 형식은 `ASAKyyMMddNNNN`(접두사+날짜+4자리 순번, `UserOrderService.generateOrderNo`
+425~444줄 참고). 단, Admin mock 데이터(`asak-admin-data.json`)는 `ASAK-20260720-060`처럼
+대시가 섞인 다른 형식이라, 단순 `slice(-4)`는 mock에서 대시까지 포함될 수 있음. 숫자만 추출해서
+뒤 4자리를 뽑는 `extractLastDigits`로 두 형식 모두 안전하게 처리하도록 반영함.
+
+### 9-3. 뒤 4자리를 사이노-한자어로 읽기 (적용 완료)
+
+`extractLastDigits`로 뽑은 숫자를 그대로 텍스트에 넣으면(`"1234번"`), 브라우저 TTS 엔진이 자체
+판단으로 34를 고유어 "서른네"로 읽어 "천이백서른네번"처럼 한자어(천이백)와 고유어(서른네)가
+섞여버리는 문제가 실제로 발생함. 숫자를 미리 한글 단어로 완전히 변환해서("천이백삼십사") 텍스트에
+박아 넣으면 엔진은 그 글자를 그대로 읽기만 하므로 이 문제가 사라짐.
+
+```js
+const DIGIT_WORDS = ["", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"];
+const UNIT_WORDS = ["", "십", "백", "천"];
+
+// 숫자를 사이노-한자어로 읽어준다 (예: 1234 -> "천이백삼십사").
+function toSinoKoreanNumber(num) {
+  if (num === 0) return "영";
+
+  const str = String(num);
+  let result = "";
+
+  for (let i = 0; i < str.length; i += 1) {
+    const digit = Number(str[i]);
+    const unitIndex = str.length - i - 1;
+
+    if (digit === 0) continue;
+
+    result += digit === 1 && unitIndex > 0 ? UNIT_WORDS[unitIndex] : DIGIT_WORDS[digit] + UNIT_WORDS[unitIndex];
+  }
+
+  return result;
+}
+
+const extractLastDigits = (orderNo, count = 4) =>
+  String(orderNo ?? "").replace(/\D/g, "").slice(-count);
+
+export const createOrderCompletedMessage = (orderNo) => {
+  const spokenNumber = toSinoKoreanNumber(Number(extractLastDigits(orderNo)) || 0);
+  return `주문번호 ${spokenNumber}번, 주문이 완료되었습니다.`;
+};
+```
+
+- 지원 범위는 0~9999 (4자리 순번 형식에 맞춤). `UNIT_WORDS`가 `십/백/천`까지만 있어서 그 이상
+  자리수가 필요해지면(`만` 단위) 배열 확장 필요.
+- 자리 앞의 "일"은 관용적으로 생략(`일십` ✗ → `십` ✓, `일백` ✗ → `백` ✓, `일천` ✗ → `천` ✓).
+
+## 10. 다음 작업 — RTOS 컨트롤러 분리
+
+### 지금 상태
+
+RTOS 전용 컨트롤러가 없다. `AdminDeviceEventController.java`(`com.asak.admin.controller`) 안에
+Admin API와 RTOS API가 같이 들어있고, 클래스 상단 주석에 "RTOS 인증 정책이 정해지면 별도
+Controller로 분리 / 임시 코드"라고 명시돼 있다.
+
+```text
+AdminDeviceEventController (com.asak.admin.controller)
+├─ POST  /api/admin/orders/{orderId}/receipt-print   [Admin]
+├─ GET   /api/admin/device-events                    [Admin]
+├─ GET   /api/rtos/device-events/pending              [RTOS] ← 여기 섞여 있음
+└─ PATCH /api/rtos/device-events/{eventId}/finish     [RTOS] ← 여기 섞여 있음
+```
+
+인증도 확인했음 — `SecurityConfig.java` 39행 `.authorizeHttpRequests(auth -> auth.anyRequest().permitAll())`로
+지금은 `/api/admin/**`, `/api/rtos/**` 구분 없이 전부 무인증 허용 중 (34~38행 TODO-030:
+"JWT 인증 구현 전까지 모든 API를 임시 허용한다").
+
+### 분리해야 하는 이유
+
+`admin`/`user`는 이미 각자 `controller/dto/mapper/service` 패키지로 나뉘어 있는데
+(`com.asak.admin.*`, `com.asak.user.*`), RTOS도 사실상 세 번째 호출 주체(Admin/Kiosk/RTOS)라
+같은 모양으로 떼는 게 자연스럽다. 더 중요한 이유는 **인증 정책이 서로 다를 수밖에 없다는 것**:
+
+- `/api/admin/**` → TODO-030에서 예고한 대로 나중에 JWT 로그인 인증으로 바뀔 예정.
+- `/api/rtos/**` → 사람이 로그인하는 게 아니라 WSL의 FreeRTOS 클라이언트가 호출하는 경로라서,
+  JWT가 아니라 별도 API 키/시크릿이나 IP 제한 같은 다른 방식이 필요함.
+
+한 Controller에 같이 있으면 `SecurityConfig`에서 두 경로를 다른 규칙으로 매칭하기 번거롭고,
+나중에 Admin 로그인 붙일 때 실수로 `/api/rtos/**`까지 인증을 요구해버리는 회귀가 생기기 쉽다.
+
+### 분리 계획
+
+`com.asak.rtos.controller` 패키지 신설 (admin/user와 같은 레벨). RTOS는 별도 DB 접근이나
+서비스 로직이 없고 기존 `common.device.DeviceEventService`를 그대로 재사용하므로,
+`rtos.dto`/`rtos.mapper`/`rtos.service`는 필요 없고 `controller`만 추가하면 된다.
+
+```java
+// com.asak.rtos.controller.RtosDeviceEventController
+package com.asak.rtos.controller;
+
+import com.asak.common.device.DeviceEventResponse;
+import com.asak.common.device.DeviceEventService;
+import com.asak.common.device.DevicePrintCommand;
+import com.asak.common.response.ApiResponse;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequiredArgsConstructor
+public class RtosDeviceEventController {
+  private final DeviceEventService deviceEventService;
+
+  /** RTOS CommandPollTask가 PENDING 한 건을 가져간다. */
+  @GetMapping("/api/rtos/device-events/pending")
+  public ApiResponse<DeviceEventResponse> claimNextPendingEvent() {
+    return deviceEventService
+        .claimNextPendingEvent()
+        .map(response -> ApiResponse.success("RTOS_DEVICE_EVENT_CLAIMED", "처리할 장치 이벤트입니다.", response))
+        .orElseGet(() -> ApiResponse.success("RTOS_DEVICE_EVENT_EMPTY", "처리할 장치 이벤트가 없습니다.", null));
+  }
+
+  /** RTOS WorkerTask가 실제 Handler 실행 결과를 Spring Boot에 보고한다. */
+  @PatchMapping("/api/rtos/device-events/{eventId}/finish")
+  public ApiResponse<DeviceEventResponse> finishEvent(
+      @PathVariable long eventId, @Valid @RequestBody FinishRequest request) {
+    DeviceEventResponse response =
+        deviceEventService.finishEvent(eventId, request.status(), request.result());
+    return ApiResponse.success("RTOS_DEVICE_EVENT_FINISHED", "RTOS 처리 결과를 반영했습니다.", response);
+  }
+
+  public record FinishRequest(@NotNull DevicePrintCommand.Status status, @NotBlank String result) {}
+}
+```
+
+`AdminDeviceEventController`에는 Admin 전용 2개(`receipt-print`, `device-events`)만 남기고,
+`claimNextPendingEvent`/`finishEvent`/`FinishRequest`와 그 import는 제거. 클래스 상단 주석의
+"RTOS polling 결과 보고를 임시로 함께 둔다" 문구도 더 이상 사실이 아니게 되므로 같이 정리.
+
+### 분리 후에 같이 하면 좋은 것 (지금은 범위 밖)
+
+- `SecurityConfig.java`에 `/api/rtos/**` 전용 매처를 추가해, Admin 인증(JWT, TODO-030)과
+  RTOS 인증(API 키/IP 제한 등)을 서로 다른 규칙으로 관리.
+- RTOS 인증 방식 자체는 아직 미정 — 이 문서 6절 "현재 제한과 결정 필요 사항"의 "RTOS 인증"
+  항목과 같은 미해결 지점이다.
+
+### 주의
+
+컨트롤러만 옮기는 단순 리팩터라 컴파일은 잘 될 가능성이 높지만, 지금까지처럼 실제로는
+`compileJava`뿐 아니라 Spring Boot 기동 + WSL RTOS 클라이언트로 `GET /api/rtos/device-events/pending`
+실호출까지 확인해야 진짜 끝난 것이다 (URL 문자열 자체는 안 바뀌므로 RTOS C 클라이언트
+쪽은 수정 불필요).
