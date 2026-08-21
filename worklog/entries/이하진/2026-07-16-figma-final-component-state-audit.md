@@ -24,6 +24,7 @@
 - `PaymentMethodCard`, `QuantityStepper`, `BottomCTA`, `MenuCard`, `CartItemCard`, `OrderSummaryInfo`, `OrderDetailRow` 및 Admin 컴포넌트의 Variant·중복·정본 후보를 검토했다.
 - Cart 정책을 다음처럼 확정했다: 수량 1은 minus disabled, 수량 0 금지, 동일 `menuId` 최대 9개, Cart 전체 최대 30개, 30개 초과 시도 때만 직원 문의 안내, 수정은 `cartItemId` 기준 `updateCartItem`, 품절 항목은 자동 삭제하지 않고 수정/삭제를 제공하며 해결 전 결제를 차단한다.
 - 품절 원인을 메뉴/핵심 재료, 일반 옵션, Base 일부 품절로 나누고 Cart의 `Item Sold-out`, `Edit Required`, `Checkout Blocked` 상태별 Action 정책을 정리했다.
+- `ConfirmDialog`의 `saveChanges`/`deleteMenu` Variant, Prototype interaction, Semantic binding, SCR-011/016 상태를 실제 구현 인계 전에 정리해, 이후 Shared 통합 여부를 판단할 근거로 남겼다.
 
 ## 4. 구현 로직 / 적용한 방식
 

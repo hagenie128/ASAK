@@ -26,8 +26,9 @@
 ## 4. 구현 로직 / 적용한 방식
 
 - 문서의 정보 가치를 정본, 구현 계획, 참고/레거시, 생성 산출물로 구분했다.
-- Screen ID·Product Bible·Figma·현재 코드의 근거 순서를 문서 탐색 규칙으로 정해, 한 화면을 구현할 때 출처를 역추적할 수 있게 했다.
-- WBS는 단순 작업 목록 대신 구현 가능한 Vertical Slice, QA·릴리스 조건, 담당자 확인 항목과 연결했다.
+- Screen ID·Product Bible·Figma·현재 코드의 근거 순서를 문서 탐색 규칙으로 정해, 한 화면을 구현할 때 출처를 역추적할 수 있게 했다. 정본 우선순위는 **Decision/ADR → Screen Registry → Feature/API 계약 → 최신 Figma → 실제 코드 대조** 순으로 고정하고, 문서와 실제 코드가 다르면 코드 쪽 구현 evidence를 별도로 다시 확인하는 규칙을 세웠다.
+- 당시 확실하게 구현이 확인된 Backend는 `GET /api/health`와 공통 `ApiResponse` 일부 수준으로 제한해 기록하고, 나머지 API/DTO/DB는 `SPEC_ONLY` 또는 확인 필요 상태로 분리해 문서 존재와 구현 완료를 혼동하지 않게 했다.
+- WBS는 단순 작업 목록 대신 구현 가능한 Vertical Slice, QA·릴리스 조건, 담당자 확인 항목과 연결했다. SCR-003 메뉴 목록 구현 범위도 이 원칙에 맞춰, 기존 Kiosk 자산과 JavaScript/Axios/Zustand/CSS·Spring Boot/Java 구성은 유지하되 DB migration 없이 인메모리 카탈로그로 우선 구현하도록 제약을 정했다.
 
 ## 5. AI 도움 영역
 

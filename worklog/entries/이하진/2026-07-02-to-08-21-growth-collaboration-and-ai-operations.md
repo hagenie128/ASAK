@@ -32,7 +32,7 @@
 
 공용 DB·API·자산·RTOS 변경은 내 코드만 확인하고 끝내지 않았다. 변경이 다른 팀원의 주문 흐름이나 출력 흐름을 깨뜨릴 수 있는지 먼저 확인하고, 기존 기능을 보존한 병행 방식을 우선했다.
 
-예를 들어 RTOS 출력은 기본 `PRINT_RECEIPT` 흐름을 유지하면서 상세 영수증을 위한 `PRINT_RECEIPT_TEXT`를 별도 이벤트로 분리했다. 이미지 영수증과 MMS 전송은 장기 확장 설계로만 기록하고, 실제 구현·발송 검증과 구분했다.
+예를 들어 RTOS 출력은 기본 `PRINT_RECEIPT` 흐름을 유지하면서 상세 영수증을 위한 `PRINT_RECEIPT_TEXT`를 별도 이벤트로 분리했다. 대화 중 "통메시지로 보낸다"는 표현이 DB 데이터를 안 쓰는 것처럼 오해될 수 있음을 확인하고, 원본 데이터는 그대로 쓰되 RTOS가 필드를 재조립하지 않는다는 의미로 다시 설명해 정정했다(상세: [2026-08-21 RTOS 병행 구조·팀 조율](2026-08-21-rtos-receipt-dual-format-collaboration.md)). 이미지 영수증과 MMS 전송은 장기 확장 설계로만 기록하고, 실제 구현·발송 검증과 구분했다([설계 상세](2026-08-21-digital-receipt-and-receipt-data-design.md)).
 
 daily에는 당일 작업·블로커·다음 계획을, 상세 entry에는 변경 이유·계약·검증 범위를 남겼다. 이는 팀원이 중단된 작업을 이어받을 때 현재 상태와 위험을 다시 찾을 수 있게 하기 위한 방식이다.
 
@@ -44,7 +44,7 @@ daily에는 당일 작업·블로커·다음 계획을, 상세 entry에는 변�
 UI → Hook/Store → API Adapter → Controller → Service → Mapper/SQL → DB/View
 ```
 
-태블릿과 RTOS 연결도 Browser secure context, API URL, Vite host/proxy, CORS·방화벽, Spring binding, RTOS polling/Worker, 외부 I/O의 계층으로 나눠 확인했다. 이 방식으로 매출 8초 지연, boolean 직렬화 문제, RTOS JSON escape, 태블릿 LAN 접속처럼 성격이 다른 문제에서도 가설과 검증 범위를 좁혔다.
+태블릿과 RTOS 연결도 Browser secure context, API URL, Vite host/proxy, CORS·방화벽, Spring binding, RTOS polling/Worker, 외부 I/O의 계층으로 나눠 확인했다([2026-08-21 태블릿 LAN 디버깅](2026-08-21-tablet-lan-connectivity-debug.md)). 이 방식으로 매출 8초 지연([2026-08-20 매출 성능 개선](2026-08-20-admin-sales-performance-and-time-policy.md) — 성공한 4단계 최적화뿐 아니라 뷰 재작성이 오히려 5배 느려진 실패까지 근거로 남김), `active AS isEnabled`가 DTO `boolean isEnabled`를 거쳐 JSON `enabled`로 바뀌는 boolean 직렬화 문제(`DB → Mapper → Java Bean → JSON → React` 전체 경로 추적, [2026-08-18 daily](../../daily/이하진/2026-08-18.md)), RTOS JSON escape, 태블릿 LAN 접속처럼 성격이 다른 문제에서도 가설과 검증 범위를 좁혔다.
 
 ## 6. 일정과 우선순위 판단
 
