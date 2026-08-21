@@ -1,211 +1,161 @@
-﻿# Admin 구현 TODO 정리표 (TODO-001 ~ TODO-043)
+# Admin 구현 TODO 정리표 (TODO-001 ~ TODO-043)
 
-> Status: **HISTORY**
-> 인라인 주석 태그: `TODO-NNN`
-> **번호 순 = 구현 순서** (주문 → 메뉴 → 품절 → 결제수단 → 매출 → 대시보드 → 로그인 → 환불)
-> 파일 상단에 모아 두지 않고, **해당 코드 위치**에만 달아 두었다.
-> 검색: `TODO-00` / `TODO-0` / `TODO-`
-> **갱신: 2026-08-19 18:56 — 실제 소스 `TODO-NNN` 주석과 코드 구현 상태 기준 전체 업데이트**
-> 작업 원칙: **기능별로 화면–API–DB 결과를 함께 확인**하며 진행한다.
-> 상세 검증: [`admin-verify-todos-2026-08-06.md`](admin-verify-todos-2026-08-06.md)
-
-## 진행 요약 (2026-08-19 기준)
-
-| 상태                         | 인라인 TODO                                                                                        | 비고                                                                         |
-| ---------------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| ✅ 완료(주석 제거)           | 구 001~007, 009, 011, 013(기본 TTS), 014                                                           | 8/6 이전 완료                                                                |
-| ✅ 구현 완료(TODO 주석 잔존) | **003** (메뉴 POST), **004** (메뉴 삭제 후 선택 정리), **005** (재료 서버 검색), **006** (재료 QA) | BE POST/PATCH/DELETE·FE menusApi 구현됨. 주석은 잔여 QA 메모로 남아 있음     |
-| ✅ 구현 완료(TODO 주석 잔존) | **002** (주문 조회 검증)                                                                           | useOrdersQuery empty/error 분리 반영. 필터 쿼리 검증 잔여                    |
-| 🟡 부분 구현                 | **015** (매출 summary Controller), **018** (매출 Mapper/Service)                                   | BE summary 엔드포인트·Service·Mapper(vw_sales_daily) 구현. **런타임 미검증** |
-| 🟡 부분 구현                 | **016** (매출 monthly)                                                                             | BE 엔드포인트 존재하나 `Collections.emptyList()` 반환 스텁                   |
-| ⬜ TODO 주석 잔존·미구현     | **001** (APPROVED 취소 정책), **017** (daily 매출), **023** (dashboard)                            |                                                                              |
-| ⬜ TODO 주석 잔존·미구현     | **007~010** (품절 Controller/Service/Mapper/FE)                                                    |                                                                              |
-| ⬜ TODO 주석 잔존·미구현     | **011~014** (결제수단 Controller/Service/FE API/draft)                                             |                                                                              |
-| ⬜ TODO 주석 잔존·미구현     | **019~022** (매출 FE getSummary/getMonthly/getDaily/useSalesQuery)                                 | salesApi.js 빈 셸                                                            |
-| ⬜ TODO 주석 잔존·미구현     | **024~026** (dashboard FE)                                                                         |                                                                              |
-| ⬜ TODO 주석 잔존·미구현     | **027~037** (로그인·JWT·보호 경로)                                                                 |                                                                              |
-| ⬜ TODO 주석 잔존·미구현     | **038~043** (환불·영수증)                                                                          | 정책 결정 선행                                                               |
-
-## 2026-08-20 관리자 TODO 기준 일정
-
-> 기존 8/5~8/6 기록과 번호 재매핑은 **이력으로 보존**한다. 아래 일정의 번호 정본은 `ASAK-back`과 `ASAK-Admin` 소스에 실제로 남아 있는 `TODO-NNN` 주석이다.
+> Status: **CURRENT IMPLEMENTATION ROADMAP**
 >
-> **오늘(8/20)의 최우선은 RTOS 최소 흐름을 거의 끝내는 것**이다. 8/21에는 새 RTOS 기능을 만들지 않고 시연 재현과 오류 보완만 한다. 기능 상세는 표에 넣지 않고 아래 TODO에서 확인한다.
+> 갱신: **2026-08-21**. 이 문서는 `ASAK-Admin`과 `ASAK-backend`의 원격 `main` 코드, 현재 Product/Screen Bible을 대조한 결과다.
+>
+> 정본 우선순위는 **실제 코드와 Git 상태 → 이 문서 → Product/Screen Bible → Figma**다. 문서의 완료 표시는 브라우저·실DB E2E 성공을 뜻하지 않는다. 별도 표기가 없으면 컴파일 또는 프론트 빌드까지만 확인된 상태다.
+>
+> 인라인 태그 `TODO-NNN`은 번호를 재사용하거나 재정렬하지 않는다. 이미 구현된 코드에 과거 TODO가 남은 경우에는 **주석 정합화 대기**로 기록한다.
 
-| 날짜 | 관리자 작업 | 짧은 완료 표시 |
-| --- | --- | --- |
-| **8/19 ✅** | 매출 summary 골격 (`015`, `018`) | summary 코드 존재. 런타임 검증은 남음 |
-| **8/20** | **RTOS 구현 마감** + 매출 최소 진행 | RTOS 이벤트 1건 E2E 통과, 매출은 백엔드·화면 진행 상태 기록 |
-| **8/21 (금)** | RTOS 시연 재현·오류 보완 | 같은 E2E 흐름을 다시 통과하고 시연 증거 남김 |
-| **8/24** | 대시보드 BE·FE (`023~025`) | 대시보드 API 1회와 화면 표시 확인 |
-| **8/25** | 결제수단 (`011~014`) | 목록 조회와 토글 저장 확인 |
-| **8/26** | 품절·메뉴 QA (`003~010`) | 저장 1건과 실패 1건 확인 |
-| **8/27** | 로그인·보호 경로 (`027~037`) | 로그인 후 보호 화면 진입 확인 |
-| **8/28** | 환불·영수증·통합 QA (`001`, `038~043`) | 정책 결정 또는 보류 기록 |
-| **8/31~9/01** | 발표 전 회귀·문서 | 시연 흐름과 미완료 목록 확인 |
+## 1. 현재 상황 요약
 
-### 8/20 상세 TODO — RTOS 구현 마감 (최우선)
+| 상태 | TODO | 현재 근거 | 남은 확인 |
+| --- | --- | --- | --- |
+| ✅ 코드 구현·빌드 확인 | 003~004 | 메뉴 CRUD API와 Admin 연결 존재 | 실제 DB/브라우저 E2E, Figma 상태 대조 |
+| ✅ 코드 구현·빌드 확인 | 007~010 | 품절 GET/PATCH, DB Mapper, draft 훅 연결 존재 | 실제 DB 요청 1건, 실패·롤백 API 확인 |
+| ⬜ 미구현·Mock 유지 | 011~014 | 결제수단 Controller/API는 빈 껍데기, draft는 mock 사용 | API 경로·DTO·저장 정책 결정 후 구현 |
+| ✅ 코드 구현·빌드 확인 | 015~025 | sales summary/monthly/daily/time-slots, dashboard API·FE 호출 존재 | DB View 배포 및 Bruno/브라우저 E2E |
+| ⬜ 미구현 | 027~037 | 로그인/JWT/보호 경로는 TODO 주석과 stub 상태 | 인증 계약·보안 정책 결정 후 구현 |
+| ⬜ 정책 선행 | 001, 038~043 | 취소와 승인 결제 환불을 분리하는 계약만 존재 | 환불 상태 전이·SQL·UI·영수증 책임 확정 |
 
-1. WSL 홈 `~/ASAK-RTOS`에서 빌드·실행 명령을 확인하고, Spring Boot `8080`에 연결한다.
-2. 관리자 영수증 재출력 요청으로 이벤트 1건을 만든다: `POST /api/admin/orders/{orderId}/receipt-print`.
-3. RTOS가 `GET /api/rtos/device-events/pending`으로 그 이벤트를 한 번만 가져오는지 확인한다.
-4. RTOS 콘솔에서 영수증 출력 결과를 확인한다.
-5. RTOS가 `PATCH /api/rtos/device-events/{eventId}/finish`로 처리 결과를 보낸다.
-6. Admin 조회 결과에서 같은 `eventId`의 최종 상태를 확인한다.
-7. 성공 요청·콘솔 출력·최종 상태를 캡처 또는 작업 기록으로 남긴다.
+### 검증 상태 표기
 
-**오늘 종료선:** 위 1~6이 한 번 이어서 통과하면 RTOS 구현은 거의 완료로 보고, 8/21은 재현·오류 수정만 한다. React 상태 표시 위치가 아직 없으면 새 화면을 만들지 말고, 기존 Admin 이벤트 조회에서 실제 상태 확인까지를 오늘의 최소 범위로 한다.
+- **코드 구현·빌드 확인**: 소스 연결을 확인했고, `ASAK-backend` `compileJava`, `ASAK-Admin` `npm run build`가 과거 실행에서 통과했다. 서버 기동·실제 DB·브라우저 E2E는 별도다.
+- **Mock 유지**: 화면은 보이지만 저장·조회가 실제 API/DB와 연결되지 않았다.
+- **정책 선행**: API를 먼저 만들면 주문/결제 데이터 의미가 달라질 수 있어 팀 결정이 필요하다.
 
-### 8/21 동영상 시연의 큰 흐름
+## 2. 화면·정본 계약 대조
 
-1. **관리자**가 주문의 영수증 재출력 버튼을 누른다.
-2. Spring Boot가 영수증 출력 이벤트를 만들고, Admin 조회에서 `PENDING` 상태를 보여 준다.
-3. **RTOS**가 pending 이벤트를 polling으로 가져와 영수증 내용을 콘솔에 출력한다.
-4. RTOS가 처리 완료를 Spring Boot에 보고한다.
-5. **관리자**가 같은 이벤트의 완료 상태를 다시 확인한다.
+| Screen ID | Figma 기준 | 실행 경로 | 구현 상태 | 결정/검증 필요 |
+| --- | --- | --- | --- | --- |
+| SCR-011 품절 관리 | Default `39:8577`, Loading `51:13887`, Empty `51:14020`, Error `51:14181`, Save `39:8653` | `/sold-out` | 메뉴·재료 탭은 DB 연동. 옵션 항목은 API에는 포함하지만 탭은 숨김 | 화면 경로는 Bible의 `/soldOut`과 다름. 메뉴/재료만 노출한다는 UX 결정을 문서 정본에 반영할지 결정 |
+| SCR-018 결제수단 | `39:8203` | `/payment-methods` | mock 화면 | Bible의 `/paymentMethods`, Controller의 `/api/admin/paymentMethods` 표기 불일치 결정 필요 |
+| SCR-019 매출 요약 | Default `39:7405` 등 | `/sales` | API·adapter·query 연결 | 실제 View 데이터와 KPI/차트 합계 E2E |
+| SCR-020 월별 매출 | `39:7701` | `/sales/monthly` | API·adapter·query 연결 | 연도 경계·빈 월·실DB 확인 |
+| SCR-021 일별 매출 | `39:7894` | `/sales/daily` | daily + 별도 time-slots API 연결 | 10:00~22:00 30/60분 0-fill 실DB 확인 |
+| SCR-022 대시보드 | Figma 상세 노드 미기록 | `/dashboard` | API·adapter·hook 연결 | 위젯별 partial error와 실DB 확인 |
 
-> 동영상에서는 주문 생성·결제까지 새로 보여 주려 하지 않는다. 이미 존재하는 주문 1건을 사용해 `관리자 요청 → 서버 이벤트 → RTOS 출력 → 관리자 완료 확인`을 끊기지 않게 보여 준다.
+## 3. 인라인 TODO 현황과 구현 단위
 
-### 8/20 병행 TODO — 매출 API와 관리자 화면
+아래의 **권장 인라인 TODO**는 소스에 새로 넣었다는 뜻이 아니다. 현재 소스의 TODO 문구가 구현 상태와 어긋나는 곳을 팀원이 정리할 때, 해당 함수/파일 위치에 한 항목씩 붙일 내용이다. 코드 수정은 별도 `코드 수정 승인` 범위에서만 한다.
 
-**백엔드 (`015~018`)**
+### P1 · 주문 취소·환불·영수증 (TODO-001, 002, 038~043)
 
-1. `summary`의 날짜 범위와 빈 기간 응답을 먼저 고정한다.
-2. `monthly`가 선택한 연도·월의 **일자 목록**을 반환하도록 Controller → Service → Mapper를 연결한다.
-3. `daily`에 `date`, `intervalMinutes(30|60)`를 받고, 30분 View 집계와 영업시간 내 0-fill을 Service에서 처리한다.
-4. Bruno 요청을 `summary`, `monthly`, `daily` 계약에 맞춘다. 실제 DB View 적용 여부는 별도로 기록한다.
+| TODO | 현재 상태 | 실제 위치 | 다음 구현 1단위 | 권장 인라인 TODO |
+| --- | --- | --- | --- | --- |
+| 001 | ⬜ 정책 선행 | `AdminOrderService.cancelOrder` | 승인 결제 취소와 미승인 주문 취소의 상태표 확정 | `TODO-001: APPROVED 결제는 cancel이 아닌 refund 계약으로 분리하고, 주문/결제 상태·멱등성·409 기준을 확정한다.` |
+| 002 | ✅ 코드 존재 | `useOrdersQuery.js` | 필터·empty·error를 실 API로 회귀 확인 | `TODO-002: status/date/page 쿼리가 API 계약과 같은지, 빈 목록·재시도·오래된 응답 무시를 브라우저에서 확인한다.` |
+| 038 | ⬜ | `AdminOrderController` | `PATCH /api/admin/orders/{orderId}/refund` 계약 확정 | `TODO-038: COMPLETED + APPROVED만 환불 가능하도록 요청/응답/ErrorCode를 TODO-001 정책에 맞춰 구현한다.` |
+| 039 | ⬜ | `AdminOrderMapper.xml` | refund SQL과 조회 SQL 분리 | `TODO-039: payment.refunded_at을 기록하고 paid_at은 보존하며, 0건 update와 중복 환불을 409로 구분한다.` |
+| 040 | ⬜ | `ordersApi.js` | refund API 메서드 추가 | `TODO-040: refundOrder는 확정된 path/body를 그대로 호출하고 ApiResponse 오류를 화면으로 전달한다.` |
+| 041 | ⬜ | `ordersApi.js` | 영수증 출력 책임 확정 | `TODO-041: 브라우저 인쇄·서버 PDF·RTOS 출력 중 책임을 정한 뒤 printReceipt API를 추가한다.` |
+| 042 | ⬜ | `OrderManagePage.jsx` | 환불 확인 UI | `TODO-042: 환불 가능 상태만 버튼을 열고, 확인 대화상자·중복 클릭 방지·성공 후 목록 재조회 흐름을 연결한다.` |
+| 043 | ⬜ | `OrderManagePage.jsx` | 영수증 UI | `TODO-043: 출력 요청 중 상태와 실패 메시지를 표시하고, 주문번호 기준으로 재시도 가능하게 한다.` |
 
-**프런트 (`019~022`)**
+### P2 · 메뉴 관리 (TODO-003~006, SCR-016)
 
-1. `salesApi.js`에 summary·monthly·daily 요청 메서드를 추가한다.
-2. 응답의 `ApiResponse.data`와 빈 배열을 같은 형태로 정리한다.
-3. `useSalesQuery`의 mock을 매출 API 호출로 교체한다.
-4. 일별 화면은 날짜 변경, 30/60분 전환, Loading·Empty·Error를 각각 확인한다.
+| TODO | 현재 상태 | 실제 위치 | 다음 구현 1단위 | 권장 인라인 TODO |
+| --- | --- | --- | --- | --- |
+| 003 | ✅ 코드 구현 | `AdminMenuController`, `menusApi` | POST/PATCH/DELETE 실 DB E2E | `TODO-003: CreateMenuRequest 검증 실패·이미지 없는 메뉴·soft delete 후 조회 제외를 API와 화면에서 확인한다.` |
+| 004 | ✅ 코드 구현 | `MenuManagePage.jsx` | 삭제 후 선택/페이지 상태 QA | `TODO-004: 삭제된 메뉴가 선택 상태·상세 패널·현재 페이지에 남지 않는지 회귀 확인한다.` |
+| 005 | 🟡 QA 잔여 | `MenuEditPanel.jsx` | 재료 검색/페이지 결과 확인 | `TODO-005: 재료 서버 검색의 query/page/empty/error와 선택 결과가 저장 body에 반영되는지 확인한다.` |
+| 006 | 🟡 QA 잔여 | `MenuEditPanel.jsx` | 재료 추가·저장 수동 QA | `TODO-006: 재료 추가·삭제·중복 방지·저장 후 재진입을 실제 DB로 확인한다.` |
 
-### 8/21 상세 TODO — RTOS 시연 재현·오류 보완
+### P3 · 품절 관리 (TODO-007~010, SCR-011)
 
-1. 8/20과 같은 이벤트 흐름을 처음부터 다시 실행한다.
-2. 실패하면 실패 지점을 `이벤트 등록 / polling / 콘솔 출력 / finish 보고 / Admin 조회` 중 하나로만 분류한다.
-3. 수정 뒤 같은 이벤트 ID 흐름을 다시 확인한다.
-4. React 상태 표시는 기존 화면에 넣을 위치가 확정된 경우에만 연결한다. 새 화면 설계는 이 일정에 추가하지 않는다.
+**현재 구현 사실**
 
-**시연 완료 표시:** 이벤트 1건의 상태가 `PENDING → PROCESSING → 완료 상태`로 바뀌고, RTOS 콘솔 출력과 Admin 조회 결과가 같은 이벤트 ID를 가리킨다.
+- `GET /api/admin/soldOut`은 `menu`, `ingredient`, `opt_item`의 `sold_out`을 하나의 카탈로그 row로 조회해 `available`과 `soldOut` 배열로 나눈다.
+- `PATCH /api/admin/soldOut` body는 `{ changes: [{ targetType: "MENU" | "INGREDIENT" | "OPTION_ITEM", targetId, isSoldOut }] }`이다.
+- Service는 빈 요청·중복 target·잘못된 targetId를 거절하고 `@Transactional` 안에서 전체 변경을 처리한다. 하나라도 대상이 없으면 예외로 전체 롤백된다.
+- Admin `useSoldOutDraft`는 최초 GET, 화면 내 이동, 변경분만 PATCH, 실패 시 baseline 복원을 수행한다.
+- 화면 탭은 사용자 결정대로 `MENU`, `INGREDIENT`만 보인다. `OPTION_ITEM`은 DB/API에 포함되지만 UI 탭은 숨김이다.
 
-### RTOS 연동 원칙
+| TODO | 현재 상태 | 실제 위치 | 남은 구현/검증 1단위 | 권장 인라인 TODO |
+| --- | --- | --- | --- | --- |
+| 007 | ✅ 코드 구현·주석 정리 필요 | `AdminSoldOutController.java` | 200/검증 실패/없는 대상 요청을 Bruno로 확인 | `TODO-007: 구현 완료. GET/PATCH의 성공·빈 changes·중복 target·없는 target 응답 코드와 message를 Bruno로 고정한다.` |
+| 008 | ✅ 코드 구현·주석 정리 필요 | `AdminSoldOutService`, `AdminSoldOutMapper`, XML | 실제 DB 1건 저장 및 롤백 확인 | `TODO-008: 구현 완료. menu/ingredient/opt_item별 sold_out 저장, 복수 changes 전체 롤백, 오류 코드 의미를 실DB로 검증한다.` |
+| 009 | ✅ 코드 구현·주석 정리 필요 | `soldOutApi.js` | API 오류 형식과 endpoint 상수 점검 | `TODO-009: 구현 완료. ApiResponse unwrap 뒤 available/soldOut shape와 4xx 오류 전달을 네트워크 탭에서 확인한다.` |
+| 010 | ✅ 코드 구현·주석 정리 필요 | `useSoldOutDraft.js` | loading/empty/error/dirty/saveConfirm 브라우저 QA | `TODO-010: 구현 완료. 저장 성공 baseline 갱신, 실패 롤백, 빠른 재시도와 화면 이탈 후 재진입을 확인한다.` |
 
-- RTOS 작업은 Admin과 Kiosk로 기능을 분할하지 않는다. 하나의 이벤트 계약과 하나의 React 표시 흐름을 기준으로 서버·화면·콘솔을 함께 확인한다. 저장소/화면 통합 방식은 팀이 결정해야 하며, 이 일정은 저장소 병합을 지시하지 않는다.
-- **8/21 금요일 테스트 시연**은 위 상세 TODO 1~5 순서대로 한다. WSL의 `~/ASAK-RTOS` 실행 또는 Admin 화면 표시 위치가 없으면, 시연 완료가 아니라 `선행 조건 미충족`으로 기록한다.
-- RTOS 저장소: WSL 홈 `~/ASAK-RTOS` (독립 저장소, `hagenie128/ASAK-RTOS`)
-  - `src/main.c` — FreeRTOS CommandPollTask(1초 polling) → WorkerTask → handle_print_receipt(콘솔 ASCII 영수증) → report_result(PATCH finish)
-  - `src/http_client.c` — POSIX TCP 연결, HTTP 요청/응답, chunked body 처리
-  - Spring Boot API: `GET /api/rtos/device-events/pending` → `PATCH /api/rtos/device-events/{eventId}/finish`
-  - 현재 payload: `주문번호|메뉴요약|금액` 파이프 구분 문자열. JSON DTO 전환은 미확정.
-  - WSL Ubuntu에서 `make run SERVER_URL=http://$HOST_IP:8080`으로 실행. Windows Spring Boot 8080과 연결.
+**품절 데이터/표시 주의점**
 
-### 실제 인라인 TODO 묶음과 위치
+- DB 컬럼은 `menu.sold_out`, `ingredient.sold_out`, `opt_item.sold_out`이다. 재료 이미지는 `ingredient.photo_asset_id → media_asset.url`이 없을 수 있으므로 화면은 fallback 이미지를 사용한다.
+- Product Bible은 재료/옵션 품절에서 메뉴에 미치는 파생 품절과 영향 메뉴 표시를 권장한다. 현재 구현은 각 테이블의 직접 `sold_out` 토글만 저장하며, `effectiveSoldOut` 계산·영향 메뉴 목록은 **미구현**이다.
+- 현재 오류에 `INVALID_ORDER_REQUEST` 등 주문 중심 ErrorCode가 재사용된다. 품절 전용 ErrorCode 도입은 계약 변경이므로 팀 결정 후 별도 작업으로 분리한다.
 
-| 묶음             | TODO             | API 계약                                                                      | 실제 위치                                                                                                                                                                                                                                                   |
-| ---------------- | ---------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 주문 환불·영수증 | `001`, `038~043` | 번호 미연결 · `API-024` 취소와 별도 환불 계약 필요                            | `AdminOrderService`·`AdminOrderController`·`AdminOrderMapper.xml` / `ordersApi.js`·`OrderManagePage.jsx`                                                                                                                                                    |
-| 메뉴 잔여 QA     | `003~006`        | `API-012` POST · `API-013` PATCH · `API-028` DELETE                           | `AdminMenuController`(POST `createMenu` + PATCH `updateMenu` + DELETE soft delete) / `MenuManagePage.jsx`·`MenuEditPanel.jsx` — **BE·FE 구현 완료, 브라우저 E2E·Figma 미검증**                                                                              |
-| 품절             | `007~010`        | `API-009` PATCH · `API-010` GET                                               | `AdminSoldOutController`·`AdminSoldOutService` / `soldOutApi.js`·`useSoldOutDraft.js` — `targetType` 분기(menu/ingredient), `is_sold_out` 토글 UPDATE, 실패/롤백 기준 정리 필요                                                                             |
-| 결제수단         | `011~014`        | `API-015` GET · `API-016` PATCH                                               | `AdminPaymentMethodController`·`AdminPaymentMethodService` / `paymentMethodsApi.js`·`usePaymentMethodDraft.js` — `active` 필드 통일 결정(8/18) 반영 필요                                                                                                    |
-| 매출·대시보드    | `015~025`        | `API-017` summary · `API-018` daily · `API-019` monthly · `API-020` dashboard | `AdminSalesController`(summary 구현, monthly 스텁, daily 미구현)·`AdminSalesService`(vw_sales_daily·vw_sales_hourly·topMenu 4개 SELECT)·`AdminSalesMapper.xml` / `salesApi.js`(빈 셸)·`useSalesQuery.js`(mock)·`adminApi.js`(빈 셸)·`useDashboard.js`(mock) |
-| 로그인·보호 경로 | `027~037`        | 번호 미연결 · `POST /api/admin/login` 스텁                                    | `AdminAuthController`·`JwtTokenProvider`·`JwtAuthenticationFilter`·`SecurityConfig` / `adminApi.js`·`adminSession.js`·`apiClient.js`·`useAdminAuth.js`·`LoginPage.jsx`                                                                                      |
-| RTOS 장치 이벤트 | 번호 미연결      | `GET /api/rtos/device-events/pending` · `PATCH .../finish`                    | `ASAK-back`: `AdminDeviceEventController` src 존재 확인. RTOS는 WSL 홈 `~/ASAK-RTOS`에 있음(실행 검증 대기). React 이벤트 표시 컴포넌트 미확정                                                     |
+### P4A · 결제수단 설정 (TODO-011~014, SCR-018)
 
-### 일정 해석 메모
+| TODO | 현재 상태 | 실제 위치 | 다음 구현 1단위 | 권장 인라인 TODO |
+| --- | --- | --- | --- | --- |
+| 011 | ⬜ | `AdminPaymentMethodController` | API 경로를 `/api/admin/payment-methods` 또는 기존 camelCase 중 하나로 결정 | `TODO-011: 경로와 GET/PATCH 단위를 정한 뒤, path id만 받고 active/sortOrder 검증을 Controller에 구현한다.` |
+| 012 | ⬜ | `AdminPaymentMethodService`, Mapper, DTO | `pay_method_cfg` row/DTO 확정 | `TODO-012: DTO 직렬화 필드를 active로 통일하고, 정렬 충돌·없는 id·0건 update의 오류 규칙을 Service transaction에 구현한다.` |
+| 013 | ⬜ | `paymentMethodsApi.js` | GET/PATCH 실제 호출 | `TODO-013: 확정된 endpoint와 DTO로 list/patch 메서드를 만들고, 409·검증 오류를 throw하여 훅이 처리하게 한다.` |
+| 014 | ⬜ Mock 유지 | `usePaymentMethodDraft.js` | mock load/save 교체 | `TODO-014: mock repository를 API로 교체하고, 성공 시 서버 응답으로 baseline 갱신·실패 시 이전 baseline 복원을 유지한다.` |
 
-- 이 표는 구현 완료를 뜻하지 않는다. `TODO-NNN`이 소스에 남아 있는 항목만 일정에 넣었다.
-- 번호는 재사용·재배치하지 않는다. 백엔드 선행 항목이 끝나기 전 프런트 API 호출을 추가하지 않는다.
-- 환불·영수증은 상태 전이와 책임 경계 결정이 선행 조건이다. `8/28`까지 결정되지 않으면 발표 전 구현 항목이 아니라 `결정 필요`로 남긴다.
-- RTOS 인라인 TODO 번호는 아직 부여하지 않았다. 기존 `API-019` 표기는 월별 매출 API와 충돌하므로 사용하지 않는다. RTOS 관련 API 번호는 팀 합의 후 부여한다.
+### P4B · 매출 분석 (TODO-015~022, SCR-019~021)
 
----
+**현재 구현 사실**
 
-## 영역별 상세 (2026-08-19 코드 기준)
+- Backend: `GET /api/admin/sales/summary`, `/monthly`, `/daily`, `/daily/time-slots`가 `AdminSalesController → Service → Mapper` 구조로 존재한다.
+- time-slots 계약은 `date=YYYY-MM-DD`, `intervalMinutes=30|60`이며 Service가 10:00~22:00 영업시간 구간을 0-fill 한다. 당일은 미래 슬롯을 포함하지 않는다.
+- Frontend: `salesApi.js`, `useSalesQuery.js`, `salesAdapter.js`, 매출 페이지가 API 결과를 view model로 변환한다.
+- DB 집계 View와 실제 API/Bruno 응답은 이 문서 갱신 시점에 재실행하지 않았다. **구현/빌드 확인과 DB E2E를 구분한다.**
 
-### P1 · 주문 잔여 (통합 테스트와 함께)
+| TODO | 현재 상태 | 실제 위치 | 남은 구현/검증 1단위 | 권장 인라인 TODO |
+| --- | --- | --- | --- | --- |
+| 015 | ✅ 코드 구현 | `AdminSalesController` summary | today/week/month/custom 및 잘못된 날짜 Bruno 확인 | `TODO-015: 구현 완료. period와 startDate/endDate 상호 배타 규칙, 미래 날짜·역전 범위 오류를 API로 고정한다.` |
+| 016 | ✅ 코드 구현 | `AdminSalesController` monthly | 연도 범위·빈 월 실DB 확인 | `TODO-016: 구현 완료. year 범위 오류와 0매출 월의 반환 shape를 Bruno/브라우저로 확인한다.` |
+| 017 | ✅ 코드 구현 | `AdminSalesController` daily/time-slots | date/range/30·60분 슬롯 E2E | `TODO-017: 구현 완료. daily 범위와 time-slots 단일일 계약을 혼용하지 않고, 10:00~22:00 0-fill을 실DB로 확인한다.` |
+| 018 | ✅ 코드 구현·DB 검증 대기 | `AdminSalesService`, `AdminSalesMapper.xml` | 집계 View 배포 여부·합계 대조 | `TODO-018: 구현 완료. vw_sales_daily와 30분 View가 배포됐는지 확인하고, DB 실매출만 집계한 뒤 Service가 0을 채우는지 검증한다.` |
+| 019 | ✅ 코드 구현 | `salesApi.js` | summary query/오류 전달 확인 | `TODO-019: 구현 완료. summary 요청에 period/startDate/endDate를 누락 없이 전달하고 ApiResponse data만 사용한다.` |
+| 020 | ✅ 코드 구현 | `salesApi.js` | monthly query/empty 확인 | `TODO-020: 구현 완료. year가 없는 요청과 빈 월 목록의 화면 처리 기준을 확인한다.` |
+| 021 | ✅ 코드 구현 | `salesApi.js` | daily와 time-slots 책임 구분 확인 | `TODO-021: 구현 완료. daily(from/to)와 time-slots(date/intervalMinutes)를 별도 메서드로 유지하고 응답 배열을 혼용하지 않는다.` |
+| 022 | ✅ 코드 구현 | `useSalesQuery.js` | 요청 경합·loading/error QA | `TODO-022: 구현 완료. 기간을 빠르게 바꿀 때 이전 응답을 무시하고 loading/error/empty가 화면별로 분리되는지 확인한다.` |
 
-| #       | 상태    | 위치                            | 할 일                                                                                 |
-| ------- | ------- | ------------------------------- | ------------------------------------------------------------------------------------- |
-| **001** | 🟡 미결 | `AdminOrderService.cancelOrder` | ① APPROVED 취소 정책 확정 ② 환불 흐름 분리 여부 결정 ③ Controller/ErrorCode 기준 정리 |
-| **002** | ✅ 구현 | `useOrdersQuery.js`             | empty/error 분리 반영. 필터 쿼리 정합 검증 잔여                                       |
+### P4C · 관리자 대시보드 (TODO-023~025, SCR-022)
 
-### P2 · 메뉴 (003~006) — SCR-016
+| TODO | 현재 상태 | 실제 위치 | 남은 구현/검증 1단위 | 권장 인라인 TODO |
+| --- | --- | --- | --- | --- |
+| 023 | ✅ 코드 구현 | `AdminSalesController#getDashboard`, Service/Mapper | 각 위젯의 실제 DB 값 대조 | `TODO-023: 구현 완료. dashboard DTO의 매출·주문·품절 요약 필드와 각 원본 조회의 합계를 실DB로 대조한다.` |
+| 024 | ✅ 코드 구현 | `adminApi.js` | endpoint/ApiResponse 오류 확인 | `TODO-024: 구현 완료. getDashboard는 dashboard endpoint 하나만 호출하고 오류를 hook으로 그대로 전달한다.` |
+| 025 | ✅ 코드 구현 | `useDashboard.js` | loading/refresh/error/partial error UI QA | `TODO-025: 구현 완료. 재조회 중 기존 데이터 유지, 전체 실패와 위젯별 partial error 표시 여부를 화면 기준으로 확정한다.` |
 
-| #       | 상태    | 위치                                    | 할 일                                                                                                                                                            |
-| ------- | ------- | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **003** | ✅ 구현 | `AdminMenuController` POST·PATCH·DELETE | BE POST(CreateMenuRequest+검증), PATCH(menuId+body), DELETE(soft delete) **모두 구현**. FE `menusApi` create/update/delete 연결됨. **브라우저 E2E·Figma 미검증** |
-| **004** | ✅ 구현 | `MenuManagePage.jsx`                    | 삭제 후 선택 상태 정리 로직 존재. QA 잔여                                                                                                                        |
-| **005** | 🟡 잔여 | `MenuEditPanel.jsx`                     | 재료 목록 서버 검색·페이지 처리 잔여 QA                                                                                                                          |
-| **006** | 🟡 잔여 | `MenuEditPanel.jsx`                     | 재료 추가·저장 수동 QA 잔여                                                                                                                                      |
+### P5 · Live UX, 인증, 보안 (TODO-026~037)
 
-### P3 · 품절 (007~010) — SCR-011
+| TODO | 현재 상태 | 실제 위치 | 다음 구현 1단위 | 권장 인라인 TODO |
+| --- | --- | --- | --- | --- |
+| 026 | ⬜ 보류 | `LiveOrderBoard.jsx` | 가로 스크롤 UX 결정 | `TODO-026: 카드 보드를 useRef + scrollBy로 전환하기 전 키보드·터치·상태 변경 시 포커스 보존 기준을 정한다.` |
+| 027 | ⬜ | `AdminAuthController` | POST login 요청/응답 계약 | `TODO-027: 관리자 식별자/비밀번호 검증과 실패 ErrorCode를 정하고 password·원문 예외는 응답에 노출하지 않는다.` |
+| 028 | ⬜ | `JwtTokenProvider.java` | token 생성/검증/claims | `TODO-028: access token의 issuer/subject/role/expiry와 서명 키 관리 방식을 정해 create/validate/getClaims를 구현한다.` |
+| 029 | ⬜ | `JwtAuthenticationFilter.java` | Bearer 필터 | `TODO-029: Bearer 누락·만료·위조를 500이 아닌 인증 실패로 처리하고 kiosk 경로에는 적용하지 않는다.` |
+| 030 | ⬜ | `SecurityConfig.java` | 보호 경로 정책 | `TODO-030: login만 permitAll로 두고 /api/admin/** 권한 정책과 CORS/CSRF 기준을 명시한다.` |
+| 031 | ⬜ | `adminApi.js` | login 호출 | `TODO-031: 로그인 응답 token/expiresAt 필드를 고정한 뒤 adminSession 저장으로 연결한다.` |
+| 032 | ⬜ | `adminSession.js`, store | 세션 저장/만료 | `TODO-032: remember 옵션별 저장소와 만료·파싱 실패 시 세션 제거 규칙을 단일 함수로 정리한다.` |
+| 033 | ⬜ | `apiClient.js` | Bearer/401 공통 처리 | `TODO-033: 요청마다 최신 token을 주입하고 401에서 한 번만 세션을 지운 뒤 로그인으로 이동한다.` |
+| 034 | ⬜ | `LoginPage.jsx` | 실제 로그인 UI | `TODO-034: submitting/invalid credentials/network error 상태를 분리하고 token을 화면 state에 남기지 않는다.` |
+| 035 | ⬜ | `useAdminAuth.js` | 보호 라우트 가드 | `TODO-035: 세션 검증 전 loading, 만료 시 redirect, 권한 없음 403 안내 흐름을 구현한다.` |
+| 036 | ⬜ | `AdminApp.jsx` | canonical URL 정리 | `TODO-036: 실행 kebab-case 경로와 Bible camelCase 표기 중 하나를 정하고 alias/redirect 정책을 문서와 코드에 같이 반영한다.` |
+| 037 | ⬜ | `apiClient.js` | 403/409/검증 오류 매핑 | `TODO-037: ApiResponse code/message를 보존해 403·409·field validation을 화면별 메시지로 매핑한다.` |
 
-> 스크린샷 참조: 품절 상세 검증(`P3-1`~`P3-4`)은 아래 번호를 32~39로 세분화한 이전 검증표 기준이다. 현재 인라인 번호는 007~010으로 통합되어 있다.
+## 4. 다음 구현 순서
 
-| #       | 상태 | 위치                                               | 할 일                                                                                                                                                                   |
-| ------- | ---- | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **007** | ⬜   | `AdminSoldOutController.java`                      | ① GET 응답 ② PATCH 바인딩 ③ `ErrorCode` 규격 정리. `SoldOutPatchRequest.java`의 DTO 필드(`targetType`, `targetId`, `isSoldOut`)는 ✅ 완료 상태.                         |
-| **008** | ⬜   | `AdminSoldOutService` / `AdminSoldOutMapper` + XML | ① 대상별 SELECT ② 공통 row shape 정리 ③ XML 추가. ④ `targetType` 분기 ⑤ `is_sold_out` 토글 UPDATE ⑥ 변경 건수 반환. ⑦ 조회 메서드 ⑧ patch 메서드 ⑨ 실패/롤백 기준 정리. |
-| **009** | ⬜   | `soldOutApi.js`                                    | ① `listSoldOutCatalog()` 추가 ② 초기 load 연결. ③ `patchSoldOut(body)` 추가 ④ body 규격 정리.                                                                           |
-| **010** | ⬜   | `useSoldOutDraft.js`                               | ① mock load 교체 ② mock save 교체 ③ baseline 롤백 유지.                                                                                                                 |
+1. **품절 런타임 QA**: 실제 DB에서 메뉴 1건과 재료 1건을 품절/복구하고, 복수 변경 중 실패 1건의 전체 롤백을 확인한다. 옵션 탭은 숨김을 유지한다.
+2. **매출 DB 계약 QA**: 집계 View 배포 여부를 확인하고 Bruno에서 summary/monthly/daily/time-slots/dashboard 응답과 화면 합계를 대조한다.
+3. **결제수단 계약 결정 후 011→014 순서 구현**: 경로와 `active` DTO를 먼저 고정한 뒤 Controller → Service/Mapper → API → draft 순서를 지킨다.
+4. **환불 정책 결정 후 001→038→039→040→042 순서 구현**: 승인 결제 환불을 주문 취소와 섞지 않는다.
+5. **인증은 027→037 순서**: login/JWT/filter/security를 먼저 끝낸 뒤 프런트 세션과 보호 라우트를 연결한다.
 
-### P4A · 결제수단 (011~014) — SCR-018
+## 5. 문서와 코드의 불일치/결정 필요
 
-> `active` 필드 통일 결정(8/18): Lombok `boolean isEnabled` → Jackson이 `enabled`로 직렬화하여 FE에서 `method.isEnabled`가 `undefined`로 깨지는 이슈. `active`로 통일하기로 합의.
-
-| #       | 상태 | 위치                                 | 할 일                                                                                                          |
-| ------- | ---- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
-| **011** | ⬜   | `AdminPaymentMethodController`       | Controller 구현. GET 목록 + PATCH 토글. `active` 필드 기준으로 Kiosk 8종 결제수단과 정합.                      |
-| **012** | ⬜   | `AdminPaymentMethodService` / Mapper | Service/Mapper/DTO 구현. `pay_method_cfg.active` 기준 토글. DTO에서 `isEnabled` 사용 금지(Lombok 직렬화 이슈). |
-| **013** | ⬜   | `paymentMethodsApi.js`               | GET 목록·PATCH 연결. 응답 필드 `active` 기준으로 FE 바인딩.                                                    |
-| **014** | ⬜   | `usePaymentMethodDraft.js`           | mock → API 교체. Figma 4종(card/kakao/naver/zero) + Kiosk 8종 정합 TODO.                                       |
-
-### P4B · 매출 (015~022) — SCR-019/020/021
-
-| #       | 상태    | 위치                                         | 할 일                                                                                                                                         |
-| ------- | ------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| **015** | 🟡 부분 | `AdminSalesController`                       | summary 엔드포인트 구현됨. 날짜 validation·빈 기간 응답 정리 잔여. **런타임 미검증**                                                          |
-| **016** | 🟡 스텁 | `AdminSalesController`                       | monthly 엔드포인트 존재하나 `Collections.emptyList()` 반환. 실제 집계 미구현                                                                  |
-| **017** | ⬜      | `AdminSalesController`                       | daily 엔드포인트 미구현                                                                                                                       |
-| **018** | 🟡 부분 | `AdminSalesService` + `AdminSalesMapper.xml` | summary(vw_sales_daily), hourly(vw_sales_hourly), topMenu(daily/hourly) 4개 SELECT 구현. monthly·dashboard 집계 미구현. **DB 뷰 존재 미검증** |
-| **019** | ⬜      | `salesApi.js`                                | getSummary — 빈 셸                                                                                                                            |
-| **020** | ⬜      | `salesApi.js`                                | getMonthly — 빈 셸                                                                                                                            |
-| **021** | ⬜      | `salesApi.js`                                | getDaily — 빈 셸                                                                                                                              |
-| **022** | ⬜      | `useSalesQuery.js`                           | mock → API 교체                                                                                                                               |
-
-### P4C · 대시보드 (023~025) — SCR-022
-
-| #       | 상태 | 위치                   | 할 일                       |
-| ------- | ---- | ---------------------- | --------------------------- |
-| **023** | ⬜   | `AdminSalesController` | dashboard 엔드포인트 미구현 |
-| **024** | ⬜   | `adminApi.js`          | getDashboard — 빈 셸        |
-| **025** | ⬜   | `useDashboard.js`      | mock → API 교체             |
-
-### 보류 · Live UX · TTS · 인증 · Future
-
-| #       | 상태      | 위치                           | 할 일         |
-| ------- | --------- | ------------------------------ | ------------- |
-| **026** | ⬜ 보류   | `LiveOrderBoard.jsx`           | 가로 스크롤   |
-| **027** | ⬜        | `AdminAuthController`          | POST /login   |
-| **028** | ⬜        | `JwtTokenProvider.java`        | JWT           |
-| **029** | ⬜        | `JwtAuthenticationFilter.java` | 필터          |
-| **030** | ⬜        | `SecurityConfig.java`          | authorize     |
-| **031** | ⬜        | `adminApi.js`                  | login         |
-| **032** | ⬜        | `adminSession.js`              | token         |
-| **033** | ⬜        | `apiClient.js`                 | Bearer + 401  |
-| **034** | ⬜        | `LoginPage.jsx`                | 실로그인      |
-| **035** | ⬜        | `useAdminAuth.js`              | 401 가드      |
-| **036** | ⬜        | `AdminApp.jsx`                 | 정본 경로     |
-| **037** | ⬜        | `apiClient.js`                 | 403 매핑      |
-| **038** | ⬜        | `AdminOrderController`         | 환불 endpoint |
-| **039** | ⬜        | `AdminOrderMapper.xml`         | 환불 SQL      |
-| **040** | ⬜ Future | `ordersApi.js`                 | refundOrder   |
-| **041** | ⬜ Future | `ordersApi.js`                 | printReceipt  |
-| **042** | ⬜ Future | `OrderManagePage.jsx`          | 환불 UI       |
-| **043** | ⬜ Future | `OrderManagePage.jsx`          | 영수증 UI     |
+| 항목 | 현재 코드 | 기존 문서/Figma | 필요한 결정 |
+| --- | --- | --- | --- |
+| 품절 옵션 탭 | API에 `OPTION_ITEM` 포함, UI 탭 숨김 | Product Bible은 옵션 품절을 범위에 포함 | 옵션은 관리 API만 유지할지, 별도 화면/탭을 만들지 결정 |
+| 품절 파생 상태 | 직접 `sold_out` 토글만 구현 | Bible은 ingredient/option 영향 메뉴와 effectiveSoldOut 권장 | MVP에서 파생 품절을 구현할지, 현재 직접 토글만 명시할지 결정 |
+| 결제수단 URL | 코드 camelCase 표기 존재 | 실행 URL/Bible 표기가 서로 다름 | kebab-case 정본 및 alias 여부 결정 |
+| Screen URL | 실행은 `/sold-out`, `/payment-methods` | 일부 Bible은 camelCase | 기존 링크 호환을 포함한 URL 정규화 결정 |
+| 매출 DB 검증 | 코드와 빌드 근거 있음 | 실제 View/Bruno/브라우저 증거 없음 | 배포 DB에서 검증한 뒤 구현 완료 기준을 확정 |
 
 ---
 
@@ -217,19 +167,17 @@
 
 ### 진행 로그
 
-| 날짜       | 내용                                                                                                                                             |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 2026-08-06 | 메뉴 조회 먼저 재정렬. Empty/Error·Live 빈목록 수정.                                                                                             |
-| 2026-08-06 | 메뉴 조회 실연동: `useMenusQuery` PageResult 기준 연동.                                                                                          |
-| 2026-08-06 | 문서·DevCopilot 동기화. 주문 BE/FE 연동 구현됨·미검증.                                                                                           |
-| 2026-08-11 | 관리자 메뉴 상세·영양·재료·soft delete API 구현. Admin FE 연동.                                                                                  |
-| 2026-08-14 | AdminMenuMapper·AdminOptionMapper 분리. 빌드 성공(8/13 WIP 해소).                                                                                |
-| 2026-08-18 | 결제 계약 정합화(`active` 통일). READY 주문 버튼 비활성화.                                                                                       |
-| 2026-08-19 | 매출 summary Controller+Service+Mapper 구현. monthly 스텁. DTO 패키지 정리. TODO 001~043 재정리. 기기 출력 이벤트 API 추가(build만, src 미반영). |
+| 날짜 | 내용 |
+| --- | --- |
+| 2026-08-06 | 메뉴 조회와 주문 목록의 Empty/Error 처리 정리. |
+| 2026-08-11 | 관리자 메뉴 상세·영양·재료·soft delete API와 Admin 연결. |
+| 2026-08-18 | 결제수단 `active` 필드 정합화 방향 합의. 실제 API 구현은 미완료. |
+| 2026-08-19~20 | 매출·대시보드 API/프런트 연결과 시간대 30분 조회 구현·빌드 확인. |
+| 2026-08-21 | 메뉴·재료·옵션 항목을 포함하는 품절 DB GET/PATCH 및 Admin draft 연결·빌드 확인. 옵션 탭은 숨김 유지. 이 문서를 실제 구현 상태 기준으로 전면 갱신. |
 
 ## 사용법
 
-1. IDE TODO 패널을 번호순으로 보면 **구현 순서**와 같다.
-2. 각 기능은 **화면–API–DB**를 함께 확인한 뒤 다음 번호로 넘어간다.
-3. 완료한 항목은 인라인 주석을 지우고, 이 표 상태를 ✅로 갱신한다.
-4. 이 표와 코드 주석이 어긋나면 **코드 인라인을 정본**으로 맞춘다.
+1. IDE TODO 패널에서는 번호순으로 구현한다. 완료된 과거 TODO를 다음 기능으로 재사용하지 않는다.
+2. 기능은 **화면 상태 → API 계약 → DB 저장/집계 → 실패 처리 → 브라우저/Bruno 검증** 순서로 닫는다.
+3. 코드 구현 사실, mock, DB 반영, 런타임 검증을 같은 완료 표시로 섞지 않는다.
+4. 이 문서와 소스 인라인 주석이 어긋나면 실제 코드부터 다시 확인하고, 주석 수정은 별도 코드 수정 승인으로 진행한다.
