@@ -12,5 +12,7 @@
 | [admin-verify-todos-2026-08-06.md](admin-verify-todos-2026-08-06.md) | `HISTORY` Admin 기능 검증 기록 |
 | [frontend-sprint-wbs-2026-07-20.md](frontend-sprint-wbs-2026-07-20.md) | `HISTORY` 프론트 당시 WBS |
 | [ui-sync-2026-07-19.md](ui-sync-2026-07-19.md) | `HISTORY` UI 구현 동기화 기록 |
+| [admin-todo-2026-08-24.md](admin-todo-2026-08-24.md) | `DRAFT` 관리자 결제수단 API·주문/환불 착수 순서 |
+| [receipt-digital-delivery-architecture-2026-08-24.md](receipt-digital-delivery-architecture-2026-08-24.md) | `DRAFT` 영수증 SMS/MMS 발송 아키텍처 설계, 오늘 범위 아님 |
 
 과거 계획 이력은 Git history에서 조회합니다. 날짜별 문서는 현재 완료 상태를 주장하지 않습니다.
