@@ -43,7 +43,7 @@ erDiagram
     opt_item ||--o{ menu_opt_override : overridden
     opt_item ||--o{ opt_item_comp : components
     orders ||--o{ order_item : items
-    orders ||--o| payment : paid_by
+    orders ||--o| payment : paid_by_current_schema
     order_item ||--o{ order_item_option : options
     order_item ||--o{ item_exclusion : excludes
     opt_item ||--o{ order_item_option : chosen
@@ -88,7 +88,8 @@ erDiagram
 | 23 | `order_item` | 주문 메뉴 단위. `price` 는 옵션 포함 단가 | 후보: LMIS-ORDER-002 | — |
 | 24 | `order_item_option` | 선택 옵션. `(order_item_id, opt_item_id)` UNIQUE | 후보: FWD-CART-001 · LMIS-ORDER-006 | — |
 | 25 | `item_exclusion` | 제외 재료. `(order_item_id, ing_id)` UNIQUE | FWD-MENU-007 · LMIS-ORDER-006 | — |
-| 26 | `payment` | 결제 내역. `order_id` UNIQUE, `idempotency_key` UNIQUE | FWD-PAY-002 · KSD-PAY-001 | — |
+| 26 | `payment` | 결제 시도 내역. **현재 DB**는 `order_id` 일반 인덱스(`idx_payment_order_id`), `idempotency_key` UNIQUE | FWD-PAY-002 · KSD-PAY-001 | 주문 1건당 여러 결제 시도 허용 |
+| 27 | `payment_refund` | payment별 환불 이력. `payment_id` FK, provider 취소 거래 키 UNIQUE | 환불 이력 설계 | **2026-08-26 SQL 적용 완료** |
 
 ### 결제 멱등성 키
 
@@ -100,6 +101,25 @@ erDiagram
 
 수동으로 `payment` 에 INSERT 할 때 이 컬럼을 빠뜨리면
 `Field 'idempotency_key' doesn't have a default value` 로 실패한다.
+
+### 결제 재시도·환불 이력 migration 적용 결과 (2026-08-26)
+
+사용자 확인에 따라 아래 SQL 초안은 모두 실행됐다. 현재 DB는 주문 한 건당 여러 결제 시도를 허용하고, 토스 `cancels[]`처럼 복수 환불 이력을 `payment_refund`에 저장할 수 있다.
+
+```text
+orders 1 ── 0..N payment 1 ── 0..N payment_refund
+```
+
+| 대상 | 적용된 변경 | 목적 |
+|---|---|---|
+| `payment` | `order_id` UNIQUE 제거 후 일반 조회 인덱스 `idx_payment_order_id` 생성 | 주문 한 건의 여러 결제 시도 허용 |
+| `payment` | `provider`를 추가한 뒤 마지막 SQL에서 제거 | **현재 컬럼 없음**. 실제 PG 연동 전 재도입 여부를 별도로 결정 |
+| `payment_refund` | `payment_id`, `amount`, `reason`, `provider_cancel_transaction_key`, `refunded_at`, `created_at` 생성 | 전액/부분 환불의 건별 이력 보관 |
+| `payment` | 기존 `refunded_at` 값을 `payment_refund`로 백필한 뒤 `refunded_at` 삭제 | 환불 시각의 소유권을 이력 테이블로 이동 |
+
+`payment_refund.provider_cancel_transaction_key`는 토스 `cancels[].transactionKey`에 대응하며 UNIQUE다. 원 결제의 `paymentKey`와 환불 거래 키는 같은 값이 아니므로 분리한다.
+
+`payment_refund.provider_cancel_transaction_key`는 토스 `cancels[].transactionKey`에 대응하며 UNIQUE다. 원 결제의 `paymentKey`와 환불 거래 키는 같은 값이 아니므로 분리한다. 다만 현재 `payment`에는 `provider`와 원 결제 키 컬럼이 없으므로, 실제 토스 연동 전 `provider`, `provider_payment_key`, 환불 잔액 정책을 별도 migration으로 확정해야 한다.
 
 ### 이미지 자산 참조
 

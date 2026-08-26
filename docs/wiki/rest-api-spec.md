@@ -67,7 +67,48 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 | API-009 | PATCH | `/api/admin/soldOut` | `AdminSoldOutController` 비어 있음. TODO body `changes[]` |
 | API-010 | GET | `/api/admin/soldOut` | 동상 |
 | — | POST | `/api/admin/login` | `AdminAuthController` TODO. **2026-08-25 계약 확정**: body `{storeNumber}`, `storeNumber == "0001"` 하드코드 비교만(DB 조회·AuthenticationManager·JWT 없음). 불일치 401(ErrorCode 미정), 일치 시 단순 승인 플래그(`{approved:true}` 형태) 응답. 미구현 |
-| — | PATCH | `/api/admin/orders/{orderId}/refund` | `AdminOrderController` TODO(TODO-038). **2026-08-25 정책 확정**(TODO-001): order_status는 `CANCELED` 재사용, payment_status는 `REFUNDED`. 외부 결제사 API 먼저 호출 후 성공 시 DB 트랜잭션. 멱등성은 `payment_status` 상태 체크로만 보장, 별도 키 없음. 미구현 — 상세는 `admin-todo-2026-08-24.md` 참고 |
+| — | PATCH | `/api/admin/orders/{orderId}/refund` | **설계 제안 · 미구현/미검증**(TODO-038). DB migration은 적용됐으나 Controller·PG 연동·HTTP 검증은 미완료다. `refundReason`만 받고 서버가 결제·금액·PG 키를 재조회한다. 결제사 취소 성공 뒤 payment/order/payment_refund을 DB 트랜잭션으로 반영한다. |
+
+### 환불 API 계약 제안 (migration 적용 후)
+
+> 상태: **설계 제안 — DB migration 적용 완료, Controller·PG 연동·Bruno 검증 미완료**. 현재 프런트/백엔드 초안을 완료 구현으로 간주하지 않는다.
+
+```http
+PATCH /api/admin/orders/{orderId}/refund
+Content-Type: application/json
+
+{ "refundReason": "고객 요청" }
+```
+
+| 구분 | 계약 |
+|---|---|
+| path | `orderId`: 내부 주문 PK |
+| request body | `refundReason`만 수신한다. `paymentStatus`, 결제수단, 승인 금액, `paymentKey`는 클라이언트가 보내거나 신뢰하지 않는다. |
+| 서버 검증 | 최신 payment를 조회해 `APPROVED`, provider 결제 키, 환불 가능 잔액, 수단 정책을 확인한다. |
+| 외부 호출 | DB 트랜잭션 밖에서 PG `POST /v1/payments/{paymentKey}/cancel`을 호출하고 `cancelReason=refundReason`을 전달한다. |
+| DB 반영 | PG 성공 뒤 짧은 `@Transactional` 범위에서 `payment_refund` 이력 INSERT, payment 상태/잔액/시각 갱신, orders 상태/취소 시각 갱신을 각각 1건 검증한다. |
+
+성공 응답의 최소 `data`는 아래와 같다. 값은 PG 응답이 아니라 DB 반영 후 재조회한 값이다.
+
+```json
+{
+  "orderId": 128,
+  "paymentId": 900,
+  "paymentStatus": "REFUNDED",
+  "orderStatus": "CANCELED",
+  "refundedAmount": 16800,
+  "remainingAmount": 0,
+  "refundReason": "고객 요청",
+  "refundedAt": "2026-08-26T14:10:00"
+}
+```
+
+| 상황 | HTTP | 응답 코드/처리 |
+|---|---:|---|
+| 주문 또는 최신 결제 없음 | 404 | 기존 `ORDER_NOT_FOUND` 등 실제 ErrorCode 확정 필요 |
+| 미승인·이미 환불·잔액 부족·동시 요청 | 409 | `ORDER_REFUND_NOT_ALLOWED` 또는 세분화 ErrorCode 결정 필요. DB 변경 없음 |
+| PG 취소 거절/timeout | PG 상태 기준 | payment/order 상태 변경 없음, 실패 이력/로그 정책 적용 |
+| PG 성공 후 DB 반영 실패 | 500 | 성공으로 응답하지 않고 provider 거래 키·orderId를 구조화 로그에 남겨 수동 확인 |
 
 ## 미구현 (명세·요구만, Controller 없음)
 
