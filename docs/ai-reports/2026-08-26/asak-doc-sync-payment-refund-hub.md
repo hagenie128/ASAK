@@ -1,54 +1,94 @@
-# ASAK 문서·DevCopilot Hub 동기화 — 결제 환불 이력 설계
+# ASAK 문서·DevCopilot Hub·Notion 동기화 — 결제 환불
 
-- 동기화 일시: 2026-08-26
+## 구간 A (오전) — migration·설계 문서화
+
+- 동기화 일시: 2026-08-26 (초기)
 - 범위: 로컬 API/DB 문서와 DevCopilot workspace 2의 **기존** 주문 취소 API, `payment` 테이블 설명
-- 제외: 소스 코드, 실제 DB migration, 실제 DB 스키마 변경, 새 Hub API/테이블 생성, Git 작업
+- 제외: 소스 코드, 실제 DB migration 실행, Git 작업
 
-## 근거
+### 근거 (당시)
 
-- [REST API 명세](../../wiki/rest-api-spec.md)는 `PATCH /api/admin/orders/{orderId}/refund`를 설계 제안·미구현/미검증으로 표시한다.
-- [DB 테이블 정의](../../wiki/db-table-definition.md)는 현재 `payment.order_id`가 UNIQUE이고, `payment_refund`가 아직 DB 미생성인 migration 제안임을 표시한다.
-- [토스 환불 데이터 모델 제안](toss-payment-refund-data-model-proposal.md)은 토스 취소 이력과 `payment_refund`의 대응 및 migration 전제 조건을 기록한다.
+- REST/DB 문서에 환불 API를 설계 제안으로 기록.
+- 사용자 확인으로 SQL 초안 전체 실행 완료: `payment_refund` 생성, UNIQUE 제거, `refunded_at`/`provider` DROP.
 
-## 로컬 문서 반영 상태
+### Hub (구간 A)
 
-- `docs/wiki/rest-api-spec.md`: 환불 API의 요청·검증·PG 호출·DB 반영 순서를 **제안**으로 기록했다.
-- `docs/wiki/db-table-definition.md`: 현재 `payment` 구조와 목표 `payment_refund` 관계를 구분해 기록했다.
-- `docs/ai-reports/2026-08-26/toss-payment-refund-data-model-proposal.md`: migration SQL 초안과 삭제 전 검증 조건을 기록했다.
+- API-024 (id 291), `payment` (id 62) 설명 갱신.
+- 환불 API 카드·`payment_refund` Hub 테이블은 당시 보류.
 
-## DevCopilot Hub 반영 결과
+---
 
-### 기존 API-024 (ID 291) 갱신
+## 구간 B (저녁) — 초안 코드 근거 문서·Hub·Notion 전면 동기화
 
-- 대상: `PATCH /api/admin/orders/{orderId}/cancel`
-- 취소 API는 **미승인** `RECEIVED`/`PREPARING` 주문만 `CANCELED`로 전환한다고 명시했다.
-- 승인 결제는 이 API에서 환불하지 않고 `409 ORDER_PAYMENT_APPROVED_CANCEL_NOT_ALLOWED`로 막는 계약을 명시했다.
-- 별도 환불 API `PATCH /api/admin/orders/{orderId}/refund`는 설계 제안이며, Hub API 카드·구현·통합 검증이 아직 없다고 명시했다.
+- 동기화 일시: 2026-08-26 (저녁, 사용자 승인: 문서·허브·노션 / **코드 수정 금지**)
+- 기준 커밋(참고): ASAK-back `b867345`(+워킹트리 환불 초안), ASAK-Admin `b9c3ea5`(+워킹트리), ASAK docs `b655037`(+워킹트리)
+- MCP: 기존 `user-devcopilot` / Notion 플러그인 사용. 채팅에 붙여 넣은 토큰은 파일·보고서에 **저장하지 않음**.
 
-### 기존 `payment` 테이블 (ID 62) 설명 갱신
+### 1. 확인한 코드·문서
 
-- 현재 테이블은 주문, 결제수단, 상태, 승인 금액/시각, `idempotency_key`, 최종 `refunded_at`을 보관한다고 명시했다.
-- 현 스키마의 `order_id UNIQUE` 제약을 명시했다.
-- `payment_refund`는 토스 취소 이력을 위한 **migration 제안**이고 실제 DB 및 Hub 스키마에는 아직 생성하지 않았다고 명시했다.
+| 구분 | 경로 |
+|---|---|
+| Controller | `ASAK-back/.../AdminOrderController.java` `PATCH .../refund` |
+| Service | `AdminOrderService.refundOrder`, `PaymentService.cardRefund`, `AdminRefundTransactionService.applyRefund` |
+| Mapper | `AdminPaymentMapper.xml` (`findRefundTarget`, `markPaymentRefunded`, `insertPaymentRefund`, `cancelOrderForRefund`) |
+| DTO | `OrderRefundRequest.refundReason`, `OrderDetailResponse` |
+| Admin FE | `ordersApi.orderRefund(orderId)` body 없음, `OrderManagePage.handleRefund` |
+| 정책 | `docs/operations/meeting-minutes/2026-W31.md` — COMPLETED 유지·결제만 REFUNDED |
 
-## 의도적으로 반영하지 않은 항목
+### 2. 갱신한 로컬 문서
 
-- 새 환불 API 카드 생성: 구현/API 번호가 확정되지 않아 보류했다.
-- `payment_refund` Hub 테이블 생성: 실제 migration 전이므로 보류했다.
-- `payment.refunded_at` 삭제 또는 `order_id` UNIQUE 제거: 백필, 참조 전환, 회귀 검증 전이므로 보류했다.
+| 문서 | 변경 |
+|---|---|
+| `docs/wiki/rest-api-spec.md` | 환불: **초안 구현 · 미검증**. ErrorCode·응답·불일치 표기 |
+| `docs/wiki/db-table-definition.md` | 중복 문단 정리, 코드/미검증 메모 |
+| `docs/planning/admin-todo-2026-08-24.md` | TODO-038~042 상태·계약/구현 불일치 반영 |
+| 본 보고서 | 구간 B 추가 |
 
-## 검증
+### 3. DevCopilot Hub (workspace 2)
 
-DevCopilot MCP 재조회로 API ID 291의 endpoint·설명·성공/오류 계약 및 `payment` 테이블 ID 62의 설명이 저장된 것을 확인했다. 실제 HTTP 환불·PG 취소·DB migration·Bruno 검증은 수행하지 않았다.
+| 대상 | 결과 |
+|---|---|
+| API-024 id **291** | cancel만; 승인 결제는 refund로 분리한다고 재기록 |
+| 환불 API id **449** | **신규** `PATCH /api/admin/orders/{orderId}/refund` · 제목 `Admin Order Refund (번호 미배정 · TODO-038)` · draft/unverified |
+| `payment` id **62** | 실제 스키마(UNIQUE 제거, refunded_at/provider DROP) 설명 |
+| `payment.refunded_at` col **842** | Hub에 남기되 description = DROPPED |
+| `payment_refund` id **169** | **신규** 테이블 + 컬럼 id/payment_id/amount/reason/provider_cancel_transaction_key/refunded_at/created_at |
 
-## 다음 결정 필요
+재조회: API id 449 endpoint·설명 저장 확인.
 
-1. 별도 환불 API의 API 번호와 구현 범위를 확정한다.
-2. `payment_refund` migration을 실제 적용할지 승인한다.
-3. 승인 결제 환불, PG 실패, PG 성공/DB 실패 수동 확인을 포함한 테스트를 진행한다.
+### 4. Notion
 
-## 적용 상태 정정 (2026-08-26)
+| 페이지 | 결과 |
+|---|---|
+| [06. API 명세](https://app.notion.com/p/34651ef04f0b838ca3a481e55eebfb2b) | `## 2026-08-26 문서·Hub 동기화 (환불)` 추가. API-024 구 규칙을 cancel/refund 분리·`payment_refund` 기준으로 정정 |
+| [05. DB 설계](https://app.notion.com/p/1d951ef04f0b83019b4281f04c7b12cc) | `## 2026-08-26 결제·환불 스키마 동기화` 추가 |
 
-이 보고서 최초 작성 뒤 사용자 확인으로 SQL 초안 전체가 이미 실행된 사실을 반영한다. `payment_refund` 테이블 생성, 기존 환불 행 백필, `payment.order_id` UNIQUE 제거와 `idx_payment_order_id` 생성, `payment.refunded_at` 삭제가 완료됐다. 마지막 `DROP COLUMN provider`도 실행됐으므로 현재 `payment.provider` 컬럼은 없다.
+### 5. 실행·검증
 
-Hub의 `payment` 설명과 API-024 설명은 실제 적용된 스키마로 재동기화 완료했다. 환불 API 카드·Controller·PG 연동·통합 검증이 아직 없다는 결론은 변하지 않는다.
+- Hub/Notion 쓰기 후 재조회: 반영 확인.
+- `git diff --check` (수정 문서): 통과.
+- HTTP 환불·Bruno·실PG·E2E: **미실행** (통과로 기록하지 않음).
+- 소스코드: **미수정** (사용자 지시).
+
+### 6. 남은 불일치 · 결정 필요
+
+| 상태 | 내용 |
+|---|---|
+| `계약 불일치` | FE `orderRefund(orderId)` body 없음 vs BE `refundReason` `@NotBlank` |
+| `구현 불일치` | `findRefundTarget`에 `providerPaymentKey` SELECT 없음 |
+| `구현 불일치` | `insertPaymentRefund` XML `#{cancelTransactionKey}` vs Service `providerCancelTransactionKey` |
+| `결정 필요` | Hub/Notion **정본 API 번호** (현재 id 449는 번호 미배정) |
+| `결정 필요` | `provider` / `provider_payment_key` 재도입 |
+| `미검증` | HTTP·실PG·통합 테스트 |
+
+### 7. 수정하지 않은 범위
+
+- ASAK-back / ASAK-Admin / ASAK-Kiosk **소스코드**
+- 실제 MySQL DDL 추가 실행
+- Product Bible Pack 전량, Screen Bible 전량, WBS/요구사항 DevCopilot 전수
+- Git commit / push / branch
+- 채팅에 제공된 JWT·MCP URL 토큰 (파일·커밋·본 보고서에 미기록)
+
+### 8. Notion API 명세 DB 행
+
+Notion 인라인「API 명세 데이터베이스」개별 행 upsert는 이번 범위에서 하지 않았다. 페이지 본문·Hub id 449를 정본 포인터로 둔다. 행 추가가 필요하면 API 번호 확정 후 별도 승인.
