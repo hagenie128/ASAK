@@ -1,11 +1,10 @@
 ﻿> Status: **CURRENT**
-> 기준일: **2026-08-25** · 코드: `ASAK-back` Controller 매핑
+> 기준일: **2026-08-26** · 코드: `ASAK-back` Controller 매핑(워킹 트리 초안 포함)
 > 계약 필드: [정본](../governance/contract-decisions-2026-07-16.md) · Bruno: `ASAK-back/api/`
-> Hub API 카드: workspace 2 (기존 ID 갱신)
+> Hub API 카드: workspace 2 (기존 ID 갱신 + 환불은 **번호 미배정** 카드)
 > 2026-08-25 결정: 관리자 로그인(매장 번호 하드코드)·환불 정책 확정 — 상세는
 > [`admin-todo-2026-08-24.md`](../planning/admin-todo-2026-08-24.md) 참고.
-> 2026-08-25 Hub 대조: API-015/016 카드를 실제 코드 기준으로 갱신 완료(구현 상태, 응답 필드명·shape 수정).
-> 로그인·환불은 정본 API 번호가 아직 없어 Hub에 새 카드를 만들지 않음(기존 방침 유지).
+> 2026-08-26: 환불 endpoint 초안·`payment_refund` migration 반영. HTTP/실PG는 **미검증**. API 번호 배정은 **결정 필요**.
 
 # ASAK REST API 명세서
 
@@ -67,11 +66,11 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 | API-009 | PATCH | `/api/admin/soldOut` | `AdminSoldOutController` 비어 있음. TODO body `changes[]` |
 | API-010 | GET | `/api/admin/soldOut` | 동상 |
 | — | POST | `/api/admin/login` | `AdminAuthController` TODO. **2026-08-25 계약 확정**: body `{storeNumber}`, `storeNumber == "0001"` 하드코드 비교만(DB 조회·AuthenticationManager·JWT 없음). 불일치 401(ErrorCode 미정), 일치 시 단순 승인 플래그(`{approved:true}` 형태) 응답. 미구현 |
-| — | PATCH | `/api/admin/orders/{orderId}/refund` | **설계 제안 · 미구현/미검증**(TODO-038). DB migration은 적용됐으나 Controller·PG 연동·HTTP 검증은 미완료다. `refundReason`만 받고 서버가 결제·금액·PG 키를 재조회한다. 결제사 취소 성공 뒤 payment/order/payment_refund을 DB 트랜잭션으로 반영한다. |
+| — | PATCH | `/api/admin/orders/{orderId}/refund` | **초안 구현 · 미검증**(TODO-038). Hub API 번호 미배정. `AdminOrderController.refundOrder` → `AdminOrderService.refundOrder` → `PaymentService.cardRefund`(가상) → `AdminRefundTransactionService.applyRefund`. HTTP·Bruno·실PG 검증 없음. |
 
-### 환불 API 계약 제안 (migration 적용 후)
+### 환불 API — 현재 코드 근거 (2026-08-26)
 
-> 상태: **설계 제안 — DB migration 적용 완료, Controller·PG 연동·Bruno 검증 미완료**. 현재 프런트/백엔드 초안을 완료 구현으로 간주하지 않는다.
+> 상태: **초안 구현 · 미검증**. DB migration(`payment_refund` 등) 적용 완료. 완료 구현·통합 통과로 쓰지 않는다.
 
 ```http
 PATCH /api/admin/orders/{orderId}/refund
@@ -80,35 +79,33 @@ Content-Type: application/json
 { "refundReason": "고객 요청" }
 ```
 
-| 구분 | 계약 |
+| 구분 | 현재 코드 사실 |
 |---|---|
 | path | `orderId`: 내부 주문 PK |
-| request body | `refundReason`만 수신한다. `paymentStatus`, 결제수단, 승인 금액, `paymentKey`는 클라이언트가 보내거나 신뢰하지 않는다. |
-| 서버 검증 | 최신 payment를 조회해 `APPROVED`, provider 결제 키, 환불 가능 잔액, 수단 정책을 확인한다. |
-| 외부 호출 | DB 트랜잭션 밖에서 PG `POST /v1/payments/{paymentKey}/cancel`을 호출하고 `cancelReason=refundReason`을 전달한다. |
-| DB 반영 | PG 성공 뒤 짧은 `@Transactional` 범위에서 `payment_refund` 이력 INSERT, payment 상태/잔액/시각 갱신, orders 상태/취소 시각 갱신을 각각 1건 검증한다. |
+| request body | `OrderRefundRequest.refundReason` (`@NotBlank`, max 200). 결제수단·금액·`paymentKey`는 클라이언트가 보내지 않는다. |
+| 서버 검증 | `AdminPaymentMapper.findRefundTarget`로 최신 `APPROVED` payment 조회. 미승인·이미 취소 주문·금액≤0·CARD 외 수단은 ErrorCode로 거부. |
+| 외부 호출 | DB 트랜잭션 밖 `PaymentService.cardRefund`만. **가상** `VIRTUAL-CANCEL-{uuid}` 반환. 실제 토스/카드 PG cancel 미연결. |
+| DB 반영 | `@Transactional` `applyRefund`: payment `APPROVED→REFUNDED`(1건), `payment_refund` INSERT(1건), 제공 전 주문만 `CANCELED`+`canceled_at`. **COMPLETED는 주문 상태 유지**(회의록 2026-W31 확정과 일치). |
+| 성공 응답 | `ApiResponse` + `OrderDetailResponse` 재조회(`orderId`, `orderNo`, `orderStatus`, `paymentStatus`, `paymentMethod`, `totalAmount`, `createdAt`, `items`). 별도 `refundedAmount`/`refundReason` 필드는 응답 DTO에 없음. |
 
-성공 응답의 최소 `data`는 아래와 같다. 값은 PG 응답이 아니라 DB 반영 후 재조회한 값이다.
-
-```json
-{
-  "orderId": 128,
-  "paymentId": 900,
-  "paymentStatus": "REFUNDED",
-  "orderStatus": "CANCELED",
-  "refundedAmount": 16800,
-  "remainingAmount": 0,
-  "refundReason": "고객 요청",
-  "refundedAt": "2026-08-26T14:10:00"
-}
-```
-
-| 상황 | HTTP | 응답 코드/처리 |
+| 상황 | HTTP | 코드 ErrorCode |
 |---|---:|---|
-| 주문 또는 최신 결제 없음 | 404 | 기존 `ORDER_NOT_FOUND` 등 실제 ErrorCode 확정 필요 |
-| 미승인·이미 환불·잔액 부족·동시 요청 | 409 | `ORDER_REFUND_NOT_ALLOWED` 또는 세분화 ErrorCode 결정 필요. DB 변경 없음 |
-| PG 취소 거절/timeout | PG 상태 기준 | payment/order 상태 변경 없음, 실패 이력/로그 정책 적용 |
-| PG 성공 후 DB 반영 실패 | 500 | 성공으로 응답하지 않고 provider 거래 키·orderId를 구조화 로그에 남겨 수동 확인 |
+| 주문 없음 | 404 | `ORDER_NOT_FOUND` |
+| APPROVED payment 없음 / 미승인 | 409 | `ONLY_APPROVED_PAYMENT_CAN_BE_REFUNDED` |
+| 이미 CANCELED 주문 | 409 | `CANCELED_ORDER_CANNOT_BE_REFUNDED` |
+| 금액 무효 | 400 | `AMOUNT_INVALID_NOT_ALLOWED` |
+| CARD 외 수단 | 400 | `PAYMENT_METHOD_NOT_SUPPORTED_FOR_REFUND` |
+| DB 1건 갱신/INSERT 실패 | 500 | `ORDER_REFUND_FAILED` |
+
+#### 남은 불일치 · 결정 필요
+
+| 상태 | 내용 |
+|---|---|
+| `계약 불일치` | Admin `ordersApi.orderRefund(orderId)`가 body 없이 PATCH → 백엔드 `@NotBlank refundReason`과 불일치. |
+| `구현 불일치` | `findRefundTarget` SELECT에 `providerPaymentKey` 없음. `RefundTarget.providerPaymentKey`는 null → `cardRefund`가 `ORDER_REFUND_FAILED` 가능. |
+| `구현 불일치` | `insertPaymentRefund` XML `#{cancelTransactionKey}` vs Service map key `providerCancelTransactionKey` 불일치 가능. |
+| `미검증` | HTTP/Bruno/실서버 E2E·실PG cancel·부분환불 미실행. |
+| `결정 필요` | Hub/Notion API 번호 배정. `provider`/`provider_payment_key` 재도입. 토스페이 포함 시점. |
 
 ## 미구현 (명세·요구만, Controller 없음)
 

@@ -117,9 +117,9 @@ orders 1 ── 0..N payment 1 ── 0..N payment_refund
 | `payment_refund` | `payment_id`, `amount`, `reason`, `provider_cancel_transaction_key`, `refunded_at`, `created_at` 생성 | 전액/부분 환불의 건별 이력 보관 |
 | `payment` | 기존 `refunded_at` 값을 `payment_refund`로 백필한 뒤 `refunded_at` 삭제 | 환불 시각의 소유권을 이력 테이블로 이동 |
 
-`payment_refund.provider_cancel_transaction_key`는 토스 `cancels[].transactionKey`에 대응하며 UNIQUE다. 원 결제의 `paymentKey`와 환불 거래 키는 같은 값이 아니므로 분리한다.
+`payment_refund.provider_cancel_transaction_key`는 토스 `cancels[].transactionKey`에 대응하며 UNIQUE다. 원 결제의 `paymentKey`와 환불 거래 키는 같은 값이 아니므로 분리한다. 다만 현재 `payment`에는 `provider`와 원 결제 키 컬럼이 없으므로, 실제 토스 연동 전 `provider`, `provider_payment_key`, 환불 잔액 정책을 별도 migration으로 확정해야 한다. (`결정 필요`)
 
-`payment_refund.provider_cancel_transaction_key`는 토스 `cancels[].transactionKey`에 대응하며 UNIQUE다. 원 결제의 `paymentKey`와 환불 거래 키는 같은 값이 아니므로 분리한다. 다만 현재 `payment`에는 `provider`와 원 결제 키 컬럼이 없으므로, 실제 토스 연동 전 `provider`, `provider_payment_key`, 환불 잔액 정책을 별도 migration으로 확정해야 한다.
+환불 코드 초안(`AdminPaymentMapper` / `AdminRefundTransactionService`)은 `payment_refund` INSERT와 payment `REFUNDED` 갱신을 가정한다. HTTP·실PG·E2E는 **미검증**.
 
 ### 이미지 자산 참조
 
