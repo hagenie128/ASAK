@@ -113,14 +113,14 @@ cancel과 refund SQL이 뒤섞여 감사 추적이 깨진다. **2026-08-25 정�
   6) **(2026-08-25 결정)** 환불 대상 결제수단 범위: **카드/신용카드**는 반영한다. **토스페이**는 API를
      확인한 상태이며, 실제 연동과 결제 과정 통합 테스트가 성공할 때만 프로젝트 범위에 포함한다.
   ```
-- [ ] **TODO-039** 환불 SQL 분리 (ASAK-back)
+- [~] **TODO-039** 환불 SQL 분리 (ASAK-back) — payment `REFUNDED` UPDATE와 Service `@Transactional` 호출 초안 존재, 주문 `CANCELED` 전용 UPDATE 분리 및 DB 검증 대기
   ```
   `src/main/resources/mappers/AdminOrderMapper.xml`
   cancel SQL과 분리한 orders 취소(`status_id` → `CANCELED`) / payment 환불 상태 변경(`payment_status`
   → `REFUNDED`) 쿼리 각각 추가 (한 쿼리로 묶지 않음). 각 update는 의미 있는 행 수를 반환. TODO-001
   확정됐으니 바로 착수 가능.
   ```
-- [ ] **TODO-038** `PATCH /api/admin/orders/{orderId}/refund` Controller (ASAK-back)
+- [~] **TODO-038** `PATCH /api/admin/orders/{orderId}/refund` Controller (ASAK-back) — Controller·요청 DTO·Service 초안 존재, 서버 DB 재조회 기준 검증·외부 카드 취소·실행 검증 대기
 
   ```
   `src/main/java/com/asak/admin/controller/AdminOrderController.java` 맨 아래 주석
@@ -129,12 +129,12 @@ cancel과 refund SQL이 뒤섞여 감사 추적이 깨진다. **2026-08-25 정�
   이미 존재) 문서화. 외부 결제사 API 호출 → 성공 시 TODO-039 UPDATE 두 개를 하나의 트랜잭션으로 실행.
   ```
 
-- [~] **TODO-040** `ordersApi.orderRefund` (ASAK-Admin) — 래퍼 선언 존재, 화면 연결 대기
+- [~] **TODO-040** `ordersApi.orderRefund` (ASAK-Admin) — 래퍼 선언 및 화면 연결 초안 존재, 백엔드 요청 본문(`refundReason`) 계약 일치와 실제 응답 검증 대기
   `src/api/ordersApi.js`
   `API_ENDPOINTS.orderRefund`와 `orderRefund` 래퍼는 선언돼 있다. TODO-038/039의 경로·요청 body·결제 상태
   전이·ErrorCode가 검증된 뒤 화면의 mock 환불 호출을 이 래퍼로 교체한다. **cancel API를 환불에 재사용하지 않는다.**
 
-- [ ] **TODO-042** `OrderManagePage.jsx`의 `handleRefund` 연결 (ASAK-Admin)
+- [~] **TODO-042** `OrderManagePage.jsx`의 `handleRefund` 연결 (ASAK-Admin) — `ConfirmDialog`에서 `ordersApi.orderRefund(orderId)` 호출까지 연결됨, 처리 중 disabled·409/이미 환불됨 구분·통합 검증 대기
       `src/pages/admin/OrderManagePage.jsx`
       TODO-040 완료 후 `ordersApi.orderRefund` + `ConfirmDialog` 연결. 승인 결제만 환불 가능한지, 409/이미
       환불됨 응답 구분. 성공 뒤 훅의 `refetch()`로 목록 갱신.
