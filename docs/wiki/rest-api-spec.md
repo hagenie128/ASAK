@@ -1,7 +1,11 @@
 ﻿> Status: **CURRENT**
-> 기준일: **2026-08-18** · 코드: `ASAK-back` Controller 매핑
+> 기준일: **2026-08-25** · 코드: `ASAK-back` Controller 매핑
 > 계약 필드: [정본](../governance/contract-decisions-2026-07-16.md) · Bruno: `ASAK-back/api/`
 > Hub API 카드: workspace 2 (기존 ID 갱신)
+> 2026-08-25 결정: 관리자 로그인(매장 번호 하드코드)·환불 정책 확정 — 상세는
+> [`admin-todo-2026-08-24.md`](../planning/admin-todo-2026-08-24.md) 참고.
+> 2026-08-25 Hub 대조: API-015/016 카드를 실제 코드 기준으로 갱신 완료(구현 상태, 응답 필드명·shape 수정).
+> 로그인·환불은 정본 API 번호가 아직 없어 Hub에 새 카드를 만들지 않음(기존 방침 유지).
 
 # ASAK REST API 명세서
 
@@ -46,6 +50,8 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 | API-028 | DELETE | `/api/admin/menus/{menuId}` | 동상 | 구현 · **soft delete** (`deleted_at`) |
 | API-029 | GET | `/api/admin/opts/groups` | `AdminOptionController` | 구현 |
 | API-030 | GET | `/api/admin/opts/{optionGroupId}` | 동상 | 구현 |
+| API-015 | GET | `/api/admin/paymentMethods` | `AdminPaymentMethodController` | 구현 · 런타임 미검증. 응답 필드 `active`, `sortNo` (`receiptMessage`는 계약 없음) |
+| API-016 | PATCH | `/api/admin/paymentMethods/{methodId}` | 동상 | 구현 · 런타임 미검증. body `active`, `sortNo`만. 한 행만 수정 — 여러 행 재정렬·409는 미제공 |
 | API-020 | GET | `/api/admin/dashboard` | `AdminSalesController` | 구현 · `AdminDashboardResponse` |
 | API-018 | GET | `/api/admin/sales/summary` | 동상 | 구현 · query `period=today\|week\|month` |
 | API-019 | GET | `/api/admin/sales/monthly` | 동상 | 구현 · query `year=YYYY` |
@@ -60,9 +66,8 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 |---|---|---|---|
 | API-009 | PATCH | `/api/admin/soldOut` | `AdminSoldOutController` 비어 있음. TODO body `changes[]` |
 | API-010 | GET | `/api/admin/soldOut` | 동상 |
-| API-015 | GET | `/api/admin/paymentMethods` | `AdminPaymentMethodController` 비어 있음 |
-| API-016 | PATCH | `/api/admin/paymentMethods/{methodId}` | 동상 |
-| — | POST | `/api/admin/login` | `AdminAuthController` TODO |
+| — | POST | `/api/admin/login` | `AdminAuthController` TODO. **2026-08-25 계약 확정**: body `{storeNumber}`, `storeNumber == "0001"` 하드코드 비교만(DB 조회·AuthenticationManager·JWT 없음). 불일치 401(ErrorCode 미정), 일치 시 단순 승인 플래그(`{approved:true}` 형태) 응답. 미구현 |
+| — | PATCH | `/api/admin/orders/{orderId}/refund` | `AdminOrderController` TODO(TODO-038). **2026-08-25 정책 확정**(TODO-001): order_status는 `CANCELED` 재사용, payment_status는 `REFUNDED`. 외부 결제사 API 먼저 호출 후 성공 시 DB 트랜잭션. 멱등성은 `payment_status` 상태 체크로만 보장, 별도 키 없음. 미구현 — 상세는 `admin-todo-2026-08-24.md` 참고 |
 
 ## 미구현 (명세·요구만, Controller 없음)
 
@@ -98,7 +103,7 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 | 주문 | `READY`, `RECEIVED`, `PREPARING`, `COMPLETED`, `CANCELED` |
 | 결제 | `READY`, `APPROVED`, `FAILED`, `REFUNDED` |
 | 주문유형 | `EAT_IN`, `TAKE_OUT` |
-| 결제수단 | `CARD`, `KAKAO_PAY`, `NAVER_PAY` · enums에 `TOSS_PAY` 추가됨(**정본 3종과 결정 필요**) |
+| 결제수단 | `CARD`, `KAKAO_PAY`, `NAVER_PAY` · enums에 `TOSS_PAY` 추가됨(**정본 3종과 결정 필요** — 미해결). 2026-08-25: 환불 대상 범위만 카드/신용카드 확정, 토스페이는 연동+통합 테스트 성공 시 포함으로 별도 결정(전체 결제수단 정본 3종 결정과는 별개) |
 
 ## Bruno
 

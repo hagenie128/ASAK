@@ -3,6 +3,8 @@
 > Status: **DRAFT**
 > Route: `/login`
 > Purpose: 관리자 인증
+> 2026-08-25 결정: 계정(아이디/비밀번호) 인증 대신 매장 번호 하드코드 승인으로 방향 변경 —
+> [`admin-todo-2026-08-24.md`](../../planning/admin-todo-2026-08-24.md) 우선순위 2 참고
 
 
 ## 1. Domain
@@ -11,12 +13,12 @@
 
 ## 2. Figma Reference
 
-Figma node 39:8747
+Figma node 39:8747 (매장 번호 입력 UI로 갱신 필요 — 기존 아이디/비밀번호 폼 기준)
 
 ## 3. Main Data
 
 ```text
-credentials, session
+storeNumber, session(단순 승인 플래그)
 ```
 
 ## 4. Required States
@@ -27,15 +29,17 @@ credentials, session
 
 ## 5. Product Rules
 
-- error/loading/password visibility를 제공한다.
+- 매장 번호 하나만 입력받아 승인한다 — 아이디/비밀번호 2필드 입력이 아니다.
+- 매장 번호는 고정값 `'0001'` 하드코드 비교. DB 매장 테이블 조회·매장별 로그인 확장 없음.
+- 세션은 JWT 없이 단순 승인 플래그로 유지한다 (토큰 발급·만료 관리 없음).
+- error/loading을 제공한다. password visibility는 해당 없음(비밀번호 필드 없음).
 - 성공 후 Dashboard로 이동한다.
 - 인증이 mock인지 실제인지 명시한다.
 
 ## 6. React Component Map
 
 - `LoginPage`
-- `LoginForm`
-- `PasswordField`
+- `LoginForm` (매장 번호 입력 단일 필드로 교체 예정 — 미구현, 현재 코드는 아이디/비밀번호 mock)
 
 ## 7. API Contract
 

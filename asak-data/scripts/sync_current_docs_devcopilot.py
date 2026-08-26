@@ -1,8 +1,17 @@
 #!/usr/bin/env python3
-"""Upsert the current ASAK operating docs to DevCopilot workspace 2.
+"""Compare (and optionally upsert) the current ASAK operating docs against DevCopilot workspace 2.
 
 Uses only the Python standard library so it can run in the project environment.
 Set DEVCOPILOT_TOKEN to a valid bearer token before executing it.
+
+Default mode is a dry-run diff (no writes). Pass --push to actually overwrite
+hub wiki pages that differ from the local file. Local files that no longer
+exist (e.g. removed in a docs cleanup) are skipped, not fatal.
+
+Example:
+  set DEVCOPILOT_TOKEN=...
+  python asak-data/scripts/sync_current_docs_devcopilot.py            # dry-run
+  python asak-data/scripts/sync_current_docs_devcopilot.py --push     # actually write
 """
 from __future__ import annotations
 
@@ -50,11 +59,24 @@ def request(method: str, path: str, body: dict | None = None) -> object:
 
 
 def main() -> int:
+    push = "--push" in sys.argv[1:]
     wikis = {wiki["id"]: wiki for wiki in request("GET", f"/api/workspaces/{WS}/wikis")}
     for section, (wiki_id, file) in TARGETS.items():
+        if not file.exists():
+            print(f"SKIP (파일 없음): {section} — {file}")
+            continue
         if wiki_id not in wikis:
-            raise RuntimeError(f"Missing target wiki {wiki_id} for {section}; no page was created")
-        body = {"title": wikis[wiki_id]["title"], "content": file.read_text(encoding="utf-8")}
+            print(f"SKIP (허브에 wiki {wiki_id} 없음): {section}")
+            continue
+        local_content = file.read_text(encoding="utf-8")
+        hub_content = wikis[wiki_id].get("content", "")
+        if local_content == hub_content:
+            print(f"SAME: {section}")
+            continue
+        if not push:
+            print(f"DIFF (dry-run, --push로 반영): {section} — 로컬 {len(local_content)}자 / 허브 {len(hub_content)}자")
+            continue
+        body = {"title": wikis[wiki_id]["title"], "content": local_content}
         result = request("PUT", f"/api/workspaces/{WS}/wikis/{wiki_id}", body)
         print(f"updated: {result['id']} {section}")
     return 0
