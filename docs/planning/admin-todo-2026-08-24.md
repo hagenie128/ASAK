@@ -16,8 +16,8 @@ RTOS 이벤트 DB 추가는 당일 범위 아님 — 현재 작업 진행 상황
 |---|---|---|---|
 | 결제수단 API·FE | **연결됨** | 미완 | Mapper `ORDER BY sort_no, id` **누락** |
 | 로그인 API·FE | **연결됨** | 미완 | JWT/계정 인증 없음(의도). `LoginPage` 파일 헤더 주석 구식 |
-| 환불 API | **main 미구현** | — | `feat/admin-refund-history`에만 초안 |
-| 환불 FE | **호출 연결됨** | 미완 | `refundReason` body·사유 입력 UI 없음 → **계약 불일치** |
+| 환불 API | **branch 구현** | 미완 | `feat/admin-refund-history` — PATCH refund + GET refund-reasons |
+| 환불 FE | **연결됨** | 미완 | `refundReasonCode`/`refundReasonDetail` body + 라디오·기타 입력 UI |
 | 주문/Live/취소 | **연결됨** | 미완 | todo 범위 밖이나 main에 존재 |
 | 품절 | **연결됨** | 미완 | `soldOutApi` + `AdminSoldOutController` |
 | 매출/대시보드 | **연결됨** | 미완 | `AdminSalesController` + `salesApi`/`useDashboard` |
@@ -25,7 +25,7 @@ RTOS 이벤트 DB 추가는 당일 범위 아님 — 현재 작업 진행 상황
 
 **경로 정렬:** `VITE_API_BASE_URL=/api` + `API_BASE_PATH=/admin` → 실제 호출 `/api/admin/...`로 Backend와 일치. 문서·주석의 “경로 불일치” 표기는 **구식** — 런타임 검증만 남음.
 
-**환불 브랜치:** `ASAK-back` `feat/admin-refund-history`에 `PATCH .../refund`, `OrderRefundRequest(refundReason)`, Service/SQL 초안 존재. **main 미머지.** 리뷰 이슈는 `docs/ai-reports/2026-08-26/refund-virtual-card-approval-review.md` 참고.
+**환불 브랜치:** `ASAK-back` `feat/admin-refund-history`에 `PATCH .../refund`, `GET .../refund-reasons`, `OrderRefundRequest(refundReasonCode/refundReasonDetail)`, `common_code` seed SQL 존재. **main 미머지.** 리뷰 이슈는 `docs/ai-reports/2026-08-26/refund-virtual-card-approval-review.md` 참고.
 
 ---
 
@@ -84,25 +84,29 @@ RTOS 이벤트 DB 추가는 당일 범위 아님 — 현재 작업 진행 상황
   - 환불 성공 후 order_status `CANCELED` 재사용, payment_status `REFUNDED`.
   - 외부 결제 API → 성공 시 DB `@Transactional`. 중복 환불은 `payment_status` 체크(409).
   - 카드/신용카드 반영. 토스페이는 통합 테스트 성공 시만.
+- [x] **TODO-039a** 환불 사유 마스터 (ASAK-back) — **branch 구현 · 검증 대기**
+  - `docs/migrations/20260828_refund_reason_codes.sql` — `code_group` `REFUND_REASON` + 5종 seed.
+  - `AdminRefundReasonController` — `GET /api/admin/refund-reasons`.
+  - `AdminRefundReasonService.resolveRefundReasonText` — OTHER 시 detail 필수.
 - [ ] **TODO-039** 환불 SQL (ASAK-back) — **main 없음 · branch 초안**
   - `feat/admin-refund-history`: `AdminPaymentMapper` — `markPaymentRefunded` / `insertPaymentRefund` / `cancelOrderForRefund`.
   - INSERT 파라미터명·컬럼 불일치 가능. **main 머지 전 SQL 대조 필수.**
 - [ ] **TODO-038** `PATCH /api/admin/orders/{orderId}/refund` (ASAK-back) — **main 없음 · branch 초안**
   - main `AdminOrderController`: TODO-038 **주석만** (endpoint 미구현).
-  - branch: `@Valid OrderRefundRequest` — `@NotBlank refundReason`.
+  - branch: `@Valid OrderRefundRequest` — `@NotBlank refundReasonCode`, `refundReasonDetail`(OTHER 시 필수).
   - 가상 `cardRefund` 초안. 실PG·HTTP·DB 통합 검증 대기.
-- [~] **TODO-040** `ordersApi.orderRefund` (ASAK-Admin) — **경로 연결 · body 계약 불일치**
-  - `src/api/ordersApi.js` — `PATCH` **body 없음**.
-  - Backend(branch)는 `{ refundReason }` 필수 → **400 예상**. body 추가 + ErrorCode 매핑 필요.
-- [~] **TODO-042** `OrderManagePage.handleRefund` (ASAK-Admin) — **ConfirmDialog 연결 · 사유 입력 없음**
-  - `ordersApi.orderRefund(orderId)` 호출됨. refundReason 입력 UI·409/이미 환불됨 분기·처리 중 disabled 미완.
-  - 성공 후 `printReceipt` + `refund` — 영수증 출력과 환불 흐름 분리 검토 필요.
-- [ ] **검증**: 승인 결제 환불 성공, 미승인 차단, 중복 환불(409), cancel/refund 동시 불가, `refundReason` body, 브라우저 E2E.
+- [x] **TODO-040** `ordersApi.orderRefund` (ASAK-Admin) — **body 계약 연결 · 검증 대기**
+  - `src/api/ordersApi.js` — `PATCH` body `{ refundReasonCode, refundReasonDetail? }`.
+  - `src/api/refundReasonsApi.js` — GET 환불 사유 목록.
+- [x] **TODO-042** `OrderManagePage.handleRefund` (ASAK-Admin) — **사유 선택 UI 연결 · 검증 대기**
+  - ConfirmDialog 내 라디오 + OTHER textarea. 처리 중 disabled·409 분기 구현.
+  - 성공 후 `printReceipt` 호출 제거(환불·영수증 분리).
+- [ ] **검증**: seed SQL 적용, 사유 목록 GET, 승인 결제 환불 성공, 미승인 차단, 중복 환불(409), OTHER detail 필수, Bruno·브라우저 E2E.
 
 **환불 착수 순서 (main 기준):**
 
-1. `feat/admin-refund-history` 리뷰·머지 (또는 main에 동일 계약 재구현)
-2. FE `orderRefund(orderId, { refundReason })` + 사유 입력 UI
+1. `feat/admin-refund-history` 리뷰·머지 (환불 + 사유 목록)
+2. DB seed `20260828_refund_reason_codes.sql` 적용
 3. 가상 카드 취소 규칙 확정 → Bruno → 브라우저
 
 ---
