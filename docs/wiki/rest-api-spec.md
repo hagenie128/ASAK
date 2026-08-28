@@ -68,7 +68,21 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 | — | POST | `/api/admin/login` | `AdminAuthController` TODO. **2026-08-25 계약 확정**: body `{storeNumber}`, `storeNumber == "0001"` 하드코드 비교만(DB 조회·AuthenticationManager·JWT 없음). 불일치 401(ErrorCode 미정), 일치 시 단순 승인 플래그(`{approved:true}` 형태) 응답. 미구현 |
 | — | PATCH | `/api/admin/orders/{orderId}/refund` | **초안 구현 · 미검증**(TODO-038). Hub API 번호 미배정. `AdminOrderController.refundOrder` → `AdminOrderService.refundOrder` → `PaymentService.cardRefund`(가상) → `AdminRefundTransactionService.applyRefund`. HTTP·Bruno·실PG 검증 없음. |
 
-### 환불 API — 현재 코드 근거 (2026-08-26)
+### 환불 사유 목록 API — 현재 코드 근거 (2026-08-28)
+
+> 상태: **구현 · 미검증**. `common_code` 그룹 `REFUND_REASON` seed 필요 — `docs/migrations/20260828_refund_reason_codes.sql`.
+
+```http
+GET /api/admin/refund-reasons
+```
+
+| 구분 | 현재 코드 사실 |
+|---|---|
+| 응답 | `ApiResponse` + `RefundReasonResponse[]` — `code`, `name`, `sortNo`, `requiresDetail`(코드 `OTHER`일 때 true) |
+| 정렬 | `sort_no ASC`, `id ASC` |
+| 데이터 | `code_group.group_code = 'REFUND_REASON'` 하위 활성 `common_code` |
+
+### 환불 API — 현재 코드 근거 (2026-08-28)
 
 > 상태: **초안 구현 · 미검증**. DB migration(`payment_refund` 등) 적용 완료. 완료 구현·통합 통과로 쓰지 않는다.
 
@@ -76,13 +90,13 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 PATCH /api/admin/orders/{orderId}/refund
 Content-Type: application/json
 
-{ "refundReason": "고객 요청" }
+{ "refundReasonCode": "CUSTOMER_REQUEST", "refundReasonDetail": "기타 상세(OTHER일 때만)" }
 ```
 
 | 구분 | 현재 코드 사실 |
 |---|---|
 | path | `orderId`: 내부 주문 PK |
-| request body | `OrderRefundRequest.refundReason` (`@NotBlank`, max 200). 결제수단·금액·`paymentKey`는 클라이언트가 보내지 않는다. |
+| request body | `OrderRefundRequest.refundReasonCode` (`@NotBlank`, max 50), `refundReasonDetail` (선택, max 200). `OTHER` 코드일 때 detail 필수. 서버가 코드→라벨(또는 detail)로 `payment_refund.reason` 저장. 결제수단·금액·`paymentKey`는 클라이언트가 보내지 않는다. |
 | 서버 검증 | `AdminPaymentMapper.findRefundTarget`로 최신 `APPROVED` payment 조회. 미승인·이미 취소 주문·금액≤0·CARD 외 수단은 ErrorCode로 거부. |
 | 외부 호출 | DB 트랜잭션 밖 `PaymentService.cardRefund`만. **가상** `VIRTUAL-CANCEL-{uuid}` 반환. 실제 토스/카드 PG cancel 미연결. |
 | DB 반영 | `@Transactional` `applyRefund`: payment `APPROVED→REFUNDED`(1건), `payment_refund` INSERT(1건), 제공 전 주문만 `CANCELED`+`canceled_at`. **COMPLETED는 주문 상태 유지**(회의록 2026-W31 확정과 일치). |
@@ -95,13 +109,14 @@ Content-Type: application/json
 | 이미 CANCELED 주문 | 409 | `CANCELED_ORDER_CANNOT_BE_REFUNDED` |
 | 금액 무효 | 400 | `AMOUNT_INVALID_NOT_ALLOWED` |
 | CARD 외 수단 | 400 | `PAYMENT_METHOD_NOT_SUPPORTED_FOR_REFUND` |
+| 잘못된/비활성 환불 사유 코드 | 400 | `INVALID_REFUND_REASON` |
+| OTHER 코드인데 detail 없음 | 400 | `REFUND_REASON_DETAIL_REQUIRED` |
 | DB 1건 갱신/INSERT 실패 | 500 | `ORDER_REFUND_FAILED` |
 
 #### 남은 불일치 · 결정 필요
 
 | 상태 | 내용 |
 |---|---|
-| `계약 불일치` | Admin `ordersApi.orderRefund(orderId)`가 body 없이 PATCH → 백엔드 `@NotBlank refundReason`과 불일치. |
 | `구현 불일치` | `findRefundTarget` SELECT에 `providerPaymentKey` 없음. `RefundTarget.providerPaymentKey`는 null → `cardRefund`가 `ORDER_REFUND_FAILED` 가능. |
 | `구현 불일치` | `insertPaymentRefund` XML `#{cancelTransactionKey}` vs Service map key `providerCancelTransactionKey` 불일치 가능. |
 | `미검증` | HTTP/Bruno/실서버 E2E·실PG cancel·부분환불 미실행. |
