@@ -298,3 +298,38 @@ Expected:
 Expected:
 - derived 원인 해소 시 복구
 - direct sold-out이면 유지
+
+---
+
+## 2026-08-28 추가 — Order Refund (미검증)
+
+> 코드: `PATCH /api/admin/orders/{orderId}/refund`, `GET /api/admin/refund-reasons`. Pack TC: `TC-017` · WBS-042·071.
+
+#### ORD-REF-001 — 환불 사유 목록
+
+- `REFUND_REASON` seed 5종 활성 반환
+- `OTHER`는 `requiresDetail=true`
+
+#### ORD-REF-002 — 승인 카드 환불 성공
+
+- body `refundReasonCode` (+ OTHER 시 `refundReasonDetail`)
+- `payment` → `REFUNDED`, `payment_refund` INSERT
+- 제공 전 주문 → `CANCELED` + `canceled_at`
+
+#### ORD-REF-003 — 중복 환불 차단
+
+Expected:
+- 409 `ALREADY_REFUNDED` (또는 동등 ErrorCode)
+
+#### ORD-REF-004 — 미승인·잘못된 사유
+
+Expected:
+- 미승인 결제 환불 차단
+- 비활성/잘못된 `refundReasonCode` → 400
+- OTHER detail 누락 → 400
+
+#### ORD-REF-005 — UI 분리
+
+Expected:
+- 환불 성공 후 영수증 `printReceipt` 자동 호출 없음
+- 환불 Confirm 내 사유 라디오·OTHER textarea 동작

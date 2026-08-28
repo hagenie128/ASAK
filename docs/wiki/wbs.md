@@ -2,7 +2,7 @@
 
 > Status: **CANONICAL**
 > 입구: [START_HERE](../START_HERE.md) · 코드 감각: [wbs-status-notes.md](wbs-status-notes.md) · 구현 맵: [current-implementation-map](../planning/impl-map-2026-07-16.md)
-> **팀:** 김나연 · 이하진 · 기준일 **2026-08-19 18:56**
+> **팀:** 김나연 · 이하진 · 기준일 **2026-08-28**
 >
 > 상태: `TODO` · `IN_PROGRESS` · `IN_REVIEW` · `DONE` · `DELAYED`
 > mock만으로 DONE 금지 · 근거 없는 PASS 금지
@@ -13,21 +13,41 @@
 2. DONE은 **근거** 칸을 채운다.
 3. Hub/Notion 카드와 ID·상태를 맞춘다. 구 `wbs-v2` / `wbs-schedule` 경로는 삭제했고 정본은 이 파일이다.
 
-## 2026-08-21 구현 상태 정정
+## 2026-08-28 구현 상태 정정
 
-> 아래 블록은 기존 일정/이력보다 우선하는 현재 코드 기준 정정이다. `DONE`은 실DB·Bruno·브라우저 E2E까지 끝난 경우에만 사용한다.
+> 아래 블록은 기존 일정/이력·Hub DONE 표기보다 우선하는 **main 코드 기준** 정정이다. `DONE`은 실DB·Bruno·브라우저 E2E까지 끝난 경우에만 사용한다. **코드 연결 ≠ DONE.**
+
+| WBS | 상태 | 현재 근거 (main) | 남은 완료 조건 |
+| --- | --- | --- | --- |
+| WBS-040 대시보드 | IN_REVIEW | `GET /api/admin/dashboard` → `adminApi.getDashboard` → `useDashboard` | 위젯 값/partial error/실DB 합계 브라우저 QA |
+| WBS-042 주문관리 | IN_REVIEW | `ordersApi`·`OrderManagePage` + `PATCH .../refund`·`GET .../refund-reasons`·사유 라디오 UI | seed SQL 적용, 환불 Bruno/E2E, Mapper 파라미터명·`providerPaymentKey` |
+| WBS-044 / 062 품절 | IN_REVIEW | `AdminSoldOutController` + `soldOutApi` + `useSoldOutDraft` | 메뉴·재료 저장/복구, 복수 변경 롤백 Bruno·실DB |
+| WBS-046 결제수단 | IN_REVIEW | `AdminPaymentMethodController` + `paymentMethodsApi` + `usePaymentMethodDraft` | Mapper `ORDER BY sort_no, id` 누락 수정 후 Bruno/실DB 정렬·토글 |
+| WBS-047~049 / 064 매출 | IN_REVIEW | `AdminSalesController` summary/monthly/daily/time-slots + `salesApi`/`useSalesQuery` | `DailySalesPage` mock hourly 폴백 잔존 가능, DB 합계·Bruno 확인 |
+| WBS-070 Admin 실연동 | IN_PROGRESS | 로그인(매장번호)·주문·품절·매출·대시보드·결제수단·환불 **코드 연결** (`adminMockRepository` 일부 잔존) | 전 화면 E2E·mock 제거·TC 실행 기록 |
+| WBS-071 매출·환불 합계 | IN_REVIEW | 환불 API 코드 존재(가상 PG). 통합 QA 미실행 | TC-017·WBS-077/079와 함께 주문·환불·매출 합계 대조 |
+| WBS-069 키오스크 실연동 | IN_PROGRESS | API-001~006·014 FE 연결: `MenuListPage`·`MenuDetailPage`·`CartPage`·`PaymentPage`·`PaymentProcessingPage` | Bruno/E2E·토스 키·실PG **미검증**. Hub DONE과 불일치 |
+| WBS-024~026 메뉴 | IN_REVIEW | `getCategories`/`getMenus`/`getMenu` → 목록·상세·옵션 UI | 실서버 응답·품절 표시 E2E |
+| WBS-031~034 주문·결제 | IN_REVIEW | `validateCart` → `createOrderForPayment` → `approvePayment`(토스/CARD) → `OrderCompletePage` | API-006 Hub 설명 구식(approvePayment 미호출) **정정됨** |
+| WBS-035~036 타임아웃 | IN_REVIEW | `useKioskTimeout` + `KioskApp` (`/paymentProcessing` 제외) | TC-007 미실행 |
+| WBS-061 결제 API | IN_REVIEW | `UserPayController` POST `/api/kiosk/payments` · 토스 `tossPayment` body | 키오스크 E2E·실PG 미검증 |
+
+- **Hub 주의:** WBS-042·043·069·024~034 등 Hub `DONE`이나 **HTTP/E2E 미검증**. 연결율(89%) ≠ 구현율(15%).
+- 품절 UI는 `MENU`, `INGREDIENT` 탭만 노출. `OPTION_ITEM`은 API/DB 카탈로그에 포함하되 탭은 숨긴다.
+- 매출 `/sales/daily` 객체와 `/sales/daily/time-slots` 배열은 서로 다른 API다.
+- 8/21 블록의 `결제수단 미구현`, `환불 미연결`, `품절 저장 TODO`, `WBS-046 TODO` 표기는 **과거 기록**이다.
+
+## 2026-08-21 구현 상태 정정 (과거 스냅샷)
+
+> **2026-08-28 블록이 우선.** 아래는 8/21 시점 기록 보존용이다.
 
 | WBS | 상태 | 현재 근거 | 남은 완료 조건 |
 | --- | --- | --- | --- |
 | WBS-040 대시보드 | IN_REVIEW | `AdminSalesController#getDashboard` → `adminApi.getDashboard` → `useDashboard` → adapter 연결 | 위젯 값/partial error/실DB 합계 브라우저 QA |
 | WBS-044 / 062 품절 | IN_REVIEW | `GET/PATCH /api/admin/soldOut`, menu·ingredient·option item DB 조회/저장, `useSoldOutDraft` 연결 | 메뉴·재료 저장/복구, 복수 변경 전체 롤백을 Bruno·실DB로 확인 |
-| WBS-046 결제수단 | TODO | 화면 draft는 mock, Controller/API는 미구현 | URL 정본과 `active` DTO·정렬/409 정책 확정 후 Controller → Service/Mapper → API → draft 구현 |
+| WBS-046 결제수단 | TODO | 화면 draft는 mock, Controller/API는 미구현 | *(8/28 main에서 구현·연결됨 — 상단 블록 참고)* |
 | WBS-047~049 / 064 매출 | IN_REVIEW | summary/monthly/daily/time-slots/dashboard BE·FE 연결, 30/60분 time-slots 분리 | 집계 View 배포, DB 실매출 집계와 Service 10:00~22:00 0-fill, Bruno/화면 합계 확인 |
-| WBS-070 Admin 실연동 | IN_PROGRESS | 메뉴·품절·매출·대시보드 호출은 코드 연결 | 결제수단·인증·환불/영수증 미연결 및 연결 기능의 실서버 E2E 증거 |
-
-- 품절 UI는 `MENU`, `INGREDIENT` 탭만 노출한다. `OPTION_ITEM`은 API/DB 카탈로그에 포함하되 탭은 숨긴다.
-- 매출의 `/sales/daily` 객체 응답과 `/sales/daily/time-slots` 배열 응답은 서로 다른 API다. 배열을 daily 객체로 취급하지 않는다.
-- 기존 표의 `monthly 스텁`, `daily 미구현`, `salesApi.js 빈 셸`, `품절 저장 연동 TODO` 표기는 8/21 기준 과거 기록이다.
+| WBS-070 Admin 실연동 | IN_PROGRESS | 메뉴·품절·매출·대시보드 호출은 코드 연결 | *(8/28: 결제수단·로그인·환불도 연결 — 상단 블록 참고)* |
 
 ## 이번 주 우선
 
@@ -126,19 +146,19 @@ RTOS는 Admin과 Kiosk의 별도 결과물로 나누지 않는다. 하나의 이
 | 작업 ID | 작업명                                        | 담당       | 상태        | 우선 | 기간                  | 저장소     | 완료 조건                                                                                                                                                             | 근거                                                                                                              |
 | ------- | --------------------------------------------- | ---------- | ----------- | ---- | --------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | WBS-023 | 키오스크 화면 이동(라우트) 전체 연결 확인하기 | 나연       | DONE        | 하   | 2026-07-11~2026-07-17 | ASAK-Kiosk | 화면 이동 확인                                                                                                                                                        | SCR-001,003,004 · 목표일 **2026-07-20**                                                                           |
-| WBS-024 | 메뉴 목록 화면을 가짜 데이터와 연결하기       | 나연       | IN_PROGRESS | 상   | 2026-07-17~2026-08-07 | ASAK-Kiosk | 카테고리·카드·품절/태그/가격이 API 응답 기준으로 동작하면 완료. 실서버·브라우저 점검 남음                                                                             | FWD-MENU-001 · 가짜 데이터 필드 맞춤(`totalAmount` 등) · 빌드 통과 **2026-07-28** · 실서버·브라우저 점검 남음/008 |
-| WBS-025 | 메뉴 상세·옵션·담기 화면 동작 확인하기        | 나연       | IN_PROGRESS | 상   | 2026-08-17~2026-08-27 | ASAK-Kiosk | 메뉴 상세·옵션·담기가 동작하면 완료                                                                                                                                   | SCR-004 · 목표일 **2026-07-21**/008                                                                               |
-| WBS-026 | 필수/선택 옵션과 담기 버튼 켜고 끄기          | 나연       | IN_PROGRESS | 상   | 2026-08-27~2026-08-28 | ASAK-Kiosk | 필수/선택 옵션과 담기 버튼 활성/비활성 확인                                                                                                                           | FWD-MENU-002 · 목표일 **2026-07-21**/008                                                                          |
+| WBS-024 | 메뉴 목록 화면을 가짜 데이터와 연결하기       | 나연       | IN_REVIEW   | 상   | 2026-07-17~2026-08-07 | ASAK-Kiosk | API 연결        | `MenuListPage` → `getCategories`/`getMenus` (main) · Hub DONE이나 E2E 미검증 |
+| WBS-025 | 메뉴 상세·옵션·담기 화면 동작 확인하기        | 나연       | IN_REVIEW   | 상   | 2026-08-17~2026-08-27 | ASAK-Kiosk | API·UI 연결     | `MenuDetailPage` → `getMenu` · Hub DONE · E2E 미검증 |
+| WBS-026 | 필수/선택 옵션과 담기 버튼 켜고 끄기          | 나연       | IN_REVIEW   | 상   | 2026-08-27~2026-08-28 | ASAK-Kiosk | UI 동작         | Hub DONE · E2E 미검증 |
 | WBS-027 | 알레르기 정보가 있을 때만 펼쳐 보이게 하기    | 나연       | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-Kiosk | 알레르기 정보가 있을 때만 펼침 표시 확인                                                                                                                              | FWD-MENU-004 · 목표일 **2026-07-21**/008                                                                          |
 | WBS-028 | 같은 메뉴는 최대 9개까지만 담기               | 나연       | DONE        | 하   | 2026-07-21~2026-08-07 | ASAK-Kiosk | 장바구니 규칙 테스트 기록                                                                                                                                             | 장바구니 규칙 · 목표일 **2026-07-20**                                                                             |
 | WBS-029 | 장바구니 전체는 최대 30개까지만 담기          | 나연       | DONE        | 하   | 2026-07-04~2026-07-07 | ASAK-Kiosk | 장바구니 규칙 테스트 기록                                                                                                                                             | 장바구니 규칙 · 목표일 **2026-07-20**                                                                             |
-| WBS-030 | 수량 초과하면 4초짜리 안내 띄우기             | 나연       | TODO        | 중   | 2026-08-18~2026-08-21 | ASAK-Kiosk | 동작 확인 기록                                                                                                                                                        | 장바구니 규칙 · 목표일 **2026-07-20**                                                                             |
-| WBS-031 | 장바구니에서 수량 바꾸기·삭제·비우기          | 나연, 하진 | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-Kiosk | 수량 변경/삭제, 옵션 요약이 가능하면 완료. 2026-07-04 수정: Day 10 범위에서 API-016(장바구니 검증) 제외 (8주 확장 API). Day 10은 API-005 응답 기준 클라이언트 검증만… | FWD-CART-002 · 목표일 **2026-07-20**                                                                              |
-| WBS-032 | 결제 화면에서 결제 수단 고르기                | 나연       | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-Kiosk | 결제 수단 화면 동작                                                                                                                                                   | FWD-PAY-001 · 결제 API 용어 맞춤 · 빌드 통과 **2026-07-28** · 실서버·브라우저 점검 남음/027                       |
-| WBS-033 | 결제 실패해도 장바구니는 그대로 두기          | 나연       | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-Kiosk | 오류 흐름 확인                                                                                                                                                        | SCR-012 · `usePayment` 실패 시 cart 유지 · 실연동 점검 남음/027                                                   |
-| WBS-034 | 주문 완료 화면에 번호·금액·대기 보여 주기     | 나연       | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-Kiosk | 완료 화면 확인                                                                                                                                                        | SCR-008 · 목표일 **2026-07-21**                                                                                   |
-| WBS-035 | 손 안 대면 타임아웃 경고·카운트다운 띄우기    | 나연       | TODO        | 중   | 2026-08-18~2026-08-21 | ASAK-Kiosk | 타이머 점검 기록                                                                                                                                                      | SCR-013 · 목표일 **2026-07-21**/028                                                                               |
-| WBS-036 | 결제 중에는 타임아웃이 안 걸리게 하기         | 나연       | TODO        | 중   | 2026-08-18~2026-08-21 | ASAK-Kiosk | 결제 중 상태 확인                                                                                                                                                     | SCR-013 · 목표일 **2026-07-21**/028                                                                               |
+| WBS-030 | 수량 초과하면 4초짜리 안내 띄우기             | 나연       | IN_REVIEW   | 중   | 2026-08-18~2026-08-21 | ASAK-Kiosk | UI 구현         | `KioskToast`·`quantityLimits` · Hub DONE · E2E 미검증 |
+| WBS-031 | 장바구니에서 수량 바꾸기·삭제·비우기          | 나연, 하진 | IN_REVIEW   | 상   | 2026-08-07~2026-08-11 | ASAK-Kiosk | UI 연결         | `CartPage`·`validateCart` · Hub DONE · E2E 미검증 |
+| WBS-032 | 결제 화면에서 결제 수단 고르기                | 나연       | IN_REVIEW   | 상   | 2026-08-07~2026-08-11 | ASAK-Kiosk | API 연결        | `PaymentPage` → `getPaymenMethods` · Hub DONE · E2E 미검증 |
+| WBS-033 | 결제 실패해도 장바구니는 그대로 두기          | 나연       | IN_REVIEW   | 상   | 2026-08-07~2026-08-11 | ASAK-Kiosk | 코드 연결       | `orderSessionStore` cart 유지 · Hub IN_PROGRESS |
+| WBS-034 | 주문 완료 화면에 번호·금액·대기 보여 주기     | 나연       | IN_REVIEW   | 상   | 2026-08-07~2026-08-11 | ASAK-Kiosk | UI 연결         | `OrderCompletePage` ← `approvePayment` 응답 · Hub DONE · E2E 미검증 |
+| WBS-035 | 손 안 대면 타임아웃 경고·카운트다운 띄우기    | 나연       | IN_REVIEW   | 중   | 2026-08-18~2026-08-21 | ASAK-Kiosk | 코드 연결       | `useKioskTimeout`·`KioskApp` · Hub DONE · TC-007 미실행 |
+| WBS-036 | 결제 중에는 타임아웃이 안 걸리게 하기         | 나연       | IN_REVIEW   | 중   | 2026-08-18~2026-08-21 | ASAK-Kiosk | 코드 연결       | `/paymentProcessing`에서 timeout disable · Hub DONE |
 | WBS-037 | 키오스크 로딩·빈화면·오류 상태 만들기         | 나연       | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-Kiosk | 상태 화면 점검 기록                                                                                                                                                   | 목표일 **2026-07-22**                                                                                             |
 | WBS-038 | 키오스크 터치·화면 크기 QA 돌리기             | 나연, 하진 | TODO        | 중   | 2026-08-18~2026-08-21 | ASAK-Kiosk | QA 실행                                                                                                                                                               | 48px · 목표일 **2026-07-22**                                                                                      |
 
@@ -149,11 +169,11 @@ RTOS는 Admin과 Kiosk의 별도 결과물로 나누지 않는다. 하나의 이
 | WBS-039 | 관리자 메뉴 경로를 화면 목록과 맞추기       | 하진       | IN_PROGRESS | 상   | 2026-08-14~2026-08-18 | ASAK-Admin | 메뉴 경로 목록 확인  | 목표일 **2026-07-20**                                                                                                                                                                                                                                             |
 | WBS-040 | 관리자 홈(대시보드)에 숫자·최근 주문 붙이기 | 하진       | IN_PROGRESS | 상   | 2026-08-14~2026-08-18 | ASAK-Admin | 화면·상태 확인       | SCR-022 · `DashboardPanels`·`useDashboard` · 최근주문←`getDashboard().recentOrders` · AsyncState · 전주 대비 등 잔여 · 목표일 **2026-07-20** · 확인 **2026-07-23**                                                                                                |
 | WBS-041 | 실시간 주문 현황 목록·상태 보여 주기        | 하진       | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-Admin | 화면 확인            | SCR-009 · `getLiveOrders`·완료/취소 ConfirmDialog · 페이징 상수 · 목표일 **2026-07-20** · 확인 **2026-07-23**/036                                                                                                                                                 |
-| WBS-042 | 주문 관리 목록과 상세 화면 연결하기         | 하진       | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-Admin | 화면 확인            | SCR-010 · `useOrdersQuery`·DetailPanel·환불/영수증 Confirm · 주문 상세 기본 단가/옵션 추가금/제외 재료/메뉴 합계 표시 보강 · 제외 재료 인라인 표시(`d2a900f`) · API 모듈 명명·연결 환경 정렬 · 빌드 통과 **2026-07-28** · 실서버·브라우저 점검·필터 보완 남음/036 |
+| WBS-042 | 주문 관리 목록과 상세 화면 연결하기         | 하진       | IN_REVIEW   | 상   | 2026-08-07~2026-08-11 | ASAK-Admin | 화면·환불 API 연결   | SCR-010 · `ordersApi`·`refundReasonsApi`·환불 사유 라디오/OTHER UI(main) · Hub DONE이나 **환불 E2E 미검증** · 영수증은 `printReceipt` 분리 · 필터·Bruno/E2E 남음 |
 | WBS-043 | 주문 상태 바꾸기(완료/취소) 버튼 만들기     | 하진       | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-Admin | 상태 변경(mock) 확인 | Live 완료/취소만 · 목록 PATCH/TTS 미완(의도적 표시만) · 목표일 **2026-07-21**/036                                                                                                                                                                                 |
-| WBS-044 | 품절 체크하고 저장하기                      | 하진       | IN_PROGRESS | 상   | 2026-08-11~2026-08-14 | ASAK-Admin | 화면 상태 확인       | SCR-011 · `useSoldOutDraft`·Confirm 저장 · 카드 2줄·카테고리 뱃지·menus 동기화 · **실패 테스트 데이터·menus.isSoldOut 저장 연동 TODO** · 목표일 **2026-07-21** · 확인 **2026-07-23**                                                                              |
+| WBS-044 | 품절 체크하고 저장하기                      | 하진       | IN_REVIEW   | 상   | 2026-08-11~2026-08-14 | ASAK-Admin | 화면·API 연결        | SCR-011 · `soldOutApi`+`useSoldOutDraft`·Confirm 저장(main) · Bruno·실DB 저장/롤백 검증 남음 |
 | WBS-045 | 메뉴 추가·수정 화면(가짜 저장) 만들기       | 하진       | IN_PROGRESS | 상   | 2026-08-11~2026-08-14 | ASAK-Admin | 화면 확인            | SCR-016 · Page=조합(`useMenusQuery`+List/Detail/Edit) · IngredientModal · 카드 2줄·가격 nowrap · **저장/삭제 임시 처리** · 목표일 **2026-07-22** · 확인 **2026-07-23**                                                                                            |
-| WBS-046 | 결제 수단 켜고 끄고 저장하기                | 하진       | IN_PROGRESS | 상   | 2026-08-14~2026-08-18 | ASAK-Admin | 화면 확인            | SCR-018 · Figma 4종(card/kakao/naver/zero) · 토글·정렬·미리보기·Confirm · **실패 테스트 데이터 · Kiosk 8종 정합 TODO** · 목표일 **2026-07-21** · 확인 **2026-07-23**                                                                                              |
+| WBS-046 | 결제 수단 켜고 끄고 저장하기                | 하진       | IN_REVIEW   | 상   | 2026-08-14~2026-08-18 | ASAK-Admin | API·화면 연결        | SCR-018 · `paymentMethodsApi`+`usePaymentMethodDraft`(main) · Mapper `ORDER BY` 누락 · Kiosk 8종 vs Admin 4종 정합 · Bruno/실DB 검증 남음 |
 | WBS-047 | 매출 요약과 기간(날짜) 필터 만들기          | 하진       | IN_PROGRESS | 상   | 2026-08-14~2026-08-18 | ASAK-Admin | 화면 확인            | SCR-019 · `useSalesQuery`+DatePicker range · AsyncState · 목표일 **2026-07-21** · 확인 **2026-07-23**                                                                                                                                                             |
 | WBS-048 | 월별 매출 보고 달 바꾸기                    | 하진       | IN_PROGRESS | 상   | 2026-08-14~2026-08-18 | ASAK-Admin | 화면 확인            | SCR-020 · mock+월 네비 · 목표일 **2026-07-22** · 확인 **2026-07-23**                                                                                                                                                                                              |
 | WBS-049 | 일별 매출 보고 날짜 고르기                  | 하진       | IN_PROGRESS | 상   | 2026-08-14~2026-08-18 | ASAK-Admin | 화면 확인            | SCR-021 · DatePicker single·연간 · mock 외 달 empty · CSS span 누수 수정 · 목표일 **2026-07-22** · 확인 **2026-07-23**                                                                                                                                            |
@@ -174,7 +194,7 @@ RTOS는 Admin과 Kiosk의 별도 결과물로 나누지 않는다. 하나의 이
 | WBS-059 | 메뉴 상세 API 만들기                           | 나연       | IN_PROGRESS | 상   | 2026-08-11~2026-08-14 | ASAK-back        | API 테스트 기록    | GET menuDetail · MenuDetail/Ing/OptPolicy Response · vw*menu*\* · 확인 **2026-07-24**                                                                                                                                                                                     |
 | WBS-060 | 주문 생성 API(검증·저장) 만들기                | 나연       | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-back        | API 테스트 기록    | POST orders · UserOrderController/Service/Mapper 골격 · 확인 **2026-07-24**                                                                                                                                                                                               |
 | WBS-061 | 결제 승인·실패 API 만들기                      | 나연       | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-back        | API 테스트 기록    | POST payments · PaymentResult/UserPayMapper · API-006 계약 · 확인 **2026-07-24**                                                                                                                                                                                          |
-| WBS-062 | 품절 처리 API 만들기                           | 하진       | TODO        | 중   | 2026-08-11~2026-08-14 | ASAK-back        | API 테스트 기록    | PATCH soldOut                                                                                                                                                                                                                                                             |
+| WBS-062 | 품절 처리 API 만들기                           | 하진       | IN_REVIEW   | 중   | 2026-08-11~2026-08-14 | ASAK-back        | API 테스트 기록    | `AdminSoldOutController` GET/PATCH(main) · Hub TODO와 불일치 · Bruno/실DB 미검증 |
 | WBS-063 | 관리자용 주문 조회·상태 변경 API 만들기        | 하진       | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-back        | API 테스트 기록    | Admin orders · Controller/Service/Mapper와 `vw_order_live`·목록/상세 조회 SQL 보강 · legacy REQUEST 옵션은 `optionItems`에서 제외하고 제외 재료는 `item_exclusion`만 사용하도록 View 정의 정리(`e9543ce`) · `compileJava` 통과 **2026-07-28** · 실서버·DB·API 테스트 남음 |
 | WBS-064 | 매출 합계를 내는 데이터 소스 만들고 맞추기     | 하진       | IN_PROGRESS | 상   | 2026-08-14~2026-08-24 | ASAK-back        | 합계 검증          | sales views 정비 · API-017 summary Controller+Service+Mapper(vw_sales_daily) **구현(08/19)** · monthly 스텁 · daily 미구현 · 런타임 미검증 · Sales FE salesApi.js 빈 셸 |
 | WBS-065 | API 오류 응답·입력 검사를 통일하기             | —          | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-back        | API 응답 테스트    | ApiResponse + GlobalExceptionHandler · Bruno 주문 요청의 정본 용어 정렬 · `compileJava` 통과 **2026-07-28** · 응답·오류 검증 남음                                                                                                                                         |
@@ -186,9 +206,9 @@ RTOS는 Admin과 Kiosk의 별도 결과물로 나누지 않는다. 하나의 이
 | ------- | --------------------------------------------- | ---------- | ----------- | ---- | --------------------- | ----------------------- | ------------------ | -------------------------------------------------- |
 | WBS-067 | 화면과 서버를 짧게 연결해 보기(스모크)        | 하진, 나연 | TODO        | 중   | 2026-07-10~2026-07-13 | ASAK-Kiosk / ASAK-back  | 스모크 통과        | [DEV-SYS-001][FWD-MENU-001]                        |
 | WBS-068 | 금액·상태 필드 이름을 화면·서버가 같게 맞추기 | 나연, 하진 | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-Kiosk / ASAK-Admin | 화면·API 맞춤 확인 | totalAmount / APPROVED / EAT_IN · 8/7 Hub API 정렬 |
-| WBS-069 | 키오스크를 실제 서버 API에 연결하기           | 나연       | DELAYED     | 상   | 2026-08-07~2026-08-11 | ASAK-Kiosk              | 백엔드 API 준비    | Kiosk API                                          |
-| WBS-070 | 관리자를 실제 서버 API에 연결하기             | 하진       | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-Admin              | 백엔드 API 준비    | Admin 주문 API 연동 진행 · 메뉴/품절/매출 잔여     |
-| WBS-071 | 결제·주문·시간대 매출 합계가 맞는지 확인하기  | 하진, 나연 | DELAYED     | 상   | 2026-08-18~2026-08-21 | All                     | 매출 데이터 준비   | 매출 점검                                          |
+| WBS-069 | 키오스크를 실제 서버 API에 연결하기           | 나연       | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-Kiosk              | E2E 증거           | API-001~006·014 FE 연결(main). Hub DONE→IN_PROGRESS 조정. Bruno/E2E·토스 키 미검증 |
+| WBS-070 | 관리자를 실제 서버 API에 연결하기             | 하진       | IN_PROGRESS | 상   | 2026-08-07~2026-08-11 | ASAK-Admin              | E2E 증거           | 로그인·주문·품절·매출·대시보드·결제수단·환불 **코드 연결**(main) · mock 잔존·TC 미실행 |
+| WBS-071 | 결제·주문·시간대 매출 합계가 맞는지 확인하기  | 하진, 나연 | IN_REVIEW   | 상   | 2026-08-18~2026-08-21 | All                     | 통합 QA            | 환불 API 코드 존재 · TC-017·WBS-077/079와 합계 대조 미실행 |
 
 ### QA (8)
 

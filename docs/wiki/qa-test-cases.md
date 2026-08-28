@@ -1,5 +1,6 @@
-> Status: **HISTORY**
-> **2026-08-18 Hub:** QA 카드는 workspace 2 QA 탭. 실행 기록 없음 → PASS로 올리지 말 것. TC-015의 API-019은 월별 매출이며 영수증 출력이 아니다.
+> Status: **CURRENT** (실행 정본은 Pack 09 · Hub TC는 workspace 2)
+> **2026-08-28:** TC-017(관리자 환불) 추가. Hub TC-001~016 전건 `TODO` — 실행 기록 없음 → PASS 금지.
+> **2026-08-18 Hub:** QA 카드는 workspace 2 QA 탭. TC-015의 API-019은 월별 매출이며 영수증 출력이 아니다.
 > → **정본:** [Pack 09 QA](../product_bible/09_QA_Bible/README.md)
 
 # ASAK QA 테스트 케이스
@@ -29,6 +30,7 @@
 | TC-012 | 관리자 결제수단 설정 검증 (LMIS-PAY-001) | SC-017 | API-013~014 | SCR-018 | LMIS | 중 | 활성 결제수단만 고객 화면에 표시 |
 | TC-013 | 관리자 매출 요약 조회 검증 (LMIS-ORDER-005) | SC-018 | API-015 | SCR-019 | LMIS | 하 | 선택 날짜 기준 매출 합계·주문 수 표시 |
 | TC-014 | 관리자 주문 목록 조회 및 상태 변경 검증 (LMIS-ORDER-001) | SC-008 | API-007~008 | SCR-009~010 | KSD | 상 | 목록·상세에서 상태 변경 즉시 반영 |
+| TC-017 | 관리자 승인 결제 환불 및 사유 검증 (LMIS-ORDER-003) | SC-010 | Hub id 449·457 | SCR-010 | LMIS | 상 | 사유 목록 GET → 환불 PATCH 성공, 중복 409, OTHER detail 필수, payment REFUNDED |
 | TC-015 | 영수증 출력 여부 선택 및 모의 프린터 요청 (RTOS-DEVICE-001) | SC-015 | API-019 | SCR-008, SCR-020 | 장치 | 중 | 출력 선택 시 프린터 요청, 미선택 시 주문번호 표시 |
 | TC-016 | 포인트·쿠폰 적립 및 QR 할인 적용 (KSD-MEMBER-001 (EXCLUDED)) | SC-016 | API-018, API-020 | SCR-007, SCR-021 | KSD | 중 | 스탬프 1회 확인, 쿠폰 스캔 시 할인 반영 |
 
@@ -133,6 +135,15 @@
 - **수행 절차**: 1) 키오스크 주문 생성 2) 목록 최상단 확인 3) 상세 4) PREPARING 변경
 - **기대 결과**: 목록·상세에서 상태 변경 즉시 반영
 - **관련**: SC-008 · API-007~008 · SCR-009~010
+
+### TC-017 관리자 승인 결제 환불 및 사유 검증 (LMIS-ORDER-003)
+
+> 2026-08-28: `PATCH /api/admin/orders/{orderId}/refund` + `GET /api/admin/refund-reasons` **main 구현 · 미검증**. Hub API 번호 미배정(id 449·457).
+
+- **전제조건**: `payment_status=APPROVED`인 카드 결제 주문 1건, `REFUND_REASON` seed 적용
+- **수행 절차**: 1) 관리자 주문 상세 진입 2) 환불 Confirm에서 사유 라디오 선택(OTHER 시 detail 입력) 3) 환불 실행 4) 동일 주문 재환불 시도 5) 미승인 주문 환불 시도
+- **기대 결과**: 성공 시 `payment_status=REFUNDED`, `payment_refund` 1건, 제공 전 주문은 `CANCELED`; 중복 환불 409; OTHER detail 누락 400; 환불 성공 후 `printReceipt` 자동 호출 없음
+- **관련**: SC-010 · Hub id 449·457 · SCR-010 · WBS-042·071
 
 ### TC-015 영수증 출력 여부 선택 및 모의 프린터 요청 (RTOS-DEVICE-001)
 

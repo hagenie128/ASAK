@@ -1,10 +1,9 @@
 ﻿> Status: **CURRENT**
-> 기준일: **2026-08-26** · 코드: `ASAK-back` Controller 매핑(워킹 트리 초안 포함)
+> 기준일: **2026-08-28** · 코드: `ASAK-back` **main** `494baef`, `ASAK-Admin` **main** `4f0c9cd`
 > 계약 필드: [정본](../governance/contract-decisions-2026-07-16.md) · Bruno: `ASAK-back/api/`
-> Hub API 카드: workspace 2 (기존 ID 갱신 + 환불은 **번호 미배정** 카드)
-> 2026-08-25 결정: 관리자 로그인(매장 번호 하드코드)·환불 정책 확정 — 상세는
-> [`admin-todo-2026-08-24.md`](../planning/admin-todo-2026-08-24.md) 참고.
-> 2026-08-26: 환불 endpoint 초안·`payment_refund` migration 반영. HTTP/실PG는 **미검증**. API 번호 배정은 **결정 필요**.
+> Hub API 카드: workspace 2 (환불 id **449**, 환불 사유 id **457** — **정본 API 번호 미배정**)
+> 2026-08-25 결정: 관리자 로그인(매장 번호 하드코드)·환불 정책 — [`admin-todo-2026-08-24.md`](../planning/admin-todo-2026-08-24.md)
+> 2026-08-28: 환불·환불 사유 API **main 머지**. FE body `refundReasonCode`/`refundReasonDetail` 연결. HTTP/실PG **미검증**.
 
 # ASAK REST API 명세서
 
@@ -33,13 +32,15 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 | API-003 | GET | `/api/kiosk/menuDetail/{menuId}` | `UserMenuController` | 구현 · 미검증 |
 | API-004 | POST | `/api/kiosk/cart/validate` | `UserOrderController` | 구현 · 미검증 |
 | API-005 | POST | `/api/kiosk/orders` | `UserOrderController` | 구현 · 미검증 |
-| API-006 | POST | `/api/kiosk/payments` | `UserPayController` | 구현 · **계약 불일치:** Kiosk `API_ENDPOINTS.payments`는 `/payments`. `PaymentProcessingPage`는 `createOrder`만 호출하고 `approvePayment`는 미호출 |
+| API-006 | POST | `/api/kiosk/payments` | `UserPayController` | 구현 · 미검증. `PaymentProcessingPage` → `approvePayment` 호출. CARD 직접 승인, KAKAO/NAVER/TOSS는 토스 SDK `tossPayment` body 포함 |
 | API-014 | GET | `/api/kiosk/payment-methods` | `UserPayController` | 구현 · `PaymentPage`가 `getPaymenMethods` 호출. JSON 키 `active` (DB `pay_method_cfg.active`. 구 `isEnabled` 폐기) |
 | API-007 | GET | `/api/admin/orders` | `AdminOrderController` | 구현 · 미검증. query: page,size,orderStatus,paymentStatus,orderType,dateFrom,dateTo,keyword |
 | API-022 | GET | `/api/admin/orders/{orderId}` | 동상 | 구현 · 미검증 |
 | API-021 | GET | `/api/admin/orders/live` | 동상 | 구현 · 미검증 |
 | API-008 | PATCH | `/api/admin/orders/{orderId}/{status}` | 동상 | 구현 · path status=`PREPARING`\|`COMPLETED` · body 없음 |
 | API-024 | PATCH | `/api/admin/orders/{orderId}/cancel` | 동상 | 구현 · 미검증 |
+| — | PATCH | `/api/admin/orders/{orderId}/refund` | `AdminOrderController` | 구현 · 미검증. body `refundReasonCode`, `refundReasonDetail`(OTHER 시 필수). Hub id **449** |
+| — | GET | `/api/admin/refund-reasons` | `AdminRefundReasonController` | 구현 · 미검증. `common_code` 그룹 `REFUND_REASON`. Hub id **457** |
 | API-011 | GET | `/api/admin/menus` | `AdminMenuController` | 구현 · query categoryId,keyword,isSoldOut,tagId,page,size,sort |
 | API-023 | GET | `/api/admin/menus/{menuId}` | 동상 | 구현 |
 | API-026 | GET | `/api/admin/menus/categories` | 동상 | 구현 · `/{menuId}`보다 위에 선언 |
@@ -66,7 +67,6 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 | API-009 | PATCH | `/api/admin/soldOut` | `AdminSoldOutController` 비어 있음. TODO body `changes[]` |
 | API-010 | GET | `/api/admin/soldOut` | 동상 |
 | — | POST | `/api/admin/login` | `AdminAuthController` TODO. **2026-08-25 계약 확정**: body `{storeNumber}`, `storeNumber == "0001"` 하드코드 비교만(DB 조회·AuthenticationManager·JWT 없음). 불일치 401(ErrorCode 미정), 일치 시 단순 승인 플래그(`{approved:true}` 형태) 응답. 미구현 |
-| — | PATCH | `/api/admin/orders/{orderId}/refund` | **초안 구현 · 미검증**(TODO-038). Hub API 번호 미배정. `AdminOrderController.refundOrder` → `AdminOrderService.refundOrder` → `PaymentService.cardRefund`(가상) → `AdminRefundTransactionService.applyRefund`. HTTP·Bruno·실PG 검증 없음. |
 
 ### 환불 사유 목록 API — 현재 코드 근거 (2026-08-28)
 
@@ -100,7 +100,7 @@ Content-Type: application/json
 | 서버 검증 | `AdminPaymentMapper.findRefundTarget`로 최신 `APPROVED` payment 조회. 미승인·이미 취소 주문·금액≤0·CARD 외 수단은 ErrorCode로 거부. |
 | 외부 호출 | DB 트랜잭션 밖 `PaymentService.cardRefund`만. **가상** `VIRTUAL-CANCEL-{uuid}` 반환. 실제 토스/카드 PG cancel 미연결. |
 | DB 반영 | `@Transactional` `applyRefund`: payment `APPROVED→REFUNDED`(1건), `payment_refund` INSERT(1건), 제공 전 주문만 `CANCELED`+`canceled_at`. **COMPLETED는 주문 상태 유지**(회의록 2026-W31 확정과 일치). |
-| 성공 응답 | `ApiResponse` + `OrderDetailResponse` 재조회(`orderId`, `orderNo`, `orderStatus`, `paymentStatus`, `paymentMethod`, `totalAmount`, `createdAt`, `items`). 별도 `refundedAmount`/`refundReason` 필드는 응답 DTO에 없음. |
+| 성공 응답 | `ApiResponse` + `OrderDetailResponse` 재조회. `paymentMethod`는 객체(`methodName` 등, `vw_order_summary` association). 별도 `refundedAmount`/`refundReason` 필드는 응답 DTO에 없음. |
 
 | 상황 | HTTP | 코드 ErrorCode |
 |---|---:|---|
@@ -117,10 +117,10 @@ Content-Type: application/json
 
 | 상태 | 내용 |
 |---|---|
-| `구현 불일치` | `findRefundTarget` SELECT에 `providerPaymentKey` 없음. `RefundTarget.providerPaymentKey`는 null → `cardRefund`가 `ORDER_REFUND_FAILED` 가능. |
-| `구현 불일치` | `insertPaymentRefund` XML `#{cancelTransactionKey}` vs Service map key `providerCancelTransactionKey` 불일치 가능. |
-| `미검증` | HTTP/Bruno/실서버 E2E·실PG cancel·부분환불 미실행. |
-| `결정 필요` | Hub/Notion API 번호 배정. `provider`/`provider_payment_key` 재도입. 토스페이 포함 시점. |
+| `구현 불일치` | `findRefundTarget` SELECT에 `providerPaymentKey` 없음 → `cardRefund`가 `ORDER_REFUND_FAILED` 가능. |
+| `구현 불일치` | `insertPaymentRefund` XML `#{cancelTransactionKey}` vs Service map `providerCancelTransactionKey`. |
+| `미검증` | HTTP/Bruno/실서버 E2E·실PG cancel·seed SQL 적용·부분환불 미실행. |
+| `결정 필요` | Hub/Notion 정본 API 번호. `provider`/`provider_payment_key` 재도입. 토스페이 포함 시점. |
 
 ## 미구현 (명세·요구만, Controller 없음)
 
@@ -140,8 +140,22 @@ Content-Type: application/json
 | API-003 | path menuId | 상세 + `ingredients` + `optionGroups` |
 | API-004 | `{items:[{menuId, quantity, optionItems[{optionItemId,quantity}], excludedIngredientIds}]}` | `totalAmount` 등 |
 | API-005 | `{orderType: EAT_IN\|TAKE_OUT, items:[...]}` | `orderId, orderNo, totalAmount, status(=READY)` |
-| API-006 | `{orderId, orderStatus(=READY), paymentMethodCode, idempotencyKey}` | `paymentId, orderId, orderNo, paymentStatus, approvedAmount, approvedAt, waitingOrderCount` · 금액은 서버 재계산 |
+| API-006 | `{orderId, orderStatus(=RECEIVED), paymentMethodCode, idempotencyKey, tossPayment?}` | `paymentId, orderId, orderNo, paymentStatus, approvedAmount, approvedAt, waitingOrderCount` · CARD는 `tossPayment` 없음, 간편결제는 토스 SDK 결과 포함 |
 | API-014 | — | `{methods:[{methodId, methodCode, methodName, imageAssetId, imageUrl, description, active, sortOrder}]}` |
+
+### 키오스크 FE 연결 (2026-08-28 · main · 미검증)
+
+| API | FE 파일 | 흐름 |
+|---|---|---|
+| API-001 | `MenuListPage` → `getCategories` | 카테고리 탭 |
+| API-002 | `MenuListPage` → `getMenus` | 메뉴 카드 |
+| API-003 | `MenuDetailPage` → `getMenu` | 옵션·담기 |
+| API-004 | `CartPage` → `validateCart` | 결제 전 서버 검증 |
+| API-005 | `PaymentProcessingPage` → `createOrderForPayment` | 주문 생성(READY 재사용) |
+| API-006 | `PaymentProcessingPage` → `approvePayment` | CARD 직접 / 간편결제 `tossPayment` |
+| API-014 | `PaymentPage` → `getPaymenMethods` | 활성 결제수단만 선택 |
+
+`VITE_API_BASE_URL` + `API_BASE_PATH=/api/kiosk` → 실제 호출 `/api/kiosk/...`. 결제 실패 시 cart 유지(`orderSessionStore`). `/paymentProcessing`에서 타임아웃 비활성.
 
 ## 관리자 메뉴·옵션
 

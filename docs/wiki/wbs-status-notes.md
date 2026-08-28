@@ -23,25 +23,27 @@ WBS는 백엔드만이 아니다. 키오스크·관리자·디자인·QA·발표
 
 ## 이번 주 (DONE으로 올리지 말 것)
 
-> 2026-08-18 선생님: 08/21까지 RTOS(적어도 Spring+React). 코드 있음 ≠ DONE.
+> 2026-08-28: main 기준 Admin 대부분 **코드 연결**. 실행 기록 없는 Hub DONE·TC PASS는 신뢰하지 않는다.
 
 | 묶음 | ID | Hub 권고 |
 |---|---|---|
-| 장치 이벤트/RTOS | RTOS-DEVICE-001~003 · API-019 | IN_PROGRESS (콘솔·연동 전 DONE 금지) |
-| 키오스크 주문·결제 | 031~034, 069 | IN_PROGRESS (실연동 전 DONE 금지) |
-| 관리자 주문 | 041~043, 070 | IN_PROGRESS |
-| 메뉴·품절·결제·매출 | 044~049 | IN_PROGRESS / TODO · 08/24 기능 마감 전 |
-| QA·발표 | 072~085 | 08/24~09/01 · 근거 없이 DONE/PASS 금지 |
+| 장치 이벤트/RTOS | RTOS-DEVICE-001~003 | IN_PROGRESS (콘솔·연동 전 DONE 금지) |
+| 키오스크 주문·결제 | 031~034, 069 | IN_PROGRESS · API-001~006·014 **코드 연결**(main) · Hub DONE·E2E 미실행 주의 |
+| 키오스크 메뉴·타임아웃 | 024~026, 035~036 | IN_REVIEW · Hub DONE 다수이나 Bruno/E2E 없음 |
+| 관리자 주문·환불 | 041~043, 070 | IN_PROGRESS · WBS-042 Hub DONE이나 환불 **미검증** |
+| 메뉴·품절·결제·매출 | 044~049, 046, 062 | IN_REVIEW · 062 Hub TODO vs 코드 구현 불일치 |
+| 통합 QA | 071, 077~079 | IN_REVIEW/TODO · TC 전건 TODO, TC-017(환불) 신규 |
+| QA·발표 | 072~085 | 근거 없이 DONE/PASS 금지 |
 
-계약 키워드: `totalAmount`, `APPROVED`, `EAT_IN`/`TAKE_OUT`, Live=`/orders/live`, `/paymentMethods`.
+계약 키워드: `totalAmount`, `APPROVED`, `refundReasonCode`, `REFUNDED`, Live=`/orders/live`, `/paymentMethods`, `/refund-reasons`.
 
 ## 코드 감각
 
 | 영역 | ID | 감각 |
 |---|---|---|
 | 키오스크 | 023~038 | 라우트 DONE · 메뉴/결제 IN_PROGRESS · 토스트/타임아웃 TODO |
-| 관리자 | 039~051 | 대부분 IN_PROGRESS · QA 잔여 |
-| 백엔드 | 052~066 | 조회 IN_PROGRESS · 일부 TODO |
+| 관리자 | 039~051 | 대부분 IN_REVIEW · 환불·결제수단 코드 연결 · QA·E2E 잔여 |
+| 백엔드 | 052~066 | 품절·결제수단·환불·매출 구현(main) · 검증 미완 |
 | 연동~발표 | 067~085 | DELAYED/TODO 혼재 |
 
 상세 행은 [wbs.md](wbs.md)만 본다.

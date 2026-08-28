@@ -119,7 +119,21 @@ orders 1 ── 0..N payment 1 ── 0..N payment_refund
 
 `payment_refund.provider_cancel_transaction_key`는 토스 `cancels[].transactionKey`에 대응하며 UNIQUE다. 원 결제의 `paymentKey`와 환불 거래 키는 같은 값이 아니므로 분리한다. 다만 현재 `payment`에는 `provider`와 원 결제 키 컬럼이 없으므로, 실제 토스 연동 전 `provider`, `provider_payment_key`, 환불 잔액 정책을 별도 migration으로 확정해야 한다. (`결정 필요`)
 
-환불 코드 초안(`AdminPaymentMapper` / `AdminRefundTransactionService`)은 `payment_refund` INSERT와 payment `REFUNDED` 갱신을 가정한다. HTTP·실PG·E2E는 **미검증**.
+환불 코드(`AdminPaymentMapper` / `AdminRefundTransactionService`)는 `payment_refund` INSERT와 payment `REFUNDED` 갱신을 가정한다. HTTP·실PG·E2E는 **미검증**.
+
+### 환불 사유 마스터 seed (2026-08-28)
+
+> 상태: **SQL 파일 존재 · DB 적용 미검증**. 경로: `ASAK-back/docs/migrations/20260828_refund_reason_codes.sql`
+
+| `code_group.group_code` | `common_code.code` | 표시명 | 비고 |
+|---|---|---|---|
+| `REFUND_REASON` | `CUSTOMER_REQUEST` | 고객 요청 | |
+| | `WRONG_ORDER` | 잘못된 주문 | |
+| | `OUT_OF_STOCK` | 재료/메뉴 품절 | |
+| | `DUPLICATE_PAYMENT` | 중복 결제 | |
+| | `OTHER` | 기타 | PATCH refund 시 `refundReasonDetail` 필수 |
+
+`GET /api/admin/refund-reasons`는 활성(`active=1`) 코드만 `sort_no`, `id` 순으로 반환한다. `OTHER`는 응답 `requiresDetail=true`.
 
 ### 이미지 자산 참조
 
