@@ -48,8 +48,10 @@ npm run dev
 
 ```powershell
 cd C:\ASAK-workspace\ASAK-back
-.\gradlew bootRun
+.\scripts\boot-run.ps1
 ```
+
+또는 `.\gradlew bootRun`. `build` 삭제 실패·`clean` 오류가 나면 [Backend 트러블슈팅](troubleshooting-backend.md)을 봅니다.
 
 ## 4. 문서 확인 순서
 

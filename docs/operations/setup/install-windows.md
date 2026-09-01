@@ -483,6 +483,7 @@ Test-Path C:\ASAK-back\.git
 | Python `Add to PATH` 안 함 | 설치 시 체크 누락 | Python **Modify** 재설치 또는 `py -3.13` 사용 |
 | `Activate.ps1` 실행 거부 | PowerShell 실행 정책 | 활성화 없이 `.\.venv\Scripts\python.exe` 직접 사용 ([`getting-started.md`](getting-started.md) 참고) |
 | Java 버전 17/21만 보임 | 예전 JDK가 PATH 앞에 있음 | `where java` 로 경로 확인 → Temurin 25 PATH 순서 조정 |
+| `Unable to delete directory ...\build` | bootRun·Gradle daemon·Java LS가 `build` 잠금 | [troubleshooting-backend.md](troubleshooting-backend.md) — `.\gradlew --stop` 후 `build` 삭제 |
 | Node 26 설치됨 | Current 버전 클릭 | **24 LTS** 로 재설치 |
 | NOTION 401 | 토큰 오류 | 팀 리더에게 새 토큰, 환경 변수 다시 설정 |
 
