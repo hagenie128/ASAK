@@ -5,10 +5,10 @@
 
 | 항목 | 내용 |
 |---|---|
-| 기간 | 2026-07-02 ~ 2026-08-18 |
+| 기간 | 2026-07-02 ~ 2026-09-02 |
 | 팀 | 프로젝트 2조 (**김나연**, **이하진**) |
 | 문서 성격 | 워크로그 링크 모음 (본문 복제 아님) |
-| 작성일 | 2026-08-18 |
+| 작성일 | 2026-09-02 |
 | 구성 | `daily/` 일일 요약 · `entries/` 상세 기록 · `weekly/` 주간 일지 |
 
 > **읽는 법**
@@ -29,6 +29,8 @@
 | W32 | 08-03 ~ 08-07 | [2026-W32.md](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-W32.md) |
 | W33 | 08-10 ~ 08-16 | [2026-W33.md](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-W33.md) |
 | W34 | 08-17 ~ 08-23 | [2026-W34.md](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-W34.md) |
+| W35 | 08-24 ~ 08-30 | [2026-W35.md](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-W35.md) |
+| W36 | 08-31 ~ 09-06 | [2026-W36.md](https://github.com/hagenie128/ASAK/blob/main/worklog/weekly/2026-W36.md) |
 
 ---
 
@@ -69,6 +71,19 @@
 | 2026-08-05 | [2026-08-05.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-08-05.md) |
 | 2026-08-06 | [2026-08-06.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-08-06.md) |
 | 2026-08-07 | [2026-08-07.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-08-07.md) |
+| 2026-08-10 | [2026-08-10.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-08-10.md) |
+| 2026-08-11 | [2026-08-11.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-08-11.md) |
+| 2026-08-12 | [2026-08-12.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-08-12.md) |
+| 2026-08-13 | [2026-08-13.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-08-13.md) |
+| 2026-08-17 | [2026-08-17.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-08-17.md) |
+| 2026-08-18 | [2026-08-18.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-08-18.md) |
+| 2026-08-19 | [2026-08-19.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-08-19.md) |
+| 2026-08-20 | [2026-08-20.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-08-20.md) |
+| 2026-08-21 | [2026-08-21.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-08-21.md) |
+| 2026-08-26 | [2026-08-26.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-08-26.md) |
+| 2026-08-27 | [2026-08-27.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-08-27.md) |
+| 2026-08-29 | [2026-08-29.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-08-29.md) |
+| 2026-09-01 | [2026-09-01.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/김나연/2026-09-01.md) |
 
 ### 이하진
 
@@ -100,6 +115,22 @@
 | 2026-08-05 | [2026-08-05.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-08-05.md) |
 | 2026-08-06 | [2026-08-06.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-08-06.md) |
 | 2026-08-07 | [2026-08-07.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-08-07.md) |
+| 2026-08-10 | [2026-08-10.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-08-10.md) |
+| 2026-08-11 | [2026-08-11.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-08-11.md) |
+| 2026-08-12 | [2026-08-12.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-08-12.md) |
+| 2026-08-13 | [2026-08-13.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-08-13.md) |
+| 2026-08-14 | [2026-08-14.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-08-14.md) |
+| 2026-08-17 | [2026-08-17.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-08-17.md) |
+| 2026-08-18 | [2026-08-18.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-08-18.md) |
+| 2026-08-19 | [2026-08-19.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-08-19.md) |
+| 2026-08-20 | [2026-08-20.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-08-20.md) |
+| 2026-08-21 | [2026-08-21.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-08-21.md) |
+| 2026-08-24 | [2026-08-24.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-08-24.md) |
+| 2026-08-25 | [2026-08-25.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-08-25.md) |
+| 2026-08-26 | [2026-08-26.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-08-26.md) |
+| 2026-08-28 | [2026-08-28.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-08-28.md) |
+| 2026-09-01 | [2026-09-01.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-09-01.md) |
+| 2026-09-02 | [2026-09-02.md](https://github.com/hagenie128/ASAK/blob/main/worklog/daily/이하진/2026-09-02.md) |
 
 ---
 
@@ -133,6 +164,13 @@
 | 2026-08-05-backend-api.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/김나연/2026-08-05-backend-api.md) |
 | 2026-08-06-kiosk-frontend.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/김나연/2026-08-06-kiosk-frontend.md) |
 | 2026-08-07-kiosk-cart-api.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/김나연/2026-08-07-kiosk-cart-api.md) |
+| 2026-08-12-api-014-006-backend.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/김나연/2026-08-12-api-014-006-backend.md) |
+| 2026-08-18-api-connection-payment.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/김나연/2026-08-18-api-connection-payment.md) |
+| 2026-08-21-toss-payments.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/김나연/2026-08-21-toss-payments.md) |
+| 2026-08-26-kiosk-calorie-payment-flow.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/김나연/2026-08-26-kiosk-calorie-payment-flow.md) |
+| 2026-08-27-kiosk-timeout.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/김나연/2026-08-27-kiosk-timeout.md) |
+| 2026-08-29-waiting-order-number.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/김나연/2026-08-29-waiting-order-number.md) |
+| 2026-09-01-receipt-waiting-output.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/김나연/2026-09-01-receipt-waiting-output.md) |
 
 ### 이하진
 
@@ -166,6 +204,11 @@
 | 2026-08-06-admin-menu-search-and-detail-contract.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/이하진/2026-08-06-admin-menu-search-and-detail-contract.md) |
 | 2026-08-07-mysql-schema-cors.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/이하진/2026-08-07-mysql-schema-cors.md) |
 | 2026-08-07-wbs-study-rtos-docs.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/이하진/2026-08-07-wbs-study-rtos-docs.md) |
+| 2026-08-26-admin-order-refund-draft.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/이하진/2026-08-26-admin-order-refund-draft.md) |
+| 2026-08-26-admin-refund-docs-and-hub.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/이하진/2026-08-26-admin-refund-docs-and-hub.md) |
+| 2026-08-28-refund-mapper-docs.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/이하진/2026-08-28-refund-mapper-docs.md) |
+| 2026-09-01-graduation-mvp-domain-docs.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/이하진/2026-09-01-graduation-mvp-domain-docs.md) |
+| 2026-09-02-graduation-qa-sync.md | [열기](https://github.com/hagenie128/ASAK/blob/main/worklog/entries/이하진/2026-09-02-graduation-qa-sync.md) |
 
 ---
 
@@ -183,4 +226,4 @@
 | 일자 | 내용 |
 |---|---|
 | 2026-08-07 | Hub 업로드용 링크 인덱스 초안. daily·entries·weekly 전수 링크. |
-| 2026-08-07 | DevCopilot workspace 2 **wiki/83** 생성 업로드. |
+| 2026-09-02 | W35·W36 weekly backfill — **커밋 있는 날만** daily·entries 보강, 빈 날 파일 삭제 |

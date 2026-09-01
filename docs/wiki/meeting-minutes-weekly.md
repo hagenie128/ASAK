@@ -9,11 +9,11 @@
 
 | 항목 | 내용 |
 |---|---|
-| 기간 | 2026-07-01 ~ 2026-08-18 |
+| 기간 | 2026-07-01 ~ 2026-09-01 |
 | 팀 | 프로젝트 2조 (최종 구성: **김나연**, **이하진**) |
 | 프로젝트 | ASAK — 샐러드 키오스크 + 관리자 연동 |
 | 문서 성격 | 공식 회의록 (주차별) |
-| 작성일 | 2026-08-18 |
+| 작성일 | 2026-09-02 |
 | 근거 | 2조 공용 채널, 팀 내부 협의, 로컬 `worklog/daily`·`entries`·`weekly` |
 
 > **범위 안내**
@@ -66,7 +66,9 @@
 | W31 | 07-27 ~ 08-02 | Admin API·계약 통일·연동 시작 | [2026-w31.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w31.md) |
 | W32 | 08-03 ~ 08-07 | 실연동·관리자 CRUD·문서화 | [2026-w32.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w32.md) |
 | W33 | 08-10 ~ 08-16 | 키오스크 실API·관리자 메뉴 연동 | [2026-w33.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w33.md) |
-| W34 | 08-17 ~ 08-21 | 장치 이벤트/RTOS 연동 | [2026-w34.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-w34.md) |
+| W34 | 08-17 ~ 08-21 | 장치 이벤트/RTOS 연동 | [2026-W34.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W34.md) |
+| W35 | 08-24 ~ 08-28 | 통합 테스트·관리자 API 마감 | [2026-W35.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W35.md) |
+| W36 | 08-31 ~ 09-02 | 종강 시연·발표·팀/개인 분리 | [2026-W36.md](https://github.com/hagenie128/ASAK/blob/main/docs/operations/meeting-minutes/2026-W36.md) |
 
 ---
 
