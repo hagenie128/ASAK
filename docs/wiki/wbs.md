@@ -2,7 +2,7 @@
 
 > Status: **CANONICAL**
 > 입구: [START_HERE](../START_HERE.md) · 코드 감각: [wbs-status-notes.md](wbs-status-notes.md) · 구현 맵: [current-implementation-map](../planning/impl-map-2026-07-16.md)
-> **팀:** 김나연 · 이하진 · 기준일 **2026-08-28**
+> **팀:** 김나연 · 이하진 · 기준일 **2026-09-01**
 >
 > 상태: `TODO` · `IN_PROGRESS` · `IN_REVIEW` · `DONE` · `DELAYED`
 > mock만으로 DONE 금지 · 근거 없는 PASS 금지
@@ -13,19 +13,19 @@
 2. DONE은 **근거** 칸을 채운다.
 3. Hub/Notion 카드와 ID·상태를 맞춘다. 구 `wbs-v2` / `wbs-schedule` 경로는 삭제했고 정본은 이 파일이다.
 
-## 2026-08-28 구현 상태 정정
+## 2026-09-01 Admin 실DB QA 상태 정정
 
 > 아래 블록은 기존 일정/이력·Hub DONE 표기보다 우선하는 **main 코드 기준** 정정이다. `DONE`은 실DB·Bruno·브라우저 E2E까지 끝난 경우에만 사용한다. **코드 연결 ≠ DONE.**
 
 | WBS | 상태 | 현재 근거 (main) | 남은 완료 조건 |
 | --- | --- | --- | --- |
 | WBS-040 대시보드 | IN_REVIEW | `GET /api/admin/dashboard` → `adminApi.getDashboard` → `useDashboard` | 위젯 값/partial error/실DB 합계 브라우저 QA |
-| WBS-042 주문관리 | IN_REVIEW | `ordersApi`·`OrderManagePage` + `PATCH .../refund`·`GET .../refund-reasons`·사유 라디오 UI | seed SQL 적용, 환불 Bruno/E2E, Mapper 파라미터명·`providerPaymentKey` |
-| WBS-044 / 062 품절 | IN_REVIEW | `AdminSoldOutController` + `soldOutApi` + `useSoldOutDraft` | 메뉴·재료 저장/복구, 복수 변경 롤백 Bruno·실DB |
-| WBS-046 결제수단 | IN_REVIEW | `AdminPaymentMethodController` + `paymentMethodsApi` + `usePaymentMethodDraft` | Mapper `ORDER BY sort_no, id` 누락 수정 후 Bruno/실DB 정렬·토글 |
-| WBS-047~049 / 064 매출 | IN_REVIEW | `AdminSalesController` summary/monthly/daily/time-slots + `salesApi`/`useSalesQuery` | `DailySalesPage` mock hourly 폴백 잔존 가능, DB 합계·Bruno 확인 |
+| WBS-042 주문관리 | IN_REVIEW | `RECEIVED → PREPARING → COMPLETED` 상태 전이, 승인 결제 직접 취소 `409`, 카드 환불 PATCH로 `CANCELED/REFUNDED`를 실DB에서 확인 | `READY` 미승인 주문의 취소 성공, 환불 중복 409·OTHER 사유 검증, 관리자 화면 E2E |
+| WBS-044 / 062 품절 | IN_REVIEW | `PATCH /api/admin/soldOut` 재료 저장 `true`와 복구 `false`를 실DB에서 확인. Mapper는 실제 `ing` 테이블을 사용 | 메뉴·옵션 항목 저장, 유효/무효 변경 혼합 시 전체 롤백, 관리자 화면 E2E |
+| WBS-046 결제수단 | IN_REVIEW | CARD `active: true → false → true` PATCH·재조회·복구를 실DB에서 확인. 일부 PATCH 실패 시 프런트가 성공으로 표시하지 않도록 롤백 처리 | 순서 변경 저장·재조회, 고객 결제 화면 노출 연동 E2E |
+| WBS-047~049 / 064 매출 | IN_REVIEW | 환불 후 2026-08-28 일별·요약 API에서 `951,100 - 60,800 = 890,300원` 일치 확인 | 관리자 매출 화면 E2E, 시간대/월별·순위 회귀, 실제 PG 환불 시나리오 |
 | WBS-070 Admin 실연동 | IN_PROGRESS | 로그인(매장번호)·주문·품절·매출·대시보드·결제수단·환불 **코드 연결** (`adminMockRepository` 일부 잔존) | 전 화면 E2E·mock 제거·TC 실행 기록 |
-| WBS-071 매출·환불 합계 | IN_REVIEW | 환불 API 코드 존재(가상 PG). 통합 QA 미실행 | TC-017·WBS-077/079와 함께 주문·환불·매출 합계 대조 |
+| WBS-071 매출·환불 합계 | IN_REVIEW | 가상 카드 환불 1건 후 주문 `CANCELED`, 결제 `REFUNDED`, 일별·요약 순매출 합계 일치를 실DB에서 확인 | 실PG 환불, 환불 중복·실패·동시성, WBS-077/079 전체 회귀 |
 | WBS-069 키오스크 실연동 | IN_PROGRESS | API-001~006·014 FE 연결: `MenuListPage`·`MenuDetailPage`·`CartPage`·`PaymentPage`·`PaymentProcessingPage` | Bruno/E2E·토스 키·실PG **미검증**. Hub DONE과 불일치 |
 | WBS-024~026 메뉴 | IN_REVIEW | `getCategories`/`getMenus`/`getMenu` → 목록·상세·옵션 UI | 실서버 응답·품절 표시 E2E |
 | WBS-031~034 주문·결제 | IN_REVIEW | `validateCart` → `createOrderForPayment` → `approvePayment`(토스/CARD) → `OrderCompletePage` | API-006 Hub 설명 구식(approvePayment 미호출) **정정됨** |
@@ -36,6 +36,7 @@
 - 품절 UI는 `MENU`, `INGREDIENT` 탭만 노출. `OPTION_ITEM`은 API/DB 카탈로그에 포함하되 탭은 숨긴다.
 - 매출 `/sales/daily` 객체와 `/sales/daily/time-slots` 배열은 서로 다른 API다.
 - 8/21 블록의 `결제수단 미구현`, `환불 미연결`, `품절 저장 TODO`, `WBS-046 TODO` 표기는 **과거 기록**이다.
+- 이번 QA는 관리자·백엔드 범위만 수행했다. 고객(Kiosk) 화면 반영과 Kiosk production build는 이 근거에 포함하지 않는다.
 
 ## 2026-08-21 구현 상태 정정 (과거 스냅샷)
 
