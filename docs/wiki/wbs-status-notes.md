@@ -23,16 +23,16 @@ WBS는 백엔드만이 아니다. 키오스크·관리자·디자인·QA·발표
 
 ## 이번 주 (DONE으로 올리지 말 것)
 
-> 2026-08-28: main 기준 Admin 대부분 **코드 연결**. 실행 기록 없는 Hub DONE·TC PASS는 신뢰하지 않는다.
+> 2026-09-01: Admin/backend 실DB QA를 추가했다. 실행 기록 없는 Hub DONE·TC PASS는 신뢰하지 않는다.
 
 | 묶음 | ID | Hub 권고 |
 |---|---|---|
 | 장치 이벤트/RTOS | RTOS-DEVICE-001~003 | IN_PROGRESS (콘솔·연동 전 DONE 금지) |
 | 키오스크 주문·결제 | 031~034, 069 | IN_PROGRESS · API-001~006·014 **코드 연결**(main) · Hub DONE·E2E 미실행 주의 |
 | 키오스크 메뉴·타임아웃 | 024~026, 035~036 | IN_REVIEW · Hub DONE 다수이나 Bruno/E2E 없음 |
-| 관리자 주문·환불 | 041~043, 070 | IN_PROGRESS · WBS-042 Hub DONE이나 환불 **미검증** |
-| 메뉴·품절·결제·매출 | 044~049, 046, 062 | IN_REVIEW · 062 Hub TODO vs 코드 구현 불일치 |
-| 통합 QA | 071, 077~079 | IN_REVIEW/TODO · TC 전건 TODO, TC-017(환불) 신규 |
+| 관리자 주문·환불 | 041~043, 070 | IN_PROGRESS · 상태 전이·승인 결제 취소 차단·가상 카드 환불 실DB 확인, `READY` 취소 성공과 화면 E2E 잔여 |
+| 메뉴·품절·결제·매출 | 044~049, 046, 062 | IN_REVIEW · 품절 저장/복구·결제수단 PATCH 롤백·환불 매출 합계 실DB 확인, 고객 연동과 화면 E2E 잔여 |
+| 통합 QA | 071, 077~079 | IN_REVIEW/TODO · 가상 카드 환불 1건 합계 대조 완료, 실PG·실패/중복·전 화면 회귀 잔여 |
 | QA·발표 | 072~085 | 근거 없이 DONE/PASS 금지 |
 
 계약 키워드: `totalAmount`, `APPROVED`, `refundReasonCode`, `REFUNDED`, Live=`/orders/live`, `/paymentMethods`, `/refund-reasons`.

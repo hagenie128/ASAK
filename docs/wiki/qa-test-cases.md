@@ -117,12 +117,16 @@
 
 ### TC-012 관리자 결제수단 설정 검증 (LMIS-PAY-001)
 
+> 2026-09-01: CARD `active`를 `true → false → true`로 PATCH하고 각 단계 GET 재조회까지 실DB 확인. 고객 결제 화면 노출은 미검증.
+
 - **전제조건**: 결제수단 코드 등록
 - **수행 절차**: 1) 노출/순서 변경 2) 저장 3) 고객 결제 화면 확인
 - **기대 결과**: 활성 결제수단만 고객 화면에 표시
 - **관련**: SC-017 · API-013~014 · SCR-018
 
 ### TC-013 관리자 매출 요약 조회 검증 (LMIS-ORDER-005)
+
+> 2026-09-01: 환불 뒤 2026-08-28 일별·요약 API에서 `grossSalesAmount 951100 - canceledAmount 60800 = totalAmount 890300`을 확인. 매출 화면 E2E는 미검증.
 
 - **전제조건**: 결제 완료 주문 데이터 존재
 - **수행 절차**: 1) 매출 화면 2) 날짜 선택 3) 합계·주문수 확인
@@ -131,6 +135,8 @@
 
 ### TC-014 관리자 주문 목록 조회 및 상태 변경 검증 (LMIS-ORDER-001)
 
+> 2026-09-01: 실DB 주문에서 `RECEIVED → PREPARING → COMPLETED` 전이와 승인 결제 주문 취소 `409`을 확인. `READY` 미승인 주문의 취소 성공은 미검증.
+
 - **전제조건**: 최소 1건 이상 주문 존재
 - **수행 절차**: 1) 키오스크 주문 생성 2) 목록 최상단 확인 3) 상세 4) PREPARING 변경
 - **기대 결과**: 목록·상세에서 상태 변경 즉시 반영
@@ -138,7 +144,7 @@
 
 ### TC-017 관리자 승인 결제 환불 및 사유 검증 (LMIS-ORDER-003)
 
-> 2026-08-28: `PATCH /api/admin/orders/{orderId}/refund` + `GET /api/admin/refund-reasons` **main 구현 · 미검증**. Hub API 번호 미배정(id 449·457).
+> 2026-09-01: `PATCH /api/admin/orders/{orderId}/refund` 가상 카드 1건을 실DB에서 성공시켜 주문 `CANCELED`, 결제 `REFUNDED`, 환불 후 매출 합계를 확인했다. 중복 환불 409·OTHER detail 누락 400·실PG는 미검증. Hub API 번호 미배정(id 449·457).
 
 - **전제조건**: `payment_status=APPROVED`인 카드 결제 주문 1건, `REFUND_REASON` seed 적용
 - **수행 절차**: 1) 관리자 주문 상세 진입 2) 환불 Confirm에서 사유 라디오 선택(OTHER 시 detail 입력) 3) 환불 실행 4) 동일 주문 재환불 시도 5) 미승인 주문 환불 시도
