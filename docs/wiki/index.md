@@ -22,6 +22,15 @@
 - [정본 계약](../governance/contract-decisions-2026-07-16.md)
 - [전체 흐름도 (Mermaid)](project-flow.md)
 
+## 종강 시연 (2026-09-02)
+
+- [종강 MVP 실행본](graduation-demo-mvp-2026-09-02.md)
+- [문서·코드 대조 검증](admin-doc-code-verification-2026-09-02.md)
+- [Admin QA 실행 보고](qa-execution-report-2026-09-02.md) · [Kiosk QA 실행 보고](qa-kiosk-execution-report-2026-09-02.md)
+- [TC 실행표 (1페이지)](demo-tc-execution-sheet-2026-09-02.md)
+- [발표 대본](graduation-presentation-script-2026-09-02.md)
+- [완료 체크리스트](project-completion-checklist-2026-09-01.md)
+
 ## 추적·범위
 
 - [향후 범위](future-scope.md)

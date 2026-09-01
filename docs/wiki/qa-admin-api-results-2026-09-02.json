@@ -1,0 +1,146 @@
+﻿[
+    {
+        "Id":  "TC-009a",
+        "Name":  "Login 0001",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-009b",
+        "Name":  "Login empty 400",
+        "Pass":  true,
+        "Detail":  "HTTP 400"
+    },
+    {
+        "Id":  "TC-009c",
+        "Name":  "Login wrong 400",
+        "Pass":  true,
+        "Detail":  "HTTP 400"
+    },
+    {
+        "Id":  "WBS-040",
+        "Name":  "Dashboard KPI+delta",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-014a",
+        "Name":  "Live orders",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-014b",
+        "Name":  "RECEIVED-\u003ePREPARING",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-014c",
+        "Name":  "PREPARING-\u003eCOMPLETED",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-006a",
+        "Name":  "SoldOut ing 125 exists",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-006b",
+        "Name":  "SoldOut toggle ing125",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-006c",
+        "Name":  "SoldOut restore ing125",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-012a",
+        "Name":  "Payment methods list",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-012b",
+        "Name":  "CARD OFF",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-012c",
+        "Name":  "CARD restore",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-013-today",
+        "Name":  "Sales summary today",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-013-week",
+        "Name":  "Sales summary week",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-013-month",
+        "Name":  "Sales summary month",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-013-daily",
+        "Name":  "Sales daily Aug2026",
+        "Pass":  false,
+        "Detail":  "no dailySales"
+    },
+    {
+        "Id":  "TC-013-monthly",
+        "Name":  "Sales monthly 2026-08",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-013-verify",
+        "Name":  "Net sales 890300 on 8/28",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-010",
+        "Name":  "Menus list",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-011",
+        "Name":  "Menu detail",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "SC-022",
+        "Name":  "Order detail",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-017",
+        "Name":  "Refund reasons",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-012-kiosk",
+        "Name":  "Kiosk payment methods",
+        "Pass":  false,
+        "Detail":  "empty kiosk methods"
+    }
+]

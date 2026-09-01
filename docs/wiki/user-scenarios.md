@@ -1,4 +1,4 @@
-> Status: **HISTORY**
+> Status: **HISTORY** (시연 SC 판정은 [admin-doc-code-verification-2026-09-02.md](admin-doc-code-verification-2026-09-02.md) §3 · **말할 대본**은 [graduation-presentation-script-2026-09-02.md](graduation-presentation-script-2026-09-02.md))  
 > **2026-08-18 Hub:** 시나리오 카드는 workspace 2 사용자 시나리오 탭. SC-015 영수증은 API-019(월별 매출)이 아니다. 멤버십/쿠폰 시나리오는 ARCHIVED.
 > → **정본:** Pack 02·07 · [future-scope](future-scope.md)
 

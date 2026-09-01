@@ -3,7 +3,8 @@
 > 시연일: **2026-09-02**  
 > 목표: "고객 주문 흐름과 관리자 운영 흐름이 같은 주문·결제·매출 데이터로 연결된다"를 안정적으로 보여 준다.  
 > 기준: [WBS](wbs.md) · [QA 테스트 케이스](qa-test-cases.md) · [종강 전 전체 체크리스트](project-completion-checklist-2026-09-01.md)  
-> **문서 갱신: 2026-09-01** — Admin 실DB QA 근거와 미검증(Kiosk E2E) 구간을 분리했다.
+> **문서 갱신: 2026-09-01** — Admin 실DB QA 근거와 미검증(Kiosk E2E) 구간을 분리했다.  
+> **2026-09-02:** [문서·코드 대조](admin-doc-code-verification-2026-09-02.md) · [Admin QA](qa-execution-report-2026-09-02.md) · [Kiosk QA](qa-kiosk-execution-report-2026-09-02.md) · [TC 실행표](demo-tc-execution-sheet-2026-09-02.md) · [발표 대본](graduation-presentation-script-2026-09-02.md)
 
 ## 0. 검증 상태 요약 (말할 때 구분)
 
@@ -13,7 +14,10 @@
 | 가상 CARD 환불·매출 합계 | **실DB 확인** | TC-017·013 (2026-09-01), `951,100 - 60,800 = 890,300` (2026-08-28) |
 | Admin 재료 품절 PATCH 저장/복구 | **실DB 확인** | WBS-044/062 (2026-09-01) |
 | Admin 결제수단 CARD active 토글 | **실DB 확인** | TC-012 (2026-09-01). Kiosk 노출은 **미검증** |
-| Kiosk 주문·결제·품절 화면 연동 | **미검증** | build는 통과, E2E 기록 없음 → 시연 목표 |
+| Admin 매출 화면(기간 버튼·달 전체 차트) | **코드 반영** | 2026-09-02 `fillDailyRows`·오늘/주/월. **화면 E2E 미기록** |
+| Kiosk 주문·결제 API (TC-001~002) | **API 확인** | 2026-09-02 EAT_IN/TAKE_OUT·CARD APPROVED · **UI 클릭 미검증** |
+| Kiosk 품절 (MENU/OPTION) | **API 확인** | TC-003 MENU·OPTION **PASS** · INGREDIENT ing125 **FAIL** |
+| Admin 결제수단 → Kiosk | **FAIL** | Admin CARD OFF 후에도 Kiosk에 CARD 노출 |
 | RTOS 콘솔 영수증 | **미검증** | 코드·절차만 정리, 리허설 성공 전 Plan B |
 
 ## 1. 내일 시연에서 완료로 보는 MVP 범위
@@ -22,8 +26,8 @@
 
 1. **고객 주문**: 주문 유형 선택 → 메뉴/옵션 → 장바구니 → 결제 → 주문 완료 *(시연에서 최초 E2E 확인)*
 2. **관리자 운영**: 매장 번호 `0001` 로그인 → 대시보드/주문 목록 → 주문 상태 변경 *(Admin 실DB 확인됨)*
-3. **품절 관리**: Admin에서 **CORE 재료** 품절 저장/복구 → *(가능하면)* Kiosk 메뉴 품절 표시 확인 *(Kiosk 연동은 미검증)*
-4. **결제수단 관리**: Admin에서 CARD active 토글 → *(가능하면)* Kiosk 결제수단 반영 *(Kiosk 노출 미검증)*
+3. **품절 관리**: Admin **MENU** 품절 저장/복구 → Kiosk `isSoldOut` 반영 *(API 확인)* · ing125 재료는 영향 0 → **MENU 단위** 시연 권장
+4. **결제수단 관리**: Admin CARD active 토글 *(Admin API 확인)* → Kiosk 반영은 **FAIL** → Admin만 시연 또는 설명
 5. **매출 확인**: 환불 전후 일별·요약 API 또는 화면에서 `gross - canceled = total` 대조 *(API 실DB 확인, 화면 E2E 미검증)*
 
 ### RTOS·환불 시연 후보 (시간 있을 때)
@@ -155,6 +159,9 @@ cd C:\ASAK-workspace\ASAK-back
 - [ ] 8080·API base URL·DB 연결을 시작 전 확인한다.
 
 ## 5. 발표 5분 구성과 대본 키워드
+
+> **말할 대본 전문:** [graduation-presentation-script-2026-09-02.md](graduation-presentation-script-2026-09-02.md)  
+> **시연 당일 TC 체크:** [demo-tc-execution-sheet-2026-09-02.md](demo-tc-execution-sheet-2026-09-02.md)
 
 | 시간 | 화면/행동 | 말할 핵심 |
 | --- | --- | --- |

@@ -1,0 +1,110 @@
+﻿[
+    {
+        "Id":  "K-001",
+        "Name":  "Categories",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "K-002",
+        "Name":  "MenuList",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "K-003",
+        "Name":  "MenuDetail",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "K-004",
+        "Name":  "MenuDetail 404",
+        "Pass":  false,
+        "Detail":  "ScriptHalted"
+    },
+    {
+        "Id":  "TC-003a",
+        "Name":  "Menu soldOut reflects kiosk",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-003a",
+        "Name":  "Menu soldOut kiosk",
+        "Pass":  true,
+        "Detail":  "isSoldOut + MENU_SOLD_OUT"
+    },
+    {
+        "Id":  "K-005",
+        "Name":  "Cart validate simple",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "K-006",
+        "Name":  "Cart empty 400",
+        "Pass":  true,
+        "Detail":  "HTTP 400"
+    },
+    {
+        "Id":  "K-007",
+        "Name":  "Missing required options",
+        "Pass":  true,
+        "Detail":  "HTTP 400"
+    },
+    {
+        "Id":  "TC-001a",
+        "Name":  "Order EAT_IN",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-001b",
+        "Name":  "Order TAKE_OUT",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-001c",
+        "Name":  "TAKE_OUT stored in DB",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-002a",
+        "Name":  "Payment CARD approve",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-002b",
+        "Name":  "Payment idempotency",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-002c",
+        "Name":  "Duplicate pay blocked",
+        "Pass":  true,
+        "Detail":  "HTTP 409"
+    },
+    {
+        "Id":  "K-010",
+        "Name":  "Payment methods list",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    },
+    {
+        "Id":  "TC-012-kiosk",
+        "Name":  "Admin OFF hides CARD",
+        "Pass":  false,
+        "Detail":  "CARD still visible"
+    },
+    {
+        "Id":  "K-011",
+        "Name":  "Receipt print request",
+        "Pass":  true,
+        "Detail":  "HTTP 200"
+    }
+]
