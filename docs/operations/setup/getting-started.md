@@ -21,10 +21,13 @@ C:\ASAK-workspace\
 ├─ ASAK
 ├─ ASAK-Kiosk
 ├─ ASAK-Admin
-└─ ASAK-back
+├─ ASAK-back
+└─ ASAK-skill (선택)
 ```
 
-네 폴더는 독립 Git 저장소입니다. 변경·커밋·푸시는 해당 저장소에서 수행합니다.
+여섯 폴더(및 workspace 루트)는 **독립 Git 저장소**입니다. 변경·커밋·푸시는 해당 저장소에서 수행합니다.
+
+저장소 URL·브랜치·Issues·PR·클론 방법은 [Git 저장소 현황](git-repositories.md)을 봅니다.
 
 ## 3. 실행
 
