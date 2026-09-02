@@ -1,6 +1,7 @@
 ﻿# ASAK Current Status Baseline
 
 > Status: **HISTORY** (본문은 2026-08-07 스냅샷)
+> **2026-09-02 overlay:** Admin·Kiosk **API E2E 대부분 PASS** (Admin 22/24 · Kiosk 17/18). **FAIL/주의:** Admin 결제수단→Kiosk 미반영, INGREDIENT ing125 Kiosk 미반영. READY 취소 **409 차단 HTTP 검증 완료** (orderId=51984).
 > **2026-08-18 overlay:** Admin 메뉴 CRUD·DELETE(soft delete)·옵션 그룹 GET은 Controller+Admin `menusApi` 연결. 품절/결제수단/매출/대시보드/로그인은 BE 스텁. Kiosk는 API-014·API-005 호출, 결제 승인은 타이머 mock. 정본 API 표: [rest-api-spec.md](rest-api-spec.md). 일정: [wbs.md](wbs.md).
 > 기준일: **2026-08-07** (7/28 baseline 위에 실연동 우선순위·Admin 주문 API 진척을 덮어씀).
 > **화면별 상세:** [구현 맵](../planning/impl-map-2026-07-16.md) ← SCR 상태표

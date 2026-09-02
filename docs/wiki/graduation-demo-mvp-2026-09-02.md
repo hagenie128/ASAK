@@ -71,6 +71,7 @@
 - 실행 방식: FreeRTOS `GCC_POSIX` 시뮬레이터
 - 흐름: `POST receipt-print` → Spring 메모리 이벤트 큐 → `GET /api/rtos/device-events/pending` → RTOS 콘솔 영수증 → `PATCH /api/rtos/device-events/{eventId}/finish`
 - payload: `주문번호|메뉴 요약|금액`의 pipe 문자열
+- **DB:** `receipt`·`device_event` 테이블 **없음**. 영수증 본문은 주문·결제 테이블, 출력 이벤트는 JVM 메모리만 사용.
 - 한계: 실물 프린터/ARM/QEMU/영구 DB 큐는 범위 밖. Spring 재시작 시 메모리 큐 초기화.
 
 ### 실행 순서
@@ -127,7 +128,7 @@ cd C:\ASAK-workspace\ASAK-back
 | P0 | TC-004 | 실패 재현 방법 확보 | 결제 실패 후 장바구니 | 안내·장바구니 유지 | [ ] | 재현 절차 미정 |
 | P0 | TC-009 | Admin | `0001`/오류 번호 | 승인/오류 구분 | [ ] | Admin 확인됨 |
 | P0 | TC-014 | 변경 가능 주문 | PREPARING·COMPLETED | 즉시 재조회 | [ ] | Admin 확인됨 |
-| P0 | WBS-043 | READY 주문 | 관리자 취소 | CANCELED | [ ] | **미검증** |
+| P0 | WBS-043 | READY 주문 | 관리자 취소 | **409 차단** | [ ] | 로컬 코드 확인 · 시연에서 시도 안 함 |
 | P0 | TC-003/006 | CORE 재료(§4) | Admin 품절 ON→Kiosk→OFF | 표시·차단·복구 | [ ] | Admin PATCH ✓ / Kiosk **미검증** |
 | P0 | TC-012 | CARD 1건 | active 토글·재조회 | Admin·Kiosk 일치 | [ ] | Admin PATCH ✓ / Kiosk **미검증** |
 | P0 | TC-013/071 | 환불 데이터 | daily/summary | gross-canceled=total | [ ] | API ✓ / 화면 **미검증** |
