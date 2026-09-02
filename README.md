@@ -15,6 +15,19 @@
 
 ---
 
+> **Team Project Original** — 팀 프로젝트 종료 시점 스냅샷
+> Team Development: 2026.07 ~ 2026.09
+> Freeze tag: `team-original-2026-09-02`
+> 이 저장소에는 팀 종료 이후 개인 확장 작업을 추가하지 않습니다.
+
+| 버전 | 배포 |
+| --- | --- |
+| Team Original (이 repo) | https://asak.stackroom.cloud |
+| 하진 Personal Extension | https://hajin-asak.stackroom.cloud |
+| 나연 Personal Extension | https://nayeon-asak.stackroom.cloud |
+
+---
+
 > **설치/첫 시작:** [시작 안내](docs/operations/setup/getting-started.md) · [윈도우 설치](docs/operations/setup/install-windows.md) · [Android PWA 전체화면](docs/operations/setup/android-pwa-fullscreen.md) · Notion [팀 온보딩](https://app.notion.com/p/39551ef04f0b8193ae2ad4d529ab2d7b)
 >
 > 실행 코드는 `ASAK-Kiosk`, `ASAK-Admin`, `ASAK-back`에 있습니다. `frontend/`·`ASAK-front` 안내는 과거 참고 자료이므로 신규 작업에 사용하지 마세요.
