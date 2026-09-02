@@ -284,19 +284,19 @@
   {
     "id": 179,
     "name": "후리가케",
-    "type_id": 30,
+    "type_id": 59,
     "sold_out": false
   },
   {
     "id": 182,
     "name": "견과류",
-    "type_id": 30,
+    "type_id": 59,
     "sold_out": false
   },
   {
     "id": 184,
     "name": "나쵸칩",
-    "type_id": 30,
+    "type_id": 59,
     "sold_out": false
   },
   {
@@ -314,37 +314,37 @@
   {
     "id": 189,
     "name": "슈레드치즈",
-    "type_id": 30,
+    "type_id": 59,
     "sold_out": false
   },
   {
     "id": 191,
     "name": "김자반",
-    "type_id": 30,
+    "type_id": 59,
     "sold_out": false
   },
   {
     "id": 193,
     "name": "몬테레이치즈",
-    "type_id": 30,
+    "type_id": 59,
     "sold_out": false
   },
   {
     "id": 195,
     "name": "에그마요",
-    "type_id": 28,
+    "type_id": 27,
     "sold_out": false
   },
   {
     "id": 199,
     "name": "스윗포테이토",
-    "type_id": 28,
+    "type_id": 59,
     "sold_out": false
   },
   {
     "id": 204,
     "name": "단호박",
-    "type_id": 28,
+    "type_id": 59,
     "sold_out": false
   },
   {
@@ -404,7 +404,7 @@
   {
     "id": 377,
     "name": "화이트치즈",
-    "type_id": 26,
+    "type_id": 59,
     "sold_out": false
   },
   {
@@ -446,7 +446,7 @@
   {
     "id": 2118,
     "name": "잠봉",
-    "type_id": 26,
+    "type_id": 27,
     "sold_out": false
   },
   {
@@ -518,7 +518,7 @@
   {
     "id": 6821,
     "name": "화이트치즈 (*채소믹스 미포함)",
-    "type_id": 26,
+    "type_id": 59,
     "sold_out": false
   },
   {

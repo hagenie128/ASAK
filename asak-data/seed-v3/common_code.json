@@ -168,6 +168,14 @@
     "active": true
   },
   {
+    "id": 59,
+    "code_grp_id": 6,
+    "code": "TOPPING",
+    "name": "토핑",
+    "sort_no": 33,
+    "active": true
+  },
+  {
     "id": 32,
     "code_grp_id": 7,
     "code": "CORE",
