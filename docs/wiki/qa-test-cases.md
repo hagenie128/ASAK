@@ -139,7 +139,7 @@
 
 ### TC-014 관리자 주문 목록 조회 및 상태 변경 검증 (LMIS-ORDER-001)
 
-> 2026-09-01: 실DB 주문에서 `RECEIVED → PREPARING → COMPLETED` 전이와 승인 결제 주문 취소 `409`을 확인. `READY` 미승인 주문의 취소 성공은 미검증.
+> 2026-09-01: 실DB 주문에서 `RECEIVED → PREPARING → COMPLETED` 전이와 승인 결제 주문 취소 `409`을 확인. **`READY` 주문 취소는 불가** — 409 `ORDER_CANCEL_NOT_ALLOWED` (로컬 Admin 코드 2026-09-02, HTTP 재검증 미실행).
 
 - **전제조건**: 최소 1건 이상 주문 존재
 - **수행 절차**: 1) 키오스크 주문 생성 2) 목록 최상단 확인 3) 상세 4) PREPARING 변경

@@ -1,9 +1,10 @@
 ﻿> Status: **CURRENT**
-> 기준일: **2026-08-28** · 코드: `ASAK-back` **main** `494baef`, `ASAK-Admin` **main** `4f0c9cd`
+> 기준일: **2026-09-02** · 코드: `ASAK-back` **main** `b0718b3`, `ASAK-Admin` **main** `6071c68`, `ASAK-Kiosk` **main** `e1994e4`
 > 계약 필드: [정본](../governance/contract-decisions-2026-07-16.md) · Bruno: `ASAK-back/api/`
 > Hub API 카드: workspace 2 (환불 id **449**, 환불 사유 id **457** — **정본 API 번호 미배정**)
 > 2026-08-25 결정: 관리자 로그인(매장 번호 하드코드)·환불 정책 — [`admin-todo-2026-08-24.md`](../planning/admin-todo-2026-08-24.md)
-> 2026-08-28: 환불·환불 사유 API **main 머지**. FE body `refundReasonCode`/`refundReasonDetail` 연결. HTTP/실PG **미검증**.
+> 2026-08-28: 환불·환불 사유 API **main 머지**. FE body `refundReasonCode`/`refundReasonDetail` 연결.
+> 2026-09-02 QA: [Admin](qa-execution-report-2026-09-02.md) **22/24 PASS** · [Kiosk](qa-kiosk-execution-report-2026-09-02.md) **17/18 PASS** (API E2E, UI 클릭 제외).
 
 # ASAK REST API 명세서
 
@@ -15,7 +16,7 @@
 { "success": true, "status": 200, "code": "...", "message": "...", "data": {} }
 ```
 
-- 인증: 현재 Controller에 JWT 검사 없음. `POST /api/admin/login`은 **스텁**.
+- 인증: JWT 없음. `POST /api/admin/login`은 `{storeNumber}` 고정값 `"0001"` 비교만 (**구현됨** · TC-009 API PASS 2026-09-02).
 - 헤더: `Content-Type: application/json` (POST/PATCH), `Accept: application/json`
 - 에러: HTTP status + `success=false`. 프론트는 `code`로 분기.
 - Git 커밋 ≠ HTTP E2E 통과. 아래 **구현**은 Controller 메서드 존재, **스텁**은 `@RequestMapping`만 있고 메서드 없음.
@@ -27,20 +28,24 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 | Hub | Method | Path | 코드 | 상태 |
 |---|---|---|---|---|
 | API-025 | GET | `/api/health` | `HealthController` | 구현 · Bruno health 테스트 있음 |
-| API-001 | GET | `/api/kiosk/categories` | `UserMenuController` | 구현 · 미검증 |
-| API-002 | GET | `/api/kiosk/menuList` | `UserMenuController` | 구현 · 미검증 |
-| API-003 | GET | `/api/kiosk/menuDetail/{menuId}` | `UserMenuController` | 구현 · 미검증 |
-| API-004 | POST | `/api/kiosk/cart/validate` | `UserOrderController` | 구현 · 미검증 |
-| API-005 | POST | `/api/kiosk/orders` | `UserOrderController` | 구현 · 미검증 |
-| API-006 | POST | `/api/kiosk/payments` | `UserPayController` | 구현 · 미검증. `PaymentProcessingPage` → `approvePayment` 호출. CARD 직접 승인, KAKAO/NAVER/TOSS는 토스 SDK `tossPayment` body 포함 |
-| API-014 | GET | `/api/kiosk/payment-methods` | `UserPayController` | 구현 · `PaymentPage`가 `getPaymenMethods` 호출. JSON 키 `active` (DB `pay_method_cfg.active`. 구 `isEnabled` 폐기) |
-| API-007 | GET | `/api/admin/orders` | `AdminOrderController` | 구현 · 미검증. query: page,size,orderStatus,paymentStatus,orderType,dateFrom,dateTo,keyword |
-| API-022 | GET | `/api/admin/orders/{orderId}` | 동상 | 구현 · 미검증 |
-| API-021 | GET | `/api/admin/orders/live` | 동상 | 구현 · 미검증 |
-| API-008 | PATCH | `/api/admin/orders/{orderId}/{status}` | 동상 | 구현 · path status=`PREPARING`\|`COMPLETED` · body 없음 |
-| API-024 | PATCH | `/api/admin/orders/{orderId}/cancel` | 동상 | 구현 · 미검증 |
-| — | PATCH | `/api/admin/orders/{orderId}/refund` | `AdminOrderController` | 구현 · 미검증. body `refundReasonCode`, `refundReasonDetail`(OTHER 시 필수). Hub id **449** |
-| — | GET | `/api/admin/refund-reasons` | `AdminRefundReasonController` | 구현 · 미검증. `common_code` 그룹 `REFUND_REASON`. Hub id **457** |
+| API-001 | GET | `/api/kiosk/categories` | `UserMenuController` | 구현 · **실DB QA PASS** (K-001, 2026-09-02) |
+| API-002 | GET | `/api/kiosk/menuList` | `UserMenuController` | 구현 · **실DB QA PASS** (K-002) |
+| API-003 | GET | `/api/kiosk/menuDetail/{menuId}` | `UserMenuController` | 구현 · **실DB QA PASS** (K-003, 404 수동 확인) |
+| API-004 | POST | `/api/kiosk/cart/validate` | `UserOrderController` | 구현 · **실DB QA PASS** (K-005~007) |
+| API-005 | POST | `/api/kiosk/orders` | `UserOrderController` | 구현 · **실DB QA PASS** (TC-001) |
+| API-006 | POST | `/api/kiosk/payments` | `UserPayController` | 구현 · **실DB QA PASS** (TC-002). CARD 직접 승인, KAKAO/NAVER/TOSS는 토스 SDK `tossPayment` body 포함 |
+| API-014 | GET | `/api/kiosk/payment-methods` | `UserPayController` | 구현 · **실DB QA PASS** (K-010). `methodId` = **`common_code.id`** · Admin OFF→Kiosk 노출 **FAIL** (아래 참고) |
+| API-015 | GET | `/api/admin/paymentMethods` | `AdminPaymentMethodController` | 구현 · **실DB QA PASS** (TC-012a). `methodId` = **`pay_method_cfg.id`** · 응답 `active`, `sortNo` |
+| — | POST | `/api/kiosk/orders/{orderId}/receipt-print` | `UserReceiptController` | 구현 · **실DB QA PASS** (K-011). RTOS 연동 임시 코드 |
+| — | POST | `/api/kiosk/orders/{orderId}/waiting-number-print` | `UserReceiptController` | 구현 · 미검증 |
+| API-007 | GET | `/api/admin/orders` | `AdminOrderController` | 구현 · query: page,size,orderStatus,paymentStatus,orderType,dateFrom,dateTo,keyword |
+| API-022 | GET | `/api/admin/orders/{orderId}` | 동상 | 구현 · **실DB QA PASS** (SC-022) |
+| API-021 | GET | `/api/admin/orders/live` | 동상 | 구현 · **실DB QA PASS** (TC-014a) |
+| API-008 | PATCH | `/api/admin/orders/{orderId}/{status}` | 동상 | 구현 · **실DB QA PASS** (TC-014b/c) |
+| API-024 | PATCH | `/api/admin/orders/{orderId}/cancel` | 동상 | 구현 · APPROVED **409** **PASS** · **READY `ORDER_CANCEL_NOT_ALLOWED` 409** **PASS** (HTTP 2026-09-02, orderId=51984) |
+| — | PATCH | `/api/admin/orders/{orderId}/refund` | `AdminOrderController` | 구현 · 사유 목록 **PASS** (TC-017). 실주문 환불은 QA 스킵 |
+| — | GET | `/api/admin/refund-reasons` | `AdminRefundReasonController` | 구현 · **실DB QA PASS** (TC-017). Hub id **457** |
+| — | POST | `/api/admin/login` | `AdminAuthController` | 구현 · **실DB QA PASS** (TC-009) |
 | API-011 | GET | `/api/admin/menus` | `AdminMenuController` | 구현 · query categoryId,keyword,isSoldOut,tagId,page,size,sort |
 | API-023 | GET | `/api/admin/menus/{menuId}` | 동상 | 구현 |
 | API-026 | GET | `/api/admin/menus/categories` | 동상 | 구현 · `/{menuId}`보다 위에 선언 |
@@ -50,23 +55,20 @@ Hub 카드 ID와 예전 Notion `API-013` 번호가 다를 수 있다. **Hub·Bru
 | API-028 | DELETE | `/api/admin/menus/{menuId}` | 동상 | 구현 · **soft delete** (`deleted_at`) |
 | API-029 | GET | `/api/admin/opts/groups` | `AdminOptionController` | 구현 |
 | API-030 | GET | `/api/admin/opts/{optionGroupId}` | 동상 | 구현 |
-| API-015 | GET | `/api/admin/paymentMethods` | `AdminPaymentMethodController` | 구현 · 런타임 미검증. 응답 필드 `active`, `sortNo` (`receiptMessage`는 계약 없음) |
-| API-016 | PATCH | `/api/admin/paymentMethods/{methodId}` | 동상 | 구현 · 런타임 미검증. body `active`, `sortNo`만. 한 행만 수정 — 여러 행 재정렬·409는 미제공 |
-| API-020 | GET | `/api/admin/dashboard` | `AdminSalesController` | 구현 · `AdminDashboardResponse` |
-| API-018 | GET | `/api/admin/sales/summary` | 동상 | 구현 · query `period=today\|week\|month` |
-| API-019 | GET | `/api/admin/sales/monthly` | 동상 | 구현 · query `year=YYYY` |
-| API-017 | GET | `/api/admin/sales/daily` | 동상 | 구현 · query `from=YYYY-MM-DD`, `to` 선택 |
-| — | GET | `/api/admin/sales/daily/time-slots` | 동상 | 구현 · query `date`, `intervalMinutes=30\|60` |
+| API-009 | PATCH | `/api/admin/soldOut` | `AdminSoldOutController` | 구현 · **실DB QA PASS** (TC-006). body `changes[{targetType,targetId,isSoldOut}]` |
+| API-010 | GET | `/api/admin/soldOut` | 동상 | 구현 · **실DB QA PASS** (TC-006a). INGREDIENT ing125 Kiosk 반영 **FAIL** |
+| API-016 | PATCH | `/api/admin/paymentMethods/{methodId}` | `AdminPaymentMethodController` | 구현 · **실DB QA PASS** (TC-012b/c). body `active`, `sortNo` · PATCH id = `pay_method_cfg.id` |
+| API-020 | GET | `/api/admin/dashboard` | `AdminSalesController` | 구현 · **실DB QA PASS** (WBS-040) |
+| API-018 | GET | `/api/admin/sales/summary` | 동상 | 구현 · **실DB QA PASS** (TC-013 today/week/month, 8/28 합계) |
+| API-019 | GET | `/api/admin/sales/monthly` | 동상 | 구현 · **실DB QA PASS** (TC-013-monthly) |
+| API-017 | GET | `/api/admin/sales/daily` | 동상 | 구현 · 응답 `rows[]` (QA 스크립트 `dailySales` 기대와 **필드명 불일치** — TC-013-daily FAIL, API 자체는 200) |
+| — | GET | `/api/admin/sales/daily/time-slots` | 동상 | 구현 · query `date`, `intervalMinutes=30\|60` · 미검증 |
+| — | POST | `/api/admin/orders/{orderId}/receipt-print-text` | `AdminDeviceEventController` | 구현 · 미검증 (Admin 재출력) |
+| — | GET | `/api/admin/device-events` | 동상 | 구현 · 미검증 |
+| — | GET | `/api/rtos/device-events/pending` | 동상 | 구현 · RTOS polling 임시 코드 · 미검증 |
+| — | PATCH | `/api/rtos/device-events/{eventId}/finish` | 동상 | 구현 · RTOS 결과 보고 임시 코드 · 미검증 |
 
 `AdminOrderController`의 class mapping은 `"api/admin/orders"`(선행 `/` 없음)다. Spring은 보통 동일하게 `/api/admin/orders`로 붙는다.
-
-## 스텁 (클래스만, 메서드 없음)
-
-| Hub | Method | Path | 비고 |
-|---|---|---|---|
-| API-009 | PATCH | `/api/admin/soldOut` | `AdminSoldOutController` 비어 있음. TODO body `changes[]` |
-| API-010 | GET | `/api/admin/soldOut` | 동상 |
-| — | POST | `/api/admin/login` | `AdminAuthController` TODO. **2026-08-25 계약 확정**: body `{storeNumber}`, `storeNumber == "0001"` 하드코드 비교만(DB 조회·AuthenticationManager·JWT 없음). 불일치 401(ErrorCode 미정), 일치 시 단순 승인 플래그(`{approved:true}` 형태) 응답. 미구현 |
 
 ### 환불 사유 목록 API — 현재 코드 근거 (2026-08-28)
 
@@ -126,10 +128,34 @@ Content-Type: application/json
 
 | 요구 | Method | Path | 비고 |
 |---|---|---|---|
-| RTOS-DEVICE-001 | POST | `/api/orders/{orderId}/receipt-print` | 8/21 최소 범위 **결정 필요**. 코드 없음 |
 | RTOS-DEVICE-004~006 | POST | `/api/device/scan` | EXCLUDED |
 | KSD-MEMBER-001 | POST | `/api/membership/stamps` | FUTURE |
 | — | GET | `/api/ui/accessibility-options` | 코드 없음 |
+
+> 영수증 출력: 구 명세 path `/api/orders/{orderId}/receipt-print`는 폐기. 현재 구현은 `/api/kiosk/orders/{orderId}/receipt-print`(Kiosk) · `/api/admin/orders/{orderId}/receipt-print-text`(Admin 재출력).
+
+## 영수증·장치 이벤트 — DB 테이블 없음 (2026-09-02 정본)
+
+**`receipt` 테이블은 없다.** Hub ERD·`아삭_mysql.sql` 모두 영수증 전용 테이블을 정의하지 않는다. 영수증에 표시할 금액·메뉴·주문번호는 **`orders` · `order_item` · `payment`** 등 기존 주문·결제 데이터에서 조회한다.
+
+**`device_event` 테이블도 없다.** 출력 요청·처리 상태는 DB에 쌓지 않고, `DeviceEventService`가 **Spring 메모리 큐**(`ConcurrentHashMap`)로 `PENDING → PROCESSING → COMPLETED/FAILED`만 검증한다. `DeviceEventMapper.xml`은 DDL 확정 전 **placeholder**(SQL 없음). 서버 재시작 시 큐가 비워진다.
+
+| 구분 | 저장 위치 | 비고 |
+|---|---|---|
+| 영수증 본문(메뉴·금액·주문번호) | 주문·결제 테이블 | 별도 `receipt` row 없음 |
+| 출력 요청·RTOS polling 이벤트 | JVM 메모리 | `UserReceiptController` · `AdminDeviceEventController` |
+| 대기번호 출력 payload | `orders.waiting_order_no` | `UserReceiptService`가 조회 후 이벤트 생성 |
+
+| Endpoint | 역할 |
+|---|---|
+| `POST /api/kiosk/orders/{orderId}/receipt-print` | Kiosk 영수증 출력 요청 → 메모리 이벤트 (**K-011 PASS**) |
+| `POST /api/kiosk/orders/{orderId}/waiting-number-print` | 대기번호 출력 요청 |
+| `POST /api/admin/orders/{orderId}/receipt-print-text` | Admin 재출력(텍스트) · 미검증 |
+| `GET /api/admin/device-events` | 메모리 이벤트 목록 · 미검증 |
+| `GET /api/rtos/device-events/pending` | RTOS polling · 미검증 |
+| `PATCH /api/rtos/device-events/{eventId}/finish` | RTOS 완료 보고 · 미검증 |
+
+종강 MVP: 실물 프린터·영구 출력 이력은 **범위 밖**. 후속에 출력 이력이 필요하면 `device_event` 또는 `receipt_print_log` 테이블을 **신규 설계**한다.
 
 ## 키오스크 계약 요약
 
@@ -140,10 +166,10 @@ Content-Type: application/json
 | API-003 | path menuId | 상세 + `ingredients` + `optionGroups` |
 | API-004 | `{items:[{menuId, quantity, optionItems[{optionItemId,quantity}], excludedIngredientIds}]}` | `totalAmount` 등 |
 | API-005 | `{orderType: EAT_IN\|TAKE_OUT, items:[...]}` | `orderId, orderNo, totalAmount, status(=READY)` |
-| API-006 | `{orderId, orderStatus(=RECEIVED), paymentMethodCode, idempotencyKey, tossPayment?}` | `paymentId, orderId, orderNo, paymentStatus, approvedAmount, approvedAt, waitingOrderCount` · CARD는 `tossPayment` 없음, 간편결제는 토스 SDK 결과 포함 |
+| API-006 | `{orderId, orderStatus(=RECEIVED), paymentMethodCode, idempotencyKey, tossPayment?}` | `paymentId, orderId, orderNo, paymentStatus, approvedAmount, approvedAt, waitingOrderNo` · CARD는 `tossPayment` 없음, 간편결제는 토스 SDK 결과 포함 |
 | API-014 | — | `{methods:[{methodId, methodCode, methodName, imageAssetId, imageUrl, description, active, sortOrder}]}` |
 
-### 키오스크 FE 연결 (2026-08-28 · main · 미검증)
+### 키오스크 FE 연결 (2026-09-02 · main · API QA PASS, UI 클릭 미검증)
 
 | API | FE 파일 | 흐름 |
 |---|---|---|
@@ -175,3 +201,13 @@ Content-Type: application/json
 ## Bruno
 
 `ASAK-back/api/kiosk/` · `api/admin/` · `api/health/`. 성공 assert는 health만.
+
+## 2026-09-02 QA 잔여 불일치
+
+| 상태 | 항목 | 근거 |
+|---|---|---|
+| `구현 불일치` | Admin 결제수단 OFF → Kiosk에 CARD 계속 노출 | `methodId` 값 자체가 달라서가 아님(Admin=`pay_method_cfg.id`, Kiosk=`common_code.id`). Kiosk 목록 API·`PaymentPage`가 `active=false`를 숨기지 않음. 승인 API는 `validateMethodForPayment`로 비활성 차단 |
+| `구현 불일치` | INGREDIENT ing125 품절 → Kiosk `menuList` 변화 없음 | `affectedMenuCount=0` · MENU/OPTION 품절은 PASS |
+| `계약 불일치` | API-014 vs API-015 `methodId` 의미 | 동일 키 이름이 서로 다른 PK를 가리킴 — Admin PATCH id로 Kiosk 행을 지정할 수 없음. 연동은 `methodCode` 또는 `pay_method_cfg.id` 통일 필요 |
+| `계약 불일치` | API-017 일별 매출 | 응답 `data.rows[]` vs QA 스크립트 `data.dailySales` 기대 |
+| `미검증` | Admin·Kiosk UI 브라우저 클릭 E2E | API QA만 완료 |

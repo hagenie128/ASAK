@@ -18,7 +18,7 @@ WBS·QA 원칙: **「코드 연결 ≠ DONE」** · 로컬 `c:\ASAK-workspace` �
 | UI 브라우저 클릭 | △ 미실행 |
 | 프로젝트 완료 선언 | ❌ §0 공통 조건 미충족 |
 
-**알려진 FAIL:** Admin CARD OFF→Kiosk 미반영 · INGREDIENT ing125 품절 Kiosk 미반영 · READY 취소 500
+**알려진 FAIL:** Admin CARD OFF→Kiosk 미반영 · INGREDIENT ing125 품절 Kiosk 미반영 · READY 취소는 **409 불가 정책**(당일 QA 500→Admin 코드 수정)
 
 ---
 

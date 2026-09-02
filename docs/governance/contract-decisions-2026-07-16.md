@@ -36,7 +36,9 @@ URL 및 API 경로는 camelCase를 사용합니다. 이 문서화 단계에서�
 
 ## 정본(Canonical) 응답 필드·상태 및 어댑터 규칙
 
-정본 API 필드는 `totalAmount`, `approvedAmount`, `approvedAt`, `waitingOrderCount`입니다.
+정본 API 필드는 `totalAmount`, `approvedAmount`, `approvedAt`, `waitingOrderNo`입니다.
+
+> **2026-09-02:** API-006·키오스크는 `waitingOrderNo`(일별 고정 대기번호, `orders.waiting_order_no`)를 사용한다. 7/16 회의 초안 `waitingOrderCount`는 채택하지 않았다.
 
 주문 취소 상태의 정본 enum은 `CANCELED`입니다. `CANCELLED`는 API DTO, Java enum,
 DB 상태 매핑 및 신규 mock에 사용하지 않습니다.
@@ -46,6 +48,15 @@ DB 상태 매핑 및 신규 mock에 사용하지 않습니다.
 기존 Admin mock의 `totalPrice`와 `CANCELLED`도 같은 레거시 표기입니다. 실제 API를
 연결할 때 adapter가 각각 `totalAmount`, `CANCELED`로 정규화하며, Page와 컴포넌트가
 원본 API 응답 또는 legacy mock 표기를 직접 혼용하지 않습니다.
+
+## 영수증·장치 이벤트 (DB 없음)
+
+> **2026-09-02 확정:** 영수증은 **별도 DB 테이블이 아니다.**
+
+- **`receipt` 테이블 없음** — 영수증 내용은 `orders` · `order_item` · `payment` 등 주문·결제 데이터에서 조회한다.
+- **`device_event` 테이블 없음** — `receipt-print` 요청은 `DeviceEventService` **메모리 큐**에만 적재한다. `DeviceEventMapper.xml`은 DDL 확정 전 placeholder다.
+- API path 정본: Kiosk `POST /api/kiosk/orders/{orderId}/receipt-print` · Admin `POST /api/admin/orders/{orderId}/receipt-print-text`. 구 path `/api/orders/{orderId}/receipt-print`는 폐기.
+- 출력 이력 영구 저장·재출력 감사 로그가 필요해지면 `device_event` 또는 `receipt_print_log`를 **후속 마이그레이션**으로 추가한다. MVP DDL에는 포함하지 않는다.
 
 ## Mock 데이터
 

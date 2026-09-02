@@ -70,7 +70,7 @@
 - [ ] **WBS-039** 사이드바·라우트·화면 목록이 일치하는지 확인한다. — `△` 코드: `AdminApp.jsx`↔`AdminSidebar` 일치
 - [ ] **WBS-040** 대시보드 위젯·최근 주문·부분 오류 상태와 DB 합계를 브라우저에서 확인한다. — `△` API **PASS** · UI 클릭 미검증
 - [ ] **WBS-041** 실시간 주문 목록, 상세, 상태 표시, 페이지네이션을 확인한다. — `△` Live·상태변경 API **PASS** · TTS·UI 미검증
-- [ ] **WBS-042~043** 주문 상태 전이, `READY` 주문 취소 성공, 승인 결제 직접 취소 차단, 환불 사유/중복/OTHER 오류, 관리자 화면 E2E를 확인한다. — `△` 전이·APPROVED취소409 **PASS** · **READY취소 500 FAIL** · 환불 스킵
+- [ ] **WBS-042~043** 주문 상태 전이, **`READY` 주문 취소 409 차단**, 승인 결제 직접 취소 차단, 환불 사유/중복/OTHER 오류, 관리자 화면 E2E를 확인한다. — `△` 전이·APPROVED취소409 **PASS** · **READY취소** 로컬 코드 **409** (당일 QA 500, HTTP 재검증 미실행) · 환불 스킵
 - [ ] **WBS-044** 메뉴·재료·옵션 품절 저장/복구, 유효/무효 변경 혼합 시 전체 롤백, 화면 재조회와 고객 화면 반영을 확인한다. — `△` Admin PATCH **PASS** · Kiosk **MENU/OPTION PASS** · **INGREDIENT ing125 FAIL**
 - [ ] **WBS-045** 메뉴 등록·수정·삭제를 실제 API/DB 흐름으로 확인한다(이미지 업로드는 MVP 제외). — `△` 목록·상세 API **PASS** · **Cloudinary `.env` 로컬 설정됨(9/2)** · Admin=미리보기만 · 서버 업로드 E2E 미검증
 - [ ] **WBS-046** 결제수단 활성화·비활성화·`sortNo` 저장/재조회/실패 롤백과 키오스크 노출을 확인한다. — `△` Admin PATCH **PASS** · **Kiosk 반영 FAIL**
@@ -247,7 +247,7 @@
 | 결제 정책 문구 | Admin localStorage · Kiosk 미반영 |
 | **Admin CARD OFF → Kiosk** | **FAIL** — Admin만 시연 |
 | **INGREDIENT ing125 품절** | **FAIL** — **MENU 품절**로 시연 대체 |
-| **READY 주문 취소** | **FAIL** (500) — 시연 제외 |
+| **READY 주문 취소** | **코드** | 409 `ORDER_CANCEL_NOT_ALLOWED` (취소 불가 정책). 당일 QA 500은 NPE 버그 |
 | QA 테스트 주문 | `ASAK2609020001~` 등 DB 생성됨 · 시연 전 정리 여부 팀 판단 |
 | UI 브라우저 클릭 | 시연 당일 · API PASS ≠ UI PASS |
 
@@ -266,4 +266,4 @@
 | 배포 후보/롤백 | △ | Cloudinary env 로컬만 · WBS-084 미충족 | | 2026-09-02 |
 
 > **2026-09-02 QA 근거:** Admin·Kiosk **API E2E**는 [TC 실행표](demo-tc-execution-sheet-2026-09-02.md)에 PASS/FAIL 기록됨. 체크박스 `- [ ]`는 **팀 검토·UI 클릭·완료 선언 전까지 미체크 유지**.  
-> 알려진 FAIL: Admin 결제수단→Kiosk 미반영 · INGREDIENT ing125 품절 · READY 취소 500 · PG 실연동·환불 UI 미검증.
+> 알려진 FAIL: Admin 결제수단→Kiosk 미반영 · INGREDIENT ing125 품절 · PG 실연동·환불 UI 미검증. READY 취소는 **불가(409)**.

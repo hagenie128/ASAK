@@ -20,7 +20,7 @@
 | WBS | 상태 | 현재 근거 (main) | 남은 완료 조건 |
 | --- | --- | --- | --- |
 | WBS-040 대시보드 | IN_REVIEW | `GET /api/admin/dashboard` → `adminApi.getDashboard` → `useDashboard` | 위젯 값/partial error/실DB 합계 브라우저 QA |
-| WBS-042 주문관리 | IN_REVIEW | `RECEIVED → PREPARING → COMPLETED` 상태 전이, 승인 결제 직접 취소 `409`, 카드 환불 PATCH로 `CANCELED/REFUNDED`를 실DB에서 확인 | `READY` 미승인 주문의 취소 성공, 환불 중복 409·OTHER 사유 검증, 관리자 화면 E2E |
+| WBS-042 주문관리 | IN_REVIEW | `RECEIVED → PREPARING → COMPLETED` 상태 전이, 승인 결제 직접 취소 `409`, 카드 환불 PATCH로 `CANCELED/REFUNDED`를 실DB에서 확인 | **`READY` 주문 취소 불가(409)** · 환불 중복 409·OTHER 사유 검증 · 관리자 화면 E2E |
 | WBS-044 / 062 품절 | IN_REVIEW | `PATCH /api/admin/soldOut` 재료 저장 `true`와 복구 `false`를 실DB에서 확인. Mapper는 실제 `ing` 테이블을 사용 | 메뉴·옵션 항목 저장, 유효/무효 변경 혼합 시 전체 롤백, 관리자 화면 E2E |
 | WBS-046 결제수단 | IN_REVIEW | CARD `active: true → false → true` PATCH·재조회·복구를 실DB에서 확인. 일부 PATCH 실패 시 프런트가 성공으로 표시하지 않도록 롤백 처리 | 순서 변경 저장·재조회, 고객 결제 화면 노출 연동 E2E |
 | WBS-047~049 / 064 매출 | IN_REVIEW | 환불 후 2026-08-28 일별·요약 API에서 `951,100 - 60,800 = 890,300원` 일치 확인 | 관리자 매출 화면 E2E, 시간대/월별·순위 회귀, 실제 PG 환불 시나리오 |
@@ -50,6 +50,9 @@
 | WBS-041 실시간 주문 | IN_REVIEW 권장 | 5초 폴링·TTS·취소 Confirm 코드 완료 |
 | WBS-047~049 매출 | IN_REVIEW 권장 | 오늘/주/월·달 전체 차트·더미 채움 반영 후 E2E |
 | 클라우드 Agent 중복 작업 | 무시 | 로컬 `c:\ASAK-workspace` 정본, 머지 금지 |
+| REST API 명세 | 갱신 | [rest-api-spec.md](rest-api-spec.md) 2026-09-02 — 품절·로그인·QA 상태·영수증 path·`waitingOrderNo` 계약 불일치 반영 |
+| Admin API QA | 22/24 PASS | TC-012-kiosk·TC-013-daily(스크립트 필드명) FAIL |
+| Kiosk API QA | 17/18 PASS | TC-012-kiosk FAIL · K-004 수동 404 확인 |
 
 ## 2026-08-21 구현 상태 정정 (과거 스냅샷)
 
